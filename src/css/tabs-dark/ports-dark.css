@@ -1,0 +1,26 @@
+.tab-ports select {
+    border: 1px solid #00000000;
+}
+
+.tab-ports .ports select {
+    background-color: #3a3a3a;
+    color: white;
+}
+
+.tab-ports table td:first-child {
+    border-left: none;
+}
+.tab-ports table td:last-child {
+    border-right: none;
+}
+
+.tab-ports .ports tr:last-child,
+.tab-ports .ports tr:last-child td {
+    border-bottom: none;
+}
+
+.tab-ports table td {
+    border-bottom: 1px solid #575757;
+    border-left: 1px solid #575757;
+    border-right: 1px solid #575757;
+}

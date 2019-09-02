@@ -1,0 +1,91 @@
+<div class="tab-auxiliary toolbar_fixed_bottom">
+    <div class="content_wrapper">
+        <div class="tab_title" i18n="tabAuxiliary">tabAuxiliary</div>
+        <div class="cf_doc_version_bt">
+            <a id="button-documentation" href="https://github.com/emuflight/emuflight/releases" target="_blank"></a>
+        </div>
+        <div class="note spacebottom">
+            <div class="note_spacer">
+                <p i18n="auxiliaryHelp"></p>
+            </div>
+        </div>
+
+        <div class="toolbox">
+            <form>
+                <input type="checkbox" id="switch-toggle-unused" name="switch-toggle-unused" class="toggle"></input>
+                <label for="switch-toggle-unused"><span i18n="auxiliaryToggleUnused" /></label>
+            </form>
+        </div>
+
+        <table class="modes">
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <div class="content_toolbar">
+        <div class="btn save_btn">
+            <a class="save" href="#" i18n="auxiliaryButtonSave"></a>
+        </div>
+    </div>
+</div>
+<div id="tab-auxiliary-templates">
+    <table class="modes">
+        <tbody>
+            <tr class="mode">
+                <td class="info">
+                    <p class="name"></p>
+                    <div class="buttons">
+                        <a class="addLink" href="#" i18n="auxiliaryAddLink"></a>
+                        <a class="addRange" href="#" i18n="auxiliaryAddRange"></a>
+                    </div>
+                </td>
+                <td class="ranges"></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="range">
+        <div class="channelInfo">
+            <div class="channelName">
+                <select class="channel">
+                    <option value=""></option>
+                </select>
+            </div>
+            <div class="rangeLogic">
+                <select class="logic">
+                    <option value=""></option>
+                </select>
+            </div>
+            <div class="limits">
+                <p class="lowerLimit">
+                    <span i18n="auxiliaryMin"></span>: <span class="lowerLimitValue"></span>
+                </p>
+                <p class="upperLimit">
+                    <span i18n="auxiliaryMax"></span>: <span class="upperLimitValue"></span>
+                </p>
+            </div>
+        </div>
+        <div class="channel-slider pips-channel-range">
+            <div class="marker"></div>
+        </div>
+        <div class="delete">
+            <a class="deleteRange" href="#">&nbsp;</a>
+        </div>
+    </div>
+    <div class="link">
+        <div class=modeInfo>
+            <div class="modeLink">
+                <select class="linkedTo">
+                    <option value=""></option>
+                </select>
+            </div>
+            <div class="linkLogic">
+                <select class="logic">
+                    <option value=""></option>
+                </select>
+            </div>
+        </div>
+        <div class="delete">
+            <a class="deleteLink" href="#">&nbsp;</a>
+        </div>
+    </div>
+</div>

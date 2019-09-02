@@ -1,0 +1,201 @@
+/* general layout */
+.tab-landing {
+    min-height: 100%;
+    overflow: hidden;
+}
+
+.tab-landing .content_wrapper {
+    padding: 0;
+    min-height: 100%;
+    height: 100%;
+    overflow-y: auto;
+    background-color: #2e2e2e;
+}
+
+.tab-landing .content_top {
+    height: 320px;
+    background: #fff;
+    padding: 20px;
+    background-image: url(../../images/pattern.png);
+    background-size: 300px;
+}
+
+.tab-landing .content_mid {
+    background-color: var(--accent);
+    overflow: hidden;
+}
+
+.tab-landing .content_foot {
+    clear: both;
+    padding: 20px;
+    padding-bottom: 5px;
+}
+
+/* hero block */
+.tab-landing .logowrapper {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    width: 800px;
+    color: var(--defaultText);
+    font-size: 14px;
+    font-family: 'open_sanslight', Arial;
+}
+
+.tab-landing .logowrapper img {
+    width: 600px;
+    margin: 5px;
+}
+
+.tab-landing .logowrapper span {
+    font-size: 22px;
+    font-family: 'open_sanslight', Arial;
+}
+
+/* sponsors blocks */
+.sponsors .title {
+    text-transform: uppercase;
+    font-size: 10px;
+}
+
+.sponsors {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color: silver;
+}
+
+.sponsors ul {
+    margin-top: 5px;
+}
+
+.sponsors li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.sponsors li a {
+    border-radius: 3px;
+    padding: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
+    font-size: 13px;
+    line-height: 22px;
+    color: white;
+    font-weight: normal;
+    font-family: 'open_sanslight', Arial;
+}
+
+.sponsors li a:hover {
+    background-color: rgba(255, 255, 255, 0.30);
+    color: #fff;
+}
+
+.text1, .text2, .text3, .text4 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-weight: normal;
+    font-family: 'open_sansregular', Arial;
+    font-size: 12px;
+}
+
+/* text columns */
+.tab-landing .content_mid .column .wrap {
+    padding: 15px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+
+.tab-landing .content_mid .column .wrap2 {
+    padding: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.tab-landing .content_mid h2 {
+    margin-bottom: 5px;
+    font-size: 13px;
+}
+
+.tab-landing .content_mid h3 {
+    font-size: 12px;
+    margin-bottom: 5px;
+
+}
+
+.tab-landing .content_mid .text1 .wrap {
+    margin-left: 0px;
+}
+
+.tab-landing .content_mid .text1 {
+    width: 37%;
+}
+
+.tab-landing .content_mid .text2 {
+    width: 40%;
+}
+
+.tab-landing .content_mid .text2 ul {
+    margin-top: 10px;
+}
+
+.tab-landing .content_mid .text2 li {
+    padding: 5px 0;
+}
+
+.tab-landing .content_mid .text3 {
+    width: 23%;
+}
+
+.tab-landing .content_mid .text3 .wrap2 {
+    border: 1px solid var(--subtleAccent);
+    border-radius: 5px;
+    background: white;
+    margin-right: 25px;
+    margin-left: 20px;
+    margin-top: 5px;
+    min-height: 187px;
+    font-size: 11px;
+}
+
+.tab-landing .content_mid .text3 .donate {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.tab-landing .content_mid_bottom {
+    padding: 15px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.tab-landing .content_mid_bottom .logo {
+    float: left;
+    width: 40px;
+}
+
+.tab-landing .content_mid_bottom .text4 {
+    margin-top: 0px;
+    margin-left: 5px;
+    display: block;
+    float: left;
+}
+
+.tab-landing .languageSwitcher .selected_language {
+    font-weight: bold;
+}
+.tab-landing .languageSwitcher {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color: silver;
+}
+.tab-landing .languageSwitcher a {
+    color: silver;
+    font-weight: normal;
+    white-space: nowrap;
+}
+.tab-landing .languageSwitcher a:not(:last-child):after {
+    content: ", ";
+    font-weight: normal;
+}
