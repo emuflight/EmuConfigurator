@@ -514,7 +514,7 @@
         "message": "Das Emuflight Wiki ist eine großartige Quelle für Informationen. Es kann <a href=\"https:\/\/github.com\/betaflight\/betaflight\/wiki\" target=\"_blank\">hier<\/a> aufgerufen werden"
     },
     "defaultDocumentation2": {
-        "message": "Die Release Notes für neue Firmware gibt es auf der  <a href=\"https:\/\/github.com\/Emuflight\/Emuflight\/releases\" target=\"_blank\">Github Release Seite<\/a>."
+        "message": "Die Release Notes für neue Firmware gibt es auf der  <a href=\"https:\/\/github.com\/Emuflight\/EmuFlight-Butter-Varient\/releases\" target=\"_blank\">Github Release Seite<\/a>."
     },
     "defaultSupportHead": {
         "message": "Hilfe"

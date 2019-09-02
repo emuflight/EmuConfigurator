@@ -513,7 +513,7 @@
         "message": "Emuflight wiki ir lielisks informācijas avots, to var atrast <a href=\"https:\/\/github.com\/betaflight\/betaflight\/wiki\" target=\"_blank\">šeit<\/a>."
     },
     "defaultDocumentation2": {
-        "message": "Programmatūras relīzes dokumentācija ir pieejama GitHub relīžu lapā <a href=\"https:\/\/github.com\/Emuflight\/Emuflight\/releases\" target=\"_blank\">šeit<\/a>."
+        "message": "Programmatūras relīzes dokumentācija ir pieejama GitHub relīžu lapā <a href=\"https:\/\/github.com\/Emuflight\/EmuFlight-Butter-Varient\/releases\" target=\"_blank\">šeit<\/a>."
     },
     "defaultSupportHead": {
         "message": "Atbalsts"

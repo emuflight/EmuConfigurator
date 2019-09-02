@@ -510,7 +510,7 @@
         "message": "Wiki Emuflight merupakan sumber informasi yang lengkap, bisa ditemukan <a href=\"https:\/\/github.com\/betaflight\/betaflight\/wiki\" target=\"_blank\">di sini<\/a>."
     },
     "defaultDocumentation2": {
-        "message": "Catatan rilis untuk firmware bisa di baca di halaman rilis GitHub, <a href=\"https:\/\/github.com\/Emuflight\/Emuflight\/releases\" target=\"_blank\">di sini<\/a>."
+        "message": "Catatan rilis untuk firmware bisa di baca di halaman rilis GitHub, <a href=\"https:\/\/github.com\/Emuflight\/EmuFlight-Butter-Varient\/releases\" target=\"_blank\">di sini<\/a>."
     },
     "defaultSupportHead": {
         "message": "Dukungan"

@@ -507,7 +507,7 @@
         "message": "Emuflight wiki è una grande risorsa in cui trovare informazioni, lo trovi <a href=\"https:\/\/github.com\/betaflight\/betaflight\/wiki\" target=\"_blank\">QUI<\/a>."
     },
     "defaultDocumentation2": {
-        "message": "Le informazioni relative alla release per il firmware possono essere lette sulla pagina GitHub delle nuove versioni, <a href=\"https:\/\/github.com\/Emuflight\/Emuflight\/releases\" target=\"_blank\">QUI<\/a>."
+        "message": "Le informazioni relative alla release per il firmware possono essere lette sulla pagina GitHub delle nuove versioni, <a href=\"https:\/\/github.com\/Emuflight\/EmuFlight-Butter-Varient\/releases\" target=\"_blank\">QUI<\/a>."
     },
     "defaultSupportHead": {
         "message": "Supporto"

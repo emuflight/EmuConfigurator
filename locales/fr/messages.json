@@ -513,7 +513,7 @@
         "message": "Le Wiki de Emuflight est une bonne source d'information, celle-ci est disponible <a href=\"https:\/\/github.com\/betaflight\/betaflight\/wiki\" target=\"_blank\">ici<\/a>."
     },
     "defaultDocumentation2": {
-        "message": "Les notes de version de microprogramme peuvent être lues sur la page des versions GitHub, <a href=\"https:\/\/github.com\/Emuflight\/Emuflight\/releases\" target=\"_blank\">ici<\/a>."
+        "message": "Les notes de version de microprogramme peuvent être lues sur la page des versions GitHub, <a href=\"https:\/\/github.com\/Emuflight\/EmuFlight-Butter-Varient\/releases\" target=\"_blank\">ici<\/a>."
     },
     "defaultSupportHead": {
         "message": "Support"
