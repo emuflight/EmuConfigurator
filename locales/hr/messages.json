@@ -513,7 +513,7 @@
         "message": "Emuflight wiki je odličan izvor informacija, može se naći <a href=\"https:\/\/github.com\/betaflight\/betaflight\/wiki\" target=\"_blank\">ovdje<\/a>."
     },
     "defaultDocumentation2": {
-        "message": "Napomene izdanja za firmware možete pročitati na GitHubu <a href=\"https:\/\/github.com\/Emuflight\/Emuflight\/releases\" target=\"_blank\">ovdje<\/a>."
+        "message": "Napomene izdanja za firmware možete pročitati na GitHubu <a href=\"https:\/\/github.com\/Emuflight\/EmuFlight-Butter-Varient\/releases\" target=\"_blank\">ovdje<\/a>."
     },
     "defaultSupportHead": {
         "message": "Podrška"

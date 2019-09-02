@@ -517,7 +517,7 @@
         "message": "Emuflight wiki är en utmärkt informationskälla, den kan hittas <a href=\"https:\/\/github.com\/betaflight\/betaflight\/wiki\" target=\"_blank\">här<\/a>."
     },
     "defaultDocumentation2": {
-        "message": "Utgåvenoteringarna för firmware kan läsas på GitHubs utgåvesida, <a href=\"https:\/\/github.com\/Emuflight\/Emuflight\/releases\" target=\"_blank\"> här<\/a>."
+        "message": "Utgåvenoteringarna för firmware kan läsas på GitHubs utgåvesida, <a href=\"https:\/\/github.com\/Emuflight\/EmuFlight-Butter-Varient\/releases\" target=\"_blank\"> här<\/a>."
     },
     "defaultSupportHead": {
         "message": "Support"
