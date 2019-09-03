@@ -623,7 +623,7 @@
         "message": "The Emuflight wiki is a great resource for information, it can be found <a href=\"https://github.com/emuflight/emuflight/wiki\" target=\"_blank\">here</a>."
     },
     "defaultDocumentation2": {
-        "message": "The release notes for the firmware can be read at GitHub releases page, <a href=\"https://github.com/Emuflight/Emuflight/releases\" target=\"_blank\">here</a>."
+        "message": "The release notes for the firmware can be read at GitHub releases page, <a href=\"https://github.com/Emuflight/EmuFlight-Butter-Varient/releases\" target=\"_blank\">here</a>."
     },
     "defaultSupportHead": {
         "message": "Support"

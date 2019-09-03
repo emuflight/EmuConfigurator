@@ -2,7 +2,7 @@
 
 TABS.firmware_flasher = {
     releases: null,
-    releaseChecker: new ReleaseChecker('firmware', 'https://api.github.com/repos/emuflight/emuflight/releases'),
+    releaseChecker: new ReleaseChecker('firmware', 'https://api.github.com/repos/emuflight/EmuFlight-Butter-Varient/releases'),
     jenkinsLoader: new JenkinsLoader('https://ci.betaflight.tech'),
     localFileLoaded: false,
 };
