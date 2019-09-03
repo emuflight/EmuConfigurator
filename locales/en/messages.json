@@ -4925,7 +4925,7 @@
         "message": "Enable dark theme"
     },
     "pidTuningKalmanFilterQ": {
-          "message": "Kalman Q Coefficient"
+          "message": "Imuf Q Coefficient"
       },
       "pidTuningImufRollQ": {
           "message": "IMU-F roll Q"
@@ -4940,16 +4940,16 @@
           "message": "IMU-F W"
       },
       "pidTuningKalmanFilterQHelp": {
-          "message": "Kalman filter Q Coefficient. The amount of trust in gyro data accuracy (Higher value = more trust and less filtering)"
+          "message": "Imuf filter Q Coefficient. The amount of trust in gyro data accuracy (Higher value = more trust and less filtering)"
       },
       "pidTuningKalmanFilterR": {
-          "message": "Kalman R Coefficient"
+          "message": "Imuf W Coefficient"
       },
       "pidTuningKalmanFilterRHelp": {
-          "message": "Kalman filter R Coefficient. The amount of errors predicted in gyro data (Higher value = more errors predicted and more filtering)"
+          "message": "Imuf filter W Coefficient. The amount of errors predicted in gyro data (Higher value = more errors predicted and more filtering)"
       },
     "pidTuningKalmanFilterSettings": {
-        "message": "Kalman Filter Settings"
+        "message": "Imuf Filter Settings"
     },
     "pidTuningIMUFFilterSettings": {
         "message": "IMU-F Filter Settings"
