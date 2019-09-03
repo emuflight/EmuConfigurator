@@ -19,7 +19,7 @@ TABS.failsafe.initialize = function (callback, scrollPosition) {
 
     function load_rxfail_config() {
         MSP.send_message(MSPCodes.MSP_RXFAIL_CONFIG, false, false,
-                semver.gte(CONFIG.apiVersion, "1.41.0") ? load_gps_rescue : get_box_names);
+                semver.gte(CONFIG.apiVersion, "1.40.0") ? load_gps_rescue : get_box_names);
     }
 
     function load_gps_rescue() {
@@ -351,7 +351,7 @@ TABS.failsafe.initialize = function (callback, scrollPosition) {
                 FAILSAFE_CONFIG.failsafe_switch_mode = $('input[name="failsafe_kill_switch"]').is(':checked') ? 1 : 0;
             }
 
-            if (semver.gte(CONFIG.apiVersion, "1.41.0")) {
+            if (semver.gte(CONFIG.apiVersion, "1.40.0")) {
                 // Load GPS Rescue parameters
                 GPS_RESCUE.angle             = $('input[name="gps_rescue_angle"]').val();
                 GPS_RESCUE.initialAltitude  = $('input[name="gps_rescue_initial_altitude"]').val();
@@ -374,7 +374,7 @@ TABS.failsafe.initialize = function (callback, scrollPosition) {
 
             function save_feature_config() {
                 MSP.send_message(MSPCodes.MSP_SET_FEATURE_CONFIG, mspHelper.crunch(MSPCodes.MSP_SET_FEATURE_CONFIG), false,
-                        semver.gte(CONFIG.apiVersion, "1.41.0") ? save_gps_rescue : save_to_eeprom);
+                        semver.gte(CONFIG.apiVersion, "1.40.0") ? save_gps_rescue : save_to_eeprom);
             }
 
             function save_gps_rescue() {
