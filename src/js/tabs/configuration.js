@@ -164,7 +164,7 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
 
     function load_battery() {
         var next_callback = load_current;
-        if (semver.gte(CONFIG.flightControllerVersion, "3.1.0")) {
+        if (semver.gte(CONFIG.flightControllerVersion, "0.0.1")) {
             MSP.send_message(MSPCodes.MSP_VOLTAGE_METER_CONFIG, false, false, next_callback);
         } else {
             next_callback();
@@ -173,7 +173,7 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
 
     function load_current() {
         var next_callback = load_rx_config;
-        if (semver.gte(CONFIG.flightControllerVersion, "3.1.0")) {
+        if (semver.gte(CONFIG.flightControllerVersion, "0.0.1")) {
             MSP.send_message(MSPCodes.MSP_CURRENT_METER_CONFIG, false, false, next_callback);
         } else {
             next_callback();
@@ -814,7 +814,7 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
 
         // fill battery
         if (self.SHOW_OLD_BATTERY_CONFIG) {
-            if (semver.gte(CONFIG.flightControllerVersion, "3.1.0")) {
+            if (semver.gte(CONFIG.flightControllerVersion, "0.0.1")) {
                 var batteryMeterTypes = [
                     'Onboard ADC',
                     'ESC Sensor'
@@ -852,7 +852,7 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
                 'Virtual'
             ];
 
-            if (semver.gte(CONFIG.flightControllerVersion, "3.1.0")) {
+            if (semver.gte(CONFIG.flightControllerVersion, "0.0.1")) {
                 currentMeterTypes.push('ESC Sensor');
             }
 
@@ -878,7 +878,7 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
             if (FEATURE_CONFIG.features.isEnabled('VBAT')) {
                 $('.vbatmonitoring').show();
 
-                if (semver.gte(CONFIG.flightControllerVersion, "3.1.0")) {
+                if (semver.gte(CONFIG.flightControllerVersion, "0.0.1")) {
                      $('select.batterymetertype').show();
 
                     if (MISC.batterymetertype !== 0) {
@@ -1229,7 +1229,7 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
 
             function save_battery() {
                 var next_callback = save_current;
-                if (semver.gte(CONFIG.flightControllerVersion, "3.1.0")) {
+                if (semver.gte(CONFIG.flightControllerVersion, "0.0.1")) {
                     MSP.send_message(MSPCodes.MSP_SET_VOLTAGE_METER_CONFIG, mspHelper.crunch(MSPCodes.MSP_SET_VOLTAGE_METER_CONFIG), false, next_callback);
                 } else {
                     next_callback();
@@ -1238,7 +1238,7 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
 
             function save_current() {
                 var next_callback = save_rx_config;
-                if (semver.gte(CONFIG.flightControllerVersion, "3.1.0")) {
+                if (semver.gte(CONFIG.flightControllerVersion, "0.0.1")) {
                     MSP.send_message(MSPCodes.MSP_SET_CURRENT_METER_CONFIG, mspHelper.crunch(MSPCodes.MSP_SET_CURRENT_METER_CONFIG), false, next_callback);
                 } else {
                     next_callback();
