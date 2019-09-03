@@ -586,7 +586,7 @@
         "message": "If you would like to help make Emuflight even better you can help in many ways, including:<br /><ul><li>Answering other users questions on the forums and IRC.</li><li>Contributing code to the firmware and configurator - new features, fixes, improvements</li><li>Testing <a href=\"https://github.com/Emuflightemuflightpulls\" target=\"_blank\">new features/fixes</a> and providing feedback.</li><li>Helping out with <a href=\"https://github.com/emuflight/emuflight/issues\" target=\"_blank\">issues and commenting on feature requests</a>.</li><li>Collaborate by <a href=\"https://crowdin.com/project/emuflight-configurator\" target=\"_blank\">translating the configurator application</a> into your language.</li><li></li></ul>"
     },
     "defaultFacebookText": {
-        "message": "We also have a <a href=\"https://www.facebook.com/groups/betaflightgroup/\" target=\"_blank\">Facebook Group</a>.<br />Join us to get a place to talk about Emuflight, ask configuration questions, or just hang out with fellow pilots."
+        "message": "We also have a <a href=\"https://www.facebook.com/groups/2253802077988152/\" target=\"_blank\">Facebook Group</a>.<br />Join us to get a place to talk about Emuflight, ask configuration questions, or just hang out with fellow pilots."
     },
     "defaultChangelogHead": {
         "message": "Configurator - Changelog"

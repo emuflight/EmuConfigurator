@@ -31,8 +31,8 @@ cache:
   directories:
   - node_modules
 
-# Notifications are encrypted to betaflight/betaflight to avoid spam from forks
-# Command: `travis encrypt "<secret>" --com -r betaflight/emuflight-configurator`
+# Notifications are encrypted to EmuFlight/EmuFlight to avoid spam from forks
+# Command: `travis encrypt "<secret>" --com -r EmuFlight/emuflight-configurator`
 notifications:
   slack:
     rooms:

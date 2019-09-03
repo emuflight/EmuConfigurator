@@ -472,7 +472,7 @@
         "message": "Mitmachen"
     },
     "defaultContributingText": {
-        "message": "Wenn Du helfen willst, Emuflight noch besser zu machen, kannst Du das auf mehrere Arten tun:<br \/><ul><li>Beantworte Fragen anderer Benutzer in Foren oder im IRC.<\/li><li>Steuere Code für neue Firmwares und den Konfigurator bei - neue Funktionen, Bugfixes oder Verbesserungen.<\/li><li>Teste <a href=\"https:\/\/github.com\/Emuflight\/betaflight\/pulls\" target=\"_blank\">neue Funktionen<\/a> und gib uns Feedback.<\/li><li>Hilf uns bei <a href=\"https:\/\/github.com\/betaflight\/betaflight\/issues\" target=\"_blank\">Problemen und Funktionswünschen<\/a>.<\/li><li>Hilf mit den <a href=\"https:\/\/crowdin.com\/project\/emuflight-configurator\" target=\"_blank\">Konfigurator zu übersetzen<\/a><\/li><li><\/li><\/ul>"
+        "message": "Wenn Du helfen willst, Emuflight noch besser zu machen, kannst Du das auf mehrere Arten tun:<br \/><ul><li>Beantworte Fragen anderer Benutzer in Foren oder im IRC.<\/li><li>Steuere Code für neue Firmwares und den Konfigurator bei - neue Funktionen, Bugfixes oder Verbesserungen.<\/li><li>Teste <a href=\"https:\/\/github.com\/Emuflight\/EmuFlight-Butter-Varient\/pulls\" target=\"_blank\">neue Funktionen<\/a> und gib uns Feedback.<\/li><li>Hilf uns bei <a href=\"https:\/\/github.com\/emuflight\/EmuFlight-Butter-Varient\/issues\" target=\"_blank\">Problemen und Funktionswünschen<\/a>.<\/li><li>Hilf mit den <a href=\"https:\/\/crowdin.com\/project\/emuflight-configurator\" target=\"_blank\">Konfigurator zu übersetzen<\/a><\/li><li><\/li><\/ul>"
     },
     "defaultFacebookText": {
         "message": "Wir haben auch eine <a href=\"https:\/\/www.facebook.com\/groups\/betaflightgroup\/\" target=\"_blank\">Facebook Gruppe<\/a>.<br \/>Trete uns bei, um über Emuflight zu sprechen, um Konfigurationsfragen zu stellen oder einfach nur um mit anderen Piloten abzuhängen."
@@ -511,7 +511,7 @@
         "message": "Emuflight Dokumentation gibt es in den Release Notes und im Wiki.<br \/><br \/>"
     },
     "defaultDocumentation1": {
-        "message": "Das Emuflight Wiki ist eine großartige Quelle für Informationen. Es kann <a href=\"https:\/\/github.com\/betaflight\/betaflight\/wiki\" target=\"_blank\">hier<\/a> aufgerufen werden"
+        "message": "Das Emuflight Wiki ist eine großartige Quelle für Informationen. Es kann <a href=\"https:\/\/github.com\/emuflight\/EmuFlight-Butter-Varient\/wiki\" target=\"_blank\">hier<\/a> aufgerufen werden"
     },
     "defaultDocumentation2": {
         "message": "Die Release Notes für neue Firmware gibt es auf der  <a href=\"https:\/\/github.com\/Emuflight\/EmuFlight-Butter-Varient\/releases\" target=\"_blank\">Github Release Seite<\/a>."
@@ -2512,7 +2512,7 @@
         "message": "<strong>Wiederherstellung \/ abgebrochene Kommunikation<\/strong>"
     },
     "firmwareFlasherRecoveryText": {
-        "message": "Wenn du die Verbindung zu deinem FC verloren hast:<ul><li>Abschalten<\/li><li> 'Nicht Rebooten' aktivieren, 'Speicher löschen' aktivieren.<\/li><li>BOOT-Pins überbrücken oder BOOT-Knopf drücken.<\/li><li>Einschalten (Aktivitäts-LED wird NICHT blinken, wenn alles klappt).<\/li><li>STM32-Treiber und Zadig installieren (falls benötigt, siehe <a href=\"https:\/\/github.com\/betaflight\/betaflight\/wiki\/Installing-Emuflight\"target=\"_blank\">USB Flashing<\/a> Abschnitt des Emuflight-Handbuches).<\/li><li>Konfigurator schliessen, alle Chrome-Instanzen schliessen, alle Chrome-Apps schliessen, Konfigurator neustarten<\/li><li>BOOT-Knopf loslassen, wenn dein FC einen hat.<\/li><li>Korrekte Firmware flashen (mit manueller Baudrate, falls das im Handbuch von deinem FC steht).<\/li><li>FC abschalten.<\/li><li>BOOT-Jumper entfernen (falls dein FC einen hat).<\/li><li>FC einschalten (Aktivitäts-LED sollte blinken).<\/li><li>Normal verbinden.<\/li><\/ul>"
+        "message": "Wenn du die Verbindung zu deinem FC verloren hast:<ul><li>Abschalten<\/li><li> 'Nicht Rebooten' aktivieren, 'Speicher löschen' aktivieren.<\/li><li>BOOT-Pins überbrücken oder BOOT-Knopf drücken.<\/li><li>Einschalten (Aktivitäts-LED wird NICHT blinken, wenn alles klappt).<\/li><li>STM32-Treiber und Zadig installieren (falls benötigt, siehe <a href=\"https:\/\/github.com\/EmuFlight\/EmuFlight-Butter-Varient\/wiki\"target=\"_blank\">USB Flashing<\/a> Abschnitt des Emuflight-Handbuches).<\/li><li>Konfigurator schliessen, alle Chrome-Instanzen schliessen, alle Chrome-Apps schliessen, Konfigurator neustarten<\/li><li>BOOT-Knopf loslassen, wenn dein FC einen hat.<\/li><li>Korrekte Firmware flashen (mit manueller Baudrate, falls das im Handbuch von deinem FC steht).<\/li><li>FC abschalten.<\/li><li>BOOT-Jumper entfernen (falls dein FC einen hat).<\/li><li>FC einschalten (Aktivitäts-LED sollte blinken).<\/li><li>Normal verbinden.<\/li><\/ul>"
     },
     "firmwareFlasherButtonLeave": {
         "message": "Firmware-Flasher verlassen"
@@ -3066,7 +3066,7 @@
         "message": "Integriertes Yaw"
     },
     "pidTuningIntegratedYawCaution": {
-        "message": "<span class=\"message-negative\">VORSICHT<\/span>: Wenn Sie diese Funktion aktivieren, müssen Sie die YAW PID entsprechend anpassen. Mehr Informationen <a href=\"https:\/\/github.com\/betaflight\/betaflight\/wiki\/Integrated-Yaw\" target=\"_blank\">hier<\/a>"
+        "message": "<span class=\"message-negative\">VORSICHT<\/span>: Wenn Sie diese Funktion aktivieren, müssen Sie die YAW PID entsprechend anpassen. Mehr Informationen <a href=\"https:\/\/github.com\/emuflight\/EmuFlight-Butter-Varient\/wiki\/Integrated-Yaw\" target=\"_blank\">hier<\/a>"
     },
     "pidTuningIntegratedYawHelp": {
         "message": "Gier-Integration (integrated Yaw) ist eine Funktion, die ein grundlegendes Problem mit der Quad-Steuerung korrigiert: während Pitch- und Rollachse durch Schubdifferenzen der Propeller gesteuert werden, verhält sich die Gierachse unterschiedlich. Gier-Integration behebt dies durch die Integration der Ausgabe des Gier-PID Reglers, bevor sie auf den Mischer angewendet werden. Dies normalisiert die Art und Weise, wie die PID Werte funktionieren. Du kannst die Gierachse nun wie jede andere Achse tunen. Das Feature erfordert die Verwendung von \"Absoluter Kontrolle\", da mit Gier-Integration kein I-Anteil benötigt wird."

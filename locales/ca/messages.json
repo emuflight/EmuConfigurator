@@ -441,7 +441,7 @@
         "message": "Contribuir"
     },
     "defaultContributingText": {
-        "message": "Si vols contribuir a fer un Emuflight encara millor pots ajudar de diverses maneres, incloent:<br \/><ul><li>Responent a altres usuaris les preguntes als forums i IRC.<\/li><li>Aportant codi al firmware i configurador - noves caracteristiques, solucions, millores<\/li><li>Proves <a href=\"https:\/\/github.com\/Emuflight\/betaflight\/pulls\" target=\"_blank\">noves caracteristiques\/solucions<\/a> i facilitant feedback.<\/li><li>Ajudar amb <a href=\"https:\/\/github.com\/betaflight\/betaflight\/issues\" target=\"_blank\">problemes i comentar sol·licituds de funcions<\/a>.<\/li><li><\/li><\/ul>Coŀlabora traduint <a href=\"https:\/\/crowdin.com\/project\/emuflight-configurator\" target=\"_blank\">al teu idioma.<\/li><li><\/li><\/ul>"
+        "message": "Si vols contribuir a fer un Emuflight encara millor pots ajudar de diverses maneres, incloent:<br \/><ul><li>Responent a altres usuaris les preguntes als forums i IRC.<\/li><li>Aportant codi al firmware i configurador - noves caracteristiques, solucions, millores<\/li><li>Proves <a href=\"https:\/\/github.com\/Emuflight\/EmuFlight-Butter-Varient\/pulls\" target=\"_blank\">noves caracteristiques\/solucions<\/a> i facilitant feedback.<\/li><li>Ajudar amb <a href=\"https:\/\/github.com\/emuflight\/EmuFlight-Butter-Varient\/issues\" target=\"_blank\">problemes i comentar sol·licituds de funcions<\/a>.<\/li><li><\/li><\/ul>Coŀlabora traduint <a href=\"https:\/\/crowdin.com\/project\/emuflight-configurator\" target=\"_blank\">al teu idioma.<\/li><li><\/li><\/ul>"
     },
     "defaultChangelogAction": {
         "message": "Canvis"
@@ -468,7 +468,7 @@
         "message": "La documentació de Emuflight està disponible a les notes de la llançament i a la wiki.<br \/><br \/>"
     },
     "defaultDocumentation1": {
-        "message": "La wiki de Emuflight és una gran font d'informació. La pots trobar <a href=\"https:\/\/github.com\/betaflight\/betaflight\/wiki\" target=\"_blank\">aquí<\/a>."
+        "message": "La wiki de Emuflight és una gran font d'informació. La pots trobar <a href=\"https:\/\/github.com\/emuflight\/EmuFlight-Butter-Varient\/wiki\" target=\"_blank\">aquí<\/a>."
     },
     "defaultDocumentation2": {
         "message": "Les notes de llançament del firmware es poden llegir a la pàgina de novetats de GitHub, <a href=\"https:\/\/github.com\/Emuflight\/EmuFlight-Butter-Varient\/releases\" target=\"_blank\">aquí<\/a>."
@@ -498,7 +498,7 @@
         "message": "<a href=\"https:\/\/github.com\/Emuflight\" target=\"_blank\">GitHub<\/a>"
     },
     "defaultSupport5": {
-        "message": "<a href=\"http:\/\/betaflight.tk\/slack\" target=\"_blank\">Desenvolupadors Emuflight a slack<\/a>"
+        "message": "<a href=\"https:\/\/discordapp.com\/channels\/547211754845765635\" target=\"_blank\">Desenvolupadors Emuflight a slack<\/a>"
     },
     "initialSetupBackupAndRestoreApiVersion": {
         "message": "<span class=\"message-negative\">Funcionalitats de còpia de seguretat i restauració deshabilitades.<\/span> La teva versió de la API és <span class=\"message-negative\">$1<\/span>, la còpia i restauració requereix <span class=\"message-positive\">$2<\/span>. Si us plau, desa la teva configuració mitjançant el CLI, revisa la documentació de Emuflight per saber com procedir."
@@ -2097,7 +2097,7 @@
         "message": "<strong>Recuperació \/ Comunicació perduda<\/strong>"
     },
     "firmwareFlasherRecoveryText": {
-        "message": "Si has perdut comunicació amb la teva controladora segueix aquests passos: <ul><li>Apaga<\/li><li>Habilita \"No seqüència de reinici\", habilita \"Full chip erase\"<\/li><li>Creua els pins de boot o prem el botó.<\/li><li>Engega (El led d'activitat no ha de parpellejar si ho has fet correctament).<\/li><li>Instaŀla els drivers STM32 i Zadig si es requereix (mira a la secció de <a href=\"https:\/\/github.com\/betaflight\/betaflight\/wiki\/Installing-Emuflight\"target=\"_blank\">flasheig USB<\/a> del manual).<\/li><li>Tanca el configurador, Tanca totes les apps de Chrome, Reinicia el configurador.<\/li><li>Deixa anar el botó de Boot si en tens.<\/li><li>Flasheja el firmware correcte (Amb velocitat de bauds manual si així ho necessites).<\/li><li>Apaga.<\/li><li>Treu el boot dels pins.<\/li><li>Engega (El led d'activitat ha de parpellejar).<\/li><li>Connecta amb normalitat.<\/li><\/ul>"
+        "message": "Si has perdut comunicació amb la teva controladora segueix aquests passos: <ul><li>Apaga<\/li><li>Habilita \"No seqüència de reinici\", habilita \"Full chip erase\"<\/li><li>Creua els pins de boot o prem el botó.<\/li><li>Engega (El led d'activitat no ha de parpellejar si ho has fet correctament).<\/li><li>Instaŀla els drivers STM32 i Zadig si es requereix (mira a la secció de <a href=\"https:\/\/github.com\/EmuFlight\/EmuFlight-Butter-Varient\/wiki\"target=\"_blank\">flasheig USB<\/a> del manual).<\/li><li>Tanca el configurador, Tanca totes les apps de Chrome, Reinicia el configurador.<\/li><li>Deixa anar el botó de Boot si en tens.<\/li><li>Flasheja el firmware correcte (Amb velocitat de bauds manual si així ho necessites).<\/li><li>Apaga.<\/li><li>Treu el boot dels pins.<\/li><li>Engega (El led d'activitat ha de parpellejar).<\/li><li>Connecta amb normalitat.<\/li><\/ul>"
     },
     "firmwareFlasherButtonLeave": {
         "message": "Surt del flashejador de Firmware"
@@ -2834,7 +2834,7 @@
         "message": "<strong>Nota:<\/strong> La previsualització de l'OSD pot no mostrar la font instaŀlada a la controladora de vol."
     },
     "osdSetupUnsupportedNote1": {
-        "message": "La teva controladora de vol no respon a les comandes OSD. Això vol dir, probablement, que no està integrada a l'OSD de BetaFlight"
+        "message": "La teva controladora de vol no respon a les comandes OSD. Això vol dir, probablement, que no està integrada a l'OSD de EmuFlight"
     },
     "osdSetupUnsupportedNote2": {
         "message": "Algunes controladores tenen <a href=\"https:\/\/www.youtube.com\/watch?v=ikKH_6SQ-Tk\" target=\"_blank\">MinimOSD<\/a> que pot ser flashejat i configurat amb <a href=\"https:\/\/github.com\/ShikOfTheRa\/scarab-osd\/releases\/latest\" target='_blank'>scarab-osd<\/a>, malgrat això MinimOSD no pot ser configurat a aquesta interfície."
