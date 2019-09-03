@@ -9,7 +9,7 @@
 # ${DEST_FOLDER} - Destination folder for the installer files
 
 # Some definitions
-!define VERSION               "0.0.3"
+!define VERSION               "0.0.4"
 !define PLATFORM              "win32"
 !define DEST_FOLDER           "apps"
 !define SOURCE_FILES          "..\..\apps\emuflight-configurator\${PLATFORM}\*"
@@ -21,7 +21,7 @@
 !define FILE_NAME_UNINSTALLER "uninstall-emuflight-configurator.exe"
 !define FILE_NAME_EXECUTABLE  "emuflight-configurator.exe"
 !define LICENSE               "..\..\LICENSE"
-!define MUI_WELCOMEFINISHPAGE_BITMAP ".\bf_installer.bmp"
+#!define MUI_WELCOMEFINISHPAGE_BITMAP ".\bf_installer.bmp"
 
 
 Name "${APP_NAME}"
