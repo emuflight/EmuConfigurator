@@ -2,7 +2,7 @@
 
 TABS.firmware_flasher = {
     releases: null,
-    releaseChecker: new ReleaseChecker('firmware', 'https://api.github.com/repos/emuflight/emuflight/releases'),
+    releaseChecker: new ReleaseChecker('firmware', 'https://api.github.com/repos/emuflight/EmuFlight-Butter-Varient/releases'),
     jenkinsLoader: new JenkinsLoader('https://ci.betaflight.tech'),
     localFileLoaded: false,
 };
@@ -74,7 +74,7 @@ TABS.firmware_flasher.initialize = function (callback) {
                     $('div.release_info .status').text(summary.status);
                     $('div.release_info .file').text(summary.file).prop('href', summary.url);
 
-                    var formattedNotes = summary.notes.replace(/#(\d+)/g, '[#$1](https://github.com/emuflight/emuflight/pull/$1)');
+                    var formattedNotes = summary.notes.replace(/#(\d+)/g, '[#$1](https://github.com/emuflight/EmuFlight-Butter-Varient/pull/$1)');
                     formattedNotes = marked(formattedNotes);
                     $('div.release_info .notes').html(formattedNotes);
                     $('div.release_info .notes').find('a').each(function() {
@@ -149,7 +149,7 @@ TABS.firmware_flasher.initialize = function (callback) {
                 var unsortedTargets = [];
                 releaseData.forEach(function(release){
                     release.assets.forEach(function(asset){
-                        var targetFromFilenameExpression = /betaflight_([\d.]+)?_?(\w+)(\-.*)?\.(.*)/;
+                        var targetFromFilenameExpression = /EmuFlight_([\d.]+)?_?(\w+)(\-.*)?\.(.*)/;
                         var match = targetFromFilenameExpression.exec(asset.name);
 
                         if ((!showDevReleases && release.prerelease) || !match) {
@@ -172,7 +172,7 @@ TABS.firmware_flasher.initialize = function (callback) {
                     var version = matchVersionFromTag[1];
 
                     release.assets.forEach(function(asset){
-                        var targetFromFilenameExpression = /betaflight_([\d.]+)?_?(\w+)(\-.*)?\.(.*)/;
+                        var targetFromFilenameExpression = /EmuFlight_([\d.]+)?_?(\w+)(\-.*)?\.(.*)/;
                         var match = targetFromFilenameExpression.exec(asset.name);
 
                         if ((!showDevReleases && release.prerelease) || !match) {

@@ -17,7 +17,7 @@ Various types of aircraft are supported by the tool and by Emuflight, e.g. quadc
 Emuflight Configurator is a [fork](#credits) of the Cleanflight Configurator with support for Emuflight instead of Cleanflight.
 
 This configurator is the only configurator with support for Emuflight specific features. It will likely require that you run the latest firmware on the flight controller.
-If you are experiencing any problems please make sure you are running the [latest firmware version](https://github.com/emuflight/emuflight/releases/).
+If you are experiencing any problems please make sure you are running the [latest firmware version](https://github.com/emuflight/EmuFlight-Butter-Varient/releases/).
 
 ## Installation
 
