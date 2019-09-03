@@ -487,8 +487,8 @@ var FC = {
 
         GPS_RESCUE = {
             angle:                          0,
-            initialAltitudeM:               0,
-            descentDistanceM:               0,
+            initialAltitude:               0,
+            descentDistance:               0,
             rescueGroundspeed:              0,
             throttleMin:                    0,
             throttleMax:                    0,
