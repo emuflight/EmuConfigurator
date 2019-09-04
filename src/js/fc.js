@@ -58,6 +58,7 @@ var FILTER_CONFIG;
 var IMUF_FILTER_CONFIG;
 var KALMAN_FILTER_CONFIG;
 var ADVANCED_TUNING;
+var ADVANCED_TUNING_EMUF;
 var SENSOR_CONFIG;
 var COPY_PROFILE;
 var DEFAULT;
@@ -393,20 +394,26 @@ var FC = {
             dyn_notch_q:                0,
             dyn_notch_min_hz:           0,
         };
+
         IMUF_FILTER_CONFIG = {
-                  imuf_mode:                0,
-                  imuf_roll_q:              0,
-                  imuf_pitch_q:             0,
-                  imuf_yaw_q:               0,
-                  imuf_w:                   0,
-                  imuf_roll_lpf_cutoff_hz:  0,
-                  imuf_pitch_lpf_cutoff_hz: 0,
-                  imuf_yaw_lpf_cutoff_hz:   0
-              }
+            imuf_mode:                0,
+            imuf_roll_q:              0,
+            imuf_pitch_q:             0,
+            imuf_yaw_q:               0,
+            imuf_w:                   0,
+            imuf_roll_lpf_cutoff_hz:  0,
+            imuf_pitch_lpf_cutoff_hz: 0,
+            imuf_yaw_lpf_cutoff_hz:   0,
+        };
+
         KALMAN_FILTER_CONFIG = {
-                  gyro_filter_q:            0,
-                  gyro_filter_r:            0,
-              };
+            gyro_filter_q:            0,
+            gyro_filter_r:            0,
+        };
+
+        ADVANCED_TUNING_EMUF = {
+            feathered_pids:            0,
+        };
 
         ADVANCED_TUNING = {
             rollPitchItermIgnoreRate:   0,
@@ -425,7 +432,6 @@ var FC = {
             levelSensitivity:           0,
             itermThrottleThreshold:     0,
             itermAcceleratorGain:       0,
-            feathered_pids:             0,
             itermRotation:              0,
             smartFeedforward:           0,
             itermRelax:                 0,

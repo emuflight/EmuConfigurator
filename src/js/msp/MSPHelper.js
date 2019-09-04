@@ -1022,9 +1022,15 @@ MspHelper.prototype.process_data = function(dataHandler) {
                 IMUF_FILTER_CONFIG.imuf_roll_lpf_cutoff_hz = data.readU16();
                 IMUF_FILTER_CONFIG.imuf_yaw_lpf_cutoff_hz = data.readU16();
                 break;
+            case MSPCodes.MSP_EMUF_ADVANCED:
+                ADVANCED_TUNING_EMUF.feathered_pids = data.readU8();
+                break;
             case MSPCodes.MSP_SET_PID_ADVANCED:
                 console.log("Advanced PID settings saved");
                 break;
+            case MSPCodes.MSP_SET_EMUF_ADVANCED:
+                    console.log("Emuflight advanced settings saved");
+                    break;
             case MSPCodes.MSP_PID_ADVANCED:
                 ADVANCED_TUNING.rollPitchItermIgnoreRate = data.readU16();
                 ADVANCED_TUNING.yawItermIgnoreRate = data.readU16();
@@ -1055,6 +1061,7 @@ MspHelper.prototype.process_data = function(dataHandler) {
                                 ADVANCED_TUNING.dtermSetpointWeight = data.readU16();
 
                                 if (semver.gte(CONFIG.apiVersion, "1.40.0")) {
+
                                     ADVANCED_TUNING.itermRotation = data.readU8();
                                     ADVANCED_TUNING.smartFeedforward = data.readU8();
                                     ADVANCED_TUNING.itermRelax = data.readU8();
@@ -1066,7 +1073,7 @@ MspHelper.prototype.process_data = function(dataHandler) {
                                     ADVANCED_TUNING.feedforwardPitch = data.readU16();
                                     ADVANCED_TUNING.feedforwardYaw   = data.readU16();
                                     ADVANCED_TUNING.antiGravityMode  = data.readU8();
-                                    //ADVANCED_TUNING.feathered_pids = data.readU8();
+
 
                                     if (semver.gte(CONFIG.apiVersion, "1.41.0")) {
                                         ADVANCED_TUNING.dMinRoll = data.readU8();
@@ -1818,6 +1825,9 @@ MspHelper.prototype.crunch = function(code) {
             buffer.push16(IMUF_FILTER_CONFIG.imuf_roll_lpf_cutoff_hz);
             buffer.push16(IMUF_FILTER_CONFIG.imuf_yaw_lpf_cutoff_hz);
             break;
+        case MSPCodes.MSP_SET_EMUF_ADVANCED:
+            buffer.push8(ADVANCED_TUNING_EMUF.feathered_pids);
+            break;
         case MSPCodes.MSP_SET_PID_ADVANCED:
             if (semver.gte(CONFIG.apiVersion, "1.20.0")) {
                 buffer.push16(ADVANCED_TUNING.rollPitchItermIgnoreRate)
@@ -1862,7 +1872,6 @@ MspHelper.prototype.crunch = function(code) {
                                       .push16(ADVANCED_TUNING.feedforwardPitch)
                                       .push16(ADVANCED_TUNING.feedforwardYaw)
                                       .push8(ADVANCED_TUNING.antiGravityMode);
-                                      .push8(ADVANCED_TUNING.feathered_pids);
 
                                 if (semver.gte(CONFIG.apiVersion, "1.41.0")) {
                                     buffer.push8(ADVANCED_TUNING.dMinRoll)

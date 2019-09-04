@@ -29,9 +29,11 @@ TABS.pid_tuning.initialize = function (callback) {
             return MSP.promise(MSPCodes.MSP_PID_CONTROLLER);
         }
     }).then(function() {
-        return MSP.promise(MSPCodes.MSP_PIDNAMES)
+        return MSP.promise(MSPCodes.MSP_PIDNAMES);
     }).then(function() {
         return MSP.promise(MSPCodes.MSP_PID);
+    }).then(function() {
+        return MSP.promise(MSPCodes.MSP_EMUF_ADVANCED);
     }).then(function() {
         if (semver.gte(CONFIG.apiVersion, "1.16.0")) {
           return MSP.promise(MSPCodes.MSP_PID_ADVANCED);
@@ -217,7 +219,7 @@ TABS.pid_tuning.initialize = function (callback) {
                     }
 
             // Feathered PIDs
-            $('input[id="feathered_pids"]').prop('checked', ADVANCED_TUNING.feathered_pids !== 0);
+            $('input[id="feathered_pids"]').prop('checked', ADVANCED_TUNING_EMUF.feathered_pids !== 0);
             // I Term Rotation
             $('input[id="itermrotation"]').prop('checked', ADVANCED_TUNING.itermRotation !== 0);
 
@@ -689,7 +691,7 @@ TABS.pid_tuning.initialize = function (callback) {
                     }
 
             // test merging end
-            ADVANCED_TUNING.feathered_pids = $('input[id="feathered_pids"]').is(':checked') ? 1 : 0;
+            ADVANCED_TUNING_EMUF.feathered_pids = $('input[id="feathered_pids"]').is(':checked') ? 1 : 0;
             ADVANCED_TUNING.itermRotation = $('input[id="itermrotation"]').is(':checked') ? 1 : 0;
             ADVANCED_TUNING.smartFeedforward = $('input[id="smartfeedforward"]').is(':checked') ? 1 : 0;
             ADVANCED_TUNING.itermRelax = $('input[id="itermrelax"]').is(':checked') ? $('select[id="itermrelaxAxes"]').val() : 0;
@@ -1482,6 +1484,8 @@ TABS.pid_tuning.initialize = function (callback) {
                 return MSP.promise(MSPCodes.MSP_SET_PID, mspHelper.crunch(MSPCodes.MSP_SET_PID));
             }).then(function () {
               return MSP.promise(MSPCodes.MSP_SET_PID_ADVANCED, mspHelper.crunch(MSPCodes.MSP_SET_PID_ADVANCED));
+            }).then(function () {
+              return MSP.promise(MSPCodes.MSP_SET_EMUF_ADVANCED, mspHelper.crunch(MSPCodes.MSP_SET_EMUF_ADVANCED));
             }).then(function () {
                 return MSP.promise(MSPCodes.MSP_SET_FILTER_CONFIG, mspHelper.crunch(MSPCodes.MSP_SET_FILTER_CONFIG));
               }).then(function () {

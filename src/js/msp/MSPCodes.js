@@ -167,5 +167,7 @@ var MSPCodes = {
     MSP_SET_FAST_KALMAN:            226,
     MSP_IMUF_CONFIG:                227,
     MSP_SET_IMUF_CONFIG:            228,
-    MSP_IMUF_INFO:                  229
+    MSP_IMUF_INFO:                  229,
+    MSP_EMUF_ADVANCED:              255,
+    MSP_SET_EMUF_ADVANCED:          256,
 };
