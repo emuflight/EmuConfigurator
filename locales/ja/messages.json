@@ -3001,6 +3001,9 @@
     "pidTuningVbatPidCompensationHelp": {
         "message": "Vbatが低下したとき、それを補正するためPID値を増加させます。 これにより、飛行中にさらに一定の飛行特性を与えられます。 適用される補正量は、 $t(tabPower.message) ページで設定された $t(powerBatteryMaximum.message) から計算されるため、適切な値に設定されていることを確認して下さい。"
     },
+    "pidTuningFeatheredPids": {
+        "message": "Feathered PIDs"
+    },
     "pidTuningItermRotation": {
         "message": "I値 ローテーション"
     },

@@ -200,12 +200,10 @@ TABS.pid_tuning.initialize = function (callback) {
         if (semver.gte(CONFIG.apiVersion, "1.40.0")) {
 
           if (CONFIG.boardIdentifier !== "HESP" && CONFIG.boardIdentifier !== "SX10" && CONFIG.boardIdentifier !== "FLUX") {
-
-                            $('.kalmanFilterSettingsPanel').show();
-
+                        $('.kalmanFilterSettingsPanel').show();
                         $('.pid_filter input[name="kalmanQCoefficient"]').val(KALMAN_FILTER_CONFIG.gyro_filter_q);
                         $('.pid_filter input[name="kalmanRCoefficient"]').val(KALMAN_FILTER_CONFIG.gyro_filter_r);
-  $('#imufFilterSettingsPanel').hide();
+                        $('#imufFilterSettingsPanel').hide();
                     } else {
                         $('#imuf_roll_q').val(IMUF_FILTER_CONFIG.imuf_roll_q);
                         $('#imuf_pitch_q').val(IMUF_FILTER_CONFIG.imuf_pitch_q);
@@ -218,8 +216,8 @@ TABS.pid_tuning.initialize = function (callback) {
                         $('#imufFilterSettingsPanel').show();
                     }
 
-
-
+            // Feathered PIDs
+            $('input[id="feathered_pids"]').prop('checked', ADVANCED_TUNING.feathered_pids !== 0);
             // I Term Rotation
             $('input[id="itermrotation"]').prop('checked', ADVANCED_TUNING.itermRotation !== 0);
 
@@ -326,6 +324,7 @@ TABS.pid_tuning.initialize = function (callback) {
             antiGravityModeSelect.val(ADVANCED_TUNING.antiGravityMode).change();
 
         } else {
+            $('.feathered_pids').hide();
             $('.itermrotation').hide();
             $('.smartfeedforward').hide();
             $('.itermrelax').hide();
@@ -677,7 +676,7 @@ TABS.pid_tuning.initialize = function (callback) {
 
         if (semver.gte(CONFIG.apiVersion, "1.40.0")) {
 
-        // test merging begin
+                    // test merging begin
                     if (CONFIG.boardIdentifier !== "HESP" && CONFIG.boardIdentifier !== "SX10" && CONFIG.boardIdentifier !== "FLUX") {
 
                         KALMAN_FILTER_CONFIG.gyro_filter_q = parseInt($('.pid_filter input[name="kalmanQCoefficient"]').val());
@@ -689,28 +688,20 @@ TABS.pid_tuning.initialize = function (callback) {
                         IMUF_FILTER_CONFIG.imuf_w = parseInt($('#imuf_w').val());
                     }
 
-// test merging end
-
-
+            // test merging end
+            ADVANCED_TUNING.feathered_pids = $('input[id="feathered_pids"]').is(':checked') ? 1 : 0;
             ADVANCED_TUNING.itermRotation = $('input[id="itermrotation"]').is(':checked') ? 1 : 0;
             ADVANCED_TUNING.smartFeedforward = $('input[id="smartfeedforward"]').is(':checked') ? 1 : 0;
-
             ADVANCED_TUNING.itermRelax = $('input[id="itermrelax"]').is(':checked') ? $('select[id="itermrelaxAxes"]').val() : 0;
             ADVANCED_TUNING.itermRelaxType = $('input[id="itermrelax"]').is(':checked') ? $('select[id="itermrelaxType"]').val() : 0;
             ADVANCED_TUNING.itermRelaxCutoff = parseInt($('input[name="itermRelaxCutoff"]').val());
-
             ADVANCED_TUNING.absoluteControlGain = $('input[name="absoluteControlGain-number"]').val();
-
             ADVANCED_TUNING.throttleBoost = $('input[name="throttleBoost-number"]').val();
-
             ADVANCED_TUNING.acroTrainerAngleLimit = $('input[name="acroTrainerAngleLimit-number"]').val();
-
             ADVANCED_TUNING.feedforwardRoll  = parseInt($('.pid_tuning .ROLL input[name="f"]').val());
             ADVANCED_TUNING.feedforwardPitch = parseInt($('.pid_tuning .PITCH input[name="f"]').val());
             ADVANCED_TUNING.feedforwardYaw   = parseInt($('.pid_tuning .YAW input[name="f"]').val());
-
             ADVANCED_TUNING.feedforwardTransition = parseInt($('input[name="feedforwardTransition-number"]').val() * 100);
-
             ADVANCED_TUNING.antiGravityMode = $('select[id="antiGravityMode"]').val();
 
             if (CONFIG.boardIdentifier !== "HESP" && CONFIG.boardIdentifier !== "SX10" && CONFIG.boardIdentifier !== "FLUX") {
@@ -722,7 +713,6 @@ TABS.pid_tuning.initialize = function (callback) {
                             IMUF_FILTER_CONFIG.imuf_yaw_q = parseInt($('#imuf_yaw_q').val());
                             IMUF_FILTER_CONFIG.imuf_w = parseInt($('#imuf_w').val());
                         }
-
         }
 
         if (semver.gte(CONFIG.apiVersion, "1.41.0")) {

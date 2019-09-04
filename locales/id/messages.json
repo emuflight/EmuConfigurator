@@ -2787,6 +2787,9 @@
     "pidTuningVbatPidCompensationHelp": {
         "message": "Meningkatkan nilai PID sebagai kompensasi penurunan Vbat. Hal ini akan memberikan karakteristik penerbangan yang lebih konsisten. Nilai kompensasi dihitung dari nilai $t(powerBatteryMaximum.message) pada halaman $t(tabPower.message), jadi pastikan nilai tersebut sudah di set dengan benar."
     },
+    "pidTuningFeatheredPids": {
+        "message": "Feathered PIDs"
+    },
     "pidTuningItermRotation": {
         "message": "Rotasi I Term"
     },

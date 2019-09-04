@@ -3016,6 +3016,9 @@
     "pidTuningVbatPidCompensationHelp": {
         "message": "Povećava PID vrijednosti kako bi kompenziralo pad napona baterije. Ovo će omogućiti konstante karakteristike leta kroz cijeli let. Količina kompenzacije koja je primjenjena se računa iz $t(powerBatteryMaximum.message) postavljene u $t(tabPower.message) kartici, tako da je bitno da to ispravno postavite."
     },
+    "pidTuningFeatheredPids": {
+        "message": "Feathered PIDs"
+    },
     "pidTuningItermRotation": {
         "message": "I Term Rotation"
     },

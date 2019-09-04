@@ -3001,6 +3001,9 @@
     "pidTuningVbatPidCompensationHelp": {
         "message": "当电池电压变低时， 飞控自动增加PID数值来补偿动力的损失。这会在整个飞行过程中提供一个更一致的飞行特性。该补偿数值通过在 $t(tabPower.message) 的 $t(powerBatteryMaximum.message) 计算而得，所以请确保正确设置了该数值。"
     },
+    "pidTuningFeatheredPids": {
+        "message": "Feathered PIDs"
+    },
     "pidTuningItermRotation": {
         "message": "I 值旋转"
     },

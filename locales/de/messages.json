@@ -3002,6 +3002,9 @@
     "pidTuningVbatPidCompensationHelp": {
         "message": "Erhört die PID Werte, sobald die Batterie schwächer wird. Das sorgt dafür, dass das Fluggefühl gleich bleibt, während der Akku leerer wird. Die Stärke der Kompensation wird durch die Einstellung der maximalen Zellenspannung errechnet. Stelle sicher, dass in den Energieeinstellungen passende Werte sind."
     },
+    "pidTuningFeatheredPids": {
+        "message": "Feathered PIDs"
+    },
     "pidTuningItermRotation": {
         "message": "i-Term Drehung"
     },

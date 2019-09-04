@@ -425,6 +425,7 @@ var FC = {
             levelSensitivity:           0,
             itermThrottleThreshold:     0,
             itermAcceleratorGain:       0,
+            feathered_pids:             0,
             itermRotation:              0,
             smartFeedforward:           0,
             itermRelax:                 0,

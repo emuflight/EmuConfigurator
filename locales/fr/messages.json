@@ -2998,6 +2998,9 @@
     "pidTuningVbatPidCompensationHelp": {
         "message": "Augmente les PID quand la batterie se vide. Cela procure plus de linéarité dans le vol. La compensation est calculée à partir de la valeur $t(powerBatteryMaximum.message) renseignée dans la page $t(tabPower.message). Il faut s'assurer qu'une valeur cohérente soit renseignée."
     },
+    "pidTuningFeatheredPids": {
+        "message": "Feathered PIDs"
+    },
     "pidTuningItermRotation": {
         "message": "I Term Rotation"
     },

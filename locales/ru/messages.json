@@ -2951,6 +2951,9 @@
     "pidTuningVbatPidCompensationHelp": {
         "message": "Увеличивает значения PID-ов, в целях компенсации, при низком заряде батареи. Это даёт более стабильные лётные характеристики на протяжении всего полёта. Значение компенсации вычисляется исходя $t(powerBatteryMaximum.message), установленного во вкладке $t(tabPower.message)."
     },
+    "pidTuningFeatheredPids": {
+        "message": "Feathered PIDs"
+    },
     "pidTuningItermRotation": {
         "message": "I Term поворот"
     },

@@ -2998,6 +2998,9 @@
     "pidTuningVbatPidCompensationHelp": {
         "message": "Palielina PID vērtības lai kompensētu akumulatorā sprieguma kritumu. Tas sniegs daudz konstantākus lidojumu parametrus visā lidojuma laikā. Pielietotās kompensēšanas lielums ir aprēķināts no $t(powerBatteryMaximum.message), kas uzstādīts $t(tabPower.message) cilnē, tāpēc pārliecinieties ka šī vērtība ir atbilstoša."
     },
+    "pidTuningFeatheredPids": {
+        "message": "Feathered PIDs"
+    },
     "pidTuningItermRotation": {
         "message": "I Term rotācija"
     },

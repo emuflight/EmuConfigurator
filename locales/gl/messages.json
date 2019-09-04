@@ -3053,6 +3053,9 @@
     "pidTuningVbatPidCompensationHelp": {
         "message": "Aumente os valores PID para compensar cando Vbat diminúe. Isto dará características de voo máis constantes durante todo o voo. A cantidade de compensación que se aplica calcúlase a partir do $t(powerBatteryMaximum.message) definido na páxina $t(tabPower.message), así que asegúrese de que está axustado a algo apropiado."
     },
+    "pidTuningFeatheredPids": {
+        "message": "Feathered PIDs"
+    },
     "pidTuningItermRotation": {
         "message": "Rotación Término I"
     },
