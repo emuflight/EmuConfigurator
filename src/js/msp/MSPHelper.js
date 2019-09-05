@@ -337,11 +337,8 @@ MspHelper.prototype.process_data = function(dataHandler) {
                     RC_tuning.throttleLimitType = data.readU8();
                     RC_tuning.throttleLimitPercent = data.readU8();
                 }
-                if (semver.gte(CONFIG.apiVersion, "1.42.0")) {
-                    RC_tuning.roll_rate_limit = data.readU16();
-                    RC_tuning.pitch_rate_limit = data.readU16();
-                    RC_tuning.yaw_rate_limit = data.readU16();
-                }
+                RC_tuning.dynamic_THR_PID_I = parseFloat((data.readU8() / 100).toFixed(2));
+                RC_tuning.dynamic_THR_PID_D = parseFloat((data.readU8() / 100).toFixed(2));
                 break;
             case MSPCodes.MSP_PID:
                 // PID data arrived, we need to scale it and save to appropriate bank / array
