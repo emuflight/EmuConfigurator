@@ -92,7 +92,9 @@ TABS.pid_tuning.initialize = function (callback) {
         $('.throttle input[name="mid"]').val(RC_tuning.throttle_MID.toFixed(2));
         $('.throttle input[name="expo"]').val(RC_tuning.throttle_EXPO.toFixed(2));
 
-        $('.tpa input[name="tpa"]').val(RC_tuning.dynamic_THR_PID.toFixed(2));
+        $('.tpa input[name="tpa_P"]').val(RC_tuning.dynamic_THR_PID_P.toFixed(2));
+        $('.tpa input[name="tpa_I"]').val(RC_tuning.dynamic_THR_PID_I.toFixed(2));
+        $('.tpa input[name="tpa_D"]').val(RC_tuning.dynamic_THR_PID_D.toFixed(2));
         $('.tpa input[name="tpa-breakpoint"]').val(RC_tuning.dynamic_THR_breakpoint);
 
         if (semver.lt(CONFIG.apiVersion, "1.10.0")) {
@@ -630,11 +632,11 @@ TABS.pid_tuning.initialize = function (callback) {
         RC_tuning.rcYawRate = parseFloat($('.pid_tuning input[name="rc_rate_yaw"]').val());
         RC_tuning.rcPitchRate = parseFloat($('.pid_tuning input[name="rc_rate_pitch"]').val());
         RC_tuning.RC_PITCH_EXPO = parseFloat($('.pid_tuning input[name="rc_pitch_expo"]').val());
-
         RC_tuning.throttle_MID = parseFloat($('.throttle input[name="mid"]').val());
         RC_tuning.throttle_EXPO = parseFloat($('.throttle input[name="expo"]').val());
-
-        RC_tuning.dynamic_THR_PID = parseFloat($('.tpa input[name="tpa"]').val());
+        RC_tuning.dynamic_THR_PID_P = parseFloat($('.tpa input[name="tpa_P"]').val());
+        RC_tuning.dynamic_THR_PID_I = parseFloat($('.tpa input[name="tpa_I"]').val());
+        RC_tuning.dynamic_THR_PID_D = parseFloat($('.tpa input[name="tpa_D"]').val());
         RC_tuning.dynamic_THR_breakpoint = parseInt($('.tpa input[name="tpa-breakpoint"]').val());
         FILTER_CONFIG.gyro_lowpass_hz = parseInt($('.pid_filter input[name="gyroLowpassFrequency"]').val());
         FILTER_CONFIG.dterm_lowpass_hz = parseInt($('.pid_filter input[name="dtermLowpassFrequency"]').val());

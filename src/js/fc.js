@@ -163,7 +163,7 @@ var FC = {
             roll_rate:                  0,
             pitch_rate:                 0,
             yaw_rate:                   0,
-            dynamic_THR_PID:            0,
+            dynamic_THR_PID_P:          0,
             throttle_MID:               0,
             throttle_EXPO:              0,
             dynamic_THR_breakpoint:     0,
@@ -174,6 +174,8 @@ var FC = {
             roll_rate_limit:            1998,
             pitch_rate_limit:           1998,
             yaw_rate_limit:             1998,
+            dynamic_THR_PID_I:          0,
+            dynamic_THR_PID_D:          0,
         };
 
         AUX_CONFIG =                    [];

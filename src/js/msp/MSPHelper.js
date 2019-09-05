@@ -308,7 +308,7 @@ MspHelper.prototype.process_data = function(dataHandler) {
                     RC_tuning.pitch_rate = parseFloat((data.readU8() / 100).toFixed(2));
                 }
                 RC_tuning.yaw_rate = parseFloat((data.readU8() / 100).toFixed(2));
-                RC_tuning.dynamic_THR_PID = parseFloat((data.readU8() / 100).toFixed(2));
+                RC_tuning.dynamic_THR_PID_P = parseFloat((data.readU8() / 100).toFixed(2));
                 RC_tuning.throttle_MID = parseFloat((data.readU8() / 100).toFixed(2));
                 RC_tuning.throttle_EXPO = parseFloat((data.readU8() / 100).toFixed(2));
                 if (semver.gte(CONFIG.apiVersion, "1.7.0")) {
@@ -1490,7 +1490,7 @@ MspHelper.prototype.crunch = function(code) {
                     .push8(Math.round(RC_tuning.pitch_rate * 100));
             }
             buffer.push8(Math.round(RC_tuning.yaw_rate * 100))
-                .push8(Math.round(RC_tuning.dynamic_THR_PID * 100))
+                .push8(Math.round(RC_tuning.dynamic_THR_PID_P * 100))
                 .push8(Math.round(RC_tuning.throttle_MID * 100))
                 .push8(Math.round(RC_tuning.throttle_EXPO * 100));
             if (semver.gte(CONFIG.apiVersion, "1.7.0")) {
@@ -1510,11 +1510,8 @@ MspHelper.prototype.crunch = function(code) {
                 buffer.push8(RC_tuning.throttleLimitType);
                 buffer.push8(RC_tuning.throttleLimitPercent);
             }
-            if (semver.gte(CONFIG.apiVersion, "1.42.0")) {
-                buffer.push16(RC_tuning.roll_rate_limit);
-                buffer.push16(RC_tuning.pitch_rate_limit);
-                buffer.push16(RC_tuning.yaw_rate_limit);
-            }
+            buffer.push8(Math.round(RC_tuning.dynamic_THR_PID_I* 100));
+            buffer.push8(Math.round(RC_tuning.dynamic_THR_PID_D * 100));
             break;
         case MSPCodes.MSP_SET_RX_MAP:
             for (var i = 0; i < RC_MAP.length; i++) {

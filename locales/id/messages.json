@@ -1348,8 +1348,14 @@
     "pidTuningRcExpo": {
         "message": "Expo RC"
     },
-    "pidTuningTPA": {
-        "message": "TPA"
+    "pidTuningTPA_P": {
+        "message": "TPA P"
+    },
+    "pidTuningTPA_I": {
+        "message": "TPA I"
+    },
+    "pidTuningTPA_D": {
+        "message": "TPA D"
     },
     "pidTuningTPABreakPoint": {
         "message": "Breakpoint TPA"
