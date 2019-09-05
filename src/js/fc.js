@@ -163,7 +163,7 @@ var FC = {
             roll_rate:                  0,
             pitch_rate:                 0,
             yaw_rate:                   0,
-            dynamic_THR_PID:            0,
+            dynamic_THR_PID_P:          0,
             throttle_MID:               0,
             throttle_EXPO:              0,
             dynamic_THR_breakpoint:     0,
@@ -174,6 +174,8 @@ var FC = {
             roll_rate_limit:            1998,
             pitch_rate_limit:           1998,
             yaw_rate_limit:             1998,
+            dynamic_THR_PID_I:          0,
+            dynamic_THR_PID_D:          0,
         };
 
         AUX_CONFIG =                    [];
@@ -393,6 +395,7 @@ var FC = {
             dyn_notch_q:                0,
             dyn_notch_min_hz:           0,
         };
+
         IMUF_FILTER_CONFIG = {
                   imuf_mode:                0,
                   imuf_roll_q:              0,
@@ -401,22 +404,22 @@ var FC = {
                   imuf_w:                   0,
                   imuf_roll_lpf_cutoff_hz:  0,
                   imuf_pitch_lpf_cutoff_hz: 0,
-                  imuf_yaw_lpf_cutoff_hz:   0
+                  imuf_yaw_lpf_cutoff_hz:   0,
               }
         KALMAN_FILTER_CONFIG = {
-                  gyro_filter_q:            0,
-                  gyro_filter_r:            0,
-              };
+            gyro_filter_q:            0,
+            gyro_filter_r:            0,
+        };
 
         ADVANCED_TUNING = {
             rollPitchItermIgnoreRate:   0,
             yawItermIgnoreRate:         0,
             yaw_p_limit:                0,
-            deltaMethod:                0,
+            feathered_pids:             0,
             vbatPidCompensation:        0,
             dtermSetpointTransition:    0,
             dtermSetpointWeight:        0,
-            toleranceBand:              0,
+            iDecay:                     0,
             toleranceBandReduction:     0,
             itermThrottleGain:          0,
             pidMaxVelocity:             0,

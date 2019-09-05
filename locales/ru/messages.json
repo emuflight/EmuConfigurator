@@ -1488,8 +1488,14 @@
     "pidTuningRcExpo": {
         "message": "RC Expo"
     },
-    "pidTuningTPA": {
-        "message": "TPA"
+    "pidTuningTPA_P": {
+        "message": "TPA P"
+    },
+    "pidTuningTPA_I": {
+        "message": "TPA I"
+    },
+    "pidTuningTPA_D": {
+        "message": "TPA D"
     },
     "pidTuningTPABreakPoint": {
         "message": "TPA-порог"
@@ -2951,11 +2957,20 @@
     "pidTuningVbatPidCompensationHelp": {
         "message": "Увеличивает значения PID-ов, в целях компенсации, при низком заряде батареи. Это даёт более стабильные лётные характеристики на протяжении всего полёта. Значение компенсации вычисляется исходя $t(powerBatteryMaximum.message), установленного во вкладке $t(tabPower.message)."
     },
+    "pidTuningFeatheredPids": {
+        "message": "Feathered PIDs"
+    },
     "pidTuningItermRotation": {
         "message": "I Term поворот"
     },
     "pidTuningItermRotationHelp": {
         "message": "Вращение текущего вектора соответственно I составляющей для других осей когда судно вращается продолжительно во время крена или когда выполняет воронки и другие трюки. Очень ценится LOS пилотами."
+    },
+    "pidTuningFeatheredPidsHelp": {
+      "message": "Feathered PIDs changes the way that dterm is calculated. It is smoother for many freestyle pilots, however, while using Feathered PIDs do not use feedforward."
+    },
+    "pidTuningiDecayHelp": {
+      "message": "Removes excessive iterm accumulation normally found at the end of quick stick movements. Running a higher decay allows you to run a higher iterm without experiencing bounce back or other common negatives associated with high iterm. Default is a value of 4, but the highest you can run it is 10."
     },
     "pidTuningSmartFeedforward": {
         "message": "Интеллектуальное упреждение"
@@ -2995,6 +3010,9 @@
     },
     "pidTuningAbsoluteControlGain": {
         "message": "Абсолютный контроль"
+    },
+    "pidTuningiDecay": {
+        "message": "iDecay"
     },
     "pidTuningThrottleBoost": {
         "message": "Увеличение газа"

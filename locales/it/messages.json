@@ -1382,8 +1382,14 @@
     "pidTuningRcExpo": {
         "message": "Esponenziale"
     },
-    "pidTuningTPA": {
-        "message": "TPA"
+    "pidTuningTPA_P": {
+        "message": "TPA P"
+    },
+    "pidTuningTPA_I": {
+        "message": "TPA I"
+    },
+    "pidTuningTPA_D": {
+        "message": "TPA D"
     },
     "pidTuningTPABreakPoint": {
         "message": "Punto di interruzione TPA"
@@ -2853,6 +2859,9 @@
     },
     "pidTuningItermRelaxTypeOptionSetpoint": {
         "message": "Setpoint"
+    },
+    "pidTuningiDecay": {
+        "message": "iDecay"
     },
     "pidTuningAbsoluteControlGain": {
         "message": "Controllo assoluto"

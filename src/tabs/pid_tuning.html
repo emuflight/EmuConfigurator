@@ -421,6 +421,31 @@
                                  </td>
                             </tr>
 
+                            <tr class="iDecay">
+                                <td><input type="number" name="iDecay-number" step="1" min="0" max="10"/></td>
+                                <td class="slider"><input type="range" name="iDecay-range" step="1" min="0" max="10"/></td>
+                                 <td colspan="1">
+                                    <div>
+                                        <label>
+                                        <span i18n="pidTuningiDecay"></span>
+                                        </label>
+                                        <div class="helpicon cf_tip" i18n_title="pidTuningiDecayHelp"></div>
+                                    </div>
+                                 </td>
+                            </tr>
+
+                            <tr class="feathered_pids">
+                                <td><input type="checkbox" id="feathered_pids" class="toggle" /></td>
+                                <td colspan="2">
+                                    <div>
+                                        <label for="feathered_pids">
+                                        <span i18n="pidTuningFeatheredPids"></span>
+                                        </label>
+                                        <div class="helpicon cf_tip" i18n_title="pidTuningFeatheredPidsHelp"></div>
+                                    </div>
+                                </td>
+                            </tr>
+
                             <tr class="itermrotation">
                                 <td><input type="checkbox" id="itermrotation" class="toggle" /></td>
                                 <td colspan="2">
@@ -633,13 +658,19 @@
                         <table class="cf">
                             <thead>
                                 <tr>
-                                    <th i18n="pidTuningTPA"></th>
+                                    <th i18n="pidTuningTPA_P"></th>
+                                    <th i18n="pidTuningTPA_I"></th>
+                                    <th i18n="pidTuningTPA_D"></th>
                                     <th class="tpa-breakpoint" i18n="pidTuningTPABreakPoint"></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr style="height: 35px;">
-                                    <td class="leftzero"><input type="number" name="tpa" step="0.01" min="0"
+                                    <td class="leftzero"><input type="number" name="tpa_P" step="0.01" min="0"
+                                        max="1.00" /></td>
+                                    <td class="leftzero"><input type="number" name="tpa_I" step="0.01" min="0"
+                                        max="1.00" /></td>
+                                    <td class="leftzero"><input type="number" name="tpa_D" step="0.01" min="0"
                                         max="1.00" /></td>
                                     <td class="tpa-breakpoint"><input type="number" name="tpa-breakpoint" step="10" min="1000" max="2000" /></td>
                                 </tr>
