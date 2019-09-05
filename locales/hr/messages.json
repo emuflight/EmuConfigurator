@@ -1502,8 +1502,14 @@
     "pidTuningRcExpo": {
         "message": "RC Expo"
     },
-    "pidTuningTPA": {
-        "message": "TPA"
+    "pidTuningTPA_P": {
+        "message": "TPA P"
+    },
+    "pidTuningTPA_I": {
+        "message": "TPA I"
+    },
+    "pidTuningTPA_D": {
+        "message": "TPA D"
     },
     "pidTuningTPABreakPoint": {
         "message": "TPA točka prijeloma"
@@ -3016,11 +3022,23 @@
     "pidTuningVbatPidCompensationHelp": {
         "message": "Povećava PID vrijednosti kako bi kompenziralo pad napona baterije. Ovo će omogućiti konstante karakteristike leta kroz cijeli let. Količina kompenzacije koja je primjenjena se računa iz $t(powerBatteryMaximum.message) postavljene u $t(tabPower.message) kartici, tako da je bitno da to ispravno postavite."
     },
+    "pidTuningFeatheredPids": {
+        "message": "Feathered PIDs"
+    },
+    "pidTuningiDecay": {
+        "message": "iDecay"
+    },
     "pidTuningItermRotation": {
         "message": "I Term Rotation"
     },
     "pidTuningItermRotationHelp": {
         "message": "Rotira trenutni I Term vektor ispravno na druge osi kad se letjelica rotira kod yawa tijekom dugih rollova i rađenja drugih trikova. Bitno za LOS acro pilote."
+    },
+    "pidTuningFeatheredPidsHelp": {
+      "message": "Feathered PIDs changes the way that dterm is calculated. It is smoother for many freestyle pilots, however, while using Feathered PIDs do not use feedforward."
+    },
+    "pidTuningiDecayHelp": {
+      "message": "Removes excessive iterm accumulation normally found at the end of quick stick movements. Running a higher decay allows you to run a higher iterm without experiencing bounce back or other common negatives associated with high iterm. Default is a value of 4, but the highest you can run it is 10."
     },
     "pidTuningSmartFeedforward": {
         "message": "Smart Feedforward"

@@ -308,7 +308,7 @@ MspHelper.prototype.process_data = function(dataHandler) {
                     RC_tuning.pitch_rate = parseFloat((data.readU8() / 100).toFixed(2));
                 }
                 RC_tuning.yaw_rate = parseFloat((data.readU8() / 100).toFixed(2));
-                RC_tuning.dynamic_THR_PID = parseFloat((data.readU8() / 100).toFixed(2));
+                RC_tuning.dynamic_THR_PID_P = parseFloat((data.readU8() / 100).toFixed(2));
                 RC_tuning.throttle_MID = parseFloat((data.readU8() / 100).toFixed(2));
                 RC_tuning.throttle_EXPO = parseFloat((data.readU8() / 100).toFixed(2));
                 if (semver.gte(CONFIG.apiVersion, "1.7.0")) {
@@ -337,11 +337,8 @@ MspHelper.prototype.process_data = function(dataHandler) {
                     RC_tuning.throttleLimitType = data.readU8();
                     RC_tuning.throttleLimitPercent = data.readU8();
                 }
-                if (semver.gte(CONFIG.apiVersion, "1.42.0")) {
-                    RC_tuning.roll_rate_limit = data.readU16();
-                    RC_tuning.pitch_rate_limit = data.readU16();
-                    RC_tuning.yaw_rate_limit = data.readU16();
-                }
+                RC_tuning.dynamic_THR_PID_I = parseFloat((data.readU8() / 100).toFixed(2));
+                RC_tuning.dynamic_THR_PID_D = parseFloat((data.readU8() / 100).toFixed(2));
                 break;
             case MSPCodes.MSP_PID:
                 // PID data arrived, we need to scale it and save to appropriate bank / array
@@ -1029,7 +1026,7 @@ MspHelper.prototype.process_data = function(dataHandler) {
                 ADVANCED_TUNING.rollPitchItermIgnoreRate = data.readU16();
                 ADVANCED_TUNING.yawItermIgnoreRate = data.readU16();
                 ADVANCED_TUNING.yaw_p_limit = data.readU16();
-                ADVANCED_TUNING.deltaMethod = data.readU8();
+                ADVANCED_TUNING.feathered_pids = data.readU8();
                 ADVANCED_TUNING.vbatPidCompensation = data.readU8();
                 if (semver.gte(CONFIG.apiVersion, "1.20.0")) {
                     if (semver.gte(CONFIG.apiVersion, "1.40.0")) {
@@ -1038,7 +1035,7 @@ MspHelper.prototype.process_data = function(dataHandler) {
                         ADVANCED_TUNING.dtermSetpointTransition = data.readU8();
                     }
                     ADVANCED_TUNING.dtermSetpointWeight = data.readU8();
-                    ADVANCED_TUNING.toleranceBand = data.readU8();
+                    ADVANCED_TUNING.iDecay = data.readU8();
                     ADVANCED_TUNING.toleranceBandReduction = data.readU8();
                     ADVANCED_TUNING.itermThrottleGain = data.readU8();
                     ADVANCED_TUNING.pidMaxVelocity = data.readU16();
@@ -1055,6 +1052,7 @@ MspHelper.prototype.process_data = function(dataHandler) {
                                 ADVANCED_TUNING.dtermSetpointWeight = data.readU16();
 
                                 if (semver.gte(CONFIG.apiVersion, "1.40.0")) {
+
                                     ADVANCED_TUNING.itermRotation = data.readU8();
                                     ADVANCED_TUNING.smartFeedforward = data.readU8();
                                     ADVANCED_TUNING.itermRelax = data.readU8();
@@ -1066,6 +1064,7 @@ MspHelper.prototype.process_data = function(dataHandler) {
                                     ADVANCED_TUNING.feedforwardPitch = data.readU16();
                                     ADVANCED_TUNING.feedforwardYaw   = data.readU16();
                                     ADVANCED_TUNING.antiGravityMode  = data.readU8();
+
 
                                     if (semver.gte(CONFIG.apiVersion, "1.41.0")) {
                                         ADVANCED_TUNING.dMinRoll = data.readU8();
@@ -1488,7 +1487,7 @@ MspHelper.prototype.crunch = function(code) {
                     .push8(Math.round(RC_tuning.pitch_rate * 100));
             }
             buffer.push8(Math.round(RC_tuning.yaw_rate * 100))
-                .push8(Math.round(RC_tuning.dynamic_THR_PID * 100))
+                .push8(Math.round(RC_tuning.dynamic_THR_PID_P * 100))
                 .push8(Math.round(RC_tuning.throttle_MID * 100))
                 .push8(Math.round(RC_tuning.throttle_EXPO * 100));
             if (semver.gte(CONFIG.apiVersion, "1.7.0")) {
@@ -1508,11 +1507,8 @@ MspHelper.prototype.crunch = function(code) {
                 buffer.push8(RC_tuning.throttleLimitType);
                 buffer.push8(RC_tuning.throttleLimitPercent);
             }
-            if (semver.gte(CONFIG.apiVersion, "1.42.0")) {
-                buffer.push16(RC_tuning.roll_rate_limit);
-                buffer.push16(RC_tuning.pitch_rate_limit);
-                buffer.push16(RC_tuning.yaw_rate_limit);
-            }
+            buffer.push8(Math.round(RC_tuning.dynamic_THR_PID_I* 100));
+            buffer.push8(Math.round(RC_tuning.dynamic_THR_PID_D * 100));
             break;
         case MSPCodes.MSP_SET_RX_MAP:
             for (var i = 0; i < RC_MAP.length; i++) {
@@ -1822,7 +1818,7 @@ MspHelper.prototype.crunch = function(code) {
                 buffer.push16(ADVANCED_TUNING.rollPitchItermIgnoreRate)
                     .push16(ADVANCED_TUNING.yawItermIgnoreRate)
                     .push16(ADVANCED_TUNING.yaw_p_limit)
-                    .push8(ADVANCED_TUNING.deltaMethod)
+                    .push8(ADVANCED_TUNING.feathered_pids)
                     .push8(ADVANCED_TUNING.vbatPidCompensation);
 
                 if (semver.gte(CONFIG.apiVersion, "1.40.0")) {
@@ -1832,7 +1828,7 @@ MspHelper.prototype.crunch = function(code) {
                 }
 
                 buffer.push8(Math.min(ADVANCED_TUNING.dtermSetpointWeight, 254))
-                      .push8(ADVANCED_TUNING.toleranceBand)
+                      .push8(ADVANCED_TUNING.iDecay)
                       .push8(ADVANCED_TUNING.toleranceBandReduction)
                       .push8(ADVANCED_TUNING.itermThrottleGain)
                       .push16(ADVANCED_TUNING.pidMaxVelocity)
@@ -1885,7 +1881,7 @@ MspHelper.prototype.crunch = function(code) {
                 buffer.push16(ADVANCED_TUNING.rollPitchItermIgnoreRate)
                    .push16(ADVANCED_TUNING.yawItermIgnoreRate)
                    .push16(ADVANCED_TUNING.yaw_p_limit)
-                   .push8(ADVANCED_TUNING.deltaMethod)
+                   .push8(ADVANCED_TUNING.feathered_pids)
                    .push8(ADVANCED_TUNING.vbatPidCompensation);
             }
             break;

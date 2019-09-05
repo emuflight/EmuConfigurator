@@ -1502,8 +1502,14 @@
     "pidTuningRcExpo": {
         "message": "RC Expo"
     },
-    "pidTuningTPA": {
-        "message": "TPA"
+    "pidTuningTPA_P": {
+        "message": "TPA P"
+    },
+    "pidTuningTPA_I": {
+        "message": "TPA I"
+    },
+    "pidTuningTPA_D": {
+        "message": "TPA D"
     },
     "pidTuningTPABreakPoint": {
         "message": "TPA 区切り点"
@@ -3001,11 +3007,20 @@
     "pidTuningVbatPidCompensationHelp": {
         "message": "Vbatが低下したとき、それを補正するためPID値を増加させます。 これにより、飛行中にさらに一定の飛行特性を与えられます。 適用される補正量は、 $t(tabPower.message) ページで設定された $t(powerBatteryMaximum.message) から計算されるため、適切な値に設定されていることを確認して下さい。"
     },
+    "pidTuningFeatheredPids": {
+        "message": "Feathered PIDs"
+    },
     "pidTuningItermRotation": {
         "message": "I値 ローテーション"
     },
     "pidTuningItermRotationHelp": {
         "message": "ロール中に連続的にヨーイングしたり、ファンネルやその他のトリックを実行したりするとき、機体が回転すると、現在値のI値を他の値に移行し適切に回転させます。この機能はアクロパイロット達が非常に感謝するでしょう。"
+    },
+    "pidTuningFeatheredPidsHelp": {
+      "message": "Feathered PIDs changes the way that dterm is calculated. It is smoother for many freestyle pilots, however, while using Feathered PIDs do not use feedforward."
+    },
+    "pidTuningiDecayHelp": {
+      "message": "Removes excessive iterm accumulation normally found at the end of quick stick movements. Running a higher decay allows you to run a higher iterm without experiencing bounce back or other common negatives associated with high iterm. Default is a value of 4, but the highest you can run it is 10."
     },
     "pidTuningSmartFeedforward": {
         "message": "スマート フィードフォワード"
@@ -3045,6 +3060,9 @@
     },
     "pidTuningAbsoluteControlGain": {
         "message": "アブソリュート コントロール"
+    },
+    "pidTuningiDecay": {
+        "message": "iDecay"
     },
     "pidTuningAbsoluteControlGainHelp": {
         "message": "この機能は $t(pidTuningItermRotation.message) のいくつかの根本的な問題を解決し、うまくいけばどこかの時点で置き換えるべきと考えます。この機能は絶対値ジャイロ誤差を直交座標で累積し、比例補正を設定値にミックスさせます。それを機能させるには『Airモード』と $t(pidTuningItermRelax.message) を有効にする必要があります。( $t(pidTuningItermRelaxAxesOptionRP.message) の場合にて) この機能と $t(pidTuningIntegratedYaw.message) を組み合わせると、 $t(pidTuningItermRelaxAxesOptionRPY.message) に対して $t(pidTuningItermRelax.message) が有効となります。"

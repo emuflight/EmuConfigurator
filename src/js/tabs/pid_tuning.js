@@ -29,7 +29,7 @@ TABS.pid_tuning.initialize = function (callback) {
             return MSP.promise(MSPCodes.MSP_PID_CONTROLLER);
         }
     }).then(function() {
-        return MSP.promise(MSPCodes.MSP_PIDNAMES)
+        return MSP.promise(MSPCodes.MSP_PIDNAMES);
     }).then(function() {
         return MSP.promise(MSPCodes.MSP_PID);
     }).then(function() {
@@ -92,7 +92,9 @@ TABS.pid_tuning.initialize = function (callback) {
         $('.throttle input[name="mid"]').val(RC_tuning.throttle_MID.toFixed(2));
         $('.throttle input[name="expo"]').val(RC_tuning.throttle_EXPO.toFixed(2));
 
-        $('.tpa input[name="tpa"]').val(RC_tuning.dynamic_THR_PID.toFixed(2));
+        $('.tpa input[name="tpa_P"]').val(RC_tuning.dynamic_THR_PID_P.toFixed(2));
+        $('.tpa input[name="tpa_I"]').val(RC_tuning.dynamic_THR_PID_I.toFixed(2));
+        $('.tpa input[name="tpa_D"]').val(RC_tuning.dynamic_THR_PID_D.toFixed(2));
         $('.tpa input[name="tpa-breakpoint"]').val(RC_tuning.dynamic_THR_breakpoint);
 
         if (semver.lt(CONFIG.apiVersion, "1.10.0")) {
@@ -102,10 +104,6 @@ TABS.pid_tuning.initialize = function (callback) {
 
         if (semver.gte(CONFIG.apiVersion, "1.16.0")) {
             $('input[id="vbatpidcompensation"]').prop('checked', ADVANCED_TUNING.vbatPidCompensation !== 0);
-        }
-
-        if (semver.gte(CONFIG.apiVersion, "1.16.0")) {
-            $('#pid-tuning .delta select').val(ADVANCED_TUNING.deltaMethod);
         }
 
         if (semver.gte(CONFIG.apiVersion, "1.16.0")) {
@@ -200,12 +198,10 @@ TABS.pid_tuning.initialize = function (callback) {
         if (semver.gte(CONFIG.apiVersion, "1.40.0")) {
 
           if (CONFIG.boardIdentifier !== "HESP" && CONFIG.boardIdentifier !== "SX10" && CONFIG.boardIdentifier !== "FLUX") {
-
-                            $('.kalmanFilterSettingsPanel').show();
-
+                        $('.kalmanFilterSettingsPanel').show();
                         $('.pid_filter input[name="kalmanQCoefficient"]').val(KALMAN_FILTER_CONFIG.gyro_filter_q);
                         $('.pid_filter input[name="kalmanRCoefficient"]').val(KALMAN_FILTER_CONFIG.gyro_filter_r);
-  $('#imufFilterSettingsPanel').hide();
+                        $('#imufFilterSettingsPanel').hide();
                     } else {
                         $('#imuf_roll_q').val(IMUF_FILTER_CONFIG.imuf_roll_q);
                         $('#imuf_pitch_q').val(IMUF_FILTER_CONFIG.imuf_pitch_q);
@@ -218,8 +214,8 @@ TABS.pid_tuning.initialize = function (callback) {
                         $('#imufFilterSettingsPanel').show();
                     }
 
-
-
+            // Feathered PIDs
+            $('input[id="feathered_pids"]').prop('checked', ADVANCED_TUNING.feathered_pids !== 0);
             // I Term Rotation
             $('input[id="itermrotation"]').prop('checked', ADVANCED_TUNING.itermRotation !== 0);
 
@@ -257,6 +253,19 @@ TABS.pid_tuning.initialize = function (callback) {
                 absoluteControlGainNumberElement.val($(this).val());
             });
             absoluteControlGainNumberElement.val(ADVANCED_TUNING.absoluteControlGain).trigger('input');
+
+            // iDecay Control
+            var iDecayNumberElement = $('input[name="iDecay-number"]');
+            var iDecayRangeElement = $('input[name="iDecay-range"]');
+            //Use 'input' event for coupled controls to allow synchronized update
+            iDecayNumberElement.on('input', function () {
+                iDecayRangeElement.val($(this).val());
+            });
+            iDecayRangeElement.on('input', function () {
+                iDecayNumberElement.val($(this).val());
+            });
+            iDecayNumberElement.val(ADVANCED_TUNING.iDecay).trigger('input');
+
 
             // Throttle Boost
             var throttleBoostNumberElement = $('input[name="throttleBoost-number"]');
@@ -326,10 +335,12 @@ TABS.pid_tuning.initialize = function (callback) {
             antiGravityModeSelect.val(ADVANCED_TUNING.antiGravityMode).change();
 
         } else {
+            $('.feathered_pids').hide();
             $('.itermrotation').hide();
             $('.smartfeedforward').hide();
             $('.itermrelax').hide();
             $('.absoluteControlGain').hide();
+            $('.iDecay').hide();
             $('.throttleBoost').hide();
             $('.acroTrainerAngleLimit').hide();
 
@@ -621,11 +632,11 @@ TABS.pid_tuning.initialize = function (callback) {
         RC_tuning.rcYawRate = parseFloat($('.pid_tuning input[name="rc_rate_yaw"]').val());
         RC_tuning.rcPitchRate = parseFloat($('.pid_tuning input[name="rc_rate_pitch"]').val());
         RC_tuning.RC_PITCH_EXPO = parseFloat($('.pid_tuning input[name="rc_pitch_expo"]').val());
-
         RC_tuning.throttle_MID = parseFloat($('.throttle input[name="mid"]').val());
         RC_tuning.throttle_EXPO = parseFloat($('.throttle input[name="expo"]').val());
-
-        RC_tuning.dynamic_THR_PID = parseFloat($('.tpa input[name="tpa"]').val());
+        RC_tuning.dynamic_THR_PID_P = parseFloat($('.tpa input[name="tpa_P"]').val());
+        RC_tuning.dynamic_THR_PID_I = parseFloat($('.tpa input[name="tpa_I"]').val());
+        RC_tuning.dynamic_THR_PID_D = parseFloat($('.tpa input[name="tpa_D"]').val());
         RC_tuning.dynamic_THR_breakpoint = parseInt($('.tpa input[name="tpa-breakpoint"]').val());
         FILTER_CONFIG.gyro_lowpass_hz = parseInt($('.pid_filter input[name="gyroLowpassFrequency"]').val());
         FILTER_CONFIG.dterm_lowpass_hz = parseInt($('.pid_filter input[name="dtermLowpassFrequency"]').val());
@@ -637,10 +648,6 @@ TABS.pid_tuning.initialize = function (callback) {
 
         if (semver.gte(CONFIG.apiVersion, "1.16.0")) {
             ADVANCED_TUNING.vbatPidCompensation = $('input[id="vbatpidcompensation"]').is(':checked') ? 1 : 0;
-        }
-
-        if (semver.gte(CONFIG.apiVersion, "1.16.0")) {
-            ADVANCED_TUNING.deltaMethod = $('#pid-tuning .delta select').val();
         }
 
         if (semver.gte(CONFIG.apiVersion, "1.20.0")) {
@@ -677,7 +684,7 @@ TABS.pid_tuning.initialize = function (callback) {
 
         if (semver.gte(CONFIG.apiVersion, "1.40.0")) {
 
-        // test merging begin
+                    // test merging begin
                     if (CONFIG.boardIdentifier !== "HESP" && CONFIG.boardIdentifier !== "SX10" && CONFIG.boardIdentifier !== "FLUX") {
 
                         KALMAN_FILTER_CONFIG.gyro_filter_q = parseInt($('.pid_filter input[name="kalmanQCoefficient"]').val());
@@ -689,28 +696,21 @@ TABS.pid_tuning.initialize = function (callback) {
                         IMUF_FILTER_CONFIG.imuf_w = parseInt($('#imuf_w').val());
                     }
 
-// test merging end
-
-
+            // test merging end
+            ADVANCED_TUNING.feathered_pids = $('input[id="feathered_pids"]').is(':checked') ? 1 : 0;
             ADVANCED_TUNING.itermRotation = $('input[id="itermrotation"]').is(':checked') ? 1 : 0;
             ADVANCED_TUNING.smartFeedforward = $('input[id="smartfeedforward"]').is(':checked') ? 1 : 0;
-
             ADVANCED_TUNING.itermRelax = $('input[id="itermrelax"]').is(':checked') ? $('select[id="itermrelaxAxes"]').val() : 0;
             ADVANCED_TUNING.itermRelaxType = $('input[id="itermrelax"]').is(':checked') ? $('select[id="itermrelaxType"]').val() : 0;
             ADVANCED_TUNING.itermRelaxCutoff = parseInt($('input[name="itermRelaxCutoff"]').val());
-
             ADVANCED_TUNING.absoluteControlGain = $('input[name="absoluteControlGain-number"]').val();
-
+            ADVANCED_TUNING.iDecay = $('input[name="iDecay-number"]').val();
             ADVANCED_TUNING.throttleBoost = $('input[name="throttleBoost-number"]').val();
-
             ADVANCED_TUNING.acroTrainerAngleLimit = $('input[name="acroTrainerAngleLimit-number"]').val();
-
             ADVANCED_TUNING.feedforwardRoll  = parseInt($('.pid_tuning .ROLL input[name="f"]').val());
             ADVANCED_TUNING.feedforwardPitch = parseInt($('.pid_tuning .PITCH input[name="f"]').val());
             ADVANCED_TUNING.feedforwardYaw   = parseInt($('.pid_tuning .YAW input[name="f"]').val());
-
             ADVANCED_TUNING.feedforwardTransition = parseInt($('input[name="feedforwardTransition-number"]').val() * 100);
-
             ADVANCED_TUNING.antiGravityMode = $('select[id="antiGravityMode"]').val();
 
             if (CONFIG.boardIdentifier !== "HESP" && CONFIG.boardIdentifier !== "SX10" && CONFIG.boardIdentifier !== "FLUX") {
@@ -722,7 +722,6 @@ TABS.pid_tuning.initialize = function (callback) {
                             IMUF_FILTER_CONFIG.imuf_yaw_q = parseInt($('#imuf_yaw_q').val());
                             IMUF_FILTER_CONFIG.imuf_w = parseInt($('#imuf_w').val());
                         }
-
         }
 
         if (semver.gte(CONFIG.apiVersion, "1.41.0")) {
