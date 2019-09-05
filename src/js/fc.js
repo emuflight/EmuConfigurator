@@ -58,7 +58,6 @@ var FILTER_CONFIG;
 var IMUF_FILTER_CONFIG;
 var KALMAN_FILTER_CONFIG;
 var ADVANCED_TUNING;
-var ADVANCED_TUNING_EMUF;
 var SENSOR_CONFIG;
 var COPY_PROFILE;
 var DEFAULT;
@@ -411,15 +410,11 @@ var FC = {
             gyro_filter_r:            0,
         };
 
-        ADVANCED_TUNING_EMUF = {
-            feathered_pids:            0,
-        };
-
         ADVANCED_TUNING = {
             rollPitchItermIgnoreRate:   0,
             yawItermIgnoreRate:         0,
             yaw_p_limit:                0,
-            deltaMethod:                0,
+            feathered_pids:             0,
             vbatPidCompensation:        0,
             dtermSetpointTransition:    0,
             dtermSetpointWeight:        0,
