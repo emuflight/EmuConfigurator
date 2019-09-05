@@ -401,7 +401,7 @@ var FC = {
                   imuf_w:                   0,
                   imuf_roll_lpf_cutoff_hz:  0,
                   imuf_pitch_lpf_cutoff_hz: 0,
-                  imuf_yaw_lpf_cutoff_hz:   0
+                  imuf_yaw_lpf_cutoff_hz:   0,
               }
         KALMAN_FILTER_CONFIG = {
                   gyro_filter_q:            0,
