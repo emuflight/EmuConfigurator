@@ -2854,6 +2854,9 @@
     "pidTuningItermRelaxTypeOptionSetpoint": {
         "message": "Setpoint"
     },
+    "pidTuningiDecay": {
+        "message": "iDecay"
+    },
     "pidTuningAbsoluteControlGain": {
         "message": "Controllo assoluto"
     },

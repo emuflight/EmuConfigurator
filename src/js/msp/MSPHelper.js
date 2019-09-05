@@ -1038,7 +1038,7 @@ MspHelper.prototype.process_data = function(dataHandler) {
                         ADVANCED_TUNING.dtermSetpointTransition = data.readU8();
                     }
                     ADVANCED_TUNING.dtermSetpointWeight = data.readU8();
-                    ADVANCED_TUNING.toleranceBand = data.readU8();
+                    ADVANCED_TUNING.iDecay = data.readU8();
                     ADVANCED_TUNING.toleranceBandReduction = data.readU8();
                     ADVANCED_TUNING.itermThrottleGain = data.readU8();
                     ADVANCED_TUNING.pidMaxVelocity = data.readU16();
@@ -1834,7 +1834,7 @@ MspHelper.prototype.crunch = function(code) {
                 }
 
                 buffer.push8(Math.min(ADVANCED_TUNING.dtermSetpointWeight, 254))
-                      .push8(ADVANCED_TUNING.toleranceBand)
+                      .push8(ADVANCED_TUNING.iDecay)
                       .push8(ADVANCED_TUNING.toleranceBandReduction)
                       .push8(ADVANCED_TUNING.itermThrottleGain)
                       .push16(ADVANCED_TUNING.pidMaxVelocity)

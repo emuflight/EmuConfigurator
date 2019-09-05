@@ -2790,11 +2790,20 @@
     "pidTuningFeatheredPids": {
         "message": "Feathered PIDs"
     },
+    "pidTuningiDecay": {
+        "message": "iDecay"
+    },
     "pidTuningItermRotation": {
         "message": "Rotasi I Term"
     },
     "pidTuningItermRotationHelp": {
         "message": "Memutar vektor I Term agar sesuai dengan sumbu lainnya ketika quad berputar dalam sumbu yaw secara kontinu, selama roll, dan ketika melakukan funnel atau trik lainnya. Sangat berguna bagi pilot acro LOS."
+    },
+    "pidTuningFeatheredPidsHelp": {
+      "message": "Feathered PIDs changes the way that dterm is calculated. It is smoother for many freestyle pilots, however, while using Feathered PIDs do not use feedforward."
+    },
+    "pidTuningiDecayHelp": {
+      "message": "Removes excessive iterm accumulation normally found at the end of quick stick movements. Running a higher decay allows you to run a higher iterm without experiencing bounce back or other common negatives associated with high iterm. Default is a value of 4, but the highest you can run it is 10."
     },
     "pidTuningSmartFeedforward": {
         "message": "Smart Feedforward"

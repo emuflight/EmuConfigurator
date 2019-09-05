@@ -252,6 +252,19 @@ TABS.pid_tuning.initialize = function (callback) {
             });
             absoluteControlGainNumberElement.val(ADVANCED_TUNING.absoluteControlGain).trigger('input');
 
+            // iDecay Control
+            var iDecayNumberElement = $('input[name="iDecay-number"]');
+            var iDecayRangeElement = $('input[name="iDecay-range"]');
+            //Use 'input' event for coupled controls to allow synchronized update
+            iDecayNumberElement.on('input', function () {
+                iDecayRangeElement.val($(this).val());
+            });
+            iDecayRangeElement.on('input', function () {
+                iDecayNumberElement.val($(this).val());
+            });
+            iDecayNumberElement.val(ADVANCED_TUNING.iDecay).trigger('input');
+
+
             // Throttle Boost
             var throttleBoostNumberElement = $('input[name="throttleBoost-number"]');
             var throttleBoostRangeElement = $('input[name="throttleBoost-range"]');
@@ -325,6 +338,7 @@ TABS.pid_tuning.initialize = function (callback) {
             $('.smartfeedforward').hide();
             $('.itermrelax').hide();
             $('.absoluteControlGain').hide();
+            $('.iDecay').hide();
             $('.throttleBoost').hide();
             $('.acroTrainerAngleLimit').hide();
 
@@ -688,6 +702,7 @@ TABS.pid_tuning.initialize = function (callback) {
             ADVANCED_TUNING.itermRelaxType = $('input[id="itermrelax"]').is(':checked') ? $('select[id="itermrelaxType"]').val() : 0;
             ADVANCED_TUNING.itermRelaxCutoff = parseInt($('input[name="itermRelaxCutoff"]').val());
             ADVANCED_TUNING.absoluteControlGain = $('input[name="absoluteControlGain-number"]').val();
+            ADVANCED_TUNING.iDecay = $('input[name="iDecay-number"]').val();
             ADVANCED_TUNING.throttleBoost = $('input[name="throttleBoost-number"]').val();
             ADVANCED_TUNING.acroTrainerAngleLimit = $('input[name="acroTrainerAngleLimit-number"]').val();
             ADVANCED_TUNING.feedforwardRoll  = parseInt($('.pid_tuning .ROLL input[name="f"]').val());

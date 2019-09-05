@@ -418,7 +418,7 @@ var FC = {
             vbatPidCompensation:        0,
             dtermSetpointTransition:    0,
             dtermSetpointWeight:        0,
-            toleranceBand:              0,
+            iDecay:                     0,
             toleranceBandReduction:     0,
             itermThrottleGain:          0,
             pidMaxVelocity:             0,
