@@ -554,9 +554,10 @@ TABS.receiver.initModelPreview = function () {
     }
 
     var useOldRateCurve = false;
-    if (CONFIG.flightControllerIdentifier == 'EMUF' && semver.lt(CONFIG.flightControllerVersion, '0.0.1')) {
-        useOldRateCurve = true;
-    }
+    // don't need this as FC version are way ahead now
+  //  if (CONFIG.flightControllerIdentifier == 'EMUF' && semver.lt(CONFIG.flightControllerVersion, '0.0.1')) {
+  //      useOldRateCurve = true;
+  //  }
 
     this.rateCurve = new RateCurve(useOldRateCurve);
 

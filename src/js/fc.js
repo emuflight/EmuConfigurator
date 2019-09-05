@@ -397,16 +397,15 @@ var FC = {
         };
 
         IMUF_FILTER_CONFIG = {
-            imuf_mode:                0,
-            imuf_roll_q:              0,
-            imuf_pitch_q:             0,
-            imuf_yaw_q:               0,
-            imuf_w:                   0,
-            imuf_roll_lpf_cutoff_hz:  0,
-            imuf_pitch_lpf_cutoff_hz: 0,
-            imuf_yaw_lpf_cutoff_hz:   0,
-        };
-
+                  imuf_mode:                0,
+                  imuf_roll_q:              0,
+                  imuf_pitch_q:             0,
+                  imuf_yaw_q:               0,
+                  imuf_w:                   0,
+                  imuf_roll_lpf_cutoff_hz:  0,
+                  imuf_pitch_lpf_cutoff_hz: 0,
+                  imuf_yaw_lpf_cutoff_hz:   0,
+              }
         KALMAN_FILTER_CONFIG = {
             gyro_filter_q:            0,
             gyro_filter_r:            0,
@@ -491,8 +490,8 @@ var FC = {
 
         GPS_RESCUE = {
             angle:                          0,
-            initialAltitudeM:               0,
-            descentDistanceM:               0,
+            initialAltitude:               0,
+            descentDistance:               0,
             rescueGroundspeed:              0,
             throttleMin:                    0,
             throttleMax:                    0,

@@ -403,8 +403,8 @@ MspHelper.prototype.process_data = function(dataHandler) {
                 break;
             case MSPCodes.MSP_GPS_RESCUE:
                 GPS_RESCUE.angle             = data.readU16();
-                GPS_RESCUE.initialAltitudeM  = data.readU16();
-                GPS_RESCUE.descentDistanceM  = data.readU16();
+                GPS_RESCUE.initialAltitude  = data.readU16();
+                GPS_RESCUE.descentDistance  = data.readU16();
                 GPS_RESCUE.rescueGroundspeed = data.readU16();
                 GPS_RESCUE.throttleMin       = data.readU16();
                 GPS_RESCUE.throttleMax       = data.readU16();
@@ -1566,8 +1566,8 @@ MspHelper.prototype.crunch = function(code) {
             break;
         case MSPCodes.MSP_SET_GPS_RESCUE:
             buffer.push16(GPS_RESCUE.angle)
-                  .push16(GPS_RESCUE.initialAltitudeM)
-                  .push16(GPS_RESCUE.descentDistanceM)
+                  .push16(GPS_RESCUE.initialAltitude)
+                  .push16(GPS_RESCUE.descentDistance)
                   .push16(GPS_RESCUE.rescueGroundspeed)
                   .push16(GPS_RESCUE.throttleMin)
                   .push16(GPS_RESCUE.throttleMax)
