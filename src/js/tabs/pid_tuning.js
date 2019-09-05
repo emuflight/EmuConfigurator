@@ -33,8 +33,6 @@ TABS.pid_tuning.initialize = function (callback) {
     }).then(function() {
         return MSP.promise(MSPCodes.MSP_PID);
     }).then(function() {
-        return MSP.promise(MSPCodes.MSP_EMUF_ADVANCED);
-    }).then(function() {
         if (semver.gte(CONFIG.apiVersion, "1.16.0")) {
           return MSP.promise(MSPCodes.MSP_PID_ADVANCED);
         }
@@ -1476,8 +1474,6 @@ TABS.pid_tuning.initialize = function (callback) {
                 return MSP.promise(MSPCodes.MSP_SET_PID, mspHelper.crunch(MSPCodes.MSP_SET_PID));
             }).then(function () {
               return MSP.promise(MSPCodes.MSP_SET_PID_ADVANCED, mspHelper.crunch(MSPCodes.MSP_SET_PID_ADVANCED));
-            }).then(function () {
-              return MSP.promise(MSPCodes.MSP_SET_EMUF_ADVANCED, mspHelper.crunch(MSPCodes.MSP_SET_EMUF_ADVANCED));
             }).then(function () {
                 return MSP.promise(MSPCodes.MSP_SET_FILTER_CONFIG, mspHelper.crunch(MSPCodes.MSP_SET_FILTER_CONFIG));
               }).then(function () {
