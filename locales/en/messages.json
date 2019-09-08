@@ -3219,6 +3219,18 @@
     "pidTuningiDecay": {
         "message": "iDecay"
     },
+    "pidTuningEmuBoost": {
+        "message": "EmuBoost"
+    },
+    "pidTuningEmuBoostLimit": {
+        "message": "EmuBoost Limit"
+    },
+    "pidTuningEmuBoostHelp": {
+        "message": "Help"
+    },
+    "pidTuningEmuBoostLimitHelp": {
+        "message": "Help"
+    },
     "pidTuningItermRotation": {
         "message": "I Term Rotation"
     },

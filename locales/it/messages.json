@@ -2863,6 +2863,18 @@
     "pidTuningiDecay": {
         "message": "iDecay"
     },
+    "pidTuningEmuBoost": {
+        "message": "EmuBoost"
+    },
+    "pidTuningEmuBoostLimit": {
+        "message": "EmuBoost Limit"
+    },
+    "pidTuningEmuBoostHelp": {
+        "message": "Help"
+    },
+    "pidTuningEmuBoostLimitHelp": {
+        "message": "Help"
+    },
     "pidTuningAbsoluteControlGain": {
         "message": "Controllo assoluto"
     },

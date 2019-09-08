@@ -16,6 +16,7 @@ var PIDs;
 var RC_MAP;
 var RC;
 var RC_tuning;
+var EMUF_ADVANCED;
 var AUX_CONFIG;
 var AUX_CONFIG_IDS;
 var MODE_RANGES;
@@ -174,8 +175,11 @@ var FC = {
             roll_rate_limit:            1998,
             pitch_rate_limit:           1998,
             yaw_rate_limit:             1998,
-            dynamic_THR_PID_I:          0,
-            dynamic_THR_PID_D:          0,
+        };
+
+        EMUF_ADVANCED = {
+          dynamic_THR_PID_I:            0,
+          dynamic_THR_PID_D:            0,
         };
 
         AUX_CONFIG =                    [];
@@ -414,11 +418,11 @@ var FC = {
         ADVANCED_TUNING = {
             rollPitchItermIgnoreRate:   0,
             yawItermIgnoreRate:         0,
-            yaw_p_limit:                0,
+            errorBoost:                 0,
             feathered_pids:             0,
             vbatPidCompensation:        0,
             dtermSetpointTransition:    0,
-            dtermSetpointWeight:        0,
+            errorBoostLimit:            0,
             iDecay:                     0,
             toleranceBandReduction:     0,
             itermThrottleGain:          0,

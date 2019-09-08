@@ -168,6 +168,6 @@ var MSPCodes = {
     MSP_IMUF_CONFIG:                227,
     MSP_SET_IMUF_CONFIG:            228,
     MSP_IMUF_INFO:                  229,
-//    MSP_EMUF_ADVANCED:              255, // maybe later new MSP will be used for EMUF
-//    MSP_SET_EMUF_ADVANCED:          256, // maybe later new MSP will be used for EMUF
+    MSP_EMUF:                       231,
+    MSP_SET_EMUF:                   232,
 };

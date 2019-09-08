@@ -433,6 +433,30 @@
                                     </div>
                                  </td>
                             </tr>
+                            <tr class="errorBoost">
+                                <td><input type="number" name="errorBoost-number" step="5" min="0" max="2500"/></td>
+                                <td class="slider"><input type="range" name="errorBoost-range" step="5" min="0" max="2500"/></td>
+                                 <td colspan="1">
+                                    <div>
+                                        <label>
+                                        <span i18n="pidTuningEmuBoost"></span>
+                                        </label>
+                                        <div class="helpicon cf_tip" i18n_title="pidTuningEmuBoostHelp"></div>
+                                    </div>
+                                 </td>
+                            </tr>
+                            <tr class="errorBoostLimit">
+                                <td><input type="number" name="errorBoostLimit-number" step="1" min="0" max="250"/></td>
+                                <td class="slider"><input type="range" name="errorBoostLimit-range" step="1" min="0" max="250"/></td>
+                                 <td colspan="1">
+                                    <div>
+                                        <label>
+                                        <span i18n="pidTuningEmuBoostLimit"></span>
+                                        </label>
+                                        <div class="helpicon cf_tip" i18n_title="pidTuningEmuBoostLimitHelp"></div>
+                                    </div>
+                                 </td>
+                            </tr>
 
                             <tr class="feathered_pids">
                                 <td><input type="checkbox" id="feathered_pids" class="toggle" /></td>
@@ -668,9 +692,9 @@
                                 <tr style="height: 35px;">
                                     <td class="leftzero"><input type="number" name="tpa_P" step="0.01" min="0"
                                         max="2.50" /></td>
-                                    <td class="leftzero"><input type="number" name="tpa_I" step="0.01" min="0"
+                                    <td class="leftzero"><input type="number" name="tpa_I" id="tpaIidentificator" step="0.01" min="0"
                                         max="2.50" /></td>
-                                    <td class="leftzero"><input type="number" name="tpa_D" step="0.01" min="0"
+                                    <td class="leftzero"><input type="number" name="tpa_D" id="tpaDidentificator" step="0.01" min="0"
                                         max="2.50" /></td>
                                     <td class="tpa-breakpoint"><input type="number" name="tpa-breakpoint" step="10" min="1000" max="2000" /></td>
                                 </tr>

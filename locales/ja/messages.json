@@ -3064,6 +3064,18 @@
     "pidTuningiDecay": {
         "message": "iDecay"
     },
+    "pidTuningEmuBoost": {
+        "message": "EmuBoost"
+    },
+    "pidTuningEmuBoostLimit": {
+        "message": "EmuBoost Limit"
+    },
+    "pidTuningEmuBoostHelp": {
+        "message": "Help"
+    },
+    "pidTuningEmuBoostLimitHelp": {
+        "message": "Help"
+    },
     "pidTuningAbsoluteControlGainHelp": {
         "message": "この機能は $t(pidTuningItermRotation.message) のいくつかの根本的な問題を解決し、うまくいけばどこかの時点で置き換えるべきと考えます。この機能は絶対値ジャイロ誤差を直交座標で累積し、比例補正を設定値にミックスさせます。それを機能させるには『Airモード』と $t(pidTuningItermRelax.message) を有効にする必要があります。( $t(pidTuningItermRelaxAxesOptionRP.message) の場合にて) この機能と $t(pidTuningIntegratedYaw.message) を組み合わせると、 $t(pidTuningItermRelaxAxesOptionRPY.message) に対して $t(pidTuningItermRelax.message) が有効となります。"
     },
