@@ -381,60 +381,6 @@ TABS.pid_tuning.initialize = function (callback) {
             $('.antigravity  table td:first-child').hide();
         }
 
-        if (semver.gte(CONFIG.apiVersion, "1.41.0")) {
-            $('select[id="throttleLimitType"]').val(RC_tuning.throttleLimitType);
-            $('.throttle_limit input[name="throttleLimitPercent"]').val(RC_tuning.throttleLimitPercent);
-
-            $('.pid_filter select[name="dtermLowpass2Type"]').val(FILTER_CONFIG.dterm_lowpass2_type);
-            $('.pid_filter input[name="gyroLowpassDynMinFrequency"]').val(FILTER_CONFIG.gyro_lowpass_dyn_min_hz);
-            $('.pid_filter input[name="gyroLowpassDynMaxFrequency"]').val(FILTER_CONFIG.gyro_lowpass_dyn_max_hz);
-            $('.pid_filter select[name="gyroLowpassDynType"]').val(FILTER_CONFIG.gyro_lowpass_type);
-            $('.pid_filter input[name="dtermLowpassDynMinFrequency"]').val(FILTER_CONFIG.dterm_lowpass_dyn_min_hz);
-            $('.pid_filter input[name="dtermLowpassDynMaxFrequency"]').val(FILTER_CONFIG.dterm_lowpass_dyn_max_hz);
-            $('.pid_filter select[name="dtermLowpassDynType"]').val(FILTER_CONFIG.dterm_lowpass_type);
-
-            $('.dminGroup input[name="dMinRoll"]').val(ADVANCED_TUNING.dMinRoll);
-            $('.dminGroup input[name="dMinPitch"]').val(ADVANCED_TUNING.dMinPitch);
-            $('.dminGroup input[name="dMinYaw"]').val(ADVANCED_TUNING.dMinYaw);
-            $('.dminGroup input[name="dMinGain"]').val(ADVANCED_TUNING.dMinGain);
-            $('.dminGroup input[name="dMinAdvance"]').val(ADVANCED_TUNING.dMinAdvance);
-
-            $('input[id="useIntegratedYaw"]').prop('checked', ADVANCED_TUNING.useIntegratedYaw !== 0);
-
-        } else {
-            $('.throttle_limit').hide();
-
-            $('.gyroLowpassDyn').hide();
-            $('.dtermLowpassDyn').hide();
-            $('.dtermLowpass2TypeGroup').hide();
-
-            $('.dminGroup').hide();
-
-            $('.integratedYaw').hide();
-        }
-
-        if (semver.gte(CONFIG.apiVersion, "1.42.0")) {
-            $('.smartfeedforward').hide();
-
-            if (FEATURE_CONFIG.features.isEnabled('DYNAMIC_FILTER')) {
-                $('.dynamicNotch').show();
-            } else {
-                $('.dynamicNotch').hide();
-            }
-
-            $('.pid_filter select[name="dynamicNotchRange"]').val(FILTER_CONFIG.dyn_notch_range);
-            $('.pid_filter input[name="dynamicNotchWidthPercent"]').val(FILTER_CONFIG.dyn_notch_width_percent);
-            $('.pid_filter input[name="dynamicNotchQ"]').val(FILTER_CONFIG.dyn_notch_q);
-            $('.pid_filter input[name="dynamicNotchMinHz"]').val(FILTER_CONFIG.dyn_notch_min_hz);
-        } else {
-            $('.itermRelaxCutoff').hide();
-            $('.dynamicNotch').hide();
-        }
-
-        $('input[id="useIntegratedYaw"]').change(function() {
-            var checked = $(this).is(':checked');
-            $('#pidTuningIntegratedYawCaution').toggle(checked);
-        }).change();
 
         function adjustDMin(dElement, dMinElement) {
             var dValue = parseInt(dElement.val());

@@ -436,7 +436,6 @@ var FC = {
             smartFeedforward:           0,
             itermRelax:                 0,
             itermRelaxType:             0,
-            itermRelaxCutoff:           0,
             absoluteControlGain:        0,
             throttleBoost:              0,
             acroTrainerAngleLimit:      0,
@@ -445,13 +444,7 @@ var FC = {
             feedforwardYaw:             0,
             feedforwardTransition:      0,
             antiGravityMode:            0,
-            dMinRoll:                   0,
-            dMinPitch:                  0,
-            dMinYaw:                    0,
-            dMinGain:                   0,
-            dMinAdvance:                0,
-            useIntegratedYaw:           0,
-            integratedYawRelax:         0,
+            itermRelaxCutoff:           0,
         };
 
         SENSOR_CONFIG = {
