@@ -412,7 +412,7 @@ var FC = {
               }
         KALMAN_FILTER_CONFIG = {
             gyro_filter_q:            0,
-            gyro_filter_r:            0,
+            gyro_filter_w:            0,
         };
 
         ADVANCED_TUNING = {

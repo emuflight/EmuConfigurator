@@ -200,7 +200,7 @@ TABS.pid_tuning.initialize = function (callback) {
           if (CONFIG.boardIdentifier !== "HESP" && CONFIG.boardIdentifier !== "SX10" && CONFIG.boardIdentifier !== "FLUX") {
                         $('.kalmanFilterSettingsPanel').show();
                         $('.pid_filter input[name="kalmanQCoefficient"]').val(KALMAN_FILTER_CONFIG.gyro_filter_q);
-                        $('.pid_filter input[name="kalmanRCoefficient"]').val(KALMAN_FILTER_CONFIG.gyro_filter_r);
+                        $('.pid_filter input[name="kalmanRCoefficient"]').val(KALMAN_FILTER_CONFIG.gyro_filter_w);
                         $('#imufFilterSettingsPanel').hide();
                     } else {
                         $('#imuf_roll_q').val(IMUF_FILTER_CONFIG.imuf_roll_q);
@@ -653,7 +653,7 @@ TABS.pid_tuning.initialize = function (callback) {
         if (semver.gte(CONFIG.apiVersion, "1.40.0")) {
                     if (CONFIG.boardIdentifier !== "HESP" && CONFIG.boardIdentifier !== "SX10" && CONFIG.boardIdentifier !== "FLUX") {
                         KALMAN_FILTER_CONFIG.gyro_filter_q = parseInt($('.pid_filter input[name="kalmanQCoefficient"]').val());
-                        KALMAN_FILTER_CONFIG.gyro_filter_r = parseInt($('.pid_filter input[name="kalmanRCoefficient"]').val());
+                        KALMAN_FILTER_CONFIG.gyro_filter_w = parseInt($('.pid_filter input[name="kalmanRCoefficient"]').val());
                     } else {
                         IMUF_FILTER_CONFIG.imuf_roll_q = parseInt($('#imuf_roll_q').val());
                         IMUF_FILTER_CONFIG.imuf_pitch_q = parseInt($('#imuf_pitch_q').val());
@@ -680,7 +680,7 @@ TABS.pid_tuning.initialize = function (callback) {
 
                 if (CONFIG.boardIdentifier !== "HESP" && CONFIG.boardIdentifier !== "SX10" && CONFIG.boardIdentifier !== "FLUX") {
                       KALMAN_FILTER_CONFIG.gyro_filter_q = parseInt($('.pid_filter input[name="kalmanQCoefficient"]').val());
-                      KALMAN_FILTER_CONFIG.gyro_filter_r = parseInt($('.pid_filter input[name="kalmanRCoefficient"]').val());
+                      KALMAN_FILTER_CONFIG.gyro_filter_w = parseInt($('.pid_filter input[name="kalmanRCoefficient"]').val());
                 } else {
                       IMUF_FILTER_CONFIG.imuf_roll_q = parseInt($('#imuf_roll_q').val());
                       IMUF_FILTER_CONFIG.imuf_pitch_q = parseInt($('#imuf_pitch_q').val());

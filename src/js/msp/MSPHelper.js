@@ -1020,7 +1020,7 @@ MspHelper.prototype.process_data = function(dataHandler) {
                 break;
                 case MSPCodes.MSP_FAST_KALMAN:
                 KALMAN_FILTER_CONFIG.gyro_filter_q = data.readU16();
-                KALMAN_FILTER_CONFIG.gyro_filter_r = data.readU16();
+                KALMAN_FILTER_CONFIG.gyro_filter_w = data.readU16();
                 break;
             case MSPCodes.MSP_IMUF_CONFIG:
                 IMUF_FILTER_CONFIG.imuf_mode = data.readU16();
@@ -1816,7 +1816,7 @@ MspHelper.prototype.crunch = function(code) {
             break;
             case MSPCodes.MSP_SET_FAST_KALMAN:
             buffer.push16(KALMAN_FILTER_CONFIG.gyro_filter_q);
-            buffer.push16(KALMAN_FILTER_CONFIG.gyro_filter_r);
+            buffer.push16(KALMAN_FILTER_CONFIG.gyro_filter_w);
             break;
         case MSPCodes.MSP_SET_IMUF_CONFIG:
             buffer.push16(IMUF_FILTER_CONFIG.imuf_mode);
