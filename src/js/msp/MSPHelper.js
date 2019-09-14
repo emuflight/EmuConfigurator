@@ -333,15 +333,6 @@ MspHelper.prototype.process_data = function(dataHandler) {
                     RC_tuning.rcPitchRate = 0;
                     RC_tuning.RC_PITCH_EXPO = 0;
                 }
-                if (semver.gte(CONFIG.apiVersion, "1.41.0")) {
-                    RC_tuning.throttleLimitType = data.readU8();
-                    RC_tuning.throttleLimitPercent = data.readU8();
-                }
-                if (semver.gte(CONFIG.apiVersion, "1.42.0")) {
-                    RC_tuning.roll_rate_limit = data.readU16();
-                    RC_tuning.pitch_rate_limit = data.readU16();
-                    RC_tuning.yaw_rate_limit = data.readU16();
-                }
                 break;
 
             case MSPCodes.MSP_EMUF:

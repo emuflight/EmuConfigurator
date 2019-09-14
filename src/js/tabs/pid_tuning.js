@@ -381,34 +381,6 @@ TABS.pid_tuning.initialize = function (callback) {
             $('.antigravity  table td:first-child').hide();
         }
 
-
-        function adjustDMin(dElement, dMinElement) {
-            var dValue = parseInt(dElement.val());
-            var dMinValue = parseInt(dMinElement.val());
-
-            var dMinLimit = dValue > 0 ? dValue - 1 : 0;
-            if (dMinValue > dMinLimit) {
-                dMinElement.val(dMinLimit);
-            }
-
-            dMinElement.attr("max", dMinLimit);
-        }
-
-        $('.pid_tuning .ROLL input[name="d"]').change(function() {
-            var dMinElement= $('.dminGroup input[name="dMinRoll"]');
-            adjustDMin($(this), dMinElement);
-        }).change();
-
-        $('.pid_tuning .PITCH input[name="d"]').change(function() {
-            var dMinElement= $('.dminGroup input[name="dMinPitch"]');
-            adjustDMin($(this), dMinElement);
-        }).change();
-
-        $('.pid_tuning .YAW input[name="d"]').change(function() {
-            var dMinElement= $('.dminGroup input[name="dMinYaw"]');
-            adjustDMin($(this), dMinElement);
-        }).change();
-
         $('input[id="gyroNotch1Enabled"]').change(function() {
             var checked = $(this).is(':checked');
             var hz = FILTER_CONFIG.gyro_notch_hz > 0 ? FILTER_CONFIG.gyro_notch_hz : FILTER_DEFAULT.gyro_notch_hz;
@@ -689,34 +661,6 @@ TABS.pid_tuning.initialize = function (callback) {
                 }
         }
 
-        if (semver.gte(CONFIG.apiVersion, "1.41.0")) {
-            RC_tuning.throttleLimitType = $('select[id="throttleLimitType"]').val();
-            RC_tuning.throttleLimitPercent = parseInt($('.throttle_limit input[name="throttleLimitPercent"]').val());
-            FILTER_CONFIG.dterm_lowpass2_type = $('.pid_filter select[name="dtermLowpass2Type"]').val();
-            FILTER_CONFIG.gyro_lowpass_dyn_min_hz = parseInt($('.pid_filter input[name="gyroLowpassDynMinFrequency"]').val());
-            FILTER_CONFIG.gyro_lowpass_dyn_max_hz = parseInt($('.pid_filter input[name="gyroLowpassDynMaxFrequency"]').val());
-            FILTER_CONFIG.dterm_lowpass_dyn_min_hz = parseInt($('.pid_filter input[name="dtermLowpassDynMinFrequency"]').val());
-            FILTER_CONFIG.dterm_lowpass_dyn_max_hz = parseInt($('.pid_filter input[name="dtermLowpassDynMaxFrequency"]').val());
-            if (FILTER_CONFIG.gyro_lowpass_dyn_min_hz > 0 && FILTER_CONFIG.gyro_lowpass_dyn_min_hz < FILTER_CONFIG.gyro_lowpass_dyn_max_hz ) {
-                FILTER_CONFIG.gyro_lowpass_type = $('.pid_filter select[name="gyroLowpassDynType"]').val();
-            }
-            if (FILTER_CONFIG.dterm_lowpass_dyn_min_hz > 0 && FILTER_CONFIG.dterm_lowpass_dyn_min_hz < FILTER_CONFIG.dterm_lowpass_dyn_max_hz ) {
-                FILTER_CONFIG.dterm_lowpass_type = $('.pid_filter select[name="dtermLowpassDynType"]').val();
-            }
-            ADVANCED_TUNING.dMinRoll = parseInt($('.dminGroup input[name="dMinRoll"]').val());
-            ADVANCED_TUNING.dMinPitch = parseInt($('.dminGroup input[name="dMinPitch"]').val());
-            ADVANCED_TUNING.dMinYaw = parseInt($('.dminGroup input[name="dMinYaw"]').val());
-            ADVANCED_TUNING.dMinGain = parseInt($('.dminGroup input[name="dMinGain"]').val());
-            ADVANCED_TUNING.dMinAdvance = parseInt($('.dminGroup input[name="dMinAdvance"]').val());
-            ADVANCED_TUNING.useIntegratedYaw = $('input[id="useIntegratedYaw"]').is(':checked') ? 1 : 0;
-        }
-
-        if (semver.gte(CONFIG.apiVersion, "1.42.0")) {
-            FILTER_CONFIG.dyn_notch_range = parseInt($('.pid_filter select[name="dynamicNotchRange"]').val());
-            FILTER_CONFIG.dyn_notch_width_percent = parseInt($('.pid_filter input[name="dynamicNotchWidthPercent"]').val());
-            FILTER_CONFIG.dyn_notch_q = parseInt($('.pid_filter input[name="dynamicNotchQ"]').val());
-            FILTER_CONFIG.dyn_notch_min_hz = parseInt($('.pid_filter input[name="dynamicNotchMinHz"]').val());
-        }
         EMUF_ADVANCED.dynamic_THR_PID_I = parseFloat($('.tpa input[name="tpa_I"]').val());
         EMUF_ADVANCED.dynamic_THR_PID_D = parseFloat($('.tpa input[name="tpa_D"]').val());
     }

@@ -4975,8 +4975,8 @@
       "pidTuningKalmanFilterR": {
           "message": "Imuf W Coefficient"
       },
-      "pidTuningKalmanFilterRHelp": {
-          "message": "Imuf filter W Coefficient. The amount of errors predicted in gyro data (Higher value = more errors predicted and more filtering)"
+      "pidTuningKalmanFilterWHelp": {
+          "message": "W is the amount of gyro readings which the IMUF filter looks at to determine its filter. Lower W gives a sharper stick feel. Larger craft prefer a higher W value."
       },
     "pidTuningKalmanFilterSettings": {
         "message": "Imuf Filter Settings"

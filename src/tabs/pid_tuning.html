@@ -263,47 +263,6 @@
                             </tr>
                         </table>
                     </div>
-
-                    <div class="dminGroup topspacer tpa">
-                        <table class="cf">
-                            <thead>
-                                <tr>
-                                    <th colspan="5">
-                                        <span i18n="pidTuningDMin" />
-                                        <span class="helpicon cf_tip" i18n_title="pidTuningDMinHelp" />
-                                    </th>
-                                </tr>
-
-                                <tr>
-                                    <th i18n="pidTuningDMinRoll" />
-                                    <th i18n="pidTuningDMinPitch" />
-                                    <th i18n="pidTuningDMinYaw" />
-                                    <th i18n="pidTuningDMinGain" />
-                                    <th i18n="pidTuningDMinAdvance" />
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <input type="number" name="dMinRoll" step="1" min="0" max="100" />
-                                    </td>
-                                    <td>
-                                        <input type="number" name="dMinPitch" step="1" min="0" max="100" />
-                                    </td>
-                                    <td>
-                                        <input type="number" name="dMinYaw" step="1" min="0" max="100" />
-                                    </td>
-                                    <td>
-                                        <input type="number" name="dMinGain" step="1" min="0" max="100" />
-                                    </td>
-                                    <td>
-                                        <input type="number" name="dMinAdvance" step="1" min="0" max="200" />
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
                     <div class="gui_box grey topspacer pidTuningFeatures">
                         <table class="pid_titlebar new_rates">
                             <tr>
@@ -684,39 +643,6 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="spacer_left topspacer throttle_limit">
-                        <table class="cf">
-                            <thead>
-                                <tr>
-                                    <th>
-                                        <div>
-                                            <div i18n="pidTuningThrottleLimitType" style="float:left;"></div>
-                                            <div class="helpicon cf_tip" i18n_title="pidTuningThrottleLimitTypeTip"></div>
-                                        </div>
-                                    </th>
-                                    <th>
-                                        <div>
-                                            <div i18n="pidTuningThrottleLimitPercent" style="float:left;"></div>
-                                            <div class="helpicon cf_tip" i18n_title="pidTuningThrottleLimitPercentTip"></div>
-                                        </div>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr style="height: 35px;">
-                                    <td>
-                                        <select id="throttleLimitType">
-                                            <option i18n="pidTuningThrottleLimitTypeOff" value="0">
-                                            <option i18n="pidTuningThrottleLimitTypeScale" value="1">
-                                            <option i18n="pidTuningThrottleLimitTypeClip" value="2">
-                                        </select>
-
-                                    </td>
-                                    <td><input type="number" name="throttleLimitPercent" step="1" min="25" max="100" /></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
                 </div>
             </div>
 
@@ -1057,7 +983,7 @@
                                         <label>
                                             <span i18n="pidTuningImufW"></span>
                                         </label>
-                                        <div class="helpicon cf_tip" i18n_title="pidTuningKalmanFilterQHelp"></div>
+                                        <div class="helpicon cf_tip" i18n_title="pidTuningKalmanFilterWHelp"></div>
                                     </div>
                                 </td>
                             </tr>
