@@ -1028,6 +1028,12 @@
     "featureDYNAMIC_FILTER": {
         "message": "Dynamic gyro notch filtering"
     },
+    "featureLEGACY_SA_SUPPORT": {
+      "message": "Legacy AKK and Mach2 VTX Smart Audio support"
+  },
+  "featureLEGACY_SA_SUPPORTTip": {
+      "message": "Backward compatibility feature for AKK and Mach2 VTXes with <strong>'incorrect'</strong> Smart Audio implementation."
+  },
     "featureFAILSAFE": {
         "message": "Enable Failsafe Stage 2"
     },

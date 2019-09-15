@@ -95,6 +95,12 @@ var Features = function (config) {
                 {bit: 11, group: 'batteryCurrent', name: 'CURRENT_METER'}
             );
         }
+        if (semver.gte(CONFIG.apiVersion, "1.39.0"))
+        {
+            features.push(
+                { bit: 30, group: 'other', name: 'LEGACY_SA_SUPPORT', haveTip: true }
+            );
+        }
     }
 
     self._features = features;
