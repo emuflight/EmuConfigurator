@@ -2,13 +2,12 @@
 
 ![Emuflight](http://static.rcgroups.net/forums/attachments/6/1/0/3/7/6/a9088900-228-bf_logo.jpg)
 
-[![Crowdin](https://d322cqt584bo4o.cloudfront.net/emuflight-configurator/localized.svg)](https://crowdin.com/project/emuflight-configurator)
 
 Emuflight Configurator is a crossplatform configuration tool for the Emuflight flight control system.
 
 It runs as an app within Google Chrome and allows you to configure the Emuflight software running on any [supported Emuflight target](https://github.com/emuflight/emuflight/tree/master/src/main/target).
 
-There is also now a standalone version available, since Google Chrome Apps are getting deprecated on platforms that aren't Chrome OS. [Downloads are available in Releases.](https://github.comemuflightemuflight-configurator/releases)
+There is also now a standalone version available, since Google Chrome Apps are getting deprecated on platforms that aren't Chrome OS. [Downloads are available in Releases.](https://github.com/emuflightemuflight-configurator/releases)
 
 Various types of aircraft are supported by the tool and by Emuflight, e.g. quadcopters, hexacopters, octocopters and fixed-wing aircraft.
 
@@ -111,7 +110,7 @@ If you need help please reach out on the [betaflightgroup](https://betaflightgro
 
 For Emuflight configurator issues raise them here
 
-https://github.comemuflightemuflight-configurator/issues
+https://github.com/emuflightemuflight-configurator/issues
 
 For Emuflight firmware issues raise them here
 
