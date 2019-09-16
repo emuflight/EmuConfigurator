@@ -1,6 +1,6 @@
 # Emuflight Configurator
 
-![Emuflight](http://static.rcgroups.net/forums/attachments/6/1/0/3/7/6/a9088900-228-bf_logo.jpg)
+![Emuflight](.github/EmuFlight.png)
 
 
 Emuflight Configurator is a crossplatform configuration tool for the Emuflight flight control system.
