@@ -24,7 +24,7 @@ If you are experiencing any problems please make sure you are running the [lates
 
 **This is the default installation method, and at some point in the future this will become the only way available for most platforms. Please use this method whenever possible.**
 
-Download the installer from [Releases.](https://github.comemuflightemuflight-configurator/releases)
+Download the installer from [Releases.](https://github.com/emuflight/EmuConfigurator/releases)
 
 ### Via Chrome Web Store (for ChromeOS)
 
