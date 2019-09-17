@@ -7,7 +7,7 @@ Emuflight Configurator is a crossplatform configuration tool for the Emuflight f
 
 It runs as an app within Google Chrome and allows you to configure the Emuflight software running on any [supported Emuflight target](https://github.com/emuflight/emuflight/tree/master/src/main/target).
 
-There is also now a standalone version available, since Google Chrome Apps are getting deprecated on platforms that aren't Chrome OS. [Downloads are available in Releases.](https://github.com/emuflightemuflight-configurator/releases)
+There is also now a standalone version available, since Google Chrome Apps are getting deprecated on platforms that aren't Chrome OS. [Downloads are available in Releases.](https://github.com/emuflight/EmuConfigurator/releases)
 
 Various types of aircraft are supported by the tool and by Emuflight, e.g. quadcopters, hexacopters, octocopters and fixed-wing aircraft.
 
