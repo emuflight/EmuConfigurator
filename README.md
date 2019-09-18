@@ -39,9 +39,7 @@ Please note - the application will automatically update itself when new versions
 
 ### Unstable Testing Versions
 
-Unstable testing versions of the lates builds of the configurator for most platforms can be downloaded from [here](https://ci.betaflight.tech/job/BetaFlight_Configurator/).
-
-**Be aware that these versions are intended for testing / feedback only, and may be buggy or broken, and can cause flight controller settings to be corrupted. Caution is advised when using these versions.**
+Not available at this time. 
 
 ## Native app build via NW.js
 
@@ -104,7 +102,7 @@ If you have 3D model animation problems, enable "Override software rendering lis
 
 ## Support
 
-If you need help please reach out on the [betaflightgroup](https://betaflightgroup.slack.com) slack channel before raising issues on github. Register and [request slack access here](https://slack.betaflight.com).
+If you need help please reach out in [Emuflight support group](https://discordapp.com/channels/547211754845765635/596913667447062547) in Discord before raising issues on Github. Register and [join via this link](https://discord.gg/TM5hpcM).
 
 ### Issue trackers
 
@@ -114,7 +112,7 @@ https://github.com/emuflightemuflight-configurator/issues
 
 For Emuflight firmware issues raise them here
 
-https://github.com/emuflight/emuflight/issues
+https://github.com/emuflight/EmuFlight-Butter-Varient/issues
 
 ## Technical details
 
