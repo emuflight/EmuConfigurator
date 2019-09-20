@@ -26,24 +26,13 @@ If you are experiencing any problems please make sure you are running the [lates
 
 Download the installer from [Releases.](https://github.com/emuflight/EmuConfigurator/releases)
 
-### Via Chrome Web Store (for ChromeOS)
-
-[![available in the Chrome web store for Chromeos](https://developer.chrome.com/webstore/images/ChromeWebStore_Badge_v2_206x58.png)](https://chrome.google.com/webstore/detail/dlgclabibdhkfnbkajgkplmkpndajfom)
-
-1. Visit the [Emuflight Configurator product page in the Chrome web store](https://chrome.google.com/webstore/detail/dlgclabibdhkfnbkajgkplmkpndajfom)
-2. Click **+ Add to Chrome**
-
-Please note - the application will automatically update itself when new versions are released.  Please ensure you maintain configuration backups as described in the Emuflight documentation.
-
-(A deprecated legacy version for all platforms is also available [here](https://chrome.google.com/webstore/detail/emuflight-configurator/kdaghagfopacdngbohiknlhcocjccjao).)
-
 ### Unstable Testing Versions
 
 Not available at this time. 
 
-## Native app build via NW.js
+## Development
 
-### Development
+### Environment Setup
 
 1. Install node.js
 2. Install yarn: `npm install yarn -g`
