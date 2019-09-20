@@ -4961,7 +4961,7 @@
         "message": "Enable dark theme"
     },
     "pidTuningKalmanFilterQ": {
-          "message": "Imuf Q Coefficient"
+          "message": "IMU-F Q Coefficient"
       },
       "pidTuningImufRollQ": {
           "message": "IMU-F roll Q"
@@ -4976,16 +4976,34 @@
           "message": "IMU-F W"
       },
       "pidTuningKalmanFilterQHelp": {
-          "message": "Imuf filter Q Coefficient. The amount of trust in gyro data accuracy (Higher value = more trust and less filtering)"
+          "message": "IMU-F filter Q Coefficient. The amount of trust in gyro data accuracy (Higher value = more trust and less filtering)"
+      },
+      "pidTuningImuflpfRoll": {
+        "message": "IMU-F ROLL lpf cutoff hz"
+      },
+        "pidTuningImuflpfRollHelp": {
+        "message": ""
+      },
+      "pidTuningImuflpfPitch": {
+        "message": "IMU-F PITCH lpf cutoff hz"
+      },
+        "pidTuningImuflpfPitchHelp": {
+        "message": ""
+      },
+      "pidTuningImuflpfYaw": {
+        "message": "IMU-F YAW lpf cutoff hz"
+      },
+        "pidTuningImuflpfYawHelp": {
+        "message": ""
       },
       "pidTuningKalmanFilterR": {
-          "message": "Imuf W Coefficient"
+          "message": "IMU-F W Coefficient"
       },
       "pidTuningKalmanFilterWHelp": {
           "message": "W is the amount of gyro readings which the IMUF filter looks at to determine its filter. Lower W gives a sharper stick feel. Larger craft prefer a higher W value."
       },
     "pidTuningKalmanFilterSettings": {
-        "message": "Imuf Filter Settings"
+        "message": "IMU-F Filter Settings"
     },
     "pidTuningIMUFFilterSettings": {
         "message": "IMU-F Filter Settings"

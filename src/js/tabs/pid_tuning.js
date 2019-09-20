@@ -197,22 +197,25 @@ TABS.pid_tuning.initialize = function (callback) {
 
         if (semver.gte(CONFIG.apiVersion, "1.40.0")) {
 
-          if (CONFIG.boardIdentifier !== "HESP" && CONFIG.boardIdentifier !== "SX10" && CONFIG.boardIdentifier !== "FLUX") {
-                        $('.kalmanFilterSettingsPanel').show();
-                        $('.pid_filter input[name="kalmanQCoefficient"]').val(KALMAN_FILTER_CONFIG.gyro_filter_q);
-                        $('.pid_filter input[name="kalmanRCoefficient"]').val(KALMAN_FILTER_CONFIG.gyro_filter_w);
-                        $('#imufFilterSettingsPanel').hide();
-                    } else {
-                        $('#imuf_roll_q').val(IMUF_FILTER_CONFIG.imuf_roll_q);
-                        $('#imuf_pitch_q').val(IMUF_FILTER_CONFIG.imuf_pitch_q);
-                        $('#imuf_yaw_q').val(IMUF_FILTER_CONFIG.imuf_yaw_q);
-                        $('#imuf_w').val(IMUF_FILTER_CONFIG.imuf_w);
+            if (CONFIG.boardIdentifier !== "HESP" && CONFIG.boardIdentifier !== "SX10" && CONFIG.boardIdentifier !== "FLUX") {
+                $('.kalmanFilterSettingsPanel').show();
+                $('.pid_filter input[name="kalmanQCoefficient"]').val(KALMAN_FILTER_CONFIG.gyro_filter_q);
+                $('.pid_filter input[name="kalmanRCoefficient"]').val(KALMAN_FILTER_CONFIG.gyro_filter_w);
+                $('#imufFilterSettingsPanel').hide();
+            } else {
+                $('#imuf_roll_q').val(IMUF_FILTER_CONFIG.imuf_roll_q);
+                $('#imuf_pitch_q').val(IMUF_FILTER_CONFIG.imuf_pitch_q);
+                $('#imuf_yaw_q').val(IMUF_FILTER_CONFIG.imuf_yaw_q);
+                $('#imuf_w').val(IMUF_FILTER_CONFIG.imuf_w);
+                $('#imuf_pitch_lpf_cutoff_hz').val(IMUF_FILTER_CONFIG.imuf_pitch_lpf_cutoff_hz);
+                $('#imuf_roll_lpf_cutoff_hz').val(IMUF_FILTER_CONFIG.imuf_roll_lpf_cutoff_hz);
+                $('#imuf_yaw_lpf_cutoff_hz').val(IMUF_FILTER_CONFIG.imuf_yaw_lpf_cutoff_hz);
 
-                        //Only show HELIO SPRING compatible settings
-                        $('.kalmanFilterSettingsPanel').hide();
-                        $('#filterTuningHelp').hide();
-                        $('#imufFilterSettingsPanel').show();
-                    }
+                //Only show HELIO SPRING compatible settings
+                $('.kalmanFilterSettingsPanel').hide();
+                $('#filterTuningHelp').hide();
+                $('#imufFilterSettingsPanel').show();
+            }
 
             // Feathered PIDs
             $('input[id="feathered_pids"]').prop('checked', ADVANCED_TUNING.feathered_pids !== 0);
@@ -470,34 +473,13 @@ TABS.pid_tuning.initialize = function (callback) {
             self.updateFilterWarning();
         });
 
-        $('input[id="dtermLowpassDynEnabled"]').change(function() {
-            var checked = $(this).is(':checked');
-            var cutoff_min = FILTER_DEFAULT.dterm_lowpass_dyn_min_hz;
-            var type = FILTER_DEFAULT.dterm_lowpass_type;
-            if (FILTER_CONFIG.dterm_lowpass_dyn_min_hz > 0 && FILTER_CONFIG.dterm_lowpass_dyn_min_hz < FILTER_CONFIG.dterm_lowpass_dyn_max_hz) {
-                cutoff_min = FILTER_CONFIG.dterm_lowpass_dyn_min_hz;
-                type = FILTER_CONFIG.dterm_lowpass_type;
-            }
-
-            $('.pid_filter input[name="dtermLowpassDynMinFrequency"]').val(checked ? cutoff_min : 0).attr('disabled', !checked);
-            $('.pid_filter input[name="dtermLowpassDynMaxFrequency"]').attr('disabled', !checked);
-            $('.pid_filter select[name="dtermLowpassDynType"]').val(type).attr('disabled', !checked);
-
-            if (checked) {
-                $('input[id="dtermLowpassEnabled"]').prop('checked', false).change();
-            } else if (FILTER_CONFIG.dterm_lowpass_hz > 0 && !$('input[id="dtermLowpassEnabled"]').is(':checked')) {
-                $('input[id="dtermLowpassEnabled"]').prop('checked', true).change();
-            }
-            self.updateFilterWarning();
-        });
-
         $('input[id="dtermLowpass2Enabled"]').change(function() {
             var checked = $(this).is(':checked');
             var cutoff = FILTER_CONFIG.dterm_lowpass2_hz > 0 ? FILTER_CONFIG.dterm_lowpass2_hz : FILTER_DEFAULT.dterm_lowpass2_hz;
             var type = FILTER_CONFIG.dterm_lowpass2_hz > 0 ? FILTER_CONFIG.dterm_lowpass2_type : FILTER_DEFAULT.dterm_lowpass2_type;
 
             $('.pid_filter input[name="dtermLowpass2Frequency"]').val(checked ? cutoff : 0).attr('disabled', !checked);
-            $('.pid_filter select[name="dtermLowpass2Type"]').val(type).attr('disabled', !checked);
+          //  $('.pid_filter select[name="dtermLowpass2Type"]').val(type).attr('disabled', !checked);
         });
 
         $('input[id="yawLowpassEnabled"]').change(function() {
@@ -623,15 +605,7 @@ TABS.pid_tuning.initialize = function (callback) {
         }
 
         if (semver.gte(CONFIG.apiVersion, "1.40.0")) {
-                    if (CONFIG.boardIdentifier !== "HESP" && CONFIG.boardIdentifier !== "SX10" && CONFIG.boardIdentifier !== "FLUX") {
-                        KALMAN_FILTER_CONFIG.gyro_filter_q = parseInt($('.pid_filter input[name="kalmanQCoefficient"]').val());
-                        KALMAN_FILTER_CONFIG.gyro_filter_w = parseInt($('.pid_filter input[name="kalmanRCoefficient"]').val());
-                    } else {
-                        IMUF_FILTER_CONFIG.imuf_roll_q = parseInt($('#imuf_roll_q').val());
-                        IMUF_FILTER_CONFIG.imuf_pitch_q = parseInt($('#imuf_pitch_q').val());
-                        IMUF_FILTER_CONFIG.imuf_yaw_q = parseInt($('#imuf_yaw_q').val());
-                        IMUF_FILTER_CONFIG.imuf_w = parseInt($('#imuf_w').val());
-                    }
+
             ADVANCED_TUNING.feathered_pids = $('input[id="feathered_pids"]').is(':checked') ? 1 : 0;
             ADVANCED_TUNING.itermRotation = $('input[id="itermrotation"]').is(':checked') ? 1 : 0;
             ADVANCED_TUNING.smartFeedforward = $('input[id="smartfeedforward"]').is(':checked') ? 1 : 0;
@@ -650,15 +624,18 @@ TABS.pid_tuning.initialize = function (callback) {
             ADVANCED_TUNING.feedforwardTransition = parseInt($('input[name="feedforwardTransition-number"]').val() * 100);
             ADVANCED_TUNING.antiGravityMode = $('select[id="antiGravityMode"]').val();
 
-                if (CONFIG.boardIdentifier !== "HESP" && CONFIG.boardIdentifier !== "SX10" && CONFIG.boardIdentifier !== "FLUX") {
-                      KALMAN_FILTER_CONFIG.gyro_filter_q = parseInt($('.pid_filter input[name="kalmanQCoefficient"]').val());
-                      KALMAN_FILTER_CONFIG.gyro_filter_w = parseInt($('.pid_filter input[name="kalmanRCoefficient"]').val());
-                } else {
-                      IMUF_FILTER_CONFIG.imuf_roll_q = parseInt($('#imuf_roll_q').val());
-                      IMUF_FILTER_CONFIG.imuf_pitch_q = parseInt($('#imuf_pitch_q').val());
-                      IMUF_FILTER_CONFIG.imuf_yaw_q = parseInt($('#imuf_yaw_q').val());
-                      IMUF_FILTER_CONFIG.imuf_w = parseInt($('#imuf_w').val());
-                }
+            if (CONFIG.boardIdentifier !== "HESP" && CONFIG.boardIdentifier !== "SX10" && CONFIG.boardIdentifier !== "FLUX") {
+                    KALMAN_FILTER_CONFIG.gyro_filter_q = parseInt($('.pid_filter input[name="kalmanQCoefficient"]').val());
+                    KALMAN_FILTER_CONFIG.gyro_filter_w = parseInt($('.pid_filter input[name="kalmanRCoefficient"]').val());
+            } else {
+                    IMUF_FILTER_CONFIG.imuf_roll_q = parseInt($('#imuf_roll_q').val());
+                    IMUF_FILTER_CONFIG.imuf_pitch_q = parseInt($('#imuf_pitch_q').val());
+                    IMUF_FILTER_CONFIG.imuf_yaw_q = parseInt($('#imuf_yaw_q').val());
+                    IMUF_FILTER_CONFIG.imuf_w = parseInt($('#imuf_w').val());
+                    IMUF_FILTER_CONFIG.imuf_roll_lpf_cutoff_hz = parseInt($('#imuf_roll_lpf_cutoff_hz').val());
+                    IMUF_FILTER_CONFIG.imuf_pitch_lpf_cutoff_hz = parseInt($('#imuf_pitch_lpf_cutoff_hz').val());
+                    IMUF_FILTER_CONFIG.imuf_yaw_lpf_cutoff_hz = parseInt($('#imuf_yaw_lpf_cutoff_hz').val());
+            }
         }
 
         EMUF_ADVANCED.dynamic_THR_PID_I = parseFloat($('.tpa input[name="tpa_I"]').val());
@@ -1046,29 +1023,13 @@ TABS.pid_tuning.initialize = function (callback) {
                 dtermFilterSelect.append('<option value="' + key + '">' + value + '</option>');
             });
         }
-        // Added in API 1.42.0
-        function loadDynamicNotchRangeValues() {
-            var dynamicNotchRangeValues = [
-                "HIGH", "MEDIUM", "LOW", "AUTO",
-            ];
-            return dynamicNotchRangeValues;
-        }
-        function populateDynamicNotchRangeSelect(selectDynamicNotchRangeValues) {
-            var dynamicNotchRangeSelect = $('select[name="dynamicNotchRange"]');
-            selectDynamicNotchRangeValues.forEach(function(value, key) {
-                dynamicNotchRangeSelect.append('<option value="' + key + '">' + value + '</option>');
-            });
-        }
-        if (semver.gte(CONFIG.apiVersion, "1.42.0")) {
-            populateDynamicNotchRangeSelect(loadDynamicNotchRangeValues());
-        }
 
         populateFilterTypeSelector('gyroLowpassType', loadFilterTypeValues());
         populateFilterTypeSelector('gyroLowpassDynType', loadFilterTypeValues());
         populateFilterTypeSelector('gyroLowpass2Type', loadFilterTypeValues());
         populateFilterTypeSelector('dtermLowpassType', loadFilterTypeValues());
-        populateFilterTypeSelector('dtermLowpass2Type', loadFilterTypeValues());
-        populateFilterTypeSelector('dtermLowpassDynType', loadFilterTypeValues());
+        // populateFilterTypeSelector('dtermLowpass2Type', loadFilterTypeValues());
+        //populateFilterTypeSelector('dtermLowpassDynType', loadFilterTypeValues());
 
         pid_and_rc_to_form();
 
@@ -1791,19 +1752,14 @@ TABS.pid_tuning.updateFilterWarning = function() {
     var dtermDynamicLowpassEnabled = $('input[id="dtermLowpassDynEnabled"]').is(':checked');
     var dtermLowpass1Enabled = $('input[id="dtermLowpassEnabled"]').is(':checked');
     var warning_e = $('#pid-tuning .filterWarning');
-    var warningDynamicNotch_e = $('#pid-tuning .dynamicNotchWarning');
-    if (!(gyroDynamicLowpassEnabled || gyroLowpass1Enabled) || !(dtermDynamicLowpassEnabled || dtermLowpass1Enabled)) {
-        warning_e.show();
+    if (!(gyroDynamicLowpassEnabled || gyroLowpass1Enabled) || !(dtermDynamicLowpassEnabled || dtermLowpass1Enabled)) {   
+        if (CONFIG.boardIdentifier == "HESP" || CONFIG.boardIdentifier == "SX10" || CONFIG.boardIdentifier == "FLUX") {
+            warning_e.hide();
+        } else {
+            warning_e.show();
+        }
     } else {
         warning_e.hide();
     }
-    if (semver.gte(CONFIG.apiVersion, "1.42.0")) {
-        if (FEATURE_CONFIG.features.isEnabled('DYNAMIC_FILTER')) {
-            warningDynamicNotch_e.hide();
-        } else {
-            warningDynamicNotch_e.show();
-        }
-    } else {
-        warningDynamicNotch_e.hide();
-    }
+    
 }
