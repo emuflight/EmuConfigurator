@@ -471,7 +471,7 @@
         "message": "開発への協力・貢献"
     },
     "defaultContributingText": {
-        "message": "Emuflightを今後より良くするためにご協力いただける場合、以下を含むさまざまな方法でお手伝いしていただけます:<br \/><ul><li>\nフォーラムやIRCで他のユーザの質問に答える<\/li><li>\nファームウェアとConfiguratorへのコードの提供 - 新機能や修正、改良<\/li><li>\n<a href=\"https:\/\/github.com\/Emuflight\/EmuFlight-Butter-Varient\/pulls\" target=\"_blank\">新機能のフィックス<\/a>、テストとフィードバックの提供<\/li><li>\n<a href=\"https:\/\/github.com\/emuflight\/EmuFlight-Butter-Varient\/issues\" target=\"_blank\">問題のヘルプと新機能リクエスト<\/a>へのコメント協力<\/li><li>\n<a href=\"https:\/\/crowdin.com\/project\/emuflight-configurator\" target=\"_blank\">Emuflight Configuratorを母国語へ翻訳すること<\/a>に協力してみましょう。<\/li><li><\/li><\/ul>"
+        "message": "Emuflightを今後より良くするためにご協力いただける場合、以下を含むさまざまな方法でお手伝いしていただけます:<br \/><ul><li>\nフォーラムやIRCで他のユーザの質問に答える<\/li><li>\nファームウェアとConfiguratorへのコードの提供 - 新機能や修正、改良<\/li><li>\n<a href=\"https:\/\/github.com\/Emuflight\/EmuFlight-Butter-Varient\/pulls\" target=\"_blank\">新機能のフィックス<\/a>、テストとフィードバックの提供<\/li><li>\n<a href=\"https:\/\/github.com\/emuflight\/EmuFlight-Butter-Varient\/issues\" target=\"_blank\">問題のヘルプと新機能リクエスト<\/a>へのコメント協力<\/li><li>\n<a href=\"https:\/\/discordapp.com\/channels\/547211754845765635/596913667447062547\" target=\"_blank\">Emuflight Configuratorを母国語へ翻訳すること<\/a>に協力してみましょう。<\/li><li><\/li><\/ul>"
     },
     "defaultFacebookText": {
         "message": "私たちは<a href=\"https:\/\/www.facebook.com\/groups\/betaflightgroup\/\" target=\"_blank\">Facebookグループ<\/a>も運営しています。<br \/>私たちと一緒にEmuflightについて語り合い、設定に関する質問をしたり、パイロット同士で交流してみましょう。"
@@ -528,19 +528,10 @@
         "message": "サポートに関しては、最初に検索フォーラムやwiki、もしくはベンダーにお問い合わせ下さい。<br \/><br \/>"
     },
     "defaultSupport1": {
-        "message": "<a href=\"http:\/\/www.rcgroups.com\/forums\/showthread.php?t=2464844&page=1\" target=\"_blank\">RC Groups スレッド<\/a>"
+        "message": "<a href=\"https:\/\/discordapp.com\/channels\/547211754845765635\" target=\"_blank\">Discord<\/a>"
     },
     "defaultSupport2": {
-        "message": "<a href=\"http:\/\/betaflight.info\" target=\"_blank\">Emuflight Wiki<\/a>"
-    },
-    "defaultSupport3": {
-        "message": "<a href=\"https:\/\/www.youtube.com\/playlist?list=PLwoDb7WF6c8kdK6yHr7vhsU9iRTr5HxP4\" target=\"_blank\">Joshua Bardwell Emuflight Videos<\/a>"
-    },
-    "defaultSupport4": {
-        "message": "<a href=\"https:\/\/github.com\/Emuflight\" target=\"_blank\">GitHub<\/a>"
-    },
-    "defaultSupport5": {
-        "message": "<a href=\"https:\/\/slack.betaflight.com\" target=\"_blank\">Emuflight devs on slack<\/a>"
+         "message": "<a href=\"https:\/\/github.com\/Emuflight\" target=\"_blank\">GitHub<\/a>"
     },
     "initialSetupBackupAndRestoreApiVersion": {
         "message": "<span class=\"message-negative\">バックアップと復元の機能が無効です。<\/span>ファームウェアのAPIバージョンは<span class=\"message-negative\">$1<\/span>ですが、バックアップと復元には<span class=\"message-positive\">$2<\/span>が必要です。バックアップにはCLIをご利用下さい。方法についてはEmuflightドキュメントを参照して下さい。"

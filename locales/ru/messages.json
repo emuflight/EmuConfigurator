@@ -528,19 +528,10 @@
         "message": "Для помощи сперва поищите на форумах и на wiki или свяжитесь с вашим продавцом.<br \/><br \/>"
     },
     "defaultSupport1": {
-        "message": "<a href=\"http:\/\/www.rcgroups.com\/forums\/showthread.php?t=2464844&page=1\" target=\"_blank\">Обсуждения RC Groups<\/a>"
+        "message": "<a href=\"https:\/\/discordapp.com\/channels\/547211754845765635\" target=\"_blank\">Discord<\/a>"
     },
     "defaultSupport2": {
-        "message": "<a href=\"http:\/\/betaflight.info\" target=\"_blank\">Emuflight Wiki<\/a>"
-    },
-    "defaultSupport3": {
-        "message": "<a href=\"https:\/\/www.youtube.com\/playlist?list=PLwoDb7WF6c8kdK6yHr7vhsU9iRTr5HxP4\" target=\"_blank\">Emuflight видео от Джошуа Бардуэлла<\/a>"
-    },
-    "defaultSupport4": {
-        "message": "<a href=\"https:\/\/github.com\/Emuflight\" target=\"_blank\">GitHub<\/a>"
-    },
-    "defaultSupport5": {
-        "message": "<a href=\"https:\/\/slack.betaflight.com\" target=\"_blank\"> Разработчики Emuflight на slack<\/a>"
+         "message": "<a href=\"https:\/\/github.com\/Emuflight\" target=\"_blank\">GitHub<\/a>"
     },
     "initialSetupBackupAndRestoreApiVersion": {
         "message": "<span class=\"message-negative\">Функционал создания и восстановления из резервной копии не доступен.<\/span> Ваша прошивка имеет API версию конфигуратора <span class=\"message-negative\">$1<\/span>, создание и восстановление из резервной копии требует версию <span class=\"message-positive\">$2<\/span>. Пожалуйста, создайте резервную копию ваших настроек через командную строку; загляните в документацию Emuflight, чтобы узнать как это сделать."

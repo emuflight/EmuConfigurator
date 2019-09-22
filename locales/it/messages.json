@@ -468,7 +468,7 @@
         "message": "Contribuisci"
     },
     "defaultContributingText": {
-        "message": "Se vuoi contribuire a rendere Emuflight ancora migliore puoi aiutare in molti modi, quali:<br \/><ul><li>Rispondere alle domande degli altri utenti sui forum e IRC.<\/li><li>Contribuire a scrivere codice per il firmware ed il configuratore - nuove funzioni, correzioni, miglioramenti<\/li><li>Testare le <a href=\"https:\/\/github.com\/Emuflight\/EmuFlight-Butter-Varient\/pulls\" target=\"_blank\">nuove funzioni\/correzzioni<\/a> e fornendo feedback.<\/li><li>Aiutare a risolvere<a href=\"https:\/\/github.com\/emuflight\/EmuFlight-Butter-Varient\/issues\" target=\"_blank\"> problemi e commentare le funzioni richieste<\/a><\/li><li>Collaborare alla <a href=\"https:\/\/crowdin.com\/project\/emuflight-configurator\" target=\"_blank\">traduzione del configuratore<\/a> nella tua lingua<\/li><\/ul>"
+        "message": "Se vuoi contribuire a rendere Emuflight ancora migliore puoi aiutare in molti modi, quali:<br \/><ul><li>Rispondere alle domande degli altri utenti sui forum e IRC.<\/li><li>Contribuire a scrivere codice per il firmware ed il configuratore - nuove funzioni, correzioni, miglioramenti<\/li><li>Testare le <a href=\"https:\/\/github.com\/Emuflight\/EmuFlight-Butter-Varient\/pulls\" target=\"_blank\">nuove funzioni\/correzzioni<\/a> e fornendo feedback.<\/li><li>Aiutare a risolvere<a href=\"https:\/\/github.com\/emuflight\/EmuFlight-Butter-Varient\/issues\" target=\"_blank\"> problemi e commentare le funzioni richieste<\/a><\/li><li>Collaborare alla <a href=\"https:\/\/discordapp.com\/channels\/547211754845765635/596913667447062547\" target=\"_blank\">traduzione del configuratore<\/a> nella tua lingua<\/li><\/ul>"
     },
     "defaultFacebookText": {
         "message": "Abbiamo anche un <a href=\"https:\/\/www.facebook.com\/groups\/betaflightgroup\/\" target=\"_blank\">gruppo Facebook<\/a>.<br \/>. Unisciti a noi per discutere di Emuflight, fare domande riguardo la configurazione, o semplicemente ritrovarti con altri piloti."
@@ -522,19 +522,10 @@
         "message": "Per avere supporto prova a cercare nei forum e pagine wiki prima o contatta il tuo fornitore.<br \/><br \/>"
     },
     "defaultSupport1": {
-        "message": "<a href=\"http:\/\/www.rcgroups.com\/forums\/showthread.php?t=2464844&page=1\" target=\"_blank\">thread nel forum RC Groups <\/a>"
+        "message": "<a href=\"https:\/\/discordapp.com\/channels\/547211754845765635\" target=\"_blank\">Discord<\/a>"
     },
     "defaultSupport2": {
-        "message": "<a href=\"http:\/\/betaflight.info\" target=\"_blank\">Emuflight Wiki<\/a>"
-    },
-    "defaultSupport3": {
-        "message": "<a href=\"https:\/\/www.youtube.com\/playlist?list=PLwoDb7WF6c8kdK6yHr7vhsU9iRTr5HxP4\" target=\"_blank\">Joshua Bardwell Emuflight Video<\/a>"
-    },
-    "defaultSupport4": {
-        "message": "<a href=\"https:\/\/github.com\/Emuflight\" target=\"_blank\">GitHub<\/a>"
-    },
-    "defaultSupport5": {
-        "message": "<a href=\"https:\/\/slack.betaflight.com\" target=\"_blank\">sviluppatori Emuflight su slack<\/a>"
+         "message": "<a href=\"https:\/\/github.com\/Emuflight\" target=\"_blank\">GitHub<\/a>"
     },
     "initialSetupBackupAndRestoreApiVersion": {
         "message": "<span class=\"message-negative\">funzione di Backup e ripristino disabilitata.<\/span>La versione API del tuo Firmware è <span class=\"message-negative\">$1<\/span>, per eseguire backup e ripristino è necessaria la versione<span class=\"message-positive\">$2<\/span>. puoi eseguire il backup dei tuoi settaggi via CLI, vedi la documentazione Emuflight per la procedura."
