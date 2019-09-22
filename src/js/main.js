@@ -545,6 +545,7 @@ function startProcess() {
 };
 
 function checkForConfiguratorUpdates() {
+
     var releaseChecker = new ReleaseChecker('configurator', 'https://api.github.com/repos/Emuflight/EmuConfigurator/releases');
 
     releaseChecker.loadReleaseData(notifyOutdatedVersion);
