@@ -155,7 +155,7 @@
     background: #828885;
     color: white;
     border-top-left-radius: 3px;
-    border-right: 1px solid silver;
+    border-right: 1px solid var(--subtleAccent);
 }
 .tab-receiver .tunings table {
     width: 100%;
@@ -334,7 +334,7 @@
     margin: 0 0px 0px 0;
     width: 200px;
     height: 117px;
-    border: 1px solid silver;
+    border: 1px solid var(--subtleAccent);
     border-radius: 3px;
     background-image: var(--paper);
     background-size: 200%;
@@ -343,7 +343,7 @@
 
 .tab-receiver select[name="rx_refresh_rate"] {
     float: right;
-    border: 1px solid silver;
+    border: 1px solid var(--subtleAccent);
 }
 
 .tab-receiver #RX_plot {
@@ -423,7 +423,7 @@
 
 /* SVG classes*/
 .tab-receiver .grid .tick {
-    stroke: silver;
+    stroke: var(--subtleAccent);
     stroke-width: 1px;
     shape-rendering: crispEdges;
 }
@@ -439,7 +439,7 @@
 
 .tab-receiver .axis path, .axis line {
     fill: none;
-    stroke: #ccc;
+    stroke: var(--subtleAccent);
     stroke-width: 1px;
     shape-rendering: crispEdges;
 }

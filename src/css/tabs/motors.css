@@ -83,7 +83,7 @@
 }
 .tab-motors .plot_control select {
   width: 100%;
-  border: 1px solid silver;
+  border: 1px solid var(--subtleAccent);
 }
 
 .tab-motors .plot_control .value {
@@ -135,7 +135,7 @@
 }
 
 .tab-motors .grid .tick {
-    stroke: silver;
+    stroke: var(--subtleAccent);
     stroke-width: 1px;
     shape-rendering: crispEdges;
 }
@@ -151,7 +151,7 @@
 
 .tab-motors .axis path, .tab-motors .axis line {
     fill: none;
-    stroke: #ccc;
+    stroke:var(--subtleAccent);
     stroke-width: 1px;
     shape-rendering: crispEdges;
 }
