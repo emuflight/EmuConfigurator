@@ -71,7 +71,7 @@ You can also use multiple platforms e.g. `yarn gulp <taskname> --osx64 --linux64
 
 ## Languages
 
-Emuflight Configurator has been translated into several languages. The application will try to detect and use your system language if a translation into this language is available. You can help [translating the application into your language](https://crowdin.com/project/emuflight-configurator).
+Emuflight Configurator has been translated into several languages. The application will try to detect and use your system language if a translation into this language is available.
 
 If you prefer to have the application in English or any other language, you can select your desired language in the options menu of the application.
 
@@ -97,7 +97,7 @@ If you need help please reach out in [Emuflight support group](https://discordap
 
 For Emuflight configurator issues raise them here
 
-https://github.com/emuflightemuflight-configurator/issues
+https://github.com/emuflight/EmuConfigurator/issues
 
 For Emuflight firmware issues raise them here
 
