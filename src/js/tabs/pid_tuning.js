@@ -386,6 +386,13 @@ TABS.pid_tuning.initialize = function (callback) {
             $('#pid-tuning .feedforwardTransition').hide();
         }
 
+        if (semver.gte(CONFIG.apiVersion, "1.41.0")) {
+            $('select[id="throttleLimitType"]').val(RC_tuning.throttleLimitType);
+            $('.throttle_limit input[name="throttleLimitPercent"]').val(RC_tuning.throttleLimitPercent);
+        } else {
+            $('.throttle_limit').hide();
+        }
+
         $('input[id="gyroNotch1Enabled"]').change(function() {
             var checked = $(this).is(':checked');
             var hz = FILTER_CONFIG.gyro_notch_hz > 0 ? FILTER_CONFIG.gyro_notch_hz : FILTER_DEFAULT.gyro_notch_hz;
@@ -638,6 +645,11 @@ TABS.pid_tuning.initialize = function (callback) {
                     IMUF_FILTER_CONFIG.imuf_pitch_lpf_cutoff_hz = parseInt($('#imuf_pitch_lpf_cutoff_hz').val());
                     IMUF_FILTER_CONFIG.imuf_yaw_lpf_cutoff_hz = parseInt($('#imuf_yaw_lpf_cutoff_hz').val());
             }    
+        }
+
+        if (semver.gte(CONFIG.apiVersion, "1.41.0")) {
+            RC_tuning.throttleLimitType = $('select[id="throttleLimitType"]').val();
+            RC_tuning.throttleLimitPercent = parseInt($('.throttle_limit input[name="throttleLimitPercent"]').val());
         }
 
         EMUF_ADVANCED.dynamic_THR_PID_I = parseFloat($('.tpa input[name="tpa_I"]').val());

@@ -321,6 +321,10 @@ MspHelper.prototype.process_data = function(dataHandler) {
                     RC_tuning.rcPitchRate = 0;
                     RC_tuning.RC_PITCH_EXPO = 0;
                 }
+                if (semver.gte(CONFIG.apiVersion, "1.41.0")) {
+                    RC_tuning.throttleLimitType = data.readU8();
+                    RC_tuning.throttleLimitPercent = data.readU8();
+                }
                 break;
 
             case MSPCodes.MSP_EMUF:
@@ -931,9 +935,7 @@ MspHelper.prototype.process_data = function(dataHandler) {
 
                     if (semver.gte(CONFIG.apiVersion, "1.25.0")) {
                         let gyroUse32kHz = data.readU8();
-                        if (semver.lt(CONFIG.apiVersion, "1.41.0")) {
-                            PID_ADVANCED_CONFIG.gyroUse32kHz = gyroUse32kHz;
-                        }
+                        PID_ADVANCED_CONFIG.gyroUse32kHz = gyroUse32kHz;
                     }
                 }
                 break;
@@ -1442,6 +1444,10 @@ MspHelper.prototype.crunch = function(code) {
                 buffer.push8(Math.round(RC_tuning.rcPitchRate * 100));
                 buffer.push8(Math.round(RC_tuning.RC_PITCH_EXPO * 100));
             }
+            if (semver.gte(CONFIG.apiVersion, "1.41.0")) {
+                buffer.push8(RC_tuning.throttleLimitType);
+                buffer.push8(RC_tuning.throttleLimitPercent);
+            }
             break;
 
         case MSPCodes.MSP_SET_EMUF:
@@ -1678,9 +1684,7 @@ MspHelper.prototype.crunch = function(code) {
 
                 if (semver.gte(CONFIG.apiVersion, "1.25.0")) {
                     let gyroUse32kHz = 0;
-                    if (semver.lt(CONFIG.apiVersion, "1.41.0")) {
-                        gyroUse32kHz = PID_ADVANCED_CONFIG.gyroUse32kHz;
-                    }
+                    gyroUse32kHz = PID_ADVANCED_CONFIG.gyroUse32kHz;
                     buffer.push8(gyroUse32kHz);
                 }
             }
@@ -1703,9 +1707,7 @@ MspHelper.prototype.crunch = function(code) {
                 }
                 if (semver.gte(CONFIG.apiVersion, "1.39.0")) {
                     let gyro_32khz_hardware_lpf = 0;
-                    if (semver.lt(CONFIG.apiVersion, "1.41.0")) {
-                        gyro_32khz_hardware_lpf = FILTER_CONFIG.gyro_32khz_hardware_lpf;
-                    }
+                    gyro_32khz_hardware_lpf = FILTER_CONFIG.gyro_32khz_hardware_lpf;
                     buffer.push8(FILTER_CONFIG.gyro_hardware_lpf)
                           .push8(gyro_32khz_hardware_lpf)
                           .push16(FILTER_CONFIG.gyro_lowpass_hz)
