@@ -609,41 +609,6 @@
                             </tbody>
                         </table>
                     </div>
-
-                    <div class="gui_box throttle_limit spacer_left">
-                        <table class="cf">
-                            <thead>
-                                <tr>
-                                    <th>
-                                        <div>
-                                            <div i18n="pidTuningThrottleLimitType" style="float:left;"></div>
-                                            <div class="helpicon cf_tip" i18n_title="pidTuningThrottleLimitTypeTip"></div>
-                                        </div>
-                                    </th>
-                                    <th>
-                                        <div>
-                                            <div i18n="pidTuningThrottleLimitPercent" style="float:left;"></div>
-                                            <div class="helpicon cf_tip" i18n_title="pidTuningThrottleLimitPercentTip"></div>
-                                        </div>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <select id="throttleLimitType">
-                                            <option i18n="pidTuningThrottleLimitTypeOff" value="0">
-                                            <option i18n="pidTuningThrottleLimitTypeScale" value="1">
-                                            <option i18n="pidTuningThrottleLimitTypeClip" value="2">
-                                        </select>
-
-                                    </td>
-                                    <td><input type="number" name="throttleLimitPercent" step="1" min="25" max="100" /></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
                     <div class="gui_box throttle spacer_left">
                         <table class="cf">
                             <thead>
@@ -861,9 +826,47 @@
                                 </td>
                             </tr>
                         </table>
-                    </div>   
-                    
+                    </div>        
+                                
                     <!-- IMUF -->
+
+                    <div class="gui_box grey topspacer pid_filter kalmanFilterSettingsPanel">
+                        <table class="pid_titlebar new_rates">
+                            <tr>
+                                <th i18n="pidTuningKalmanFilterSettings"></th>
+                            </tr>
+                        </table>
+                        <table>
+                            <th colspan="2">
+                            <tr>
+                                <td>
+                                    <input id="QCoefficient" type="number" name="kalmanQCoefficient" step="1" min="0" max="16000"/>
+                                </td>
+                                <td>
+                                    <div>
+                                        <label>
+                                            <span i18n="pidTuningKalmanFilterQ"></span>
+                                        </label>
+                                        <div class="helpicon cf_tip" i18n_title="pidTuningKalmanFilterQHelp"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="number" name="kalmanRCoefficient" step="1" min="3" max="512"/>
+                                </td>
+                                <td>
+                                    <div>
+                                        <label>
+                                            <span i18n="pidTuningKalmanFilterR"></span>
+                                        </label>
+                                        <div class="helpicon cf_tip" i18n_title="pidTuningKalmanFilterRHelp"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            </th>
+                        </table>
+                    </div>
 
                     <div id="imufFilterSettingsPanel" style="display: none;" class="gui_box grey topspacer pid_filter">
                         <table class="pid_titlebar new_rates">
@@ -1099,45 +1102,6 @@
                             </tr>
                         </table>
                     </div>
-                    <tr>
-                    <div class="gui_box grey topspacer pid_filter kalmanFilterSettingsPanel">
-                        <table class="pid_titlebar new_rates">
-                            <tr>
-                                <th i18n="pidTuningKalmanFilterSettings"></th>
-                            </tr>
-                        </table>
-                        <table>
-                            <th colspan="2">
-                            <tr>
-                                <td>
-                                    <input id="QCoefficient" type="number" name="kalmanQCoefficient" step="1" min="0" max="16000"/>
-                                </td>
-                                <td>
-                                    <div>
-                                        <label>
-                                            <span i18n="pidTuningKalmanFilterQ"></span>
-                                        </label>
-                                        <div class="helpicon cf_tip" i18n_title="pidTuningKalmanFilterQHelp"></div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input type="number" name="kalmanRCoefficient" step="1" min="3" max="512"/>
-                                </td>
-                                <td>
-                                    <div>
-                                        <label>
-                                            <span i18n="pidTuningKalmanFilterR"></span>
-                                        </label>
-                                        <div class="helpicon cf_tip" i18n_title="pidTuningKalmanFilterRHelp"></div>
-                                    </div>
-                                </td>
-                            </tr>
-                            </th>
-                        </table>
-                    </div>
-                    </tr>
                 </div>
             </div>
         </form>
