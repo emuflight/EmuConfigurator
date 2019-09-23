@@ -1298,6 +1298,9 @@
     "pidTuningSubTabPid": {
         "message": "Réglages PID"
     },
+    "pidTuningSubTabRates": {
+        "message": "Paramètres Rates du profil"
+    },
     "pidTuningSubTabFilter": {
         "message": "Réglages filtres"
     },

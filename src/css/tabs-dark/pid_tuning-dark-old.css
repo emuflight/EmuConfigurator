@@ -1,12 +1,10 @@
 .tab-pid_tuning .profile .helpicon,
-.tab-pid_tuning .rate_profile .helpicon,
-.tab-pid_tuning .pid_titlebar .helpicon {
+.tab-pid_tuning .rate_profile .helpicon {
     background-image: url(../../images/icons/cf_icon_info_grey.svg);
     opacity: 0.4;
 }
 .tab-pid_tuning .profile .helpicon:hover,
-.tab-pid_tuning .rate_profile .helpicon:hover,
-.tab-pid_tuning .pid_titlebar .helpicon:hover {
+.tab-pid_tuning .rate_profile .helpicon:hover {
     opacity: 1;
 }
 
@@ -142,6 +140,18 @@
     color: rgb(230, 230, 230);
 }
 
+.tab-pid_tuning .rates_preview {
+    border: 1px solid #9c9c9c;
+}
+
+.tab-pid_tuning .rc_curve .cf tr  {
+    border-bottom: 1px solid #9c9c9c;
+}
+
+.tab-pid_tuning .rc_curve_bg {
+    background: #393b3a;
+}
+
 .tabarea {
     background: #393b3a;
 }
@@ -149,24 +159,7 @@
 .tab-pid_tuning .regular-button.disabled {
     background-color: #393b3a;
 }
-
-.tab-pid_tuning .sliderLabels th {
-    background: #414443;
-    color: white;
-}
-
-.tab-pid_tuning input:disabled,
-.tab-pid_tuning .cf input:disabled,
-.tab-pid_tuning select:disabled,
-.tab-pid_tuning .cf select:disabled {
-    color: rgb(105, 105, 105);
-    background-color: #2d2d2d;
-}
-
-.tab-pid_tuning table.compensation tr {
-    border-bottom: 1px solid #6b6b6b;
-}
-
-.tab-pid_tuning .slidersWarning {
-    background: #542415;
+.tab-pid_tuning .slidersHighWarning,
+.tab-pid_tuning .slidersFilterHighWarning {
+    background: #681212;
 }
