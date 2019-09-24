@@ -52,7 +52,7 @@
 }
 
 .tab-ports select {
-    border: 1px solid silver;
+    border: 1px solid var(--subtleAccent);
     margin-right: 3px;
 }
 

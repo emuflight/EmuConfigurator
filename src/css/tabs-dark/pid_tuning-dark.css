@@ -1,16 +1,13 @@
 .tab-pid_tuning .profile .helpicon,
-.tab-pid_tuning .rate_profile .helpicon {
+.tab-pid_tuning .rate_profile .helpicon,
+.tab-pid_tuning .pid_titlebar .helpicon {
     background-image: url(../../images/icons/cf_icon_info_grey.svg);
     opacity: 0.4;
 }
 .tab-pid_tuning .profile .helpicon:hover,
-.tab-pid_tuning .rate_profile .helpicon:hover {
+.tab-pid_tuning .rate_profile .helpicon:hover,
+.tab-pid_tuning .pid_titlebar .helpicon:hover {
     opacity: 1;
-}
-
-.tab-pid_tuning .tpa th {
-    background-color: #393b3a;
-    border-bottom: 1px solid #5e5e5e;
 }
 
 .tab-pid_tuning .throttle_limit th {
@@ -23,50 +20,24 @@
 }
 
 .tab-pid_tuning .cf th {
-    border-right: solid 1px #9c9c9c;
     background-color: var(--quietHeader);
-    color: white;
+    color: rgb(230, 230, 230);
 }
 
 .tab-pid_tuning .cf input {
-    border: 1px solid #9c9c9c;
     background-color: #3a3a3a;
-    color: white;
+    color: rgb(230, 230, 230);
 }
 
 .tab-pid_tuning .cf select {
-    border: 1px solid #9c9c9c;
     background-color: #3a3a3a;
-    color: white;
+    color: rgb(230, 230, 230);
 }
 
 .tab-pid_tuning .throttle_curve {
     border: 1px solid #9c9c9c;
 }
 
-.tab-pid_tuning .throttle table th {
-    border-right: 1px solid #9c9c9c;
-}
-
-.tab-pid_tuning .throttle table td {
-    background: #414443;
-    border-right: 1px solid #9c9c9c;
-}
-
-.tab-pid_tuning .throttle table td {
-    background: #414443;
-    border-right: 1px solid #9c9c9c;
-}
-
-.tab-pid_tuning .throttle table tr:nth-child(odd) {
-    background-color: #393b3a;
-}
-
-.tab-pid_tuning .throttle table input {
-    border: 1px solid #9c9c9c;
-    background-color: #3a3a3a;
-    color: white;
-}
 
 .tab-pid_tuning .rc_curve th {
     border-bottom: 1px solid #00000000;
@@ -76,43 +47,26 @@
     border: 1px solid #9c9c9c;
 }
 
-.tab-pid_tuning table, .tab-pid_tuning table td {
-    border-bottom: 0px solid #9c9c9c;
-}
-
-.tab-pid_tuning .pid_titlebar th {
-    border-right: 1px solid #9c9c9c;
-}
-
 /* These values should have been inherited from the regular style, but are not */
 .tab-pid_tuning .pid_titlebar .wide_header {
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
 }
 
-.tab-pid_tuning table tr td:last-child {
-    border-right: 0px solid #9c9c9c;
-}
-
 .tab-pid_tuning table.compensation .suboption select{
     background-color: #3a3a3a;
-    color: white;
-}
-
-.tab-pid_tuning table td {
-    border-right: 1px solid #9c9c9c;
+    color: rgb(230, 230, 230);
 }
 
 .tab-pid_tuning table input,.inputBackground {
-    border: 0px solid #9c9c9c;
     background-color: #3a3a3a;
-    color: white;
+    color: rgb(230, 230, 230);
 }
 
 .tab-pid_tuning table select {
     text-align-last: right;
     background-color: #3a3a3a;
-    color: white;
+    color: rgb(230, 230, 230);
 }
 
 .tab-pid_tuning .tab_container {
@@ -138,110 +92,81 @@
     color: black;
 }
 
-.tab-pid_tuning .single-field .head {
-    border-bottom: 1px solid #9c9c9c;
-}
-
 .fancy.header {
   background-color: #393b3a;
-  border-bottom: 1px solid #9c9c9c;
 }
 
 .pid_roll {
-    background-color: #A00000;
+    background-color: rgb(80, 9, 9);
 }
 
 .pid_pitch {
-    background-color: #00A000;
+    background-color: rgb(16, 70, 16);
 }
 
 .pid_yaw {
-    background-color: #0000A0;
+    background-color: rgb(26, 26, 87);
 }
 
 
 .pid_mode {
-    background-color: #1f1f1f;
+    background-color: #494848;
     border-bottom: 1px solid #1f1f1f;
-    color: white;
+    color: rgb(230, 230, 230);
 }
 
 .pid_titlebar {
     background-color: #393b3a;
 }
 
-.tab-pid_tuning .number {
-    border-bottom: 1px solid #9c9c9c;
-}
-
 .tab-pid_tuning .number input {
-    border: 1px solid #9c9c9c;
     background-color: #3a3a3a;
-    color: white;
+    color: rgb(230, 230, 230);
 }
 
 .tab-pid_tuning .gui_box span {
-    color: white;
+    color: rgb(230, 230, 230);
 }
 
 .tab-pid_tuning .bottomarea {
-    border-bottom: 1px solid #9c9c9c;
-    border-left: 1px solid #9c9c9c;
-    border-right: 1px solid #9c9c9c;
     background-color: #393b3a;
 }
 
 .tab-pid_tuning .profile select {
-    border: 1px solid #9c9c9c;
     background-color: #3a3a3a;
-    color: white;
+    color: rgb(230, 230, 230);
 }
 
 .tab-pid_tuning .rate_profile select {
-    border: 1px solid #9c9c9c;
     background-color: #3a3a3a;
-    color: white;
-}
-
-.tab-pid_tuning .controller select {
-    border: 1px solid #9c9c9c;
-}
-
-.tab-pid_tuning .delta select {
-    border: 1px solid #9c9c9c;
-}
-
-.tab-pid_tuning .rates_preview {
-    border: 1px solid #9c9c9c;
-}
-
-.tab-pid_tuning .pidTuning tr {
-    border-bottom: 1px solid #9c9c9c;
-}
-
-.tab-pid_tuning .rc_curve .cf tr  {
-    border-bottom: 1px solid #9c9c9c;
-}
-
-.tab-pid_tuning .rc_curve_bg {
-    background: #393b3a;
+    color: rgb(230, 230, 230);
 }
 
 .tabarea {
-    border: 1px solid #9c9c9c;
-    border-top: 0px solid #9c9c9c;
     background: #393b3a;
-}
-
-.tab-pid_tuning .regular-button {
-    border: 1px solid #9c9c9c;
 }
 
 .tab-pid_tuning .regular-button.disabled {
     background-color: #393b3a;
-    border: 1px solid #9c9c9c;
 }
 
-.tab-pid_tuning dialog select {
-    border: 1px solid #9c9c9c;
+.tab-pid_tuning .sliderLabels th {
+    background: #414443;
+    color: white;
+}
+
+.tab-pid_tuning input:disabled,
+.tab-pid_tuning .cf input:disabled,
+.tab-pid_tuning select:disabled,
+.tab-pid_tuning .cf select:disabled {
+    color: rgb(105, 105, 105);
+    background-color: #2d2d2d;
+}
+
+.tab-pid_tuning table.compensation tr {
+    border-bottom: 1px solid #6b6b6b;
+}
+
+.tab-pid_tuning .slidersWarning {
+    background: #542415;
 }

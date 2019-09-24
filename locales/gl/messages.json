@@ -1341,6 +1341,9 @@
     "pidTuningSubTabPid": {
         "message": "Opcións de PID"
     },
+    "pidTuningSubTabRates": {
+        "message": "Configuración do perfil de taxa"
+    },
     "pidTuningSubTabFilter": {
         "message": "Opcións de filtros"
     },

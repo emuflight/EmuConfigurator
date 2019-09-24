@@ -1292,6 +1292,9 @@
     "pidTuningSubTabPid": {
         "message": "Ajustes PID"
     },
+    "pidTuningSubTabRates": {
+        "message": "Tasas"
+    },
     "pidTuningSubTabFilter": {
         "message": "Ajustes de Filtros"
     },

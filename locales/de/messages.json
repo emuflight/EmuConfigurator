@@ -1293,6 +1293,9 @@
     "pidTuningSubTabPid": {
         "message": "PID Einstellungen"
     },
+    "pidTuningSubTabRates": {
+        "message": "Drehratenprofil Einstellungen"
+    },
     "pidTuningSubTabFilter": {
         "message": "Filter Einstellungen"
     },

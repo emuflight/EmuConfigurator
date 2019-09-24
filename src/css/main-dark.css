@@ -1,10 +1,10 @@
 :root {
-    --accent: #2297eb;
+    --accent: #288fda;
     --subtleAccent: #9c9c9c;
-    --quietHeader: #bf8606;
-    --defaultText: #ffffff;
-    --subtleText: #c0c0c0;
-    --mutedText: #d6d6d6;
+    --quietHeader: #5e6772b2;
+    --defaultText: #dddddd;
+    --subtleText: #c2c2c2;
+    --mutedText: #d1d1d1;
     --boxBackground: #393b3a;
     --alternativeBackground: #4e4e4e;
     --sideBackground: #404040;
@@ -14,11 +14,11 @@
 }
 
 body {
-    color: white;
+    color: rgb(228, 228, 228);
 }
 
 a {
-    color: #ffc549;
+    color: #087ce7;
 }
 
 #options-window {
@@ -43,14 +43,14 @@ a {
 
 dialog {
     background-color: #3a3d3c;
-    color:white;
+    color:rgb(199, 199, 199);
     border: 1px solid #2297eb;
 }
 
 /* Note */
 .note {
     background-color: #4e4e4e;
-    color: white;
+    color: rgb(228, 228, 228);
 }
 
 .content_toolbar {
