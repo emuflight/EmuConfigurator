@@ -15,7 +15,7 @@
 
 .tab-onboard_logging .dataflash-used,
 .tab-onboard_logging .sdcard-other {
-    background-color: #3a3a3a;
+    background-color: #0e7cd6;
 }
 
 .tab-onboard_logging progress::-webkit-progress-bar {
