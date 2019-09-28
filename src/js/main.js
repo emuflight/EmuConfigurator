@@ -540,7 +540,7 @@ function startProcess() {
     });
 
     ConfigStorage.get('darkTheme', function (result) {
-        DarkTheme.setConfig(result.darkTheme);
+        DarkTheme.setConfig(typeof result.darkTheme == 'undefined' || result.darkTheme);
     });
 };
 

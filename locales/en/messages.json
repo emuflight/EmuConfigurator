@@ -1443,7 +1443,9 @@
     "pidTuningNonProfilePidSettings": {
         "message": "Profile independent PID Controller Settings"
     },
-
+    "pidTuningAntiGravity": {
+        "message": "Anti Gravity"
+    },
     "pidTuningAntiGravityMode": {
         "message": "Anti Gravity Mode"
     },
