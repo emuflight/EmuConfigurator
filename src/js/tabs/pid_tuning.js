@@ -12,6 +12,8 @@ TABS.pid_tuning = {
     SETPOINT_WEIGHT_RANGE_LEGACY: 2.54
 };
 
+ var presetJson = require("../../../resources/presets/presets.json");
+
 TABS.pid_tuning.initialize = function (callback) {
 
     var self = this;
@@ -869,9 +871,20 @@ TABS.pid_tuning.initialize = function (callback) {
             return rateProfileElements;
         }
 
+        function loadPresetsList() {
+          var numberOfPresets = Object.keys(presetJson).length;
+          var keys = Object.keys(presetJson);
+          var presetsElements = [];
+            for (var i=0; i<numberOfPresets; i++) {
+                presetsElements.push(keys[i]);
+            }
+            return presetsElements;
+        }
+
         // This vars are used here for populate the profile (and rate profile) selector AND in the copy profile (and rate profile) window
         var selectRateProfileValues = loadRateProfilesList();
         var selectProfileValues = loadProfilesList();
+        var selectPresetValues = loadPresetsList();
 
         function populateProfilesSelector(selectProfileValues) {
             var profileSelect = $('select[name="profile"]');
@@ -889,7 +902,23 @@ TABS.pid_tuning.initialize = function (callback) {
             });
         }
 
-        populateRateProfilesSelector(selectRateProfileValues);
+populateRateProfilesSelector(selectRateProfileValues);
+
+
+        function populatePresetsSelector(selectPresetValues) {
+            var presetSelect = $('select[name="preset"]');
+            presetSelect.append('<option value="default">Select a Preset</option>');
+            selectPresetValues.forEach(function(value, key) {
+                presetSelect.append('<option value="' + value + '">' + value + '</option>');
+            });
+
+              //  presetSelect.append('<option value="1">beta75x</option>');
+              //    presetSelect.append('<option value="2">toothpick</option>');
+              //        presetSelect.append('<option value="3">5 inch</option>');
+
+        }
+
+      populatePresetsSelector(selectPresetValues);
 
         var showAllButton = $('#showAllPids');
 
@@ -915,15 +944,26 @@ TABS.pid_tuning.initialize = function (callback) {
         });
 
         $('#resetProfile').on('click', function(){
-            self.updating = true;
-            MSP.promise(MSPCodes.MSP_SET_RESET_CURR_PID).then(function () {
-                self.refresh(function () {
-                    self.updating = false;
-
-                    GUI.log(i18n.getMessage('pidTuningProfileReset'));
-                });
-            });
+            resetProfile();
         });
+
+
+function  resetProfile(){
+  self.updating = true;
+  MSP.promise(MSPCodes.MSP_SET_RESET_CURR_PID).then(function () {
+      self.refresh(function () {
+          self.updating = false;
+
+          GUI.log(i18n.getMessage('pidTuningProfileReset'));
+      });
+  });
+}
+
+
+
+
+
+
 
         $('.tab-pid_tuning select[name="profile"]').change(function () {
             self.currentProfile = parseInt($(this).val());
@@ -939,6 +979,69 @@ TABS.pid_tuning.initialize = function (callback) {
                     GUI.log(i18n.getMessage('pidTuningLoadedProfile', [self.currentProfile + 1]));
                 });
             });
+        });
+
+
+
+
+
+
+        $('.tab-pid_tuning select[name="preset"]').change(function (){
+
+          var presetSelected = $('.tab-pid_tuning select[name="preset"]').val();
+
+                   if(presetSelected == "default"){
+                       resetProfile();
+                     }else{
+
+          PID_names.forEach(function(elementPid, indexPid) {
+
+
+              // Look into the PID table to a row with the name of the pid
+              var searchRow = $('.pid_tuning .' + elementPid + ' input');
+
+              // Assign each value
+              searchRow.each(function (indexInput) {
+                // roll values
+                if(indexPid == 0){
+                    if(indexInput == 0){
+                      $(this).val(presetJson[presetSelected]['Roll_p']);
+                    }
+                    if(indexInput == 1){
+                      $(this).val(presetJson[presetSelected]['Roll_i']);
+                    }
+                    if(indexInput == 2){
+                      $(this).val(presetJson[presetSelected]['Roll_d']);
+                    }
+                }
+                //pitch values
+                if(indexPid == 1){
+                    if(indexInput == 0){
+                      $(this).val(presetJson[presetSelected]['Pitch_p']);
+                    }
+                    if(indexInput == 1){
+                      $(this).val(presetJson[presetSelected]['Pitch_i']);
+                    }
+                    if(indexInput == 2){
+                      $(this).val(presetJson[presetSelected]['Pitch_d']);
+                    }
+                }
+                // yaw values
+                if(indexPid == 2){
+                    if(indexInput == 0){
+                      $(this).val(presetJson[presetSelected]['Yaw_p']);
+                    }
+                    if(indexInput == 1){
+                      $(this).val(presetJson[presetSelected]['Yaw_i']);
+                    }
+                    if(indexInput == 2){
+                      $(this).val(presetJson[presetSelected]['Yaw_d']);
+                    }
+                }
+
+              });
+          });
+        }
         });
 
         if (semver.gte(CONFIG.apiVersion, "1.20.0")) {
@@ -1306,6 +1409,7 @@ TABS.pid_tuning.initialize = function (callback) {
             var selectProfile = $('.selectProfile');
             var selectRateProfile = $('.selectRateProfile');
 
+
             $.each(selectProfileValues, function(key, value) {
                 if (key != CONFIG.profile)
                     selectProfile.append(new Option(value, key));
@@ -1314,6 +1418,7 @@ TABS.pid_tuning.initialize = function (callback) {
                 if (key != CONFIG.rateProfile)
                     selectRateProfile.append(new Option(value, key));
             });
+
 
             $('.copyprofilebtn').click(function() {
                 $('.dialogCopyProfile').find('.contentProfile').show();
@@ -1525,6 +1630,8 @@ TABS.pid_tuning.setDirty = function (isDirty) {
         $('.tab-pid_tuning select[name="rate_profile"]').prop('disabled', isDirty);
     }
 };
+
+
 
 TABS.pid_tuning.checkUpdateProfile = function (updateRateProfile) {
     var self = this;
@@ -1792,7 +1899,7 @@ TABS.pid_tuning.updateFilterWarning = function() {
     var dtermLowpass1Enabled = $('input[id="dtermLowpassEnabled"]').is(':checked');
     var warning_e = $('#pid-tuning .filterWarning');
     var warningDynamicNotch_e = $('#pid-tuning .dynamicNotchWarning');
-    if (!(gyroDynamicLowpassEnabled || gyroLowpass1Enabled) || !(dtermDynamicLowpassEnabled || dtermLowpass1Enabled)) {
+    if (!(gyroDynamicLowpassEnabled || gyroLowpass1Enabled) || !(dtermDynamicLowpassEnabled || dtermLowpass1Enabled) && (CONFIG.boardIdentifier !== "HESP" && CONFIG.boardIdentifier !== "SX10" && CONFIG.boardIdentifier !== "FLUX")) {
         warning_e.show();
     } else {
         warning_e.hide();
