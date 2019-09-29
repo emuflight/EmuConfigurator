@@ -540,12 +540,13 @@ function startProcess() {
     });
 
     ConfigStorage.get('darkTheme', function (result) {
-        DarkTheme.setConfig(result.darkTheme);
+        DarkTheme.setConfig(typeof result.darkTheme == 'undefined' || result.darkTheme);
     });
 };
 
 function checkForConfiguratorUpdates() {
-    var releaseChecker = new ReleaseChecker('configurator', 'https://api.github.com/repos/Emuflight/emuflight-configurator/releases');
+
+    var releaseChecker = new ReleaseChecker('configurator', 'https://api.github.com/repos/Emuflight/EmuConfigurator/releases');
 
     releaseChecker.loadReleaseData(notifyOutdatedVersion);
 }

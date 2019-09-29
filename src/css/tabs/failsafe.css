@@ -24,7 +24,7 @@
     height: 20px;
     line-height: 20px;
     text-align: left;
-    border: 1px solid silver;
+    border-bottom: 1px solid var(--subtleAccent);
     border-radius: 3px;
     margin-right: 11px;
     font-size: 12px;
@@ -197,7 +197,7 @@
     width: 95%;
     height: 22px;
     margin: 0;
-    border: 1px solid silver;
+    border-bottom: 1px solid var(--subtleAccent);
     }
 
 .tab-failsafe .modename {
@@ -291,7 +291,7 @@
 }
 
 .tab-failsafe .switchMode {
-    border: 1px solid silver;
+    border-bottom: 1px solid var(--subtleAccent);
     margin-right: 5px;
     min-width: 80px;
 }

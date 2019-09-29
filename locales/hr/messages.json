@@ -471,7 +471,7 @@
         "message": "Pridonošenje"
     },
     "defaultContributingText": {
-        "message": "Ako biste htjeli Emuflight učinit još boljim možete pomoći na razne načine, uključujući:<br \/><ul><li>Odgovaranjem na upite drugih korisnika na forumima i IRC-u<\/li><li>Dodavanjem programskog koda firmwareu i konfiguratoru - nove mogućnosti, popravci i nadogradnje<\/li><li>Testiranjem <a href=\"https:\/\/github.com\/Emuflight\/EmuFlight-Butter-Varient\/pulls\" target=\"_blank\">novih mogućnosti<\/a> i davanje povratnih informacija.<\/li><li>Pomaganjem <a href=\"https:\/\/github.com\/emuflight\/EmuFlight-Butter-Varient\/issues\" target=\"_blank\">problemima i komentiranjem na nove <\/a>.<\/li><li>Kolaboracijom u <a href=\"https:\/\/crowdin.com\/project\/emuflight-configurator\" target=\"_blank\">prevođenju aplikacije za konfiguriranje<\/a> na svoj jezik.<\/li><li><\/li><\/ul>"
+        "message": "Ako biste htjeli Emuflight učinit još boljim možete pomoći na razne načine, uključujući:<br \/><ul><li>Odgovaranjem na upite drugih korisnika na forumima i IRC-u<\/li><li>Dodavanjem programskog koda firmwareu i konfiguratoru - nove mogućnosti, popravci i nadogradnje<\/li><li>Testiranjem <a href=\"https:\/\/github.com\/Emuflight\/EmuFlight-Butter-Varient\/pulls\" target=\"_blank\">novih mogućnosti<\/a> i davanje povratnih informacija.<\/li><li>Pomaganjem <a href=\"https:\/\/github.com\/emuflight\/EmuFlight-Butter-Varient\/issues\" target=\"_blank\">problemima i komentiranjem na nove <\/a>.<\/li><li>Kolaboracijom u <a href=\"https:\/\/discordapp.com\/channels\/547211754845765635/596913667447062547\" target=\"_blank\">prevođenju aplikacije za konfiguriranje<\/a> na svoj jezik.<\/li><li><\/li><\/ul>"
     },
     "defaultFacebookText": {
         "message": "Imamo i svoju <a href=\"https:\/\/www.facebook.com\/groups\/betaflightgroup\/\" target=\"_blank\">Facebook grupu<\/a>.<br \/>Pridružite nam se i postavite pitanja o Emuflightu, konfiguriranju i ostalom."
@@ -528,19 +528,10 @@
         "message": "Za podršku molimo potražite na forumima i na Emuflight wikiju ili kontaktirajte vašek proizvođaća<br \/><br \/>"
     },
     "defaultSupport1": {
-        "message": "<a href=\"http:\/\/www.rcgroups.com\/forums\/showthread.php?t=2464844&page=1\" target=\"_blank\">RC Groups thread<\/a>"
+        "message": "<a href=\"https:\/\/discordapp.com\/channels\/547211754845765635\" target=\"_blank\">Discord<\/a>"
     },
     "defaultSupport2": {
-        "message": "<a href=\"http:\/\/betaflight.info\" target=\"_blank\">Emuflight Wiki<\/a>"
-    },
-    "defaultSupport3": {
-        "message": "<a href=\"https:\/\/www.youtube.com\/playlist?list=PLwoDb7WF6c8kdK6yHr7vhsU9iRTr5HxP4\" target=\"_blank\">Joshua Bardwell Emuflight Videos<\/a>"
-    },
-    "defaultSupport4": {
-        "message": "<a href=\"https:\/\/github.com\/Emuflight\" target=\"_blank\">GitHub<\/a>"
-    },
-    "defaultSupport5": {
-        "message": "<a href=\"https:\/\/slack.betaflight.com\" target=\"_blank\">Emuflight developeri na Slack platformi<\/a>"
+         "message": "<a href=\"https:\/\/github.com\/Emuflight\" target=\"_blank\">GitHub<\/a>"
     },
     "initialSetupBackupAndRestoreApiVersion": {
         "message": "<span class=\"message-negative\">Izrada i korištenje sigurnosnih kopija onemogućeno.<\/span> Koristite firmware s API verzijom <span class=\"message-negative\">$1<\/span>, sigurnosne kopije zahtijevaju <span class=\"message-positive\">$2<\/span>.  Molimo napravite sigurnosne kopije postavki kroz CLI sučelje, pogledajte Emuflight dokumentaciju za proceduru."

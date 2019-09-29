@@ -7,10 +7,6 @@
     border: 1px solid #9c9c9c;
 }
 
-.tab-onboard_logging .speed {
-    border: 1px solid #9c9c9c;
-}
-
 .tab-onboard_logging .dataflash-contents,
 .tab-onboard_logging .sdcard-contents {
     border: 1px solid #9c9c9c;
@@ -19,7 +15,7 @@
 
 .tab-onboard_logging .dataflash-used,
 .tab-onboard_logging .sdcard-other {
-    background-color: #3a3a3a;
+    background-color: #0e7cd6;
 }
 
 .tab-onboard_logging progress::-webkit-progress-bar {
@@ -29,7 +25,6 @@
 .tab-onboard_logging .blackboxRate select,
 .tab-onboard_logging .blackboxDebugMode select,
 .tab-onboard_logging .blackboxDevice select {
-    border: 1px solid #9c9c9c;
     background-color: #3a3a3a;
     color: white;
 }

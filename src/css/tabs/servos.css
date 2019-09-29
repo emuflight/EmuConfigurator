@@ -79,12 +79,12 @@
 }
 
 .tab-servos table input {
-    border: 1px solid silver;
+    border: 1px solid var(--subtleAccent);
     border-radius: 3px;
 }
 
 .tab-servos table select {
-    border: 1px solid silver;
+    border: 1px solid var(--subtleAccent);
 }
 
 .tab-servos table .channel input {

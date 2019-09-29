@@ -8,7 +8,7 @@
 
 .tab-cli p {
     padding: 0px;
-    border: 0px dotted silver;
+    border-bottom: 1px solid var(--subtleAccent);
 }
 
 .tab-cli .note {
@@ -16,7 +16,7 @@
 }
 
 .tab-cli .backdrop {
-    border: 1px solid silver;
+    border-bottom: 1px solid var(--subtleAccent);
     background-color: rgba(0, 0, 0, 0.75);
     margin-top: 0px;
     height: calc(100% - 90px); /* - (p, textarea) */
@@ -49,12 +49,12 @@
     height: 22px;
     line-height: 20px;
     padding-left: 5px;
-    border: 1px solid silver;
+    border-bottom: 1px solid var(--subtleAccent);
     resize: none;
 }
 
 .jBox-container textarea#preview {
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: rgba(24, 22, 22, 0.75);
     width: 100%;
     resize: none;
     overflow-y: scroll;

@@ -179,9 +179,6 @@ MspHelper.prototype.process_data = function(dataHandler) {
                 ANALOG.rssi = data.readU16(); // 0-1023
                 ANALOG.amperage = data.read16() / 100; // A
                 ANALOG.last_received_timestamp = Date.now();
-                if (semver.gte(CONFIG.apiVersion, "1.41.0")) {
-                    ANALOG.voltage = data.readU16() / 100;
-                }
                 break;
             case MSPCodes.MSP_VOLTAGE_METERS:
                 VOLTAGE_METERS = [];
@@ -214,10 +211,6 @@ MspHelper.prototype.process_data = function(dataHandler) {
                 BATTERY_STATE.voltage = data.readU8() / 10.0; // V
                 BATTERY_STATE.mAhDrawn = data.readU16(); // mAh
                 BATTERY_STATE.amperage = data.readU16() / 100; // A
-                if (semver.gte(CONFIG.apiVersion, "1.41.0")) {
-                    BATTERY_STATE.batteryState = data.readU8();
-                    BATTERY_STATE.voltage = data.readU16() / 100;
-                }
                 break;
 
             case MSPCodes.MSP_VOLTAGE_METER_CONFIG:
@@ -289,11 +282,6 @@ MspHelper.prototype.process_data = function(dataHandler) {
                 BATTERY_CONFIG.capacity = data.readU16();
                 BATTERY_CONFIG.voltageMeterSource = data.readU8();
                 BATTERY_CONFIG.currentMeterSource = data.readU8();
-                if (semver.gte(CONFIG.apiVersion, "1.41.0")) {
-                    BATTERY_CONFIG.vbatmincellvoltage = data.readU16() / 100;
-                    BATTERY_CONFIG.vbatmaxcellvoltage = data.readU16() / 100;
-                    BATTERY_CONFIG.vbatwarningcellvoltage = data.readU16() / 100;
-                }
                 break;
             case MSPCodes.MSP_RC_TUNING:
                 RC_tuning.RC_RATE = parseFloat((data.readU8() / 100).toFixed(2));
@@ -332,6 +320,10 @@ MspHelper.prototype.process_data = function(dataHandler) {
                 } else {
                     RC_tuning.rcPitchRate = 0;
                     RC_tuning.RC_PITCH_EXPO = 0;
+                }
+                if (semver.gte(CONFIG.apiVersion, "1.41.0")) {
+                    RC_tuning.throttleLimitType = data.readU8();
+                    RC_tuning.throttleLimitPercent = data.readU8();
                 }
                 break;
 
@@ -539,13 +531,13 @@ MspHelper.prototype.process_data = function(dataHandler) {
                 SENSOR_ALIGNMENT.align_gyro = data.readU8();
                 SENSOR_ALIGNMENT.align_acc = data.readU8();
                 SENSOR_ALIGNMENT.align_mag = data.readU8();
-
-                if (semver.gte(CONFIG.apiVersion, '1.41.0')) {
+                /*
+                if (semver.gte(CONFIG.apiVersion, '1.4x.0')) {
                     SENSOR_ALIGNMENT.gyro_detection_flags = data.readU8();
                     SENSOR_ALIGNMENT.gyro_to_use = data.readU8();
                     SENSOR_ALIGNMENT.gyro_1_align = data.readU8();
                     SENSOR_ALIGNMENT.gyro_2_align = data.readU8();
-                }
+                } */
                 break;
             case MSPCodes.MSP_DISPLAYPORT:
                 break;
@@ -761,12 +753,7 @@ MspHelper.prototype.process_data = function(dataHandler) {
                         CONFIG.signature.push(data.readU8());
                     }
                 }
-
-                if (semver.gte(CONFIG.apiVersion, "1.41.0")) {
-                    CONFIG.mcuTypeId = data.readU8();
-                } else {
-                    CONFIG.mcuTypeId = 255;
-                }
+                CONFIG.mcuTypeId = 255;
                 break;
 
             case MSPCodes.MSP_NAME:
@@ -948,20 +935,7 @@ MspHelper.prototype.process_data = function(dataHandler) {
 
                     if (semver.gte(CONFIG.apiVersion, "1.25.0")) {
                         let gyroUse32kHz = data.readU8();
-                        if (semver.lt(CONFIG.apiVersion, "1.41.0")) {
-                            PID_ADVANCED_CONFIG.gyroUse32kHz = gyroUse32kHz;
-                        }
-                        if (semver.gte(CONFIG.apiVersion, "1.42.0")) {
-                            PID_ADVANCED_CONFIG.motorPwmInversion = data.readU8();
-                            PID_ADVANCED_CONFIG.gyroToUse = data.readU8();
-                            PID_ADVANCED_CONFIG.gyroHighFsr = data.readU8();
-                            PID_ADVANCED_CONFIG.gyroMovementCalibThreshold = data.readU8();
-                            PID_ADVANCED_CONFIG.gyroCalibDuration = data.readU16();
-                            PID_ADVANCED_CONFIG.gyroOffsetYaw = data.readU16();
-                            PID_ADVANCED_CONFIG.gyroCheckOverflow = data.readU8();
-                            PID_ADVANCED_CONFIG.debugMode = data.readU8();
-                            PID_ADVANCED_CONFIG.debugModeCount = data.readU8();
-                        }
+                        PID_ADVANCED_CONFIG.gyroUse32kHz = gyroUse32kHz;
                     }
                 }
                 break;
@@ -989,23 +963,6 @@ MspHelper.prototype.process_data = function(dataHandler) {
                         FILTER_CONFIG.gyro_lowpass_type = data.readU8();
                         FILTER_CONFIG.gyro_lowpass2_type = data.readU8();
                         FILTER_CONFIG.dterm_lowpass2_hz = data.readU16();
-                        if (semver.lt(CONFIG.apiVersion, "1.41.0")) {
-                            FILTER_CONFIG.gyro_32khz_hardware_lpf = gyro_32khz_hardware_lpf;
-                        } else {
-                            FILTER_CONFIG.gyro_32khz_hardware_lpf = 0;
-
-                            FILTER_CONFIG.dterm_lowpass2_type = data.readU8();
-                            FILTER_CONFIG.gyro_lowpass_dyn_min_hz = data.readU16();
-                            FILTER_CONFIG.gyro_lowpass_dyn_max_hz = data.readU16();
-                            FILTER_CONFIG.dterm_lowpass_dyn_min_hz = data.readU16();
-                            FILTER_CONFIG.dterm_lowpass_dyn_max_hz = data.readU16();
-                            if (semver.gte(CONFIG.apiVersion, "1.42.0")) {
-                                FILTER_CONFIG.dyn_notch_range = data.readU8();
-                                FILTER_CONFIG.dyn_notch_width_percent = data.readU8();
-                                FILTER_CONFIG.dyn_notch_q = data.readU16();
-                                FILTER_CONFIG.dyn_notch_min_hz = data.readU16();
-                            }
-                        }
                     }
                 }
                 break;
@@ -1098,14 +1055,6 @@ MspHelper.prototype.process_data = function(dataHandler) {
                 var ledCount = data.byteLength / 7; // v1.4.0 and below incorrectly reported 4 bytes per led.
                 if (semver.gte(CONFIG.apiVersion, "1.20.0")) {
                     ledCount = data.byteLength / 4;
-                }
-                if (semver.gte(CONFIG.apiVersion, "1.41.0")) {
-                    // According to betaflight/src/main/msp/msp.c
-                    // API 1.41 - add indicator for advanced profile support and the current profile selection
-                    // 0 = basic ledstrip available
-                    // 1 = advanced ledstrip available
-                    // Following byte is the current LED profile
-                    ledCount = (data.byteLength - 2) / 4;
                 }
                 for (var i = 0; i < ledCount; i++) {
 
@@ -1495,16 +1444,11 @@ MspHelper.prototype.crunch = function(code) {
                 buffer.push8(Math.round(RC_tuning.rcPitchRate * 100));
                 buffer.push8(Math.round(RC_tuning.RC_PITCH_EXPO * 100));
             }
-            break;
             if (semver.gte(CONFIG.apiVersion, "1.41.0")) {
                 buffer.push8(RC_tuning.throttleLimitType);
                 buffer.push8(RC_tuning.throttleLimitPercent);
             }
-            if (semver.gte(CONFIG.apiVersion, "1.42.0")) {
-                buffer.push16(RC_tuning.roll_rate_limit);
-                buffer.push16(RC_tuning.pitch_rate_limit);
-                buffer.push16(RC_tuning.yaw_rate_limit);
-            }
+            break;
 
         case MSPCodes.MSP_SET_EMUF:
             buffer.push8(Math.round(EMUF_ADVANCED.dynamic_THR_PID_I * 100));
@@ -1594,11 +1538,6 @@ MspHelper.prototype.crunch = function(code) {
                 .push16(BATTERY_CONFIG.capacity)
                 .push8(BATTERY_CONFIG.voltageMeterSource)
                 .push8(BATTERY_CONFIG.currentMeterSource);
-                if (semver.gte(CONFIG.apiVersion, "1.41.0")) {
-                    buffer.push16(Math.round(BATTERY_CONFIG.vbatmincellvoltage * 100))
-                        .push16(Math.round(BATTERY_CONFIG.vbatmaxcellvoltage * 100))
-                        .push16(Math.round(BATTERY_CONFIG.vbatwarningcellvoltage * 100));
-                }
             break;
         case MSPCodes.MSP_SET_VOLTAGE_METER_CONFIG:
             if (semver.lt(CONFIG.apiVersion, "1.36.0")) {
@@ -1727,11 +1666,12 @@ MspHelper.prototype.crunch = function(code) {
             buffer.push8(SENSOR_ALIGNMENT.align_gyro)
                 .push8(SENSOR_ALIGNMENT.align_acc)
                 .push8(SENSOR_ALIGNMENT.align_mag);
-            if (semver.gte(CONFIG.apiVersion, "1.41.0")) {
+            /*
+            if (semver.gte(CONFIG.apiVersion, "1.4x.0")) {
                 buffer.push8(SENSOR_ALIGNMENT.gyro_to_use)
                 .push8(SENSOR_ALIGNMENT.gyro_1_align)
                 .push8(SENSOR_ALIGNMENT.gyro_2_align);
-            }
+            } */
             break;
         case MSPCodes.MSP_SET_ADVANCED_CONFIG:
             buffer.push8(PID_ADVANCED_CONFIG.gyro_sync_denom)
@@ -1744,20 +1684,8 @@ MspHelper.prototype.crunch = function(code) {
 
                 if (semver.gte(CONFIG.apiVersion, "1.25.0")) {
                     let gyroUse32kHz = 0;
-                    if (semver.lt(CONFIG.apiVersion, "1.41.0")) {
-                        gyroUse32kHz = PID_ADVANCED_CONFIG.gyroUse32kHz;
-                    }
+                    gyroUse32kHz = PID_ADVANCED_CONFIG.gyroUse32kHz;
                     buffer.push8(gyroUse32kHz);
-                    if (semver.gte(CONFIG.apiVersion, "1.42.0")) {
-                        buffer.push8(PID_ADVANCED_CONFIG.motorPwmInversion)
-                              .push8(PID_ADVANCED_CONFIG.gyroToUse)
-                              .push8(PID_ADVANCED_CONFIG.gyroHighFsr)
-                              .push8(PID_ADVANCED_CONFIG.gyroMovementCalibThreshold)
-                              .push16(PID_ADVANCED_CONFIG.gyroCalibDuration)
-                              .push16(PID_ADVANCED_CONFIG.gyroOffsetYaw)
-                              .push8(PID_ADVANCED_CONFIG.gyroCheckOverflow)
-                              .push8(PID_ADVANCED_CONFIG.debugMode);
-                    }
                 }
             }
             break;
@@ -1779,9 +1707,7 @@ MspHelper.prototype.crunch = function(code) {
                 }
                 if (semver.gte(CONFIG.apiVersion, "1.39.0")) {
                     let gyro_32khz_hardware_lpf = 0;
-                    if (semver.lt(CONFIG.apiVersion, "1.41.0")) {
-                        gyro_32khz_hardware_lpf = FILTER_CONFIG.gyro_32khz_hardware_lpf;
-                    }
+                    gyro_32khz_hardware_lpf = FILTER_CONFIG.gyro_32khz_hardware_lpf;
                     buffer.push8(FILTER_CONFIG.gyro_hardware_lpf)
                           .push8(gyro_32khz_hardware_lpf)
                           .push16(FILTER_CONFIG.gyro_lowpass_hz)
@@ -1789,19 +1715,6 @@ MspHelper.prototype.crunch = function(code) {
                           .push8(FILTER_CONFIG.gyro_lowpass_type)
                           .push8(FILTER_CONFIG.gyro_lowpass2_type)
                           .push16(FILTER_CONFIG.dterm_lowpass2_hz);
-                }
-                if (semver.gte(CONFIG.apiVersion, "1.41.0")) {
-                    buffer.push8(FILTER_CONFIG.dterm_lowpass2_type)
-                          .push16(FILTER_CONFIG.gyro_lowpass_dyn_min_hz)
-                          .push16(FILTER_CONFIG.gyro_lowpass_dyn_max_hz)
-                          .push16(FILTER_CONFIG.dterm_lowpass_dyn_min_hz)
-                          .push16(FILTER_CONFIG.dterm_lowpass_dyn_max_hz);
-                }
-                if (semver.gte(CONFIG.apiVersion, "1.42.0")) {
-                    buffer.push8(FILTER_CONFIG.dyn_notch_range)
-                          .push8(FILTER_CONFIG.dyn_notch_width_percent)
-                          .push16(FILTER_CONFIG.dyn_notch_q)
-                          .push16(FILTER_CONFIG.dyn_notch_min_hz);
                 }
             }
             break;
@@ -1926,20 +1839,13 @@ MspHelper.prototype.crunch = function(code) {
         case MSPCodes.MSP_SET_RTC:
             var now = new Date();
 
-            if (semver.gte(CONFIG.apiVersion, "1.41.0")) {
-                var timestamp = now.getTime();
-                var secs = timestamp / 1000;
-                var millis = timestamp % 1000;
-                buffer.push32(secs);
-                buffer.push16(millis);
-            } else {
-                buffer.push16(now.getUTCFullYear());
-                buffer.push8(now.getUTCMonth() + 1);
-                buffer.push8(now.getUTCDate());
-                buffer.push8(now.getUTCHours());
-                buffer.push8(now.getUTCMinutes());
-                buffer.push8(now.getUTCSeconds());
-            }
+            buffer.push16(now.getUTCFullYear());
+            buffer.push8(now.getUTCMonth() + 1);
+            buffer.push8(now.getUTCDate());
+            buffer.push8(now.getUTCHours());
+            buffer.push8(now.getUTCMinutes());
+            buffer.push8(now.getUTCSeconds());
+            
 
             break;
         default:
@@ -2119,13 +2025,6 @@ MspHelper.prototype.sendModeRanges = function(onCompleteCallback) {
             .push8(modeRange.auxChannelIndex)
             .push8((modeRange.range.start - 900) / 25)
             .push8((modeRange.range.end - 900) / 25);
-
-        if (semver.gte(CONFIG.apiVersion, "1.41.0")) {
-            var modeRangeExtra = MODE_RANGES_EXTRA[modeRangeIndex];
-
-            buffer.push8(modeRangeExtra.modeLogic)
-                .push8(modeRangeExtra.linkedTo);
-        }
 
         // prepare for next iteration
         modeRangeIndex++;

@@ -25,7 +25,7 @@
 .tab-logging .speed {
     margin-top: 5px;
     width: 80px;
-    border: 1px solid silver;
+    border: 1px solid var(--subtleAccent);
 }
 
 .tab-logging .info {

@@ -111,7 +111,7 @@
     width: 100px;
     height: 20px;
     margin: 0 10px 5px 0;
-    border: 1px solid silver;
+    border-bottom: 1px solid var(--subtleAccent);
 }
 
 .tab-configuration .gps span {

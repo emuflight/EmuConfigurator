@@ -520,7 +520,7 @@
         "message": "Contribuir"
     },
     "defaultContributingText": {
-        "message": "Se quere axudar a facer mellor Emuflight, pode axudar de moitas maneiras, incluíndo:<br \/><ul><li>Contestando preguntas de outros usuarios en forums e IRC.<\/li><li>Contribuindo código ó firmware e ó configurador: novas funcións, correccións, melloras<\/li><li>Testeando <a href=\"https:\/\/github.com\/Emuflight\/EmuFlight-Butter-Varient\/pulls\" target=\"_blank\">novas características \/ correccións<\/a> e proporcionar feedback.<\/li><li>Axudar con <a href=\"https:\/\/github.com\/emuflight\/EmuFlight-Butter-Varient\/issues\" target=\"_blank\">cuestións e comentarios sobre solicitudes de funcións<\/a>.<\/li><li>Colaborado <a href=\"https:\/\/crowdin.com\/project\/emuflight-configurator\" target=\"_blank\">traducindo a aplicación do configurador<\/a> na súa lingua.<\/li><li><\/li><\/ul>"
+        "message": "Se quere axudar a facer mellor Emuflight, pode axudar de moitas maneiras, incluíndo:<br \/><ul><li>Contestando preguntas de outros usuarios en forums e IRC.<\/li><li>Contribuindo código ó firmware e ó configurador: novas funcións, correccións, melloras<\/li><li>Testeando <a href=\"https:\/\/github.com\/Emuflight\/EmuFlight-Butter-Varient\/pulls\" target=\"_blank\">novas características \/ correccións<\/a> e proporcionar feedback.<\/li><li>Axudar con <a href=\"https:\/\/github.com\/emuflight\/EmuFlight-Butter-Varient\/issues\" target=\"_blank\">cuestións e comentarios sobre solicitudes de funcións<\/a>.<\/li><li>Colaborado <a href=\"https:\/\/discordapp.com\/channels\/547211754845765635/596913667447062547\" target=\"_blank\">traducindo a aplicación do configurador<\/a> na súa lingua.<\/li><li><\/li><\/ul>"
     },
     "defaultFacebookText": {
         "message": "Nós tamén temos <a href=\"https:\/\/www.facebook.com\/groups\/betaflightgroup\/\" target=\"_blank\">Grupo de Facebook<\/a>.<br \/>Únase a nós para conseguir un lugar para falar sobre Emuflight, facer preguntas de configuración ou simplemente saír cos compañeiros pilotos."
@@ -577,19 +577,10 @@
         "message": "Para soporte por favor busque nos foros e na wiki ou contacte co vendedor. <br \/><br \/>"
     },
     "defaultSupport1": {
-        "message": "<a href=\"http:\/\/www.rcgroups.com\/forums\/showthread.php?t=2464844&page=1\" target=\"_blank\">Fio de RC Groups<\/a>"
+        "message": "<a href=\"https:\/\/discordapp.com\/channels\/547211754845765635\" target=\"_blank\">Discord<\/a>"
     },
     "defaultSupport2": {
-        "message": "<a href=\"http:\/\/betaflight.info\" target=\"_blank\">Wiki de Emuflight<\/a>"
-    },
-    "defaultSupport3": {
-        "message": "<a href=\"https:\/\/www.youtube.com\/playlist?list=PLwoDb7WF6c8kdK6yHr7vhsU9iRTr5HxP4\" target=\"_blank\">Videos Emuflight de Joshua Bardwell<\/a>"
-    },
-    "defaultSupport4": {
-        "message": "<a href=\"https:\/\/github.com\/Emuflight\" target=\"_blank\">GitHub<\/a>"
-    },
-    "defaultSupport5": {
-        "message": "<a href=\"https:\/\/slack.betaflight.com\" target=\"_blank\"> Desenvolvedores de Emuflight no slack<\/a>"
+         "message": "<a href=\"https:\/\/github.com\/Emuflight\" target=\"_blank\">GitHub<\/a>"
     },
     "initialSetupBackupAndRestoreApiVersion": {
         "message": "<span class=\"message-negative\"> Desactivada función de copia de seguridade e restauración. <\/span> Ten firmware con versión API <span class=\"message-negative\">$1<\/span>, requere copia de seguridade e restauración <span class=\"mensaxe positiva\">$2<\/span>. Por favor, faga unha copia de seguridade dos axustes mediante a CLI, consulte a documentación de Emuflight para o procedemento."
@@ -1349,6 +1340,9 @@
     },
     "pidTuningSubTabPid": {
         "message": "Opcións de PID"
+    },
+    "pidTuningSubTabRates": {
+        "message": "Configuración do perfil de taxa"
     },
     "pidTuningSubTabFilter": {
         "message": "Opcións de filtros"

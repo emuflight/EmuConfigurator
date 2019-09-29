@@ -322,10 +322,6 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
             'CW 270° flip'
         ];
 
-        if (semver.gte(CONFIG.apiVersion, "1.42.0")) {
-            alignments.push('Custom');
-        }
-
         var gyro_align_content_e = $('.tab-configuration .gyro_align_content');
         var legacy_gyro_alignment_e = $('.tab-configuration .legacy_gyro_alignment');
         var legacy_accel_alignment_e = $('.tab-configuration .legacy_accel_alignment');
@@ -353,8 +349,8 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
             orientation_acc_e.val(SENSOR_ALIGNMENT.align_acc);
             orientation_mag_e.val(SENSOR_ALIGNMENT.align_mag);
 
-            // Multi gyro config
-            if (semver.gte(CONFIG.apiVersion, "1.41.0")) {
+            /* Multi gyro config
+            if (semver.gte(CONFIG.apiVersion, "1.4x.0")) {
 
                 gyro_align_content_e.show();
                 legacy_gyro_alignment_e.hide();
@@ -393,7 +389,7 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
                 $('.gyro_alignment_inputs_second').toggle(detected_gyro_2);
                 $('.gyro_alignment_inputs_selection').toggle(detected_gyro_1 || detected_gyro_2);
                 $('.gyro_alignment_inputs_notfound').toggle(!detected_gyro_1 && !detected_gyro_2);
-            }
+            }*/
         }
 
         // ESC protocols
@@ -502,7 +498,7 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
             gyro_select_e.change();
         };
 
-        if (semver.gte(CONFIG.apiVersion, "1.25.0") && semver.lt(CONFIG.apiVersion, "1.41.0")) {
+        if (semver.gte(CONFIG.apiVersion, "1.25.0")) {
             gyroUse32kHz_e.prop('checked', PID_ADVANCED_CONFIG.gyroUse32kHz !== 0);
 
             gyroUse32kHz_e.change(function () {
@@ -521,12 +517,7 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
             updateGyroDenom(8);
         }
 
-
-        if (semver.gte(CONFIG.apiVersion, "1.41.0")) {
-            $('.systemconfigNote').html(i18n.getMessage('configurationLoopTimeNo32KhzHelp'));
-        } else {
-            $('.systemconfigNote').html(i18n.getMessage('configurationLoopTimeHelp'));
-        }
+        $('.systemconfigNote').html(i18n.getMessage('configurationLoopTimeHelp'));
 
         gyro_select_e.val(PID_ADVANCED_CONFIG.gyro_sync_denom);
 
@@ -534,7 +525,7 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
             var originalPidDenom = pid_select_e.val();
 
             var pidBaseFreq = 8;
-            if (semver.gte(CONFIG.apiVersion, "1.25.0") && semver.lt(CONFIG.apiVersion, "1.41.0") && gyroUse32kHz_e.is(':checked')) {
+            if (semver.gte(CONFIG.apiVersion, "1.25.0") && gyroUse32kHz_e.is(':checked')) {
                 pidBaseFreq = 32;
             }
 
@@ -581,9 +572,6 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
 
         if (semver.gte(CONFIG.apiVersion, "1.31.0")) {
             $('input[name="fpvCamAngleDegrees"]').val(RX_CONFIG.fpvCamAngleDegrees);
-            if (semver.gte(CONFIG.apiVersion, "1.41.0")) {
-                $('input[name="fpvCamAngleDegrees"]').attr("max", 90);
-            }
         } else {
             $('div.fpvCamAngleDegrees').hide();
         }
@@ -597,9 +585,6 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
             'NMEA',
             'UBLOX'
         ];
-        if (semver.gte(CONFIG.apiVersion, "1.41.0")) {
-            gpsProtocols.push('MSP');
-        }
 
         var gpsBaudRates = [
             '115200',
@@ -701,10 +686,6 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
             serialRXtypes.push('FrSky FPort');
         }
 
-        if (semver.gte(CONFIG.apiVersion, "1.42.0"))  {
-            serialRXtypes.push('SPEKTRUM SRXL2');
-        }
-
         var serialRX_e = $('select.serialRX');
         for (var i = 0; i < serialRXtypes.length; i++) {
             serialRX_e.append('<option value="' + i + '">' + serialRXtypes[i] + '</option>');
@@ -744,14 +725,6 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
                     'A7105_FLYSKY',
                     'A7105_FLYSKY_2A',
                     'NRF24_KN'
-                );
-            }
-
-            if (semver.gte(CONFIG.apiVersion, "1.41.0")) {
-                spiRxTypes.push(
-                    'SFHSS',
-                    'SPEKTRUM',
-                    'FRSKY_X_LBT'
                 );
             }
 
@@ -832,12 +805,6 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
                 batteryMeterType_e.val(MISC.batterymetertype).change();
             } else {
                 $('div.batterymetertype').hide();
-            }
-
-            if (semver.gte(CONFIG.apiVersion, "1.41.0")) {
-                $('input[name="mincellvoltage"]').prop('step','0.01');
-                $('input[name="maxcellvoltage"]').prop('step','0.01');
-                $('input[name="warningcellvoltage"]').prop('step','0.01');
             }
 
             $('input[name="mincellvoltage"]').val(MISC.vbatmincellvoltage);
@@ -1086,11 +1053,12 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
             SENSOR_ALIGNMENT.align_gyro = parseInt(orientation_gyro_e.val());
             SENSOR_ALIGNMENT.align_acc = parseInt(orientation_acc_e.val());
             SENSOR_ALIGNMENT.align_mag = parseInt(orientation_mag_e.val());
-            if (semver.gte(CONFIG.apiVersion, "1.41.0")) {
+
+            /*if (semver.gte(CONFIG.apiVersion, "1.4x.0")) {
                 SENSOR_ALIGNMENT.gyro_to_use = parseInt(orientation_gyro_to_use_e.val());
                 SENSOR_ALIGNMENT.gyro_1_align = parseInt(orientation_gyro_1_align_e.val());
                 SENSOR_ALIGNMENT.gyro_2_align = parseInt(orientation_gyro_2_align_e.val());
-            }
+            }*/
 
             PID_ADVANCED_CONFIG.fast_pwm_protocol = parseInt(esc_protocol_e.val()-1);
             PID_ADVANCED_CONFIG.use_unsyncedPwm = $('input[id="unsyncedPWMSwitch"]').is(':checked') ? 1 : 0;
@@ -1098,7 +1066,7 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
             PID_ADVANCED_CONFIG.gyro_sync_denom = parseInt(gyro_select_e.val());
             PID_ADVANCED_CONFIG.pid_process_denom = parseInt(pid_select_e.val());
             PID_ADVANCED_CONFIG.digitalIdlePercent = parseFloat($('input[name="digitalIdlePercent"]').val());
-            if (semver.gte(CONFIG.apiVersion, "1.25.0") && semver.lt(CONFIG.apiVersion, "1.41.0")) {
+            if (semver.gte(CONFIG.apiVersion, "1.25.0")) {
                 PID_ADVANCED_CONFIG.gyroUse32kHz = $('input[id="gyroUse32kHz"]').is(':checked') ? 1 : 0;
             }
 

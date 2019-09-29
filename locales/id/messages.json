@@ -474,7 +474,7 @@
         "message": "Berkontribusi"
     },
     "defaultContributingText": {
-        "message": "Jika anda ingin menjadikan Emuflight jadi lebih baik, anda bisa membantu dengan bermacam cara, termasuk:<br\/><ul> <li>Menjawab pertanyaan pengguna lainnya di forum dan IRC.<\/li> <li>Menyumbang kode ke firmware dan configurator - fitur baru, perbaikan, peningkatan<\/li><li>Menguji<a href=\"https:\/\/github.com\/Emuflight\/EmuFlight-Butter-Varient\/pulls\" target=\"_blank\">fitur baru\/perbaikan<\/a> dan memberikan umpan balik.<\/li><li>Membantu dengan <a href=\"https:\/\/github.com\/emuflight\/EmuFlight-Butter-Varient\/issues\" target=\"_blank\">Menerbitkan dan memberikan komentar pada permintaan fitur<\/a>.<\/li><li>Berkolaborasi dengan <a href=\"https:\/\/crowdin.com\/project\/emuflight-configurator\" target=\"_blank\">menerjemahkan aplikasi configurasi<\/a> ke bahasa anda.<\/li><li><\/li><\/ul>"
+        "message": "Jika anda ingin menjadikan Emuflight jadi lebih baik, anda bisa membantu dengan bermacam cara, termasuk:<br\/><ul> <li>Menjawab pertanyaan pengguna lainnya di forum dan IRC.<\/li> <li>Menyumbang kode ke firmware dan configurator - fitur baru, perbaikan, peningkatan<\/li><li>Menguji<a href=\"https:\/\/github.com\/Emuflight\/EmuFlight-Butter-Varient\/pulls\" target=\"_blank\">fitur baru\/perbaikan<\/a> dan memberikan umpan balik.<\/li><li>Membantu dengan <a href=\"https:\/\/github.com\/emuflight\/EmuFlight-Butter-Varient\/issues\" target=\"_blank\">Menerbitkan dan memberikan komentar pada permintaan fitur<\/a>.<\/li><li>Berkolaborasi dengan <a href=\"https:\/\/discordapp.com\/channels\/547211754845765635/596913667447062547\" target=\"_blank\">menerjemahkan aplikasi configurasi<\/a> ke bahasa anda.<\/li><li><\/li><\/ul>"
     },
     "defaultFacebookText": {
         "message": "Kami juga memiliki <a href=\"https:\/\/www.facebook.com\/groups\/betaflightgroup\/\" target=\"_blank\">grup Facebook<\/a>.<br \/>Bergabunglah bersama kami sebagai wadah untuk membahas Emuflight, cara konfigurasi, atau hanya bergaul dengan sesama pilot."
@@ -525,19 +525,10 @@
         "message": "Untuk dukungan silahkan cari di forum dan wiki terlebih dahulu atau hubungi vendor anda.<br \/><br \/>"
     },
     "defaultSupport1": {
-        "message": "<a href=\"http:\/\/www.rcgroups.com\/forums\/showthread.php?t=2464844&page=1\" target=\"_blank\">Pembahasan di RC Groups<\/a>"
+        "message": "<a href=\"https:\/\/discordapp.com\/channels\/547211754845765635\" target=\"_blank\">Discord<\/a>"
     },
     "defaultSupport2": {
-        "message": "<a href=\"http:\/\/betaflight.info\" target=\"_blank\">Wiki Emuflight<\/a>"
-    },
-    "defaultSupport3": {
-        "message": "<a href=\"https:\/\/www.youtube.com\/playlist?list=PLwoDb7WF6c8kdK6yHr7vhsU9iRTr5HxP4\" target=\"_blank\"> Video Emuflight oleh Joshua Bardwell<\/a>"
-    },
-    "defaultSupport4": {
-        "message": "<a href=\"https:\/\/github.com\/Emuflight\" target=\"_blank\">GitHub<\/a>"
-    },
-    "defaultSupport5": {
-        "message": "<a href=\"https:\/\/slack.betaflight.com\" target=\"_blank\">Emuflight devs di slack<\/a>"
+         "message": "<a href=\"https:\/\/github.com\/Emuflight\" target=\"_blank\">GitHub<\/a>"
     },
     "initialSetupBackupAndRestoreApiVersion": {
         "message": "<span class=\"message-negative\">Fungsi Backup dan Restore nonaktif.<\/span> Anda memiliki firmware dengan versi API <span class=\"message-negative\">$1<\/span>, backup dan restore membutuhkan versi <span class=\"message-positive\">$2<\/span>. Backup pengaturan anda melalui CLI, lihat dokumentasi Emuflight untuk mengetahui caranya."

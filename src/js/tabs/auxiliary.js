@@ -8,8 +8,7 @@ TABS.auxiliary.initialize = function (callback) {
     var prevChannelsValues = null;
 
     function get_mode_ranges() {
-        MSP.send_message(MSPCodes.MSP_MODE_RANGES, false, false, 
-            semver.gte(CONFIG.apiVersion, "1.41.0") ? get_mode_ranges_extra : get_box_ids);
+        MSP.send_message(MSPCodes.MSP_MODE_RANGES, false, false, get_box_ids);
     }
 
     function get_mode_ranges_extra() {
@@ -57,7 +56,7 @@ TABS.auxiliary.initialize = function (callback) {
         $(newMode).find('a.addLink').data('modeElement', newMode);
 
         // hide link button for ARM
-        if (modeId == 0 || semver.lt(CONFIG.apiVersion, "1.41.0")) {
+        if (modeId == 0) {
             $(newMode).find('.addLink').hide();
         }
 
@@ -75,12 +74,6 @@ TABS.auxiliary.initialize = function (callback) {
         logicOption.val(0);
         logicList.append(logicOption);
         
-        if(semver.gte(CONFIG.apiVersion, "1.41.0")){
-            var logicOption = logicOptionTemplate.clone();
-            logicOption.text(i18n.getMessage('auxiliaryModeLogicAND'));
-            logicOption.val(1);
-            logicList.append(logicOption);
-        }
         logicOptionTemplate.val(0);
     }
     
@@ -267,9 +260,6 @@ TABS.auxiliary.initialize = function (callback) {
                     modeLogic: 0,
                     linkedTo: 0
                 };
-                if (semver.gte(CONFIG.apiVersion, "1.41.0")) {
-                    modeRangeExtra = MODE_RANGES_EXTRA[modeRangeIndex];
-                }
                 
                 if (modeRange.id != modeId || modeRangeExtra.id != modeId) {
                     continue;
