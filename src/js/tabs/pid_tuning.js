@@ -943,11 +943,26 @@ function  resetProfile(){
 
           var presetSelected = $('.tab-pid_tuning select[name="preset"]').val();
 
-                   if(presetSelected == "default"){
-                       resetProfile();
-                     }else{
+          if(presetSelected == "default"){
+                resetProfile();
+            }else{
 
-          PID_names.forEach(function(elementPid, indexPid) {
+              // preset filter values
+              if (CONFIG.boardIdentifier !== "HESP" && CONFIG.boardIdentifier !== "SX10" && CONFIG.boardIdentifier !== "FLUX") {
+                              $('.pid_filter input[name="kalmanQCoefficient"]').val(presetJson[presetSelected]['gyro_filter_q']);
+                              $('.pid_filter input[name="kalmanRCoefficient"]').val(presetJson[presetSelected]['gyro_filter_w']);
+              }else{
+                $('#imuf_roll_q').val(presetJson[presetSelected]['imuf_roll_q']);
+                $('#imuf_pitch_q').val(presetJson[presetSelected]['imuf_pitch_q']);
+                $('#imuf_yaw_q').val(presetJson[presetSelected]['imuf_yaw_q']);
+                $('#imuf_w').val(presetJson[presetSelected]['imuf_w']);
+                $('#imuf_pitch_lpf_cutoff_hz').val(presetJson[presetSelected]['imuf_pitch_lpf_cutoff_hz']);
+                $('#imuf_roll_lpf_cutoff_hz').val(presetJson[presetSelected]['imuf_roll_lpf_cutoff_hz']);
+                $('#imuf_yaw_lpf_cutoff_hz').val(presetJson[presetSelected]['imuf_yaw_lpf_cutoff_hz']);
+              }
+
+              // pid preset values
+              PID_names.forEach(function(elementPid, indexPid) {
 
 
               // Look into the PID table to a row with the name of the pid

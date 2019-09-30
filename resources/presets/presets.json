@@ -8,7 +8,17 @@
 					   "Pitch_d": 14 ,
 					   "Yaw_p": 15,
 					   "Yaw_i": 16,
-					   "Yaw_d": 17
+					   "Yaw_d": 17,
+             "gyro_filter_q": 4000,
+             "gyro_filter_w": 32,
+             "imuf_roll_q":0,
+             "imuf_pitch_q":0,
+             "imuf_yaw_q":0,
+             "imuf_w":0,
+             "imuf_pitch_lpf_cutoff_hz":0,
+             "imuf_roll_lpf_cutoff_hz":0,
+             "imuf_yaw_lpf_cutoff_hz":0
+
 					},
     "Exemple2":{
                   "Roll_p": 18,
@@ -19,7 +29,16 @@
                   "Pitch_d": 23,
                    "Yaw_p": 24,
                    "Yaw_i": 25,
-                   "Yaw_d": 26
+                   "Yaw_d": 26,
+                   "gyro_filter_q": 5000,
+                   "gyro_filter_w": 64,
+                   "imuf_roll_q":0,
+                   "imuf_pitch_q":0,
+                   "imuf_yaw_q":0,
+                   "imuf_w":0,
+                   "imuf_pitch_lpf_cutoff_hz":0,
+                   "imuf_roll_lpf_cutoff_hz":0,
+                   "imuf_yaw_lpf_cutoff_hz":0
                 },
                 "Exemple3":{
             					   "Roll_p": 9,
@@ -30,6 +49,15 @@
             					   "Pitch_d": 14 ,
             					   "Yaw_p": 15,
             					   "Yaw_i": 16,
-            					   "Yaw_d": 17
+            					   "Yaw_d": 17,
+                         "gyro_filter_q": 2500,
+                         "gyro_filter_w": 16,
+                         "imuf_roll_q":0,
+                         "imuf_pitch_q":0,
+                         "imuf_yaw_q":0,
+                         "imuf_w":0,
+                         "imuf_pitch_lpf_cutoff_hz":0,
+                         "imuf_roll_lpf_cutoff_hz":0,
+                         "imuf_yaw_lpf_cutoff_hz":0
             					}
 }
