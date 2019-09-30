@@ -248,12 +248,13 @@ TABS.pid_tuning.initialize = function (callback) {
 
             // Feathered PIDs
             $('input[id="feathered_pids"]').prop('checked', ADVANCED_TUNING.feathered_pids !== 0);
+
             // I Term Rotation
             $('input[id="itermrotation"]').prop('checked', ADVANCED_TUNING.itermRotation !== 0);
 
              // Smart Feed Forward
             $('input[id="smartfeedforward"]').prop('checked', ADVANCED_TUNING.smartFeedforward !== 0);
-
+            
             // I Term Relax
             var itermRelaxCheck = $('input[id="itermrelax"]');
 
@@ -596,13 +597,13 @@ TABS.pid_tuning.initialize = function (callback) {
                 KALMAN_FILTER_CONFIG.gyro_filter_q = parseInt($('.pid_filter input[name="kalmanQCoefficient"]').val());
                 KALMAN_FILTER_CONFIG.gyro_filter_w = parseInt($('.pid_filter input[name="kalmanRCoefficient"]').val());
             } else {
-                    IMUF_FILTER_CONFIG.imuf_roll_q = parseInt($('#imuf_roll_q').val());
-                    IMUF_FILTER_CONFIG.imuf_pitch_q = parseInt($('#imuf_pitch_q').val());
-                    IMUF_FILTER_CONFIG.imuf_yaw_q = parseInt($('#imuf_yaw_q').val());
-                    IMUF_FILTER_CONFIG.imuf_w = parseInt($('#imuf_w').val());
-                    IMUF_FILTER_CONFIG.imuf_roll_lpf_cutoff_hz = parseInt($('#imuf_roll_lpf_cutoff_hz').val());
-                    IMUF_FILTER_CONFIG.imuf_pitch_lpf_cutoff_hz = parseInt($('#imuf_pitch_lpf_cutoff_hz').val());
-                    IMUF_FILTER_CONFIG.imuf_yaw_lpf_cutoff_hz = parseInt($('#imuf_yaw_lpf_cutoff_hz').val());
+                IMUF_FILTER_CONFIG.imuf_roll_q = parseInt($('#imuf_roll_q').val());
+                IMUF_FILTER_CONFIG.imuf_pitch_q = parseInt($('#imuf_pitch_q').val());
+                IMUF_FILTER_CONFIG.imuf_yaw_q = parseInt($('#imuf_yaw_q').val());
+                IMUF_FILTER_CONFIG.imuf_w = parseInt($('#imuf_w').val());
+                IMUF_FILTER_CONFIG.imuf_roll_lpf_cutoff_hz = parseInt($('#imuf_roll_lpf_cutoff_hz').val());
+                IMUF_FILTER_CONFIG.imuf_pitch_lpf_cutoff_hz = parseInt($('#imuf_pitch_lpf_cutoff_hz').val());
+                IMUF_FILTER_CONFIG.imuf_yaw_lpf_cutoff_hz = parseInt($('#imuf_yaw_lpf_cutoff_hz').val());
             }
         }
 
@@ -734,21 +735,21 @@ TABS.pid_tuning.initialize = function (callback) {
 
         // Local cache of current rates
         self.currentRates = {
-            roll_rate:     RC_tuning.roll_rate,
-            pitch_rate:    RC_tuning.pitch_rate,
-            yaw_rate:      RC_tuning.yaw_rate,
-            rc_rate:       RC_tuning.RC_RATE,
-            rc_rate_yaw:   RC_tuning.rcYawRate,
-            rc_expo:       RC_tuning.RC_EXPO,
-            rc_yaw_expo:   RC_tuning.RC_YAW_EXPO,
-            rc_rate_pitch: RC_tuning.rcPitchRate,
-            rc_pitch_expo: RC_tuning.RC_PITCH_EXPO,
-            superexpo:   FEATURE_CONFIG.features.isEnabled('SUPEREXPO_RATES'),
-            deadband: RC_DEADBAND_CONFIG.deadband,
-            yawDeadband: RC_DEADBAND_CONFIG.yaw_deadband,
-            roll_rate_limit:   RC_tuning.roll_rate_limit,
-            pitch_rate_limit:  RC_tuning.pitch_rate_limit,
-            yaw_rate_limit:    RC_tuning.yaw_rate_limit
+            roll_rate:          RC_tuning.roll_rate,
+            pitch_rate:         RC_tuning.pitch_rate,
+            yaw_rate:           RC_tuning.yaw_rate,
+            rc_rate:            RC_tuning.RC_RATE,
+            rc_rate_yaw:        RC_tuning.rcYawRate,
+            rc_expo:            RC_tuning.RC_EXPO,
+            rc_yaw_expo:        RC_tuning.RC_YAW_EXPO,
+            rc_rate_pitch:      RC_tuning.rcPitchRate,
+            rc_pitch_expo:      RC_tuning.RC_PITCH_EXPO,
+            superexpo:          FEATURE_CONFIG.features.isEnabled('SUPEREXPO_RATES'),
+            deadband:           RC_DEADBAND_CONFIG.deadband,
+            yawDeadband:        RC_DEADBAND_CONFIG.yaw_deadband,
+            roll_rate_limit:    RC_tuning.roll_rate_limit,
+            pitch_rate_limit:   RC_tuning.pitch_rate_limit,
+            yaw_rate_limit:     RC_tuning.yaw_rate_limit
         };
 
         if (semver.lt(CONFIG.apiVersion, "1.7.0")) {
@@ -855,8 +856,7 @@ TABS.pid_tuning.initialize = function (callback) {
             });
         }
 
-populateRateProfilesSelector(selectRateProfileValues);
-
+        populateRateProfilesSelector(selectRateProfileValues);
 
         function populatePresetsSelector(selectPresetValues) {
             var presetSelect = $('select[name="preset"]');
@@ -871,7 +871,7 @@ populateRateProfilesSelector(selectRateProfileValues);
 
         }
 
-      populatePresetsSelector(selectPresetValues);
+        populatePresetsSelector(selectPresetValues);
 
         var showAllButton = $('#showAllPids');
 
@@ -900,23 +900,17 @@ populateRateProfilesSelector(selectRateProfileValues);
             resetProfile();
         });
 
-
-function  resetProfile(){
-  self.updating = true;
-  MSP.promise(MSPCodes.MSP_SET_RESET_CURR_PID).then(function () {
-      self.refresh(function () {
-          self.updating = false;
-
-          GUI.log(i18n.getMessage('pidTuningProfileReset'));
-      });
-  });
-}
-
-
-
-
-
-
+        // PRESETS 
+        
+        function  resetProfile(){
+        self.updating = true;
+        MSP.promise(MSPCodes.MSP_SET_RESET_CURR_PID).then(function () {
+            self.refresh(function () {
+                self.updating = false;
+                GUI.log(i18n.getMessage('pidTuningProfileReset'));
+            });
+        });
+        }
 
         $('.tab-pid_tuning select[name="profile"]').change(function () {
             self.currentProfile = parseInt($(this).val());
@@ -934,82 +928,118 @@ function  resetProfile(){
             });
         });
 
-
-
-
-
-
         $('.tab-pid_tuning select[name="preset"]').change(function (){
+            var presetSelected = $('.tab-pid_tuning select[name="preset"]').val();
 
-          var presetSelected = $('.tab-pid_tuning select[name="preset"]').val();
-
-          if(presetSelected == "default"){
+            if(presetSelected == "default"){
                 resetProfile();
             }else{
-
-              // preset filter values
-              if (CONFIG.boardIdentifier !== "HESP" && CONFIG.boardIdentifier !== "SX10" && CONFIG.boardIdentifier !== "FLUX") {
-                              $('.pid_filter input[name="kalmanQCoefficient"]').val(presetJson[presetSelected]['gyro_filter_q']);
-                              $('.pid_filter input[name="kalmanRCoefficient"]').val(presetJson[presetSelected]['gyro_filter_w']);
-              }else{
-                $('#imuf_roll_q').val(presetJson[presetSelected]['imuf_roll_q']);
-                $('#imuf_pitch_q').val(presetJson[presetSelected]['imuf_pitch_q']);
-                $('#imuf_yaw_q').val(presetJson[presetSelected]['imuf_yaw_q']);
-                $('#imuf_w').val(presetJson[presetSelected]['imuf_w']);
-                $('#imuf_pitch_lpf_cutoff_hz').val(presetJson[presetSelected]['imuf_pitch_lpf_cutoff_hz']);
-                $('#imuf_roll_lpf_cutoff_hz').val(presetJson[presetSelected]['imuf_roll_lpf_cutoff_hz']);
-                $('#imuf_yaw_lpf_cutoff_hz').val(presetJson[presetSelected]['imuf_yaw_lpf_cutoff_hz']);
-              }
-
-              // pid preset values
-              PID_names.forEach(function(elementPid, indexPid) {
-
-
-              // Look into the PID table to a row with the name of the pid
-              var searchRow = $('.pid_tuning .' + elementPid + ' input');
-
-              // Assign each value
-              searchRow.each(function (indexInput) {
-                // roll values
-                if(indexPid == 0){
-                    if(indexInput == 0){
-                      $(this).val(presetJson[presetSelected]['Roll_p']);
-                    }
-                    if(indexInput == 1){
-                      $(this).val(presetJson[presetSelected]['Roll_i']);
-                    }
-                    if(indexInput == 2){
-                      $(this).val(presetJson[presetSelected]['Roll_d']);
-                    }
-                }
-                //pitch values
-                if(indexPid == 1){
-                    if(indexInput == 0){
-                      $(this).val(presetJson[presetSelected]['Pitch_p']);
-                    }
-                    if(indexInput == 1){
-                      $(this).val(presetJson[presetSelected]['Pitch_i']);
-                    }
-                    if(indexInput == 2){
-                      $(this).val(presetJson[presetSelected]['Pitch_d']);
-                    }
-                }
-                // yaw values
-                if(indexPid == 2){
-                    if(indexInput == 0){
-                      $(this).val(presetJson[presetSelected]['Yaw_p']);
-                    }
-                    if(indexInput == 1){
-                      $(this).val(presetJson[presetSelected]['Yaw_i']);
-                    }
-                    if(indexInput == 2){
-                      $(this).val(presetJson[presetSelected]['Yaw_d']);
-                    }
+                // preset filter values
+                if (CONFIG.boardIdentifier !== "HESP" && CONFIG.boardIdentifier !== "SX10" && CONFIG.boardIdentifier !== "FLUX") {
+                    $('.pid_filter input[name="kalmanQCoefficient"]').val(presetJson[presetSelected]['gyro_filter_q']);
+                    $('.pid_filter input[name="kalmanRCoefficient"]').val(presetJson[presetSelected]['gyro_filter_w']);
+                }else{
+                    $('#imuf_roll_q').val(presetJson[presetSelected]['imuf_roll_q']);
+                    $('#imuf_pitch_q').val(presetJson[presetSelected]['imuf_pitch_q']);
+                    $('#imuf_yaw_q').val(presetJson[presetSelected]['imuf_yaw_q']);
+                    $('#imuf_w').val(presetJson[presetSelected]['imuf_w']);
+                    $('#imuf_pitch_lpf_cutoff_hz').val(presetJson[presetSelected]['imuf_pitch_lpf_cutoff_hz']);
+                    $('#imuf_roll_lpf_cutoff_hz').val(presetJson[presetSelected]['imuf_roll_lpf_cutoff_hz']);
+                    $('#imuf_yaw_lpf_cutoff_hz').val(presetJson[presetSelected]['imuf_yaw_lpf_cutoff_hz']);
                 }
 
-              });
-          });
-        }
+                $('.pid_filter select[name="gyroLowpassType"]').val(presetJson[presetSelected]['gyroLowpassType']);
+                $('.pid_filter input[name="gyroLowpassFrequency"]').val(presetJson[presetSelected]['gyroLowpassFrequency']);
+
+                $('.pid_filter select[name="gyroLowpass2Type"]').val(presetJson[presetSelected]['gyroLowpass2Type']);
+                $('.pid_filter input[name="gyroLowpass2Frequency"]').val(presetJson[presetSelected]['gyroLowpass2Frequency']);
+
+                $('.pid_filter input[name="dtermLowpassType"]').val(presetJson[presetSelected]['dtermLowpassType']);
+                $('.pid_filter input[name="dtermLowpassFrequency"]').val(presetJson[presetSelected]['dtermLowpassFrequency']);
+                $('.pid_filter input[name="dtermLowpass2Frequency"]').val(presetJson[presetSelected]['dtermLowpass2Frequency']);
+
+                $('.pid_filter input[name="dTermNotchFrequency"]').val(presetJson[presetSelected]['dTermNotchFrequency']);
+                $('.pid_filter input[name="dTermNotchCutoff"]').val(presetJson[presetSelected]['dTermNotchCutoff']);
+
+                $('.pid_filter input[name="yawLowpassFrequency"]').val(presetJson[presetSelected]['yawLowpassFrequency']);
+
+                var iDecayNumberElement = $('input[name="feedforwardTransition-number"]');
+                iDecayNumberElement.val(presetJson[presetSelected]['feedforwardTransition-number']).trigger('input');
+
+                var iDecayNumberElement = $('input[name="throttleBoost-number"]');
+                iDecayNumberElement.val(presetJson[presetSelected]['throttleBoost-number']).trigger('input');
+
+                var iDecayNumberElement = $('input[name="absoluteControlGain-number"]');
+                iDecayNumberElement.val(presetJson[presetSelected]['absoluteControlGain-number']).trigger('input');
+
+                var iDecayNumberElement = $('input[name="iDecay-number"]');
+                iDecayNumberElement.val(presetJson[presetSelected]['iDecay-number']).trigger('input');
+
+                var iDecayNumberElement = $('input[name="errorBoost-number"]');
+                iDecayNumberElement.val(presetJson[presetSelected]['errorBoost-number']).trigger('input');
+
+                var iDecayNumberElement = $('input[name="errorBoostLimit-number"]');
+                iDecayNumberElement.val(presetJson[presetSelected]['errorBoostLimit-number']).trigger('input');
+
+                //$('input[id="feathered_pids"]').val(presetJson[presetSelected]['feathered_pids']);
+
+                //$('.pid_filter input[name="itermrotation"]').val(presetJson[presetSelected]['itermrotation']);
+                // $('.pid_filter input[name="vbatpidcompensation"]').val(presetJson[presetSelected]['vbatpidcompensation']);
+
+                $('input[id="smartfeedforward"]').val(presetJson[presetSelected]['smartfeedforward']);
+                
+                //$('.pid_filter input[name="itermrelax"]').val(presetJson[presetSelected]['itermrelax']);
+
+                $('.tpa input[name="tpa_P"]').val(presetJson[presetSelected]['tpa_P']);
+                $('.tpa input[name="tpa_I"]').val(presetJson[presetSelected]['tpa_I']);
+                $('.tpa input[name="tpa_D"]').val(presetJson[presetSelected]['tpa_D']);
+                $('.tpa input[name="tpa-breakpoint"]').val(presetJson[presetSelected]['breakpoint']);
+                
+                // pid preset values
+                PID_names.forEach(function(elementPid, indexPid) {
+                    // Look into the PID table to a row with the name of the pid
+                    var searchRow = $('.pid_tuning .' + elementPid + ' input');
+                    // Assign each value
+                    searchRow.each(function (indexInput) {
+                        // roll values
+                        if(indexPid == 0){
+                            if(indexInput == 0){
+                                $(this).val(presetJson[presetSelected]['Roll_p']);
+                            }
+                            if(indexInput == 1){
+                                $(this).val(presetJson[presetSelected]['Roll_i']);
+                            }
+                            if(indexInput == 2){
+                                $(this).val(presetJson[presetSelected]['Roll_d']);
+                            }
+                        }
+                        //pitch values
+                        if(indexPid == 1){
+                            if(indexInput == 0){
+                                $(this).val(presetJson[presetSelected]['Pitch_p']);
+                            }
+                            if(indexInput == 1){
+                                $(this).val(presetJson[presetSelected]['Pitch_i']);
+                            }
+                            if(indexInput == 2){
+                                $(this).val(presetJson[presetSelected]['Pitch_d']);
+                            }
+                        }
+                        // yaw values
+                        if(indexPid == 2){
+                            if(indexInput == 0){
+                                $(this).val(presetJson[presetSelected]['Yaw_p']);
+                            }
+                            if(indexInput == 1){
+                                $(this).val(presetJson[presetSelected]['Yaw_i']);
+                            }
+                            if(indexInput == 2){
+                                $(this).val(presetJson[presetSelected]['Yaw_d']);
+                            }
+                        }
+                    });
+                });
+            }
         });
 
         if (semver.gte(CONFIG.apiVersion, "1.20.0")) {
