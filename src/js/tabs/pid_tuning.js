@@ -14,7 +14,7 @@ TABS.pid_tuning = {
     analyticsChanges: {},
 };
 
- var presetJson = require("../../../resources/presets/presets.json");
+ var presetJson = require("./resources/presets/presets.json");
 
 TABS.pid_tuning.initialize = function (callback) {
 
