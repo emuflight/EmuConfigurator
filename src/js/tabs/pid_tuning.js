@@ -1012,7 +1012,7 @@ TABS.pid_tuning.initialize = function (callback) {
                 $('.tpa input[name="tpa_P"]').val(presetJson[presetSelected]['tpa_P']);
                 $('.tpa input[name="tpa_I"]').val(presetJson[presetSelected]['tpa_I']);
                 $('.tpa input[name="tpa_D"]').val(presetJson[presetSelected]['tpa_D']);
-                $('.tpa input[name="tpa-breakpoint"]').val(presetJson[presetSelected]['breakpoint']);
+                $('.tpa input[name="tpa-breakpoint"]').val(presetJson[presetSelected]['tpa-breakpoint']);
                 
                 // pid preset values
                 PID_names.forEach(function(elementPid, indexPid) {
@@ -1031,6 +1031,9 @@ TABS.pid_tuning.initialize = function (callback) {
                             if(indexInput == 2){
                                 $(this).val(presetJson[presetSelected]['Roll_d']);
                             }
+                            if(indexInput == 3){
+                                $(this).val(presetJson[presetSelected]['Roll_ff']);
+                            }
                         }
                         //pitch values
                         if(indexPid == 1){
@@ -1043,6 +1046,9 @@ TABS.pid_tuning.initialize = function (callback) {
                             if(indexInput == 2){
                                 $(this).val(presetJson[presetSelected]['Pitch_d']);
                             }
+                            if(indexInput == 3){
+                                $(this).val(presetJson[presetSelected]['Pitch_ff']);
+                            }
                         }
                         // yaw values
                         if(indexPid == 2){
@@ -1054,6 +1060,9 @@ TABS.pid_tuning.initialize = function (callback) {
                             }
                             if(indexInput == 2){
                                 $(this).val(presetJson[presetSelected]['Yaw_d']);
+                            }
+                            if(indexInput == 3){
+                                $(this).val(presetJson[presetSelected]['Yaw_ff']);
                             }
                         }
                     });
