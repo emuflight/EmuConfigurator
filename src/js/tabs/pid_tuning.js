@@ -14,7 +14,6 @@ TABS.pid_tuning = {
     analyticsChanges: {},
 };
 
- var presetJson = require("./resources/presets/presets.json");
 
 TABS.pid_tuning.initialize = function (callback) {
 
@@ -63,6 +62,12 @@ TABS.pid_tuning.initialize = function (callback) {
 
     function load_html() {
         $('#content').load("./tabs/pid_tuning.html", process_html);
+    }
+
+    if (CONFIG.boardIdentifier !== "HESP" && CONFIG.boardIdentifier !== "SX10" && CONFIG.boardIdentifier !== "FLUX") {
+        var presetJson = require("./resources/presets/presets-nonHELIO.json");
+    }else{
+        var presetJson = require("./resources/presets/presets-HELIO.json");
     }
 
     function pid_and_rc_to_form() {
