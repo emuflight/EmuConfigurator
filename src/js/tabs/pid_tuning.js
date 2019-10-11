@@ -954,70 +954,70 @@ TABS.pid_tuning.initialize = function (callback) {
                     $('#imuf_roll_lpf_cutoff_hz').val(presetJson[presetSelected]['imuf_roll_lpf_cutoff_hz']);
                     $('#imuf_yaw_lpf_cutoff_hz').val(presetJson[presetSelected]['imuf_yaw_lpf_cutoff_hz']);
                 }
-                $('input[id="gyroLowpassEnabled"]').prop('checked', presetJson[presetSelected]['gyroLowpassEnabled'] !== "OFF").change();
-                $('.pid_filter select[name="gyroLowpassType"]').val(presetJson[presetSelected]['gyroLowpassType']);
-                $('.pid_filter input[name="gyroLowpassFrequency"]').val(presetJson[presetSelected]['gyroLowpassFrequency']);
+                $('input[id="gyroLowpassEnabled"]').prop('checked', presetJson[presetSelected]['gyro_lowpass_enabled'] !== "OFF").change();
+                $('.pid_filter select[name="gyroLowpassType"]').val(presetJson[presetSelected]['gyro_lowpass_type']);
+                $('.pid_filter input[name="gyroLowpassFrequency"]').val(presetJson[presetSelected]['gyro_lowpass_hz']);
 
-                $('input[id="gyroLowpass2Enabled"]').prop('checked', presetJson[presetSelected]['gyroLowpass2Enabled'] !== "OFF").change();
-                $('.pid_filter select[name="gyroLowpass2Type"]').val(presetJson[presetSelected]['gyroLowpass2Type']);
-                $('.pid_filter input[name="gyroLowpass2Frequency"]').val(presetJson[presetSelected]['gyroLowpass2Frequency']);
+                $('input[id="gyroLowpass2Enabled"]').prop('checked', presetJson[presetSelected]['gyro_lowpass2_enabled'] !== "OFF").change();
+                $('.pid_filter select[name="gyroLowpass2Type"]').val(presetJson[presetSelected]['gyro_lowpass2_type']);
+                $('.pid_filter input[name="gyroLowpass2Frequency"]').val(presetJson[presetSelected]['gyro_lowpass2_hz']);
 
-                $('input[id="gyroNotch1Enabled"]').prop('checked', presetJson[presetSelected]['gyroNotch1Enabled'] !== "OFF").change();
-                $('.pid_filter input[name="gyroNotch1Frequency"]').val(presetJson[presetSelected]['gyroNotch1Frequency']);
-                $('.pid_filter input[name="gyroNotch1Cutoff"]').val(presetJson[presetSelected]['gyroNotch1Cutoff']);
+                $('input[id="gyroNotch1Enabled"]').prop('checked', presetJson[presetSelected]['gyro_notch1_enabled'] !== "OFF").change();
+                $('.pid_filter input[name="gyroNotch1Frequency"]').val(presetJson[presetSelected]['gyro_notch1_hz']);
+                $('.pid_filter input[name="gyroNotch1Cutoff"]').val(presetJson[presetSelected]['gyro_notch1_cutoff']);
 
-                $('input[id="gyroNotch2Enabled"]').prop('checked', presetJson[presetSelected]['gyroNotch2Enabled'] !== "OFF").change();
-                $('.pid_filter input[name="gyroNotch2Frequency"]').val(presetJson[presetSelected]['gyroNotch2Frequency']);
-                $('.pid_filter input[name="gyroNotch2Cutoff"]').val(presetJson[presetSelected]['gyroNotch2Cutoff']);
+                $('input[id="gyroNotch2Enabled"]').prop('checked', presetJson[presetSelected]['gyro_notch2_enabled'] !== "OFF").change();
+                $('.pid_filter input[name="gyroNotch2Frequency"]').val(presetJson[presetSelected]['gyro_notch2_hz']);
+                $('.pid_filter input[name="gyroNotch2Cutoff"]').val(presetJson[presetSelected]['gyro_notch2_cutoff']);
                 
-                $('input[id="dtermLowpassEnabled"]').prop('checked', presetJson[presetSelected]['dtermLowpassEnabled'] !== "OFF").change();
-                $('.pid_filter input[name="dtermLowpassType"]').val(presetJson[presetSelected]['dtermLowpassType']);
-                $('.pid_filter input[name="dtermLowpassFrequency"]').val(presetJson[presetSelected]['dtermLowpassFrequency']);
-                $('input[id="dtermLowpass2Enabled"]').prop('checked', presetJson[presetSelected]['dtermLowpassEnabled'] !== "OFF").change();
-                $('.pid_filter input[name="dtermLowpass2Frequency"]').val(presetJson[presetSelected]['dtermLowpass2Frequency']);
+                $('input[id="dtermLowpassEnabled"]').prop('checked', presetJson[presetSelected]['dterm_lowpass_enabled'] !== "OFF").change();
+                $('.pid_filter input[name="dtermLowpassType"]').val(presetJson[presetSelected]['dterm_lowpass_type']);
+                $('.pid_filter input[name="dtermLowpassFrequency"]').val(presetJson[presetSelected]['dterm_lowpass_hz']);
+                $('input[id="dtermLowpass2Enabled"]').prop('checked', presetJson[presetSelected]['dterm_lowpass2_enabled'] !== "OFF").change();
+                $('.pid_filter input[name="dtermLowpass2Frequency"]').val(presetJson[presetSelected]['dterm_lowpass2_hz']);
 
-                $('input[id="dTermNotchEnabled"]').prop('checked', presetJson[presetSelected]['dTermNotchEnabled'] !== "OFF").change();
-                $('.pid_filter input[name="dTermNotchFrequency"]').val(presetJson[presetSelected]['dTermNotchFrequency']);
-                $('.pid_filter input[name="dTermNotchCutoff"]').val(presetJson[presetSelected]['dTermNotchCutoff']);
+                $('input[id="dTermNotchEnabled"]').prop('checked', presetJson[presetSelected]['dterm_notch_enabled'] !== "OFF").change();
+                $('.pid_filter input[name="dTermNotchFrequency"]').val(presetJson[presetSelected]['dterm_notch_hz']);
+                $('.pid_filter input[name="dTermNotchCutoff"]').val(presetJson[presetSelected]['dterm_notch_cutoff']);
 
-                $('input[id="yawLowpassEnabled"]').prop('checked', presetJson[presetSelected]['yawLowpassEnabled'] !== "OFF").change();
-                $('.pid_filter input[name="yawLowpassFrequency"]').val(presetJson[presetSelected]['yawLowpassFrequency']);
+                $('input[id="yawLowpassEnabled"]').prop('checked', presetJson[presetSelected]['yaw_lowpass_enabled'] !== "OFF").change();
+                $('.pid_filter input[name="yawLowpassFrequency"]').val(presetJson[presetSelected]['yaw_lowpass_hz']);
 
                 // Other settings
 
                 var iDecayNumberElement = $('input[name="feedforwardTransition-number"]');
-                iDecayNumberElement.val(presetJson[presetSelected]['feedforwardTransition-number']).trigger('input');
+                iDecayNumberElement.val(presetJson[presetSelected]['feedforward_transition']).trigger('input');
 
                 var iDecayNumberElement = $('input[name="throttleBoost-number"]');
-                iDecayNumberElement.val(presetJson[presetSelected]['throttleBoost-number']).trigger('input');
+                iDecayNumberElement.val(presetJson[presetSelected]['throttle_boost']).trigger('input');
 
                 var iDecayNumberElement = $('input[name="absoluteControlGain-number"]');
-                iDecayNumberElement.val(presetJson[presetSelected]['absoluteControlGain-number']).trigger('input');
+                iDecayNumberElement.val(presetJson[presetSelected]['abs_control_gain']).trigger('input');
 
                 var iDecayNumberElement = $('input[name="iDecay-number"]');
-                iDecayNumberElement.val(presetJson[presetSelected]['iDecay-number']).trigger('input');
+                iDecayNumberElement.val(presetJson[presetSelected]['i_decay']).trigger('input');
 
                 var iDecayNumberElement = $('input[name="errorBoost-number"]');
-                iDecayNumberElement.val(presetJson[presetSelected]['errorBoost-number']).trigger('input');
+                iDecayNumberElement.val(presetJson[presetSelected]['emu_boost']).trigger('input');
 
                 var iDecayNumberElement = $('input[name="errorBoostLimit-number"]');
-                iDecayNumberElement.val(presetJson[presetSelected]['errorBoostLimit-number']).trigger('input');
+                iDecayNumberElement.val(presetJson[presetSelected]['boost_limit']).trigger('input');
 
                 $('input[id="feathered_pids"]').prop('checked', presetJson[presetSelected]['feathered_pids'] !== "OFF").change();
-                $('input[id="itermrotation"]').prop('checked', presetJson[presetSelected]['itermrotation'] !== "OFF").change();
-                $('input[id="vbatpidcompensation"]').prop('checked', presetJson[presetSelected]['vbatpidcompensation'] !== "OFF").change();
-                $('input[id="smartfeedforward"]').prop('checked', presetJson[presetSelected]['smartfeedforward'] !== "OFF").change();
-                $('input[id="itermrelax"]').prop('checked', presetJson[presetSelected]['itermrelax'] !== "OFF").change();
-                    $('select[id="itermrelaxAxes"]').val(presetJson[presetSelected]['itermrelaxAxes']+1);
-                    $('select[id="itermrelaxType"]').val(presetJson[presetSelected]['itermrelaxType']);
-                    $('input[name="itermRelaxCutoff"]').val(presetJson[presetSelected]['itermRelaxCutoff']);
+                $('input[id="itermrotation"]').prop('checked', presetJson[presetSelected]['iterm_rotation'] !== "OFF").change();
+                $('input[id="vbatpidcompensation"]').prop('checked', presetJson[presetSelected]['vbat_pid_gain'] !== "OFF").change();
+                $('input[id="smartfeedforward"]').prop('checked', presetJson[presetSelected]['smart_feedforward'] !== "OFF").change();
+                $('input[id="itermrelax"]').prop('checked', presetJson[presetSelected]['iterm_relax_enabled'] !== "OFF").change();
+                    $('select[id="itermrelaxAxes"]').val(presetJson[presetSelected]['iterm_relax']+1);
+                    $('select[id="itermrelaxType"]').val(presetJson[presetSelected]['iterm_relax_type']);
+                    $('input[name="itermRelaxCutoff"]').val(presetJson[presetSelected]['iterm_relax_cutoff']);
 
                 // TPA settings
 
-                $('.tpa input[name="tpa_P"]').val(presetJson[presetSelected]['tpa_P']);
-                $('.tpa input[name="tpa_I"]').val(presetJson[presetSelected]['tpa_I']);
-                $('.tpa input[name="tpa_D"]').val(presetJson[presetSelected]['tpa_D']);
-                $('.tpa input[name="tpa-breakpoint"]').val(presetJson[presetSelected]['tpa-breakpoint']);
+                $('.tpa input[name="tpa_P"]').val(presetJson[presetSelected]['tpa_rate_p']/100);
+                $('.tpa input[name="tpa_I"]').val(presetJson[presetSelected]['tpa_rate_i']/100);
+                $('.tpa input[name="tpa_D"]').val(presetJson[presetSelected]['tpa_rate_d']/100);
+                $('.tpa input[name="tpa-breakpoint"]').val(presetJson[presetSelected]['tpa_breakpoint']);
                 
                 // pid preset values
                 PID_names.forEach(function(elementPid, indexPid) {
@@ -1028,46 +1028,46 @@ TABS.pid_tuning.initialize = function (callback) {
                         // roll values
                         if(indexPid == 0){
                             if(indexInput == 0){
-                                $(this).val(presetJson[presetSelected]['Roll_p']);
+                                $(this).val(presetJson[presetSelected]['p_roll']);
                             }
                             if(indexInput == 1){
-                                $(this).val(presetJson[presetSelected]['Roll_i']);
+                                $(this).val(presetJson[presetSelected]['i_roll']);
                             }
                             if(indexInput == 2){
-                                $(this).val(presetJson[presetSelected]['Roll_d']);
+                                $(this).val(presetJson[presetSelected]['d_roll']);
                             }
                             if(indexInput == 3){
-                                $(this).val(presetJson[presetSelected]['Roll_ff']);
+                                $(this).val(presetJson[presetSelected]['f_roll']);
                             }
                         }
                         //pitch values
                         if(indexPid == 1){
                             if(indexInput == 0){
-                                $(this).val(presetJson[presetSelected]['Pitch_p']);
+                                $(this).val(presetJson[presetSelected]['p_pitch']);
                             }
                             if(indexInput == 1){
-                                $(this).val(presetJson[presetSelected]['Pitch_i']);
+                                $(this).val(presetJson[presetSelected]['i_pitch']);
                             }
                             if(indexInput == 2){
-                                $(this).val(presetJson[presetSelected]['Pitch_d']);
+                                $(this).val(presetJson[presetSelected]['d_pitch']);
                             }
                             if(indexInput == 3){
-                                $(this).val(presetJson[presetSelected]['Pitch_ff']);
+                                $(this).val(presetJson[presetSelected]['f_pitch']);
                             }
                         }
                         // yaw values
                         if(indexPid == 2){
                             if(indexInput == 0){
-                                $(this).val(presetJson[presetSelected]['Yaw_p']);
+                                $(this).val(presetJson[presetSelected]['p_yaw']);
                             }
                             if(indexInput == 1){
-                                $(this).val(presetJson[presetSelected]['Yaw_i']);
+                                $(this).val(presetJson[presetSelected]['i_yaw']);
                             }
                             if(indexInput == 2){
-                                $(this).val(presetJson[presetSelected]['Yaw_d']);
+                                $(this).val(presetJson[presetSelected]['d_yaw']);
                             }
                             if(indexInput == 3){
-                                $(this).val(presetJson[presetSelected]['Yaw_ff']);
+                                $(this).val(presetJson[presetSelected]['f_yaw']);
                             }
                         }
                     });
