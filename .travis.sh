@@ -10,8 +10,8 @@ export EMU_VERSION="$(make version)"
 export PACKAGE_VERSION="${EMU_VERSION}-${TRAVIS_BUILD_NUMBER}"
 
 yarn test || exit $?
-yarn gulp release
-if [ "$TRAVIS_OS_NAME" == "linux" ]; then yarn gulp release --chromeos; fi
+yarn gulp apps
+#if [ "$TRAVIS_OS_NAME" == "linux" ]; then yarn gulp release --chromeos; fi
 
 # process template for pushing to bintray
 j2 bintray-template.j2 -o bintray-conf.json
