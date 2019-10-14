@@ -1,13 +1,13 @@
 #!/bin/bash
 #
 # travis continuous integration build script for
-# Emuflight
+# EmuConfigurator
 
 # get version string from 'version.h'
-export EMU_VERSION="$(make version)"
+export CFG_VERSION="$(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[ ",]//g')"
 
 # compose string to reference the artifacts (binaries)
-export PACKAGE_VERSION="${EMU_VERSION}-${TRAVIS_BUILD_NUMBER}"
+export PACKAGE_VERSION="${CFG_VERSION}-${TRAVIS_BUILD_NUMBER}"
 
 yarn test || exit $?
 yarn gulp apps
