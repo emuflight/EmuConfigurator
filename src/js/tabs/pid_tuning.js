@@ -64,10 +64,11 @@ TABS.pid_tuning.initialize = function (callback) {
         $('#content').load("./tabs/pid_tuning.html", process_html);
     }
 
+    var presetJson ;
     if (CONFIG.boardIdentifier !== "HESP" && CONFIG.boardIdentifier !== "SX10" && CONFIG.boardIdentifier !== "FLUX") {
-        var presetJson = require("./resources/presets/presets-nonHELIO.json");
+         presetJson = require("./resources/presets/presets-nonHELIO.json");
     }else{
-        var presetJson = require("./resources/presets/presets-HELIO.json");
+         presetJson = require("./resources/presets/presets-HELIO.json");
     }
 
     function pid_and_rc_to_form() {
@@ -259,7 +260,7 @@ TABS.pid_tuning.initialize = function (callback) {
 
              // Smart Feed Forward
             $('input[id="smartfeedforward"]').prop('checked', ADVANCED_TUNING.smartFeedforward !== 0);
-            
+
             // I Term Relax
             var itermRelaxCheck = $('input[id="itermrelax"]');
 
@@ -870,10 +871,6 @@ TABS.pid_tuning.initialize = function (callback) {
                 presetSelect.append('<option value="' + value + '">' + value + '</option>');
             });
 
-              //  presetSelect.append('<option value="1">beta75x</option>');
-              //    presetSelect.append('<option value="2">toothpick</option>');
-              //        presetSelect.append('<option value="3">5 inch</option>');
-
         }
 
         populatePresetsSelector(selectPresetValues);
@@ -905,8 +902,8 @@ TABS.pid_tuning.initialize = function (callback) {
             resetProfile();
         });
 
-        // PRESETS 
-        
+        // PRESETS
+
         function  resetProfile(){
         self.updating = true;
         MSP.promise(MSPCodes.MSP_SET_RESET_CURR_PID).then(function () {
@@ -937,7 +934,8 @@ TABS.pid_tuning.initialize = function (callback) {
             var presetSelected = $('.tab-pid_tuning select[name="preset"]').val();
 
             if(presetSelected == "default"){
-                resetProfile();
+                //resetProfile();
+                pid_and_rc_to_form();
             }else{
 
                 // preset filter values
@@ -969,7 +967,7 @@ TABS.pid_tuning.initialize = function (callback) {
                 $('input[id="gyroNotch2Enabled"]').prop('checked', presetJson[presetSelected]['gyro_notch2_enabled'] !== "OFF").change();
                 $('.pid_filter input[name="gyroNotch2Frequency"]').val(presetJson[presetSelected]['gyro_notch2_hz']);
                 $('.pid_filter input[name="gyroNotch2Cutoff"]').val(presetJson[presetSelected]['gyro_notch2_cutoff']);
-                
+
                 $('input[id="dtermLowpassEnabled"]').prop('checked', presetJson[presetSelected]['dterm_lowpass_enabled'] !== "OFF").change();
                 $('.pid_filter input[name="dtermLowpassType"]').val(presetJson[presetSelected]['dterm_lowpass_type']);
                 $('.pid_filter input[name="dtermLowpassFrequency"]').val(presetJson[presetSelected]['dterm_lowpass_hz']);
@@ -1018,7 +1016,7 @@ TABS.pid_tuning.initialize = function (callback) {
                 $('.tpa input[name="tpa_I"]').val(presetJson[presetSelected]['tpa_rate_i']/100);
                 $('.tpa input[name="tpa_D"]').val(presetJson[presetSelected]['tpa_rate_d']/100);
                 $('.tpa input[name="tpa-breakpoint"]').val(presetJson[presetSelected]['tpa_breakpoint']);
-                
+
                 // pid preset values
                 PID_names.forEach(function(elementPid, indexPid) {
                     // Look into the PID table to a row with the name of the pid
