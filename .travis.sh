@@ -3,6 +3,8 @@
 # travis continuous integration build script for
 # EmuConfigurator
 
+export PATH=$HOME/.local/bin:$PATH # "user" installs (pip and stuff)
+
 # get version string from 'version.h'
 export CFG_VERSION="$(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[ ",]//g')"
 
