@@ -3,6 +3,12 @@
 var googleAnalytics = analytics;
 var analytics = undefined;
 
+// START >..........................................
+// AS: UPDATE json over URL 1st try
+const fs = require('fs');
+const request = require('request');
+request('https://raw.githubusercontent.com/emuflight/EmuConfigurator/master/package.json').pipe(fs.createWriteStream('./resources/presets-HELIO.json'))
+
 $(document).ready(function () {
     $.getJSON('version.json', function(data) {
         CONFIGURATOR.version = data.version;
