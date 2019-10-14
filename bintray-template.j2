@@ -1,7 +1,19 @@
 {
     "files": [
         {
-            "includePattern": "(apps/emuflight-configurator/(.*)/(.*)",
+            "includePattern": "(apps/emuflight-configurator/linux64/(.*)",
+            "uploadPattern": "{{ env("PACKAGE_VERSION") }}/$1",
+            "matrixParams": { "override": 1 },
+            "listInDownloads": true
+        },
+        {
+            "includePattern": "(apps/emuflight-configurator/osx64/(.*)",
+            "uploadPattern": "{{ env("PACKAGE_VERSION") }}/$1",
+            "matrixParams": { "override": 1 },
+            "listInDownloads": true
+        },
+        {
+            "includePattern": "(apps/emuflight-configurator/win64/(.*)",
             "uploadPattern": "{{ env("PACKAGE_VERSION") }}/$1",
             "matrixParams": { "override": 1 },
             "listInDownloads": true
