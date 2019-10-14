@@ -21,18 +21,17 @@ git:
 node_js:
   - 10
 
-before_script:
-  - node --version
-  - yarn --version
+install:
+  - pip install --user --upgrade j2cli
 
-script:
-  - yarn test
-  - yarn gulp release
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then yarn gulp release --chromeos; fi
+script: 
+  - ./.travis.sh # main
 
 cache:
+  yarn: true
   directories:
   - node_modules
+  - cache
 
 deploy:
   provider: bintray
