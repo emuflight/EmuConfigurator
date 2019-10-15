@@ -17,3 +17,5 @@ cat bintray-conf.json # DEBUG
 yarn install
 yarn gulp release
 if [ "$TRAVIS_OS_NAME" == "linux" ]; then yarn gulp release --chromeos; fi
+
+ls -lsa release/ # DEBUG
