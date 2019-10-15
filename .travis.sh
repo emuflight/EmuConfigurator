@@ -16,17 +16,19 @@ export ZIP_FILE="apps/EmuConfigurator-${PACKAGE_VERSION}.zip"
 j2 bintray-template.j2 -o bintray-conf.json
 cat bintray-conf.json # DEBUG
 
+# build the apps
 yarn gulp apps
 #if [ "$TRAVIS_OS_NAME" == "linux" ]; then yarn gulp release --chromeos; fi
 
+# zip it together
 case "${TRAVIS_OS_NAME}" in
     osx)
-        zip -qr ${ZIP_FILE} apps/emuflight-configurator/osx64
+        zip -qr "${ZIP_FILE}" apps/emuflight-configurator/osx64
         ;;
     linux)
-        zip -qr ${ZIP_FILE} apps/emuflight-configurator/linux64
+        zip -qr "${ZIP_FILE}" apps/emuflight-configurator/linux64
         ;;
     windows)
-        7z -r ${ZIP_FILE} apps/emuflight-configurator/win32
+        7z -r "${ZIP_FILE}" apps/emuflight-configurator/win32
         ;;
 esac
