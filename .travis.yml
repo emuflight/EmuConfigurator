@@ -22,7 +22,7 @@ node_js:
   - 10
 
 before_install:
-  - if [ "$TRAVIS_OS_NAME" == "windows" ]; then choco install python; fi
+  - if [ "$TRAVIS_OS_NAME" == "windows" ]; then choco install python zip; fi
   - if [ "$TRAVIS_OS_NAME" == "windows" ]; then export PATH="/c/Python37:/c/Python37/Scripts:$HOME/AppData/Roaming/Python/Python37/Scripts:$PATH"; fi
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then export PATH="$HOME/.local/bin:$PATH"; fi
   - if [ "$TRAVIS_OS_NAME" == "osx" ]; then export PATH="$HOME/Library/Python/2.7/bin:$PATH"; fi

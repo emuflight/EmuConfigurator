@@ -29,6 +29,6 @@ case "${TRAVIS_OS_NAME}" in
         zip -qr "${ZIP_FILE}" apps/emuflight-configurator/linux64
         ;;
     windows)
-        7z -r "${ZIP_FILE}" apps/emuflight-configurator/win32
+        zip -qr "${ZIP_FILE}" apps/emuflight-configurator/win32
         ;;
 esac
