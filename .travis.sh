@@ -19,7 +19,7 @@ cat bintray-conf.json # DEBUG
 yarn gulp apps
 #if [ "$TRAVIS_OS_NAME" == "linux" ]; then yarn gulp release --chromeos; fi
 
-case "${$TRAVIS_OS_NAME}" in
+case "${TRAVIS_OS_NAME}" in
     osx)
         zip -qr ${ZIP_FILE} apps/emuflight-configurator/osx64
         ;;
