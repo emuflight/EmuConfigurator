@@ -10,9 +10,6 @@ dist: bionic # linux
 language: node_js
 
 addons:
-  apt:
-    packages:
-      - rpm
   chrome: stable
 
 git:
@@ -20,9 +17,10 @@ git:
   quiet: true # save on logfiles
 
 node_js:
-  - 10
+  - 10 # version
 
 before_install:
+  # install python on all platforms supported
   - if [ "$TRAVIS_OS_NAME" == "windows" ]; then choco install nsis; fi
   - if [ "$TRAVIS_OS_NAME" == "windows" ]; then choco install python --version 3.8.0; fi
   - if [ "$TRAVIS_OS_NAME" == "windows" ]; then export PATH="/c/Python38:/c/Python38/Scripts:/c/Users/travis/AppData/Roaming/Python/Python38/Scripts:$PATH"; fi
@@ -30,6 +28,7 @@ before_install:
   - if [ "$TRAVIS_OS_NAME" == "osx" ]; then export PATH="$HOME/Library/Python/2.7/bin:$PATH"; fi
 
 install:
+  # install pip
   - python -m pip install --user --upgrade j2cli
 
 script: 

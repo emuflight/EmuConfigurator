@@ -11,11 +11,13 @@ export PACKAGE_VERSION="${CONFIGURATOR_VERSION}-${TRAVIS_BUILD_NUMBER}-${TRAVIS_
 
 # process template for pushing to bintray (deploy step will pick it up)
 j2 bintray-template.j2 -o bintray-conf.json
-cat bintray-conf.json # DEBUG
+#cat bintray-conf.json # DEBUG
 
 # build releases
-yarn install
+yarn install || exit $?
 yarn gulp release
 if [ "$TRAVIS_OS_NAME" == "linux" ]; then yarn gulp release --chromeos; fi
 
 ls -lsa release/ # DEBUG
+
+exit 0
