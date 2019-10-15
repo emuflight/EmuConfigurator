@@ -1,11 +1,24 @@
 {
     "files": [
         {
-            "includePattern": "apps/emuflight-configurator/(.*)/release/(.*)",
+            "includePattern": "apps/emuflight-configurator/linux64/release/(.*)",
             "uploadPattern": "$1",
             "matrixParams": { "override": 1 },
             "listInDownloads": true
-        }
+        },
+        {
+            "includePattern": "apps/emuflight-configurator/osx64/release/(.*)",
+            "uploadPattern": "$1",
+            "matrixParams": { "override": 1 },
+            "listInDownloads": true
+        },
+        {
+            "includePattern": "apps/emuflight-configurator/win32/release/(.*)",
+            "uploadPattern": "$1",
+            "matrixParams": { "override": 1 },
+            "listInDownloads": true
+        },
+
     ],
     "package": {
         "subject": "emuflight",

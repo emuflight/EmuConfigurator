@@ -29,7 +29,7 @@ before_install:
   - if [ "$TRAVIS_OS_NAME" == "osx" ]; then export PATH="$HOME/Library/Python/2.7/bin:$PATH"; fi
 
 install:
-  - pip install --user --upgrade j2cli
+  - python -m pip install --user --upgrade j2cli
 
 script: 
   - ./.travis.sh # main
