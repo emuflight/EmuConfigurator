@@ -3,11 +3,37 @@
 var googleAnalytics = analytics;
 var analytics = undefined;
 
-// START >..........................................
-// AS: UPDATE json over URL 1st try
 const fs = require('fs');
-const request = require('request');
-request('https://raw.githubusercontent.com/emuflight/EmuConfigurator/master/package.json').pipe(fs.createWriteStream('./resources/presets-HELIO.json'))
+
+var HttpClient = function() {
+    this.get = function(aUrl, aCallback) {
+        var anHttpRequest = new XMLHttpRequest();
+        anHttpRequest.onreadystatechange = function() {
+            if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                aCallback(anHttpRequest.responseText);
+        }
+
+        anHttpRequest.open( "GET", aUrl, true );
+        anHttpRequest.send( null );
+    }
+}
+
+var client = new HttpClient();
+var nonHelioUrl = 'https://raw.githubusercontent.com/emuflight/EmuConfigurator/working_on_presets/resources/presets/presets-nonHELIO.json';
+
+client.get(nonHelioUrl, function(response) {
+
+  fs.writeFile('./resources/presets-nonHELIO.json', response, (err) => {
+    if (err) {
+      console.error(err)
+      return
+    }
+    //file written successfully
+  })
+});
+
+
+
 
 $(document).ready(function () {
     $.getJSON('version.json', function(data) {
