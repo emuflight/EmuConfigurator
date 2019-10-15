@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 #
 # travis continuous integration build script for
 # EmuConfigurator
@@ -10,7 +10,7 @@ export CFG_VERSION="$(cat package.json | grep version | head -1 | awk -F: '{ pri
 export PACKAGE_VERSION="${CFG_VERSION}-${TRAVIS_BUILD_NUMBER}-${TRAVIS_OS_NAME}"
 
 # compose name of zip file to create
-export ZIP_FILE="apps/EmuConfigurator-${$PACKAGE_VERSION}.zip"
+export ZIP_FILE="apps/EmuConfigurator-${PACKAGE_VERSION}.zip"
 
 # process template for pushing to bintray
 j2 bintray-template.j2 -o bintray-conf.json
