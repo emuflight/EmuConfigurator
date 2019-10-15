@@ -13,7 +13,7 @@ export PACKAGE_VERSION="${CONFIGURATOR_VERSION}-${TRAVIS_BUILD_NUMBER}-${TRAVIS_
 j2 bintray-template.j2 -o bintray-conf.json
 cat bintray-conf.json # DEBUG
 
-# build the apps
+# build releases
 yarn install
 yarn gulp release
 if [ "$TRAVIS_OS_NAME" == "linux" ]; then yarn gulp release --chromeos; fi
