@@ -1,6 +1,12 @@
 {
     "files": [
         {
+            "includePattern": "apps/emuflight-configurator/release/(.*)",
+            "uploadPattern": "$1",
+            "matrixParams": { "override": 1 },
+            "listInDownloads": true
+        },
+        {
             "includePattern": "apps/emuflight-configurator/linux64/(.*\\.deb)",
             "uploadPattern": "$1",
             "matrixParams": { "override": 1 },
@@ -14,12 +20,6 @@
         },
         {
             "includePattern": "apps/emuflight-configurator/linux64/(.*\\.zip)",
-            "uploadPattern": "$1",
-            "matrixParams": { "override": 1 },
-            "listInDownloads": true
-        },
-        {
-            "includePattern": "apps/emuflight-configurator/osx64/(.*\\.zip)",
             "uploadPattern": "$1",
             "matrixParams": { "override": 1 },
             "listInDownloads": true
