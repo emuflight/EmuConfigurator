@@ -2,7 +2,7 @@
     "files": [
         {
             "includePattern": "apps/(.*\\.zip)",
-            "uploadPattern": "{{ env("PACKAGE_VERSION") }}/$1",
+            "uploadPattern": "$1",
             "matrixParams": { "override": 1 },
             "listInDownloads": true
         }
