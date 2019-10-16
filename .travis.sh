@@ -16,15 +16,13 @@ yarn install || exit $?
 case "${TRAVIS_OS_NAME}" in
 	linux)
 		yarn gulp release --chromeos
-		break
 		;;
 	osx)
 		yarn gulp release --osx64
-		break
 		;;
 	windows)
 		yarn gulp release --win32
-		break
+		yarn gulp release --win64
 		;;
 	*)
 		echo "platform ${TRAVIS_OS_NAME} not supported for now."

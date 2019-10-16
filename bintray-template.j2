@@ -4,11 +4,6 @@
             "includePattern": "release/(.*)",
             "uploadPattern": "{{ env("PACKAGE_VERSION") }}/$1",
             "matrixParams": { "override": 1 }
-        },
-        {
-            "includePattern": "apps/emuflight-configurator/win32/(.*\\.exe)",
-            "uploadPattern": "{{ env("PACKAGE_VERSION") }}/$1",
-            "matrixParams": { "override": 1 }
         }
     ],
     "package": {
