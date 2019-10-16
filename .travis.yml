@@ -22,7 +22,7 @@ node_js:
 before_install:
   # install nsis on windows
   - if [ "$TRAVIS_OS_NAME" == "windows" ]; then choco install nsis; fi
-  - if [ "$TRAVIS_OS_NAME" == "windows" ]; then export PATH="/c/Program\\ Files\\ (x86)/NSIS:$PATH"; fi
+  - if [ "$TRAVIS_OS_NAME" == "windows" ]; then export PATH="C:\Program Files (x86)\NSIS":$PATH; fi
   # install python on all platforms supported
   - if [ "$TRAVIS_OS_NAME" == "windows" ]; then choco install python --version 3.8.0; fi
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then export PATH="$HOME/.local/bin:$PATH"; fi
