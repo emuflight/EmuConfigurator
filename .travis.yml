@@ -31,7 +31,7 @@ install:
   - python -m pip install --user --upgrade j2cli # install pip
 
 before_script:
-  - if [ "$TRAVIS_OS_NAME" == "windows" ]; then cmd.exe /C ./prepare-nsis.bat; fi
+  - if [ "$TRAVIS_OS_NAME" == "windows" ]; then cmd.exe /C 'prepare-nsis.bat'; fi
 
 script:
   - ./.travis.sh # main
@@ -40,7 +40,6 @@ cache:
   pip: true
   yarn: true
   directories:
-  - node_modules
   - cache
 
 deploy:
