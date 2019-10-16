@@ -88,6 +88,9 @@ gulp.task('debug', debugBuild);
 var releaseBuild = gulp.series(gulp.parallel(clean_release, appsBuild), gulp.parallel(listReleaseTasks()));
 gulp.task('release', releaseBuild);
 
+var multiReleaseBuild = gulp.series(gulp.parallel(appsBuild), gulp.parallel(listReleaseTasks()));
+gulp.task('mrelease', multiReleaseBuild);
+
 gulp.task('default', debugBuild);
 
 // -----------------

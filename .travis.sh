@@ -21,14 +21,17 @@ case "${TRAVIS_OS_NAME}" in
 		yarn gulp release --osx64
 		;;
 	windows)
-		yarn gulp release --win32
-		yarn gulp release --win64
+		yarn gulp clean-release
+		yarn gulp mrelease --win32
+		yarn gulp mrelease --win64
 		;;
 	*)
 		echo "platform ${TRAVIS_OS_NAME} not supported for now."
 		exit 10
 		;;
 esac
+
+ls -lsa release/
 
 # process template for pushing to bintray ('deploy' step on travis will pick it up)
 j2 bintray-template.j2 -o bintray-conf.json
