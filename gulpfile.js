@@ -99,7 +99,7 @@ gulp.task('default', debugBuild);
 // # gulp <task> [<platform>]+        Run only for platform(s) (with <platform> one of --linux64, --linux32, --armv7, --osx64, --win32, --win64, or --chromeos)
 // #
 function getInputPlatforms() {
-    var supportedPlatforms = ['linux64', 'linux32', 'armv7', 'osx64', 'win32','win64', 'chromeos'];
+    var supportedPlatforms = ['linux64', 'linux32', 'armv7', 'osx64', 'win32', 'win64', 'chromeos'];
     var platforms = [];
     var regEx = /--(\w+)/;
     console.log(process.argv);
@@ -142,20 +142,18 @@ function getDefaultPlatform() {
     switch (os.platform()) {
     case 'darwin':
         defaultPlatform = 'osx64';
-
         break;
     case 'linux':
         defaultPlatform = 'linux64';
-
         break;
     case 'win32':
         defaultPlatform = 'win32';
-
         break;
-
+    case 'win64':
+        defaultPlatform = 'win64';
+        break;
     default:
         defaultPlatform = '';
-
         break;
     }
     return defaultPlatform;
@@ -177,25 +175,18 @@ function getRunDebugAppCommand(arch) {
     switch (arch) {
     case 'osx64':
         return 'open ' + path.join(DEBUG_DIR, pkg.name, arch, pkg.name + '.app');
-
         break;
-
     case 'linux64':
     case 'linux32':
     case 'armv7':
         return path.join(DEBUG_DIR, pkg.name, arch, pkg.name);
-
         break;
-
     case 'win32':
     case 'win64':
         return path.join(DEBUG_DIR, pkg.name, arch, pkg.name + '.exe');
-
         break;
-
     default:
         return '';
-
         break;
     }
 }
@@ -509,7 +500,7 @@ function release_win(arch, done) {
 
     // Check if makensis exists
     if (!commandExistsSync('makensis')) {
-        console.warn('makensis command not found, not generating win package for ' + arch);
+        console.warn('makensis command not found, not generating package for: ' + arch);
         return done();
     }
 
@@ -518,7 +509,7 @@ function release_win(arch, done) {
 
     // Parameters passed to the installer script
     const options = {
-            verbose: 2,
+            verbose: 3,
             define: {
                 'VERSION': pkg.version,
                 'PLATFORM': arch,
@@ -528,8 +519,10 @@ function release_win(arch, done) {
 
     var output = makensis.compileSync('./assets/windows/installer.nsi', options);
 
-    if (output.status !== 0) {
-        console.error('Installer for platform ' + arch + ' finished with error ' + output.status + ': ' + output.stderr);
+    if (output.status === 0) {
+        console.log(`Standard output:\n${output.stdout}`);
+    } else {
+        console.error(`Exit Code ${output.status}: ${output.stderr}`);
     }
 
     done();
