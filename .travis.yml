@@ -31,7 +31,7 @@ install:
   - python -m pip install --user --upgrade j2cli # install pip
 
 before_script:
-  - if [ "$TRAVIS_OS_NAME" == "windows" ]; then pwsh ./prepare-nsis.ps1; fi
+  - if [ "$TRAVIS_OS_NAME" == "windows" ]; then pwsh -File prepare-nsis.ps1; fi
 
 script:
   - ./.travis.sh # main
