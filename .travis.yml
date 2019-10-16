@@ -28,9 +28,8 @@ before_install:
   - if [ "$TRAVIS_OS_NAME" == "osx" ]; then export PATH="$HOME/Library/Python/2.7/bin:$PATH"; fi
 
 before_script:
-  - if [ "$TRAVIS_OS_NAME" == "windows" ]; then iwr -useb get.scoop.sh | iex; fi
-  - if [ "$TRAVIS_OS_NAME" == "windows" ]; then scoop bucket add nsis https://github.com/NSIS-Dev/scoop-nsis; fi
-  - if [ "$TRAVIS_OS_NAME" == "windows" ]; then scoop install nsis/nsis; fi
+  - if [ "$TRAVIS_OS_NAME" == "windows" ]; then Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser; fi
+  - if [ "$TRAVIS_OS_NAME" == "windows" ]; then get-host; fi
 
 install:
   # install pip
