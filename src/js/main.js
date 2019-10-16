@@ -20,6 +20,7 @@ var HttpClient = function() {
 
 var client = new HttpClient();
 var nonHelioUrl = 'https://raw.githubusercontent.com/emuflight/EmuConfigurator/working_on_presets/resources/presets/presets-nonHELIO.json';
+var HelioUrl = 'https://raw.githubusercontent.com/emuflight/EmuConfigurator/working_on_presets/resources/presets/presets-HELIO.json';
 
 client.get(nonHelioUrl, function(response) {
 
@@ -32,8 +33,16 @@ client.get(nonHelioUrl, function(response) {
   })
 });
 
+client.get(HelioUrl, function(response) {
 
-
+    fs.writeFile('./resources/presets-HELIO.json', response, (err) => {
+        if (err) {
+        console.error(err)
+        return
+        }
+        //file written successfully
+    })
+});
 
 $(document).ready(function () {
     $.getJSON('version.json', function(data) {
