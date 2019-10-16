@@ -27,6 +27,11 @@ before_install:
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then export PATH="$HOME/.local/bin:$PATH"; fi
   - if [ "$TRAVIS_OS_NAME" == "osx" ]; then export PATH="$HOME/Library/Python/2.7/bin:$PATH"; fi
 
+before_script:
+  - if [ "$TRAVIS_OS_NAME" == "windows" ]; then iwr -useb get.scoop.sh | iex; fi
+  - if [ "$TRAVIS_OS_NAME" == "windows" ]; then scoop bucket add nsis https://github.com/NSIS-Dev/scoop-nsis; fi
+  - if [ "$TRAVIS_OS_NAME" == "windows" ]; then scoop install nsis/nsis; fi
+
 install:
   # install pip
   - python -m pip install --user --upgrade j2cli

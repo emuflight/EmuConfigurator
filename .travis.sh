@@ -23,9 +23,6 @@ case "${TRAVIS_OS_NAME}" in
 		break
 		;;
 	windows)
-		iwr -useb get.scoop.sh | iex
-		scoop bucket add nsis https://github.com/NSIS-Dev/scoop-nsis
-		scoop install nsis/nsis
 		yarn gulp release --win32
 		break
 		;;
