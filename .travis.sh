@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 #
 # travis continuous integration build script for
 # EmuConfigurator
