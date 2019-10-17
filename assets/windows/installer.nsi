@@ -33,6 +33,9 @@ BrandingText "${COMPANY_NAME}"
 # Request rights user level
 RequestExecutionLevel highest
 
+# all of the installer data is compressed in one block for better compression ratio
+SetCompressor lzma /SOLID
+
 # define the resulting installer's name:
 OutFile "..\..\${DEST_FOLDER}\${FILE_NAME_INSTALLER}"
 
@@ -140,9 +143,6 @@ Section
 
     # create an exclusion list for the uninstaller
     !insertmacro UNINSTALLER_DATA_BEGIN
-
-    # all of the installer data is compressed in one block for better compression ratio
-    SetCompressor lzma /SOLID
 
     # compare files and check if the compressed one actually got smaller
     SetCompress auto
