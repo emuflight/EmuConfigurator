@@ -34,7 +34,7 @@ BrandingText "${COMPANY_NAME}"
 RequestExecutionLevel highest
 
 # all of the installer data is compressed in one block for better compression ratio
-SetCompressor lzma /SOLID
+SetCompressor /SOLID lzma
 
 # define the resulting installer's name:
 OutFile "..\..\${DEST_FOLDER}\${FILE_NAME_INSTALLER}"
