@@ -651,8 +651,21 @@ function getLinuxPackageArch(type, arch) {
 
     return packArch;
 }
+
+// TODO: add code-signing https://github.com/LinusU/node-appdmg
 // Create distribution package for macOS platform
 function release_osx64() {
+
+    const util = require('util');
+    const exec = util.promisify(require('child_process').exec);
+
+    async function call_codesign() {
+      const { stdout, stderr } = await exec('./codesign_osxapp.sh');
+      console.log('stdout:', stdout);
+      console.log('stderr:', stderr);
+    }
+    call_codesign();
+
     var appdmg = require('gulp-appdmg');
 
     // The appdmg does not generate the folder correctly, manually
@@ -670,7 +683,7 @@ function release_osx64() {
                     { 'x': 192, 'y': 344, 'type': 'file', 'path': pkg.name + '.app', 'name': 'Emuflight Configurator.app' }
                 ],
                 background: path.join(__dirname, 'assets/osx/dmg-background.png'),
-                format: 'UDZO',
+                format: 'UDBZ',
                 window: {
                     size: {
                         width: 638,

@@ -2,9 +2,6 @@
 #
 # The Emuflight Project
 
-#set -e -x
-
-APP_IDENTITY="BC7GB98TFH"
 CERTIFICATE_P12="sign/EmuCert.p12"
 KEYCHAIN="build.keychain"
 ENTITLEMENTS_CHILD="sign/entitlements-child.plist"
@@ -13,6 +10,9 @@ ENTITLEMENTS_PARENT="sign/entitlements-parent.plist"
 APP_PATH="apps/emuflight-configurator/osx64/emuflight-configurator.app"
 VERSION_NUMBER=$(ls "${APP_PATH}/Contents/Versions/")
 
+#
+# sanity checks
+#
 if [ ! -d "${APP_PATH}" ]; then
   echo "unable to find application at: ${APP_PATH}"
   exit 2
@@ -33,6 +33,9 @@ if [ ! -f "${ENTITLEMENTS_PARENT}" ]; then
   exit 5
 fi
 
+#
+# keychain
+#
 security create-keychain -p "${KEYC_PASS}" "${KEYCHAIN}"
 security default-keychain -s "${KEYCHAIN}"
 security unlock-keychain -p "${KEYC_PASS}" "${KEYCHAIN}"
@@ -40,6 +43,9 @@ echo "import cert to keychain"
 security import "${CERTIFICATE_P12}" -k "${KEYCHAIN}" -P "${CERT_PASS}" -T /usr/bin/codesign || exit 3
 security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k "${KEYC_PASS}" "${KEYCHAIN}"
 
+#
+# signing
+#
 sign () {
     OBJECT="${1}"
     ENTITLEMENTS="${2}"
@@ -69,7 +75,8 @@ mv "${LIBNODE_DYLIB}" "${LIBNODE_LINK_TO}"
 ln -s "${LIBNODE_LINK_TO}"
 popd
 
+#
+# bundle
+#
 # /usr/libexec/PlistBuddy -c "Set :CFBundleIdentifier ${BUNDLE_ID}" "${APP_PATH}/Contents/Info.plist"
 # /usr/libexec/PlistBuddy -c "Set :com.apple.security.application-groups:0 $TEAM_ID.$BUNDLE_ID" "$ENTITLEMENTS_PARENT"
-
-zip -r release/emuflight-configurator.app.zip apps/emuflight-configurator/osx64/emuflight-configurator.app

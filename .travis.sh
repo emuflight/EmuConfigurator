@@ -19,8 +19,7 @@ case "${TRAVIS_OS_NAME}" in
         ;;
     osx)
         yarn gulp release --osx64
-
-        . codesign_osxapp.sh
+        #. codesign_osxapp.sh
         ;;
     windows)
         yarn gulp clean-release
