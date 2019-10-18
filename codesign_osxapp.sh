@@ -5,6 +5,11 @@
 #
 # variables and composition
 #
+if [ "${TRAVIS_OS_NAME}" != "osx" ]; then
+  echo "not running on travis and/or osx. skipping this script to prevent messing up ye keychain!"
+  exit 0
+fi
+
 CERTIFICATE_P12="sign/EmuCert.p12"
 KEYCHAIN="build.keychain"
 ENTITLEMENTS_CHILD="sign/entitlements-child.plist"
