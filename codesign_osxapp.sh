@@ -41,13 +41,14 @@ echo "unlock keychain"
 security unlock-keychain -p "${KEYC_PASS}" "${KEYCHAIN}"
 echo "import cert to keychain"
 security import "${CERTIFICATE_P12}" -k "${KEYCHAIN}" -P "${CERT_PASS}" -T /usr/bin/codesign || exit 3
+security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k "${KEYC_PASS}" "${KEYCHAIN}"
 
 sign () {
     OBJECT="${1}"
     ENTITLEMENTS="${2}"
 
     echo "signing: ${OBJECT}"
-    codesign --verbose=2 --force --verify --sign "${APP_IDENTITY}" --entitlements "${ENTITLEMENTS}" --deep "${OBJECT}"
+    codesign --verbose --force --verify --sign "${APP_IDENTITY}" --entitlements "${ENTITLEMENTS}" --deep "${OBJECT}"
     echo "verifying: ${OBJECT}"
     codesign --verbose=2 --verify --strict --deep "${OBJECT}"
 }
