@@ -689,7 +689,8 @@ function release_osx64() {
                         width: 638,
                         height: 479
                     }
-                }
+                },
+                code-sign: { 'signing-identity': process.env.APP_IDENTITY }
             },
         })
     );

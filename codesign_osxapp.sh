@@ -2,6 +2,9 @@
 #
 # The Emuflight Project
 
+#
+# variables and composition
+#
 CERTIFICATE_P12="sign/EmuCert.p12"
 KEYCHAIN="build.keychain"
 ENTITLEMENTS_CHILD="sign/entitlements-child.plist"
@@ -80,3 +83,6 @@ popd
 #
 # /usr/libexec/PlistBuddy -c "Set :CFBundleIdentifier ${BUNDLE_ID}" "${APP_PATH}/Contents/Info.plist"
 # /usr/libexec/PlistBuddy -c "Set :com.apple.security.application-groups:0 $TEAM_ID.$BUNDLE_ID" "$ENTITLEMENTS_PARENT"
+
+spctl --assess --type execute "${APP_PATH}"
+spctl --assess --verbose=4 "${APP_PATH}"
