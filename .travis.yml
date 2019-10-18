@@ -32,9 +32,6 @@ before_install:
 install:
   - python -m pip install --user --upgrade j2cli # install pip
 
-before_script:
-  - if [ "$TRAVIS_OS_NAME" == "osx" ]; then ./codesign_osxapp.sh; fi
-
 script:
   - ./.travis.sh # main
 
