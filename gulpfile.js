@@ -656,15 +656,8 @@ function getLinuxPackageArch(type, arch) {
 // Create distribution package for macOS platform
 function release_osx64() {
 
-    const util = require('util');
-    const exec = util.promisify(require('child_process').exec);
-
-    async function call_codesign() {
-      const { stdout, stderr } = await exec('./codesign_osxapp.sh');
-      console.log('stdout:', stdout);
-      console.log('stderr:', stderr);
-    }
-    call_codesign();
+    const { execSync } = require('child_process');
+    let stdout = execSync('./codesign_osxapp.sh');
 
     var appdmg = require('gulp-appdmg');
 

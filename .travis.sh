@@ -11,6 +11,7 @@ export PACKAGE_VERSION="${CONFIGURATOR_VERSION}-${TRAVIS_BUILD_NUMBER}-${TRAVIS_
 
 # install dependencies
 yarn install || exit $?
+yarn gulp clean-release
 
 # build releases for each platform
 case "${TRAVIS_OS_NAME}" in
@@ -28,7 +29,7 @@ case "${TRAVIS_OS_NAME}" in
         ;;
     *)
         echo "platform ${TRAVIS_OS_NAME} not supported for now."
-        exit 10
+        exit 2
         ;;
 esac
 
