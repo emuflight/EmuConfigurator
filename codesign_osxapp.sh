@@ -33,11 +33,8 @@ if [ ! -f "${ENTITLEMENTS_PARENT}" ]; then
   exit 5
 fi
 
-echo "create keychain"
 security create-keychain -p "${KEYC_PASS}" "${KEYCHAIN}"
-echo "default keychain"
 security default-keychain -s "${KEYCHAIN}"
-echo "unlock keychain"
 security unlock-keychain -p "${KEYC_PASS}" "${KEYCHAIN}"
 echo "import cert to keychain"
 security import "${CERTIFICATE_P12}" -k "${KEYCHAIN}" -P "${CERT_PASS}" -T /usr/bin/codesign || exit 3
@@ -74,3 +71,5 @@ popd
 
 # /usr/libexec/PlistBuddy -c "Set :CFBundleIdentifier ${BUNDLE_ID}" "${APP_PATH}/Contents/Info.plist"
 # /usr/libexec/PlistBuddy -c "Set :com.apple.security.application-groups:0 $TEAM_ID.$BUNDLE_ID" "$ENTITLEMENTS_PARENT"
+
+zip -r release/emuflight-configurator.app.zip apps/emuflight-configurator/osx64/emuflight-configurator.app
