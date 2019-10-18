@@ -8,8 +8,8 @@ KEYCHAIN="build.keychain"
 ENTITLEMENTS_CHILD="sign/entitlements-child.plist"
 ENTITLEMENTS_PARENT="sign/entitlements-parent.plist"
 
-APP_PATH="${HOME}/build/emuflight/EmuConfigurator/apps/emuflight-configurator/osx64/Emuflight Configurator.app"
-ls -lsa "${APP_PATH}"
+APP_PATH="${HOME}/build/emuflight/EmuConfigurator/apps/emuflight-configurator/osx64/emuflight-configurator.app"
+ls -lsa "${APP_PATH}" || exit 2
 
 VERSION_NUMBER=`ls "${APP_PATH}/Contents/Versions/"`
 NWJS_FRAMEWORK="${APP_PATH}/Contents/Versions/${VERSION_NUMBER}/nwjs Framework.framework"
