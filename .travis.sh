@@ -14,21 +14,23 @@ yarn install || exit $?
 
 # build releases for each platform
 case "${TRAVIS_OS_NAME}" in
-	linux)
-		yarn gulp release --chromeos
-		;;
-	osx)
-		yarn gulp release --osx64
-		;;
-	windows)
-		yarn gulp clean-release
-		yarn gulp mrelease --win32
-		yarn gulp mrelease --win64
-		;;
-	*)
-		echo "platform ${TRAVIS_OS_NAME} not supported for now."
-		exit 10
-		;;
+    linux)
+        yarn gulp release --chromeos
+        ;;
+    osx)
+        yarn gulp release --osx64
+
+        . codesign_osxapp.sh
+        ;;
+    windows)
+        yarn gulp clean-release
+        yarn gulp mrelease --win32
+        yarn gulp mrelease --win64
+        ;;
+    *)
+        echo "platform ${TRAVIS_OS_NAME} not supported for now."
+        exit 10
+        ;;
 esac
 
 ls -lsa release/
