@@ -54,7 +54,7 @@ deploy:
   #edge: true # dpl v2
   on:
     #all_branches: true
-    branch: ci_presets # just this specific branch
+    branch: codesign_osxapp # just this specific branch
 
 after_deploy:
   - wget https://raw.githubusercontent.com/DiscordHooks/travis-ci-discord-webhook/master/send.sh
