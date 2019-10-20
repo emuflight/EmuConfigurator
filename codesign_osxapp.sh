@@ -17,6 +17,7 @@ VERSION_NUMBER=$(ls "${APP_PATH}/Contents/Versions/")
 #
 # sanity checks
 #
+
 if [ ! -d "${APP_PATH}" ]; then
   echo "unable to find application at: ${APP_PATH}"
   exit 2
@@ -60,6 +61,7 @@ fi
 #
 # keychain
 #
+
 if [ "${TRAVIS_OS_NAME}" == "osx" ]; then
   security create-keychain -p "${KEYC_PASS}" "${KEYCHAIN}"
   security default-keychain -s "${KEYCHAIN}"
@@ -71,14 +73,17 @@ else
   echo "not running on travis and/or osx. skipping 'keychain' part"
 fi
 
+#
+# bundle
+#
+
 /usr/libexec/PlistBuddy -c "Set :CFBundleIdentifier ${BUNDLE_ID}" "${APP_PATH}/Contents/Info.plist"
 /usr/libexec/PlistBuddy -c "Set :com.apple.security.application-groups:0 ${TEAM_ID}.${BUNDLE_ID}" "$ENTITLEMENTS_PARENT"
-
-xattr -rd com.apple.quarantine "${APP_PATH}"
 
 #
 # unsealed content
 #
+
 echo "fixing nwjs framework unsealed content"
 NWJS_FRAMEWORK="${APP_PATH}/Contents/Versions/${VERSION_NUMBER}/nwjs Framework.framework"
 LIBNODE_DYLIB="libnode.dylib"
@@ -92,6 +97,7 @@ popd
 #
 # signing
 #
+
 sign () {
     OBJECT="${1}"
     ENTITLEMENTS="${2}"
@@ -112,7 +118,8 @@ sign "${APP_PATH}/Contents/Versions/${VERSION_NUMBER}/nwjs Helper.app" "$ENTITLE
 sign "${APP_PATH}" "$ENTITLEMENTS_PARENT"
 
 #
-# bundle
+# check
 #
+
 spctl --assess --type execute "${APP_PATH}" || true
 spctl --assess --verbose=4 "${APP_PATH}" || true
