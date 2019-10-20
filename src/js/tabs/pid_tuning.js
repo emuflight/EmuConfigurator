@@ -930,15 +930,20 @@ TABS.pid_tuning.initialize = function (callback) {
             });
         });
 
+        var save_and_reboot = false;
+
         $('.tab-pid_tuning select[name="preset"]').change(function (){
             var presetSelected = $('.tab-pid_tuning select[name="preset"]').val();
 
             if(presetSelected == "default"){
                 //resetProfile();
                 pid_and_rc_to_form();
+
+                 save_and_reboot = false;
             }else{
 
                 // preset filter values
+                 save_and_reboot = true;
 
                 if (CONFIG.boardIdentifier !== "HESP" && CONFIG.boardIdentifier !== "SX10" && CONFIG.boardIdentifier !== "FLUX") {
                     $('.pid_filter input[name="kalmanQCoefficient"]').val(presetJson[presetSelected]['gyro_filter_q']);
@@ -1016,6 +1021,10 @@ TABS.pid_tuning.initialize = function (callback) {
                 $('.tpa input[name="tpa_I"]').val(presetJson[presetSelected]['tpa_rate_i']/100);
                 $('.tpa input[name="tpa_D"]').val(presetJson[presetSelected]['tpa_rate_d']/100);
                 $('.tpa input[name="tpa-breakpoint"]').val(presetJson[presetSelected]['tpa_breakpoint']);
+
+                //PID_ADVANCED_CONFIG.gyroUse32kHz = 0;
+                //PID_ADVANCED_CONFIG.gyro_sync_denom = 1;
+                // PID_ADVANCED_CONFIG.pid_process_denom = 2;             
 
                 // pid preset values
                 PID_names.forEach(function(elementPid, indexPid) {
@@ -1497,19 +1506,34 @@ TABS.pid_tuning.initialize = function (callback) {
                         return MSP.promise(MSPCodes.MSP_SET_IMUF_CONFIG, mspHelper.crunch(MSPCodes.MSP_SET_IMUF_CONFIG));
                       }
                   }
-          }).then(function () {
+            }).then(function () {
                 return MSP.promise(MSPCodes.MSP_SET_RC_TUNING, mspHelper.crunch(MSPCodes.MSP_SET_RC_TUNING));
             }).then(function () {
-
                 return MSP.promise(MSPCodes.MSP_SET_EMUF, mspHelper.crunch(MSPCodes.MSP_SET_EMUF));
-
+            }).then(function () {
+                if (save_and_reboot == true) {
+                    return MSP.promise(MSPCodes.MSP_SET_ADVANCED_CONFIG, mspHelper.crunch(MSPCodes.MSP_SET_ADVANCED_CONFIG));
+                }
+            }).then(function () {
+                if (save_and_reboot == true) {
+                    return MSP.promise(MSPCodes.MSP_SET_FEATURE_CONFIG, mspHelper.crunch(MSPCodes.MSP_SET_FEATURE_CONFIG));
+                }
             }).then(function () {
                 return MSP.promise(MSPCodes.MSP_EEPROM_WRITE);
             }).then(function () {
                 self.updating = false;
                 self.setDirty(false);
-
+                	
                 GUI.log(i18n.getMessage('pidTuningEepromSaved'));
+            }).then(function () {
+                //GUI.log(i18n.getMessage('configurationEepromSaved'));
+                if (save_and_reboot == true) {
+                    GUI.tab_switch_cleanup(function() {
+                        
+                        MSP.send_message(MSPCodes.MSP_SET_REBOOT, false, false);
+                        reinitialiseConnection(self);
+                    });
+                }
             });
         });
 
