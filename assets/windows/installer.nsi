@@ -9,9 +9,6 @@
 # ${DEST_FOLDER} - Destination folder for the installer files
 
 # Some definitions
-
-
-
 !define SOURCE_FILES          "..\..\apps\emuflight-configurator\${PLATFORM}\*"
 !define APP_NAME              "Emuflight Configurator"
 !define COMPANY_NAME          "The Emuflight open source project."
@@ -22,7 +19,6 @@
 !define FILE_NAME_EXECUTABLE  "emuflight-configurator.exe"
 !define LICENSE               "..\..\LICENSE"
 #!define MUI_WELCOMEFINISHPAGE_BITMAP ".\bf_installer.bmp"
-
 
 Name "${APP_NAME}"
 BrandingText "${COMPANY_NAME}"
@@ -36,6 +32,9 @@ BrandingText "${COMPANY_NAME}"
 
 # Request rights user level
 RequestExecutionLevel highest
+
+# all of the installer data is compressed in one block for better compression ratio
+SetCompressor /SOLID lzma
 
 # define the resulting installer's name:
 OutFile "..\..\${DEST_FOLDER}\${FILE_NAME_INSTALLER}"
@@ -144,6 +143,9 @@ Section
 
     # create an exclusion list for the uninstaller
     !insertmacro UNINSTALLER_DATA_BEGIN
+
+    # compare files and check if the compressed one actually got smaller
+    SetCompress auto
 
     # specify the files to go in the output path
     File /r ${SOURCE_FILES}

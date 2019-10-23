@@ -1,45 +1,63 @@
 os:
-  - linux
+  #- linux
   - osx
+  #- windows
 
 sudo: false
 
-dist: bionic
-
-addons:
-  apt:
-    packages:
-      - rpm
-
-git:
-  depth: 5
-
+osx_image: xcode11.2
+dist: bionic # linux
 language: node_js
-
-node_js:
-  - 10
 
 addons:
   chrome: stable
 
+git:
+  depth: 5 # quick clone
+  quiet: true # save on logfiles
+
+node_js:
+  - 10 # version
+
+before_install:
+  # install nsis on windows
+  - if [ "$TRAVIS_OS_NAME" == "windows" ]; then choco install nsis; fi
+  - if [ "$TRAVIS_OS_NAME" == "windows" ]; then export PATH="/c/Program Files (x86)/NSIS:$PATH"; fi
+  # install python on all platforms supported
+  - if [ "$TRAVIS_OS_NAME" == "windows" ]; then choco install python --version 3.8.0; fi
+  - if [ "$TRAVIS_OS_NAME" == "windows" ]; then export PATH="/c/Python38:/c/Python38/Scripts:/c/Users/travis/AppData/Roaming/Python/Python38/Scripts:$PATH"; fi
+  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then export PATH="$HOME/.local/bin:$PATH"; fi
+  - if [ "$TRAVIS_OS_NAME" == "osx" ]; then export PATH="$HOME/Library/Python/2.7/bin:$PATH"; fi
+
+install:
+  - python -m pip install --user --upgrade j2cli # install pip
+
 script:
-  - yarn test
-  - yarn gulp release
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then yarn gulp release --chromeos; fi
+  - ./.travis.sh # main
 
 cache:
+  pip: true
+  yarn: true
   directories:
-  - node_modules
+  - cache
+  - '/c/Users/travis/AppData/Local/Temp/chocolatey'
 
-# Notifications are encrypted to EmuFlight/EmuFlight to avoid spam from forks
-# Command: `travis encrypt "<secret>" --com -r EmuFlight/emuflight-configurator`
-notifications:
-  slack:
-    rooms:
-      secure: jjGWN5Ap6WinGX86KeIl2azccMWWiXqTf4XfAUteMobme5yn17WpyycD12WNChGLF2ieiNvxS/vsVaAKKx24WN5dZ9eggDMCBYHGqzQmuho26BZ4tc+Tzt+A2fFgJb5z9APThYT2W1lua6XumPzVnoJtrLV+hLU1xWPqF29/W76FC91MjFeLpjLmG51BUqTIBCABw+PVpG2z1+DU1NVT0zV0BoRafyHbn/3ezRRXwC5oV00kRswGHkSehj6+eGWDsUoOwupHJPgV/wl52sX9I+XpoherzjvB0p27820YKtkUiG7EIgriK1WSxT46zcPa+avV4tbqrAR2Jrz/GpNv+QVYN8giYClLqecFiHWYB1/WTNpALG30NzVrjPdEzSHJrtH1EFRmZjXn31i9pAinihsIedfbJfVpNIy6N/lhmu+WBoLnNsU7HE86d6cpMGr6EpGnN4LH5vJOmk2f38x0/VrdiO0EDMyTxBV15rqmVTfZkHU24TXyX4N4q2zI+40M4pGtRrvHx02WiA3GPEYHe/OXICPvlY4YCmzGo79FCqZMcCcBVdg4I1e/M64/982eNREQGmGHvNRtePZesvEoqvp4Ra2Oef9gFyDMx0mpWYkMUYwWEo0FzeoApQNw1ModOcD8QCpS527YODtEpxzfMRs6ILn4kFWdn+NptdPFjeY=
-  webhooks:
-    urls:
-      - secure: FKa1zx+QP/3Z66b7rsKnKkMcn/0yvqefhGNl85bXhOPusZJS09DZnFSmrz2nXtOTnDdxsh/pT+Xj29782aVy7ByV0ul+fBAqKAYbkOPsnDmkxZizxrHumY99hzdK+0EorOZSQLAkpaSpz46NE5Fm2pJTc67MP5ZpfNVPCCXq0SYIEBNt3D745tfEda9fJjc0g+8zjed2YqMqC3Gqbnq8ebQZ7vBbIFfTtn4wrYfrWeS1kv6MX8dndVDueuKgRH1o/h2DPYDCk9WpHDniQ1TtPiwhMXOEH8G0dMkcR9VbBCz3n28JjjrxpIpXY1Ulk5wF3Aj0/jxf5yH6kpu4XdBINsMHE6GFCKJ/pnBf6RbggMUUuU66F2DWb6oxcdVEpTkixaFrXBqbsfM+UYj+QYoLvyxHqB/XKL3AzwPrUqys4NU3RQTOAFn5YXxzFWzjKovMeq+6S6lDA4E/L4OvO7+iCghjmFFdE0FF30GTue/Q79RmNXRZAJh9uR1UOtppc1iMn+QardzfRJ20qaohvP++ODCMnDfYLKzTXaZS+xCpUpZplwbV9wJMGUVSEwSuOX2L0RH5oIHceFqflKpKAIVlxMMy33AmoVclDCenaCwSHgGBtY94JunGQSBB+nsZz2YEWKecdBeICMZ7VWG9NAZkYOzphothFZYiwJFCykprjIg=
-    on_success: always  # options: [always|never|change] default: always
-    on_failure: always  # options: [always|never|change] default: always
-    on_start: always     # options: [always|never|change] default: always
+deploy:
+  provider: bintray
+  file: bintray-conf.json
+  user: "$BINTRAY_USER"
+  key: "$BINTRAY_API_KEY"
+  skip_cleanup: true # do not delete what has just been built
+  #edge: true # dpl v2
+  on:
+    #all_branches: true
+    branch: master # just this specific branch
+
+after_deploy:
+  - wget https://raw.githubusercontent.com/DiscordHooks/travis-ci-discord-webhook/master/send.sh
+  - chmod +x send.sh
+  - ./send.sh success $WEBHOOK_URL
+after_failure:
+  - wget https://raw.githubusercontent.com/DiscordHooks/travis-ci-discord-webhook/master/send.sh
+  - chmod +x send.sh
+  - ./send.sh failure $WEBHOOK_URL
