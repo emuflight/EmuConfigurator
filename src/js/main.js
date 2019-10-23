@@ -24,7 +24,7 @@ var helioUrl = 'https://raw.githubusercontent.com/emuflight/EmuConfigurator/work
 
 client.get(nonHelioUrl, function(response) {
 
-  fs.writeFile('./resources/presets-nonHELIO.json', response, (err) => {
+  fs.writeFile('./resources/presets/presets-nonHELIO.json', response, (err) => {
     if (err) {
       console.error(err)
       return
@@ -35,7 +35,7 @@ client.get(nonHelioUrl, function(response) {
 
 client.get(helioUrl, function(response) {
 
-    fs.writeFile('./resources/presets-HELIO.json', response, (err) => {
+    fs.writeFile('./resources/presets/presets-HELIO.json', response, (err) => {
         if (err) {
         console.error(err)
         return
