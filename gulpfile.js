@@ -41,7 +41,7 @@ var gitChangeSetId;
 var nwBuilderOptions = {
     version: '0.36.4',
     files: './dist/**/*',
-    macIcns: './src/images/emu_icon.icns',
+    macIcns: './assets/osx/app-icon.icns',
     macPlist: { 'CFBundleDisplayName': 'Emuflight Configurator'},
     winIco: './src/images/emu_icon.ico',
     zip: false
@@ -656,8 +656,12 @@ function getLinuxPackageArch(type, arch) {
 // Create distribution package for macOS platform
 function release_osx64() {
 
-    const { execSync } = require('child_process');
-    let stdout = execSync('./codesign_osxapp.sh');
+    if (process.env.TRAVIS_OS_NAME == 'osx') {
+        const { execSync } = require('child_process');
+        let stdout = execSync('./codesign_osxapp.sh');
+    } else {
+        console.log('running locally - skipping signing of app');
+    }
 
     var appdmg = require('gulp-appdmg');
 
@@ -670,18 +674,20 @@ function release_osx64() {
             target: path.join(RELEASE_DIR, getReleaseFilename('macOS', 'dmg')),
             basepath: path.join(APPS_DIR, pkg.name, 'osx64'),
             specification: {
-                title: 'Emuflight Configurator',
-                icon: 'assets/osx/app-icon.icns',
-                background: path.join(__dirname, 'assets/osx/dmg-background.png'),
-                contents: [
-                    { 'x': 448, 'y': 342, 'type': 'link', 'path': '/Applications' },
-                    { 'x': 192, 'y': 344, 'type': 'file', 'path': pkg.name + '.app', 'name': 'Emuflight Configurator.app' }
+                'title': 'Emuflight Configurator',
+                //'icon': 'assets/osx/app-icon.icns', // FIXME
+                'icon-size': 128,
+                'background': path.join(__dirname, 'assets/osx/dmg-background.png'),
+                'contents': [
+                    { 'x': 190, 'y': 600, 'type': 'file', 'path': pkg.name + '.app', 'name': 'Emuflight Configurator.app' },
+                    { 'x': 660, 'y': 600, 'type': 'link', 'path': '/Applications' }
+
                 ],
-                format: 'UDBZ',
-                window: {
-                    size: {
-                        width: 638,
-                        height: 479
+                'format': 'UDBZ',
+                'window': {
+                    'size': {
+                        'width': 840,
+                        'height': 800
                     }
                 },
                 'code-sign': { 'signing-identity': process.env.APP_IDENTITY }
