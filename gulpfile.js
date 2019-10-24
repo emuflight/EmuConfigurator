@@ -669,18 +669,20 @@ function release_osx64() {
             basepath: path.join(APPS_DIR, pkg.name, 'osx64'),
             specification: {
                 title: 'Emuflight Configurator',
+                icon: 'app-icon.icns',
+                background: path.join(__dirname, 'assets/osx/dmg-background.png'),
                 contents: [
                     { 'x': 448, 'y': 342, 'type': 'link', 'path': '/Applications' },
                     { 'x': 192, 'y': 344, 'type': 'file', 'path': pkg.name + '.app', 'name': 'Emuflight Configurator.app' }
                 ],
-                background: path.join(__dirname, 'assets/osx/dmg-background.png'),
-                format: 'UDZO',
+                format: 'UDBZ',
                 window: {
                     size: {
                         width: 638,
                         height: 479
                     }
-                }
+                },
+                'code-sign': { 'signing-identity': process.env.APP_IDENTITY }
             },
         })
     );
