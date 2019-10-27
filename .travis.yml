@@ -28,10 +28,10 @@ before_install:
   - if [ "$TRAVIS_OS_NAME" == "windows" ]; then choco install nsis; fi
   - if [ "$TRAVIS_OS_NAME" == "windows" ]; then export PATH="/c/Program Files (x86)/NSIS:$PATH"; fi
   # install 'python' on all platforms supported
-  - if [ "$TRAVIS_OS_NAME" == "windows" ]; then choco install python --version 3.8.0; fi
-  - if [ "$TRAVIS_OS_NAME" == "windows" ]; then export PATH="/c/Python38:/c/Python38/Scripts:/c/Users/travis/AppData/Roaming/Python/Python38/Scripts:$PATH"; fi
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then export PATH="$HOME/.local/bin:$PATH"; fi
   - if [ "$TRAVIS_OS_NAME" == "osx" ]; then export PATH="$HOME/Library/Python/2.7/bin:$PATH"; fi
+  - if [ "$TRAVIS_OS_NAME" == "windows" ]; then choco install python --version 3.8.0; fi
+  - if [ "$TRAVIS_OS_NAME" == "windows" ]; then export PATH="/c/Python38:/c/Python38/Scripts:/c/Users/travis/AppData/Roaming/Python/Python38/Scripts:$PATH"; fi
 
 install:
   - python -m pip install --user --upgrade j2cli # install pip
@@ -52,10 +52,9 @@ deploy:
   user: "$BINTRAY_USER"
   key: "$BINTRAY_API_KEY"
   skip_cleanup: true # do not delete what has just been built
-  #edge: true # dpl v2
   on:
-    #all_branches: true
-    branch: master # just this specific branch
+    all_branches: true
+    #branch: master # just this specific branch
 
 after_deploy:
   - wget https://raw.githubusercontent.com/DiscordHooks/travis-ci-discord-webhook/master/send.sh
