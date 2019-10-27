@@ -1,7 +1,7 @@
 os:
   - linux
-  # - osx
-  # - windows
+  - osx
+  - windows
 
 sudo: false
 
