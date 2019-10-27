@@ -1416,6 +1416,9 @@
     "pidTuningProfileOption": {
         "message": "Profile $1"
     },
+    "pidTuningPresetOption": {
+        "message": "Preset $1"
+    },
     "pidTuningRateProfileOption": {
         "message": "Rateprofile $1"
     },
@@ -1708,6 +1711,9 @@
     },
     "pidTuningProfileHead": {
         "message": "Profile"
+    },
+    "pidTuningPresetsHead": {
+        "message": "Preset"
     },
     "pidTuningControllerHead": {
         "message": "PID Controller"
@@ -4860,6 +4866,12 @@
     },
     "pidTuningProfile": {
         "message": "Profile"
+    },
+    "pidTuningPreset": {
+        "message": "Preset"
+    },
+    "pidTuningPresetTip": {
+        "message": "select your pre-tune preset"
     },
     "pidTuningProfileTip": {
         "message": "Up to 3 (2 for some controllers) different pid profiles can be stored on the flight controller. The pid profiles include pid, d setpoint and angle/horizon settings on this tab. Once in the field, simple stick commands (see online instructions) can be used to switch between the profiles."

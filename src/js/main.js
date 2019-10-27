@@ -3,6 +3,47 @@
 var googleAnalytics = analytics;
 var analytics = undefined;
 
+const fs = require('fs');
+
+var HttpClient = function() {
+    this.get = function(aUrl, aCallback) {
+        var anHttpRequest = new XMLHttpRequest();
+        anHttpRequest.onreadystatechange = function() {
+            if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                aCallback(anHttpRequest.responseText);
+        }
+
+        anHttpRequest.open( "GET", aUrl, true );
+        anHttpRequest.send( null );
+    }
+}
+
+var client = new HttpClient();
+var nonHelioUrl = 'https://raw.githubusercontent.com/emuflight/EmuConfigurator/working_on_presets/resources/presets/presets-nonHELIO.json';
+var helioUrl = 'https://raw.githubusercontent.com/emuflight/EmuConfigurator/working_on_presets/resources/presets/presets-HELIO.json';
+
+client.get(nonHelioUrl, function(response) {
+
+  fs.writeFile('./resources/presets/presets-nonHELIO.json', response, (err) => {
+    if (err) {
+      console.error(err)
+      return
+    }
+    //file written successfully
+  })
+});
+
+client.get(helioUrl, function(response) {
+
+    fs.writeFile('./resources/presets/presets-HELIO.json', response, (err) => {
+        if (err) {
+        console.error(err)
+        return
+        }
+        //file written successfully
+    })
+});
+
 $(document).ready(function () {
     $.getJSON('version.json', function(data) {
         CONFIGURATOR.version = data.version;
