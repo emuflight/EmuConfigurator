@@ -84,6 +84,8 @@ fi
 #
 # unsealed content
 #
+# remove all unallowed files
+xattr -cr "${APP_PATH}"
 
 echo "fixing nwjs framework unsealed content"
 NWJS_FRAMEWORK="${APP_PATH}/Contents/Versions/${VERSION_NUMBER}/nwjs Framework.framework"
