@@ -1,8 +1,5 @@
 'use strict';
 
-var googleAnalytics = analytics;
-var analytics = undefined;
-
 const fs = require('fs');
 
 var HttpClient = function() {
@@ -19,6 +16,7 @@ var HttpClient = function() {
 }
 
 var client = new HttpClient();
+// FIXME: hardcoded URIs
 var nonHelioUrl = 'https://raw.githubusercontent.com/emuflight/EmuConfigurator/working_on_presets/resources/presets/presets-nonHELIO.json';
 var helioUrl = 'https://raw.githubusercontent.com/emuflight/EmuConfigurator/working_on_presets/resources/presets/presets-HELIO.json';
 
@@ -67,63 +65,17 @@ $(document).ready(function () {
     });
 });
 
-function checkSetupAnalytics(callback) {
-    if (!analytics) {
-        setTimeout(function () {
-            ConfigStorage.get(['userId', 'analyticsOptOut', 'checkForConfiguratorUnstableVersions', ], function (result) {
-                if (!analytics) {
-                    setupAnalytics(result);
-                }
-
-                callback(analytics);
-            });
-        });
-    } else if (callback) {
-        callback(analytics);
-    }
-};
-
 function getBuildType() {
     return GUI.Mode;
 }
 
-function setupAnalytics(result) {
-    var userId;
-    if (result.userId) {
-        userId = result.userId;
-    } else {
-        var uid = new ShortUniqueId();
-        userId = uid.randomUUID(13);
-
-        ConfigStorage.set({ 'userId': userId });
-    }
-
-    var optOut = !!result.analyticsOptOut;
-    var checkForDebugVersions = !!result.checkForConfiguratorUnstableVersions;
-
+//Process to execute to real start the app
+function startProcess() {
     var debugMode = typeof process === "object" && process.versions['nw-flavor'] === 'sdk';
-
-    analytics = new Analytics('UA-123002063-1', userId, 'Emuflight Configurator', CONFIGURATOR.version, CONFIGURATOR.gitChangesetId, GUI.operating_system, checkForDebugVersions, optOut, debugMode, getBuildType());
-
-    function logException(exception) {
-        analytics.sendException(exception.stack);
-    }
-
-    if (typeof process === "object") {
-        process.on('uncaughtException', logException);
-    }
-
-    analytics.sendEvent(analytics.EVENT_CATEGORIES.APPLICATION, 'AppStart', { sessionControl: 'start' });
-
-    function sendCloseEvent() {
-        analytics.sendEvent(analytics.EVENT_CATEGORIES.APPLICATION, 'AppClose', { sessionControl: 'end' })
-    }
 
     if (GUI.isNWJS()) {
         var win = GUI.nwGui.Window.get();
         win.on('close', function () {
-            sendCloseEvent();
-
             this.close(true);
         });
         win.on('new-win-policy', function(frame, url, policy) {
@@ -132,17 +84,8 @@ function setupAnalytics(result) {
             // and open it in external browser
             GUI.nwGui.Shell.openExternal(url);
         });
-    } else if (!GUI.isOther()) {
-        // Looks like we're in Chrome - but the event does not actually get fired
-        chrome.runtime.onSuspend.addListener(sendCloseEvent);
     }
 
-    $('.connect_b a.connect').removeClass('disabled');
-    $('.firmware_b a.flash').removeClass('disabled');
-}
-
-//Process to execute to real start the app
-function startProcess() {
     // translate to user-selected language
     i18n.localizePage();
 
@@ -247,10 +190,6 @@ function startProcess() {
                 function content_ready() {
                     GUI.tab_switch_in_progress = false;
                 }
-
-                checkSetupAnalytics(function (analytics) {
-                    analytics.sendAppView(tab);
-                });
 
                 switch (tab) {
                     case 'landing':
@@ -389,30 +328,6 @@ function startProcess() {
                 } else {
                     $('div.checkForConfiguratorUnstableVersions').hide();
                 }
-
-                ConfigStorage.get('analyticsOptOut', function (result) {
-                    if (result.analyticsOptOut) {
-                        $('div.analyticsOptOut input').prop('checked', true);
-                    }
-
-                    $('div.analyticsOptOut input').change(function () {
-                        var checked = $(this).is(':checked');
-
-                        ConfigStorage.set({'analyticsOptOut': checked});
-
-                        checkSetupAnalytics(function (analytics) {
-                            if (checked) {
-                                analytics.sendEvent(analytics.EVENT_CATEGORIES.APPLICATION, 'OptOut');
-                            }
-
-                            analytics.setOptOut(checked);
-
-                            if (!checked) {
-                                analytics.sendEvent(analytics.EVENT_CATEGORIES.APPLICATION, 'OptIn');
-                            }
-                        });
-                    }).change();
-                });
 
                 $('div.cliAutoComplete input')
                     .prop('checked', CliAutoComplete.configEnabled)
@@ -566,11 +481,8 @@ function startProcess() {
 
         $('input[name="expertModeCheckbox"]').change(function () {
             var checked = $(this).is(':checked');
-            checkSetupAnalytics(function (analytics) {
-                analytics.setDimension(analytics.DIMENSIONS.CONFIGURATOR_EXPERT_MODE, checked ? 'On' : 'Off');
-            });
 
-            if (FEATURE_CONFIG) {
+            if (FEATURE_CONFIG && FEATURE_CONFIG.features !== 0) {
                 updateTabList(FEATURE_CONFIG.features);
             }
         }).change();
@@ -583,6 +495,9 @@ function startProcess() {
     ConfigStorage.get('darkTheme', function (result) {
         DarkTheme.setConfig(typeof result.darkTheme == 'undefined' || result.darkTheme);
     });
+
+    $('.connect_b a.connect').removeClass('disabled');
+    $('.firmware_b a.flash').removeClass('disabled');
 };
 
 function checkForConfiguratorUpdates() {
@@ -674,46 +589,30 @@ function isExpertModeEnabled() {
 }
 
 function updateTabList(features) {
+    if (isExpertModeEnabled()) {
+        $('#tabs ul.mode-connected li.tab_failsafe').show();
+        $('#tabs ul.mode-connected li.tab_adjustments').show();
+        $('#tabs ul.mode-connected li.tab_servos').show();
+        $('#tabs ul.mode-connected li.tab_sensors').show();
+        $('#tabs ul.mode-connected li.tab_logging').show();
+    } else {
+        $('#tabs ul.mode-connected li.tab_failsafe').hide();
+        $('#tabs ul.mode-connected li.tab_adjustments').hide();
+        $('#tabs ul.mode-connected li.tab_servos').hide();
+        $('#tabs ul.mode-connected li.tab_sensors').hide();
+        $('#tabs ul.mode-connected li.tab_logging').hide();
+    }
+
     if (features.isEnabled('GPS') && isExpertModeEnabled()) {
         $('#tabs ul.mode-connected li.tab_gps').show();
     } else {
         $('#tabs ul.mode-connected li.tab_gps').hide();
     }
 
-    if (isExpertModeEnabled()) {
-        $('#tabs ul.mode-connected li.tab_failsafe').show();
-    } else {
-        $('#tabs ul.mode-connected li.tab_failsafe').hide();
-    }
-
-    if (isExpertModeEnabled()) {
-        $('#tabs ul.mode-connected li.tab_adjustments').show();
-    } else {
-        $('#tabs ul.mode-connected li.tab_adjustments').hide();
-    }
-
-    if (isExpertModeEnabled()) {
-        $('#tabs ul.mode-connected li.tab_servos').show();
-    } else {
-        $('#tabs ul.mode-connected li.tab_servos').hide();
-    }
-
     if (features.isEnabled('LED_STRIP')) {
         $('#tabs ul.mode-connected li.tab_led_strip').show();
     } else {
         $('#tabs ul.mode-connected li.tab_led_strip').hide();
-    }
-
-    if (isExpertModeEnabled()) {
-        $('#tabs ul.mode-connected li.tab_sensors').show();
-    } else {
-        $('#tabs ul.mode-connected li.tab_sensors').hide();
-    }
-
-    if (isExpertModeEnabled()) {
-        $('#tabs ul.mode-connected li.tab_logging').show();
-    } else {
-        $('#tabs ul.mode-connected li.tab_logging').hide();
     }
 
     if (features.isEnabled('TRANSPONDER')) {
@@ -732,6 +631,12 @@ function updateTabList(features) {
         $('#tabs ul.mode-connected li.tab_power').show();
     } else {
         $('#tabs ul.mode-connected li.tab_power').hide();
+    }
+
+    if (semver.gte(CONFIG.apiVersion, "1.42.0")) {
+        $('#tabs ul.mode-connected li.tab_vtx').show();
+    } else {
+        $('#tabs ul.mode-connected li.tab_vtx').hide();
     }
 }
 

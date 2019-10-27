@@ -2,8 +2,7 @@
 
 TABS.configuration = {
     DSHOT_PROTOCOL_MIN_VALUE: 5,
-    SHOW_OLD_BATTERY_CONFIG: false,
-    analyticsChanges: {},
+    SHOW_OLD_BATTERY_CONFIG: false
 };
 
 TABS.configuration.initialize = function (callback, scrollPosition) {
@@ -196,8 +195,6 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
     load_config();
 
     function process_html() {
-        self.analyticsChanges = {};
-
         var mixer_list_e = $('select.mixerList');
         for (var selectIndex = 0; selectIndex < mixerList.length; selectIndex++) {
             mixerList.forEach(function (mixerEntry, mixerIndex) {
@@ -234,8 +231,6 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
             if (mixerValue !== MIXER_CONFIG.mixer) {
                 newValue = $(this).find('option:selected').text();
             }
-            self.analyticsChanges['Mixer'] = newValue;
-
             MIXER_CONFIG.mixer = mixerValue;
             refreshMixerPreview();
         });
@@ -441,8 +436,6 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
             if (escProtocolValue !== PID_ADVANCED_CONFIG.fast_pwm_protocol) {
                 newValue = $(this).find('option:selected').text();
             }
-            self.analyticsChanges['EscProtocol'] = newValue;
-
             //hide not used setting for DSHOT protocol
             if (escProtocolValue >= self.DSHOT_PROTOCOL_MIN_VALUE) {
                 $('div.minthrottle').hide();
@@ -698,8 +691,6 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
             if (serialRxValue !== RX_CONFIG.serialrx_provider) {
                 newValue = $(this).find('option:selected').text();
             }
-            self.analyticsChanges['SerialRx'] = newValue;
-
             RX_CONFIG.serialrx_provider = serialRxValue;
         });
 
@@ -1073,9 +1064,6 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
             if (semver.gte(CONFIG.apiVersion, "1.31.0")) {
                 RX_CONFIG.fpvCamAngleDegrees = parseInt($('input[name="fpvCamAngleDegrees"]').val());
             }
-
-            analytics.sendChangeEvents(analytics.EVENT_CATEGORIES.FLIGHT_CONTROLLER, self.analyticsChanges);
-            self.analyticsChanges = {};
 
             function save_serial_config() {
                 var next_callback = save_feature_config;

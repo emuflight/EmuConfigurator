@@ -105,16 +105,10 @@ var Features = function (config) {
 
     self._features = features;
     self._featureMask = 0;
-
-    self._analyticsChanges = {};
 };
 
 Features.prototype.getMask = function () {
     var self = this;
-
-    analytics.sendChangeEvents(analytics.EVENT_CATEGORIES.FLIGHT_CONTROLLER, self._analyticsChanges);
-    self._analyticsChanges = {};
-
     return self._featureMask;
 };
 
@@ -228,7 +222,6 @@ Features.prototype.updateData = function (featureElement) {
             self._featureMask = bit_clear(self._featureMask, bit);
             featureValue = 'Off';
         }
-        self._analyticsChanges['Feature' + self.findFeatureByBit(bit).name] = featureValue;
     } else if (featureElement.prop('localName') === 'select') {
         var controlElements = featureElement.children();
         var selectedBit = featureElement.val();
@@ -242,9 +235,6 @@ Features.prototype.updateData = function (featureElement) {
                 } else {
                     self._featureMask = bit_clear(self._featureMask, bit);
                 }
-            }
-            if (selectedFeature) {
-                self._analyticsChanges['FeatureGroup-' + selectedFeature.group] = selectedFeature.name;
             }
         }
     }

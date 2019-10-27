@@ -135,8 +135,6 @@ TABS.onboard_logging.initialize = function (callback) {
                         .toggleClass("msc-supported", true);
 
                     $('a.onboardLoggingRebootMsc').click(function () {
-                         analytics.sendEvent(analytics.EVENT_CATEGORIES.FLIGHT_CONTROLLER, 'RebootMsc');
-
                         var buffer = [];
                         buffer.push(mspHelper.REBOOT_TYPES.MSC);                        
                         MSP.send_message(MSPCodes.MSP_SET_REBOOT, buffer, false);
@@ -342,10 +340,7 @@ TABS.onboard_logging.initialize = function (callback) {
         
         if (dataflashPresent && SDCARD.state === MSP.SDCARD_STATE_NOT_PRESENT) {
             loggingStatus = 'Dataflash';
-            analytics.setFlightControllerData(analytics.DATA.LOG_SIZE, DATAFLASH.usedSize);
         }
-        analytics.setFlightControllerData(analytics.DATA.LOGGING_STATUS, loggingStatus);
-
         if (SDCARD.supported && !sdcardTimer) {
             // Poll for changes in SD card status
             sdcardTimer = setTimeout(function() {
@@ -377,8 +372,6 @@ TABS.onboard_logging.initialize = function (callback) {
     }
     
     function mark_saving_dialog_done(startTime, totalBytes, totalBytesCompressed) {
-        analytics.sendEvent(analytics.EVENT_CATEGORIES.FLIGHT_CONTROLLER, 'SaveDataflash');
-
         var totalTime = (new Date().getTime() - startTime) / 1000;
         console.log('Received ' + totalBytes + ' bytes in ' + totalTime.toFixed(2) + 's ('
             + (totalBytes / totalTime / 1024).toFixed(2) + 'kB / s) with block size ' + self.blockSize + '.');
@@ -547,9 +540,6 @@ TABS.onboard_logging.initialize = function (callback) {
 };
 
 TABS.onboard_logging.cleanup = function (callback) {
-    analytics.setFlightControllerData(analytics.DATA.LOGGING_STATUS, undefined);
-    analytics.setFlightControllerData(analytics.DATA.LOG_SIZE, undefined);
-
     if (sdcardTimer) {
         clearTimeout(sdcardTimer);
         sdcardTimer = false;

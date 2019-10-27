@@ -1,14 +1,9 @@
 'use strict';
 
-TABS.ports = {
-    analyticsChanges: {},
-};
-
+TABS.ports = {};
 TABS.ports.initialize = function (callback, scrollPosition) {
     var self = this;
-
     var board_definition = {};
-
     var functionRules = [
          {name: 'MSP',                  groups: ['configuration', 'msp'], maxPorts: 2},
          {name: 'GPS',                  groups: ['sensors'], maxPorts: 1},
@@ -122,8 +117,6 @@ TABS.ports.initialize = function (callback, scrollPosition) {
     }
 
     function update_ui() {
-        self.analyticsChanges = {};
-
         if (semver.lt(CONFIG.apiVersion, "1.6.0")) {
 
             $(".tab-ports").removeClass("supported");
@@ -264,7 +257,6 @@ TABS.ports.initialize = function (callback, scrollPosition) {
                                 if (telemetryValue !== initialValue) {
                                     newValue = $(this).find('option:selected').text();
                                 }
-                                self.analyticsChanges['Telemetry'] = newValue;
                             });
                         }
                     }
@@ -293,9 +285,6 @@ TABS.ports.initialize = function (callback, scrollPosition) {
     }
 
    function on_save_handler() {
-        analytics.sendChangeEvents(analytics.EVENT_CATEGORIES.FLIGHT_CONTROLLER, self.analyticsChanges);
-       self.analyticsChanges = {};
-
         // update configuration based on current ui state
         SERIAL_CONFIG.ports = [];
 
