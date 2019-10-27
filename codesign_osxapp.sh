@@ -1,6 +1,7 @@
 #!/bin/sh
 #
-# The Emuflight Project
+# tom hensel <code@jitter.eu> for EmuFlight
+#
 
 #
 # variables and composition
@@ -10,8 +11,8 @@ CERTIFICATE_P12="sign/EmuCert.p12"
 KEYCHAIN="build.keychain"
 ENTITLEMENTS_CHILD="sign/entitlements-child.plist"
 ENTITLEMENTS_PARENT="sign/entitlements-parent.plist"
-
 APP_PATH="apps/emuflight-configurator/osx64/emuflight-configurator.app"
+
 VERSION_NUMBER=$(ls "${APP_PATH}/Contents/Versions/")
 
 #
@@ -103,7 +104,7 @@ sign () {
     ENTITLEMENTS="${2}"
 
     echo "signing: ${OBJECT}"
-    codesign --verbose --force --verify --sign "${APP_IDENTITY}" --entitlements "${ENTITLEMENTS}" --deep "${OBJECT}"
+    codesign --verbose --force --options=runtime --sign "${APP_IDENTITY}" --entitlements "${ENTITLEMENTS}" --deep "${OBJECT}"
     echo "verifying: ${OBJECT}"
     codesign --verbose=2 --verify --strict --deep "${OBJECT}"
 }
