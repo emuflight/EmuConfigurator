@@ -560,7 +560,20 @@
     width: 100px;
 }
 
+
 .tab-pid_tuning .profile select {
+    border: 1px solid var(--subtleAccent);
+    border-radius: 3px;
+    margin-left: 5px;
+    width: calc(100% - 10px);
+}
+
+
+.tab-pid_tuning .profile-preset {
+    width: 250px;
+}
+
+.tab-pid_tuning .profile-preset select {
     border: 1px solid var(--subtleAccent);
     border-radius: 3px;
     margin-left: 5px;

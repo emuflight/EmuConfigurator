@@ -1,4 +1,5 @@
 .tab-pid_tuning .profile .helpicon,
+.tab-pid_tuning .profile-preset .helpicon,
 .tab-pid_tuning .rate_profile .helpicon,
 .tab-pid_tuning .pid_titlebar .helpicon {
     background-image: url(../../images/icons/cf_icon_info_grey.svg);
@@ -133,6 +134,11 @@
 }
 
 .tab-pid_tuning .profile select {
+    background-color: #3a3a3a;
+    color: rgb(230, 230, 230);
+}
+
+.tab-pid_tuning .profile-preset select {
     background-color: #3a3a3a;
     color: rgb(230, 230, 230);
 }

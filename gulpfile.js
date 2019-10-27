@@ -41,7 +41,7 @@ var gitChangeSetId;
 var nwBuilderOptions = {
     version: '0.36.4',
     files: './dist/**/*',
-    macIcns: './src/images/emu_icon.icns',
+    macIcns: './assets/osx/app-icon.icns',
     macPlist: { 'CFBundleDisplayName': 'Emuflight Configurator'},
     winIco: './src/images/emu_icon.ico',
     zip: false
@@ -88,6 +88,9 @@ gulp.task('debug', debugBuild);
 var releaseBuild = gulp.series(gulp.parallel(clean_release, appsBuild), gulp.parallel(listReleaseTasks()));
 gulp.task('release', releaseBuild);
 
+var multiReleaseBuild = gulp.series(gulp.parallel(appsBuild), gulp.parallel(listReleaseTasks()));
+gulp.task('mrelease', multiReleaseBuild);
+
 gulp.task('default', debugBuild);
 
 // -----------------
@@ -99,7 +102,7 @@ gulp.task('default', debugBuild);
 // # gulp <task> [<platform>]+        Run only for platform(s) (with <platform> one of --linux64, --linux32, --armv7, --osx64, --win32, --win64, or --chromeos)
 // #
 function getInputPlatforms() {
-    var supportedPlatforms = ['linux64', 'linux32', 'armv7', 'osx64', 'win32','win64', 'chromeos'];
+    var supportedPlatforms = ['linux64', 'linux32', 'armv7', 'osx64', 'win32', 'win64', 'chromeos'];
     var platforms = [];
     var regEx = /--(\w+)/;
     console.log(process.argv);
@@ -142,20 +145,18 @@ function getDefaultPlatform() {
     switch (os.platform()) {
     case 'darwin':
         defaultPlatform = 'osx64';
-
         break;
     case 'linux':
         defaultPlatform = 'linux64';
-
         break;
     case 'win32':
         defaultPlatform = 'win32';
-
         break;
-
+    case 'win64':
+        defaultPlatform = 'win64';
+        break;
     default:
         defaultPlatform = '';
-
         break;
     }
     return defaultPlatform;
@@ -177,25 +178,18 @@ function getRunDebugAppCommand(arch) {
     switch (arch) {
     case 'osx64':
         return 'open ' + path.join(DEBUG_DIR, pkg.name, arch, pkg.name + '.app');
-
         break;
-
     case 'linux64':
     case 'linux32':
     case 'armv7':
         return path.join(DEBUG_DIR, pkg.name, arch, pkg.name);
-
         break;
-
     case 'win32':
     case 'win64':
         return path.join(DEBUG_DIR, pkg.name, arch, pkg.name + '.exe');
-
         break;
-
     default:
         return '';
-
         break;
     }
 }
@@ -509,7 +503,7 @@ function release_win(arch, done) {
 
     // Check if makensis exists
     if (!commandExistsSync('makensis')) {
-        console.warn('makensis command not found, not generating win package for ' + arch);
+        console.warn('makensis command not found, not generating package for: ' + arch);
         return done();
     }
 
@@ -518,7 +512,7 @@ function release_win(arch, done) {
 
     // Parameters passed to the installer script
     const options = {
-            verbose: 2,
+            verbose: 3,
             define: {
                 'VERSION': pkg.version,
                 'PLATFORM': arch,
@@ -528,8 +522,10 @@ function release_win(arch, done) {
 
     var output = makensis.compileSync('./assets/windows/installer.nsi', options);
 
-    if (output.status !== 0) {
-        console.error('Installer for platform ' + arch + ' finished with error ' + output.status + ': ' + output.stderr);
+    if (output.status === 0) {
+        console.log(`Standard output:\n${output.stdout}`);
+    } else {
+        console.error(`Exit Code ${output.status}: ${output.stderr}`);
     }
 
     done();
@@ -655,8 +651,18 @@ function getLinuxPackageArch(type, arch) {
 
     return packArch;
 }
+
+// TODO: add code-signing https://github.com/LinusU/node-appdmg
 // Create distribution package for macOS platform
 function release_osx64() {
+
+    if (process.env.TRAVIS_OS_NAME == 'osx') {
+        const { execSync } = require('child_process');
+        let stdout = execSync('./codesign_osxapp.sh');
+    } else {
+        console.log('running locally - skipping signing of app');
+    }
+
     var appdmg = require('gulp-appdmg');
 
     // The appdmg does not generate the folder correctly, manually
@@ -668,18 +674,20 @@ function release_osx64() {
             target: path.join(RELEASE_DIR, getReleaseFilename('macOS', 'dmg')),
             basepath: path.join(APPS_DIR, pkg.name, 'osx64'),
             specification: {
-                title: 'Emuflight Configurator',
-                icon: 'app-icon.icns',
-                background: path.join(__dirname, 'assets/osx/dmg-background.png'),
-                contents: [
-                    { 'x': 448, 'y': 342, 'type': 'link', 'path': '/Applications' },
-                    { 'x': 192, 'y': 344, 'type': 'file', 'path': pkg.name + '.app', 'name': 'Emuflight Configurator.app' }
+                'title': 'Emuflight Configurator',
+                //'icon': 'assets/osx/app-icon.icns', // FIXME
+                'icon-size': 128,
+                'background': path.join(__dirname, 'assets/osx/dmg-background.png'),
+                'contents': [
+                    { 'x': 190, 'y': 600, 'type': 'file', 'path': pkg.name + '.app', 'name': 'Emuflight Configurator.app' },
+                    { 'x': 660, 'y': 600, 'type': 'link', 'path': '/Applications' }
+
                 ],
-                format: 'UDBZ',
-                window: {
-                    size: {
-                        width: 638,
-                        height: 479
+                'format': 'UDBZ',
+                'window': {
+                    'size': {
+                        'width': 840,
+                        'height': 800
                     }
                 },
                 'code-sign': { 'signing-identity': process.env.APP_IDENTITY }
