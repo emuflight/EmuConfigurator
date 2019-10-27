@@ -78,8 +78,8 @@ fi
 # bundle
 #
 
-/usr/libexec/PlistBuddy -c "Set :CFBundleIdentifier ${BUNDLE_ID}" "${APP_PATH}/Contents/Info.plist"
-/usr/libexec/PlistBuddy -c "Set :com.apple.security.application-groups:0 ${TEAM_ID}.${BUNDLE_ID}" "$ENTITLEMENTS_PARENT"
+#/usr/libexec/PlistBuddy -c "Set :CFBundleIdentifier ${BUNDLE_ID}" "${APP_PATH}/Contents/Info.plist"
+#/usr/libexec/PlistBuddy -c "Set :com.apple.security.application-groups:0 ${TEAM_ID}.${BUNDLE_ID}" "$ENTITLEMENTS_PARENT"
 
 #
 # unsealed content
