@@ -1146,6 +1146,7 @@ TABS.pid_tuning.initialize = function (callback) {
             var filterTypeValues = [];
             filterTypeValues.push("PT1");
             filterTypeValues.push("BIQUAD");
+            filterTypeValues.push("KALMAN");
             if (semver.lt(CONFIG.apiVersion, "1.39.0")) {
                 filterTypeValues.push("FIR");
             }
