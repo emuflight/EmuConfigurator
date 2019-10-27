@@ -4,17 +4,12 @@
             "includePattern": "release/(.*)",
             "uploadPattern": "{{ env("PACKAGE_VERSION") }}/$1",
             "matrixParams": { "override": 1 }
-        },
-        {
-            "includePattern": "apps/emuflight-configurator/win64/(.*\\.exe)",
-            "uploadPattern": "{{ env("PACKAGE_VERSION") }}/$1",
-            "matrixParams": { "override": 1 }
         }
     ],
     "package": {
         "subject": "emuflight",
         "repo": "dev_cfg",
-        "desc": "do emu configurators dream of flying, too?",
+        "desc": "Emuflight Configurator is a crossplatform configuration tool for the Emuflight flight control system.",
         "issue_tracker_url": "https://github.com/emuflight/EmuConfigurator/issues",
         "website_url": "https://github.com/emuflight/EmuConfigurator",
         "public_download_numbers": false,
@@ -32,6 +27,6 @@
     "version": {
         "gpgSign": false,
         "name": "{{ env("PACKAGE_VERSION") }}",
-        "desc": "Emuflight Configurator - Test Release"
+        "desc": "Emuflight Configurator"
     }
 }

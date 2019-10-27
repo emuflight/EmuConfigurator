@@ -683,11 +683,12 @@ function release_osx64() {
                     { 'x': 660, 'y': 600, 'type': 'link', 'path': '/Applications' }
 
                 ],
-                'format': 'UDBZ',
-                'window': {
-                    'size': {
-                        'width': 840,
-                        'height': 800
+                background: path.join(__dirname, 'assets/osx/dmg-background.png'),
+                format: 'UDBZ',
+                window: {
+                    size: {
+                        width: 638,
+                        height: 479
                     }
                 },
                 'code-sign': { 'signing-identity': process.env.APP_IDENTITY }
