@@ -943,7 +943,7 @@ TABS.pid_tuning.initialize = function (callback) {
             }else{
 
                 // preset filter values
-                 save_and_reboot = true;
+                 save_and_reboot = false;
 
                 if (CONFIG.boardIdentifier !== "HESP" && CONFIG.boardIdentifier !== "SX10" && CONFIG.boardIdentifier !== "FLUX") {
                     $('.pid_filter input[name="kalmanQCoefficient"]').val(presetJson[presetSelected]['gyro_filter_q']);
@@ -989,7 +989,7 @@ TABS.pid_tuning.initialize = function (callback) {
                 // Other settings
 
                 var iDecayNumberElement = $('input[name="feedforwardTransition-number"]');
-                iDecayNumberElement.val(presetJson[presetSelected]['feedforward_transition']).trigger('input');
+                iDecayNumberElement.val(presetJson[presetSelected]['feedforward_transition']/100).trigger('input');
 
                 var iDecayNumberElement = $('input[name="throttleBoost-number"]');
                 iDecayNumberElement.val(presetJson[presetSelected]['throttle_boost']).trigger('input');
@@ -1146,6 +1146,7 @@ TABS.pid_tuning.initialize = function (callback) {
             var filterTypeValues = [];
             filterTypeValues.push("PT1");
             filterTypeValues.push("BIQUAD");
+            filterTypeValues.push("KALMAN");
             if (semver.lt(CONFIG.apiVersion, "1.39.0")) {
                 filterTypeValues.push("FIR");
             }
