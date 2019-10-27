@@ -17,6 +17,7 @@ yarn gulp clean-release
 case "${TRAVIS_OS_NAME}" in
     linux)
         yarn gulp release --chromeos
+        yarn gulp release --linux64
         ;;
     osx)
         yarn gulp release --osx64
