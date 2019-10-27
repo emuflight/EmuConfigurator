@@ -21,7 +21,6 @@ case "${TRAVIS_OS_NAME}" in
         ;;
     osx)
         yarn gulp release --osx64
-        #. codesign_osxapp.sh
         ;;
     windows)
         yarn gulp clean-release
@@ -38,6 +37,5 @@ ls -lsa release/
 
 # process template for pushing to bintray ('deploy' step on travis will pick it up)
 j2 bintray-template.j2 -o bintray-conf.json
-#cat bintray-conf.json # DEBUG
 
 exit 0
