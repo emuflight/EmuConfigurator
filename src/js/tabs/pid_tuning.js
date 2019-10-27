@@ -10,8 +10,7 @@ TABS.pid_tuning = {
     SETPOINT_WEIGHT_RANGE_LOW: 2.55,
     SETPOINT_WEIGHT_RANGE_HIGH: 20,
     SETPOINT_WEIGHT_RANGE_LEGACY: 2.54,
-    activeSubtab: 'pid',
-    analyticsChanges: {},
+    activeSubtab: 'pid'
 };
 
 
