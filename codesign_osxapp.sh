@@ -78,13 +78,16 @@ fi
 # bundle
 #
 
-#/usr/libexec/PlistBuddy -c "Set :CFBundleIdentifier ${BUNDLE_ID}" "${APP_PATH}/Contents/Info.plist"
-#/usr/libexec/PlistBuddy -c "Set :com.apple.security.application-groups:0 ${TEAM_ID}.${BUNDLE_ID}" "$ENTITLEMENTS_PARENT"
+/usr/libexec/PlistBuddy -c "Set :CFBundleIdentifier ${BUNDLE_ID}" "${APP_PATH}/Contents/Info.plist"
+/usr/libexec/PlistBuddy -c "Set :com.apple.security.application-groups:0 ${TEAM_ID}.${BUNDLE_ID}" "${ENTITLEMENTS_PARENT}"
+
+cat "${APP_PATH}/Contents/Info.plist" # DEBUG
 
 #
 # unsealed content
 #
-# remove all unallowed files
+
+echo "remove all unallowed files"
 xattr -cr "${APP_PATH}"
 
 echo "fixing nwjs framework unsealed content"
@@ -93,8 +96,8 @@ LIBNODE_DYLIB="libnode.dylib"
 LIBNODE_LINK_TO="Versions/A/${LIBNODE_DYLIB}"
 
 pushd "${NWJS_FRAMEWORK}"
-mv "${LIBNODE_DYLIB}" "${LIBNODE_LINK_TO}"
-ln -s "${LIBNODE_LINK_TO}"
+mv -v "${LIBNODE_DYLIB}" "${LIBNODE_LINK_TO}"
+ln -v -s "${LIBNODE_LINK_TO}"
 popd
 
 #
@@ -112,10 +115,10 @@ sign () {
 }
 
 sign "${APP_PATH}/Contents/Versions/${VERSION_NUMBER}/nwjs Framework.framework/libnode.dylib" "$ENTITLEMENTS_CHILD"
+sign "${APP_PATH}/Contents/Versions/${VERSION_NUMBER}/nwjs Framework.framework/libffmpeg.dylib" "$ENTITLEMENTS_CHILD"
 sign "${APP_PATH}/Contents/Versions/${VERSION_NUMBER}/nwjs Framework.framework/Helpers/crashpad_handler" "$ENTITLEMENTS_CHILD"
 sign "${APP_PATH}/Contents/Versions/${VERSION_NUMBER}/nwjs Framework.framework/XPCServices/AlertNotificationService.xpc" "$ENTITLEMENTS_CHILD"
 sign "${APP_PATH}/Contents/Versions/${VERSION_NUMBER}/nwjs Framework.framework/Versions/Current/nwjs Framework" "$ENTITLEMENTS_CHILD"
-sign "${APP_PATH}/Contents/Versions/${VERSION_NUMBER}/nwjs Framework.framework/libffmpeg.dylib" "$ENTITLEMENTS_CHILD"
 sign "${APP_PATH}/Contents/Versions/${VERSION_NUMBER}/nwjs Framework.framework" "$ENTITLEMENTS_CHILD"
 sign "${APP_PATH}/Contents/Versions/${VERSION_NUMBER}/nwjs Helper.app" "$ENTITLEMENTS_CHILD"
 sign "${APP_PATH}" "$ENTITLEMENTS_PARENT"
