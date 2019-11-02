@@ -22,6 +22,8 @@ If you are experiencing any problems please make sure you are running the [lates
 
 ### Standalone
 
+[![Build Status](https://travis-ci.org/emuflight/EmuFlight-Butter-Varient.svg?branch=Main)](https://travis-ci.org/emuflight/EmuFlight-Butter-Varient)
+
 **This is the default installation method, and at some point in the future this will become the only way available for most platforms. Please use this method whenever possible.**
 
 Download the installer from [Releases.](https://github.com/emuflight/EmuConfigurator/releases)
