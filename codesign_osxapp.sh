@@ -32,11 +32,6 @@ if [ -z "${BUNDLE_ID}" ]; then
   exit 4
 fi
 
-if [ -z "${TEAM_ID}" ]; then
-  echo "required variable TEAM_ID not set"
-  exit 5
-fi
-
 if [ ! -d "${APP_PATH}" ]; then
   echo "unable to find application at: ${APP_PATH}"
   exit 6
