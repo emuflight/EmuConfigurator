@@ -39,7 +39,8 @@ const LINUX_INSTALL_DIR = '/opt/emuflight';
 var gitChangeSetId;
 
 var nwBuilderOptions = {
-    version: '0.36.4',
+    // FIXME: hardcoded version number
+    version: '0.42.2',
     files: './dist/**/*',
     macIcns: './assets/osx/app-icon.icns',
     macPlist: { 'CFBundleDisplayName': 'Emuflight Configurator'},
@@ -47,7 +48,8 @@ var nwBuilderOptions = {
     zip: false
 };
 
-var nwArmVersion = '0.27.6';
+// FIXME: hardcoded version number
+var nwArmVersion = '0.28.4';
 
 //-----------------
 //Pre tasks operations
@@ -680,15 +682,15 @@ function release_osx64() {
                 'background': path.join(__dirname, 'assets/osx/dmg-background.png'),
                 'contents': [
                     { 'x': 190, 'y': 600, 'type': 'file', 'path': pkg.name + '.app', 'name': 'Emuflight Configurator.app' },
-                    { 'x': 660, 'y': 600, 'type': 'link', 'path': '/Applications' }
+                    { 'x': 600, 'y': 600, 'type': 'link', 'path': '/Applications' }
 
                 ],
                 background: path.join(__dirname, 'assets/osx/dmg-background.png'),
                 format: 'UDBZ',
                 window: {
                     size: {
-                        width: 638,
-                        height: 479
+                        width: 800,
+                        height: 750
                     }
                 },
                 'code-sign': { 'signing-identity': process.env.APP_IDENTITY }
