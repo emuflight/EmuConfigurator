@@ -176,8 +176,6 @@ TABS.cli.initialize = function (callback, nwGui) {
                         if (self.outputHistory.length > 0 && writer.length === 0) {
                             writer.write(new Blob([self.outputHistory], {type: 'text/plain'}));
                         } else {
-                            analytics.sendEvent(analytics.EVENT_CATEGORIES.FLIGHT_CONTROLLER, 'CliSave', self.outputHistory.length);
-
                             console.log('write complete');
                         }
                     };
