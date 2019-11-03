@@ -13,9 +13,6 @@ ENTITLEMENTS_CHILD="sign/entitlements-child.plist"
 ENTITLEMENTS_PARENT="sign/entitlements-parent.plist"
 APP_PATH="apps/emuflight-configurator/osx64/emuflight-configurator.app"
 
-# TODO: sanity check
-#VERSION_NUMBER=$(ls "${APP_PATH}/Contents/Frameworks/nwjs Framework.framework/Versions/")
-
 #
 # sanity checks
 #
@@ -79,36 +76,16 @@ fi
 # extended attributes
 #
 
-echo "recursively remove quarantine attribute"
-xattr -r -d com.apple.quarantine "${APP_PATH}"
-
-# echo "remove all unallowed files"
-# xattr -r -c "${APP_PATH}"
+# # TODO: check if this is any effective
+# echo "recursively remove quarantine attribute"
+# xattr -r -d com.apple.quarantine "${APP_PATH}"
 
 #
 # bundle
 #
 
 /usr/libexec/PlistBuddy -c "Set :CFBundleIdentifier ${BUNDLE_ID}" "${APP_PATH}/Contents/Info.plist"
-/usr/libexec/PlistBuddy -c "Set :com.apple.security.application-groups:0 ${TEAM_ID}.${BUNDLE_ID}" "${ENTITLEMENTS_PARENT}"
-
-cat "${APP_PATH}/Contents/Info.plist" # DEBUG
-
-#
-# unsealed content
-#
-
-# echo "fixing nwjs framework unsealed content"
-# #NWJS_FRAMEWORK="${APP_PATH}/Contents/Versions/${VERSION_NUMBER}/nwjs Framework.framework"
-
-# NWJS_FRAMEWORK="${APP_PATH}/Contents/Frameworks/nwjs Framework.framework/Versions/${VERSION_NUMBER}/libnode.dylib"
-# LIBNODE_DYLIB="libnode.dylib"
-# LIBNODE_LINK_TO="Versions/A/${LIBNODE_DYLIB}"
-
-# pushd "${NWJS_FRAMEWORK}"
-# mv -v "${LIBNODE_DYLIB}" "${LIBNODE_LINK_TO}"
-# ln -v -s "${LIBNODE_LINK_TO}"
-# popd
+/usr/libexec/PlistBuddy -c "Set :com.apple.security.application-groups:0 ${TEAM_ID}.${BUNDLE_ID}" "${APP_PATH}/Contents/Info.plist"
 
 #
 # signing
@@ -125,14 +102,6 @@ sign () {
     codesign --verbose=2 --verify --strict --deep "${OBJECT}"
 }
 
-#sign "${APP_PATH}/Contents/MacOS/nwjs" "$ENTITLEMENTS_CHILD"
-#sign "${APP_PATH}/Contents/Versions/${VERSION_NUMBER}/nwjs Framework.framework/libnode.dylib" "$ENTITLEMENTS_CHILD"
-#sign "${APP_PATH}/Contents/Versions/${VERSION_NUMBER}/nwjs Framework.framework/libffmpeg.dylib" "$ENTITLEMENTS_CHILD"
-#sign "${APP_PATH}/Contents/Versions/${VERSION_NUMBER}/nwjs Framework.framework/Helpers/crashpad_handler" "$ENTITLEMENTS_CHILD"
-#sign "${APP_PATH}/Contents/Versions/${VERSION_NUMBER}/nwjs Framework.framework/XPCServices/AlertNotificationService.xpc" "$ENTITLEMENTS_CHILD"
-#sign "${APP_PATH}/Contents/Versions/${VERSION_NUMBER}/nwjs Framework.framework/Versions/Current/nwjs Framework" "$ENTITLEMENTS_CHILD"
-#sign "${APP_PATH}/Contents/Versions/${VERSION_NUMBER}/nwjs Framework.framework" "$ENTITLEMENTS_CHILD"
-#sign "${APP_PATH}/Contents/Versions/${VERSION_NUMBER}/nwjs Helper.app" "$ENTITLEMENTS_CHILD"
 sign "${APP_PATH}" "$ENTITLEMENTS_PARENT"
 
 #
@@ -141,3 +110,5 @@ sign "${APP_PATH}" "$ENTITLEMENTS_PARENT"
 
 spctl --assess --type execute "${APP_PATH}" || true
 spctl --assess --verbose=4 "${APP_PATH}" || true
+
+exit 0
