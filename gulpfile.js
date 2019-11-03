@@ -681,16 +681,16 @@ function release_osx64() {
                 'icon-size': 128,
                 'background': path.join(__dirname, 'assets/osx/dmg-background.png'),
                 'contents': [
-                    { 'x': 190, 'y': 600, 'type': 'file', 'path': pkg.name + '.app', 'name': 'Emuflight Configurator.app' },
-                    { 'x': 550, 'y': 600, 'type': 'link', 'path': '/Applications' }
+                    { 'x': 180, 'y': 590, 'type': 'file', 'path': pkg.name + '.app', 'name': 'Emuflight Configurator.app' },
+                    { 'x': 570, 'y': 590, 'type': 'link', 'path': '/Applications' }
 
                 ],
                 background: path.join(__dirname, 'assets/osx/dmg-background.png'),
                 format: 'UDBZ',
                 window: {
                     size: {
-                        width: 750,
-                        height: 750
+                        width: 755,
+                        height: 755
                     }
                 },
                 'code-sign': { 'signing-identity': process.env.APP_IDENTITY }
