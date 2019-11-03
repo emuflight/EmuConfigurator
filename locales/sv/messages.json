@@ -475,7 +475,7 @@
         "message": "Medverka"
     },
     "defaultContributingText": {
-        "message": "Om du vill vara med och göra Emuflight ännu bättre kan du hjälpa till på många sätt, tex:<br \/><ul><li>Svara på andra användares frågor i forumen och på IRC.<\/li><li>Bidra med kod till firmwaren och konfiguratorn - nya funktioner, korrigeringar och förbättringar.<\/li><li>Testa <a href=\"https:\/\/github.com\/Emuflight\/EmuFlight-Butter-Varient\/pulls\" target=\"_blank\">nya funktioner\/korrigeringar<\/a> och ge feedback.<\/li><li>Hjälpa till med <a href=\"https:\/\/github.com\/emuflight\/EmuFlight-Butter-Varient\/issues\" target=\"_blank\">problem och kommentera funktionsförfrågningar<\/a>.<\/li><li>Samarbeta genom att <a href=\"https:\/\/discordapp.com\/channels\/547211754845765635/596913667447062547\" target=\"_blank\">översätta konfiguratorn<\/a> till ditt språk.<\/li><li><\/li><\/ul>"
+        "message": "Om du vill vara med och göra Emuflight ännu bättre kan du hjälpa till på många sätt, tex:<br \/><ul><li>Svara på andra användares frågor i forumen och på IRC.<\/li><li>Bidra med kod till firmwaren och konfiguratorn - nya funktioner, korrigeringar och förbättringar.<\/li><li>Testa <a href=\"https:\/\/github.com\/Emuflight\/EmuFlight\/pulls\" target=\"_blank\">nya funktioner\/korrigeringar<\/a> och ge feedback.<\/li><li>Hjälpa till med <a href=\"https:\/\/github.com\/emuflight\/EmuFlight\/issues\" target=\"_blank\">problem och kommentera funktionsförfrågningar<\/a>.<\/li><li>Samarbeta genom att <a href=\"https:\/\/discordapp.com\/channels\/547211754845765635/596913667447062547\" target=\"_blank\">översätta konfiguratorn<\/a> till ditt språk.<\/li><li><\/li><\/ul>"
     },
     "defaultFacebookText": {
         "message": "Vi har också en <a href=\"https:\/\/www.facebook.com\/groups\/betaflightgroup\/\" target=\"_blank\">Facebookgrupp<\/a>.<br \/>Gå med oss för att prata om Emuflight, ställa konfigurationsfrågor, eller bara hänga med andra piloter."
@@ -514,10 +514,10 @@
         "message": "Emuflight-dokumentation finns i versionskommentarerna och wiki.<br \/><br \/>"
     },
     "defaultDocumentation1": {
-        "message": "Emuflight wiki är en utmärkt informationskälla, den kan hittas <a href=\"https:\/\/github.com\/emuflight\/EmuFlight-Butter-Varient\/wiki\" target=\"_blank\">här<\/a>."
+        "message": "Emuflight wiki är en utmärkt informationskälla, den kan hittas <a href=\"https:\/\/github.com\/emuflight\/EmuFlight\/wiki\" target=\"_blank\">här<\/a>."
     },
     "defaultDocumentation2": {
-        "message": "Utgåvenoteringarna för firmware kan läsas på GitHubs utgåvesida, <a href=\"https:\/\/github.com\/Emuflight\/EmuFlight-Butter-Varient\/releases\" target=\"_blank\"> här<\/a>."
+        "message": "Utgåvenoteringarna för firmware kan läsas på GitHubs utgåvesida, <a href=\"https:\/\/github.com\/Emuflight\/EmuFlight\/releases\" target=\"_blank\"> här<\/a>."
     },
     "defaultSupportHead": {
         "message": "Support"
@@ -2512,7 +2512,7 @@
         "message": "<strong>Återställning \/ tappad kommunikation<\/strong>"
     },
     "firmwareFlasherRecoveryText": {
-        "message": "Om du har tappat kommunikationen med ditt styrkort, följ dessa steg för att återställa kommunikationen: <ul><li>Stäng av strömmen<\/li><li>Aktivera 'Ingen omstartssekvens', aktivera 'Fullständing chip-radering'.<\/li><li>Bygla BOOT-pinnarna eller håll in BOOT-knappen.<\/li><li>Slå på strömmen (aktivitets-LED:en kommer INTE att blinka om utfört korrekt).<\/li><li>Installera alla STM32-drivrutiner och Zadig om det krävs (se <a href=\"https:\/\/github.com\/EmuFlight\/EmuFlight-Butter-Varient\/wiki\"target=\"_blank\">USB Flashing<\/a>-sektionen i Emuflight-manualen).<\/li><li>Stäng Configurator, Stäng alla öppna instanser av Chrome, stäng alla Chrome-appar, starta om Configurator.<\/li><li>Släpp BOOT-knappen om din flygkontroller har en sådan.<\/li><li>Uppdatera med korrekt firmware (använd manuell baudhastighet om en sådan specificeras i flygkontrollerns manual).<\/li><li>Stäng av strömmen.<\/li><li>Ta bort BOOT-byglingen.<\/li><li>Slå på strömmen (aktivitets-LED:en ska blinka).<\/li><li>Anslut på vanligt sätt.<\/li><\/ul>"
+        "message": "Om du har tappat kommunikationen med ditt styrkort, följ dessa steg för att återställa kommunikationen: <ul><li>Stäng av strömmen<\/li><li>Aktivera 'Ingen omstartssekvens', aktivera 'Fullständing chip-radering'.<\/li><li>Bygla BOOT-pinnarna eller håll in BOOT-knappen.<\/li><li>Slå på strömmen (aktivitets-LED:en kommer INTE att blinka om utfört korrekt).<\/li><li>Installera alla STM32-drivrutiner och Zadig om det krävs (se <a href=\"https:\/\/github.com\/EmuFlight\/EmuFlight\/wiki\"target=\"_blank\">USB Flashing<\/a>-sektionen i Emuflight-manualen).<\/li><li>Stäng Configurator, Stäng alla öppna instanser av Chrome, stäng alla Chrome-appar, starta om Configurator.<\/li><li>Släpp BOOT-knappen om din flygkontroller har en sådan.<\/li><li>Uppdatera med korrekt firmware (använd manuell baudhastighet om en sådan specificeras i flygkontrollerns manual).<\/li><li>Stäng av strömmen.<\/li><li>Ta bort BOOT-byglingen.<\/li><li>Slå på strömmen (aktivitets-LED:en ska blinka).<\/li><li>Anslut på vanligt sätt.<\/li><\/ul>"
     },
     "firmwareFlasherButtonLeave": {
         "message": "Lämna firmware-uppdaterare"
@@ -3087,7 +3087,7 @@
         "message": "Integrerad Gir"
     },
     "pidTuningIntegratedYawCaution": {
-        "message": "<span class=\"message-negative\">VARNING<\/span>: om du aktiverar denna funktion måste du justera GIR PID på lämpligt sätt. Mer information finns <a href=\"https:\/\/github.com\/emuflight\/EmuFlight-Butter-Varient\/wiki\/Integrated-Yaw\" target=\"_blank\">här<\/a>"
+        "message": "<span class=\"message-negative\">VARNING<\/span>: om du aktiverar denna funktion måste du justera GIR PID på lämpligt sätt. Mer information finns <a href=\"https:\/\/github.com\/emuflight\/EmuFlight\/wiki\/Integrated-Yaw\" target=\"_blank\">här<\/a>"
     },
     "pidTuningIntegratedYawHelp": {
         "message": "Integrerad Gir är en funktion som korrigerar ett fundamentalt problem med quadstyrning: looping- och roll-axlarna styrs av tryckskillnader som genereras av propellrarna, men gir fungerar annorlunda. Integrerad Gir löser detta genom att integrera utdatat från gir-pid och sedan tillämpa det på mixern. Detta normaliserar pid-funktionen. Du kan nu justera den som de andra axlarna. Det kräver absolut kontroll eftersom inget I behövs med Integrerad Gir."

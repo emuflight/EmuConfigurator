@@ -2,7 +2,7 @@
 
 TABS.firmware_flasher = {
     releases: null,
-    releaseChecker: new ReleaseChecker('firmware', 'https://api.github.com/repos/emuflight/EmuFlight-Butter-Varient/releases'),
+    releaseChecker: new ReleaseChecker('firmware', 'https://api.github.com/repos/emuflight/EmuFlight/releases'),
     jenkinsLoader: new JenkinsLoader(''),
     localFileLoaded: false,
 };
@@ -69,7 +69,7 @@ TABS.firmware_flasher.initialize = function (callback) {
                     $('div.release_info .status').text(summary.status);
                     $('div.release_info .file').text(summary.file).prop('href', summary.url);
 
-                    var formattedNotes = summary.notes.replace(/#(\d+)/g, '[#$1](https://github.com/emuflight/EmuFlight-Butter-Varient/pull/$1)');
+                    var formattedNotes = summary.notes.replace(/#(\d+)/g, '[#$1](https://github.com/emuflight/EmuFlight/pull/$1)');
                     formattedNotes = marked(formattedNotes);
                     $('div.release_info .notes').html(formattedNotes);
                     $('div.release_info .notes').find('a').each(function() {

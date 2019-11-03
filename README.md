@@ -5,7 +5,7 @@
 
 Emuflight Configurator is a crossplatform configuration tool for the Emuflight flight control system.
 
-It runs as an app within Google Chrome and allows you to configure the Emuflight software running on any [supported Emuflight target](https://github.com/emuflight/EmuFlight-Butter-Varient/tree/Main/src/main/target).
+It runs as an app within Google Chrome and allows you to configure the Emuflight software running on any [supported Emuflight target](https://github.com/emuflight/EmuFlight/tree/Main/src/main/target).
 
 There is also now a standalone version available, since Google Chrome Apps are getting deprecated on platforms that aren't Chrome OS. [Downloads are available in Releases.](https://github.com/emuflight/EmuConfigurator/releases)
 
@@ -16,13 +16,13 @@ Various types of aircraft are supported by the tool and by Emuflight, e.g. quadc
 Emuflight Configurator is a [fork](#credits) of the Cleanflight Configurator with support for Emuflight instead of Cleanflight.
 
 This configurator is the only configurator with support for Emuflight specific features. It will likely require that you run the latest firmware on the flight controller.
-If you are experiencing any problems please make sure you are running the [latest firmware version](https://github.com/emuflight/EmuFlight-Butter-Varient/releases).
+If you are experiencing any problems please make sure you are running the [latest firmware version](https://github.com/emuflight/EmuFlight/releases).
 
 ## Installation
 
 ### Standalone
 
-[![Build Status](https://travis-ci.org/emuflight/EmuFlight-Butter-Varient.svg?branch=Main)](https://travis-ci.org/emuflight/EmuFlight-Butter-Varient)
+[![Build Status](https://travis-ci.org/emuflight/EmuFlight.svg?branch=Main)](https://travis-ci.org/emuflight/EmuFlight)
 
 **This is the default installation method, and at some point in the future this will become the only way available for most platforms. Please use this method whenever possible.**
 
@@ -103,7 +103,7 @@ https://github.com/emuflight/EmuConfigurator/issues
 
 For Emuflight firmware issues raise them here
 
-https://github.com/emuflight/EmuFlight-Butter-Varient/issues
+https://github.com/emuflight/EmuFlight/issues
 
 ## Technical details
 

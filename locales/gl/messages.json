@@ -520,7 +520,7 @@
         "message": "Contribuir"
     },
     "defaultContributingText": {
-        "message": "Se quere axudar a facer mellor Emuflight, pode axudar de moitas maneiras, incluíndo:<br \/><ul><li>Contestando preguntas de outros usuarios en forums e IRC.<\/li><li>Contribuindo código ó firmware e ó configurador: novas funcións, correccións, melloras<\/li><li>Testeando <a href=\"https:\/\/github.com\/Emuflight\/EmuFlight-Butter-Varient\/pulls\" target=\"_blank\">novas características \/ correccións<\/a> e proporcionar feedback.<\/li><li>Axudar con <a href=\"https:\/\/github.com\/emuflight\/EmuFlight-Butter-Varient\/issues\" target=\"_blank\">cuestións e comentarios sobre solicitudes de funcións<\/a>.<\/li><li>Colaborado <a href=\"https:\/\/discordapp.com\/channels\/547211754845765635/596913667447062547\" target=\"_blank\">traducindo a aplicación do configurador<\/a> na súa lingua.<\/li><li><\/li><\/ul>"
+        "message": "Se quere axudar a facer mellor Emuflight, pode axudar de moitas maneiras, incluíndo:<br \/><ul><li>Contestando preguntas de outros usuarios en forums e IRC.<\/li><li>Contribuindo código ó firmware e ó configurador: novas funcións, correccións, melloras<\/li><li>Testeando <a href=\"https:\/\/github.com\/Emuflight\/EmuFlight\/pulls\" target=\"_blank\">novas características \/ correccións<\/a> e proporcionar feedback.<\/li><li>Axudar con <a href=\"https:\/\/github.com\/emuflight\/EmuFlight\/issues\" target=\"_blank\">cuestións e comentarios sobre solicitudes de funcións<\/a>.<\/li><li>Colaborado <a href=\"https:\/\/discordapp.com\/channels\/547211754845765635/596913667447062547\" target=\"_blank\">traducindo a aplicación do configurador<\/a> na súa lingua.<\/li><li><\/li><\/ul>"
     },
     "defaultFacebookText": {
         "message": "Nós tamén temos <a href=\"https:\/\/www.facebook.com\/groups\/betaflightgroup\/\" target=\"_blank\">Grupo de Facebook<\/a>.<br \/>Únase a nós para conseguir un lugar para falar sobre Emuflight, facer preguntas de configuración ou simplemente saír cos compañeiros pilotos."
@@ -559,10 +559,10 @@
         "message": "A documentación de Emuflight está dispoñible nas notas da versión e na wiki.<br \/><br \/>"
     },
     "defaultDocumentation1": {
-        "message": "O Wiki de Emuflight ten unha gran cantidade de información e pode atoparse <a href=\"https:\/\/github.com\/emuflight\/EmuFlight-Butter-Varient\/wiki\" target=\"_blank\">aquí<\/a>."
+        "message": "O Wiki de Emuflight ten unha gran cantidade de información e pode atoparse <a href=\"https:\/\/github.com\/emuflight\/EmuFlight\/wiki\" target=\"_blank\">aquí<\/a>."
     },
     "defaultDocumentation2": {
-        "message": "As notas da versión do firmware poden ser lidas na páxina de GitHub, <a href=\"https:\/\/github.com\/Emuflight\/EmuFlight-Butter-Varient\/releases\" target=\"_blank\">aquí<\/a>."
+        "message": "As notas da versión do firmware poden ser lidas na páxina de GitHub, <a href=\"https:\/\/github.com\/Emuflight\/EmuFlight\/releases\" target=\"_blank\">aquí<\/a>."
     },
     "defaultSupportHead": {
         "message": "Soporte"
@@ -2563,7 +2563,7 @@
         "message": "<strong> Recuperación \/ comunicación perdida <\/strong>"
     },
     "firmwareFlasherRecoveryText": {
-        "message": "Se perde a conexión coa súa controladora siga estes pasos para reestabrecer a comunicación: <ul><li>Apagar<\/li><li>Activar 'non reiniciar', Activar 'Borrado completo do chip'.<\/li><li>Puenté os pins de BOOT ou manteña pulsado o botón BOOT.<\/li><li>Encenda(o LED de actividade NON parpadeará se se fai correctamente).<\/li><li>Instale tódolos drivers para STM32 e Zadig en caso de ser necesario (consulte a sección <a href=\"https:\/\/github.com\/EmuFlight\/EmuFlight-Butter-Varient\/wiki\"target=\"_blank\">Flasheo USB<\/a> do manual de Emuflight).<\/li><li>Peche o configurador, peche tódalas instancias de chrome, peche tódalas aplicacións de Chrome, Reinicie o Configurador.<\/li><li>Solte o botón se a súa controladora ten un.<\/li><li>Cargue o firmware correcto empregando unha velocidade de transmisión manual (se está especificada no manual da controladora)<\/li><li>Apagar.<\/li><li>Elimine o puenteo dos pins de BOOT<\/li><li>Encenda (o LED de actividad debería de parpadear).<\/li><li>Conecte con normalidade.<\/li><\/ul>"
+        "message": "Se perde a conexión coa súa controladora siga estes pasos para reestabrecer a comunicación: <ul><li>Apagar<\/li><li>Activar 'non reiniciar', Activar 'Borrado completo do chip'.<\/li><li>Puenté os pins de BOOT ou manteña pulsado o botón BOOT.<\/li><li>Encenda(o LED de actividade NON parpadeará se se fai correctamente).<\/li><li>Instale tódolos drivers para STM32 e Zadig en caso de ser necesario (consulte a sección <a href=\"https:\/\/github.com\/EmuFlight\/EmuFlight\/wiki\"target=\"_blank\">Flasheo USB<\/a> do manual de Emuflight).<\/li><li>Peche o configurador, peche tódalas instancias de chrome, peche tódalas aplicacións de Chrome, Reinicie o Configurador.<\/li><li>Solte o botón se a súa controladora ten un.<\/li><li>Cargue o firmware correcto empregando unha velocidade de transmisión manual (se está especificada no manual da controladora)<\/li><li>Apagar.<\/li><li>Elimine o puenteo dos pins de BOOT<\/li><li>Encenda (o LED de actividad debería de parpadear).<\/li><li>Conecte con normalidade.<\/li><\/ul>"
     },
     "firmwareFlasherButtonLeave": {
         "message": "Abandoando o Instalador o Firmware"
@@ -3141,7 +3141,7 @@
         "message": "Yaw Integrado"
     },
     "pidTuningIntegratedYawCaution": {
-        "message": "<span class=\"message-negative\"> ATENCIÓN <\/span>: se habilita esta función, ten que axustar o PID YAW de acordo. Máis información <a href=\"https:\/\/github.com\/emuflight\/EmuFlight-Butter-Varient\/wiki\/Integrated-Yaw\" target=\"_blank\"> aquí <\/a>"
+        "message": "<span class=\"message-negative\"> ATENCIÓN <\/span>: se habilita esta función, ten que axustar o PID YAW de acordo. Máis información <a href=\"https:\/\/github.com\/emuflight\/EmuFlight\/wiki\/Integrated-Yaw\" target=\"_blank\"> aquí <\/a>"
     },
     "pidTuningIntegratedYawHelp": {
         "message": "Yaw integrado é unha característica que corrixe un problema fundamental co control do quad: mentres que o eixe do pich e roll son controlados polos diferenciais de empuxe, as hélices xeran diferente Yaw. Yaw integrado resolve isto integrando a saída do yaw pid antes de aplicalos ao mixer. Isto normaliza o xeito no que funcionan os pids. Agora podes sintonizar con calquera outro eixe. Require o uso do control absoluto xa que non se necesitan con Yaw integrado."

@@ -471,7 +471,7 @@
         "message": "開発への協力・貢献"
     },
     "defaultContributingText": {
-        "message": "Emuflightを今後より良くするためにご協力いただける場合、以下を含むさまざまな方法でお手伝いしていただけます:<br \/><ul><li>\nフォーラムやIRCで他のユーザの質問に答える<\/li><li>\nファームウェアとConfiguratorへのコードの提供 - 新機能や修正、改良<\/li><li>\n<a href=\"https:\/\/github.com\/Emuflight\/EmuFlight-Butter-Varient\/pulls\" target=\"_blank\">新機能のフィックス<\/a>、テストとフィードバックの提供<\/li><li>\n<a href=\"https:\/\/github.com\/emuflight\/EmuFlight-Butter-Varient\/issues\" target=\"_blank\">問題のヘルプと新機能リクエスト<\/a>へのコメント協力<\/li><li>\n<a href=\"https:\/\/discordapp.com\/channels\/547211754845765635/596913667447062547\" target=\"_blank\">Emuflight Configuratorを母国語へ翻訳すること<\/a>に協力してみましょう。<\/li><li><\/li><\/ul>"
+        "message": "Emuflightを今後より良くするためにご協力いただける場合、以下を含むさまざまな方法でお手伝いしていただけます:<br \/><ul><li>\nフォーラムやIRCで他のユーザの質問に答える<\/li><li>\nファームウェアとConfiguratorへのコードの提供 - 新機能や修正、改良<\/li><li>\n<a href=\"https:\/\/github.com\/Emuflight\/EmuFlight\/pulls\" target=\"_blank\">新機能のフィックス<\/a>、テストとフィードバックの提供<\/li><li>\n<a href=\"https:\/\/github.com\/emuflight\/EmuFlight\/issues\" target=\"_blank\">問題のヘルプと新機能リクエスト<\/a>へのコメント協力<\/li><li>\n<a href=\"https:\/\/discordapp.com\/channels\/547211754845765635/596913667447062547\" target=\"_blank\">Emuflight Configuratorを母国語へ翻訳すること<\/a>に協力してみましょう。<\/li><li><\/li><\/ul>"
     },
     "defaultFacebookText": {
         "message": "私たちは<a href=\"https:\/\/www.facebook.com\/groups\/betaflightgroup\/\" target=\"_blank\">Facebookグループ<\/a>も運営しています。<br \/>私たちと一緒にEmuflightについて語り合い、設定に関する質問をしたり、パイロット同士で交流してみましょう。"
@@ -510,10 +510,10 @@
         "message": "Emuflightドキュメントは、リリースノートおよび wiki にてご利用いただけます。<br \/><br \/>"
     },
     "defaultDocumentation1": {
-        "message": "Emuflight wiki はすばらしい情報リソースを<a href=\"https:\/\/github.com\/betaflight\/betafli<a href=\"https:\/\/github.com\/emuflight\/EmuFlight-Butter-Varient\/wiki\" target=\"_blank\">ght\/wiki\" target=\"_blank\">こちら<\/a>で検索・確認することができます。"
+        "message": "Emuflight wiki はすばらしい情報リソースを<a href=\"https:\/\/github.com\/betaflight\/betafli<a href=\"https:\/\/github.com\/emuflight\/EmuFlight\/wiki\" target=\"_blank\">ght\/wiki\" target=\"_blank\">こちら<\/a>で検索・確認することができます。"
     },
     "defaultDocumentation2": {
-        "message": "ファームウェア リリースノートは、GitHub リリースページの<a href=\"https:\/\/github.com\/Emuflight\/EmuFlight-Butter-Varient\/releases\" target=\"_blank\">こちら<\/a>で確認いただけます。"
+        "message": "ファームウェア リリースノートは、GitHub リリースページの<a href=\"https:\/\/github.com\/Emuflight\/EmuFlight\/releases\" target=\"_blank\">こちら<\/a>で確認いただけます。"
     },
     "defaultSupportHead": {
         "message": "サポート"
@@ -2508,7 +2508,7 @@
         "message": "<strong>リカバリー \/ 通信ロスト<\/strong>"
     },
     "firmwareFlasherRecoveryText": {
-        "message": "FCボードとの通信が切断された場合は、次の手順に従って通信を復元して下さい: <ul><li>電源をオフします。<\/li><li>[再起動シーケンスなし] を有効にし [チップメモリの完全消去] を有効にします。<\/li><li>BOOTピンをジャンパするか、またはBOOTボタンを押し続けます。<\/li><li>電源をオンします。 (正しく行われればアクティビティLEDは点滅しません) <\/li><li>必要に応じて、全てのSTM32ドライバとZadigをインストールします。 (Emuflightマニュアルの [<a href=\"https:\/\/github.com\/EmuFlight\/EmuFlight-Butter-Varient\/wiki\"target=\"_blank\">USB Flashing<\/a>] 章を参照) <\/li><li>Configuratorを閉じ、全てのChromeアプリケーションを終了し、Configuratorを再起動します。<\/li><li>FCのBOOTボタン1つだけであれば、BOOTボタンを放して下さい。<\/li><li>正常なファームウェアをフラッシュして下さい。 (FCのマニュアルで指定されている場合は手動で伝送速度を調整して下さい) <\/li><li>電源をオフします。<\/li><li>BOOTピンのジャンパを取り外します。<\/li><li>電源をオンします。 (アクティビティLEDが点滅するはずです) <\/li><li>再度、通常通り接続して下さい。<\/li><\/ul>"
+        "message": "FCボードとの通信が切断された場合は、次の手順に従って通信を復元して下さい: <ul><li>電源をオフします。<\/li><li>[再起動シーケンスなし] を有効にし [チップメモリの完全消去] を有効にします。<\/li><li>BOOTピンをジャンパするか、またはBOOTボタンを押し続けます。<\/li><li>電源をオンします。 (正しく行われればアクティビティLEDは点滅しません) <\/li><li>必要に応じて、全てのSTM32ドライバとZadigをインストールします。 (Emuflightマニュアルの [<a href=\"https:\/\/github.com\/EmuFlight\/EmuFlight\/wiki\"target=\"_blank\">USB Flashing<\/a>] 章を参照) <\/li><li>Configuratorを閉じ、全てのChromeアプリケーションを終了し、Configuratorを再起動します。<\/li><li>FCのBOOTボタン1つだけであれば、BOOTボタンを放して下さい。<\/li><li>正常なファームウェアをフラッシュして下さい。 (FCのマニュアルで指定されている場合は手動で伝送速度を調整して下さい) <\/li><li>電源をオフします。<\/li><li>BOOTピンのジャンパを取り外します。<\/li><li>電源をオンします。 (アクティビティLEDが点滅するはずです) <\/li><li>再度、通常通り接続して下さい。<\/li><\/ul>"
     },
     "firmwareFlasherButtonLeave": {
         "message": "ファームフラッシャーより退避"
@@ -3086,7 +3086,7 @@
         "message": "Integrated Yaw"
     },
     "pidTuningIntegratedYawCaution": {
-        "message": "<span class=\"message-negative\">注意<\/span>: この機能を有効にした場合は、それに応じてYaw PID値を調整する必要があります。詳しくは<a href=\"https:\/\/github.com\/emuflight\/EmuFlight-Butter-Varient\/wiki\/Integrated-Yaw\" target=\"_blank\">こちら<\/a>"
+        "message": "<span class=\"message-negative\">注意<\/span>: この機能を有効にした場合は、それに応じてYaw PID値を調整する必要があります。詳しくは<a href=\"https:\/\/github.com\/emuflight\/EmuFlight\/wiki\/Integrated-Yaw\" target=\"_blank\">こちら<\/a>"
     },
     "pidTuningIntegratedYawHelp": {
         "message": "Integrated Yawは、機体コントロールの基本的な問題を修正する機能です。ピッチとロールは、プロペラがヨーを生成する推力差によって制御されます。Integrated Yawはミキサーにそれらの値を適用する前にYaw PID値の出力を積分することによって値を固定します。これらはPID機能を正常化します。これにより他のP値D値と同様に調整ができます。Integrated Yawには必要ないので絶対制御を使用する必要があります。"
