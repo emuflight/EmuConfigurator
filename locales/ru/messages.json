@@ -471,7 +471,7 @@
         "message": "Содействие"
     },
     "defaultContributingText": {
-        "message": "Если вы хотите сделать Emuflight лучше, вы можете помочь нам несколькими способами:<br \/><ul><li>Ответами на вопросы других пользователей на форумах и IRC.<\/li><li>Добавлением кода прошивки и конфигуратора с целью: добавления нового функционала, исправления ошибок, улучшений<\/li><li>Тестированием <a href=\"https:\/\/github.com\/Emuflight\/EmuFlight-Butter-Varient\/pulls\" target=\"_blank\">нового функционала\/исправленных ошибок<\/a> и сообщая нам результаты.<\/li><li>Помочь нам <a href=\"https:\/\/github.com\/emuflight\/EmuFlight-Butter-Varient\/issues\" target=\"_blank\">обсудить запросы на новые функционалы<\/a>.<\/li><li>Помочь с <a href=\"http:\/\/betaflight.oneskyapp.com\" target=\"_blank\">переводом конфигуратора<\/a> на свой родной язык.<\/li><li><\/li><\/ul>"
+        "message": "Если вы хотите сделать Emuflight лучше, вы можете помочь нам несколькими способами:<br \/><ul><li>Ответами на вопросы других пользователей на форумах и IRC.<\/li><li>Добавлением кода прошивки и конфигуратора с целью: добавления нового функционала, исправления ошибок, улучшений<\/li><li>Тестированием <a href=\"https:\/\/github.com\/Emuflight\/EmuFlight\/pulls\" target=\"_blank\">нового функционала\/исправленных ошибок<\/a> и сообщая нам результаты.<\/li><li>Помочь нам <a href=\"https:\/\/github.com\/emuflight\/EmuFlight\/issues\" target=\"_blank\">обсудить запросы на новые функционалы<\/a>.<\/li><li>Помочь с <a href=\"http:\/\/betaflight.oneskyapp.com\" target=\"_blank\">переводом конфигуратора<\/a> на свой родной язык.<\/li><li><\/li><\/ul>"
     },
     "defaultFacebookText": {
         "message": "У нас также есть <\/a><a href=\"https:\/\/www.facebook.com\/groups\/betaflightgroup\/\" target=\"_blank\">группа Facebook <\/a>.<br \/>Присоединяйтесь к нам, чтобы говорить о Emuflight, задавать вопросы о конфигурации или просто пообщаться с другими пилотами."
@@ -510,10 +510,10 @@
         "message": "Emuflight документация доступна в release notes и на wiki (на сайте Github).<br \/><br \/>"
     },
     "defaultDocumentation1": {
-        "message": "Emuflight wiki - это отличный источник информации, который можно найти <a href=\"https:\/\/github.com\/emuflight\/EmuFlight-Butter-Varient\/wiki\" target=\"_blank\">здесь<\/a>."
+        "message": "Emuflight wiki - это отличный источник информации, который можно найти <a href=\"https:\/\/github.com\/emuflight\/EmuFlight\/wiki\" target=\"_blank\">здесь<\/a>."
     },
     "defaultDocumentation2": {
-        "message": "Информацию о новых прошивках можно почитать на Github в разделе releases <a href=\"https:\/\/github.com\/Emuflight\/EmuFlight-Butter-Varient\/releases\" target=\"_blank\">здесь<\/a>."
+        "message": "Информацию о новых прошивках можно почитать на Github в разделе releases <a href=\"https:\/\/github.com\/Emuflight\/EmuFlight\/releases\" target=\"_blank\">здесь<\/a>."
     },
     "defaultSupportHead": {
         "message": "Нужна помощь?"
@@ -2482,7 +2482,7 @@
         "message": "<strong>Потеря связи \/ Восстановление связи<\/strong>"
     },
     "firmwareFlasherRecoveryText": {
-        "message": "Если возникла потеря связи с вашим устройством, то следуйте следующим шагам, чтобы восстановить связь:<ul><li>Отключите питание<\/li><li>Включите \"No reboot sequence\", включите \"Полное стирание чипа\".<\/li><li>Замкните контакты \"BOOT\" или удерживайте кнопку BOOT.<\/li><li>Включите питание (светодиод НЕ будет мигать, если всё сделано правильно).<\/li><li>Установите STM32 драйвера и Zadig, если это необходимо (см. раздел <a href=\"https:\/\/github.com\/EmuFlight\/EmuFlight-Butter-Varient\/wiki\"target=\"_blank\">USB Flashing<\/a> в инструкции Emuflight).<\/li><li>Закройте конфигуратор, закройте все Chrome приложения и завершите все chrome процессы, перезапустите конфигуратор.<\/li><li>Отпустите кнопку \"BOOT\", если она есть.<\/li><li>Залейте нужную прошивку (укажите ручной битрейт, если он указан в инструкции вашего полётного контроллера).<\/li><li>Отключите питание<\/li><li>Разомкните контакты \"BOOT\".<\/li><li>Включите питание (светодиод должен мигать).<\/li><li>Пробуйте подключиться.<\/li><\/ul>"
+        "message": "Если возникла потеря связи с вашим устройством, то следуйте следующим шагам, чтобы восстановить связь:<ul><li>Отключите питание<\/li><li>Включите \"No reboot sequence\", включите \"Полное стирание чипа\".<\/li><li>Замкните контакты \"BOOT\" или удерживайте кнопку BOOT.<\/li><li>Включите питание (светодиод НЕ будет мигать, если всё сделано правильно).<\/li><li>Установите STM32 драйвера и Zadig, если это необходимо (см. раздел <a href=\"https:\/\/github.com\/EmuFlight\/EmuFlight\/wiki\"target=\"_blank\">USB Flashing<\/a> в инструкции Emuflight).<\/li><li>Закройте конфигуратор, закройте все Chrome приложения и завершите все chrome процессы, перезапустите конфигуратор.<\/li><li>Отпустите кнопку \"BOOT\", если она есть.<\/li><li>Залейте нужную прошивку (укажите ручной битрейт, если он указан в инструкции вашего полётного контроллера).<\/li><li>Отключите питание<\/li><li>Разомкните контакты \"BOOT\".<\/li><li>Включите питание (светодиод должен мигать).<\/li><li>Пробуйте подключиться.<\/li><\/ul>"
     },
     "firmwareFlasherButtonLeave": {
         "message": "Покинуть программатор"

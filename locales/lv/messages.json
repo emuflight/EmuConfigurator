@@ -471,7 +471,7 @@
         "message": "Atbalstīt"
     },
     "defaultContributingText": {
-        "message": "Ja jūs vēlaties padarīt Emuflight vēl labāku jūs varat palīdzēt daudzos veidos, ieskaitot:<br \/><ul><li>Atbildot uz citu lietotāju jautājumiem forumos un IRC.<\/li><li>Atbalstot programmatūras un konfiguratora kodu - jaunas iespējas, labojumi, uzlabojumi<\/li><li>Testējot <a href=\"https:\/\/github.com\/Emuflight\/EmuFlight-Butter-Varient\/pulls\" target=\"_blank\">jaunās iespējas\/labojumus<\/a> sniedzot atsauksmes.<\/li><li>Palīdzot ar <a href=\"https:\/\/github.com\/emuflight\/EmuFlight-Butter-Varient\/issues\" target=\"_blank\">problēmām un komentējot iespēju pieprasījumus<\/a>.<\/li><li>Sadarbojoties <a href=\"https:\/\/discordapp.com\/channels\/547211754845765635/596913667447062547\" target=\"_blank\">tulkojot konfiguratora aplikāciju<\/a>jūsu valodā.<\/li><li><\/li><\/ul>"
+        "message": "Ja jūs vēlaties padarīt Emuflight vēl labāku jūs varat palīdzēt daudzos veidos, ieskaitot:<br \/><ul><li>Atbildot uz citu lietotāju jautājumiem forumos un IRC.<\/li><li>Atbalstot programmatūras un konfiguratora kodu - jaunas iespējas, labojumi, uzlabojumi<\/li><li>Testējot <a href=\"https:\/\/github.com\/Emuflight\/EmuFlight\/pulls\" target=\"_blank\">jaunās iespējas\/labojumus<\/a> sniedzot atsauksmes.<\/li><li>Palīdzot ar <a href=\"https:\/\/github.com\/emuflight\/EmuFlight\/issues\" target=\"_blank\">problēmām un komentējot iespēju pieprasījumus<\/a>.<\/li><li>Sadarbojoties <a href=\"https:\/\/discordapp.com\/channels\/547211754845765635/596913667447062547\" target=\"_blank\">tulkojot konfiguratora aplikāciju<\/a>jūsu valodā.<\/li><li><\/li><\/ul>"
     },
     "defaultFacebookText": {
         "message": "Mums ir arī <a href=\"https:\/\/www.facebook.com\/groups\/betaflightgroup\/\" target=\"_blank\">Facebook grupa<\/a>.<br \/>Pievienojies mums, lai tiktu vietā, kur runāt par Emuflight, paprasīt konfigurācijas jautājumus, vai vienkārši sapazīties ar citiem pilotiem."
@@ -510,10 +510,10 @@
         "message": "Emuflight dokumentācija ir pieejama relīzes dokumentācijā un wiki.<br \/><br \/>"
     },
     "defaultDocumentation1": {
-        "message": "Emuflight wiki ir lielisks informācijas avots, to var atrast <a href=\"https:\/\/github.com\/emuflight\/EmuFlight-Butter-Varient\/wiki\" target=\"_blank\">šeit<\/a>."
+        "message": "Emuflight wiki ir lielisks informācijas avots, to var atrast <a href=\"https:\/\/github.com\/emuflight\/EmuFlight\/wiki\" target=\"_blank\">šeit<\/a>."
     },
     "defaultDocumentation2": {
-        "message": "Programmatūras relīzes dokumentācija ir pieejama GitHub relīžu lapā <a href=\"https:\/\/github.com\/Emuflight\/EmuFlight-Butter-Varient\/releases\" target=\"_blank\">šeit<\/a>."
+        "message": "Programmatūras relīzes dokumentācija ir pieejama GitHub relīžu lapā <a href=\"https:\/\/github.com\/Emuflight\/EmuFlight\/releases\" target=\"_blank\">šeit<\/a>."
     },
     "defaultSupportHead": {
         "message": "Atbalsts"
@@ -2505,7 +2505,7 @@
         "message": "<strong>Atkopšanas \/ Zaudēja komunikāciju<\/strong>"
     },
     "firmwareFlasherRecoveryText": {
-        "message": "Ja jums pazuda savienojums ar plati veiciet šos soļus, lai atjaunotu savienojumu: <ul><li>Atvienojiet no barošanas avota<\/li><li>Ieslēdziet 'Nepielietot restartu', Ieslēdziet 'Pilnīga kontroliera dzēšana'.<\/li><li>Savienojiet ielādes kontaktus vai turiet ielādes pogu.<\/li><li>Pieslēdziet barošanas avotam (LED aktīvi NEmirgos, ja viss ir izdarīts pareizi).<\/li><li>Ieinstalējiet visus STM32 draiverus un Zadig ja nepieciešams (skatīt <a href=\"https:\/\/github.com\/EmuFlight\/EmuFlight-Butter-Varient\/wiki\"target=\"_blank\">USB Programmēšana<\/a> Emuflight manuāla sadaļā).<\/li><li>Aizveriet konfiguratoru, aizveriet visas Chrome ejošās instances, aizveriet visas Chrome aplikācijas, Pārstartējiet konfiguratoru.<\/li><li>Atlaidiet ielādes pogu ja tāda platei ir.<\/li><li> Saprogrammējiet ar pareizo programmatūru (pielietojiet specifisku datu ātrumu ja tāds ir norādīts plates manuāli).<\/li><li>Atvienojiet no barošanas avota.<\/li><li>Noņemiet ielādes savienotāju.<\/li><li>Pieslēdziet barošanas avotam (LED vajadzētu aktīvi mirgot).<\/li><li>Savienojieties kā parasti.<\/li><\/ul>"
+        "message": "Ja jums pazuda savienojums ar plati veiciet šos soļus, lai atjaunotu savienojumu: <ul><li>Atvienojiet no barošanas avota<\/li><li>Ieslēdziet 'Nepielietot restartu', Ieslēdziet 'Pilnīga kontroliera dzēšana'.<\/li><li>Savienojiet ielādes kontaktus vai turiet ielādes pogu.<\/li><li>Pieslēdziet barošanas avotam (LED aktīvi NEmirgos, ja viss ir izdarīts pareizi).<\/li><li>Ieinstalējiet visus STM32 draiverus un Zadig ja nepieciešams (skatīt <a href=\"https:\/\/github.com\/EmuFlight\/EmuFlight\/wiki\"target=\"_blank\">USB Programmēšana<\/a> Emuflight manuāla sadaļā).<\/li><li>Aizveriet konfiguratoru, aizveriet visas Chrome ejošās instances, aizveriet visas Chrome aplikācijas, Pārstartējiet konfiguratoru.<\/li><li>Atlaidiet ielādes pogu ja tāda platei ir.<\/li><li> Saprogrammējiet ar pareizo programmatūru (pielietojiet specifisku datu ātrumu ja tāds ir norādīts plates manuāli).<\/li><li>Atvienojiet no barošanas avota.<\/li><li>Noņemiet ielādes savienotāju.<\/li><li>Pieslēdziet barošanas avotam (LED vajadzētu aktīvi mirgot).<\/li><li>Savienojieties kā parasti.<\/li><\/ul>"
     },
     "firmwareFlasherButtonLeave": {
         "message": "Pamest programmatoru"
@@ -3080,7 +3080,7 @@
         "message": "Integrētais Yaw"
     },
     "pidTuningIntegratedYawCaution": {
-        "message": "<span class=\"message-negative\">UZMANĪBU<\/span>: ja tu ieslēdz šo iespēju, tev obligāti jāpieregulē YAW PID. Vairāk info <a href=\"https:\/\/github.com\/emuflight\/EmuFlight-Butter-Varient\/wiki\/Integrated-Yaw\" target=\"_blank\">here<\/a>"
+        "message": "<span class=\"message-negative\">UZMANĪBU<\/span>: ja tu ieslēdz šo iespēju, tev obligāti jāpieregulē YAW PID. Vairāk info <a href=\"https:\/\/github.com\/emuflight\/EmuFlight\/wiki\/Integrated-Yaw\" target=\"_blank\">here<\/a>"
     },
     "pidTuningIntegratedYawHelp": {
         "message": "Integrētais Yaw ir fīča, kas labo multirotoru fundamentālo problēmu: kamēr Pitch un Roll tiek kontrolēts ar vilkmes diferenciāli, propelleru ģenerētais Yaw ir atšķirīgs. Integrētais Yaw to labo integrējot Yaw PIDu izeju pirms to pielieto mikserī. Tas normalizē to to kā PIDi strādā. Tagad jūs varēsiet pieregulēt ka jebkuru citu asi. Tam nepieciešams izmantot Absolūtā kontroli jo integrētajam Yaw I vairs nav nepieciešams."

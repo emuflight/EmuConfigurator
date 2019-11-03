@@ -468,7 +468,7 @@
         "message": "Contribuisci"
     },
     "defaultContributingText": {
-        "message": "Se vuoi contribuire a rendere Emuflight ancora migliore puoi aiutare in molti modi, quali:<br \/><ul><li>Rispondere alle domande degli altri utenti sui forum e IRC.<\/li><li>Contribuire a scrivere codice per il firmware ed il configuratore - nuove funzioni, correzioni, miglioramenti<\/li><li>Testare le <a href=\"https:\/\/github.com\/Emuflight\/EmuFlight-Butter-Varient\/pulls\" target=\"_blank\">nuove funzioni\/correzzioni<\/a> e fornendo feedback.<\/li><li>Aiutare a risolvere<a href=\"https:\/\/github.com\/emuflight\/EmuFlight-Butter-Varient\/issues\" target=\"_blank\"> problemi e commentare le funzioni richieste<\/a><\/li><li>Collaborare alla <a href=\"https:\/\/discordapp.com\/channels\/547211754845765635/596913667447062547\" target=\"_blank\">traduzione del configuratore<\/a> nella tua lingua<\/li><\/ul>"
+        "message": "Se vuoi contribuire a rendere Emuflight ancora migliore puoi aiutare in molti modi, quali:<br \/><ul><li>Rispondere alle domande degli altri utenti sui forum e IRC.<\/li><li>Contribuire a scrivere codice per il firmware ed il configuratore - nuove funzioni, correzioni, miglioramenti<\/li><li>Testare le <a href=\"https:\/\/github.com\/Emuflight\/EmuFlight\/pulls\" target=\"_blank\">nuove funzioni\/correzzioni<\/a> e fornendo feedback.<\/li><li>Aiutare a risolvere<a href=\"https:\/\/github.com\/emuflight\/EmuFlight\/issues\" target=\"_blank\"> problemi e commentare le funzioni richieste<\/a><\/li><li>Collaborare alla <a href=\"https:\/\/discordapp.com\/channels\/547211754845765635/596913667447062547\" target=\"_blank\">traduzione del configuratore<\/a> nella tua lingua<\/li><\/ul>"
     },
     "defaultFacebookText": {
         "message": "Abbiamo anche un <a href=\"https:\/\/www.facebook.com\/groups\/betaflightgroup\/\" target=\"_blank\">gruppo Facebook<\/a>.<br \/>. Unisciti a noi per discutere di Emuflight, fare domande riguardo la configurazione, o semplicemente ritrovarti con altri piloti."
@@ -504,10 +504,10 @@
         "message": "La documentazione Emuflight è disponibile nelle note di versione e wiki.<br \/><br \/>"
     },
     "defaultDocumentation1": {
-        "message": "Emuflight wiki è una grande risorsa in cui trovare informazioni, lo trovi <a href=\"https:\/\/github.com\/emuflight\/EmuFlight-Butter-Varient\/wiki\" target=\"_blank\">QUI<\/a>."
+        "message": "Emuflight wiki è una grande risorsa in cui trovare informazioni, lo trovi <a href=\"https:\/\/github.com\/emuflight\/EmuFlight\/wiki\" target=\"_blank\">QUI<\/a>."
     },
     "defaultDocumentation2": {
-        "message": "Le informazioni relative alla release per il firmware possono essere lette sulla pagina GitHub delle nuove versioni, <a href=\"https:\/\/github.com\/Emuflight\/EmuFlight-Butter-Varient\/releases\" target=\"_blank\">QUI<\/a>."
+        "message": "Le informazioni relative alla release per il firmware possono essere lette sulla pagina GitHub delle nuove versioni, <a href=\"https:\/\/github.com\/Emuflight\/EmuFlight\/releases\" target=\"_blank\">QUI<\/a>."
     },
     "defaultSupportHead": {
         "message": "Supporto"
@@ -2358,7 +2358,7 @@
         "message": "<strong> Recupero \/ comunicazione persa <\/strong>"
     },
     "firmwareFlasherRecoveryText": {
-        "message": "Se hai perso la comunicazione con la tua scheda segui questi passaggi per ripristinare la comunicazione: <ul> <li> Spegni <\/li> <li> Abilita 'Nessuna sequenza di riavvio', attiva 'Cancellazione completa del chip'. <\/li> <li > Ponticellare i pin BOOT o tenere premuto il pulsante BOOT. <\/li> <li> Accendere (il LED di attività NON lampeggia se eseguito correttamente) <\/li> <li> Installa tutti i driver STM32 e Zadig se necessario (vedere sezione <a href = \"https:\/\/github.com\/EmuFlight\/EmuFlight-Butter-Varient\/wiki\" target = \"_blank\"> USB Flashing<\/a> del manuale di Emuflight). <\/li> <li> Chiudi Configurator, chiudi tutte le istanze di Chrome in esecuzione, chiudi tutte le app di Chrome, riavvia Configurator. <\/li> <li> Rilascia il pulsante BOOT se il tuo FC ne ha uno. <\/li> <li> Flasha con il firmware corretto (utilizzando Baud rate manuale se specificato nel manuale del controllore di volo). <\/li> <li> Spegni. <\/li> <li> Rimuovi il ponticello di BOOT. <\/li> <li>Accendi (il LED di attività dovrebbe lampeggiare). <\/li> <li> Connetti normalmente.<\/li><\/ul>"
+        "message": "Se hai perso la comunicazione con la tua scheda segui questi passaggi per ripristinare la comunicazione: <ul> <li> Spegni <\/li> <li> Abilita 'Nessuna sequenza di riavvio', attiva 'Cancellazione completa del chip'. <\/li> <li > Ponticellare i pin BOOT o tenere premuto il pulsante BOOT. <\/li> <li> Accendere (il LED di attività NON lampeggia se eseguito correttamente) <\/li> <li> Installa tutti i driver STM32 e Zadig se necessario (vedere sezione <a href = \"https:\/\/github.com\/EmuFlight\/EmuFlight\/wiki\" target = \"_blank\"> USB Flashing<\/a> del manuale di Emuflight). <\/li> <li> Chiudi Configurator, chiudi tutte le istanze di Chrome in esecuzione, chiudi tutte le app di Chrome, riavvia Configurator. <\/li> <li> Rilascia il pulsante BOOT se il tuo FC ne ha uno. <\/li> <li> Flasha con il firmware corretto (utilizzando Baud rate manuale se specificato nel manuale del controllore di volo). <\/li> <li> Spegni. <\/li> <li> Rimuovi il ponticello di BOOT. <\/li> <li>Accendi (il LED di attività dovrebbe lampeggiare). <\/li> <li> Connetti normalmente.<\/li><\/ul>"
     },
     "firmwareFlasherButtonLeave": {
         "message": "Lascia il firmware flasher"
