@@ -682,14 +682,14 @@ function release_osx64() {
                 'background': path.join(__dirname, 'assets/osx/dmg-background.png'),
                 'contents': [
                     { 'x': 190, 'y': 600, 'type': 'file', 'path': pkg.name + '.app', 'name': 'Emuflight Configurator.app' },
-                    { 'x': 600, 'y': 600, 'type': 'link', 'path': '/Applications' }
+                    { 'x': 550, 'y': 600, 'type': 'link', 'path': '/Applications' }
 
                 ],
                 background: path.join(__dirname, 'assets/osx/dmg-background.png'),
                 format: 'UDBZ',
                 window: {
                     size: {
-                        width: 800,
+                        width: 750,
                         height: 750
                     }
                 },
