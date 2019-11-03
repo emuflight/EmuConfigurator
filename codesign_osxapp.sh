@@ -13,7 +13,8 @@ ENTITLEMENTS_CHILD="sign/entitlements-child.plist"
 ENTITLEMENTS_PARENT="sign/entitlements-parent.plist"
 APP_PATH="apps/emuflight-configurator/osx64/emuflight-configurator.app"
 
-VERSION_NUMBER=$(ls "${APP_PATH}/Contents/Frameworks/nwjs Framework.framework/Versions/")
+# TODO: sanity check
+#VERSION_NUMBER=$(ls "${APP_PATH}/Contents/Frameworks/nwjs Framework.framework/Versions/")
 
 #
 # sanity checks
@@ -97,16 +98,17 @@ cat "${APP_PATH}/Contents/Info.plist" # DEBUG
 # unsealed content
 #
 
-echo "fixing nwjs framework unsealed content"
-#NWJS_FRAMEWORK="${APP_PATH}/Contents/Versions/${VERSION_NUMBER}/nwjs Framework.framework"
-NWJS_FRAMEWORK="${APP_PATH}/Contents/Frameworks/nwjs Framework.framework/Versions/${VERSION_NUMBER}/libnode.dylib"
-LIBNODE_DYLIB="libnode.dylib"
-LIBNODE_LINK_TO="Versions/A/${LIBNODE_DYLIB}"
+# echo "fixing nwjs framework unsealed content"
+# #NWJS_FRAMEWORK="${APP_PATH}/Contents/Versions/${VERSION_NUMBER}/nwjs Framework.framework"
 
-pushd "${NWJS_FRAMEWORK}"
-mv -v "${LIBNODE_DYLIB}" "${LIBNODE_LINK_TO}"
-ln -v -s "${LIBNODE_LINK_TO}"
-popd
+# NWJS_FRAMEWORK="${APP_PATH}/Contents/Frameworks/nwjs Framework.framework/Versions/${VERSION_NUMBER}/libnode.dylib"
+# LIBNODE_DYLIB="libnode.dylib"
+# LIBNODE_LINK_TO="Versions/A/${LIBNODE_DYLIB}"
+
+# pushd "${NWJS_FRAMEWORK}"
+# mv -v "${LIBNODE_DYLIB}" "${LIBNODE_LINK_TO}"
+# ln -v -s "${LIBNODE_LINK_TO}"
+# popd
 
 #
 # signing
