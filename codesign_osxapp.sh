@@ -75,6 +75,16 @@ else
 fi
 
 #
+# extended attributes
+#
+
+echo "recursively remove quarantine attribute"
+xattr -r -d com.apple.quarantine "${APP_PATH}"
+
+# echo "remove all unallowed files"
+# xattr -r -c "${APP_PATH}"
+
+#
 # bundle
 #
 
@@ -86,9 +96,6 @@ cat "${APP_PATH}/Contents/Info.plist" # DEBUG
 #
 # unsealed content
 #
-
-echo "remove all unallowed files"
-xattr -cr "${APP_PATH}"
 
 echo "fixing nwjs framework unsealed content"
 NWJS_FRAMEWORK="${APP_PATH}/Contents/Versions/${VERSION_NUMBER}/nwjs Framework.framework"
@@ -114,6 +121,7 @@ sign () {
     codesign --verbose=2 --verify --strict --deep "${OBJECT}"
 }
 
+sign "${APP_PATH}/Contents/MacOS/nwjs" "$ENTITLEMENTS_CHILD"
 sign "${APP_PATH}/Contents/Versions/${VERSION_NUMBER}/nwjs Framework.framework/libnode.dylib" "$ENTITLEMENTS_CHILD"
 sign "${APP_PATH}/Contents/Versions/${VERSION_NUMBER}/nwjs Framework.framework/libffmpeg.dylib" "$ENTITLEMENTS_CHILD"
 sign "${APP_PATH}/Contents/Versions/${VERSION_NUMBER}/nwjs Framework.framework/Helpers/crashpad_handler" "$ENTITLEMENTS_CHILD"
