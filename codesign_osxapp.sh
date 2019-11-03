@@ -76,38 +76,29 @@ fi
 # extended attributes
 #
 
-# # TODO: check if this is any effective
-# echo "recursively remove quarantine attribute"
-# xattr -r -d com.apple.quarantine "${APP_PATH}"
+# TODO: check if this is any effective
+echo "recursively remove quarantine attribute"
+xattr -r -d com.apple.quarantine "${APP_PATH}"
 
 #
-# bundle
+# bundle id
 #
 
 /usr/libexec/PlistBuddy -c "Set :CFBundleIdentifier ${BUNDLE_ID}" "${APP_PATH}/Contents/Info.plist"
-/usr/libexec/PlistBuddy -c "Set :com.apple.security.application-groups:0 ${TEAM_ID}.${BUNDLE_ID}" "${APP_PATH}/Contents/Info.plist"
 
 #
 # signing
 #
 
-sign () {
-    OBJECT="${1}"
-    ENTITLEMENTS="${2}"
-
-    echo "signing: ${OBJECT}"
-    #codesign --verbose --force --options=runtime --sign "${APP_IDENTITY}" --entitlements "${ENTITLEMENTS}" --deep "${OBJECT}"
-    codesign --verbose --force --sign "${APP_IDENTITY}" --entitlements "${ENTITLEMENTS}" --deep "${OBJECT}"
-    echo "verifying: ${OBJECT}"
-    codesign --verbose=2 --verify --strict --deep "${OBJECT}"
-}
-
-sign "${APP_PATH}" "$ENTITLEMENTS_PARENT"
+codesign --verbose --force --options=runtime --sign "${APP_IDENTITY}" --entitlements "${ENTITLEMENTS_PARENT}" --deep "${APP_PATH}"
+#codesign --verbose --force --sign "${APP_IDENTITY}" --entitlements "${ENTITLEMENTS_PARENT}" --deep "${APP_PATH}"
+codesign --verbose=2 --verify --strict --deep "${APP_PATH}"
 
 #
 # check
 #
 
+# should result in 'satisfies its Designated Requirement' at least
 spctl --assess --type execute "${APP_PATH}" || true
 spctl --assess --verbose=4 "${APP_PATH}" || true
 
