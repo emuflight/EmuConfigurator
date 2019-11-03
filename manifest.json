@@ -2,18 +2,17 @@
     "manifest_version": 2,
     "minimum_chrome_version": "49",
     "version": "0.2.8",
-    "author": "Emuflight Squad",
-    "name": "Emuflight - Configurator",
-    "short_name": "Emuflight",
-    "description": "Crossplatform configuration tool for Emuflight flight control system",
-
+    "author": "Emuflight Team",
+    "name": "Emuflight Configurator",
+    "short_name": "EmuConfigurator",
+    "description": "Emuflight Configurator is a crossplatform configuration tool for the Emuflight flight control system.",
     "offline_enabled": true,
-
     "default_locale": "en",
-
     "app": {
         "background": {
-            "scripts": ["js/eventPage.js"],
+            "scripts": [
+                "js/eventPage.js"
+            ],
             "persistent": false
         }
     },
@@ -29,10 +28,18 @@
         "fileSystem.retainEntries",
         "notifications",
         "alwaysOnTopWindows",
-        {"usbDevices": [
-            {"vendorId": 1155, "productId": 57105},
-            {"vendorId": 10473, "productId": 393}
-        ]},
+        {
+            "usbDevices": [
+                {
+                    "vendorId": 1155,
+                    "productId": 57105
+                },
+                {
+                    "vendorId": 10473,
+                    "productId": 393
+                }
+            ]
+        },
         "webview",
         "unlimitedStorage"
     ],
@@ -45,12 +52,14 @@
         "partitions": [
             {
                 "name": "map",
-                "accessible_resources" : ["tabs/map.html",
-                                          "js/tabs/map.js",
-                                          "/js/libraries/openlayers/ol.css",
-                                          "/js/libraries/openlayers/ol.js",
-                                          "/images/icons/cf_icon_position.png",
-                                          "/images/icons/cf_icon_position_nofix.png"]
+                "accessible_resources": [
+                    "tabs/map.html",
+                    "js/tabs/map.js",
+                    "/js/libraries/openlayers/ol.css",
+                    "/js/libraries/openlayers/ol.js",
+                    "/images/icons/cf_icon_position.png",
+                    "/images/icons/cf_icon_position_nofix.png"
+                ]
             }
         ]
     },

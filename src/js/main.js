@@ -21,7 +21,7 @@ var nonHelioUrl = 'https://raw.githubusercontent.com/emuflight/EmuConfigurator/w
 var helioUrl = 'https://raw.githubusercontent.com/emuflight/EmuConfigurator/working_on_presets/resources/presets/presets-HELIO.json';
 
 client.get(nonHelioUrl, function(response) {
-
+  // FIXME: do not write inside application! breaks signature os osx app 
   fs.writeFile('./resources/presets/presets-nonHELIO.json', response, (err) => {
     if (err) {
       console.error(err);
@@ -32,7 +32,7 @@ client.get(nonHelioUrl, function(response) {
 });
 
 client.get(helioUrl, function(response) {
-
+    // FIXME: do not write inside application! breaks signature os osx app
     fs.writeFile('./resources/presets/presets-HELIO.json', response, (err) => {
         if (err) {
         console.error(err);
