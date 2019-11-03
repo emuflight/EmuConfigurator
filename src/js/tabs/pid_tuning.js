@@ -64,12 +64,10 @@ TABS.pid_tuning.initialize = function (callback) {
     }
 
     var presetJson ;
-    if (CONFIG.boardIdentifier !== "HESP" && CONFIG.boardIdentifier !== "SX10" && CONFIG.boardIdentifier !== "FLUX") {
-         // FIXME: do not write inside application! breaks signature os osx app
-         presetJson = require("./resources/presets/presets-nonHELIO.json");
-    }else{
-         // FIXME: do not write inside application! breaks signature os osx app
-         presetJson = require("./resources/presets/presets-HELIO.json");
+    if (CONFIG.boardIdentifier === "HESP" && CONFIG.boardIdentifier === "SX10" && CONFIG.boardIdentifier === "FLUX") {
+         presetJson = require(presetsFolders + '/presets-HELIO.json');
+    } else {
+         presetJson = require(presetsFolders + '/presets-nonHELIO.json');
     }
 
     function pid_and_rc_to_form() {
