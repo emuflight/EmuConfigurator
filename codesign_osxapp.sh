@@ -116,7 +116,8 @@ sign () {
     ENTITLEMENTS="${2}"
 
     echo "signing: ${OBJECT}"
-    codesign --verbose --force --options=runtime --sign "${APP_IDENTITY}" --entitlements "${ENTITLEMENTS}" --deep "${OBJECT}"
+    #codesign --verbose --force --options=runtime --sign "${APP_IDENTITY}" --entitlements "${ENTITLEMENTS}" --deep "${OBJECT}"
+    codesign --verbose --force --sign "${APP_IDENTITY}" --entitlements "${ENTITLEMENTS}" --deep "${OBJECT}"
     echo "verifying: ${OBJECT}"
     codesign --verbose=2 --verify --strict --deep "${OBJECT}"
 }
