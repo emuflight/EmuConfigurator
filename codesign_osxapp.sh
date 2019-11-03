@@ -13,7 +13,7 @@ ENTITLEMENTS_CHILD="sign/entitlements-child.plist"
 ENTITLEMENTS_PARENT="sign/entitlements-parent.plist"
 APP_PATH="apps/emuflight-configurator/osx64/emuflight-configurator.app"
 
-VERSION_NUMBER=$(ls "${APP_PATH}/Contents/Versions/")
+VERSION_NUMBER=$(ls "${APP_PATH}/Contents/Frameworks/nwjs Framework.framework/Versions/")
 
 #
 # sanity checks
@@ -98,7 +98,8 @@ cat "${APP_PATH}/Contents/Info.plist" # DEBUG
 #
 
 echo "fixing nwjs framework unsealed content"
-NWJS_FRAMEWORK="${APP_PATH}/Contents/Versions/${VERSION_NUMBER}/nwjs Framework.framework"
+#NWJS_FRAMEWORK="${APP_PATH}/Contents/Versions/${VERSION_NUMBER}/nwjs Framework.framework"
+NWJS_FRAMEWORK="${APP_PATH}/Contents/Frameworks/nwjs Framework.framework/Versions/${VERSION_NUMBER}/libnode.dylib"
 LIBNODE_DYLIB="libnode.dylib"
 LIBNODE_LINK_TO="Versions/A/${LIBNODE_DYLIB}"
 
@@ -122,14 +123,14 @@ sign () {
     codesign --verbose=2 --verify --strict --deep "${OBJECT}"
 }
 
-sign "${APP_PATH}/Contents/MacOS/nwjs" "$ENTITLEMENTS_CHILD"
-sign "${APP_PATH}/Contents/Versions/${VERSION_NUMBER}/nwjs Framework.framework/libnode.dylib" "$ENTITLEMENTS_CHILD"
-sign "${APP_PATH}/Contents/Versions/${VERSION_NUMBER}/nwjs Framework.framework/libffmpeg.dylib" "$ENTITLEMENTS_CHILD"
-sign "${APP_PATH}/Contents/Versions/${VERSION_NUMBER}/nwjs Framework.framework/Helpers/crashpad_handler" "$ENTITLEMENTS_CHILD"
-sign "${APP_PATH}/Contents/Versions/${VERSION_NUMBER}/nwjs Framework.framework/XPCServices/AlertNotificationService.xpc" "$ENTITLEMENTS_CHILD"
-sign "${APP_PATH}/Contents/Versions/${VERSION_NUMBER}/nwjs Framework.framework/Versions/Current/nwjs Framework" "$ENTITLEMENTS_CHILD"
-sign "${APP_PATH}/Contents/Versions/${VERSION_NUMBER}/nwjs Framework.framework" "$ENTITLEMENTS_CHILD"
-sign "${APP_PATH}/Contents/Versions/${VERSION_NUMBER}/nwjs Helper.app" "$ENTITLEMENTS_CHILD"
+#sign "${APP_PATH}/Contents/MacOS/nwjs" "$ENTITLEMENTS_CHILD"
+#sign "${APP_PATH}/Contents/Versions/${VERSION_NUMBER}/nwjs Framework.framework/libnode.dylib" "$ENTITLEMENTS_CHILD"
+#sign "${APP_PATH}/Contents/Versions/${VERSION_NUMBER}/nwjs Framework.framework/libffmpeg.dylib" "$ENTITLEMENTS_CHILD"
+#sign "${APP_PATH}/Contents/Versions/${VERSION_NUMBER}/nwjs Framework.framework/Helpers/crashpad_handler" "$ENTITLEMENTS_CHILD"
+#sign "${APP_PATH}/Contents/Versions/${VERSION_NUMBER}/nwjs Framework.framework/XPCServices/AlertNotificationService.xpc" "$ENTITLEMENTS_CHILD"
+#sign "${APP_PATH}/Contents/Versions/${VERSION_NUMBER}/nwjs Framework.framework/Versions/Current/nwjs Framework" "$ENTITLEMENTS_CHILD"
+#sign "${APP_PATH}/Contents/Versions/${VERSION_NUMBER}/nwjs Framework.framework" "$ENTITLEMENTS_CHILD"
+#sign "${APP_PATH}/Contents/Versions/${VERSION_NUMBER}/nwjs Helper.app" "$ENTITLEMENTS_CHILD"
 sign "${APP_PATH}" "$ENTITLEMENTS_PARENT"
 
 #
