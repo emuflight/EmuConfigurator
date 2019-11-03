@@ -1,6 +1,12 @@
 'use strict';
 
 const fs = require('fs');
+const os = require('os');
+
+// folder to store the downloaded preset files in
+// TODO: migrate to non-global
+const presetsFolders = os.tmpdir();
+console.log('Presets file location: ' + presetsFolders);
 
 var HttpClient = function() {
     this.get = function(aUrl, aCallback) {
@@ -10,20 +16,23 @@ var HttpClient = function() {
                 aCallback(anHttpRequest.responseText);
         }
 
-        anHttpRequest.open("GET", aUrl, true);
+        anHttpRequest.open('GET', aUrl, true);
         anHttpRequest.send( null );
     }
 }
 
+// TODO: move all of this to a class instead of being global
 var client = new HttpClient();
 // FIXME: hardcoded URIs
+// TODO: why seperate files?
 var nonHelioUrl = 'https://raw.githubusercontent.com/emuflight/EmuConfigurator/working_on_presets/resources/presets/presets-nonHELIO.json';
 var helioUrl = 'https://raw.githubusercontent.com/emuflight/EmuConfigurator/working_on_presets/resources/presets/presets-HELIO.json';
 
+// TODO: migrate to a function to get rid of code duplication
 client.get(nonHelioUrl, function(response) {
-  // FIXME: do not write inside application! breaks signature os osx app 
-  fs.writeFile('./resources/presets/presets-nonHELIO.json', response, (err) => {
+  fs.writeFile(presetsFolders + '/presets-nonHELIO.json', response, (err) => {
     if (err) {
+      // FIXME: add error handling
       console.error(err);
       return;
     }
@@ -32,8 +41,7 @@ client.get(nonHelioUrl, function(response) {
 });
 
 client.get(helioUrl, function(response) {
-    // FIXME: do not write inside application! breaks signature os osx app
-    fs.writeFile('./resources/presets/presets-HELIO.json', response, (err) => {
+    fs.writeFile(presetsFolders + '/presets-HELIO.json', response, (err) => {
         if (err) {
         console.error(err);
         return;
