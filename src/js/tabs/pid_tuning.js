@@ -244,6 +244,7 @@ TABS.pid_tuning.initialize = function (callback) {
                 $('#imuf_pitch_lpf_cutoff_hz').val(IMUF_FILTER_CONFIG.imuf_pitch_lpf_cutoff_hz);
                 $('#imuf_roll_lpf_cutoff_hz').val(IMUF_FILTER_CONFIG.imuf_roll_lpf_cutoff_hz);
                 $('#imuf_yaw_lpf_cutoff_hz').val(IMUF_FILTER_CONFIG.imuf_yaw_lpf_cutoff_hz);
+                $('#imuf_acc_lpf_cutoff_hz').val(IMUF_FILTER_CONFIG.imuf_acc_lpf_cutoff_hz);
 
                 //Only show HELIO SPRING compatible settings
                 $('.kalmanFilterSettingsPanel').hide();
@@ -609,6 +610,7 @@ TABS.pid_tuning.initialize = function (callback) {
                 IMUF_FILTER_CONFIG.imuf_roll_lpf_cutoff_hz = parseInt($('#imuf_roll_lpf_cutoff_hz').val());
                 IMUF_FILTER_CONFIG.imuf_pitch_lpf_cutoff_hz = parseInt($('#imuf_pitch_lpf_cutoff_hz').val());
                 IMUF_FILTER_CONFIG.imuf_yaw_lpf_cutoff_hz = parseInt($('#imuf_yaw_lpf_cutoff_hz').val());
+                IMUF_FILTER_CONFIG.imuf_acc_lpf_cutoff_hz = parseInt($('#imuf_acc_lpf_cutoff_hz').val());
             }
         }
 
@@ -955,6 +957,7 @@ TABS.pid_tuning.initialize = function (callback) {
                     $('#imuf_pitch_lpf_cutoff_hz').val(presetJson[presetSelected]['imuf_pitch_lpf_cutoff_hz']);
                     $('#imuf_roll_lpf_cutoff_hz').val(presetJson[presetSelected]['imuf_roll_lpf_cutoff_hz']);
                     $('#imuf_yaw_lpf_cutoff_hz').val(presetJson[presetSelected]['imuf_yaw_lpf_cutoff_hz']);
+                    $('#imuf_acc_lpf_cutoff_hz').val(presetJson[presetSelected]['imuf_acc_lpf_cutoff_hz']);
                 }
                 $('input[id="gyroLowpassEnabled"]').prop('checked', presetJson[presetSelected]['gyro_lowpass_enabled'] !== "OFF").change();
                 $('.pid_filter select[name="gyroLowpassType"]').val(presetJson[presetSelected]['gyro_lowpass_type']);

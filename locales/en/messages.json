@@ -5026,6 +5026,12 @@
         "pidTuningImuflpfYawHelp": {
         "message": ""
       },
+      "pidTuningImuflpfAcc": {
+        "message": "IMU-F accelerometer lpf cutoff hz"
+      },
+      "pidTuningImuflpfAccHelp": {
+        "message": ""
+      },
       "pidTuningKalmanFilterR": {
           "message": "IMU-F W Coefficient"
       },
