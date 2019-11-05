@@ -64,10 +64,10 @@ TABS.pid_tuning.initialize = function (callback) {
     }
 
     var presetJson ;
-    if (CONFIG.boardIdentifier === "HESP" && CONFIG.boardIdentifier === "SX10" && CONFIG.boardIdentifier === "FLUX") {
-         presetJson = require(presetsFolders + '/presets-HELIO.json');
-    } else {
+    if (CONFIG.boardIdentifier !== "HESP" && CONFIG.boardIdentifier !== "SX10" && CONFIG.boardIdentifier !== "FLUX") {
          presetJson = require(presetsFolders + '/presets-nonHELIO.json');
+    } else {
+         presetJson = require(presetsFolders + '/presets-HELIO.json');
     }
 
     function pid_and_rc_to_form() {
