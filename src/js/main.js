@@ -25,8 +25,8 @@ var HttpClient = function() {
 var client = new HttpClient();
 // FIXME: hardcoded URIs
 // TODO: why seperate files?
-var nonHelioUrl = 'https://raw.githubusercontent.com/emuflight/EmuConfigurator/working_on_presets/resources/presets/presets-nonHELIO.json';
-var helioUrl = 'https://raw.githubusercontent.com/emuflight/EmuConfigurator/working_on_presets/resources/presets/presets-HELIO.json';
+var nonHelioUrl = 'https://raw.githubusercontent.com/emuflight/EmuConfigurator/master/presets/presets-nonHELIO.json';
+var helioUrl = 'https://raw.githubusercontent.com/emuflight/EmuConfigurator/master/presets/presets-HELIO.json';
 
 // TODO: migrate to a function to get rid of code duplication
 client.get(nonHelioUrl, function(response) {
