@@ -85,7 +85,7 @@ xattr -r -d com.apple.quarantine "${APP_PATH}"
 # signing
 #
 
-codesign --verbose --force --sign "${APP_IDENTITY}" --entitlements "${ENTITLEMENTS_PARENT}" --deep "${APP_PATH}"
+codesign --verbose --force --sign "${APP_IDENTITY}" --timestamp --entitlements "${ENTITLEMENTS_PARENT}" --deep "${APP_PATH}"
 codesign --verbose --verify --strict --deep "${APP_PATH}"
 
 #
