@@ -82,7 +82,7 @@
       "f_pitch":                       110,
       "p_yaw":                         73,
       "i_yaw":                         90,
-      "d_yaw":                         110,
+      "d_yaw":                         20,
       "f_yaw":                         110,
       "__comment":                     "Filters IMUF kalman !!!",
       "gyro_filter_q":                 3000,
