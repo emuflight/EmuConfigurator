@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -x
 #
 # tom hensel <code@jitter.eu> for EmuFlight
 #
@@ -9,7 +9,7 @@
 
 CERTIFICATE_P12="sign/EmuCert.p12"
 KEYCHAIN="build.keychain"
-ENTITLEMENTS="sign/entitlements-parent.plist"
+ENTITLEMENTS="sign/entitlements.plist"
 APP_PATH="apps/emuflight-configurator/osx64/emuflight-configurator.app"
 
 #
@@ -18,17 +18,17 @@ APP_PATH="apps/emuflight-configurator/osx64/emuflight-configurator.app"
 
 if [ -z "${APP_IDENTITY}" ]; then
   echo "required variable APP_IDENTITY not set"
-  exit 3
+  exit 2
 fi
 
 if [ -z "${BUNDLE_ID}" ]; then
   echo "required variable BUNDLE_ID not set"
-  exit 4
+  exit 3
 fi
 
 if [ ! -f "${ENTITLEMENTS}" ]; then
   echo "unable to find entitlement at: ${ENTITLEMENTS}"
-  exit 9
+  exit 4
 fi
 
 #
