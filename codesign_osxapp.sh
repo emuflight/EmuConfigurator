@@ -1,4 +1,4 @@
-#!/bin/sh -x
+#!/bin/sh
 #
 # tom hensel <code@jitter.eu> for EmuFlight
 #
