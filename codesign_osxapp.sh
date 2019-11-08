@@ -9,18 +9,12 @@
 
 CERTIFICATE_P12="sign/EmuCert.p12"
 KEYCHAIN="build.keychain"
-ENTITLEMENTS_CHILD="sign/entitlements-child.plist"
-ENTITLEMENTS_PARENT="sign/entitlements-parent.plist"
+ENTITLEMENTS="sign/entitlements-parent.plist"
 APP_PATH="apps/emuflight-configurator/osx64/emuflight-configurator.app"
 
 #
 # sanity checks
 #
-
-if [ ! -d "${APP_PATH}" ]; then
-  echo "unable to find application at: ${APP_PATH}"
-  exit 2
-fi
 
 if [ -z "${APP_IDENTITY}" ]; then
   echo "required variable APP_IDENTITY not set"
@@ -32,23 +26,8 @@ if [ -z "${BUNDLE_ID}" ]; then
   exit 4
 fi
 
-if [ ! -d "${APP_PATH}" ]; then
-  echo "unable to find application at: ${APP_PATH}"
-  exit 6
-fi
-
-if [ ! -f "${CERTIFICATE_P12}" ]; then
-  echo "unable to find certifacte at: ${CERTIFICATE_P12}"
-  exit 7
-fi
- 
-if [ ! -f "${ENTITLEMENTS_CHILD}" ]; then
-  echo "unable to find entitlement at: ${ENTITLEMENTS_CHILD}"
-  exit 8
-fi
-
-if [ ! -f "${ENTITLEMENTS_PARENT}" ]; then
-  echo "unable to find entitlement at: ${ENTITLEMENTS_PARENT}"
+if [ ! -f "${ENTITLEMENTS}" ]; then
+  echo "unable to find entitlement at: ${ENTITLEMENTS}"
   exit 9
 fi
 
@@ -85,7 +64,7 @@ xattr -r -d com.apple.quarantine "${APP_PATH}"
 # signing
 #
 
-codesign --verbose --force --sign "${APP_IDENTITY}" --options runtime --timestamp --entitlements "${ENTITLEMENTS_PARENT}" --deep "${APP_PATH}"
+codesign --verbose --force --sign "${APP_IDENTITY}" --timestamp --entitlements "${ENTITLEMENTS}" --deep "${APP_PATH}"
 codesign --verbose --verify --strict --deep "${APP_PATH}"
 
 #
