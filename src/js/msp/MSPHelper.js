@@ -979,7 +979,9 @@ MspHelper.prototype.process_data = function(dataHandler) {
                 IMUF_FILTER_CONFIG.imuf_pitch_lpf_cutoff_hz = data.readU16();
                 IMUF_FILTER_CONFIG.imuf_roll_lpf_cutoff_hz = data.readU16();
                 IMUF_FILTER_CONFIG.imuf_yaw_lpf_cutoff_hz = data.readU16();
+                if (semver.gte(CONFIG.apiVersion, "1.42.0")) {
                 IMUF_FILTER_CONFIG.imuf_acc_lpf_cutoff_hz = data.readU16();
+                }
                 break;
             case MSPCodes.MSP_SET_PID_ADVANCED:
                 console.log("Advanced PID settings saved");
@@ -1723,7 +1725,7 @@ MspHelper.prototype.crunch = function(code) {
             buffer.push16(KALMAN_FILTER_CONFIG.gyro_filter_q);
             buffer.push16(KALMAN_FILTER_CONFIG.gyro_filter_w);
             break;
-        case MSPCodes.MSP_SET_IMUF_CONFIG:
+            case MSPCodes.MSP_SET_IMUF_CONFIG:
             buffer.push16(IMUF_FILTER_CONFIG.imuf_mode);
             buffer.push16(IMUF_FILTER_CONFIG.imuf_roll_q);
             buffer.push16(IMUF_FILTER_CONFIG.imuf_pitch_q);
@@ -1732,7 +1734,9 @@ MspHelper.prototype.crunch = function(code) {
             buffer.push16(IMUF_FILTER_CONFIG.imuf_pitch_lpf_cutoff_hz);
             buffer.push16(IMUF_FILTER_CONFIG.imuf_roll_lpf_cutoff_hz);
             buffer.push16(IMUF_FILTER_CONFIG.imuf_yaw_lpf_cutoff_hz);
+            if (semver.gte(CONFIG.apiVersion, "1.42.0")) {
             buffer.push16(IMUF_FILTER_CONFIG.imuf_acc_lpf_cutoff_hz);
+            }
             break;
         case MSPCodes.MSP_SET_PID_ADVANCED:
             if (semver.gte(CONFIG.apiVersion, "1.20.0")) {
@@ -1847,7 +1851,7 @@ MspHelper.prototype.crunch = function(code) {
             buffer.push8(now.getUTCHours());
             buffer.push8(now.getUTCMinutes());
             buffer.push8(now.getUTCSeconds());
-            
+
 
             break;
         default:
