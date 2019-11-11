@@ -241,21 +241,26 @@ TABS.pid_tuning.initialize = function (callback) {
                 $('#imuf_pitch_q').val(IMUF_FILTER_CONFIG.imuf_pitch_q);
                 $('#imuf_yaw_q').val(IMUF_FILTER_CONFIG.imuf_yaw_q);
                 $('#imuf_w').val(IMUF_FILTER_CONFIG.imuf_w);
-                $('#imuf_pitch_lpf_cutoff_hz').val(IMUF_FILTER_CONFIG.imuf_pitch_lpf_cutoff_hz);
-                $('#imuf_roll_lpf_cutoff_hz').val(IMUF_FILTER_CONFIG.imuf_roll_lpf_cutoff_hz);
-                $('#imuf_yaw_lpf_cutoff_hz').val(IMUF_FILTER_CONFIG.imuf_yaw_lpf_cutoff_hz);
-                if (semver.gte(CONFIG.apiVersion, "1.42.0")) {
-                  $('#imuf_acc_lpf_cutoff_hz').val(IMUF_FILTER_CONFIG.imuf_acc_lpf_cutoff_hz);
-                }else{
-                  $('#imuf_acc_lpf_cutoff_hz').hide();
-                  $('#pidTuningImuflpfAccLabel').hide();
-
+                if (CONFIG.boardIdentifier === "HESP" || CONFIG.boardIdentifier === "SX10" || CONFIG.boardIdentifier === "FLUX") {
+                    $('#imuf_pitch_lpf_cutoff_hz').val(IMUF_FILTER_CONFIG.imuf_pitch_lpf_cutoff_hz);
+                    $('#imuf_roll_lpf_cutoff_hz').val(IMUF_FILTER_CONFIG.imuf_roll_lpf_cutoff_hz);
+                    $('#imuf_yaw_lpf_cutoff_hz').val(IMUF_FILTER_CONFIG.imuf_yaw_lpf_cutoff_hz);
+                    if (semver.gte(CONFIG.apiVersion, "1.42.0")) {
+                        $('#imuf_acc_lpf_cutoff_hz').val(IMUF_FILTER_CONFIG.imuf_acc_lpf_cutoff_hz);
+                    }else{
+                        $('.imuf_acc_lpf_cutoff_hz_tr').hide();
+                    }
+                } else {
+                    $('.imuf_pitch_lpf_cutoff_hz_tr').hide();
+                    $('.imuf_roll_lpf_cutoff_hz_tr').hide();
+                    $('.imuf_yaw_lpf_cutoff_hz_tr').hide();
+                    $('.imuf_acc_lpf_cutoff_hz_tr').hide();
                 }
-
                 //Only show HELIO SPRING compatible settings
                 $('.kalmanFilterSettingsPanel').hide();
                 $('#filterTuningHelp').hide();
                 $('#imufFilterSettingsPanel').show();
+                
             }
 
             // Feathered PIDs
@@ -623,11 +628,13 @@ TABS.pid_tuning.initialize = function (callback) {
                 IMUF_FILTER_CONFIG.imuf_pitch_q = parseInt($('#imuf_pitch_q').val());
                 IMUF_FILTER_CONFIG.imuf_yaw_q = parseInt($('#imuf_yaw_q').val());
                 IMUF_FILTER_CONFIG.imuf_w = parseInt($('#imuf_w').val());
-                IMUF_FILTER_CONFIG.imuf_roll_lpf_cutoff_hz = parseInt($('#imuf_roll_lpf_cutoff_hz').val());
-                IMUF_FILTER_CONFIG.imuf_pitch_lpf_cutoff_hz = parseInt($('#imuf_pitch_lpf_cutoff_hz').val());
-                IMUF_FILTER_CONFIG.imuf_yaw_lpf_cutoff_hz = parseInt($('#imuf_yaw_lpf_cutoff_hz').val());
-                  if (semver.gte(CONFIG.apiVersion, "1.42.0")) {
-                IMUF_FILTER_CONFIG.imuf_acc_lpf_cutoff_hz = parseInt($('#imuf_acc_lpf_cutoff_hz').val());
+                if (CONFIG.boardIdentifier === "HESP" || CONFIG.boardIdentifier === "SX10" || CONFIG.boardIdentifier === "FLUX") {
+                    IMUF_FILTER_CONFIG.imuf_roll_lpf_cutoff_hz = parseInt($('#imuf_roll_lpf_cutoff_hz').val());
+                    IMUF_FILTER_CONFIG.imuf_pitch_lpf_cutoff_hz = parseInt($('#imuf_pitch_lpf_cutoff_hz').val());
+                    IMUF_FILTER_CONFIG.imuf_yaw_lpf_cutoff_hz = parseInt($('#imuf_yaw_lpf_cutoff_hz').val());
+                    if (semver.gte(CONFIG.apiVersion, "1.42.0")) {
+                        IMUF_FILTER_CONFIG.imuf_acc_lpf_cutoff_hz = parseInt($('#imuf_acc_lpf_cutoff_hz').val());
+                    }
                 }
             }
         }
@@ -972,11 +979,13 @@ TABS.pid_tuning.initialize = function (callback) {
                     $('#imuf_pitch_q').val(presetJson[presetSelected]['imuf_pitch_q']);
                     $('#imuf_yaw_q').val(presetJson[presetSelected]['imuf_yaw_q']);
                     $('#imuf_w').val(presetJson[presetSelected]['imuf_w']);
-                    $('#imuf_pitch_lpf_cutoff_hz').val(presetJson[presetSelected]['imuf_pitch_lpf_cutoff_hz']);
-                    $('#imuf_roll_lpf_cutoff_hz').val(presetJson[presetSelected]['imuf_roll_lpf_cutoff_hz']);
-                    $('#imuf_yaw_lpf_cutoff_hz').val(presetJson[presetSelected]['imuf_yaw_lpf_cutoff_hz']);
-                    if (semver.gte(CONFIG.apiVersion, "1.42.0")) {
-                      $('#imuf_acc_lpf_cutoff_hz').val(presetJson[presetSelected]['imuf_acc_lpf_cutoff_hz']);
+                    if (CONFIG.boardIdentifier === "HESP" || CONFIG.boardIdentifier === "SX10" || CONFIG.boardIdentifier === "FLUX") {
+                        $('#imuf_pitch_lpf_cutoff_hz').val(presetJson[presetSelected]['imuf_pitch_lpf_cutoff_hz']);
+                        $('#imuf_roll_lpf_cutoff_hz').val(presetJson[presetSelected]['imuf_roll_lpf_cutoff_hz']);
+                        $('#imuf_yaw_lpf_cutoff_hz').val(presetJson[presetSelected]['imuf_yaw_lpf_cutoff_hz']);
+                        if (semver.gte(CONFIG.apiVersion, "1.42.0")) {
+                            $('#imuf_acc_lpf_cutoff_hz').val(presetJson[presetSelected]['imuf_acc_lpf_cutoff_hz']);
+                        }
                     }
                 }
                 $('input[id="gyroLowpassEnabled"]').prop('checked', presetJson[presetSelected]['gyro_lowpass_enabled'] !== "OFF").change();
