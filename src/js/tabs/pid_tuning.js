@@ -260,14 +260,15 @@ TABS.pid_tuning.initialize = function (callback) {
                 $('.kalmanFilterSettingsPanel').hide();
                 $('#filterTuningHelp').hide();
                 $('#imufFilterSettingsPanel').show();
-                
+
             }
 
             // Feathered PIDs
             if (semver.gte(CONFIG.apiVersion, "1.42.0")) {
               $('#featheredPidsLine').hide();
               $('#featheredPidsLineNumber').show();
-              $('#featheredPids-number').val(ADVANCED_TUNING.feathered_pids);
+              console.log(ADVANCED_TUNING.feathered_pids);
+              $('input[name="featheredPids-number"]').val(ADVANCED_TUNING.feathered_pids);
               }else{
             $('input[id="feathered_pids"]').prop('checked', ADVANCED_TUNING.feathered_pids !== 0);
           }
