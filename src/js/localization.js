@@ -1,5 +1,4 @@
 'use strict';
-
 /*
  * Wrapper around the i18n system
  */
