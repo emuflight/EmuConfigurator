@@ -110,7 +110,6 @@
                                 <th colspan="6">
                                     <div class="pid_mode">
                                         <div i18n="pidTuningBasic" style="float:left;"></div>
-                                        <div class="helpicon cf_tip" i18n_title="pidTuningPidTuningTip"></div>
                                         <div class="helpicon cf_tip" i18n_title="pidTuningPidTuningTipFeedforward"></div>
                                     </div>
                                 </th>
@@ -421,13 +420,24 @@
                                  </td>
                             </tr>
 
-                            <tr class="feathered_pids">
+                            <tr id="featheredPidsLine" class="feathered_pids">
                                 <td><input type="checkbox" id="feathered_pids" class="toggle" /></td>
                                 <td colspan="2">
                                     <div>
                                         <label for="feathered_pids">
                                         <span i18n="pidTuningFeatheredPids"></span>
                                         </label>
+                                        <div class="helpicon cf_tip" i18n_title="pidTuningFeatheredPidsHelp"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr id="featheredPidsLineNumber" class="feathered_pids" style="display: none;">
+                                <td><input type="number" name="featheredPids-number" step="10" min="0" max="100"/></td>
+                                <td colspan="1">
+                                    <div>
+
+                                        <span i18n="pidTuningFeatheredPids"></span>
+
                                         <div class="helpicon cf_tip" i18n_title="pidTuningFeatheredPidsHelp"></div>
                                     </div>
                                 </td>
@@ -477,7 +487,7 @@
 
                                     <span class="suboption">
                                         <select id="itermrelaxType">
-                                            <option i18n="pidTuningItermRelaxTypeOptionGyro"     value="0"/> 
+                                            <option i18n="pidTuningItermRelaxTypeOptionGyro"     value="0"/>
                                             <option i18n="pidTuningItermRelaxTypeOptionSetpoint" value="1"/>
                                         </select>
                                         <label for="itermrelaxType">
@@ -493,7 +503,7 @@
                                     </span>
                                 </td>
                             </tr>
-                            
+
                             <tr class="antigravity">
                                 <td><input type="checkbox" id="antiGravitySwitch" class="toggle" /></td>
                                 <td colspan="3">
@@ -529,7 +539,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- RATES SUBTAB -->
             <div class="subtab-rates" style="display: none;">
                 <div class="clear-both"></div>
@@ -900,8 +910,8 @@
                                 </td>
                             </tr>
                         </table>
-                    </div>        
-                                
+                    </div>
+
                     <!-- IMUF -->
 
                     <div class="gui_box grey topspacer pid_filter kalmanFilterSettingsPanel">
@@ -1004,7 +1014,7 @@
                                     </div>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr class="imuf_roll_lpf_cutoff_hz_tr">
                                 <td>
                                     <input id="imuf_roll_lpf_cutoff_hz" type="number" name="imuf_roll_lpf_cutoff_hz" step="1" min="0" max="450"/>
                                 </td>
@@ -1017,7 +1027,7 @@
                                     </div>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr class="imuf_pitch_lpf_cutoff_hz_tr">
                                 <td>
                                     <input id="imuf_pitch_lpf_cutoff_hz" type="number" name="imuf_pitch_lpf_cutoff_hz" step="1" min="0" max="450"/>
                                 </td>
@@ -1030,7 +1040,7 @@
                                     </div>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr class="imuf_yaw_lpf_cutoff_hz_tr">
                                 <td>
                                     <input id="imuf_yaw_lpf_cutoff_hz" type="number" name="imuf_yaw_lpf_cutoff_hz" step="1" min="0" max="450"/>
                                 </td>
@@ -1043,7 +1053,7 @@
                                     </div>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr class="imuf_acc_lpf_cutoff_hz_tr">
                                 <td>
                                     <input id="imuf_acc_lpf_cutoff_hz" type="number" name="imuf_acc_lpf_cutoff_hz" step="1" min="0" max="450"/>
                                 </td>
@@ -1077,7 +1087,7 @@
                                         <div i18n="pidTuningDTermLowpassFiltersGroup" />
                                         <div class="helpicon cf_tip" i18n_title="pidTuningLowpassFilterHelp" />
                                     </div>
-                                        
+
                                     </div>
                                 </th>
                             </tr>
@@ -1133,7 +1143,7 @@
                                         <div  i18n="pidTuningDTermNotchFiltersGroup" />
                                         <div class="helpicon cf_tip" i18n_title="pidTuningNotchFilterHelp" />
                                     </div>
-                                    
+
                                 </th>
                             </tr>
 
@@ -1224,7 +1234,7 @@
         </div>
         <div class="buttons">
             <a href="#" class="dialogCopyProfile-confirmbtn regular-button" i18n="dialogCopyProfileConfirm"></a>
-            <a href="#" class="dialogCopyProfile-cancelbtn regular-button" i18n="dialogCopyProfileClose"></a> 
+            <a href="#" class="dialogCopyProfile-cancelbtn regular-button" i18n="dialogCopyProfileClose"></a>
         </div>
     </dialog>
 

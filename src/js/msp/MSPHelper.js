@@ -966,20 +966,26 @@ MspHelper.prototype.process_data = function(dataHandler) {
                     }
                 }
                 break;
-                case MSPCodes.MSP_FAST_KALMAN:
+                
+            case MSPCodes.MSP_FAST_KALMAN:
                 KALMAN_FILTER_CONFIG.gyro_filter_q = data.readU16();
                 KALMAN_FILTER_CONFIG.gyro_filter_w = data.readU16();
                 break;
+
             case MSPCodes.MSP_IMUF_CONFIG:
                 IMUF_FILTER_CONFIG.imuf_mode = data.readU16();
                 IMUF_FILTER_CONFIG.imuf_roll_q = data.readU16();
                 IMUF_FILTER_CONFIG.imuf_pitch_q = data.readU16();
                 IMUF_FILTER_CONFIG.imuf_yaw_q = data.readU16();
                 IMUF_FILTER_CONFIG.imuf_w = data.readU16();
-                IMUF_FILTER_CONFIG.imuf_pitch_lpf_cutoff_hz = data.readU16();
-                IMUF_FILTER_CONFIG.imuf_roll_lpf_cutoff_hz = data.readU16();
-                IMUF_FILTER_CONFIG.imuf_yaw_lpf_cutoff_hz = data.readU16();
-                IMUF_FILTER_CONFIG.imuf_acc_lpf_cutoff_hz = data.readU16();
+                if (CONFIG.boardIdentifier === "HESP" || CONFIG.boardIdentifier === "SX10" || CONFIG.boardIdentifier === "FLUX") {
+                    IMUF_FILTER_CONFIG.imuf_pitch_lpf_cutoff_hz = data.readU16();
+                    IMUF_FILTER_CONFIG.imuf_roll_lpf_cutoff_hz = data.readU16();
+                    IMUF_FILTER_CONFIG.imuf_yaw_lpf_cutoff_hz = data.readU16();
+                    if (semver.gte(CONFIG.apiVersion, "1.42.0")) {
+                        IMUF_FILTER_CONFIG.imuf_acc_lpf_cutoff_hz = data.readU16();
+                    }
+                }
                 break;
             case MSPCodes.MSP_SET_PID_ADVANCED:
                 console.log("Advanced PID settings saved");
@@ -1719,7 +1725,7 @@ MspHelper.prototype.crunch = function(code) {
                 }
             }
             break;
-            case MSPCodes.MSP_SET_FAST_KALMAN:
+        case MSPCodes.MSP_SET_FAST_KALMAN:
             buffer.push16(KALMAN_FILTER_CONFIG.gyro_filter_q);
             buffer.push16(KALMAN_FILTER_CONFIG.gyro_filter_w);
             break;
@@ -1729,10 +1735,14 @@ MspHelper.prototype.crunch = function(code) {
             buffer.push16(IMUF_FILTER_CONFIG.imuf_pitch_q);
             buffer.push16(IMUF_FILTER_CONFIG.imuf_yaw_q);
             buffer.push16(IMUF_FILTER_CONFIG.imuf_w);
-            buffer.push16(IMUF_FILTER_CONFIG.imuf_pitch_lpf_cutoff_hz);
-            buffer.push16(IMUF_FILTER_CONFIG.imuf_roll_lpf_cutoff_hz);
-            buffer.push16(IMUF_FILTER_CONFIG.imuf_yaw_lpf_cutoff_hz);
-            buffer.push16(IMUF_FILTER_CONFIG.imuf_acc_lpf_cutoff_hz);
+            if (CONFIG.boardIdentifier === "HESP" || CONFIG.boardIdentifier === "SX10" || CONFIG.boardIdentifier === "FLUX") {
+                buffer.push16(IMUF_FILTER_CONFIG.imuf_pitch_lpf_cutoff_hz);
+                buffer.push16(IMUF_FILTER_CONFIG.imuf_roll_lpf_cutoff_hz);
+                buffer.push16(IMUF_FILTER_CONFIG.imuf_yaw_lpf_cutoff_hz);
+                if (semver.gte(CONFIG.apiVersion, "1.42.0")) {
+                    buffer.push16(IMUF_FILTER_CONFIG.imuf_acc_lpf_cutoff_hz);
+                }
+            }
             break;
         case MSPCodes.MSP_SET_PID_ADVANCED:
             if (semver.gte(CONFIG.apiVersion, "1.20.0")) {
@@ -1847,7 +1857,7 @@ MspHelper.prototype.crunch = function(code) {
             buffer.push8(now.getUTCHours());
             buffer.push8(now.getUTCMinutes());
             buffer.push8(now.getUTCSeconds());
-            
+
 
             break;
         default:
