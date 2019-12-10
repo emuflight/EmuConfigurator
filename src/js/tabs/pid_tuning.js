@@ -217,15 +217,15 @@ TABS.pid_tuning.initialize = function (callback) {
             $('.pid_filter select[name="gyroLowpass2Type"]').val(FILTER_CONFIG.gyro_lowpass2_type);
             $('.pid_filter input[name="dtermLowpass2Frequency"]').val(FILTER_CONFIG.dterm_lowpass2_hz);
               if (semver.gte(CONFIG.apiVersion, "1.43.0")) {
-                $('.pid_filter input[name="dtermDynLpf"]').val(FILTER_CONFIG.dterm_dyn_lpf);
-                    $('.gyroDynLpf').hide();
+                   $('.pid_filter input[name="dtermDynLpf"]').val(FILTER_CONFIG.dterm_dyn_lpf);
+                   $('.pid_filter .gyroDynGroup').hide();
                 if (CONFIG.boardIdentifier !== "HESP" && CONFIG.boardIdentifier !== "SX10" && CONFIG.boardIdentifier !== "FLUX"){
                   $('.pid_filter input[name="gyroDynLpf"]').val(FILTER_CONFIG.gyro_dyn_lpf);
-                      $('.gyroDynLpf').show();
+                  $('.pid_filter .gyroDynGroup').show();
                 }
               }else{
-                  $('.gyroDynLpf').hide();
-                  $('.dyndtermlpf').hide();
+                   $('.pid_filter .gyroDynGroup').hide();
+                  $('.pid_filter .dyndtermlpf').hide();
               }
 
 
@@ -279,7 +279,6 @@ TABS.pid_tuning.initialize = function (callback) {
             if (semver.gte(CONFIG.apiVersion, "1.42.0")) {
               $('#featheredPidsLine').hide();
               $('#featheredPidsLineNumber').show();
-              console.log(ADVANCED_TUNING.feathered_pids);
               $('input[name="featheredPids-number"]').val(ADVANCED_TUNING.feathered_pids);
               }else{
             $('input[id="feathered_pids"]').prop('checked', ADVANCED_TUNING.feathered_pids !== 0);
@@ -419,10 +418,18 @@ TABS.pid_tuning.initialize = function (callback) {
         $('input[id="dtermDynLpfEnabled"]').change(function() {
             var checked = $(this).is(':checked');
             var cutoff = FILTER_CONFIG.dterm_dyn_lpf > 0 ? FILTER_CONFIG.dterm_dyn_lpf : FILTER_DEFAULT.dterm_dyn_lpf;
-console.log(FILTER_CONFIG.dterm_dyn_lpf);
-console.log(FILTER_DEFAULT.dterm_dyn_lpf);
+
             $('.pid_filter input[name="dtermDynLpf"]').val(checked ? cutoff : 0).attr('disabled', !checked);
         });
+
+        $('input[id="gyroDynLpfEnabled"]').change(function() {
+            var checked = $(this).is(':checked');
+            var cutoff = FILTER_CONFIG.gyro_dyn_lpf > 0 ? FILTER_CONFIG.gyro_dyn_lpf : FILTER_DEFAULT.gyro_dyn_lpf;
+
+            $('.pid_filter input[name="gyroDynLpf"]').val(checked ? cutoff : 0).attr('disabled', !checked);
+        });
+
+
 
         $('input[id="gyroLowpassEnabled"]').change(function() {
             var checked = $(this).is(':checked');
@@ -532,6 +539,7 @@ console.log(FILTER_DEFAULT.dterm_dyn_lpf);
         $('input[id="gyroNotch2Enabled"]').prop('checked', FILTER_CONFIG.gyro_notch2_hz != 0).change();
         $('input[id="dTermNotchEnabled"]').prop('checked', FILTER_CONFIG.dterm_notch_hz != 0).change();
         $('input[id="dtermDynLpfEnabled"]').prop('checked', FILTER_CONFIG.dterm_dyn_lpf != 0).change();
+        $('input[id="gyroDynLpfEnabled"]').prop('checked', FILTER_CONFIG.dterm_dyn_lpf != 0).change();
         $('input[id="gyroLowpassEnabled"]').prop('checked', FILTER_CONFIG.gyro_lowpass_hz != 0).change();
         $('input[id="gyroLowpassDynEnabled"]').prop('checked', FILTER_CONFIG.gyro_lowpass_dyn_min_hz != 0 && FILTER_CONFIG.gyro_lowpass_dyn_min_hz < FILTER_CONFIG.gyro_lowpass_dyn_max_hz).change();
         $('input[id="gyroLowpass2Enabled"]').prop('checked', FILTER_CONFIG.gyro_lowpass2_hz != 0).change();
@@ -628,7 +636,6 @@ console.log(FILTER_DEFAULT.dterm_dyn_lpf);
         if (semver.gte(CONFIG.apiVersion, "1.40.0")) {
 
             if (semver.gte(CONFIG.apiVersion, "1.42.0")) {
-            console.log($('input[name="featheredPids-number"]').val());
             ADVANCED_TUNING.feathered_pids = $('input[name="featheredPids-number"]').val();
             }else{
             ADVANCED_TUNING.feathered_pids = $('input[id="feathered_pids"]').is(':checked') ? 1 : 0;

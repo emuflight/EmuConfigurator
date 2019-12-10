@@ -3141,6 +3141,9 @@
     "pidTuningGyroNotchFiltersGroup": {
         "message": "Gyro Notch Filters"
     },
+    "pidTuningGyroDynLpfGroup": {
+        "message": "Gyro Dyn Filter"
+    },
     "pidTuningGyroNotch1Frequency": {
         "message": "Gyro Notch Filter 1 Center Frequency [Hz]"
     },

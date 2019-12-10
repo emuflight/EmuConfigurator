@@ -842,9 +842,18 @@
                                     </div>
                                 </td>
                             </tr>
-                            <tr class="gyroDynLpf">
+
+                            <tr class="newFilter gyroDynGroup">
+                                <th colspan="2">
+                                    <div class="pid_mode" i18n="pidTuningGyroDynLpfGroup" />
+                                </th>
+                            </tr>
+                            <tr class="newFilter gyroDynGroup">
                                 <td>
-                                        <span class="inputValue"><input type="number" class="nonProfile" name="gyroDynLpf" step="1" min="1" max="16000"/></span>
+                                  <span class="groupSwitchValue">
+                                      <span class="inputSwitch"><input type="checkbox" id="gyroDynLpfEnabled" class="toggle" /></span>
+                                      <span class="inputValue"><input type="number" name="gyroDynLpf" step="1" min="1" max="16000"/></span>
+                                  </span>
                                 </td>
                                 <td>
                                     <div>
