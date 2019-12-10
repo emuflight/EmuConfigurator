@@ -2938,6 +2938,9 @@
     "pidTuningGyroNotch1Frequency": {
         "message": "Giro Filtro Notch 1 Frecuencia Central [Hz]"
     },
+    "pidTuningGyroDynLpf": {
+        "message": "Gyro Dynamic Filter"
+    },
     "pidTuningGyroNotch2Frequency": {
         "message": "Giro Filtro Notch 2 Frecuencia Central [Hz]"
     },
@@ -2985,6 +2988,9 @@
     },
     "pidTuningDTermNotchFrequency": {
         "message": "D Term Filtro Notch Frecuencia Central [Hz]"
+    },
+    "pidTuningDTermDynLpf": {
+        "message": "D Term Dynamc filter"
     },
     "pidTuningDTermNotchCutoff": {
         "message": "D Term Filtro Notch Frecuencia de Corte [Hz]"

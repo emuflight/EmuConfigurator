@@ -216,6 +216,18 @@ TABS.pid_tuning.initialize = function (callback) {
             $('.pid_filter select[name="gyroLowpassType"]').val(FILTER_CONFIG.gyro_lowpass_type);
             $('.pid_filter select[name="gyroLowpass2Type"]').val(FILTER_CONFIG.gyro_lowpass2_type);
             $('.pid_filter input[name="dtermLowpass2Frequency"]').val(FILTER_CONFIG.dterm_lowpass2_hz);
+              if (semver.gte(CONFIG.apiVersion, "1.43.0")) {
+                $('.pid_filter input[name="dtermDynLpf"]').val(FILTER_CONFIG.dterm_dyn_lpf);
+                    $('.gyroDynLpf').hide();
+                if (CONFIG.boardIdentifier !== "HESP" && CONFIG.boardIdentifier !== "SX10" && CONFIG.boardIdentifier !== "FLUX"){
+                  $('.pid_filter input[name="gyroDynLpf"]').val(FILTER_CONFIG.gyro_dyn_lpf);
+                      $('.gyroDynLpf').show();
+                }
+              }else{
+                  $('.gyroDynLpf').hide();
+                  $('.dyndtermlpf').hide();
+              }
+
 
             // We load it again because the limits are now bigger than in 1.16.0
             $('.pid_filter input[name="gyroLowpassFrequency"]').attr("max","16000");
@@ -403,6 +415,15 @@ TABS.pid_tuning.initialize = function (callback) {
             $('.pid_filter input[name="dTermNotchCutoff"]').attr('disabled', !checked).change();
         });
 
+
+        $('input[id="dtermDynLpfEnabled"]').change(function() {
+            var checked = $(this).is(':checked');
+            var cutoff = FILTER_CONFIG.dterm_dyn_lpf > 0 ? FILTER_CONFIG.dterm_dyn_lpf : FILTER_DEFAULT.dterm_dyn_lpf;
+console.log(FILTER_CONFIG.dterm_dyn_lpf);
+console.log(FILTER_DEFAULT.dterm_dyn_lpf);
+            $('.pid_filter input[name="dtermDynLpf"]').val(checked ? cutoff : 0).attr('disabled', !checked);
+        });
+
         $('input[id="gyroLowpassEnabled"]').change(function() {
             var checked = $(this).is(':checked');
             var disabledByDynamicLowpass = $('input[id="gyroLowpassDynEnabled"]').is(':checked');
@@ -510,6 +531,7 @@ TABS.pid_tuning.initialize = function (callback) {
         $('input[id="gyroNotch1Enabled"]').prop('checked', FILTER_CONFIG.gyro_notch_hz != 0).change();
         $('input[id="gyroNotch2Enabled"]').prop('checked', FILTER_CONFIG.gyro_notch2_hz != 0).change();
         $('input[id="dTermNotchEnabled"]').prop('checked', FILTER_CONFIG.dterm_notch_hz != 0).change();
+        $('input[id="dtermDynLpfEnabled"]').prop('checked', FILTER_CONFIG.dterm_dyn_lpf != 0).change();
         $('input[id="gyroLowpassEnabled"]').prop('checked', FILTER_CONFIG.gyro_lowpass_hz != 0).change();
         $('input[id="gyroLowpassDynEnabled"]').prop('checked', FILTER_CONFIG.gyro_lowpass_dyn_min_hz != 0 && FILTER_CONFIG.gyro_lowpass_dyn_min_hz < FILTER_CONFIG.gyro_lowpass_dyn_max_hz).change();
         $('input[id="gyroLowpass2Enabled"]').prop('checked', FILTER_CONFIG.gyro_lowpass2_hz != 0).change();
@@ -596,6 +618,13 @@ TABS.pid_tuning.initialize = function (callback) {
             FILTER_CONFIG.dterm_lowpass2_hz = parseInt($('.pid_filter input[name="dtermLowpass2Frequency"]').val());
         }
 
+  if (semver.gte(CONFIG.apiVersion, "1.43.0")) {
+        FILTER_CONFIG.dterm_dyn_lpf = parseInt($('.pid_filter input[name="dtermDynLpf"]').val());
+        if (CONFIG.boardIdentifier !== "HESP" && CONFIG.boardIdentifier !== "SX10" && CONFIG.boardIdentifier !== "FLUX"){
+        FILTER_CONFIG.gyro_dyn_lpf = parseInt($('.pid_filter input[name="gyroDynLpf"]').val());
+      }
+}
+
         if (semver.gte(CONFIG.apiVersion, "1.40.0")) {
 
             if (semver.gte(CONFIG.apiVersion, "1.42.0")) {
@@ -644,6 +673,8 @@ TABS.pid_tuning.initialize = function (callback) {
             RC_tuning.throttleLimitType = $('select[id="throttleLimitType"]').val();
             RC_tuning.throttleLimitPercent = parseInt($('.throttle_limit input[name="throttleLimitPercent"]').val());
         }
+
+
 
         EMUF_ADVANCED.dynamic_THR_PID_I = parseFloat($('.tpa input[name="tpa_I"]').val());
         EMUF_ADVANCED.dynamic_THR_PID_D = parseFloat($('.tpa input[name="tpa_D"]').val());

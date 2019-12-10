@@ -520,6 +520,7 @@ var FC = {
             dterm_notch_cutoff:             160,
             dterm_notch_hz:                 260,
             yaw_lowpass_hz:                 100,
+            dterm_dyn_lpf:                  100,
         };
     },
 
