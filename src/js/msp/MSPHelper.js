@@ -322,8 +322,8 @@ MspHelper.prototype.process_data = function(dataHandler) {
                     RC_tuning.RC_PITCH_EXPO = 0;
                 }
                 if (semver.gte(CONFIG.apiVersion, "1.41.0")) {
-                    RC_tuning.throttleLimitType = data.readU8();
-                    RC_tuning.throttleLimitPercent = data.readU8();
+                    RC_tuning.throttle_limit_type = data.readU8();
+                    RC_tuning.throttle_limit_percent = data.readU8();
                 }
                 break;
 
@@ -1475,8 +1475,8 @@ MspHelper.prototype.crunch = function(code) {
                 buffer.push8(Math.round(RC_tuning.RC_PITCH_EXPO * 100));
             }
             if (semver.gte(CONFIG.apiVersion, "1.41.0")) {
-                buffer.push8(RC_tuning.throttleLimitType);
-                buffer.push8(RC_tuning.throttleLimitPercent);
+                buffer.push8(RC_tuning.throttle_limit_type);
+                buffer.push8(RC_tuning.throttle_limit_percent);
             }
             break;
 

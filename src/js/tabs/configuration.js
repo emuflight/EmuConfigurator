@@ -565,6 +565,7 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
 
         if (semver.gte(CONFIG.apiVersion, "1.31.0")) {
             $('input[name="fpvCamAngleDegrees"]').val(RX_CONFIG.fpvCamAngleDegrees);
+            $('input[id="cinematicYawSwitch"]').prop('checked', RX_CONFIG.cinematicYaw !== 0);
         } else {
             $('div.fpvCamAngleDegrees').hide();
         }
@@ -1063,7 +1064,8 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
 
             if (semver.gte(CONFIG.apiVersion, "1.31.0")) {
                 RX_CONFIG.fpvCamAngleDegrees = parseInt($('input[name="fpvCamAngleDegrees"]').val());
-            }
+                RX_CONFIG.cinematicYaw = $('input[id="cinematicYawSwitch"]').is(':checked') ? 0 : 1;
+                }
 
             function save_serial_config() {
                 var next_callback = save_feature_config;

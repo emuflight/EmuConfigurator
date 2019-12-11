@@ -106,6 +106,10 @@ TABS.pid_tuning.initialize = function (callback) {
         $('.tpa input[name="tpa_I"]').val(EMUF_ADVANCED.dynamic_THR_PID_I.toFixed(2));
         $('.tpa input[name="tpa_D"]').val(EMUF_ADVANCED.dynamic_THR_PID_D.toFixed(2));
         $('.tpa input[name="tpa-breakpoint"]').val(RC_tuning.dynamic_THR_breakpoint);
+        console.log(ADVANCED_TUNING.setPointPTransition);
+        $('.spa input[name="spa_P"]').val(ADVANCED_TUNING.setPointPTransition);
+        $('.spa input[name="spa_I"]').val(ADVANCED_TUNING.setPointITransition);
+        $('.spa input[name="spa_D"]').val(ADVANCED_TUNING.setPointDTransition);
 
         if (semver.lt(CONFIG.apiVersion, "1.10.0")) {
             $('.pid_tuning input[name="rc_yaw_expo"]').hide();
@@ -381,8 +385,8 @@ TABS.pid_tuning.initialize = function (callback) {
         }
 
         if (semver.gte(CONFIG.apiVersion, "1.41.0")) {
-            $('select[id="throttleLimitType"]').val(RC_tuning.throttleLimitType);
-            $('.throttle_limit input[name="throttleLimitPercent"]').val(RC_tuning.throttleLimitPercent);
+            $('select[id="throttleLimitType"]').val(RC_tuning.throttle_limit_type);
+            $('.throttle_limit input[name="throttleLimitPercent"]').val(RC_tuning.throttle_limit_percent);
         } else {
             $('.throttle_limit').hide();
         }
@@ -677,14 +681,20 @@ TABS.pid_tuning.initialize = function (callback) {
         }
 
         if (semver.gte(CONFIG.apiVersion, "1.41.0")) {
-            RC_tuning.throttleLimitType = $('select[id="throttleLimitType"]').val();
-            RC_tuning.throttleLimitPercent = parseInt($('.throttle_limit input[name="throttleLimitPercent"]').val());
+            RC_tuning.throttle_limit_type = $('select[id="throttleLimitType"]').val();
+            RC_tuning.throttle_limit_percent = parseInt($('.throttle_limit input[name="throttleLimitPercent"]').val());
         }
 
 
 
         EMUF_ADVANCED.dynamic_THR_PID_I = parseFloat($('.tpa input[name="tpa_I"]').val());
         EMUF_ADVANCED.dynamic_THR_PID_D = parseFloat($('.tpa input[name="tpa_D"]').val());
+
+        ADVANCED_TUNING.setPointPTransition = parseFloat($('.spa input[name="spa_P"]').val());
+        ADVANCED_TUNING.setPointITransition = parseFloat($('.spa input[name="spa_I"]').val());
+        ADVANCED_TUNING.setPointDTransition = parseFloat($('.spa input[name="spa_D"]').val());
+
+
     }
 
     function showAllPids() {
@@ -1990,5 +2000,5 @@ TABS.pid_tuning.updateFilterWarning = function() {
     } else {
         warning_e.hide();
     }
- 
+
 }
