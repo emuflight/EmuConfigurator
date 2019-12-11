@@ -948,6 +948,12 @@ MspHelper.prototype.process_data = function(dataHandler) {
                 FILTER_CONFIG.gyro_lowpass_hz = data.readU8();
                 FILTER_CONFIG.dterm_lowpass_hz = data.readU16();
                 FILTER_CONFIG.yaw_lowpass_hz = data.readU16();
+                if (semver.gte(CONFIG.apiVersion, "1.43.0")) {
+                  FILTER_CONFIG.dterm_dyn_lpf = data.readU16();
+                  if (CONFIG.boardIdentifier != "HESP" && CONFIG.boardIdentifier != "SX10" && CONFIG.boardIdentifier != "FLUX") {
+                  FILTER_CONFIG.gyro_dyn_lpf = data.readU16();
+                  }
+                }
                 if (semver.gte(CONFIG.apiVersion, "1.20.0")) {
                     FILTER_CONFIG.gyro_notch_hz = data.readU16();
                     FILTER_CONFIG.gyro_notch_cutoff = data.readU16();
@@ -968,12 +974,7 @@ MspHelper.prototype.process_data = function(dataHandler) {
                         FILTER_CONFIG.gyro_lowpass_type = data.readU8();
                         FILTER_CONFIG.gyro_lowpass2_type = data.readU8();
                         FILTER_CONFIG.dterm_lowpass2_hz = data.readU16();
-                      if (semver.gte(CONFIG.apiVersion, "1.43.0")) {
-                        FILTER_CONFIG.dterm_dyn_lpf = data.readU16();
-                        if (CONFIG.boardIdentifier != "HESP" && CONFIG.boardIdentifier != "SX10" && CONFIG.boardIdentifier != "FLUX") {
-                        FILTER_CONFIG.gyro_dyn_lpf = data.readU16();
-                        }
-                      }
+
                     }
                 }
                 break;
@@ -1727,6 +1728,12 @@ MspHelper.prototype.crunch = function(code) {
             buffer.push8(FILTER_CONFIG.gyro_lowpass_hz)
                 .push16(FILTER_CONFIG.dterm_lowpass_hz)
                 .push16(FILTER_CONFIG.yaw_lowpass_hz);
+                if (semver.gte(CONFIG.apiVersion, "1.43.0")) {
+                      buffer.push16(FILTER_CONFIG.dterm_dyn_lpf);
+                      if (CONFIG.boardIdentifier != "HESP" && CONFIG.boardIdentifier != "SX10" && CONFIG.boardIdentifier != "FLUX") {
+                          buffer.push16(FILTER_CONFIG.gyro_dyn_lpf);
+                        }
+                  }
             if (semver.gte(CONFIG.apiVersion, "1.20.0")) {
                 buffer.push16(FILTER_CONFIG.gyro_notch_hz)
                     .push16(FILTER_CONFIG.gyro_notch_cutoff)
@@ -1748,10 +1755,7 @@ MspHelper.prototype.crunch = function(code) {
                           .push16(FILTER_CONFIG.gyro_lowpass2_hz)
                           .push8(FILTER_CONFIG.gyro_lowpass_type)
                           .push8(FILTER_CONFIG.gyro_lowpass2_type)
-                          .push16(FILTER_CONFIG.dterm_lowpass2_hz)
-                          .push16(FILTER_CONFIG.dterm_dyn_lpf)
-                          .push16(FILTER_CONFIG.gyro_dyn_lpf);
-
+                          .push16(FILTER_CONFIG.dterm_lowpass2_hz);
                 }
             }
             break;

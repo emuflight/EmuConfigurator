@@ -539,7 +539,7 @@ TABS.pid_tuning.initialize = function (callback) {
         $('input[id="gyroNotch2Enabled"]').prop('checked', FILTER_CONFIG.gyro_notch2_hz != 0).change();
         $('input[id="dTermNotchEnabled"]').prop('checked', FILTER_CONFIG.dterm_notch_hz != 0).change();
         $('input[id="dtermDynLpfEnabled"]').prop('checked', FILTER_CONFIG.dterm_dyn_lpf != 0).change();
-        $('input[id="gyroDynLpfEnabled"]').prop('checked', FILTER_CONFIG.dterm_dyn_lpf != 0).change();
+        $('input[id="gyroDynLpfEnabled"]').prop('checked', FILTER_CONFIG.gyro_dyn_lpf != 0).change();
         $('input[id="gyroLowpassEnabled"]').prop('checked', FILTER_CONFIG.gyro_lowpass_hz != 0).change();
         $('input[id="gyroLowpassDynEnabled"]').prop('checked', FILTER_CONFIG.gyro_lowpass_dyn_min_hz != 0 && FILTER_CONFIG.gyro_lowpass_dyn_min_hz < FILTER_CONFIG.gyro_lowpass_dyn_max_hz).change();
         $('input[id="gyroLowpass2Enabled"]').prop('checked', FILTER_CONFIG.gyro_lowpass2_hz != 0).change();
