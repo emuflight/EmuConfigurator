@@ -565,10 +565,14 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
 
         if (semver.gte(CONFIG.apiVersion, "1.31.0")) {
             $('input[name="fpvCamAngleDegrees"]').val(RX_CONFIG.fpvCamAngleDegrees);
-            $('input[id="cinematicYawSwitch"]').prop('checked', RX_CONFIG.cinematicYaw !== 0);
+
         } else {
             $('div.fpvCamAngleDegrees').hide();
         }
+
+        if (semver.gte(CONFIG.apiVersion, "1.43.0")) {
+        $('input[id="cinematicYawSwitch"]').prop('checked', RX_CONFIG.cinematicYaw !== 0);
+      }
 
         if (semver.lt(CONFIG.apiVersion, "1.20.0")) {
             $('.miscSettings').hide();
@@ -1064,7 +1068,10 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
 
             if (semver.gte(CONFIG.apiVersion, "1.31.0")) {
                 RX_CONFIG.fpvCamAngleDegrees = parseInt($('input[name="fpvCamAngleDegrees"]').val());
-                RX_CONFIG.cinematicYaw = $('input[id="cinematicYawSwitch"]').is(':checked') ? 0 : 1;
+
+                }
+                if (semver.gte(CONFIG.apiVersion, "1.43.0")) {
+                  RX_CONFIG.cinematicYaw = $('input[id="cinematicYawSwitch"]').is(':checked') ? 0 : 1;
                 }
 
             function save_serial_config() {

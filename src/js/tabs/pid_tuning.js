@@ -113,7 +113,10 @@ TABS.pid_tuning.initialize = function (callback) {
         $('.spa_yaw input[name="spaYaw_P"]').val(ADVANCED_TUNING.setPointPTransitionYaw);
         $('.spa_yaw input[name="spaYaw_I"]').val(ADVANCED_TUNING.setPointITransitionYaw);
         $('.spa_yaw input[name="spaYaw_D"]').val(ADVANCED_TUNING.setPointDTransitionYaw);
-}
+      }else{
+          $('.spa').hide();
+          $('.spa_yaw').hide();
+        }
 
 
         if (semver.lt(CONFIG.apiVersion, "1.10.0")) {
@@ -294,7 +297,11 @@ TABS.pid_tuning.initialize = function (callback) {
           }
 
           // nfe racer mode
+          if (semver.gte(CONFIG.apiVersion, "1.43.0")) {
             $('input[id="nferacermode"]').prop('checked', ADVANCED_TUNING.nfe_racermode !== 0);
+          }else{
+            $('.nferacermode').hide();
+          }
 
             // I Term Rotation
             $('input[id="itermrotation"]').prop('checked', ADVANCED_TUNING.itermRotation !== 0);
@@ -383,7 +390,6 @@ TABS.pid_tuning.initialize = function (callback) {
         } else {
             $('.feathered_pids').hide();
             $('.itermrotation').hide();
-            $('.nferacermode').hide();
             $('.smartfeedforward').hide();
             $('.itermrelax').hide();
             $('.absoluteControlGain').hide();
@@ -665,7 +671,9 @@ TABS.pid_tuning.initialize = function (callback) {
             ADVANCED_TUNING.feathered_pids = $('input[id="feathered_pids"]').is(':checked') ? 1 : 0;
             }
             ADVANCED_TUNING.itermRotation = $('input[id="itermrotation"]').is(':checked') ? 1 : 0;
+            if (semver.gte(CONFIG.apiVersion, "1.43.0")) {
             ADVANCED_TUNING.nfe_racermode = $('input[id="nferacermode"]').is(':checked') ? 1 : 0;
+            }
             ADVANCED_TUNING.smartFeedforward = $('input[id="smartfeedforward"]').is(':checked') ? 1 : 0;
             ADVANCED_TUNING.itermRelax = $('input[id="itermrelax"]').is(':checked') ? $('select[id="itermrelaxAxes"]').val() : 0;
             ADVANCED_TUNING.itermRelaxType = $('input[id="itermrelax"]').is(':checked') ? $('select[id="itermrelaxType"]').val() : 0;
