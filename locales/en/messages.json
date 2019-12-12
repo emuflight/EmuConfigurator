@@ -3294,10 +3294,10 @@
     "pidTuningEmuBoostYaw": {
         "message": "EmuBoost Yaw"
     },
-    "pidTuningEmuBoostYawLimit": {
+    "pidTuningEmuBoostLimitYaw": {
         "message": "EmuBoost Limit Yaw"
     },
-    "pidTuningEmuBoostLimitYaw": {
+    "pidTuningEmuBoostYawHelp": {
         "message": "Adds a nonlinear boost to the error seen by your p and i term. Adds a different feeling to the sticks. Values that are to high will cause oscillations. Craft with a lower power to weight like whoops seem happy with quite high values and EmuBoost can really help give them a locked in feeling."
     },
     "pidTuningEmuBoostLimitYawHelp": {
