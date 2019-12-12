@@ -7,7 +7,7 @@ sudo: false
 
 osx_image: xcode11.2
 dist: bionic # linux
-language: node_js
+language: generic
 
 env:
   global:
@@ -31,14 +31,14 @@ before_install:
   # install 'nsis' on windows
   - if [ "$TRAVIS_OS_NAME" == "windows" ]; then choco install nsis; fi
   - if [ "$TRAVIS_OS_NAME" == "windows" ]; then export PATH="/c/Program Files (x86)/NSIS:$PATH"; fi
-  # install 'python' on all platforms supported
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then export PATH="$HOME/.local/bin:$PATH"; fi
-  - if [ "$TRAVIS_OS_NAME" == "osx" ]; then export PATH="$HOME/Library/Python/2.7/bin:$PATH"; fi
-  - if [ "$TRAVIS_OS_NAME" == "windows" ]; then choco install python --version 3.8.0; fi
-  - if [ "$TRAVIS_OS_NAME" == "windows" ]; then export PATH="/c/Python38:/c/Python38/Scripts:/c/Users/travis/AppData/Roaming/Python/Python38/Scripts:$PATH"; fi
+  # # install 'python' on all platforms supported
+  # - if [ "$TRAVIS_OS_NAME" == "linux" ]; then export PATH="$HOME/.local/bin:$PATH"; fi
+  # - if [ "$TRAVIS_OS_NAME" == "osx" ]; then export PATH="$HOME/Library/Python/2.7/bin:$PATH"; fi
+  # - if [ "$TRAVIS_OS_NAME" == "windows" ]; then choco install python --version 3.8.0; fi
+  # - if [ "$TRAVIS_OS_NAME" == "windows" ]; then export PATH="/c/Python38:/c/Python38/Scripts:/c/Users/travis/AppData/Roaming/Python/Python38/Scripts:$PATH"; fi
 
 install:
-  - python -m pip install --user --upgrade j2cli # install pip
+  - pip install --user --upgrade j2cli # install pip
 
 script:
   - ./.travis.sh # main
