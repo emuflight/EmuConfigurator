@@ -61,7 +61,7 @@
       "emu_boost_limit":               20,
       "emu_boost_yaw":                 350,
       "emu_boost_limit_yaw":           20,
-      "feathered_pids":                "100",
+      "feathered_pids":                100,
       "iterm_rotation":                "OFF",
       "vbat_pid_gain":                 "OFF",
       "smart_feedforward":             "OFF",

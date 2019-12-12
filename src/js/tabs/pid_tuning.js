@@ -1103,6 +1103,14 @@ TABS.pid_tuning.initialize = function (callback) {
                 $('input[id="yawLowpassEnabled"]').prop('checked', presetJson[presetSelected]['yaw_lowpass_enabled'] !== "OFF").change();
                 $('.pid_filter input[name="yawLowpassFrequency"]').val(presetJson[presetSelected]['yaw_lowpass_hz']);
 
+                if (semver.gte(CONFIG.apiVersion, "1.43.0")) {
+                  if (CONFIG.boardIdentifier !== "HESP" && CONFIG.boardIdentifier !== "SX10" && CONFIG.boardIdentifier !== "FLUX"){
+                  $('input[id="gyroDynLpfEnabled"]').prop('checked', presetJson[presetSelected]['gyroDynLpfEnabled'] !== "OFF").change();
+                  $('.pid_filter input[name="gyroDynLpf"]').val(presetJson[presetSelected]['gyro_dyn_lpf']);
+                }
+                  $('input[id="dtermDynLpfEnabled"]').prop('checked', presetJson[presetSelected]['dtermDynLpfEnabled'] !== "OFF").change();
+                  $('.pid_filter input[name="dtermDynLpf"]').val(presetJson[presetSelected]['dterm_dyn_lpf']);
+                }
                 // Other settings
 
                 var iDecayNumberElement = $('input[name="feedforwardTransition-number"]');
@@ -1121,16 +1129,19 @@ TABS.pid_tuning.initialize = function (callback) {
                 iDecayNumberElement.val(presetJson[presetSelected]['emu_boost']).trigger('input');
 
                 var iDecayNumberElement = $('input[name="errorBoostLimit-number"]');
-                iDecayNumberElement.val(presetJson[presetSelected]['boost_limit']).trigger('input');
+                iDecayNumberElement.val(presetJson[presetSelected]['emu_boost_limit']).trigger('input');
 
-                $('input[id="feathered_pids"]').prop('checked', presetJson[presetSelected]['feathered_pids'] !== "OFF").change();
+                $('input[name="featheredPids-number"]').val(presetJson[presetSelected]['feathered_pids']);
+                console.log("preset" + presetJson[presetSelected]['feathered_pids']);
+                console.log("preset gui" + $('input[name="featheredPids-number"]').val());
+
                 $('input[id="itermrotation"]').prop('checked', presetJson[presetSelected]['iterm_rotation'] !== "OFF").change();
                 $('input[id="vbatpidcompensation"]').prop('checked', presetJson[presetSelected]['vbat_pid_gain'] !== "OFF").change();
                 $('input[id="smartfeedforward"]').prop('checked', presetJson[presetSelected]['smart_feedforward'] !== "OFF").change();
                 $('input[id="itermrelax"]').prop('checked', presetJson[presetSelected]['iterm_relax_enabled'] !== "OFF").change();
-                    $('select[id="itermrelaxAxes"]').val(presetJson[presetSelected]['iterm_relax']+1);
-                    $('select[id="itermrelaxType"]').val(presetJson[presetSelected]['iterm_relax_type']);
-                    $('input[name="itermRelaxCutoff"]').val(presetJson[presetSelected]['iterm_relax_cutoff']);
+                $('select[id="itermrelaxAxes"]').val(presetJson[presetSelected]['iterm_relax']+1);
+                $('select[id="itermrelaxType"]').val(presetJson[presetSelected]['iterm_relax_type']);
+                $('input[name="itermRelaxCutoff"]').val(presetJson[presetSelected]['iterm_relax_cutoff']);
 
                 // TPA settings
 
@@ -1139,9 +1150,16 @@ TABS.pid_tuning.initialize = function (callback) {
                 $('.tpa input[name="tpa_D"]').val(presetJson[presetSelected]['tpa_rate_d']/100);
                 $('.tpa input[name="tpa-breakpoint"]').val(presetJson[presetSelected]['tpa_breakpoint']);
 
-                //PID_ADVANCED_CONFIG.gyroUse32kHz = 0;
-                //PID_ADVANCED_CONFIG.gyro_sync_denom = 1;
-                // PID_ADVANCED_CONFIG.pid_process_denom = 2;
+                if (semver.gte(CONFIG.apiVersion, "1.43.0")) {
+  // spa settings
+                $('.spa input[name="spa_P"]').val(presetJson[presetSelected]['spa_rate_p']);
+                $('.spa input[name="spa_I"]').val(presetJson[presetSelected]['spa_rate_i']);
+                $('.spa input[name="spa_D"]').val(presetJson[presetSelected]['spa_rate_d']);
+                $('.spa_yaw input[name="spaYaw_P"]').val(presetJson[presetSelected]['spa_rate_p_yaw']);
+                $('.spa_yaw input[name="spaYaw_I"]').val(presetJson[presetSelected]['spa_rate_i_yaw']);
+                $('.spa_yaw input[name="spaYaw_D"]').val(presetJson[presetSelected]['spa_rate_d_yaw']);
+              }
+
 
                 // pid preset values
                 PID_names.forEach(function(elementPid, indexPid) {
