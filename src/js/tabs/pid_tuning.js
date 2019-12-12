@@ -106,10 +106,15 @@ TABS.pid_tuning.initialize = function (callback) {
         $('.tpa input[name="tpa_I"]').val(EMUF_ADVANCED.dynamic_THR_PID_I.toFixed(2));
         $('.tpa input[name="tpa_D"]').val(EMUF_ADVANCED.dynamic_THR_PID_D.toFixed(2));
         $('.tpa input[name="tpa-breakpoint"]').val(RC_tuning.dynamic_THR_breakpoint);
-        console.log(ADVANCED_TUNING.setPointPTransition);
+  if (semver.gte(CONFIG.apiVersion, "1.43.0")) {
         $('.spa input[name="spa_P"]').val(ADVANCED_TUNING.setPointPTransition);
         $('.spa input[name="spa_I"]').val(ADVANCED_TUNING.setPointITransition);
         $('.spa input[name="spa_D"]').val(ADVANCED_TUNING.setPointDTransition);
+        $('.spa_yaw input[name="spaYaw_P"]').val(ADVANCED_TUNING.setPointPTransitionYaw);
+        $('.spa_yaw input[name="spaYaw_I"]').val(ADVANCED_TUNING.setPointITransitionYaw);
+        $('.spa_yaw input[name="spaYaw_D"]').val(ADVANCED_TUNING.setPointDTransitionYaw);
+}
+
 
         if (semver.lt(CONFIG.apiVersion, "1.10.0")) {
             $('.pid_tuning input[name="rc_yaw_expo"]').hide();
@@ -287,6 +292,10 @@ TABS.pid_tuning.initialize = function (callback) {
               }else{
             $('input[id="feathered_pids"]').prop('checked', ADVANCED_TUNING.feathered_pids !== 0);
           }
+
+          // nfe racer mode
+            $('input[id="nferacermode"]').prop('checked', ADVANCED_TUNING.nfe_racermode !== 0);
+
             // I Term Rotation
             $('input[id="itermrotation"]').prop('checked', ADVANCED_TUNING.itermRotation !== 0);
 
@@ -328,6 +337,14 @@ TABS.pid_tuning.initialize = function (callback) {
             var errorBoostLimitNumberElement = $('input[name="errorBoostLimit-number"]');
             errorBoostLimitNumberElement.val(ADVANCED_TUNING.errorBoostLimit).trigger('input');
 
+            // errorBoost Control
+            var errorBoostYawNumberElement = $('input[name="errorBoostYaw-number"]');
+            errorBoostYawNumberElement.val(ADVANCED_TUNING.errorBoostYaw).trigger('input');
+
+            // errorBoost Limit Control
+            var errorBoostLimitYawNumberElement = $('input[name="errorBoostLimitYaw-number"]');
+            errorBoostLimitYawNumberElement.val(ADVANCED_TUNING.errorBoostLimitYaw).trigger('input');
+
             // Throttle Boost
             var throttleBoostNumberElement = $('input[name="throttleBoost-number"]');
             throttleBoostNumberElement.val(ADVANCED_TUNING.throttleBoost).trigger('input');
@@ -366,12 +383,15 @@ TABS.pid_tuning.initialize = function (callback) {
         } else {
             $('.feathered_pids').hide();
             $('.itermrotation').hide();
+            $('.nferacermode').hide();
             $('.smartfeedforward').hide();
             $('.itermrelax').hide();
             $('.absoluteControlGain').hide();
             $('.iDecay').hide();
             $('.errorBoost').hide();
             $('.errorBoostLimit').hide();
+            $('.errorBoostYaw').hide();
+            $('.errorBoostLimitYaw').hide();
             $('.throttleBoost').hide();
             $('.acroTrainerAngleLimit').hide();
 
@@ -645,6 +665,7 @@ TABS.pid_tuning.initialize = function (callback) {
             ADVANCED_TUNING.feathered_pids = $('input[id="feathered_pids"]').is(':checked') ? 1 : 0;
             }
             ADVANCED_TUNING.itermRotation = $('input[id="itermrotation"]').is(':checked') ? 1 : 0;
+            ADVANCED_TUNING.nfe_racermode = $('input[id="nferacermode"]').is(':checked') ? 1 : 0;
             ADVANCED_TUNING.smartFeedforward = $('input[id="smartfeedforward"]').is(':checked') ? 1 : 0;
             ADVANCED_TUNING.itermRelax = $('input[id="itermrelax"]').is(':checked') ? $('select[id="itermrelaxAxes"]').val() : 0;
             ADVANCED_TUNING.itermRelaxType = $('input[id="itermrelax"]').is(':checked') ? $('select[id="itermrelaxType"]').val() : 0;
@@ -690,9 +711,17 @@ TABS.pid_tuning.initialize = function (callback) {
         EMUF_ADVANCED.dynamic_THR_PID_I = parseFloat($('.tpa input[name="tpa_I"]').val());
         EMUF_ADVANCED.dynamic_THR_PID_D = parseFloat($('.tpa input[name="tpa_D"]').val());
 
+  if (semver.gte(CONFIG.apiVersion, "1.43.0")) {
+        ADVANCED_TUNING.errorBoostYaw = $('input[name="errorBoostYaw-number"]').val();
+        ADVANCED_TUNING.errorBoostLimitYaw = $('input[name="errorBoostLimitYaw-number"]').val();
         ADVANCED_TUNING.setPointPTransition = parseFloat($('.spa input[name="spa_P"]').val());
         ADVANCED_TUNING.setPointITransition = parseFloat($('.spa input[name="spa_I"]').val());
         ADVANCED_TUNING.setPointDTransition = parseFloat($('.spa input[name="spa_D"]').val());
+        ADVANCED_TUNING.setPointPTransitionYaw = parseFloat($('.spa_yaw input[name="spaYaw_P"]').val());
+        ADVANCED_TUNING.setPointITransitionYaw = parseFloat($('.spa_yaw input[name="spaYaw_I"]').val());
+        ADVANCED_TUNING.setPointDTransitionYaw = parseFloat($('.spa_yaw input[name="spaYaw_D"]').val());
+
+      }
 
 
     }

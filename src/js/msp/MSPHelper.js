@@ -392,9 +392,7 @@ MspHelper.prototype.process_data = function(dataHandler) {
                     GPS_CONFIG.auto_config = data.readU8();
                     GPS_CONFIG.auto_baud = data.readU8();
                 }
-                if (semver.lte(CONFIG.apiVersion, "1.42.0")) {
-                GPS_CONFIG.distanceLimit = data.readU16();
-              }
+
                 break;
             case MSPCodes.MSP_GPS_RESCUE:
                 GPS_RESCUE.angle             = data.readU16();
@@ -1542,9 +1540,7 @@ MspHelper.prototype.crunch = function(code) {
                 buffer.push8(GPS_CONFIG.auto_config)
                     .push8(GPS_CONFIG.auto_baud);
             }
-              if (semver.lte(CONFIG.apiVersion, "1.42.0")) {
-            buffer.push16(GPS_CONFIG.distanceLimit);
-          }
+
             break;
         case MSPCodes.MSP_SET_GPS_RESCUE:
             buffer.push16(GPS_RESCUE.angle)
@@ -1759,7 +1755,7 @@ MspHelper.prototype.crunch = function(code) {
                 }
             }
             break;
-        case MSPCodes.MSP_SET_FAST_KALMAN:
+       case MSPCodes.MSP_SET_FAST_KALMAN:
             buffer.push16(KALMAN_FILTER_CONFIG.gyro_filter_q);
             buffer.push16(KALMAN_FILTER_CONFIG.gyro_filter_w);
             break;
@@ -1831,7 +1827,6 @@ MspHelper.prototype.crunch = function(code) {
                                           .push8(ADVANCED_TUNING.setPointITransition)
                                           .push8(ADVANCED_TUNING.setPointDTransition)
                                           .push8(ADVANCED_TUNING.setPointPTransitionYaw)
-                                          .push8(ADVANCED_TUNING.acroTrainerAngleLimit)
                                           .push8(ADVANCED_TUNING.setPointITransitionYaw)
                                           .push8(ADVANCED_TUNING.setPointDTransitionYaw)
                                           .push8(ADVANCED_TUNING.nfe_racermode);

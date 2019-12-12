@@ -414,7 +414,7 @@ var FC = {
                   imuf_acc_lpf_cutoff_hz:   0,
               };
         KALMAN_FILTER_CONFIG = {
-            gyro_filter_q:            0,
+           gyro_filter_q:            0,
             gyro_filter_w:            0,
         };
 
@@ -454,11 +454,9 @@ var FC = {
             setPointITransition:        0,
             setPointDTransition:        0,
             setPointPTransitionYaw:     0,
-            acroTrainerAngleLimit:      0,
             setPointITransitionYaw:     0,
             setPointDTransitionYaw:     0,
             nfe_racermode:              0,
-
         };
 
         SENSOR_CONFIG = {
