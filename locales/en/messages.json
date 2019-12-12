@@ -3255,6 +3255,9 @@
     "pidTuningFeatheredPids": {
         "message": "Feathered PIDs"
     },
+    "pidTuningNfeRacerMode": {
+        "message": "NFE racer mode"
+    },
     "pidTuningiDecay": {
         "message": "iDecay"
     },
@@ -3278,6 +3281,9 @@
     },
     "pidTuningFeatheredPidsHelp": {
       "message": "Feathered PIDs changes the way that dterm is calculated. It is smoother for many freestyle pilots, however, while using Feathered PIDs do not use feedforward."
+    },
+    "pidTuningNfeRacerModeHelp": {
+      "message": "Nfe Racer mode is angle mode only on roll axis "
     },
     "pidTuningiDecayHelp": {
       "message": "Removes excessive iterm accumulation normally found at the end of quick stick movements. Running a higher decay allows you to run a higher iterm without experiencing bounce back or other common negatives associated with high iterm. Default is a value of 4, but the highest you can run it is 10."
@@ -4936,6 +4942,10 @@
     "configurationFpvCamAngleDegrees": {
         "message": "FPV Camera Angle [degrees]"
     },
+    "configurationCinematicYaw": {
+        "message": "Cinematic Yaw"
+    },
+
     "onboardLoggingBlackbox": {
         "message": "Blackbox logging device"
     },
