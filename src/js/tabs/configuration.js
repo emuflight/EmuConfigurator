@@ -1071,7 +1071,7 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
 
                 }
                 if (semver.gte(CONFIG.apiVersion, "1.43.0")) {
-                  RX_CONFIG.cinematicYaw = $('input[id="cinematicYawSwitch"]').is(':checked') ? 0 : 1;
+                  RX_CONFIG.cinematicYaw = $('input[id="cinematicYawSwitch"]').is(':checked') ? 1 : 0;
                 }
 
             function save_serial_config() {
