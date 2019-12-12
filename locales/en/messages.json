@@ -1667,6 +1667,24 @@
     "pidTuningTPABreakPoint": {
         "message": "TPA Breakpoint"
     },
+    "pidTuningSPA_P": {
+        "message": "SPA P"
+    },
+    "pidTuningSPA_I": {
+        "message": "SPA I"
+    },
+    "pidTuningSPA_D": {
+        "message": "SPA D"
+    },
+    "pidTuningSPAYaw_P": {
+        "message": "SPA YAW P"
+    },
+    "pidTuningSPAYaw_I": {
+        "message": "SPA YAW I"
+    },
+    "pidTuningSPAYaw_D": {
+        "message": "SPA YAW D"
+    },
     "pidTuningThrottleCurvePreview": {
         "message": "Throttle Curve Preview"
     },
@@ -3141,8 +3159,14 @@
     "pidTuningGyroNotchFiltersGroup": {
         "message": "Gyro Notch Filters"
     },
+    "pidTuningGyroDynLpfGroup": {
+        "message": "Gyro Dyn Filter"
+    },
     "pidTuningGyroNotch1Frequency": {
         "message": "Gyro Notch Filter 1 Center Frequency [Hz]"
+    },
+    "pidTuningGyroDynLpf": {
+        "message": "Gyro Dynamic Filter"
     },
     "pidTuningGyroNotch2Frequency": {
         "message": "Gyro Notch Filter 2 Center Frequency [Hz]"
@@ -3222,8 +3246,14 @@
     "pidTuningDTermNotchFiltersGroup": {
         "message": "D Term Notch Filters"
     },
+    "pidTuningdyndtermlpfGroup": {
+        "message": "D Term Dyn Filter"
+    },
     "pidTuningDTermNotchFrequency": {
         "message": "D Term Notch Filter Center Frequency [Hz]"
+    },
+    "pidTuningDTermDynLpf": {
+        "message": "D Term Dynamc filter"
     },
     "pidTuningDTermNotchCutoff": {
         "message": "D Term Notch Filter Cutoff Frequency [Hz]"
@@ -3243,6 +3273,9 @@
     "pidTuningFeatheredPids": {
         "message": "Feathered PIDs"
     },
+    "pidTuningNfeRacerMode": {
+        "message": "NFE racer mode"
+    },
     "pidTuningiDecay": {
         "message": "iDecay"
     },
@@ -3258,6 +3291,18 @@
     "pidTuningEmuBoostLimitHelp": {
         "message": "Puts a limit on how much the EmuBoost is allowed to boost your error. Its measured as a percentage of the total error that EmuBoost is allowed to add. A high EmuBoost with a low EmuBoost Limit can give a snappy feeling near the center of the stick. Tune this according to preference."
     },
+    "pidTuningEmuBoostYaw": {
+        "message": "EmuBoost Yaw"
+    },
+    "pidTuningEmuBoostLimitYaw": {
+        "message": "EmuBoost Limit Yaw"
+    },
+    "pidTuningEmuBoostYawHelp": {
+        "message": "Adds a nonlinear boost to the error seen by your p and i term. Adds a different feeling to the sticks. Values that are to high will cause oscillations. Craft with a lower power to weight like whoops seem happy with quite high values and EmuBoost can really help give them a locked in feeling."
+    },
+    "pidTuningEmuBoostLimitYawHelp": {
+        "message": "Puts a limit on how much the EmuBoost is allowed to boost your error. Its measured as a percentage of the total error that EmuBoost is allowed to add. A high EmuBoost with a low EmuBoost Limit can give a snappy feeling near the center of the stick. Tune this according to preference."
+    },
     "pidTuningItermRotation": {
         "message": "I Term Rotation"
     },
@@ -3266,6 +3311,9 @@
     },
     "pidTuningFeatheredPidsHelp": {
       "message": "Feathered PIDs changes the way that dterm is calculated. It is smoother for many freestyle pilots, however, while using Feathered PIDs do not use feedforward."
+    },
+    "pidTuningNfeRacerModeHelp": {
+      "message": "Nfe Racer mode is angle mode only on roll axis "
     },
     "pidTuningiDecayHelp": {
       "message": "Removes excessive iterm accumulation normally found at the end of quick stick movements. Running a higher decay allows you to run a higher iterm without experiencing bounce back or other common negatives associated with high iterm. Default is a value of 4, but the highest you can run it is 10."
@@ -4924,6 +4972,10 @@
     "configurationFpvCamAngleDegrees": {
         "message": "FPV Camera Angle [degrees]"
     },
+    "configurationCinematicYaw": {
+        "message": "Cinematic Yaw"
+    },
+
     "onboardLoggingBlackbox": {
         "message": "Blackbox logging device"
     },

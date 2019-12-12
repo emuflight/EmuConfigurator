@@ -376,6 +376,8 @@ var FC = {
             gyro_hardware_lpf:          0,
             gyro_32khz_hardware_lpf:    0,
             gyro_lowpass_hz:            0,
+            dterm_dyn_lpf:              0,
+            gyro_dyn_lpf:               0,
             gyro_lowpass_dyn_min_hz:    0,
             gyro_lowpass_dyn_max_hz:    0,
             gyro_lowpass_type:          0,
@@ -410,9 +412,9 @@ var FC = {
                   imuf_pitch_lpf_cutoff_hz: 0,
                   imuf_yaw_lpf_cutoff_hz:   0,
                   imuf_acc_lpf_cutoff_hz:   0,
-              }
+              };
         KALMAN_FILTER_CONFIG = {
-            gyro_filter_q:            0,
+           gyro_filter_q:            0,
             gyro_filter_w:            0,
         };
 
@@ -446,6 +448,15 @@ var FC = {
             feedforwardTransition:      0,
             antiGravityMode:            0,
             itermRelaxCutoff:           0,
+            errorBoostYaw:              0,
+            errorBoostLimitYaw:         0,
+            setPointPTransition:        0,
+            setPointITransition:        0,
+            setPointDTransition:        0,
+            setPointPTransitionYaw:     0,
+            setPointITransitionYaw:     0,
+            setPointDTransitionYaw:     0,
+            nfe_racermode:              0,
         };
 
         SENSOR_CONFIG = {
@@ -460,6 +471,7 @@ var FC = {
             stick_center:                 0,
             stick_min:                    0,
             spektrum_sat_bind:            0,
+            cinematicYaw:                 0,
             rx_min_usec:                  0,
             rx_max_usec:                  0,
             rcInterpolation:              0,
@@ -520,6 +532,8 @@ var FC = {
             dterm_notch_cutoff:             160,
             dterm_notch_hz:                 260,
             yaw_lowpass_hz:                 100,
+            dterm_dyn_lpf:                  100,
+            gyro_dyn_lpf:                   100,
         };
     },
 

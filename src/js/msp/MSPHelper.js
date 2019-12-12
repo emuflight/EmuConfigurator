@@ -322,8 +322,8 @@ MspHelper.prototype.process_data = function(dataHandler) {
                     RC_tuning.RC_PITCH_EXPO = 0;
                 }
                 if (semver.gte(CONFIG.apiVersion, "1.41.0")) {
-                    RC_tuning.throttleLimitType = data.readU8();
-                    RC_tuning.throttleLimitPercent = data.readU8();
+                    RC_tuning.throttle_limit_type = data.readU8();
+                    RC_tuning.throttle_limit_percent = data.readU8();
                 }
                 break;
 
@@ -392,7 +392,7 @@ MspHelper.prototype.process_data = function(dataHandler) {
                     GPS_CONFIG.auto_config = data.readU8();
                     GPS_CONFIG.auto_baud = data.readU8();
                 }
-                GPS_CONFIG.distanceLimit = data.readU16();
+
                 break;
             case MSPCodes.MSP_GPS_RESCUE:
                 GPS_RESCUE.angle             = data.readU16();
@@ -866,6 +866,9 @@ MspHelper.prototype.process_data = function(dataHandler) {
                 RX_CONFIG.stick_center = data.readU16();
                 RX_CONFIG.stick_min = data.readU16();
                 RX_CONFIG.spektrum_sat_bind = data.readU8();
+                if (semver.gte(CONFIG.apiVersion, "1.43.0")) {
+                RX_CONFIG.cinematicYaw = data.readU8();
+                }
                 RX_CONFIG.rx_min_usec = data.readU16();
                 RX_CONFIG.rx_max_usec = data.readU16();
                 if (semver.gte(CONFIG.apiVersion, "1.20.0")) {
@@ -943,6 +946,12 @@ MspHelper.prototype.process_data = function(dataHandler) {
                 FILTER_CONFIG.gyro_lowpass_hz = data.readU8();
                 FILTER_CONFIG.dterm_lowpass_hz = data.readU16();
                 FILTER_CONFIG.yaw_lowpass_hz = data.readU16();
+                if (semver.gte(CONFIG.apiVersion, "1.43.0")) {
+                  FILTER_CONFIG.dterm_dyn_lpf = data.readU16();
+                  if (CONFIG.boardIdentifier != "HESP" && CONFIG.boardIdentifier != "SX10" && CONFIG.boardIdentifier != "FLUX") {
+                  FILTER_CONFIG.gyro_dyn_lpf = data.readU16();
+                  }
+                }
                 if (semver.gte(CONFIG.apiVersion, "1.20.0")) {
                     FILTER_CONFIG.gyro_notch_hz = data.readU16();
                     FILTER_CONFIG.gyro_notch_cutoff = data.readU16();
@@ -963,10 +972,11 @@ MspHelper.prototype.process_data = function(dataHandler) {
                         FILTER_CONFIG.gyro_lowpass_type = data.readU8();
                         FILTER_CONFIG.gyro_lowpass2_type = data.readU8();
                         FILTER_CONFIG.dterm_lowpass2_hz = data.readU16();
+
                     }
                 }
                 break;
-                
+
             case MSPCodes.MSP_FAST_KALMAN:
                 KALMAN_FILTER_CONFIG.gyro_filter_q = data.readU16();
                 KALMAN_FILTER_CONFIG.gyro_filter_w = data.readU16();
@@ -1034,6 +1044,17 @@ MspHelper.prototype.process_data = function(dataHandler) {
                                     ADVANCED_TUNING.antiGravityMode  = data.readU8();
                                     ADVANCED_TUNING.itermRelaxCutoff = data.readU8();
 
+                                    if (semver.gte(CONFIG.apiVersion, "1.43.0")) {
+                                      ADVANCED_TUNING.errorBoostYaw = data.readU16();
+                                      ADVANCED_TUNING.errorBoostLimitYaw = data.readU8();
+                                      ADVANCED_TUNING.setPointPTransition = data.readU8();
+                                      ADVANCED_TUNING.setPointITransition = data.readU8();
+                                      ADVANCED_TUNING.setPointDTransition = data.readU8();
+                                      ADVANCED_TUNING.setPointPTransitionYaw = data.readU8();
+                                      ADVANCED_TUNING.setPointITransitionYaw = data.readU8();
+                                      ADVANCED_TUNING.setPointDTransitionYaw = data.readU8();
+                                      ADVANCED_TUNING.nfe_racermode = data.readU8();
+                                    }
                                 }
                             }
                         }
@@ -1452,8 +1473,8 @@ MspHelper.prototype.crunch = function(code) {
                 buffer.push8(Math.round(RC_tuning.RC_PITCH_EXPO * 100));
             }
             if (semver.gte(CONFIG.apiVersion, "1.41.0")) {
-                buffer.push8(RC_tuning.throttleLimitType);
-                buffer.push8(RC_tuning.throttleLimitPercent);
+                buffer.push8(RC_tuning.throttle_limit_type);
+                buffer.push8(RC_tuning.throttle_limit_percent);
             }
             break;
 
@@ -1519,7 +1540,7 @@ MspHelper.prototype.crunch = function(code) {
                 buffer.push8(GPS_CONFIG.auto_config)
                     .push8(GPS_CONFIG.auto_baud);
             }
-            buffer.push16(GPS_CONFIG.distanceLimit);
+
             break;
         case MSPCodes.MSP_SET_GPS_RESCUE:
             buffer.push16(GPS_RESCUE.angle)
@@ -1571,8 +1592,11 @@ MspHelper.prototype.crunch = function(code) {
                 .push16(RX_CONFIG.stick_max)
                 .push16(RX_CONFIG.stick_center)
                 .push16(RX_CONFIG.stick_min)
-                .push8(RX_CONFIG.spektrum_sat_bind)
-                .push16(RX_CONFIG.rx_min_usec)
+                .push8(RX_CONFIG.spektrum_sat_bind);
+                if (semver.gte(CONFIG.apiVersion, "1.43.0")) {
+                buffer.push8(RX_CONFIG.cinematicYaw);
+              }
+                buffer.push16(RX_CONFIG.rx_min_usec)
                 .push16(RX_CONFIG.rx_max_usec);
             if (semver.gte(CONFIG.apiVersion, "1.20.0")) {
                 buffer.push8(RX_CONFIG.rcInterpolation)
@@ -1700,6 +1724,12 @@ MspHelper.prototype.crunch = function(code) {
             buffer.push8(FILTER_CONFIG.gyro_lowpass_hz)
                 .push16(FILTER_CONFIG.dterm_lowpass_hz)
                 .push16(FILTER_CONFIG.yaw_lowpass_hz);
+                if (semver.gte(CONFIG.apiVersion, "1.43.0")) {
+                      buffer.push16(FILTER_CONFIG.dterm_dyn_lpf);
+                      if (CONFIG.boardIdentifier != "HESP" && CONFIG.boardIdentifier != "SX10" && CONFIG.boardIdentifier != "FLUX") {
+                          buffer.push16(FILTER_CONFIG.gyro_dyn_lpf);
+                        }
+                  }
             if (semver.gte(CONFIG.apiVersion, "1.20.0")) {
                 buffer.push16(FILTER_CONFIG.gyro_notch_hz)
                     .push16(FILTER_CONFIG.gyro_notch_cutoff)
@@ -1725,7 +1755,7 @@ MspHelper.prototype.crunch = function(code) {
                 }
             }
             break;
-        case MSPCodes.MSP_SET_FAST_KALMAN:
+       case MSPCodes.MSP_SET_FAST_KALMAN:
             buffer.push16(KALMAN_FILTER_CONFIG.gyro_filter_q);
             buffer.push16(KALMAN_FILTER_CONFIG.gyro_filter_w);
             break;
@@ -1789,6 +1819,18 @@ MspHelper.prototype.crunch = function(code) {
                                       .push16(ADVANCED_TUNING.feedforwardYaw)
                                       .push8(ADVANCED_TUNING.antiGravityMode)
                                       .push8(ADVANCED_TUNING.itermRelaxCutoff);
+
+                                  if (semver.gte(CONFIG.apiVersion, "1.43.0")) {
+                                    buffer.push16(ADVANCED_TUNING.errorBoostYaw)
+                                          .push8(ADVANCED_TUNING.errorBoostLimitYaw)
+                                          .push8(ADVANCED_TUNING.setPointPTransition)
+                                          .push8(ADVANCED_TUNING.setPointITransition)
+                                          .push8(ADVANCED_TUNING.setPointDTransition)
+                                          .push8(ADVANCED_TUNING.setPointPTransitionYaw)
+                                          .push8(ADVANCED_TUNING.setPointITransitionYaw)
+                                          .push8(ADVANCED_TUNING.setPointDTransitionYaw)
+                                          .push8(ADVANCED_TUNING.nfe_racermode);
+                                  }
                             }
                         }
                     }

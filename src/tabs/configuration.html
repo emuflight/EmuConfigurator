@@ -14,7 +14,7 @@
             <tr>
                 <td style="width:calc(50%);vertical-align:top;">
                     <!-- ROW 1 - LEFT PANE -->
-        
+
                     <!-- MIXER -->
                     <div class="mixer">
                         <div class="gui_box grey">
@@ -129,11 +129,19 @@
                             </div>
                             <div class="spacer_box">
                                 <div class="number fpvCamAngleDegrees">
-                                    <label> <input type="number" name="fpvCamAngleDegrees" step="1" min="0" max="50" /> <span
+                                    <label> <input type="number" name="fpvCamAngleDegrees" step="1" min="0" max="90" /> <span
                                             i18n="configurationFpvCamAngleDegrees"></span>
                                     </label>
                                 </div>
-                            </div>
+                                <div class="select">
+                                    <div style="float: left; height: 20px; margin-right: 15px; margin-left: 3px;">
+                                        <input type="checkbox" id="cinematicYawSwitch" class="toggle" />
+                                    </div>
+                                    <label for="cinematicYawSwitch"> <span class="freelabel"
+                                        i18n="configurationCinematicYaw"></span>
+                                    </label>
+                                </div>
+                          </div>
                         </div>
                     </div>
 
@@ -370,7 +378,7 @@
                             </div>
                         </div>
                     </div>
-                
+
                 </td>
             </tr>
             <tr>
@@ -444,7 +452,7 @@
                     </div>
 
                 </td>
-            </tr>  
+            </tr>
             <tr>
                  <td style="width:calc(50%);vertical-align:top;">
                     <!-- ROW 3 - LEFT PANE -->
@@ -480,7 +488,7 @@
                 </td>
                 <td style="width:calc(50%);vertical-align:top;">
                     <!-- ROW 3 - RIGHT PANE -->
-                    
+
                     <!-- 3D -->
                     <div class="3d">
                         <div class="gui_box grey">
@@ -547,7 +555,7 @@
                                                 <p i18n="configurationGPSHelp"></p>
                                             </div>
                                         </div>
-                                    
+
                                         <div class="line">
                                             <select class="gps_protocol">
                                                 <!-- list generated here -->
@@ -716,8 +724,8 @@
             <tr class="dshotbeeper">
                 <td style="width:calc(100%)" colspan="2">
                     <!-- ROW 5 - FULL WIDTH PANE -->
-            
-                    
+
+
                     <!-- DSHOT BEEPER -->
                     <div class="dshotBeeper" style="width: calc(100%);">
                         <div class="gui_box grey" style="margin-top:10px;">
@@ -734,7 +742,7 @@
                                                     <div style="float: left; height: 20px; margin-right: 34px;">
                                                         <input class="dshot-beeper toggle" id="dshotBeeperSwitch" type="checkbox" />
                                                     </div>
-                                                    <label for="dshotBeeperSwitch">    
+                                                    <label for="dshotBeeperSwitch">
                                                         <span i18n="configurationUseDshotBeeper"></span>
                                                     </label>
                                                 </div>
@@ -746,7 +754,7 @@
                                                     <div style="float: left; height: 20px; margin-right: 10px;">
                                                         <select class="dshotBeeperBeaconTone">
                                                             <option value="0" hidden></option>
-                                                            <!-- list generated here --> 
+                                                            <!-- list generated here -->
                                                         </select>
                                                     </div>
                                                     <label for="dshotBeeperBeaconTone">
@@ -771,7 +779,7 @@
             <tr class="beepers">
                 <td style="width:calc(100%)" colspan="2">
                     <!-- ROW 6 - FULL WIDTH PANE -->
-            
+
                     <!-- BEEPER -->
                     <div class="beepers" style="width: calc(100%);">
                         <div class="gui_box grey" style="margin-top:10px;">

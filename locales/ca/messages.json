@@ -2500,6 +2500,9 @@
     "pidTuningGyroNotch1Frequency": {
         "message": "Giro Filtre Notch 1 Freqüència Central [Hz]"
     },
+    "pidTuningGyroDynLpf": {
+        "message": "Gyro Dynamic Filter"
+    },
     "pidTuningGyroNotch2Frequency": {
         "message": "Giro Filtre Notch 2 Freqüència Central [Hz]"
     },

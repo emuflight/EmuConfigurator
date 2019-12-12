@@ -420,6 +420,29 @@
                                  </td>
                             </tr>
 
+                            <tr class="errorBoostYaw">
+                                <td><input type="number" name="errorBoostYaw-number" step="5" min="0" max="1000"/></td>
+                                 <td colspan="1">
+                                    <div>
+                                        <label>
+                                        <span i18n="pidTuningEmuBoostYaw"></span>
+                                        </label>
+                                        <div class="helpicon cf_tip" i18n_title="pidTuningEmuBoostYawHelp"></div>
+                                    </div>
+                                 </td>
+                            </tr>
+                            <tr class="errorBoostLimitYaw">
+                                <td><input type="number" name="errorBoostLimitYaw-number" step="1" min="0" max="250"/></td>
+                                 <td colspan="1">
+                                    <div>
+                                        <label>
+                                        <span i18n="pidTuningEmuBoostLimitYaw"></span>
+                                        </label>
+                                        <div class="helpicon cf_tip" i18n_title="pidTuningEmuBoostLimitYawHelp"></div>
+                                    </div>
+                                 </td>
+                            </tr>
+
                             <tr id="featheredPidsLine" class="feathered_pids">
                                 <td><input type="checkbox" id="feathered_pids" class="toggle" /></td>
                                 <td colspan="2">
@@ -440,6 +463,14 @@
 
                                         <div class="helpicon cf_tip" i18n_title="pidTuningFeatheredPidsHelp"></div>
                                     </div>
+                                </td>
+                            </tr>
+
+                            <tr class="nferacermode">
+                                <td><input type="checkbox" id="nferacermode" class="toggle" /></td>
+                                <td colspan="2">
+                                    <span i18n="pidTuningNfeRacerMode"></span>
+                                    <div class="helpicon cf_tip" i18n_title="pidTuningNfeRacerModeHelp"></div>
                                 </td>
                             </tr>
 
@@ -660,6 +691,52 @@
                         </table>
                     </div>
 
+                        <div class="gui_box spa spacer_left">
+                            <table class="cf">
+                                <thead>
+                                    <tr>
+                                        <th i18n="pidTuningSPA_P"></th>
+                                        <th i18n="pidTuningSPA_I"></th>
+                                        <th i18n="pidTuningSPA_D"></th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="height: 35px;">
+                                        <td class="leftzero"><input type="number" name="spa_P" step="1" min="0"
+                                            max="250" /></td>
+                                        <td class="leftzero"><input type="number" name="spa_I" id="spaIidentificator" step="1" min="0"
+                                            max="250" /></td>
+                                        <td class="leftzero"><input type="number" name="spa_D" id="spaDidentificator" step="1" min="0"
+                                            max="250" /></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="gui_box spa_yaw spacer_left">
+                            <table class="cf">
+                                <thead>
+                                    <tr>
+                                        <th i18n="pidTuningSPAYaw_P"></th>
+                                        <th i18n="pidTuningSPAYaw_I"></th>
+                                        <th i18n="pidTuningSPAYaw_D"></th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="height: 35px;">
+                                        <td class="leftzero"><input type="number" name="spaYaw_P" step="1" min="0"
+                                            max="250" /></td>
+                                        <td class="leftzero"><input type="number" name="spaYaw_I" id="spaYawIidentificator" step="1" min="0"
+                                            max="250" /></td>
+                                        <td class="leftzero"><input type="number" name="spaYaw_D" id="spaYawDidentificator" step="1" min="0"
+                                            max="250" /></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
                     <div class="gui_box throttle_limit spacer_left">
                         <table class="cf">
                             <thead>
@@ -842,6 +919,28 @@
                                     </div>
                                 </td>
                             </tr>
+
+                            <tr class="newFilter gyroDynGroup">
+                                <th colspan="2">
+                                    <div class="pid_mode" i18n="pidTuningGyroDynLpfGroup" />
+                                </th>
+                            </tr>
+                            <tr class="newFilter gyroDynGroup">
+                                <td>
+                                  <span class="groupSwitchValue">
+                                      <span class="inputSwitch"><input type="checkbox" id="gyroDynLpfEnabled" class="toggle" /></span>
+                                      <span class="inputValue"><input type="number" name="gyroDynLpf" step="1" min="1" max="16000"/></span>
+                                  </span>
+                                </td>
+                                <td>
+                                    <div>
+                                        <label>
+                                            <span i18n="pidTuningGyroDynLpf"></span>
+                                        </label>
+                                    </div>
+                                </td>
+                            </tr>
+
 
                             <tr>
                                 <th colspan="2">
@@ -1133,6 +1232,26 @@
                                     <div>
                                         <label>
                                             <span i18n="pidTuningDTermLowpass2Frequency"></span>
+                                        </label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th colspan="2">
+                                    <div class="pid_mode" i18n="pidTuningdyndtermlpfGroup" />
+                                </th>
+                            </tr>
+                            <tr class="newFilter">
+                                <td>
+                                  <span class="groupSwitchValue">
+                                      <span class="inputSwitch"><input type="checkbox" id="dtermDynLpfEnabled" class="toggle" /></span>
+                                      <span class="inputValue"><input type="number" name="dtermDynLpf" step="1" min="1" max="16000"/></span>
+                                  </span>
+                                </td>
+                                <td>
+                                    <div>
+                                        <label>
+                                            <span i18n="pidTuningDTermDynLpf"></span>
                                         </label>
                                     </div>
                                 </td>

@@ -2998,6 +2998,9 @@
     "pidTuningDTermNotchFrequency": {
         "message": "D Term Notch Filter Centralna Frekvencija[Hz]"
     },
+    "pidTuningDTermDynLpf": {
+        "message": "D Term Dynamc filter"
+    },
     "pidTuningDTermNotchCutoff": {
         "message": "D Term Notch Filter Cutoff Frekvencija[Hz]"
     },
