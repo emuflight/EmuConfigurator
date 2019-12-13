@@ -1139,9 +1139,8 @@ TABS.pid_tuning.initialize = function (callback) {
 
 
 
-                $('input[name="featheredPids-number"]').val(presetJson[presetSelected]['dterm_lowpass_type']);
-                console.log("preset" + presetJson[presetSelected]['dterm_lowpass_type']);
-                console.log("preset gui" + $('input[name="dtermLowpassType"]').val());
+                $('input[name="featheredPids-number"]').val(presetJson[presetSelected]['feathered_pids']);
+
 
                 $('input[id="itermrotation"]').prop('checked', presetJson[presetSelected]['iterm_rotation'] !== "OFF").change();
                 $('input[id="vbatpidcompensation"]').prop('checked', presetJson[presetSelected]['vbat_pid_gain'] !== "OFF").change();
