@@ -1091,7 +1091,7 @@ TABS.pid_tuning.initialize = function (callback) {
                 $('.pid_filter input[name="gyroNotch2Cutoff"]').val(presetJson[presetSelected]['gyro_notch2_cutoff']);
 
                 $('input[id="dtermLowpassEnabled"]').prop('checked', presetJson[presetSelected]['dterm_lowpass_enabled'] !== "OFF").change();
-                $('.pid_filter input[name="dtermLowpassType"]').val(presetJson[presetSelected]['dterm_lowpass_type']);
+                $('.pid_filter select[name="dtermLowpassType"]').val(presetJson[presetSelected]['dterm_lowpass_type']);
                 $('.pid_filter input[name="dtermLowpassFrequency"]').val(presetJson[presetSelected]['dterm_lowpass_hz']);
                 $('input[id="dtermLowpass2Enabled"]').prop('checked', presetJson[presetSelected]['dterm_lowpass2_enabled'] !== "OFF").change();
                 $('.pid_filter input[name="dtermLowpass2Frequency"]').val(presetJson[presetSelected]['dterm_lowpass2_hz']);
@@ -1139,9 +1139,9 @@ TABS.pid_tuning.initialize = function (callback) {
 
 
 
-                $('input[name="featheredPids-number"]').val(presetJson[presetSelected]['feathered_pids']);
-                console.log("preset" + presetJson[presetSelected]['feathered_pids']);
-                console.log("preset gui" + $('input[name="featheredPids-number"]').val());
+                $('input[name="featheredPids-number"]').val(presetJson[presetSelected]['dterm_lowpass_type']);
+                console.log("preset" + presetJson[presetSelected]['dterm_lowpass_type']);
+                console.log("preset gui" + $('input[name="dtermLowpassType"]').val());
 
                 $('input[id="itermrotation"]').prop('checked', presetJson[presetSelected]['iterm_rotation'] !== "OFF").change();
                 $('input[id="vbatpidcompensation"]').prop('checked', presetJson[presetSelected]['vbat_pid_gain'] !== "OFF").change();
