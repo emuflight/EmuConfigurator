@@ -38,7 +38,7 @@ before_install:
   - if [ "$TRAVIS_OS_NAME" == "windows" ]; then export PATH="/c/Python38:/c/Python38/Scripts:/c/Users/travis/AppData/Roaming/Python/Python38/Scripts:$PATH"; fi
 
 install:
-  - python -m pip install --user --upgrade j2cli # install pip
+  - pip -q install --user --upgrade j2cli # install pip
 
 script:
   - ./.travis.sh # main
