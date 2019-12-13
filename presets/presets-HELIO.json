@@ -219,7 +219,7 @@
       "abs_control_gain":              10,
       "i_decay":                       7,
       "emu_boost":                     40,
-      "boost_limit":                   40,
+      "emu_boost_limit":               40,
       "emu_boost_yaw":                 40,
       "emu_boost_limit_yaw":           40,
       "feathered_pids":                0,

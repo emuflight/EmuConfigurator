@@ -1140,6 +1140,8 @@ TABS.pid_tuning.initialize = function (callback) {
 
 
                 $('input[name="featheredPids-number"]').val(presetJson[presetSelected]['feathered_pids']);
+console.log("preset" + presetJson[presetSelected]['feathered_pids']);
+console.log("preset file "+ $('input[name="featheredPids-number"]'));
 
 
                 $('input[id="itermrotation"]').prop('checked', presetJson[presetSelected]['iterm_rotation'] !== "OFF").change();
