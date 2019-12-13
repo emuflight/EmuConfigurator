@@ -1125,11 +1125,19 @@ TABS.pid_tuning.initialize = function (callback) {
                 var iDecayNumberElement = $('input[name="iDecay-number"]');
                 iDecayNumberElement.val(presetJson[presetSelected]['i_decay']).trigger('input');
 
-                var iDecayNumberElement = $('input[name="errorBoost-number"]');
-                iDecayNumberElement.val(presetJson[presetSelected]['emu_boost']).trigger('input');
+                var errorBoostNumberElement = $('input[name="errorBoost-number"]');
+                errorBoostNumberElement.val(presetJson[presetSelected]['emu_boost']).trigger('input');
 
-                var iDecayNumberElement = $('input[name="errorBoostLimit-number"]');
-                iDecayNumberElement.val(presetJson[presetSelected]['emu_boost_limit']).trigger('input');
+                var errorBoostLimitNumberElement = $('input[name="errorBoostLimit-number"]');
+                errorBoostLimitNumberElement.val(presetJson[presetSelected]['emu_boost_limit']).trigger('input');
+
+                var errorBoostYawNumberElement = $('input[name="errorBoostYaw-number"]');
+                errorBoostYawNumberElement.val(presetJson[presetSelected]['emu_boost_yaw']).trigger('input');
+
+                var errorBoostLimitYawNumberElement = $('input[name="errorBoostLimitYaw-number"]');
+                errorBoostLimitYawNumberElement.val(presetJson[presetSelected]['emu_boost_limit_yaw']).trigger('input');
+
+
 
                 $('input[name="featheredPids-number"]').val(presetJson[presetSelected]['feathered_pids']);
                 console.log("preset" + presetJson[presetSelected]['feathered_pids']);
