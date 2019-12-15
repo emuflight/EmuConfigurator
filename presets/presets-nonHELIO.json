@@ -762,7 +762,7 @@
       "imuf_pitch_lpf_cutoff_hz":      120,
       "imuf_roll_lpf_cutoff_hz":       120,
       "imuf_yaw_lpf_cutoff_hz":        120,
-      "__comment":                     "!!! Filters Gyro !!!",
+      "__comment":                    "!!! Filters Gyro !!!",
       "gyro_lowpass_enabled":          "ON",
       "gyro_lowpass_type":             PT1,
       "gyro_lowpass_hz":               100,
