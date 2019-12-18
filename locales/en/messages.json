@@ -3190,7 +3190,7 @@
         "message": "Defines the lowest dynamic notch center frequency below which the dynamic notch will not go."
     },
     "pidTuningLowpassFilterHelp": {
-        "message": "The Lowpass Filters can have two variants: static and dynamic. For a determined lowpass filter number only one (static or dynamic) can be enabled at the same time. The static only has a Cutoff that is a value that defines in some way where the filter starts. The dynamic defines a min and max values, that is the range where the Cutoff is placed. This Cutoff moves from min to max at the same time than you move the throttle stick."
+        "message": "The Lowpass Filters can have two variants: static and dynamic. The static lowpass filter cutoff remains constant.  The noise above the cutoff is attenuated.  The dynamic lowpass cutoff is a minimum that will move higher based on error and gyro. If both static and dynamic are enabled concurrently, it will double filter."
     },
     "pidTuningFilterSettings": {
         "message": "Profile dependent Filter Settings"
