@@ -3009,7 +3009,7 @@
         "message": "Roterar den aktuella I Term-vektorn på lämpligt sätt till andra axlar när farkosten roterar med konstant gir under rollar och vid \"funnels\" och andra trick. Mycket uppskattat av LOS acro-piloter."
     },
     "pidTuningFeatheredPidsHelp": {
-      "message": "Feathered PIDs changes the way that dterm is calculated. It is smoother for many freestyle pilots, however, while using Feathered PIDs do not use feedforward."
+      "message": "Feathered PIDs changes how Dterm is calculated. 0 is error based dterm and 100 is measurement based dterm. Measurement is smoother but less responsive than error. Any value between 0 and 100 is a scalar of partially measurement and error calculated dterm."
     },
     "pidTuningiDecayHelp": {
       "message": "Removes excessive iterm accumulation normally found at the end of quick stick movements. Running a higher decay allows you to run a higher iterm without experiencing bounce back or other common negatives associated with high iterm. Default is a value of 4, but the highest you can run it is 10."
