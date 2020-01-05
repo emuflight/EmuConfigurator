@@ -5097,7 +5097,7 @@
         "message": "IMU-F Filter Settings"
     },
     "pidTuningIMUFFilterSettings": {
-        "message": "IMU-F Filter Settings"
+        "message": "Profile independent IMU-F Filter Settings"
     }
 
 
