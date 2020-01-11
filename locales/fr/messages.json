@@ -3487,20 +3487,21 @@
         "message": "Aperçu pour",
         "description": "Label of the selector for the OSD Profile in the preview"
     },
+    "osdSetupPreviewForTitle": {
+        "message": "Changer le profil ou la police ici ne changera PAS le profil ou la police dans le contrôleur de vol. Cela n'affecte que la fenêtre d'aperçu. Si vous voulez le changer, vous devez utiliser le '$t(osdSetupSelectedProfileTitle.message)' ou le bouton '$t(osdSetupFontManager.message)' respectivement.",
+        "description": "Help content for the OSD profile and font PREVIEW"
+    },
     "osdSetupSelectedProfileTitle": {
         "message": "Profil OSD actif",
         "description": "Title of the box to select the current active OSD profile"
     },
     "osdSetupSelectedProfileLabel": {
         "message": "Courant :",
-        "description": "Label for the selection of the curren active OSD profile"
+        "description": "Label for the selection of the current active OSD profile"
     },
     "osdSetupPreviewSelectProfileElement": {
         "message": "Profil OSD {{profileNumber}}",
         "description": "Content of the selector for the OSD Profile in the preview"
-    },
-    "osdSetupPreviewTitleTip": {
-        "message": "Afficher ou masquer le logo dans la fenêtre d'aperçu. Cela ne changera aucun paramètre sur le contrôleur de vol."
     },
     "osdSetupVideoFormatTitle": {
         "message": "Format vidéo"
@@ -4113,5 +4114,65 @@
     },
     "flashTab": {
         "message": "Mise à jour du firmware"
+    },
+    "cliAutoComplete": {
+        "message": "Saisie semi-automatique CLI avancée"
+    },
+    "darkTheme": {
+        "message": "Activer le thème sombre"
+    },
+    "pidTuningKalmanFilterQ": {
+          "message": "IMU-F Q Coefficient"
+      },
+      "pidTuningImufRollQ": {
+          "message": "IMU-F roll Q"
+      },
+      "pidTuningImufPitchQ": {
+          "message": "IMU-F pitch Q"
+      },
+      "pidTuningImufYawQ": {
+          "message": "IMU-F yaw Q"
+      },
+      "pidTuningImufW": {
+          "message": "IMU-F W"
+      },
+      "pidTuningKalmanFilterQHelp": {
+          "message": "IMU-F filter Q Coefficient. Le degré de confiance dans la précision des données gyroscopiques (valeur plus élevée = plus de confiance et moins de filtrage)"
+      },
+      "pidTuningImuflpfRoll": {
+        "message": "IMU-F ROLL LPF cutoff Hz"
+      },
+        "pidTuningImuflpfRollHelp": {
+        "message": "Coupure matérielle Helio/Strix"
+      },
+      "pidTuningImuflpfPitch": {
+        "message": "IMU-F PITCH LPF cutoff Hz"
+      },
+        "pidTuningImuflpfPitchHelp": {
+        "message": "Coupure matérielle Helio/Strix"
+      },
+      "pidTuningImuflpfYaw": {
+        "message": "IMU-F YAW lpf cutoff Hz"
+      },
+        "pidTuningImuflpfYawHelp": {
+        "message": "Coupure matérielle Helio/Strix"
+      },
+      "pidTuningImuflpfAcc": {
+        "message": "IMU-F accelerometer LPF cutoff Hz"
+      },
+      "pidTuningImuflpfAccHelp": {
+        "message": "Coupure matérielle Helio/Strix"
+      },
+      "pidTuningKalmanFilterR": {
+          "message": "IMU-F W Coefficient"
+      },
+      "pidTuningKalmanFilterWHelp": {
+          "message": "W est la quantité de lectures gyroscopiques que le filtre IMUF examine pour déterminer son filtre. Lower W donne une sensation de bâton plus nette. Les plus gros vaisseaux préfèrent une valeur W plus élevée."
+      },
+    "pidTuningKalmanFilterSettings": {
+        "message": "Paramètres du filtre IMU-F"
+    },
+    "pidTuningIMUFFilterSettings": {
+        "message": "Paramètres de filtre IMU-F indépendants du profil"
     }
 }
