@@ -228,7 +228,7 @@ TABS.pid_tuning.initialize = function (callback) {
             $('.pid_filter select[name="gyroLowpassType"]').val(FILTER_CONFIG.gyro_lowpass_type);
             $('.pid_filter select[name="gyroLowpass2Type"]').val(FILTER_CONFIG.gyro_lowpass2_type);
             $('.pid_filter input[name="dtermLowpass2Frequency"]').val(FILTER_CONFIG.dterm_lowpass2_hz);
-              if (semver.gte(CONFIG.apiVersion, "1.43.0")) {
+              if (semver.eq(CONFIG.apiVersion, "1.43.0")) {
                    $('.pid_filter input[name="dtermDynLpf"]').val(FILTER_CONFIG.dterm_dyn_lpf);
                    $('.pid_filter .gyroDynGroup').hide();
                 if (CONFIG.boardIdentifier !== "HESP" && CONFIG.boardIdentifier !== "SX10" && CONFIG.boardIdentifier !== "FLUX"){
@@ -656,7 +656,7 @@ TABS.pid_tuning.initialize = function (callback) {
             FILTER_CONFIG.dterm_lowpass2_hz = parseInt($('.pid_filter input[name="dtermLowpass2Frequency"]').val());
         }
 
-  if (semver.gte(CONFIG.apiVersion, "1.43.0")) {
+  if (semver.eq(CONFIG.apiVersion, "1.43.0")) {
         FILTER_CONFIG.dterm_dyn_lpf = parseInt($('.pid_filter input[name="dtermDynLpf"]').val());
         if (CONFIG.boardIdentifier !== "HESP" && CONFIG.boardIdentifier !== "SX10" && CONFIG.boardIdentifier !== "FLUX"){
         FILTER_CONFIG.gyro_dyn_lpf = parseInt($('.pid_filter input[name="gyroDynLpf"]').val());
