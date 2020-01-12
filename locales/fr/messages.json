@@ -4146,25 +4146,25 @@
         "message": "IMU-F ROLL LPF cutoff Hz"
       },
         "pidTuningImuflpfRollHelp": {
-        "message": "Coupure matérielle Helio/Strix"
+        "message": "Fréquence de Coupure Helio/Strix"
       },
       "pidTuningImuflpfPitch": {
         "message": "IMU-F PITCH LPF cutoff Hz"
       },
         "pidTuningImuflpfPitchHelp": {
-        "message": "Coupure matérielle Helio/Strix"
+        "message": "Fréquence de Coupure Helio/Strix"
       },
       "pidTuningImuflpfYaw": {
         "message": "IMU-F YAW lpf cutoff Hz"
       },
         "pidTuningImuflpfYawHelp": {
-        "message": "Coupure matérielle Helio/Strix"
+        "message": "Fréquence de Coupure Helio/Strix"
       },
       "pidTuningImuflpfAcc": {
         "message": "IMU-F accelerometer LPF cutoff Hz"
       },
       "pidTuningImuflpfAccHelp": {
-        "message": "Coupure matérielle Helio/Strix"
+        "message": "Fréquence de Coupure Helio/Strix"
       },
       "pidTuningKalmanFilterR": {
           "message": "IMU-F W Coefficient"
