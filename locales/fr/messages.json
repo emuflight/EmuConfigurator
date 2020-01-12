@@ -1330,6 +1330,9 @@
     "pidTuningAntiGravityThres": {
         "message": "Seuil Anti Gravity"
     },
+    "pidTuningAntiGravityHelp": {
+        "message": "L'Anti Gravity augmente le I term lors des poussées de gaz rapides. Une valeur élevée procure plus de stabilité et de tenue."
+    },
     "pidTuningDMinHelp": {
         "message": "D min offre la possibilité d'avoir un niveau de D moins élevé en vol normal et plus élevé en manœuvre rapide, qui causerait une dérive de l'axe (overshoot) sur le roulis et le tangage. Il hausse également D en \"propwash\"...\nL'appareil aura un D Term dynamique variant de la valeur D Min (en vol normal) à la valeur D (lors de flips et rolls rapides). Mettre zéro désactive la fonction. Le Gain détermine la force de boost sur D lors de mouvements rapides des sticks. Avec l'Avance, l'effet boost se ressent plus vite. C'est utile en cas \"sur réponse\" avec des rates très élevés sur des quads vifs.",
         "description": "Help message for D Min feature"
