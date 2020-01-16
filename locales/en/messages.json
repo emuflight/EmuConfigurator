@@ -588,8 +588,14 @@
     "defaultFacebookText": {
         "message": "We also have a <a href=\"https://www.facebook.com/groups/2253802077988152/\" target=\"_blank\">Facebook Group</a>.<br />Join us to get a place to talk about Emuflight, ask configuration questions, or just hang out with fellow pilots."
     },
+    "defaultChangelogAction": {
+        "message": "Update Notes"
+    },
     "defaultChangelogHead": {
         "message": "Configurator - Changelog"
+    },
+    "defaultPrivacyPolicyAction": {
+        "message": "Privacy policy"
     },
     "defaultButtonFirmwareFlasher": {
         "message": "Firmware Flasher"
@@ -3817,7 +3823,7 @@
         "description": "Label of the selector for the OSD Profile in the preview. KEEP IT SHORT!!!"
     },
     "osdSetupPreviewForTitle": {
-        "message": "Changing here the profile or the font will NOT change the profile or the font in the flight controller, only affects the preview window. If you want to change it, you must use the '$t(osdSetupSelectedProfileTitle.message)' option or the '$t(osdSetupFontManager.message)' button respectively.",
+        "message": "Changing the profile or the font here will NOT change the profile or the font in the flight controller. This only affects the preview window. If you want to change it, you must use the '$t(osdSetupSelectedProfileTitle.message)' option or the '$t(osdSetupFontManager.message)' button respectively.",
         "description": "Help content for the OSD profile and font PREVIEW"
     },
     "osdSetupSelectedProfileTitle": {
@@ -3826,7 +3832,7 @@
     },
     "osdSetupSelectedProfileLabel": {
         "message": "Current:",
-        "description": "Label for the selection of the curren active OSD profile"
+        "description": "Label for the selection of the current active OSD profile"
     },
     "osdSetupPreviewSelectProfileElement": {
         "message": "OSD Profile {{profileNumber}}",
@@ -4978,7 +4984,6 @@
     "configurationCinematicYaw": {
         "message": "Cinematic Yaw"
     },
-
     "onboardLoggingBlackbox": {
         "message": "Blackbox logging device"
     },
@@ -5064,28 +5069,28 @@
           "message": "IMU-F filter Q Coefficient. The amount of trust in gyro data accuracy (Higher value = more trust and less filtering)"
       },
       "pidTuningImuflpfRoll": {
-        "message": "IMU-F ROLL lpf cutoff hz"
+        "message": "IMU-F ROLL LPF cutoff Hz"
       },
         "pidTuningImuflpfRollHelp": {
-        "message": ""
+        "message": "Helio/Strix Hardware cutoff"
       },
       "pidTuningImuflpfPitch": {
-        "message": "IMU-F PITCH lpf cutoff hz"
+        "message": "IMU-F PITCH LPF cutoff Hz"
       },
         "pidTuningImuflpfPitchHelp": {
-        "message": ""
+        "message": "Helio/Strix Hardware cutoff"
       },
       "pidTuningImuflpfYaw": {
-        "message": "IMU-F YAW lpf cutoff hz"
+        "message": "IMU-F YAW LPF cutoff Hz"
       },
         "pidTuningImuflpfYawHelp": {
-        "message": ""
+        "message": "Helio/Strix Hardware cutoff"
       },
       "pidTuningImuflpfAcc": {
-        "message": "IMU-F accelerometer lpf cutoff hz"
+        "message": "IMU-F accelerometer LPF cutoff Hz"
       },
       "pidTuningImuflpfAccHelp": {
-        "message": ""
+        "message": "Helio/Strix Hardware cutoff"
       },
       "pidTuningKalmanFilterR": {
           "message": "IMU-F W Coefficient"
@@ -5099,6 +5104,4 @@
     "pidTuningIMUFFilterSettings": {
         "message": "Profile independent IMU-F Filter Settings"
     }
-
-
 }
