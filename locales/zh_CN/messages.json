@@ -495,7 +495,7 @@
         "message": "<p><strong>Emuflight<\/strong>是一个<strong>开放源码<\/strong>的飞行控制软件，所有用户都可以在<strong>没有保修<\/strong>的前提下免费使用。<\/p><p>如果你觉得Emuflight或Emuflight配置程序对你有用，请考虑捐赠以<strong>支持<\/strong>它的开发工作<\/p>"
     },
     "defaultDonateBottom": {
-        "message": "<p>如果你想持续捐助资金，请考虑在<a href='https:\/\/www.patreon.com\/EmuFlight'>Patreon<\/a>上赞助我们。<\/p>"
+        "message": "<p>如果你想持续捐助资金，请考虑在<a href='https:\/\/www.patreon.com\/EmuFlight' target=\"_blank\">Patreon<\/a>上赞助我们。<\/p>"
     },
     "defaultDonate": {
         "message": "捐赠"

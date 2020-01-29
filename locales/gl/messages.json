@@ -544,7 +544,7 @@
         "message": "<p><strong>Emuflight<\/strong> é un software de controlador de voo que é <strong>open source<\/strong> e está dispoñible gratuitamente <strong>sin garantía<\/strong> para tódolos usuarios.<\/p><p>Se atopou o Emuflight ou o configurador Emuflight, porfavor considere<strong>apoiar<\/strong> o seu desenvolvemento cunha donación.<\/p>"
     },
     "defaultDonateBottom": {
-        "message": "<p>Se quere contribuír continuamente de forma financeira, debe considerar converterse nun patrocinador en <a href='https:\/\/www.patreon.com\/EmuFlight'> Patreon <\/a>.<\/p >"
+        "message": "<p>Se quere contribuír continuamente de forma financeira, debe considerar converterse nun patrocinador en <a href='https:\/\/www.patreon.com\/EmuFlight' target=\"_blank\"> Patreon <\/a>.<\/p >"
     },
     "defaultDonate": {
         "message": "Doar"
