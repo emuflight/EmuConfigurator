@@ -495,7 +495,7 @@
         "message": "<p><strong>Emuflight<\/strong> ir lidojuma kontroliera programmatūra, kas ir <strong>atvērta koda tipa<\/strong> un ir pieejama bezmaksas <strong>bez garantijas<\/strong> visiem lietotājiem.<\/p><p>Ja tev Emuflight vai Emuflight konfigurators ir noderīgi, lūdzu apsver iespēju <strong>atbalstīt<\/strong> to izstrādi ziedojot.<\/p>"
     },
     "defaultDonateBottom": {
-        "message": "<p>Ja vēlies regulāri finansiāli palīdzēt, apsver iespēju kļūt par ziedotāju iekš <a href='https:\/\/www.patreon.com\/betaflight'>Patreon<\/a>.<\/p>"
+        "message": "<p>Ja vēlies regulāri finansiāli palīdzēt, apsver iespēju kļūt par ziedotāju iekš <a href='https:\/\/www.patreon.com\/EmuFlight'>Patreon<\/a>.<\/p>"
     },
     "defaultDonate": {
         "message": "Ziedot"
