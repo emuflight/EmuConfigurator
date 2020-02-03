@@ -4616,10 +4616,10 @@
     },
 
     "osdDescribeFontVersion1": {
-        "message": "Font version: 1 (Emuflight 4.0 or older)"
+        "message": "Font version: 1 (MSP 1.43 or older)"
     },
     "osdDescribeFontVersion2": {
-        "message": "Font version: 2 (Emuflight 4.1 or newer)"
+        "message": "Font version: 2 (MSP 1.44 or newer)"
     },
     "osdDescribeFontVersionCUSTOM": {
         "message": "Font version: user provided"

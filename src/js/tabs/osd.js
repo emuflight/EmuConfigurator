@@ -2587,6 +2587,9 @@ TABS.osd.initialize = function (callback) {
         fontPresetsElement.change(function (e) {
             var $font = $('.fontpresets option:selected');
             var fontver = 1;
+            if (semver.gte(CONFIG.apiVersion, "1.44.0")) {
+                fontver = 2;
+            }
             $('.font-manager-version-info').text(i18n.getMessage('osdDescribeFontVersion' + fontver));
             $.get('./resources/osd/' + fontver + '/' + $font.data('font-file') + '.mcm', function (data) {
                 FONT.parseMCMFontFile(data);
