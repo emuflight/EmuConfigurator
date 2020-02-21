@@ -397,7 +397,7 @@ OSD.loadDisplayFields = function() {
             default_position: -29,
             draw_order: 20,
             positionable: true,
-            preview: FONT.symbol(SYM.BATTERY) + '16.8' + FONT.symbol(SYM.VOLT),
+            preview: FONT.symbol(SYM.BATTERY) + '16.8' + FONT.symbol(SYM.VOLT)
         },
         RSSI_VALUE: {
             name: 'RSSI_VALUE',
@@ -414,8 +414,7 @@ OSD.loadDisplayFields = function() {
             desc: 'osdDescElementTimer',
             default_position: -39,
             positionable: true,
-            preview: FONT.symbol(SYM.ON_M) + ' 11:11',
-            isexpert: true  //experimental
+            preview: FONT.symbol(SYM.ON_M) + ' 11:11'
         },
         THROTTLE_POSITION: {
             name: 'THROTTLE_POSITION',
@@ -424,8 +423,7 @@ OSD.loadDisplayFields = function() {
             default_position: -9,
             draw_order: 110,
             positionable: true,
-            preview: FONT.symbol(SYM.THR) + ' 69',
-            isexpert: true  //experimental
+            preview: FONT.symbol(SYM.THR) + ' 69'
         },
         CPU_LOAD: {
             name: 'CPU_LOAD',
@@ -433,8 +431,7 @@ OSD.loadDisplayFields = function() {
             desc: 'osdDescElementCpuLoad',
             default_position: 26,
             positionable: true,
-            preview: '15',
-            isexpert: true  //experimental
+            preview: '15'
         },
         VTX_CHANNEL: {
             name: 'VTX_CHANNEL',
@@ -468,8 +465,7 @@ OSD.loadDisplayFields = function() {
             default_position: -109,
             draw_order: 280,
             positionable: true,
-            preview: 'DISARMED',
-            isexpert: true  //experimental
+            preview: 'DISARMED'
         },
         CROSSHAIRS: {
             name: 'CROSSHAIRS',
@@ -525,8 +521,7 @@ OSD.loadDisplayFields = function() {
                     }
                 }
                 return artificialHorizon;
-            },
-            isexpert: true  //experimental
+            }
         },
         HORIZON_SIDEBARS: {
             name: 'HORIZON_SIDEBARS',
@@ -565,8 +560,7 @@ OSD.loadDisplayFields = function() {
                 horizonSidebar.push(element);
 
                 return horizonSidebar;
-            },
-            isexpert: true  //experimental
+            }
         },
         CURRENT_DRAW: {
             name: 'CURRENT_DRAW',
@@ -608,8 +602,7 @@ OSD.loadDisplayFields = function() {
             positionable: true,
             preview: function (osd_data) {
                 return FONT.symbol(SYM.ALTITUDE) + '399.7' + FONT.symbol(osd_data.unit_mode === 0 ? SYM.FEET : SYM.METRE);
-            },
-            isexpert: true  //experimental
+            }
         },
         ONTIME: {
             name: 'ONTIME',
@@ -645,8 +638,7 @@ OSD.loadDisplayFields = function() {
             positionable: true,
             preview: function (osd_data) {
                 return FONT.symbol(SYM.SPEED) + ' 40' + (osd_data.unit_mode === 0 ? FONT.symbol(SYM.MPH) : FONT.symbol(SYM.KPH));
-            },
-            isexpert: true  //experimental
+            }
         },
         GPS_SATS: {
             name: 'GPS_SATS',
@@ -655,8 +647,7 @@ OSD.loadDisplayFields = function() {
             default_position: -1,
             draw_order: 800,
             positionable: true,
-            preview: FONT.symbol(SYM.GPS_SAT_L) + FONT.symbol(SYM.GPS_SAT_R) + '14',
-            isexpert: true  //experimental
+            preview: FONT.symbol(SYM.GPS_SAT_L) + FONT.symbol(SYM.GPS_SAT_R) + '14'
         },
         GPS_LON: {
             name: 'GPS_LON',
@@ -665,8 +656,7 @@ OSD.loadDisplayFields = function() {
             default_position: -1,
             draw_order: 830,
             positionable: true,
-            preview: FONT.symbol(SYM.GPS_LON) + '-000.0000000',
-            isexpert: true  //experimental
+            preview: FONT.symbol(SYM.GPS_LON) + '-000.0000000'
         },
         GPS_LAT: {
             name: 'GPS_LAT',
@@ -675,8 +665,7 @@ OSD.loadDisplayFields = function() {
             default_position: -1,
             draw_order: 820,
             positionable: true,
-            preview: FONT.symbol(SYM.GPS_LAT) + '-00.0000000 ',
-            isexpert: true  //experimental
+            preview: FONT.symbol(SYM.GPS_LAT) + '-00.0000000 '
         },
         DEBUG: {
             name: 'DEBUG',
@@ -685,8 +674,7 @@ OSD.loadDisplayFields = function() {
             default_position: -1,
             draw_order: 240,
             positionable: true,
-            preview: 'DBG     0     0     0     0',
-            isexpert: true  //experimental
+            preview: 'DBG     0     0     0     0'
         },
         PID_ROLL: {
             name: 'PID_ROLL',
@@ -695,8 +683,7 @@ OSD.loadDisplayFields = function() {
             default_position: 0x800 | (10 << 5) | 2, // 0x0800 | (y << 5) | x
             draw_order: 170,
             positionable: true,
-            preview: 'ROL  43  40  20',
-            isexpert: true  //experimental
+            preview: 'ROL  43  40  20'
         },
         PID_PITCH: {
             name: 'PID_PITCH',
@@ -705,8 +692,7 @@ OSD.loadDisplayFields = function() {
             default_position: 0x800 | (11 << 5) | 2, // 0x0800 | (y << 5) | x
             draw_order: 180,
             positionable: true,
-            preview: 'PIT  58  50  22',
-            isexpert: true  //experimental
+            preview: 'PIT  58  50  22'
         },
         PID_YAW: {
             name: 'PID_YAW',
@@ -715,8 +701,7 @@ OSD.loadDisplayFields = function() {
             default_position: 0x800 | (12 << 5) | 2, // 0x0800 | (y << 5) | x
             draw_order: 190,
             positionable: true,
-            preview: 'YAW  70  45  20',
-            isexpert: true  //experimental
+            preview: 'YAW  70  45  20'
         },
         POWER: {
             name: 'POWER',
@@ -727,8 +712,7 @@ OSD.loadDisplayFields = function() {
             positionable: true,
             preview: function () {
                 return semver.gte(CONFIG.apiVersion, "1.36.0") ? ' 142W' : '142W';
-            },
-            isexpert: true  //experimental
+            }
         },
         PID_RATE_PROFILE: {
             name: 'PID_RATE_PROFILE',
@@ -763,8 +747,7 @@ OSD.loadDisplayFields = function() {
             default_position: -1,
             draw_order: 250,
             positionable: true,
-            preview: FONT.symbol(SYM.PITCH) + '-00.0',
-            isexpert: true  //experimental
+            preview: FONT.symbol(SYM.PITCH) + '-00.0'
         },
         ROLL_ANGLE: {
             name: 'ROLL_ANGLE',
@@ -773,8 +756,7 @@ OSD.loadDisplayFields = function() {
             default_position: -1,
             draw_order: 260,
             positionable: true,
-            preview: FONT.symbol(SYM.ROLL) + '-00.0',
-            isexpert: true  //experimental
+            preview: FONT.symbol(SYM.ROLL) + '-00.0'
         },
         MAIN_BATT_USAGE: {
             name: 'MAIN_BATT_USAGE',
@@ -783,8 +765,7 @@ OSD.loadDisplayFields = function() {
             default_position: -17,
             draw_order: 270,
             positionable: true,
-            preview: FONT.symbol(SYM.PB_START) + FONT.symbol(SYM.PB_FULL) + FONT.symbol(SYM.PB_FULL) + FONT.symbol(SYM.PB_FULL) + FONT.symbol(SYM.PB_FULL) + FONT.symbol(SYM.PB_FULL) + FONT.symbol(SYM.PB_FULL) + FONT.symbol(SYM.PB_FULL) + FONT.symbol(SYM.PB_FULL) + FONT.symbol(SYM.PB_FULL) + FONT.symbol(SYM.PB_END) + FONT.symbol(SYM.PB_EMPTY) + FONT.symbol(SYM.PB_CLOSE),
-            isexpert: true  //experimental
+            preview: FONT.symbol(SYM.PB_START) + FONT.symbol(SYM.PB_FULL) + FONT.symbol(SYM.PB_FULL) + FONT.symbol(SYM.PB_FULL) + FONT.symbol(SYM.PB_FULL) + FONT.symbol(SYM.PB_FULL) + FONT.symbol(SYM.PB_FULL) + FONT.symbol(SYM.PB_FULL) + FONT.symbol(SYM.PB_FULL) + FONT.symbol(SYM.PB_FULL) + FONT.symbol(SYM.PB_END) + FONT.symbol(SYM.PB_EMPTY) + FONT.symbol(SYM.PB_CLOSE)
         },
         ARMED_TIME: {
             name: 'ARMED_TIME',
@@ -801,8 +782,7 @@ OSD.loadDisplayFields = function() {
             default_position: -1,
             draw_order: 850,
             positionable: true,
-            preview: FONT.symbol(SYM.ARROW_SOUTH + 2),
-            isexpert: true  //experimental
+            preview: FONT.symbol(SYM.ARROW_SOUTH + 2)
         },
         HOME_DIST: {
             name: 'HOME_DISTANCE',
@@ -813,8 +793,7 @@ OSD.loadDisplayFields = function() {
             positionable: true,
             preview: function (osd_data) {
                 return FONT.symbol(SYM.HOMEFLAG) + '432' + FONT.symbol(osd_data.unit_mode === 0 ? SYM.FEET : SYM.METRE);
-            },
-            isexpert: true  //experimental
+            }
         },
         NUMERICAL_HEADING: {
             name: 'NUMERICAL_HEADING',
@@ -823,8 +802,7 @@ OSD.loadDisplayFields = function() {
             default_position: -1,
             draw_order: 290,
             positionable: true,
-            preview: FONT.symbol(SYM.ARROW_EAST) + '90',
-            isexpert: true  //experimental
+            preview: FONT.symbol(SYM.ARROW_EAST) + '90'
         },
         NUMERICAL_VARIO: {
             name: 'NUMERICAL_VARIO',
@@ -835,8 +813,7 @@ OSD.loadDisplayFields = function() {
             positionable: true,
             preview: function (osd_data) {
                 return FONT.symbol(SYM.ARROW_SMALL_UP) + '8.7' + (osd_data.unit_mode === 0 ? FONT.symbol(SYM.FTPS) : FONT.symbol(SYM.MPS));
-            },
-            isexpert: true  //experimental
+            }
         },
         COMPASS_BAR: {
             name: 'COMPASS_BAR',
@@ -849,8 +826,7 @@ OSD.loadDisplayFields = function() {
                 return FONT.symbol(SYM.HEADING_W) + FONT.symbol(SYM.HEADING_LINE) + FONT.symbol(SYM.HEADING_DIVIDED_LINE) +
                     FONT.symbol(SYM.HEADING_LINE) + FONT.symbol(SYM.HEADING_N) + FONT.symbol(SYM.HEADING_LINE) +
                     FONT.symbol(SYM.HEADING_DIVIDED_LINE) + FONT.symbol(SYM.HEADING_LINE) + FONT.symbol(SYM.HEADING_E)
-            },
-            isexpert: true  //experimental
+            }
         },
         WARNINGS: {
             name: 'WARNINGS',
@@ -870,8 +846,7 @@ OSD.loadDisplayFields = function() {
             positionable: true,
             preview: function (osd_data) {
                 return "E" + OSD.generateTemperaturePreview(osd_data, 45);
-            },
-            isexpert: true  //experimental
+            }
         },
         ESC_RPM: {
             name: 'ESC_RPM',
@@ -880,8 +855,7 @@ OSD.loadDisplayFields = function() {
             default_position: -1,
             draw_order: 1000,
             positionable: true,
-            preview: [ "22600", "22600", "22600", "22600"],
-            isexpert: true  //experimental
+            preview: [ "22600", "22600", "22600", "22600"]
         },
         REMAINING_TIME_ESTIMATE: {
             name: 'REMAINING_TIME_ESTIMATE',
@@ -890,8 +864,7 @@ OSD.loadDisplayFields = function() {
             default_position: -1,
             draw_order: 80,
             positionable: true,
-            preview: '01:13',
-            isexpert: true  //experimental
+            preview: '01:13'
         },
         RTC_DATE_TIME: {
             name: 'RTC_DATE_TIME',
@@ -900,8 +873,7 @@ OSD.loadDisplayFields = function() {
             default_position: -1,
             draw_order: 360,
             positionable: true,
-            preview: '2017-11-11 16:20:00',
-            isexpert: true  //experimental
+            preview: '2017-11-11 16:20:00'
         },
         ADJUSTMENT_RANGE: {
             name: 'ADJUSTMENT_RANGE',
@@ -910,8 +882,7 @@ OSD.loadDisplayFields = function() {
             default_position: -1,
             draw_order: 370,
             positionable: true,
-            preview: 'PITCH/ROLL P: 42',
-            isexpert: true  //experimental
+            preview: 'PITCH/ROLL P: 42'
         },
         TIMER_1: {
             name: 'TIMER_1',
@@ -944,8 +915,7 @@ OSD.loadDisplayFields = function() {
             positionable: true,
             preview: function (osd_data) {
                 return "C" + OSD.generateTemperaturePreview(osd_data, 33);
-            },
-            isexpert: true  //experimental
+            }
         },
         ANTI_GRAVITY: {
             name: 'ANTI_GRAVITY',
@@ -954,8 +924,7 @@ OSD.loadDisplayFields = function() {
             default_position: -1,
             draw_order: 320,
             positionable: true,
-            preview: 'AG',
-            isexpert: true  //experimental
+            preview: 'AG'
         },
         G_FORCE: {
             name: 'G_FORCE',
@@ -964,8 +933,7 @@ OSD.loadDisplayFields = function() {
             default_position: -1,
             draw_order: 15,
             positionable: true,
-            preview: '1.0G',
-            isexpert: true  //experimental
+            preview: '1.0G'
         },
         MOTOR_DIAG: {
             name: 'MOTOR_DIAGNOSTICS',
@@ -977,8 +945,7 @@ OSD.loadDisplayFields = function() {
             preview: FONT.symbol(0x84)
                 + FONT.symbol(0x85)
                 + FONT.symbol(0x84)
-                + FONT.symbol(0x83),
-            isexpert: true  //experimental
+                + FONT.symbol(0x83)
         },
         LOG_STATUS: {
             name: 'LOG_STATUS',
@@ -987,8 +954,7 @@ OSD.loadDisplayFields = function() {
             default_position: -1,
             draw_order: 330,
             positionable: true,
-            preview: FONT.symbol(SYM.BBLOG) + '16',
-            isexpert: true  //experimental
+            preview: FONT.symbol(SYM.BBLOG) + '16'
         },
         FLIP_ARROW: {
             name: 'FLIP_ARROW',
@@ -997,8 +963,7 @@ OSD.loadDisplayFields = function() {
             default_position: -1,
             draw_order: 340,
             positionable: true,
-            preview: FONT.symbol(SYM.ARROW_EAST),
-            isexpert: true  //experimental
+            preview: FONT.symbol(SYM.ARROW_EAST)
         },
         LINK_QUALITY: {
             name: 'LINK_QUALITY',
@@ -1018,8 +983,7 @@ OSD.loadDisplayFields = function() {
             positionable: true,
             preview: function (osd_data) {
                 return FONT.symbol(SYM.TOTAL_DIST) + '653' + FONT.symbol(osd_data.unit_mode === 0 ? SYM.FEET : SYM.METRE);
-            },
-            isexpert: true  //experimental
+            }
         },
         STICK_OVERLAY_LEFT: {
             name: 'STICK_OVERLAY_LEFT',
@@ -1028,8 +992,7 @@ OSD.loadDisplayFields = function() {
             default_position: -1,
             draw_order: 400,
             positionable: true,
-            preview: OSD.drawStickOverlayPreview,
-            isexpert: true  //experimental
+            preview: OSD.drawStickOverlayPreview
         },
         STICK_OVERLAY_RIGHT: {
             name: 'STICK_OVERLAY_RIGHT',
@@ -1038,8 +1001,7 @@ OSD.loadDisplayFields = function() {
             default_position: -1,
             draw_order: 410,
             positionable: true,
-            preview: OSD.drawStickOverlayPreview,
-            isexpert: true  //experimental
+            preview: OSD.drawStickOverlayPreview
         },
         DISPLAY_NAME: {
             name: 'DISPLAY_NAME',
@@ -1050,8 +1012,7 @@ OSD.loadDisplayFields = function() {
             positionable: true,
             preview: function(osd_data) {
                 return OSD.generateDisplayName(osd_data, 1);
-            },
-            isexpert: true  //experimental
+            }
         },
         ESC_RPM_FREQ: {
             name: 'ESC_RPM_FREQ',
@@ -1060,8 +1021,7 @@ OSD.loadDisplayFields = function() {
             default_position: -1,
             draw_order: 1010,
             positionable: true,
-            preview: [ "22600", "22600", "22600", "22600"],
-            isexpert: true  //experimental
+            preview: [ "22600", "22600", "22600", "22600"]
         },
         RATE_PROFILE_NAME: {
             name: 'RATE_PROFILE_NAME',
@@ -1070,8 +1030,7 @@ OSD.loadDisplayFields = function() {
             default_position: -1,
             draw_order: 420,
             positionable: true,
-            preview: 'RATE_1',
-            isexpert: true  //experimental
+            preview: 'RATE_1'
         },
         PID_PROFILE_NAME: {
             name: 'PID_PROFILE_NAME',
@@ -1080,8 +1039,7 @@ OSD.loadDisplayFields = function() {
             default_position: -1,
             draw_order: 430,
             positionable: true,
-            preview: 'PID_1',
-            isexpert: true  //experimental
+            preview: 'PID_1'
         },
         OSD_PROFILE_NAME: {
             name: 'OSD_PROFILE_NAME',
@@ -1090,8 +1048,7 @@ OSD.loadDisplayFields = function() {
             default_position: -1,
             draw_order: 440,
             positionable: true,
-            preview: 'OSD_1',
-            isexpert: true  //experimental
+            preview: 'OSD_1'
         },
         RSSI_DBM_VALUE: {
             name: 'OSD_PROFILE_NAME',
@@ -1874,8 +1831,7 @@ OSD.msp = {
                 index: j,
                 draw_order: c.draw_order,
                 preview: suffix ? c.preview + suffix : c.preview,
-                ignoreSize: ignoreSize,
-                isexpert: c.isexpert     //experimental expert-mode show/hide
+                ignoreSize: ignoreSize
             }, this.helpers.unpack.position(item, c)));
         }
 
@@ -2247,8 +2203,7 @@ TABS.osd.initialize = function (callback) {
                             }
 
                             // Post flight statistics
-                            //experimental: show/hide with expert-mode, leave other code intact for values
-                            if (isExpertModeEnabled()) { $('.stats-container').show(); }
+                            $('.stats-container').show();
                             var $statsFields = $('#post-flight-stat-fields').empty();
 
                             for (let field of OSD.data.stat_items) {
@@ -2263,8 +2218,6 @@ TABS.osd.initialize = function (callback) {
                                     $field[0].classList.add('osd_tip');
                                     $field.attr('title', desc);
                                 }
-
-
                                 $field.append(
                                     $('<input type="checkbox" name="' + field.name + '" class="togglesmall"></input>')
                                         .data('field', field)
@@ -2285,8 +2238,7 @@ TABS.osd.initialize = function (callback) {
                             }
 
                             // Warnings
-                            //experimental: show/hide with expert-mode, leave other code intact for values
-                            if (isExpertModeEnabled()) { $('.warnings-container').show(); }
+                            $('.warnings-container').show();
                             var $warningFields = $('#warnings-fields').empty();
 
                             for (let field of OSD.data.warnings) {
@@ -2406,12 +2358,6 @@ TABS.osd.initialize = function (callback) {
                             $field[0].classList.add('osd_tip');
                             $field.attr('title', desc);
                         }
-
-                        //experimental, expertmode-class of OSD elements
-                        if (field && field.isexpert) {
-                            $field[0].classList.add('expertmode');
-                        }
-
                         for (let osd_profile = 0; osd_profile < OSD.getNumberOfProfiles(); osd_profile++) {
                             $field.append(
                                     $('<input type="checkbox" name="' + field.name + '"></input>')
@@ -2458,11 +2404,6 @@ TABS.osd.initialize = function (callback) {
                         // Insert in alphabetical order, with unknown fields at the end
                         insertOrdered($displayFields, $field);
 
-                    }
-
-                    //experimental. hide, but retain above code to set values, otherwise will save invalid
-                    if (!isExpertModeEnabled()) {
-                        $('.expertmode').hide();
                     }
 
                     GUI.switchery();
