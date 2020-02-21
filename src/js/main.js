@@ -609,6 +609,18 @@ function updateTabList(features) {
         $('#tabs ul.mode-connected li.tab_logging').hide();
     }
 
+    //experimental: show/hide with expert-mode
+    if (isExpertModeEnabled()) {
+		$('.expertmode').show();
+		//$('#expertmode').show();
+        if (!have_sensor(CONFIG.activeSensors, 'acc')) {
+            $('#pid_accel').hide();
+        }
+    } else {
+		$('.expertmode').hide();
+		//$('#expertmode').hide();
+	}
+
     if (features.isEnabled('GPS') && isExpertModeEnabled()) {
         $('#tabs ul.mode-connected li.tab_gps').show();
     } else {

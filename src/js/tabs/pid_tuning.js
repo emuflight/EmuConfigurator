@@ -105,6 +105,7 @@ TABS.pid_tuning.initialize = function (callback) {
         $('.tpa input[name="tpa_P"]').val(RC_tuning.dynamic_THR_PID_P.toFixed(2));
         $('.tpa input[name="tpa_I"]').val(EMUF_ADVANCED.dynamic_THR_PID_I.toFixed(2));
         $('.tpa input[name="tpa_D"]').val(EMUF_ADVANCED.dynamic_THR_PID_D.toFixed(2));
+         $('.tpa input[name="tpa-breakpoint"]').val(RC_tuning.dynamic_THR_breakpoint);
         $('.tpa input[name="tpa-breakpoint"]').val(RC_tuning.dynamic_THR_breakpoint);
   if (semver.gte(CONFIG.apiVersion, "1.43.0")) {
         $('.spa input[name="spa_P"]').val(ADVANCED_TUNING.setPointPTransition);
@@ -116,6 +117,12 @@ TABS.pid_tuning.initialize = function (callback) {
       }else{
           $('.spa').hide();
           $('.spa_yaw').hide();
+        }
+
+        //experimental: show/hide with expert-mode, leave other code intact for values
+        if (!isExpertModeEnabled()) {
+            $('.spa').hide();
+            $('.spa_yaw').hide();
         }
 
 
@@ -406,7 +413,6 @@ TABS.pid_tuning.initialize = function (callback) {
             // Feedforward column
             $('#pid_main tr :nth-child(6)').hide();
 
-
             $('#pid-tuning .feedforwardTransition').hide();
         }
 
@@ -414,6 +420,11 @@ TABS.pid_tuning.initialize = function (callback) {
             $('select[id="throttleLimitType"]').val(RC_tuning.throttle_limit_type);
             $('.throttle_limit input[name="throttleLimitPercent"]').val(RC_tuning.throttle_limit_percent);
         } else {
+            $('.throttle_limit').hide();
+        }
+
+        //experimental: show/hide with expert-mode, leave other code intact for values
+        if (!isExpertModeEnabled()) {
             $('.throttle_limit').hide();
         }
 
@@ -760,6 +771,11 @@ TABS.pid_tuning.initialize = function (callback) {
     function hideUnusedPids() {
 
         if (!have_sensor(CONFIG.activeSensors, 'acc')) {
+            $('#pid_accel').hide();
+        }
+
+        //experimental: show/hide with expert-mode, leave other code intact for values
+        if (!isExpertModeEnabled()) {
             $('#pid_accel').hide();
         }
 
