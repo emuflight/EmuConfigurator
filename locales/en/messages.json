@@ -583,7 +583,8 @@
         "message": "Contributing"
     },
     "defaultContributingText": {
-        "message": "<i><b>EmuFlight needs developers and contributors!</b></i><br/>If you would like to help make Emuflight even better, you can help in many ways, including:<br /><ul><li>Answering user questions in <a href=\"https://discordapp.com/channels/547211754845765635\" target=\"_blank\">Discord</a>.</li><li>Contributing code to the <a href=\"https://github.com/emuflight/EmuFlight\" target=\"_blank\">firmware</a> and <a href=\"https://github.com/emuflight/EmuConfigurator\" target=\"_blank\">configurator</a>.</li><li>Testing new <a href=\"https://github.com/emuflight/EmuFlight/branches\" target=\"_blank\">features/fixes</a> and providing feedback.</li><li>Helping out with <a href=\"https://github.com/emuflight/EmuFlight/issues\" target=\"_blank\">issues</a> and commenting on feature requests.</li><li>Collaborate by <a href=\"https://github.com/emuflight/EmuConfigurator/tree/master/locales\" target=\"_blank\">translating</a> the configurator application into your language.</li><li></li></ul>"},
+        "message": "If you would like to help make Emuflight even better you can help in many ways, including:<br /><ul><li>Answering other users questions on the forums and IRC.</li><li>Contributing code to the firmware and configurator - new features, fixes, improvements</li><li>Testing <a href=\"https://github.com/emuflight/EmuFlight/pulls\" target=\"_blank\">new features/fixes</a> and providing feedback.</li><li>Helping out with <a href=\"https://github.com/emuflight/EmuFlight/issues\" target=\"_blank\">issues and commenting on feature requests</a>.</li><li>Collaborate by <a href=\"https://discordapp.com/channels/547211754845765635\" target=\"_blank\">translating the configurator application</a> into your language.</li><li></li></ul>"
+    },
     "defaultFacebookText": {
         "message": "We also have a <a href=\"https://www.facebook.com/groups/2253802077988152/\" target=\"_blank\">Facebook Group</a>.<br />Join us to get a place to talk about Emuflight, ask configuration questions, or just hang out with fellow pilots."
     },
@@ -603,10 +604,10 @@
         "message": "Open Source / Donation Notice"
     },
     "defaultDonateText": {
-        "message": "<p><strong>Emuflight</strong> is a flight controller software that is <strong>open source</strong> and is available free of charge <strong>without warranty</strong> to all users.</p><p>If you found the Emuflight firmware or Emuflight configurator useful, please consider <strong>supporting</strong> its development by donating.</p>"
+        "message": "<p><strong>Emuflight</strong> is a flight controller software that is <strong>open source</strong> and is available free of charge <strong>without warranty</strong> to all users.</p><p>If you found the Emuflight or Emuflight configurator useful, please consider <strong>supporting</strong> its development by donating.</p>"
     },
     "defaultDonateBottom": {
-        "message": "<p>If you want to contribute financially on an ongoing or one-time basis, you should consider becoming a patron for us on $t(patreonLink.message).</p>"
+        "message": "<p>If you want to contribute financially on an ongoing basis, you should consider becoming a patron for us on $t(patreonLink.message).</p>"
     },
     "patreonLink": {
         "message": "<a href=\"https://www.patreon.com/EmuFlight\" target=\"_blank\">Patreon</a>",
