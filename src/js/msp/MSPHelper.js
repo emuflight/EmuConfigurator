@@ -943,19 +943,10 @@ MspHelper.prototype.process_data = function(dataHandler) {
                 }
                 break;
             case MSPCodes.MSP_FILTER_CONFIG:
-            if (semver.lt(CONFIG.apiVersion, "1.44.0")) {
                 FILTER_CONFIG.gyro_lowpass_hz = data.readU8();
                 FILTER_CONFIG.dterm_lowpass_hz = data.readU16();
                 FILTER_CONFIG.yaw_lowpass_hz = data.readU16();
-              }else{
-                  FILTER_CONFIG.dterm_lowpass_hz_roll = data.readU16();
-                    FILTER_CONFIG.dterm_lowpass_hz_pitch = data.readU16();
-                      FILTER_CONFIG.dterm_lowpass_hz_yaw = data.readU16();
-              }
-
-
-
-                if (semver.eq(CONFIG.apiVersion, "1.43.0")) {
+                if (semver.gte(CONFIG.apiVersion, "1.43.0")) {
                   FILTER_CONFIG.dterm_dyn_lpf = data.readU16();
                   if (CONFIG.boardIdentifier != "HESP" && CONFIG.boardIdentifier != "SX10" && CONFIG.boardIdentifier != "FLUX") {
                   FILTER_CONFIG.gyro_dyn_lpf = data.readU16();
@@ -964,10 +955,8 @@ MspHelper.prototype.process_data = function(dataHandler) {
                 if (semver.gte(CONFIG.apiVersion, "1.20.0")) {
                     FILTER_CONFIG.gyro_notch_hz = data.readU16();
                     FILTER_CONFIG.gyro_notch_cutoff = data.readU16();
-                    if (semver.lt(CONFIG.apiVersion, "1.44.0")) {
                     FILTER_CONFIG.dterm_notch_hz = data.readU16();
                     FILTER_CONFIG.dterm_notch_cutoff = data.readU16();
-                  }
                     if (semver.gte(CONFIG.apiVersion, "1.21.0")) {
                         FILTER_CONFIG.gyro_notch2_hz = data.readU16();
                         FILTER_CONFIG.gyro_notch2_cutoff = data.readU16();
@@ -978,32 +967,11 @@ MspHelper.prototype.process_data = function(dataHandler) {
                     if (semver.gte(CONFIG.apiVersion, "1.39.0")) {
                         FILTER_CONFIG.gyro_hardware_lpf = data.readU8();
                         let gyro_32khz_hardware_lpf = data.readU8();
-                        if (semver.lt(CONFIG.apiVersion, "1.44.0")) {
-                          FILTER_CONFIG.gyro_lowpass_hz = data.readU16();
-                          FILTER_CONFIG.gyro_lowpass2_hz = data.readU16();
-                        }else{
-                        FILTER_CONFIG.gyro_lowpass_hz_roll = data.readU16();
-                        FILTER_CONFIG.gyro_lowpass_hz_pitch = data.readU16();
-                        FILTER_CONFIG.gyro_lowpass_hz_yaw = data.readU16();
-                        FILTER_CONFIG.gyro_lowpass2_hz_roll = data.readU16();
-                        FILTER_CONFIG.gyro_lowpass2_hz_pitch = data.readU16();
-                        FILTER_CONFIG.gyro_lowpass2_hz_yaw = data.readU16();
-                      }
+                        FILTER_CONFIG.gyro_lowpass_hz = data.readU16();
+                        FILTER_CONFIG.gyro_lowpass2_hz = data.readU16();
                         FILTER_CONFIG.gyro_lowpass_type = data.readU8();
                         FILTER_CONFIG.gyro_lowpass2_type = data.readU8();
-                        if (semver.lt(CONFIG.apiVersion, "1.44.0")) {
                         FILTER_CONFIG.dterm_lowpass2_hz = data.readU16();
-                        }else{
-                          FILTER_CONFIG.dterm_lowpass2_hz_roll = data.readU16();
-                          FILTER_CONFIG.dterm_lowpass2_hz_pitch = data.readU16();
-                          FILTER_CONFIG.dterm_lowpass2_hz_yaw = data.readU16();
-                          FILTER_CONFIG.smartSmoothing_roll = data.readU8();
-                          FILTER_CONFIG.smartSmoothing_pitch = data.readU8();
-                          FILTER_CONFIG.smartSmoothing_yaw = data.readU8();
-                          FILTER_CONFIG.witchcraft_roll = data.readU8();
-                          FILTER_CONFIG.witchcraft_pitch = data.readU8();
-                          FILTER_CONFIG.witchcraft_yaw = data.readU8();
-                      }
 
                     }
                 }
@@ -1079,24 +1047,12 @@ MspHelper.prototype.process_data = function(dataHandler) {
                                     if (semver.gte(CONFIG.apiVersion, "1.43.0")) {
                                       ADVANCED_TUNING.errorBoostYaw = data.readU16();
                                       ADVANCED_TUNING.errorBoostLimitYaw = data.readU8();
-                                      if (semver.lt(CONFIG.apiVersion, "1.44.0")) {
                                       ADVANCED_TUNING.setPointPTransition = data.readU8();
                                       ADVANCED_TUNING.setPointITransition = data.readU8();
                                       ADVANCED_TUNING.setPointDTransition = data.readU8();
                                       ADVANCED_TUNING.setPointPTransitionYaw = data.readU8();
                                       ADVANCED_TUNING.setPointITransitionYaw = data.readU8();
                                       ADVANCED_TUNING.setPointDTransitionYaw = data.readU8();
-                                    }else{
-                                      ADVANCED_TUNING.setPointPTransitionRoll = data.readU8();
-                                      ADVANCED_TUNING.setPointITransitionRoll = data.readU8();
-                                      ADVANCED_TUNING.setPointDTransitionRoll = data.readU8();
-                                      ADVANCED_TUNING.setPointPTransitionPitch = data.readU8();
-                                      ADVANCED_TUNING.setPointITransitionPitch = data.readU8();
-                                      ADVANCED_TUNING.setPointDTransitionPitch = data.readU8();
-                                      ADVANCED_TUNING.setPointPTransitionYaw = data.readU8();
-                                      ADVANCED_TUNING.setPointITransitionYaw = data.readU8();
-                                      ADVANCED_TUNING.setPointDTransitionYaw = data.readU8();
-                                    }
                                       ADVANCED_TUNING.nfe_racermode = data.readU8();
                                     }
                                 }
@@ -1765,17 +1721,10 @@ MspHelper.prototype.crunch = function(code) {
             }
             break;
         case MSPCodes.MSP_SET_FILTER_CONFIG:
-        if (semver.lt(CONFIG.apiVersion, "1.44.0")) {
             buffer.push8(FILTER_CONFIG.gyro_lowpass_hz)
-            .push16(FILTER_CONFIG.dterm_lowpass_hz)
-            .push16(FILTER_CONFIG.yaw_lowpass_hz);
-          }else{
-            buffer.push16(FILTER_CONFIG.dterm_lowpass_hz_roll)
-            .push16(FILTER_CONFIG.dterm_lowpass_hz_pitch)
-            .push16(FILTER_CONFIG.dterm_lowpass_hz_yaw);
-
-          }
-                if (semver.eq(CONFIG.apiVersion, "1.43.0")) {
+                .push16(FILTER_CONFIG.dterm_lowpass_hz)
+                .push16(FILTER_CONFIG.yaw_lowpass_hz);
+                if (semver.gte(CONFIG.apiVersion, "1.43.0")) {
                       buffer.push16(FILTER_CONFIG.dterm_dyn_lpf);
                       if (CONFIG.boardIdentifier != "HESP" && CONFIG.boardIdentifier != "SX10" && CONFIG.boardIdentifier != "FLUX") {
                           buffer.push16(FILTER_CONFIG.gyro_dyn_lpf);
@@ -1783,15 +1732,12 @@ MspHelper.prototype.crunch = function(code) {
                   }
             if (semver.gte(CONFIG.apiVersion, "1.20.0")) {
                 buffer.push16(FILTER_CONFIG.gyro_notch_hz)
-                    .push16(FILTER_CONFIG.gyro_notch_cutoff);
-                    if (semver.lt(CONFIG.apiVersion, "1.44.0")) {
-
-                    buffer.push16(FILTER_CONFIG.dterm_notch_hz)
+                    .push16(FILTER_CONFIG.gyro_notch_cutoff)
+                    .push16(FILTER_CONFIG.dterm_notch_hz)
                     .push16(FILTER_CONFIG.dterm_notch_cutoff);
-                  }
                 if (semver.gte(CONFIG.apiVersion, "1.21.0")) {
                     buffer.push16(FILTER_CONFIG.gyro_notch2_hz)
-                        .push16(FILTER_CONFIG.gyro_notch2_cutoff);
+                        .push16(FILTER_CONFIG.gyro_notch2_cutoff)
                 }
                 if (semver.gte(CONFIG.apiVersion, "1.36.0")) {
                     buffer.push8(FILTER_CONFIG.dterm_lowpass_type);
@@ -1800,34 +1746,12 @@ MspHelper.prototype.crunch = function(code) {
                     let gyro_32khz_hardware_lpf = 0;
                     gyro_32khz_hardware_lpf = FILTER_CONFIG.gyro_32khz_hardware_lpf;
                     buffer.push8(FILTER_CONFIG.gyro_hardware_lpf)
-                          .push8(gyro_32khz_hardware_lpf);
-                          if (semver.lt(CONFIG.apiVersion, "1.44.0")) {
-                          buffer.push16(FILTER_CONFIG.gyro_lowpass_hz)
-                          .push16(FILTER_CONFIG.gyro_lowpass2_hz);
-                        }else{
-                          buffer.push16(FILTER_CONFIG.gyro_lowpass_hz_roll)
-                          .push16(FILTER_CONFIG.gyro_lowpass_hz_pitch)
-                          .push16(FILTER_CONFIG.gyro_lowpass_hz_yaw)
-                          .push16(FILTER_CONFIG.gyro_lowpass2_hz_roll)
-                          .push16(FILTER_CONFIG.gyro_lowpass2_hz_pitch)
-                          .push16(FILTER_CONFIG.gyro_lowpass2_hz_yaw);
-                        }
-                          buffer.push8(FILTER_CONFIG.gyro_lowpass_type)
-                          .push8(FILTER_CONFIG.gyro_lowpass2_type);
-                          if (semver.lt(CONFIG.apiVersion, "1.44.0")){
-                          buffer.push16(FILTER_CONFIG.dterm_lowpass2_hz);
-                        }else{
-                          buffer.push16(FILTER_CONFIG.dterm_lowpass2_hz_roll)
-                          .push16(FILTER_CONFIG.dterm_lowpass2_hz_pitch)
-                          .push16(FILTER_CONFIG.dterm_lowpass2_hz_yaw)
-                          .push8(FILTER_CONFIG.smartSmoothing_roll)
-                          .push8(FILTER_CONFIG.smartSmoothing_pitch)
-                          .push8(FILTER_CONFIG.smartSmoothing_yaw)
-                          .push8(FILTER_CONFIG.witchcraft_roll)
-                          .push8(FILTER_CONFIG.witchcraft_pitch)
-                          .push8(FILTER_CONFIG.witchcraft_yaw);
-                        }
-
+                          .push8(gyro_32khz_hardware_lpf)
+                          .push16(FILTER_CONFIG.gyro_lowpass_hz)
+                          .push16(FILTER_CONFIG.gyro_lowpass2_hz)
+                          .push8(FILTER_CONFIG.gyro_lowpass_type)
+                          .push8(FILTER_CONFIG.gyro_lowpass2_type)
+                          .push16(FILTER_CONFIG.dterm_lowpass2_hz);
                 }
             }
             break;
@@ -1898,26 +1822,14 @@ MspHelper.prototype.crunch = function(code) {
 
                                   if (semver.gte(CONFIG.apiVersion, "1.43.0")) {
                                     buffer.push16(ADVANCED_TUNING.errorBoostYaw)
-                                          .push8(ADVANCED_TUNING.errorBoostLimitYaw);
-                                          if (semver.lt(CONFIG.apiVersion, "1.44.0")) {
-                                          buffer.push8(ADVANCED_TUNING.setPointPTransition)
+                                          .push8(ADVANCED_TUNING.errorBoostLimitYaw)
+                                          .push8(ADVANCED_TUNING.setPointPTransition)
                                           .push8(ADVANCED_TUNING.setPointITransition)
                                           .push8(ADVANCED_TUNING.setPointDTransition)
                                           .push8(ADVANCED_TUNING.setPointPTransitionYaw)
                                           .push8(ADVANCED_TUNING.setPointITransitionYaw)
-                                          .push8(ADVANCED_TUNING.setPointDTransitionYaw);
-                                        }else{
-                                          buffer.push8(ADVANCED_TUNING.setPointPTransitionRoll)
-                                          .push8(ADVANCED_TUNING.setPointITransitionRoll)
-                                          .push8(ADVANCED_TUNING.setPointDTransitionRoll)
-                                          .push8(ADVANCED_TUNING.setPointPTransitionPitch)
-                                          .push8(ADVANCED_TUNING.setPointITransitionPitch)
-                                          .push8(ADVANCED_TUNING.setPointDTransitionPitch)
-                                          .push8(ADVANCED_TUNING.setPointPTransitionYaw)
-                                          .push8(ADVANCED_TUNING.setPointITransitionYaw)
-                                          .push8(ADVANCED_TUNING.setPointDTransitionYaw);
-                                        }
-                                          buffer.push8(ADVANCED_TUNING.nfe_racermode);
+                                          .push8(ADVANCED_TUNING.setPointDTransitionYaw)
+                                          .push8(ADVANCED_TUNING.nfe_racermode);
                                   }
                             }
                         }

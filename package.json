@@ -1,7 +1,7 @@
 {
   "name": "emuflight-configurator",
   "description": "Crossplatform configuration tool for Emuflight flight control system.",
-  "version": "0.2.13",
+  "version": "0.2.12",
   "main": "main_nwjs.html",
   "bg-script": "js/eventPage.js",
   "default_locale": "en",

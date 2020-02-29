@@ -714,51 +714,6 @@
                             </table>
                         </div>
 
-                        <div class="gui_box spa_roll spacer_left">
-                            <table class="cf">
-                                <thead>
-                                    <tr>
-                                        <th i18n="pidTuningSPARoll_P"></th>
-                                        <th i18n="pidTuningSPARoll_I"></th>
-                                        <th i18n="pidTuningSPARoll_D"></th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr style="height: 35px;">
-                                        <td class="leftzero"><input type="number" name="spaRoll_P" id="spaRollPidentificator" step="1" min="0"
-                                            max="250" /></td>
-                                        <td class="leftzero"><input type="number" name="spaRoll_I" id="spaRollIidentificator" step="1" min="0"
-                                            max="250" /></td>
-                                        <td class="leftzero"><input type="number" name="spaRoll_D" id="spaRollDidentificator" step="1" min="0"
-                                            max="250" /></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="gui_box spa_pitch spacer_left">
-                            <table class="cf">
-                                <thead>
-                                    <tr>
-                                        <th i18n="pidTuningSPAPitch_P"></th>
-                                        <th i18n="pidTuningSPAPitch_I"></th>
-                                        <th i18n="pidTuningSPAPitch_D"></th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr style="height: 35px;">
-                                        <td class="leftzero"><input type="number" name="spaPitch_P" id="spaPitchPidentificator" step="1" min="0"
-                                            max="250" /></td>
-                                        <td class="leftzero"><input type="number" name="spaPitch_I" id="spaPitchIidentificator" step="1" min="0"
-                                            max="250" /></td>
-                                        <td class="leftzero"><input type="number" name="spaPitch_D" id="spaPitchDidentificator" step="1" min="0"
-                                            max="250" /></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
                         <div class="gui_box spa_yaw spacer_left">
                             <table class="cf">
                                 <thead>
@@ -906,14 +861,7 @@
                                 <td>
                                     <span class="groupSwitchValue">
                                         <span class="inputSwitch"><input type="checkbox" id="gyroLowpassEnabled" class="toggle" /></span>
-                                        <div class="gyroLowpassFrequency">
                                         <span class="inputValue"><input type="number" class="nonProfile" name="gyroLowpassFrequency" step="1" min="1" max="255"/></span>
-                                        </div>
-                                        <div class="gyroLowpassFrequencyAxis">
-                                        <span class="inputValue"><input type="number" class="nonProfile" name="gyroLowpassFrequencyRoll" step="1" min="1" max="16000"/></span>
-                                        <span class="inputValue"><input type="number" class="nonProfile" name="gyroLowpassFrequencyPitch" step="1" min="1" max="16000"/></span>
-                                        <span class="inputValue"><input type="number" class="nonProfile" name="gyroLowpassFrequencyYaw" step="1" min="1" max="16000"/></span>
-                                        </div>
                                     </span>
                                 </td>
                                 <td>
@@ -945,14 +893,7 @@
                                 <td>
                                     <span class="groupSwitchValue">
                                         <span class="inputSwitch"><input type="checkbox" id="gyroLowpass2Enabled" class="toggle" /></span>
-                                        <div class="gyroLowpass2Frequency">
                                         <span class="inputValue"><input type="number" class="nonProfile" name="gyroLowpass2Frequency" step="1" min="1" max="16000"/></span>
-                                        </div>
-                                        <div class="gyroLowpass2FrequencyAxis">
-                                        <span class="inputValue"><input type="number" class="nonProfile" name="gyroLowpass2FrequencyRoll" step="1" min="1" max="16000"/></span>
-                                        <span class="inputValue"><input type="number" class="nonProfile" name="gyroLowpass2FrequencyPitch" step="1" min="1" max="16000"/></span>
-                                        <span class="inputValue"><input type="number" class="nonProfile" name="gyroLowpass2FrequencyYaw" step="1" min="1" max="16000"/></span>
-                                        </div>
                                     </span>
                                 </td>
                                 <td>
@@ -974,6 +915,27 @@
                                     <div>
                                         <label>
                                             <span i18n="pidTuningGyroLowpass2Type"></span>
+                                        </label>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="newFilter gyroDynGroup">
+                                <th colspan="2">
+                                    <div class="pid_mode" i18n="pidTuningGyroDynLpfGroup" />
+                                </th>
+                            </tr>
+                            <tr class="newFilter gyroDynGroup">
+                                <td>
+                                  <span class="groupSwitchValue">
+                                      <span class="inputSwitch"><input type="checkbox" id="gyroDynLpfEnabled" class="toggle" /></span>
+                                      <span class="inputValue"><input type="number" name="gyroDynLpf" step="1" min="1" max="16000"/></span>
+                                  </span>
+                                </td>
+                                <td>
+                                    <div>
+                                        <label>
+                                            <span i18n="pidTuningGyroDynLpf"></span>
                                         </label>
                                     </div>
                                 </td>
@@ -1058,7 +1020,7 @@
                             </tr>
                         </table>
                         <table>
-
+                            <th colspan="2">
                             <tr>
                                 <td>
                                     <input id="QCoefficient" type="number" name="kalmanQCoefficient" step="1" min="0" max="16000"/>
@@ -1085,7 +1047,7 @@
                                     </div>
                                 </td>
                             </tr>
-
+                            </th>
                         </table>
                     </div>
 
@@ -1096,7 +1058,7 @@
                             </tr>
                         </table>
                         <table>
-                        <th colspan="2"></th>
+                        <th colspan="2">
                             <tr>
 
                                 <td>
@@ -1203,7 +1165,7 @@
                                     </div>
                                 </td>
                             </tr>
-
+                        </ th>
                         </table>
                     </div>
 
@@ -1225,22 +1187,14 @@
                                         <div class="helpicon cf_tip" i18n_title="pidTuningLowpassFilterHelp" />
                                     </div>
 
-
+                                    </div>
                                 </th>
                             </tr>
-
                             <tr>
                                 <td>
                                     <span class="groupSwitchValue">
                                         <span class="inputSwitch"><input type="checkbox" id="dtermLowpassEnabled" class="toggle" /></span>
-                                        <div class="dtermLowpassFrequency">
                                         <span class="inputValue"><input type="number" name="dtermLowpassFrequency" step="1" min="1" max="16000"/></span>
-                                        </div>
-                                        <div class="dtermLowpassFrequencyAxis">
-                                        <span class="inputValue"><input type="number" name="dtermLowpassFrequencyRoll" step="1" min="1" max="16000"/></span>
-                                        <span class="inputValue"><input type="number" name="dtermLowpassFrequencyPitch" step="1" min="1" max="16000"/></span>
-                                        <span class="inputValue"><input type="number" name="dtermLowpassFrequencyYaw" step="1" min="1" max="16000"/></span>
-                                        </div>
                                     </span>
                                 </td>
                                 <td>
@@ -1270,16 +1224,8 @@
                             <tr class="dtermLowpass2">
                                 <td>
                                     <span class="groupSwitchValue">
-
                                         <span class="inputSwitch"><input type="checkbox" id="dtermLowpass2Enabled" class="toggle" /></span>
-                                        <div class="dtermLowpass2Frequency">
-                                        <span class="inputValue" id='test'><input type="number" name="dtermLowpass2Frequency" step="1" min="1" max="16000"/></span>
-                                        </div>
-                                        <div class="dtermLowpass2FrequencyAxis">
-                                        <span class="inputValue"><input type="number" name="dtermLowpass2FrequencyRoll" step="1" min="1" max="16000"/></span>
-                                        <span class="inputValue"><input type="number" name="dtermLowpass2FrequencyPitch" step="1" min="1" max="16000"/></span>
-                                        <span class="inputValue"><input type="number" name="dtermLowpass2FrequencyYaw" step="1" min="1" max="16000"/></span>
-                                        </div>
+                                        <span class="inputValue"><input type="number" name="dtermLowpass2Frequency" step="1" min="1" max="16000"/></span>
                                     </span>
                                 </td>
                                 <td>
@@ -1290,7 +1236,29 @@
                                     </div>
                                 </td>
                             </tr>
-                            <tr class="dtermNotch">
+                            <tr>
+                                <tr class="newFilter gyroDynGroup">
+                                    <th colspan="2">
+                                        <div class="pid_mode" i18n="pidTuningdyndtermlpfGroup" />
+                                    </th>
+                                <tr>
+                            </tr>
+                            <tr class="newFilter dyndtermlpf">
+                                <td>
+                                  <span class="groupSwitchValue">
+                                      <span class="inputSwitch"><input type="checkbox" id="dtermDynLpfEnabled" class="toggle" /></span>
+                                      <span class="inputValue"><input type="number" name="dtermDynLpf" step="1" min="1" max="16000"/></span>
+                                  </span>
+                                </td>
+                                <td>
+                                    <div>
+                                        <label>
+                                            <span i18n="pidTuningDTermDynLpf"></span>
+                                        </label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
                                 <th colspan="2">
                                     <div class="pid_mode">
                                         <div  i18n="pidTuningDTermNotchFiltersGroup" />
@@ -1300,7 +1268,7 @@
                                 </th>
                             </tr>
 
-                            <tr class="dtermNotch">
+                            <tr class="newFilter">
                                 <td>
                                     <span class="groupSwitchValue">
                                         <span class="inputSwitch"><input type="checkbox" id="dTermNotchEnabled" class="toggle" /></span>
@@ -1316,7 +1284,7 @@
                                 </td>
                             </tr>
 
-                            <tr class="dtermNotch">
+                            <tr class="newFilter">
                                 <td>
                                     <input type="number" name="dTermNotchCutoff" step="1" min="0" max="16000"/>
                                 </td>
@@ -1329,13 +1297,13 @@
                                 </td>
                             </tr>
 
-                            <tr class="yawLowpassFrequency">
+                            <tr>
                                 <th colspan="2">
                                     <div class="pid_mode" i18n="pidTuningYawLospassFiltersGroup" />
                                 </th>
                             </tr>
 
-                            <tr class="yawLowpassFrequency">
+                            <tr>
                                 <td>
                                     <span class="groupSwitchValue">
                                         <span class="inputSwitch"><input type="checkbox" id="yawLowpassEnabled" class="toggle" /></span>
@@ -1350,7 +1318,6 @@
                                     </div>
                                 </td>
                             </tr>
-
                         </table>
                     </div>
                 </div>
