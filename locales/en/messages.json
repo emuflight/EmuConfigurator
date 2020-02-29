@@ -1684,6 +1684,24 @@
     "pidTuningSPA_D": {
         "message": "SPA D"
     },
+    "pidTuningSPARoll_P": {
+        "message": "SPA ROLL P"
+    },
+    "pidTuningSPARoll_I": {
+        "message": "SPA ROLL I"
+    },
+    "pidTuningSPARoll_D": {
+        "message": "SPA ROLL D"
+      },
+        "pidTuningSPAPitch_P": {
+            "message": "SPA PITCH P"
+        },
+        "pidTuningSPAPitch_I": {
+            "message": "SPA PITCH I"
+        },
+        "pidTuningSPAPitch_D": {
+            "message": "SPA PITCH D"
+          },
     "pidTuningSPAYaw_P": {
         "message": "SPA YAW P"
     },
