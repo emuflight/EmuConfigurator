@@ -180,9 +180,12 @@ TABS.pid_tuning.initialize = function (callback) {
         if (semver.gte(CONFIG.apiVersion, "1.20.0")) {
             $('.pid_filter input[name="gyroNotch1Frequency"]').val(FILTER_CONFIG.gyro_notch_hz);
             $('.pid_filter input[name="gyroNotch1Cutoff"]').val(FILTER_CONFIG.gyro_notch_cutoff);
+            if (semver.lt(CONFIG.apiVersion, "1.44.0")) {
             $('.pid_filter input[name="dTermNotchFrequency"]').val(FILTER_CONFIG.dterm_notch_hz);
             $('.pid_filter input[name="dTermNotchCutoff"]').val(FILTER_CONFIG.dterm_notch_cutoff);
-
+          }else{
+            $('.dtermNotch').hide();
+          }
             var dtermSetpointTransitionNumberElement = $('input[name="dtermSetpointTransition-number"]');
             if (semver.gte(CONFIG.apiVersion, "1.38.0")) {
                 dtermSetpointTransitionNumberElement.attr('min', 0.00);
@@ -468,6 +471,7 @@ TABS.pid_tuning.initialize = function (callback) {
             $('.pid_filter input[name="gyroNotch2Cutoff"]').attr('disabled', !checked).change();
         });
 
+
         $('input[id="dTermNotchEnabled"]').change(function() {
             var checked = $(this).is(':checked');
             var hz = FILTER_CONFIG.dterm_notch_hz > 0 ? FILTER_CONFIG.dterm_notch_hz : FILTER_DEFAULT.dterm_notch_hz;
@@ -584,8 +588,9 @@ TABS.pid_tuning.initialize = function (callback) {
         // Initial state of the filters: enabled or disabled
         $('input[id="gyroNotch1Enabled"]').prop('checked', FILTER_CONFIG.gyro_notch_hz != 0).change();
         $('input[id="gyroNotch2Enabled"]').prop('checked', FILTER_CONFIG.gyro_notch2_hz != 0).change();
-        $('input[id="dTermNotchEnabled"]').prop('checked', FILTER_CONFIG.dterm_notch_hz != 0).change();
+
           if (semver.lt(CONFIG.apiVersion, "1.44.0")) {
+        $('input[id="dTermNotchEnabled"]').prop('checked', FILTER_CONFIG.dterm_notch_hz != 0).change();
         $('input[id="gyroLowpassEnabled"]').prop('checked', FILTER_CONFIG.gyro_lowpass_hz != 0).change();
         $('input[id="dtermLowpassEnabled"]').prop('checked', FILTER_CONFIG.dterm_lowpass_hz != 0).change();
         $('input[id="dtermLowpass2Enabled"]').prop('checked', FILTER_CONFIG.dterm_lowpass2_hz != 0).change();
@@ -662,8 +667,10 @@ TABS.pid_tuning.initialize = function (callback) {
 
             FILTER_CONFIG.gyro_notch_hz = parseInt($('.pid_filter input[name="gyroNotch1Frequency"]').val());
             FILTER_CONFIG.gyro_notch_cutoff = parseInt($('.pid_filter input[name="gyroNotch1Cutoff"]').val());
+            if (semver.lt(CONFIG.apiVersion, "1.44.0")) {
             FILTER_CONFIG.dterm_notch_hz = parseInt($('.pid_filter input[name="dTermNotchFrequency"]').val());
             FILTER_CONFIG.dterm_notch_cutoff = parseInt($('.pid_filter input[name="dTermNotchCutoff"]').val());
+          }
             if (semver.gte(CONFIG.apiVersion, "1.21.0")) {
                 FILTER_CONFIG.gyro_notch2_hz = parseInt($('.pid_filter input[name="gyroNotch2Frequency"]').val());
                 FILTER_CONFIG.gyro_notch2_cutoff = parseInt($('.pid_filter input[name="gyroNotch2Cutoff"]').val());
