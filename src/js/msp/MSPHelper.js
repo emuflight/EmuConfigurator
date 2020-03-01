@@ -1021,8 +1021,8 @@ MspHelper.prototype.process_data = function(dataHandler) {
                 IMUF_FILTER_CONFIG.imuf_yaw_q = data.readU16();
                 IMUF_FILTER_CONFIG.imuf_w = data.readU16();
                 if (CONFIG.boardIdentifier === "HESP" || CONFIG.boardIdentifier === "SX10" || CONFIG.boardIdentifier === "FLUX") {
-                    IMUF_FILTER_CONFIG.imuf_pitch_lpf_cutoff_hz = data.readU16();
                     IMUF_FILTER_CONFIG.imuf_roll_lpf_cutoff_hz = data.readU16();
+                    IMUF_FILTER_CONFIG.imuf_pitch_lpf_cutoff_hz = data.readU16();
                     IMUF_FILTER_CONFIG.imuf_yaw_lpf_cutoff_hz = data.readU16();
                     if (semver.gte(CONFIG.apiVersion, "1.42.0")) {
                         IMUF_FILTER_CONFIG.imuf_acc_lpf_cutoff_hz = data.readU16();
@@ -1842,8 +1842,8 @@ MspHelper.prototype.crunch = function(code) {
             buffer.push16(IMUF_FILTER_CONFIG.imuf_yaw_q);
             buffer.push16(IMUF_FILTER_CONFIG.imuf_w);
             if (CONFIG.boardIdentifier === "HESP" || CONFIG.boardIdentifier === "SX10" || CONFIG.boardIdentifier === "FLUX") {
-                buffer.push16(IMUF_FILTER_CONFIG.imuf_pitch_lpf_cutoff_hz);
                 buffer.push16(IMUF_FILTER_CONFIG.imuf_roll_lpf_cutoff_hz);
+                buffer.push16(IMUF_FILTER_CONFIG.imuf_pitch_lpf_cutoff_hz);
                 buffer.push16(IMUF_FILTER_CONFIG.imuf_yaw_lpf_cutoff_hz);
                 if (semver.gte(CONFIG.apiVersion, "1.42.0")) {
                     buffer.push16(IMUF_FILTER_CONFIG.imuf_acc_lpf_cutoff_hz);
