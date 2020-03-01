@@ -527,8 +527,8 @@ TABS.pid_tuning.initialize = function (callback) {
 
             var cutoff = FILTER_CONFIG.dterm_lowpass_hz > 0 ? FILTER_CONFIG.dterm_lowpass_hz : FILTER_DEFAULT.dterm_lowpass_hz;
             var cutoffRoll = FILTER_CONFIG.dterm_lowpass_hz_roll > 0 ? FILTER_CONFIG.dterm_lowpass_hz_roll : FILTER_DEFAULT.dterm_lowpass_hz;
-            var cutoffPitch = FILTER_CONFIG.dterm_lowpass_hz_yaw > 0 ? FILTER_CONFIG.dterm_lowpass_hz_yaw : FILTER_DEFAULT.dterm_lowpass_hz;
-            var cutoffYaw = FILTER_CONFIG.dterm_lowpass_hz_pitch > 0 ? FILTER_CONFIG.dterm_lowpass_hz_pitch : FILTER_DEFAULT.dterm_lowpass_hz;
+            var cutoffPitch = FILTER_CONFIG.dterm_lowpass_hz_pitch > 0 ? FILTER_CONFIG.dterm_lowpass_hz_yaw : FILTER_DEFAULT.dterm_lowpass_hz;
+            var cutoffYaw = FILTER_CONFIG.dterm_lowpass_hz_yaw > 0 ? FILTER_CONFIG.dterm_lowpass_hz_yaw : FILTER_DEFAULT.dterm_lowpass_hz;
             var type = (FILTER_CONFIG.dterm_lowpass_hz > 0 || FILTER_CONFIG.dterm_lowpass_hz_roll > 0 )? FILTER_CONFIG.dterm_lowpass_type : FILTER_DEFAULT.dterm_lowpass_type;
 
             $('.pid_filter input[name="dtermLowpassFrequency"]').val((checked) ? cutoff : 0).attr('disabled', !checked);
