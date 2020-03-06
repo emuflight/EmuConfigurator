@@ -325,6 +325,14 @@ MspHelper.prototype.process_data = function(dataHandler) {
                     RC_tuning.throttle_limit_type = data.readU8();
                     RC_tuning.throttle_limit_percent = data.readU8();
                 }
+                if (semver.gte(CONFIG.apiVersion, "1.45.0")) {
+                    RC_tuning.vbat_comp_type = data.readU8();
+                    RC_tuning.vbat_comp_ref = data.readU8();
+                    RC_tuning.vbat_comp_throttle_level = data.readU8();
+                    RC_tuning.vbat_comp_pid_level = data.readU8();
+
+                }
+
                 break;
 
             case MSPCodes.MSP_EMUF:
@@ -1520,6 +1528,12 @@ MspHelper.prototype.crunch = function(code) {
                 buffer.push8(RC_tuning.throttle_limit_type);
                 buffer.push8(RC_tuning.throttle_limit_percent);
             }
+              if (semver.gte(CONFIG.apiVersion, "1.45.0")) {
+                buffer.push8(RC_tuning.vbat_comp_type);
+                buffer.push8(RC_tuning.vbat_comp_ref);
+                buffer.push8(RC_tuning.vbat_comp_throttle_level);
+                buffer.push8(RC_tuning.vbat_comp_pid_level);
+              }
             break;
 
         case MSPCodes.MSP_SET_EMUF:
