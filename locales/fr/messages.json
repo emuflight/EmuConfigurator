@@ -2963,7 +2963,7 @@
         "message": "Le filtre Notch est définit par son centre et la coupure. Le filtre est symétrique. La fréquence centre est le milieu du filtre et la coupure est la fréquence à laquelle le filtre démarre. Par exemple avec une coupure de 160 et un centre à 260, la zone 160-360Hz sera filtrée avec un maximum d'atténuation autour du centre"
     },
     "pidTuningLowpassFilterHelp": {
-        "message": "Les filtres passe-bas peuvent avoir deux variantes : statique et dynamique. Un seul des nombres définit pour chacun des filtres passe-bas est utilisé (statique ou dynamique). Le statique est un seuil de coupure à partir duquel le filtre commence. Le dynamique définit un min et max, la plage dans laquelle la coupure sera placée. Cette plage de coupure varie entre le min et le max en même temps que vous bougez le stick des gaz."
+        "message": "La coupure du filtre passe-bas reste constante. Le bruit au-dessus de la coupure est atténué. Les valeurs par défaut sont génériques et doivent être réglées pour votre quad."
     },
     "pidTuningFilterSettings": {
         "message": "Réglages filtres liés au profile"

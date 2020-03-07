@@ -3222,7 +3222,7 @@
         "message": "Defines the lowest dynamic notch center frequency below which the dynamic notch will not go."
     },
     "pidTuningLowpassFilterHelp": {
-        "message": "The Lowpass Filters can have two variants: static and dynamic. The static lowpass filter cutoff remains constant.  The noise above the cutoff is attenuated.  The dynamic lowpass cutoff is a minimum that will move higher based on error and gyro. If both static and dynamic are enabled concurrently, it will double filter."
+        "message": "The lowpass filter cutoff remains constant. The noise above the cutoff is attenuated. The defaults are generic and should be tuned for your quad."
     },
     "pidTuningFilterSettings": {
         "message": "Profile dependent Filter Settings"

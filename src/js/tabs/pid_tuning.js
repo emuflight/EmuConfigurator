@@ -139,6 +139,9 @@ TABS.pid_tuning.initialize = function (callback) {
             $('.pid_tuning input[name="rc_rate_yaw"]').hide();
         }
 
+        //yawLowpassFreq was found to do nothing, so hide for it all versions
+        $('.yawLowpassGroup').hide();
+
         if (semver.gte(CONFIG.apiVersion, "1.20.0")
             || semver.gte(CONFIG.apiVersion, "1.16.0") && FEATURE_CONFIG.features.isEnabled('SUPEREXPO_RATES')) {
             $('#pid-tuning .rate').text(i18n.getMessage("pidTuningSuperRate"));
