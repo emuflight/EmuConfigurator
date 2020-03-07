@@ -263,6 +263,19 @@ TABS.pid_tuning.initialize = function (callback) {
             $('.pid_filter input[name="gyroLowpass2Frequency"]').val(FILTER_CONFIG.gyro_lowpass2_hz);
             $('.pid_filter input[name="dtermLowpass2Frequency"]').val(FILTER_CONFIG.dterm_lowpass2_hz);
 
+            //workaround for pre-relese 0.2.22RC2 and dev builds
+              if (semver.eq(CONFIG.apiVersion, "1.43.0") && !semver.eq(CONFIG.flightControllerVersion, "0.2.22") ) {
+                   $('.pid_filter input[name="dtermDynLpf"]').val(FILTER_CONFIG.dterm_dyn_lpf);
+                   $('.pid_filter .gyroDynGroup').hide();
+                if (CONFIG.boardIdentifier !== "HESP" && CONFIG.boardIdentifier !== "SX10" && CONFIG.boardIdentifier !== "FLUX"){
+                  $('.pid_filter input[name="gyroDynLpf"]').val(FILTER_CONFIG.gyro_dyn_lpf);
+                  $('.pid_filter .gyroDynGroup').show();
+                }
+              }else{
+                   $('.pid_filter .gyroDynGroup').hide();
+                  $('.pid_filter .dyndtermlpf').hide();
+              }
+
             // We load it again because the limits are now bigger than in 1.16.0
             $('.pid_filter input[name="gyroLowpassFrequency"]').attr("max","16000");
             $('.pid_filter input[name="gyroLowpassFrequency"]').val(FILTER_CONFIG.gyro_lowpass_hz);
