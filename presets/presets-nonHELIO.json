@@ -1187,7 +1187,7 @@
       "spa_rate_i_yaw":                80,
       "spa_rate_d_yaw":                70
    },
-   "Default":{
+   "Default-0.2.0-RC1":{
       "__comment":                     "!!! PIDs !!!",
       "p_roll":                        45,
       "i_roll":                        70,
