@@ -7,7 +7,7 @@
 export CONFIGURATOR_VERSION="$(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[ ",]//g')"
 
 # compose string to reference the package
-export PACKAGE_VERSION="${CONFIGURATOR_VERSION}-${TRAVIS_BUILD_NUMBER}-${TRAVIS_OS_NAME}"
+export PACKAGE_VERSION="${TRAVIS_BUILD_NUMBER}-${CONFIGURATOR_VERSION}-${TRAVIS_OS_NAME}"
 
 # install dependencies
 yarn install || exit $?

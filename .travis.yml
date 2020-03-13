@@ -54,8 +54,8 @@ deploy:
     name: "${TRAVIS_TAG}"
     tag_name: "${TRAVIS_TAG}"
     target_commitish: "${TRAVIS_COMMIT}"
-    file:
-      - release/*
+    file: release/*
+    file_glob: true
     draft: true
     prerelease: true
     overwrite: true
