@@ -55,11 +55,7 @@ deploy:
     tag_name: "${TRAVIS_TAG}"
     target_commitish: "${TRAVIS_COMMIT}"
     file:
-      - release/*.deb
-      - release/*.dmg
-      - release/*.exe
-      - release/*.rpm
-      - release/*.zip
+      - release/*
     draft: true
     prerelease: true
     overwrite: true
