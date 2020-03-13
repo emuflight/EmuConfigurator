@@ -62,7 +62,7 @@
     "gulp-concat": "~2.6.1",
     "gulp-debian": "~0.1.8",
     "gulp-git": "^2.9.0",
-    "gulp-rename": "^1.4.0",
+    "gulp-rename": "^2.0.0",
     "gulp-yarn": "^2.0.0",
     "gulp-zip": "^5.0.0",
     "karma": "^4.0.1",
