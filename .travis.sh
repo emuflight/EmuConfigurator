@@ -10,7 +10,7 @@ export CONFIGURATOR_VERSION="$(cat package.json | grep version | head -1 | awk -
 export PACKAGE_VERSION="${CONFIGURATOR_VERSION}-${TRAVIS_BUILD_NUMBER}-${TRAVIS_OS_NAME}"
 
 # install dependencies
-yarn install || exit $?
+yarn --frozen-lockfile || exit $?
 yarn gulp clean-release
 
 # build releases for each platform

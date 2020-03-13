@@ -54,6 +54,7 @@ deploy:
     name: "${TRAVIS_TAG}"
     tag_name: "${TRAVIS_TAG}"
     target_commitish: "${TRAVIS_COMMIT}"
+    body: "${TRAVIS_COMMIT_MESSAGE}"
     file:
       - release/*.deb
       - release/*.dmg
