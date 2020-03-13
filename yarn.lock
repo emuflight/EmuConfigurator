@@ -4726,10 +4726,10 @@ rimraf@~2.6.2:
   dependencies:
     glob "^7.1.3"
 
-rpm-builder@^1.0.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/rpm-builder/-/rpm-builder-1.1.0.tgz#21b031b2ecec8d7377a59dc276c43dff6cd9346c"
-  integrity sha512-cvR3LywWjw+gX9aefmoATcK19Cx3WhnH0toB0aOyxy+qj3Sh8hDD/RxIopei9iVMvdwC3oJb6+aW3UmbdQIHgQ==
+rpm-builder@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/rpm-builder/-/rpm-builder-1.2.1.tgz#94655088266ec213f474efec0a9d9034404d0331"
+  integrity sha512-EV6fIUE58EC36byuTBnfshOpI8+maWMHHYijYzZxFqh/ZfSaVJdP/jQUjLR3NNb3tImeczGFDTH9qm/zwKSIUg==
   dependencies:
     chalk "^0.5.1"
     dateformat "^2.0.0"
