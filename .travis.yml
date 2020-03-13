@@ -3,9 +3,7 @@ os:
   - osx
   - windows
 
-sudo: false
-
-osx_image: xcode11.2
+osx_image: xcode11.3
 dist: bionic # linux
 language: node_js
 
@@ -51,14 +49,31 @@ cache:
   - '/c/Users/travis/AppData/Local/Temp/chocolatey'
 
 deploy:
-  provider: bintray
-  file: bintray-conf.json
-  user: "$BINTRAY_USER"
-  key: "$BINTRAY_API_KEY"
-  skip_cleanup: true # do not delete what has just been built
-  on:
-    all_branches: true
-    #branch: master # just this specific branch
+  - provider: releases
+    edge: true
+    cleanup: false # do not delete what has just been built
+    name: "${TRAVIS_TAG}"
+    tag_name: "${TRAVIS_TAG}"
+    target_commitish: "${TRAVIS_COMMIT}"
+    file:
+      - release/*.deb
+      - release/*.dmg
+      - release/*.exe
+      - release/*.rpm
+      - release/*.zip
+    draft: true
+    prerelease: true
+    overwrite: true
+    token: "${GITHUB_TOKEN}"
+    on:
+      tags: true
+  - provider: bintray
+    file: bintray-conf.json
+    user: "${BINTRAY_USER}"
+    key: "${BINTRAY_API_KEY}"
+    skip_cleanup: true # do not delete what has just been built
+    on:
+      tags: true
 
 after_deploy:
   - >
