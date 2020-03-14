@@ -1350,10 +1350,60 @@
                                     </div>
                                 </td>
                             </tr>
-
                         </table>
                     </div>
                 </div>
+
+                <!-- smartdterm witchcraft table -->
+                <div class="gui_box spacer_left smartDTermWitchBox" >
+                    <table class="cf pid_tuning">
+                        <thead>
+                            <tr colspan="4">
+                                <th></th>
+                                <th>
+                                    <div>
+                                        <div i18n="pidTuningSmartDTermSmoothing" style="float:left;"></div>
+                                        <div class="helpicon cf_tip" i18n_title="pidTuningSmartDTermSmoothingHelp"></div>
+                                    </div>
+                                </th>
+                                <th>
+                                    <div>
+                                        <div i18n="pidTuningWitchcraft" style="float:left;"></div>
+                                        <div class="helpicon cf_tip" i18n_title="pidTuningWitchcraftHelp"></div>
+                                    </div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Roll smartdterm, witchcraft-->
+                            <tr class="ROLL" colspan="4">
+                                <td class="pid_roll"></td>
+                                <td class="leftzero"><input type="number" name="smartdTermRoll" step="1" min="0"
+                                    max="250" /></td>
+                                <td class="leftzero"><input type="number" name="witchcraftRoll" step="1" min="0"
+                                    max="10" /></td>
+                            </tr>
+                            <!-- Pitch smartdterm, witchcraft-->
+                            <tr class="PITCH" colspan="4">
+                                <td class="pid_pitch"></td>
+                                <td class="leftzero"><input type="number" name="smartdTermPitch" step="1" min="0"
+                                    max="250" /></td>
+                                <td class="leftzero"><input type="number" name="witchcraftPitch" step="1" min="0"
+                                    max="10" /></td>
+                            </tr>
+                            <!-- yaw smartdterm, witchcraft-->
+                            <tr class="YAW" colspan="4">
+                                <td class="pid_yaw"></td>
+                                <td class="leftzero"><input type="number" name="smartdTermYaw" step="1" min="0"
+                                    max="250" /></td>
+                                <td class="leftzero"><input type="number" name="witchcraftYaw" step="1" min="0"
+                                    max="10" /></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- end smartdterm witchcraft table -->
+
             </div>
         </form>
         </div>

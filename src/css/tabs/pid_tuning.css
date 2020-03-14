@@ -676,6 +676,13 @@
     padding: 0px;
 }
 
+.smartDTermWitchBox {
+    width: 33%;
+    max-width: 33%;
+    min-width: 33%;
+    margin: 0 auto;
+}
+
 .tab-pid_tuning .rc_curve_bg {
     float: left;
 }
@@ -928,7 +935,7 @@
 }
 
 @media only screen and (max-width: 1405px) {
-    
+
 .tab-pid_tuning .subtab-rates .ratePreview.spacer_left {
     width: 100%;
 }
