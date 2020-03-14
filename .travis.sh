@@ -37,7 +37,7 @@ ls -lsa release/
 export CONFIGURATOR_VERSION="$(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[ ",]//g')"
 
 # compose string to reference the package
-export PACKAGE_VERSION="${CONFIGURATOR_VERSION}-${TRAVIS_BRANCH}-${TRAVIS_BUILD_NUMBER}-${TRAVIS_OS_NAME}"
+export PACKAGE_VERSION="${CONFIGURATOR_VERSION}-${TRAVIS_BUILD_NUMBER}-${TRAVIS_OS_NAME}"
 
 # process template for pushing to bintray ('deploy' step on travis will pick it up)
 j2 bintray-template.j2 -o bintray-conf.json
