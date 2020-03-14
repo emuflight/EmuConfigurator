@@ -10,7 +10,7 @@ language: node_js
 env:
   global:
     - YARN_GPG="no" # prevent windows vm hanging on completion
-    - CHANGELOG="$(git log --format=' * %s (@%an, %cr)' --tags --date-order $TRAVIS_COMMIT_RANGE)"
+    - CHANGELOG="$(git log --format='%h %s (@%an, %cr)' --tags --date-order $TRAVIS_COMMIT_RANGE)"
 
 addons:
   chrome: stable
@@ -53,7 +53,7 @@ cache:
 
 deploy:
   - provider: releases
-    skip_cleanup: true # do not delete what has just been built
+    cleanup: false # do not delete what has just been built
     name: "${TRAVIS_TAG}"
     body: "${CHANGELOG}"
     tag_name: "${TRAVIS_TAG}"
@@ -67,6 +67,7 @@ deploy:
     token: "${GITHUB_TOKEN}"
     on:
       tags: true
+    edge: true
   - provider: bintray
     file: bintray-conf.json
     user: "${BINTRAY_USER}"
