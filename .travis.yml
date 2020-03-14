@@ -61,7 +61,6 @@ deploy:
     target_commitish: "${TRAVIS_COMMIT}"
     file:
       - release/*
-      - CHANGELOG.md
     cleanup: false # do not delete what has just been built
     draft: true
     prerelease: true
