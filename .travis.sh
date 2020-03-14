@@ -19,7 +19,6 @@ case "${TRAVIS_OS_NAME}" in
         yarn gulp release --osx64
         ;;
     windows)
-        yarn gulp clean-release
         yarn gulp mrelease --win32
         yarn gulp mrelease --win64
         ;;
