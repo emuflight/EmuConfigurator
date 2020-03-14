@@ -11,7 +11,7 @@ env:
   global:
     - YARN_GPG="no" # prevent windows vm hanging on completion
     # - CHANGELOG="$(git log --format='%h %s (@%an, %cr)' --tags --date-order $TRAVIS_COMMIT_RANGE)"
-    - CHANGELOG="$(git log --format='%h %s (@%an, %cr)' --tags --date-order master..."
+    - CHANGELOG="$(git log --format='%h %s (@%an, %cr)' --tags --date-order master...)"
 
 addons:
   chrome: stable
@@ -70,9 +70,9 @@ deploy:
     on:
       tags: true
   - provider: bintray
-    file: bintray-conf.json
     user: "${BINTRAY_USER}"
     key: "${BINTRAY_API_KEY}"
+    file: bintray-conf.json
     skip_cleanup: true # do not delete what has just been built
     on:
       tags: true
