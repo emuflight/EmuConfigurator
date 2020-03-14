@@ -10,7 +10,7 @@ language: node_js
 env:
   global:
     - YARN_GPG="no" # prevent windows vm hanging on completion
-    - CHANGELOG="$(git log --format=' * %s (@%an, %cr)' --tags --date-order origin/master...)"
+    - CHANGELOG="$(git log --format=' * %s (@%an, %cr)' --tags --date-order $TRAVIS_COMMIT_RANGE)"
 
 addons:
   chrome: stable
@@ -40,6 +40,8 @@ install:
   - pip -q install --user --upgrade j2cli # install pip
 
 script:
+  - echo "${CHANGELOG}" > CHANGELOG.md
+  - cat CHANGELOG.md
   - ./.travis.sh # main
 
 cache:
@@ -58,6 +60,7 @@ deploy:
     target_commitish: "${TRAVIS_COMMIT}"
     file:
       - release/*
+      - CHANGELOG.md
     draft: true
     prerelease: true
     overwrite: true

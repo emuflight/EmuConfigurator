@@ -4,6 +4,11 @@
             "includePattern": "release/(.*)",
             "uploadPattern": "{{ env("PACKAGE_VERSION") }}/$1",
             "matrixParams": { "override": 1 }
+        },
+        {
+            "includePattern": "CHANGELOG.md",
+            "uploadPattern": "{{ env("PACKAGE_VERSION") }}/$1",
+            "matrixParams": { "override": 1 }
         }
     ],
     "package": {
