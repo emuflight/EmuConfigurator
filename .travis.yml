@@ -10,8 +10,7 @@ language: node_js
 env:
   global:
     - YARN_GPG="no" # prevent windows vm hanging on completion
-    # - CHANGELOG="$(git log --format='%h %s (@%an, %cr)' --tags --date-order $TRAVIS_COMMIT_RANGE)"
-    - CHANGELOG="$(git log --format='%h %s (@%an, %cr)' --tags --date-order master...)"
+    - CHANGELOG="$(git log --format='%h %s (@%an, %cr)' --tags --date-order $TRAVIS_COMMIT_RANGE)"
 
 addons:
   chrome: stable
