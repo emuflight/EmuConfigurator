@@ -59,6 +59,7 @@ deploy:
     body: "${CHANGELOG}"
     tag_name: "${TRAVIS_TAG}"
     target_commitish: "${TRAVIS_COMMIT}"
+    file_glob: true
     file:
       - release/*
     cleanup: false # do not delete what has just been built
