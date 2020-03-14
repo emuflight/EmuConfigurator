@@ -9,7 +9,8 @@ language: node_js
 
 env:
   global:
-    - YARN_GPG=no # prevent windows vm hanging on completion
+    - YARN_GPG="no" # prevent windows vm hanging on completion
+    - CHANGELOG="$(git log --format=' * %s (@%an, %cr)' --tags --date-order origin/master...)"
 
 addons:
   chrome: stable
@@ -52,15 +53,11 @@ deploy:
   - provider: releases
     skip_cleanup: true # do not delete what has just been built
     name: "${TRAVIS_TAG}"
+    body: "${CHANGELOG}"
     tag_name: "${TRAVIS_TAG}"
     target_commitish: "${TRAVIS_COMMIT}"
-    body: "${TRAVIS_COMMIT_MESSAGE}"
     file:
-      - release/*.deb
-      - release/*.dmg
-      - release/*.exe
-      - release/*.rpm
-      - release/*.zip
+      - release/*
     draft: true
     prerelease: true
     overwrite: true
