@@ -452,6 +452,20 @@ TABS.pid_tuning.initialize = function(callback) {
             $('#pid-tuning .feedforwardTransition').hide();
         }
 
+        //smart_dterm_smoothing, witchcraft_, table //first build with legit MSP144 is 0.2.35
+        if ( semver.gte(CONFIG.apiVersion, "1.44.0") && semver.gte(CONFIG.flightControllerVersion, "0.2.35") ) {
+            $('.smartDTermWitchBox input[name="smartdTermRoll"]').val(FILTER_CONFIG.smartSmoothing_roll);
+            $('.smartDTermWitchBox input[name="smartdTermPitch"]').val(FILTER_CONFIG.smartSmoothing_pitch);
+            $('.smartDTermWitchBox input[name="smartdTermYaw"]').val(FILTER_CONFIG.smartSmoothing_yaw);
+
+            $('.smartDTermWitchBox input[name="witchcraftRoll"]').val(FILTER_CONFIG.witchcraft_roll);
+            $('.smartDTermWitchBox input[name="witchcraftPitch"]').val(FILTER_CONFIG.witchcraft_pitch);
+            $('.smartDTermWitchBox input[name="witchcraftYaw"]').val(FILTER_CONFIG.witchcraft_yaw);
+        } else {
+            $('.smartDTermWitchBox').hide();
+        }
+
+
         if (semver.gte(CONFIG.apiVersion, "1.41.0")) {
             $('select[id="throttleLimitType"]').val(RC_tuning.throttle_limit_type);
             $('.throttle_limit input[name="throttleLimitPercent"]').val(RC_tuning.throttle_limit_percent);
@@ -605,7 +619,7 @@ TABS.pid_tuning.initialize = function(callback) {
             $('input[id="dtermLowpass2Enabled"]').prop('checked', FILTER_CONFIG.dterm_lowpass2_hz_pitch != 0).change();
             $('input[id="gyroLowpass2Enabled"]').prop('checked', FILTER_CONFIG.gyro_lowpass2_hz_pitch != 0).change();
         }
-    }
+    } //pid_and_rc_to_form()
 
     function form_to_pid_and_rc() {
         // Fill in the data from PIDs array
@@ -779,7 +793,17 @@ TABS.pid_tuning.initialize = function(callback) {
             ADVANCED_TUNING.setPointITransitionYaw = parseFloat($('.spa_yaw input[name="spaYaw_I"]').val());
             ADVANCED_TUNING.setPointDTransitionYaw = parseFloat($('.spa_yaw input[name="spaYaw_D"]').val());
         }
-    }
+        //save smart_dterm_smoothing_, witchcraft_ //first build with legit MSP144 is 0.2.35
+        if ( semver.gte(CONFIG.apiVersion, "1.44.0") && semver.gte(CONFIG.flightControllerVersion, "0.2.35") ) {
+            FILTER_CONFIG.smartSmoothing_roll  = parseFloat($('.smartDTermWitchBox input[name="smartdTermRoll"]').val());
+            FILTER_CONFIG.smartSmoothing_pitch = parseFloat($('.smartDTermWitchBox input[name="smartdTermPitch"]').val());
+            FILTER_CONFIG.smartSmoothing_yaw   = parseFloat($('.smartDTermWitchBox input[name="smartdTermYaw"]').val());
+
+            FILTER_CONFIG.witchcraft_roll      = parseFloat($('.smartDTermWitchBox input[name="witchcraftRoll"]').val());
+            FILTER_CONFIG.witchcraft_pitch     = parseFloat($('.smartDTermWitchBox input[name="witchcraftPitch"]').val());
+            FILTER_CONFIG.witchcraft_yaw       = parseFloat($('.smartDTermWitchBox input[name="witchcraftYaw"]').val());
+        }
+    } //end function form_to_pid_and_rc()
 
     function showAllPids() {
 
