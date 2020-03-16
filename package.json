@@ -56,7 +56,7 @@
     "command-exists": "^1.2.8",
     "del": "^5.0.0",
     "electron-installer-dmg": "^3.0.0",
-    "follow-redirects": "^1.6.1",
+    "follow-redirects": "^1.10.0",
     "fs-extra": "^8.1.0",
     "gulp": "^4.0.2",
     "gulp-concat": "~2.6.1",
