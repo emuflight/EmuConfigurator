@@ -2999,10 +2999,10 @@ isstream@~0.1.2:
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
   integrity sha1-R+Y/evVa+m+S4VAOaQ64uFKcCZo=
 
-jbox@1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/jbox/-/jbox-1.0.5.tgz#ad9350669d3ba5d9f062e6400bebe3e8985ead30"
-  integrity sha512-G7ofHfLb1znnu2y5uD6n4YM4NJp5k/7qnKcyWNKhyubPjXieXp29L0tvLjJFgwB2RNYUhN1Hh6b6KTBNsPCCTA==
+jbox@1.0.9:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/jbox/-/jbox-1.0.9.tgz#7681bf7859f3848da11ca5a6671d1cdf9f4affb3"
+  integrity sha512-4n+ycZUG5B0nzydj6cJvWcl5xHtZ6W9nr9npJL0cEH0B8IgBax29mWueqAi6Ht69FjMnKG5AemKt6CO+Av+f9A==
   dependencies:
     jquery "^3.4.1"
 
