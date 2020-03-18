@@ -3,14 +3,10 @@
 # travis continuous integration build script for
 # EmuConfigurator
 
-# get version string from 'package.json'
-export CONFIGURATOR_VERSION="$(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[ ",]//g')"
-
-# compose string to reference the package
-export PACKAGE_VERSION="${CONFIGURATOR_VERSION}-${TRAVIS_BUILD_NUMBER}-${TRAVIS_OS_NAME}"
+## build
 
 # install dependencies
-yarn install || exit $?
+yarn --frozen-lockfile || exit $?
 yarn gulp clean-release
 
 # build releases for each platform
@@ -23,7 +19,6 @@ case "${TRAVIS_OS_NAME}" in
         yarn gulp release --osx64
         ;;
     windows)
-        yarn gulp clean-release
         yarn gulp mrelease --win32
         yarn gulp mrelease --win64
         ;;
@@ -34,6 +29,14 @@ case "${TRAVIS_OS_NAME}" in
 esac
 
 ls -lsa release/
+
+## bintray
+
+# get version string from 'package.json'
+export CONFIGURATOR_VERSION="$(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[ ",]//g')"
+
+# compose string to reference the package
+export PACKAGE_VERSION="${CONFIGURATOR_VERSION}-${TRAVIS_BUILD_NUMBER}-${TRAVIS_OS_NAME}"
 
 # process template for pushing to bintray ('deploy' step on travis will pick it up)
 j2 bintray-template.j2 -o bintray-conf.json
