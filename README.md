@@ -4,7 +4,7 @@
 
 ![Emuflight](.github/screenshot.png)
 
-Various types of aircraft are supported by the tool and by Emuflight
+**Various types** of aircraft are supported by the tool and by Emuflight
 
  * quadcopters
  * hexacopters
@@ -15,9 +15,7 @@ The application allows you to configure the Emuflight software running on any [s
 
 ## Downloads
 
-Please download our releases at
-
-[Emuflight Configurator Releases](https://github.com/emuflight/EmuConfigurator/releases)
+Please [download our releases](https://github.com/emuflight/EmuConfigurator/releases) at GitHub.
 
 [![Build Status](https://travis-ci.org/emuflight/EmuConfigurator.svg?branch=master)](https://travis-ci.org/emuflight/EmuConfigurator)
 
@@ -45,7 +43,7 @@ In the meantime, please `right-click` the application and select `Open` to be ab
 
 ### Experimental Test Builds
 
-[Automated Builds](https://dl.bintray.com/emuflight/dev_cfg/)  available to try on **your own risk**!
+[Automated Builds](https://dl.bintray.com/emuflight/dev_cfg/) available to try on **your own risk**!
 
 ## Development
 
@@ -75,11 +73,11 @@ yarn gulp <taskname> [[platform] [platform] ...]
 List of possible values of `<task-name>`:
 
  * **dist** copies all the JS and CSS files in the `./dist` folder.
- * **apps** builds the apps in the `./apps` folder [1].
- * **debug** builds debug version of the apps in the `./debug` folder [1].
- * **release** zips up the apps into individual archives in the `./release` folder [1]. 
+ * **apps** builds the apps in the `./apps` folder [^1].
+ * **debug** builds debug version of the apps in the `./debug` folder [^1].
+ * **release** zips up the apps into individual archives in the `./release` folder [^1]. 
 
-[1] Running this task on macOS or Linux requires Wine, since it's needed to set the icon for the Windows app (build for specific platform to avoid errors).
+[^1] Running this task on macOS or Linux requires Wine, since it's needed to set the icon for the Windows app (build for specific platform to avoid errors).
 
 #### Build or release app for one specific platform
 
