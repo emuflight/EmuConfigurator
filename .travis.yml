@@ -3,15 +3,14 @@ os:
   - osx
   - windows
 
-sudo: false
-
-osx_image: xcode11.2
+osx_image: xcode11.3
 dist: bionic # linux
 language: node_js
 
 env:
   global:
-    - YARN_GPG=no # prevent windows vm hanging on completion
+    - YARN_GPG="no" # prevent windows vm hanging on completion
+    - CHANGELOG="$(git log --format='%h %s (@%an, %cr)' --tags --date-order $TRAVIS_COMMIT_RANGE)"
 
 addons:
   chrome: stable
@@ -41,6 +40,8 @@ install:
   - pip -q install --user --upgrade j2cli # install pip
 
 script:
+  - echo "${CHANGELOG}" > CHANGELOG.md
+  - cat CHANGELOG.md
   - ./.travis.sh # main
 
 cache:
@@ -51,14 +52,29 @@ cache:
   - '/c/Users/travis/AppData/Local/Temp/chocolatey'
 
 deploy:
-  provider: bintray
-  file: bintray-conf.json
-  user: "$BINTRAY_USER"
-  key: "$BINTRAY_API_KEY"
-  skip_cleanup: true # do not delete what has just been built
-  on:
-    all_branches: true
-    #branch: master # just this specific branch
+  - provider: releases
+    edge: true
+    token: "${GITHUB_TOKEN}"
+    name: "${TRAVIS_TAG}"
+    body: "${CHANGELOG}"
+    tag_name: "${TRAVIS_TAG}"
+    target_commitish: "${TRAVIS_COMMIT}"
+    file_glob: true
+    file:
+      - release/*
+    cleanup: false # do not delete what has just been built
+    draft: true
+    prerelease: true
+    overwrite: true
+    on:
+      tags: true
+  - provider: bintray
+    user: "${BINTRAY_USER}"
+    key: "${BINTRAY_API_KEY}"
+    file: bintray-conf.json
+    skip_cleanup: true # do not delete what has just been built
+    on:
+      tags: true
 
 after_deploy:
   - >
