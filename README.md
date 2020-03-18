@@ -1,32 +1,37 @@
 # Emuflight Configurator
 
-![Emuflight](.github/EmuFlight.png)
+**Emuflight Configurator** is a crossplatform configuration tool for the [Emuflight](https://github.com/emuflight) flight control system.
 
-Emuflight Configurator is a crossplatform configuration tool for the [Emuflight](https://github.com/emuflight) flight control system.
+![Emuflight](.github/screenshot.png)
 
-Various types of aircraft are supported by the tool and by Emuflight, e.g. quadcopters, hexacopters, octocopters and fixed-wing aircraft.
+Various types of aircraft are supported by the tool and by Emuflight
 
-It runs as an app within Google Chrome and allows you to configure the Emuflight software running on any [supported Emuflight target](https://github.com/emuflight/EmuFlight/tree/master/src/main/target).
+ * quadcopters
+ * hexacopters
+ * octocopters
+ * fixed-wing aircraft.
 
-There is also now a standalone version available, since Google Chrome Apps are getting deprecated on platforms that aren't Chrome OS.
+The application allows you to configure the Emuflight software running on any [supported Emuflight target](https://github.com/emuflight/EmuFlight/tree/master/src/main/target).
 
 ## Downloads
 
+Please download our releases at
+
 [Emuflight Configurator Releases](https://github.com/emuflight/EmuConfigurator/releases)
+
+[![Build Status](https://travis-ci.org/emuflight/EmuConfigurator.svg?branch=master)](https://travis-ci.org/emuflight/EmuConfigurator)
 
 ## Authors
 
 Emuflight Configurator is a [fork](#credits) of the Cleanflight Configurator with support for Emuflight instead of Cleanflight.
 
-> This configurator is the only configurator with support for Emuflight specific features!
+This configurator is the only configurator with support for Emuflight specific features!
 
 If you are experiencing any problems please make sure you are running the [latest firmware version](https://github.com/emuflight/EmuFlight/releases).
 
 ## Installation
 
 ### Standalone
-
-[![Build Status](https://travis-ci.org/emuflight/EmuConfigurator.svg?branch=master)](https://travis-ci.org/emuflight/EmuConfigurator)
 
 This is the default installation method, and at some point in the future this will become the only way available for most platforms. Please use this method whenever possible.
 
@@ -40,9 +45,7 @@ In the meantime, please `right-click` the application and select `Open` to be ab
 
 ### Experimental Test Builds
 
-Automated builds available to try on **your own risk**!
-
-[Experimental Builds](https://dl.bintray.com/emuflight/dev_cfg/) 
+[Automated Builds](https://dl.bintray.com/emuflight/dev_cfg/)  available to try on **your own risk**!
 
 ## Development
 
@@ -102,7 +105,7 @@ If you prefer to have the application in English or any other language, you can 
 
 ### WebGL
 
-Make sure Settings -> System -> "User hardware acceleration when available" is checked to achieve the best performance
+Make sure Settings -> System -> `Use hardware acceleration when available` is checked to achieve the best performance
 
 ### Linux users
 
@@ -116,7 +119,7 @@ sudo usermod -aG dialout $USER
 
 If you have 3D model animation problems, enable "Override software rendering list" in Chrome flags at
 
-chrome://flags/#ignore-gpu-blacklist
+`chrome://flags/#ignore-gpu-blacklist`
 
 ## Support
 
@@ -126,11 +129,17 @@ Please register and [join via this link](https://discord.gg/TM5hpcM).
 
 ### Issue trackers
 
- * For Emuflight configurator issues raise them at https://github.com/emuflight/EmuConfigurator/issues
- * For Emuflight firmware issues raise them here https://github.com/emuflight/EmuFlight/issues
+ * For Emuflight configurator issues raise them at
+   https://github.com/emuflight/EmuConfigurator/issues
+ * For Emuflight firmware issues raise them at
+   https://github.com/emuflight/EmuFlight/issues
 
 Thank you!
 
 ## Developers
 
 We accept clean and reasonable patches, please [submit them](https://github.com/emuflight/EmuConfigurator/pulls)!
+
+---
+
+![Emuflight](.github/EmuFlight.png)
