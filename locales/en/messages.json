@@ -3290,6 +3290,21 @@
     "pidTuningYawLowpassFrequency": {
         "message": "Yaw Lowpass Cutoff Frequency [Hz]"
     },
+    "pidTuningSmartDTermSmoothing":{
+        "message": "Smart dTerm Smoothing"
+    },
+    "pidTuningWitchcraft":{
+        "message": "WitchCraft"
+    },
+    "pidTuningGyroAverage":{
+        "message": "Gyro Averaging"
+    },
+    "pidTuningSmartDTermSmoothingHelp": {
+        "message": "'smart_dterm_smoothing_[roll|pitch|yaw]' smooths dTerm near stick center. The value is the maximum stick-deflection where smoothing will be active.  There will be more smoothing at center.  A value of 0 or 1 is effectively off.  Default is 50 (5% from center) on Roll and Pitch, 0 on Yaw. Maximum allowed is 250 (25% from center). Smoothing mathematics does not cause delay."
+    },
+    "pidTuningWitchcraftHelp": {
+        "message": "'witchcraft_[roll|pitch|yaw]' smooths dTerm over time. The value is how many pid loop iteration samples are averaged to calculate dTerm. A value of 0 or 1 is effectively off. Default is 2 on Roll and Pitch, 0 on Yaw. Maximum allowed is 10. May cause delay."
+    },
     "pidTuningVbatPidCompensation": {
         "message": "Vbat PID Compensation"
     },
@@ -4633,10 +4648,10 @@
     },
 
     "osdDescribeFontVersion1": {
-        "message": "Font version: 1 (MSP 1.43 or older)"
+        "message": "Font version: 1"
     },
     "osdDescribeFontVersion2": {
-        "message": "Font version: 2 (MSP 1.44 or newer)"
+        "message": "Font version: 2"
     },
     "osdDescribeFontVersionCUSTOM": {
         "message": "Font version: user provided"
