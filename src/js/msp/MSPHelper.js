@@ -325,6 +325,14 @@ MspHelper.prototype.process_data = function(dataHandler) {
                     RC_tuning.throttle_limit_type = data.readU8();
                     RC_tuning.throttle_limit_percent = data.readU8();
                 }
+                if (semver.gte(CONFIG.apiVersion, "1.45.0")) {
+                    RC_tuning.vbat_comp_type = data.readU8();
+                    RC_tuning.vbat_comp_ref = data.readU8();
+                    RC_tuning.vbat_comp_throttle_level = data.readU8();
+                    RC_tuning.vbat_comp_pid_level = data.readU8();
+
+                }
+
                 break;
 
             case MSPCodes.MSP_EMUF:
@@ -1003,6 +1011,12 @@ MspHelper.prototype.process_data = function(dataHandler) {
                           FILTER_CONFIG.witchcraft_roll = data.readU8();
                           FILTER_CONFIG.witchcraft_pitch = data.readU8();
                           FILTER_CONFIG.witchcraft_yaw = data.readU8();
+                            if (semver.gte(CONFIG.apiVersion, "1.45.0")) {
+                              FILTER_CONFIG.averaged_Gyro_roll = data.readU8();
+                              FILTER_CONFIG.averaged_Gyro_pitch = data.readU8();
+                              FILTER_CONFIG.averaged_Gyro_yaw = data.readU8();
+
+                            }
                       }
 
                     }
@@ -1021,8 +1035,8 @@ MspHelper.prototype.process_data = function(dataHandler) {
                 IMUF_FILTER_CONFIG.imuf_yaw_q = data.readU16();
                 IMUF_FILTER_CONFIG.imuf_w = data.readU16();
                 if (CONFIG.boardIdentifier === "HESP" || CONFIG.boardIdentifier === "SX10" || CONFIG.boardIdentifier === "FLUX") {
-                    IMUF_FILTER_CONFIG.imuf_pitch_lpf_cutoff_hz = data.readU16();
                     IMUF_FILTER_CONFIG.imuf_roll_lpf_cutoff_hz = data.readU16();
+                    IMUF_FILTER_CONFIG.imuf_pitch_lpf_cutoff_hz = data.readU16();
                     IMUF_FILTER_CONFIG.imuf_yaw_lpf_cutoff_hz = data.readU16();
                     if (semver.gte(CONFIG.apiVersion, "1.42.0")) {
                         IMUF_FILTER_CONFIG.imuf_acc_lpf_cutoff_hz = data.readU16();
@@ -1520,6 +1534,12 @@ MspHelper.prototype.crunch = function(code) {
                 buffer.push8(RC_tuning.throttle_limit_type);
                 buffer.push8(RC_tuning.throttle_limit_percent);
             }
+              if (semver.gte(CONFIG.apiVersion, "1.45.0")) {
+                buffer.push8(RC_tuning.vbat_comp_type);
+                buffer.push8(RC_tuning.vbat_comp_ref);
+                buffer.push8(RC_tuning.vbat_comp_throttle_level);
+                buffer.push8(RC_tuning.vbat_comp_pid_level);
+              }
             break;
 
         case MSPCodes.MSP_SET_EMUF:
@@ -1826,6 +1846,11 @@ MspHelper.prototype.crunch = function(code) {
                           .push8(FILTER_CONFIG.witchcraft_roll)
                           .push8(FILTER_CONFIG.witchcraft_pitch)
                           .push8(FILTER_CONFIG.witchcraft_yaw);
+                          if (semver.gte(CONFIG.apiVersion, "1.45.0")){
+                          buffer.push8(FILTER_CONFIG.averaged_Gyro_roll)
+                          .push8(FILTER_CONFIG.averaged_Gyro_pitch)
+                          .push8(FILTER_CONFIG.averaged_Gyro_yaw);
+                          }
                         }
 
                 }
@@ -1842,8 +1867,8 @@ MspHelper.prototype.crunch = function(code) {
             buffer.push16(IMUF_FILTER_CONFIG.imuf_yaw_q);
             buffer.push16(IMUF_FILTER_CONFIG.imuf_w);
             if (CONFIG.boardIdentifier === "HESP" || CONFIG.boardIdentifier === "SX10" || CONFIG.boardIdentifier === "FLUX") {
-                buffer.push16(IMUF_FILTER_CONFIG.imuf_pitch_lpf_cutoff_hz);
                 buffer.push16(IMUF_FILTER_CONFIG.imuf_roll_lpf_cutoff_hz);
+                buffer.push16(IMUF_FILTER_CONFIG.imuf_pitch_lpf_cutoff_hz);
                 buffer.push16(IMUF_FILTER_CONFIG.imuf_yaw_lpf_cutoff_hz);
                 if (semver.gte(CONFIG.apiVersion, "1.42.0")) {
                     buffer.push16(IMUF_FILTER_CONFIG.imuf_acc_lpf_cutoff_hz);

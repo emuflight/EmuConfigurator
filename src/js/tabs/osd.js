@@ -2587,7 +2587,8 @@ TABS.osd.initialize = function (callback) {
         fontPresetsElement.change(function (e) {
             var $font = $('.fontpresets option:selected');
             var fontver = 1;
-            if (semver.gte(CONFIG.apiVersion, "1.44.0")) {
+            //workaround for pre-relese 0.2.22RC2 and dev builds
+            if ( semver.gte(CONFIG.apiVersion, "1.44.0") || semver.eq(CONFIG.flightControllerVersion, "0.2.22") ) {
                 fontver = 2;
             }
             $('.font-manager-version-info').text(i18n.getMessage('osdDescribeFontVersion' + fontver));
