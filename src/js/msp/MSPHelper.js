@@ -1011,12 +1011,6 @@ MspHelper.prototype.process_data = function(dataHandler) {
                           FILTER_CONFIG.witchcraft_roll = data.readU8();
                           FILTER_CONFIG.witchcraft_pitch = data.readU8();
                           FILTER_CONFIG.witchcraft_yaw = data.readU8();
-                            if (semver.gte(CONFIG.apiVersion, "1.45.0")) {
-                              FILTER_CONFIG.averaged_Gyro_roll = data.readU8();
-                              FILTER_CONFIG.averaged_Gyro_pitch = data.readU8();
-                              FILTER_CONFIG.averaged_Gyro_yaw = data.readU8();
-
-                            }
                       }
 
                     }
@@ -1846,11 +1840,6 @@ MspHelper.prototype.crunch = function(code) {
                           .push8(FILTER_CONFIG.witchcraft_roll)
                           .push8(FILTER_CONFIG.witchcraft_pitch)
                           .push8(FILTER_CONFIG.witchcraft_yaw);
-                          if (semver.gte(CONFIG.apiVersion, "1.45.0")){
-                          buffer.push8(FILTER_CONFIG.averaged_Gyro_roll)
-                          .push8(FILTER_CONFIG.averaged_Gyro_pitch)
-                          .push8(FILTER_CONFIG.averaged_Gyro_yaw);
-                          }
                         }
 
                 }
