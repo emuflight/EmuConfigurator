@@ -637,7 +637,6 @@
                             </tr>
                         </table>
                     </div>
-
                     <div class="gui_box rc_curve">
                         <div class="rc_curve_bg">
                             <table class="cf rc_curve">
@@ -665,7 +664,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="cf_column">
                     <div class="gui_box tpa spacer_left">
                         <table class="cf">
@@ -678,110 +676,62 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr style="height: 35px;">
-                                    <td class="leftzero"><input type="number" name="tpa_P" step="0.01" min="0"
-                                        max="2.50" /></td>
-                                    <td class="leftzero"><input type="number" name="tpa_I" id="tpaIidentificator" step="0.01" min="0"
-                                        max="2.50" /></td>
-                                    <td class="leftzero"><input type="number" name="tpa_D" id="tpaDidentificator" step="0.01" min="0"
-                                        max="2.50" /></td>
-                                    <td class="tpa-breakpoint"><input type="number" name="tpa-breakpoint" step="10" min="1000" max="2000" /></td>
+                                <tr>
+                                    <td class="leftzero"><input type="number" name="tpa_P" step="0.01" min="0" max="2.50"></td>
+                                    <td class="leftzero"><input type="number" name="tpa_I" id="tpaIidentificator" step="0.01" min="0" max="2.50"></td>
+                                    <td class="leftzero"><input type="number" name="tpa_D" id="tpaDidentificator" step="0.01" min="0" max="2.50"></td>
+                                    <td class="tpa-breakpoint"><input type="number" name="tpa-breakpoint" step="10" min="1000" max="2000"></td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-
-                        <div class="gui_box spa spacer_left">
-                            <table class="cf">
-                                <thead>
-                                    <tr>
-                                        <th i18n="pidTuningSPA_P"></th>
-                                        <th i18n="pidTuningSPA_I"></th>
-                                        <th i18n="pidTuningSPA_D"></th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr style="height: 35px;">
-                                        <td class="leftzero"><input type="number" name="spa_P" step="1" min="0"
-                                            max="250" /></td>
-                                        <td class="leftzero"><input type="number" name="spa_I" id="spaIidentificator" step="1" min="0"
-                                            max="250" /></td>
-                                        <td class="leftzero"><input type="number" name="spa_D" id="spaDidentificator" step="1" min="0"
-                                            max="250" /></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <div class="gui_box spa_roll spacer_left">
-                            <table class="cf">
-                                <thead>
-                                    <tr>
-                                        <th i18n="pidTuningSPARoll_P"></th>
-                                        <th i18n="pidTuningSPARoll_I"></th>
-                                        <th i18n="pidTuningSPARoll_D"></th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr style="height: 35px;">
-                                        <td class="leftzero"><input type="number" name="spaRoll_P" id="spaRollPidentificator" step="1" min="0"
-                                            max="250" /></td>
-                                        <td class="leftzero"><input type="number" name="spaRoll_I" id="spaRollIidentificator" step="1" min="0"
-                                            max="250" /></td>
-                                        <td class="leftzero"><input type="number" name="spaRoll_D" id="spaRollDidentificator" step="1" min="0"
-                                            max="250" /></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="gui_box spa_pitch spacer_left">
-                            <table class="cf">
-                                <thead>
-                                    <tr>
-                                        <th i18n="pidTuningSPAPitch_P"></th>
-                                        <th i18n="pidTuningSPAPitch_I"></th>
-                                        <th i18n="pidTuningSPAPitch_D"></th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr style="height: 35px;">
-                                        <td class="leftzero"><input type="number" name="spaPitch_P" id="spaPitchPidentificator" step="1" min="0"
-                                            max="250" /></td>
-                                        <td class="leftzero"><input type="number" name="spaPitch_I" id="spaPitchIidentificator" step="1" min="0"
-                                            max="250" /></td>
-                                        <td class="leftzero"><input type="number" name="spaPitch_D" id="spaPitchDidentificator" step="1" min="0"
-                                            max="250" /></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <div class="gui_box spa_yaw spacer_left">
-                            <table class="cf">
-                                <thead>
-                                    <tr>
-                                        <th i18n="pidTuningSPAYaw_P"></th>
-                                        <th i18n="pidTuningSPAYaw_I"></th>
-                                        <th i18n="pidTuningSPAYaw_D"></th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr style="height: 35px;">
-                                        <td class="leftzero"><input type="number" name="spaYaw_P" step="1" min="0"
-                                            max="250" /></td>
-                                        <td class="leftzero"><input type="number" name="spaYaw_I" id="spaYawIidentificator" step="1" min="0"
-                                            max="250" /></td>
-                                        <td class="leftzero"><input type="number" name="spaYaw_D" id="spaYawDidentificator" step="1" min="0"
-                                            max="250" /></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
+                    <div class="gui_box -grey -spa spacer_left">
+                        <table class="cf pid_tuning">
+                            <thead>
+                                <tr colspan="4">
+                                    <th>
+                                        <div>
+                                            <div i18n="pidTuningSPA" style="float:left;"></div>
+                                            <div class="helpicon cf_tip" i18n_title="pidTuningSPAHelp"></div>
+                                        </div>
+                                    </th>
+                                    <th i18n="pidTuningSPA_P"></th>
+                                    <th i18n="pidTuningSPA_I"></th>
+                                    <th i18n="pidTuningSPA_D"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- SPA Roll/Pitch Mix pre 0.2.23-->
+                                <tr class="-pid_tuning spa spa_mix" colspan="4">
+                                    <td class="leftzero" i18n="pidTuningSPAMix"></td>
+                                    <td class="leftzero"><input type="number" name="spa_P" step="1" min="0" max="250"></td>
+                                    <td class="leftzero"><input type="number" name="spa_I" step="1" min="0" max="250"></td>
+                                    <td class="leftzero"><input type="number" name="spa_D" step="1" min="0" max="250"></td>
+                                </tr>
+                                <!-- SPA per axis 0.2.23+ -->
+                                <tr class="ROLL spa_roll" colspan="4">
+                                    <td class="pid_roll"></td>
+                                    <td class="leftzero"><input type="number" name="spaRoll_P" step="1" min="0" max="250"></td>
+                                    <td class="leftzero"><input type="number" name="spaRoll_I" step="1" min="0" max="250"></td>
+                                    <td class="leftzero"><input type="number" name="spaRoll_D" step="1" min="0" max="250"></td>
+                                </tr>
+                                <!-- SPA per axis 0.2.23+ -->
+                                <tr class="PITCH spa_pitch" colspan="4">
+                                    <td class="pid_pitch"></td>
+                                    <td class="leftzero"><input type="number" name="spaPitch_P" step="1" min="0" max="250"></td>
+                                    <td class="leftzero"><input type="number" name="spaPitch_I" step="1" min="0" max="250"></td>
+                                    <td class="leftzero"><input type="number" name="spaPitch_D" step="1" min="0" max="250"></td>
+                                </tr>
+                                <!-- SPA yaw since 0.2.0-->
+                                <tr class="YAW spa_yaw" colspan="4">
+                                    <td class="pid_yaw"></td>
+                                    <td class="leftzero"><input type="number" name="spaYaw_P" step="1" min="0" max="250"></td>
+                                    <td class="leftzero"><input type="number" name="spaYaw_I" step="1" min="0" max="250"></td>
+                                    <td class="leftzero"><input type="number" name="spaYaw_D" step="1" min="0" max="250"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                     <div class="gui_box throttle_limit spacer_left">
                         <table class="cf">
                             <thead>
@@ -814,7 +764,6 @@
                             </tbody>
                         </table>
                     </div>
-
                     <div class="gui_box throttle spacer_left">
                         <table class="cf">
                             <thead>
@@ -831,7 +780,6 @@
                             </tbody>
                         </table>
                     </div>
-
                     <div class="gui_box throttle spacer_left">
                         <table class="cf">
                             <thead>
@@ -849,7 +797,6 @@
                         </table>
                     </div>
                 </div>
-
                 <div class="cf_column">
                     <div class="gui_box ratePreview grey spacer_left">
                         <table class="pid_titlebar">
@@ -871,7 +818,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- FILTER SUBTAB -->
             <div class="subtab-filter" style="display: none;">
                 <div class="clear-both"></div>
@@ -899,9 +845,6 @@
                                     </div>
                                 </th>
                             </tr>
-
-
-
                             <tr>
                                 <td>
                                     <span class="groupSwitchValue">
@@ -924,7 +867,6 @@
                                     </div>
                                 </td>
                             </tr>
-
                             <tr>
                                 <td>
                                     <select name="gyroLowpassType">
@@ -939,8 +881,6 @@
                                     </div>
                                 </td>
                             </tr>
-
-
                             <tr class="gyroLowpass2">
                                 <td>
                                     <span class="groupSwitchValue">
