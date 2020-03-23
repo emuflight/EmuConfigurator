@@ -1675,41 +1675,29 @@
     "pidTuningTPABreakPoint": {
         "message": "TPA Breakpoint"
     },
+    "pidTuningSPA": {
+        "message": "SPA",
+        "_comment":"generic"
+    },
+    "pidTuningSPAHelp": {
+        "message": "SPA (Stick Position Attenuation) is similar to TPA but based on stick deflection. The value will be a percentage of the specified PID at full stick deflection. e.g. 100=100% (no change), 65=65% at full stick deflection, 125=125% at full stick deflection.",
+        "_comment":"generic"
+    },
     "pidTuningSPA_P": {
-        "message": "SPA P"
+        "message": "SPA P",
+        "_comment":"pre 0.2.23 roll/pitch together"
     },
     "pidTuningSPA_I": {
-        "message": "SPA I"
+        "message": "SPA I",
+        "_comment":"pre 0.2.23 roll/pitch together"
     },
     "pidTuningSPA_D": {
-        "message": "SPA D"
+        "message": "SPA D",
+        "_comment":"pre 0.2.23 roll/pitch together"
     },
-    "pidTuningSPARoll_P": {
-        "message": "SPA ROLL P"
-    },
-    "pidTuningSPARoll_I": {
-        "message": "SPA ROLL I"
-    },
-    "pidTuningSPARoll_D": {
-        "message": "SPA ROLL D"
-      },
-        "pidTuningSPAPitch_P": {
-            "message": "SPA PITCH P"
-        },
-        "pidTuningSPAPitch_I": {
-            "message": "SPA PITCH I"
-        },
-        "pidTuningSPAPitch_D": {
-            "message": "SPA PITCH D"
-          },
-    "pidTuningSPAYaw_P": {
-        "message": "SPA YAW P"
-    },
-    "pidTuningSPAYaw_I": {
-        "message": "SPA YAW I"
-    },
-    "pidTuningSPAYaw_D": {
-        "message": "SPA YAW D"
+    "pidTuningSPAMix": {
+        "message": "Roll/Pitch",
+        "_comment":"pre 0.2.23 roll/pitch together"
     },
     "pidTuningThrottleCurvePreview": {
         "message": "Throttle Curve Preview"
