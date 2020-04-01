@@ -571,8 +571,10 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
         }
 
         if (semver.gte(CONFIG.apiVersion, "1.43.0")) {
-        $('input[id="cinematicYawSwitch"]').prop('checked', RX_CONFIG.cinematicYaw !== 0);
-      }
+            $('input[id="cinematicYawSwitch"]').prop('checked', RX_CONFIG.cinematicYaw !== 0);
+        } else {
+            $('.CinematicYaw').hide();
+        }
 
         if (semver.lt(CONFIG.apiVersion, "1.20.0")) {
             $('.miscSettings').hide();
