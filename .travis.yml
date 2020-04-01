@@ -31,13 +31,14 @@ before_install:
   - if [ "$TRAVIS_OS_NAME" == "windows" ]; then choco install nsis; fi
   - if [ "$TRAVIS_OS_NAME" == "windows" ]; then export PATH="/c/Program Files (x86)/NSIS:$PATH"; fi
   # install 'python' on all platforms supported
+  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get -y install python3 python3-pip; fi
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then export PATH="$HOME/.local/bin:$PATH"; fi
-  - if [ "$TRAVIS_OS_NAME" == "osx" ]; then export PATH="$HOME/Library/Python/2.7/bin:$PATH"; fi
+  - if [ "$TRAVIS_OS_NAME" == "osx" ]; then export PATH="$HOME/Library/Python/3.8/bin:$PATH"; fi
   - if [ "$TRAVIS_OS_NAME" == "windows" ]; then choco install python --version 3.8.0; fi
   - if [ "$TRAVIS_OS_NAME" == "windows" ]; then export PATH="/c/Python38:/c/Python38/Scripts:/c/Users/travis/AppData/Roaming/Python/Python38/Scripts:$PATH"; fi
 
 install:
-  - pip -q install --user --upgrade j2cli # install pip
+  - pip3 -q install --user --upgrade j2cli # install pip
 
 script:
   - echo "${CHANGELOG}" > CHANGELOG.md
