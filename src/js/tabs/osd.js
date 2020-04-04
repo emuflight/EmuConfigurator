@@ -1,5 +1,8 @@
 'use strict';
 
+var fontCount;
+var fontDelta = 0;
+
 var SYM = SYM || {};
 
 SYM.loadSymbols = function() {
@@ -1319,10 +1322,7 @@ OSD.constants = {
         { file: "extra_large", name: "Extra Large" },
         { file: "emuflight", name: "Emuflight" },
         { file: "digital", name: "Digital" },
-        { file: "clarity", name: "Clarity" },
-        { file: "vision", name: "Vision" },
-        { file: "impact", name: "Impact" },
-        { file: "impact_mini", name: "Impact Mini" },
+        //additional fonts must now be declared in TABS.osd.initialize
     ]
 };
 
@@ -1979,6 +1979,37 @@ TABS.osd.initialize = function (callback) {
         SYM.loadSymbols();
         OSD.loadDisplayFields();
 
+        //move font versioning outside of fontPresetsElement.change function
+        //allows for additional v2 fonts to be added at will
+        //to do: possible re-write Configurator, changing from a static-font-array to reading *.mcm files instead
+        var fontver;
+        //remove the previously pushed fonts just in case a different FC is connected in same Configurator session
+        var temp = fontDelta;
+        for (var i = 0; i < temp; i++) {
+            OSD.constants.FONT_TYPES.pop();
+            fontDelta--;
+        }
+        //use v1-font for old existing firmwares, use v2-font for newer v2-font compatible firmwares
+		if ( semver.gte(CONFIG.apiVersion, "1.44.0") || semver.eq(CONFIG.flightControllerVersion, "0.2.22") ) {
+			fontver = 2;
+            //push additional v2 compatible fonts to font-array
+            fontCount = OSD.constants.FONT_TYPES.length;
+            OSD.constants.FONT_TYPES.push({ file: "clarity", name: "Clarity" });
+            OSD.constants.FONT_TYPES.push({ file: "vision", name: "Vision" });
+            OSD.constants.FONT_TYPES.push({ file: "impact", name: "Impact" });
+            OSD.constants.FONT_TYPES.push({ file: "impact_mini", name: "Impact Mini" });
+            OSD.constants.FONT_TYPES.push({ file: "kaio", name: "Kaio" });
+            //push/define all future v2 fonts here
+            fontDelta = OSD.constants.FONT_TYPES.length - fontCount;
+		} else {
+			fontver = 1;
+			//change crosshair to accurate symbols
+			SYM.AH_CENTER_LINE = 0x26;
+			SYM.AH_CENTER = 0x7E;
+			SYM.AH_CENTER_LINE_RIGHT = 0x27;
+            //gps and other symbols are broken due to static-declaration top-down approach taken by Config devs
+		}
+
         // Generate font type select element
         var fontPresetsElement = $('.fontpresets');
         OSD.constants.FONT_TYPES.forEach(function (e, i) {
@@ -2586,11 +2617,7 @@ TABS.osd.initialize = function (callback) {
 
         fontPresetsElement.change(function (e) {
             var $font = $('.fontpresets option:selected');
-            var fontver = 1;
-            //workaround for pre-relese 0.2.22RC2 and dev builds
-            if ( semver.gte(CONFIG.apiVersion, "1.44.0") || semver.eq(CONFIG.flightControllerVersion, "0.2.22") ) {
-                fontver = 2;
-            }
+            //moved font versioning to TABS.osd.initialize
             $('.font-manager-version-info').text(i18n.getMessage('osdDescribeFontVersion' + fontver));
             $.get('./resources/osd/' + fontver + '/' + $font.data('font-file') + '.mcm', function (data) {
                 FONT.parseMCMFontFile(data);
