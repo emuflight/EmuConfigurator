@@ -3094,9 +3094,8 @@
     "controlAxisAux16": {
         "message": "AUX 16"
     },
-
     "pidTuningBasic": {
-        "message": "Basic/Acro"
+        "message": "PIDs"
     },
     "pidTuningYawJumpPrevention": {
         "message": "Yaw Jump Prevention"
@@ -3111,7 +3110,7 @@
         "message": "The exponent that is used when calculating RC Expo. In Emuflight versions prior to 3.0, value is fixed at 3."
     },
     "pidTuningLevel": {
-        "message": "Angle/Horizon"
+        "message": "Angle/Horizon/NFE"
     },
     "pidTuningAltitude": {
         "message": "Barometer & Sonar/Altitude"
@@ -3142,6 +3141,45 @@
     },
     "pidTuningLevelHelp": {
         "message": "The values below change the behaviour of the ANGLE and HORIZON flight modes. Different PID controllers handle the values differently. Please check the documentation."
+    },
+    "pidTuningLevelAngleLimitHelp": {
+        "message": "Maximum angle allowed in Angle Mode."
+    },
+    "pidTuningAngleHigh": {
+        "message": "High Angle Error"
+    },
+    "pidTuningAngleHighHelp": {
+        "message": "High Angle Error deals with crash recovery and quick stick movement."
+    },
+    "pidTuningAngleLow": {
+        "message": "Low Angle Error"
+    },
+    "pidTuningAngleLowHelp": {
+        "message": "Low Angle Error"
+    },
+    "pidTuningAngleFeedForward": {
+        "message": "Angle Feed-Forward"
+    },
+    "pidTuningAngleFeedForwardHelp": {
+        "message": "The amount of Feed-Forward for Angle Mode."
+    },
+    "pidTuningAngleExpo": {
+        "message": "Angle Expo"
+    },
+    "pidTuningAngleExpoHelp": {
+        "message": "The amount of Expo in Angle Mode."
+    },
+    "pidTuningHorizTiltEffect": {
+        "message": "Tilt Effect"
+    },
+    "pidTuningHorizTiltEffectHelp": {
+        "message": "Controls the effect the current inclination (tilt) has on self-leveling in the Horizon flight mode. Larger values result in less self-leveling (more “acro”) as the tilt of the vehicle increases. 180 is weakest auto-level effect. 0 is strongest auto-level effect. Default is 130."
+    },
+    "pidTuningHorizTransition": {
+        "message": "Transition"
+    },
+    "pidTuningHorizTransitionHelp": {
+        "message": "The strength of the transition from angle to acro."
     },
     "pidTuningNonProfileFilterSettings": {
         "message": "Profile independent Filter Settings"
