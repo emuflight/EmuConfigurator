@@ -203,10 +203,12 @@ TABS.pid_tuning.initialize = function(callback) {
             $('.pid_filter .gyroNotch2').hide();
         }
 
-        if (semver.gte(CONFIG.apiVersion, "1.24.0")) {
+        if ( semver.gte(CONFIG.apiVersion, "1.24.0") && semver.lte(CONFIG.apiVersion, "1.43.0") ) {
             $('.pid_tuning input[name="angleLimit"]').val(ADVANCED_TUNING.levelAngleLimit);
             $('.pid_tuning input[name="sensitivity"]').val(ADVANCED_TUNING.levelSensitivity);
-        } else {
+        } else { //hide broken angle settings in newer firmware
+            $('#showAllPids').hide();
+            $('#pid_accel').hide();
             $('.pid_sensitivity').hide();
         }
 
