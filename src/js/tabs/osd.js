@@ -1,5 +1,7 @@
 'use strict';
 
+var fontCount;
+
 var SYM = SYM || {};
 
 SYM.loadSymbols = function() {
@@ -1323,6 +1325,7 @@ OSD.constants = {
         { file: "vision", name: "Vision" },
         { file: "impact", name: "Impact" },
         { file: "impact_mini", name: "Impact Mini" },
+        { file: "kaio", name: "Kaio" },
     ]
 };
 
@@ -1979,15 +1982,39 @@ TABS.osd.initialize = function (callback) {
         SYM.loadSymbols();
         OSD.loadDisplayFields();
 
+        //move font versioning outside of fontPresetsElement.change function
+        //allows for additional v2 fonts to be added at will
+        //to do: possible re-write Configurator, changing from a static-font-array to reading *.mcm files instead
+        var fontver;
+        //var fontDelta = 0;
+        //use v1-font for old existing firmwares, use v2-font for newer v2-font compatible firmwares
+        if ( semver.gte(CONFIG.apiVersion, "1.44.0") || semver.eq(CONFIG.flightControllerVersion, "0.2.22") ) {
+            fontver = 2;
+            fontCount = OSD.constants.FONT_TYPES.length;
+        } else {
+            fontver = 1;
+            fontCount = 6; //static quantity of old butterflight based fonts
+            //change crosshair to accurate symbols
+            SYM.AH_CENTER_LINE = 0x26;
+            SYM.AH_CENTER = 0x7E;
+            SYM.AH_CENTER_LINE_RIGHT = 0x27;
+            //gps and other symbols are still broken due to
+            //static-declaration approach taken by prior Config devs.
+            //versioning would need to take place before OSD.loadDisplayFields declaration
+        }
+
         // Generate font type select element
         var fontPresetsElement = $('.fontpresets');
-        OSD.constants.FONT_TYPES.forEach(function (e, i) {
+        var fontIteration = 0;
+        OSD.constants.FONT_TYPES.some(function (e, i) {
+            fontIteration++;
             var option = $('<option>', {
                 "data-font-file": e.file,
                 value: e.file,
                 text: e.name
             });
             fontPresetsElement.append($(option));
+            return fontIteration === fontCount;
         });
 
         var fontbuttons = $('.fontpresets_wrapper');
@@ -2324,9 +2351,12 @@ TABS.osd.initialize = function (callback) {
                         osdFontSelector_e.append($(option));
 
                         // Standard fonts
-                        OSD.constants.FONT_TYPES.forEach(function (e, i) {
+                        var fontIteration = 0;
+                        OSD.constants.FONT_TYPES.some(function (e, i) {
+                            fontIteration++;
                             let optionText = i18n.getMessage('osdSetupPreviewSelectFontElement', {fontName : e.name});
                             osdFontSelector_e.append(new Option(optionText, e.file));
+                            return fontIteration === fontCount;
                         });
 
                         osdFontSelector_e.change(function() {
@@ -2586,11 +2616,7 @@ TABS.osd.initialize = function (callback) {
 
         fontPresetsElement.change(function (e) {
             var $font = $('.fontpresets option:selected');
-            var fontver = 1;
-            //workaround for pre-relese 0.2.22RC2 and dev builds
-            if ( semver.gte(CONFIG.apiVersion, "1.44.0") || semver.eq(CONFIG.flightControllerVersion, "0.2.22") ) {
-                fontver = 2;
-            }
+            //moved font versioning to TABS.osd.initialize
             $('.font-manager-version-info').text(i18n.getMessage('osdDescribeFontVersion' + fontver));
             $.get('./resources/osd/' + fontver + '/' + $font.data('font-file') + '.mcm', function (data) {
                 FONT.parseMCMFontFile(data);
