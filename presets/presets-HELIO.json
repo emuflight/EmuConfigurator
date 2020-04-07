@@ -1,5 +1,5 @@
 {
-   "5inch-6S-Andrey-freestyle":{
+   "5inch-6S-2207-1750KV-Andrey-freestyle":{
       "__comment":                     "!!! PIDs !!! ",
       "p_roll":                        62,
       "i_roll":                        90,
@@ -98,7 +98,7 @@
       "spa_rate_i_yaw":                100,
       "spa_rate_d_yaw":                100
    },
-   "5inch-MrNoize-STRIX F10":{
+   "5inch-6S-2306-1700KV-MrNoize-STRIX F10":{
       "__comment":                     "PIDs",
       "p_roll":                        64,
       "i_roll":                        70,
@@ -197,7 +197,7 @@
       "spa_rate_i_yaw":                100,
       "spa_rate_d_yaw":                100
    },
-   "5inch-6S-ehitaja-racing":{
+   "5inch-6S-2207-1750KV-Ehitaja-racing":{
       "__comment":                     "!!! PIDs !!!",
       "p_roll":                        42,
       "i_roll":                        95,
@@ -296,7 +296,7 @@
       "spa_rate_i_yaw":                100,
       "spa_rate_d_yaw":                100
    },
-   "Pierre Meunier":{
+   "5inch-4S-2306-2500KV-Pierre-Meunier":{
       "__comment":                     "!!! PIDs !!!",
       "p_roll":                        78,
       "i_roll":                        55,
@@ -396,7 +396,7 @@
       "spa_rate_i_yaw":                100,
       "spa_rate_d_yaw":                100
    },
-   "Pierre Meunier VR":{
+   "5inch-VR-4S-2306-2550KV-Pierre-Meunier":{
       "__comment":                     "!!! PIDs !!!",
       "p_roll":                        73,
       "i_roll":                        62,
@@ -490,7 +490,7 @@
       "spa_rate_i_yaw":                100,
       "spa_rate_d_yaw":                100
    },
-   "Skylion 5 inch":{
+   "5inch-4S-2306-2550KV-Skylion":{
       "__comment":                     "!!! PIDs !!!",
       "p_roll":                        52,
       "i_roll":                        60,
@@ -590,7 +590,7 @@
       "spa_rate_i_yaw":                80,
       "spa_rate_d_yaw":                70
    },
-   "Skylion 7 inch":{
+   "7inch-4S-2408-1900KV-Skylion":{
       "__comment":                     "!!! PIDs !!!",
       "p_roll":                        51,
       "i_roll":                        70,
@@ -690,7 +690,7 @@
       "spa_rate_i_yaw":                80,
       "spa_rate_d_yaw":                90
    },
-   "5inch-4S-FilThrillz-freestyle":{
+   "5inch-4S-2207-2750KV-FilThrillz-freestyle":{
       "__comment":                     "!!! PIDs !!! ",
       "p_roll":                        50,
       "i_roll":                        80,
