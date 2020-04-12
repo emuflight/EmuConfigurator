@@ -18,7 +18,7 @@ addons:
     update: true
 
 git:
-  depth: 5 # quick clone
+  depth: 12 # quick clone, but less shallow for clicking rebuild a few merges later
   quiet: true # save on logfiles
 
 node_js:
@@ -33,7 +33,8 @@ before_install:
   # install 'python' on all platforms supported
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get -y install python3 python3-pip; fi
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then export PATH="$HOME/.local/bin:$PATH"; fi
-  - if [ "$TRAVIS_OS_NAME" == "osx" ]; then export PATH="$HOME/Library/Python/3.8/bin:$PATH"; fi
+  # OSX use python 3.8, but fallback to 3.7 for j2
+  - if [ "$TRAVIS_OS_NAME" == "osx" ]; then export PATH="$HOME/Library/Python/3.8/bin:$HOME/Library/Python/3.7/bin:$PATH"; fi
   - if [ "$TRAVIS_OS_NAME" == "windows" ]; then choco install python --version 3.8.0; fi
   - if [ "$TRAVIS_OS_NAME" == "windows" ]; then export PATH="/c/Python38:/c/Python38/Scripts:/c/Users/travis/AppData/Roaming/Python/Python38/Scripts:$PATH"; fi
 
@@ -46,6 +47,7 @@ script:
   - ./.travis.sh # main
 
 cache:
+  ccache: true
   pip: true
   yarn: true
   directories:
@@ -73,9 +75,11 @@ deploy:
     user: "${BINTRAY_USER}"
     key: "${BINTRAY_API_KEY}"
     file: bintray-conf.json
-    skip_cleanup: true # do not delete what has just been built
+    cleanup: false # do not delete what has just been built
+    skip_cleanup: true #travis report deprecated, but seems necessary anyway
     on:
-      tags: true
+      #tags: true
+      all_branches: true
 
 after_deploy:
   - >
