@@ -3275,7 +3275,7 @@
         "message": "D Term Lowpass Filters"
     },
     "pidTuningDTermLowpassType": {
-        "message": "D Term Lowpass 1 Filter Type"
+        "message": "D Term Lowpass Filter Type"
     },
     "pidTuningDTermLowpassFrequency": {
         "message": "D Term Lowpass 1 Cutoff Frequency [Hz]"

@@ -893,7 +893,7 @@
       "spa_rate_i_yaw":                100,
       "spa_rate_d_yaw":                100
    },
-   "5inch-VR-4S-2306-2550KV-Pierre-Meunier-VR":{
+   "5inch-VR-4S-2306-2550KV-Pierre-Meunier":{
       "__comment":                     "!!! PIDs !!!",
       "p_roll":                        73,
       "i_roll":                        62,
