@@ -71,6 +71,7 @@ deploy:
     overwrite: true
     on:
       tags: true
+      branch: release/*
   - provider: bintray
     user: "${BINTRAY_USER}"
     key: "${BINTRAY_API_KEY}"
