@@ -1663,6 +1663,12 @@
     "pidTuningRcExpo": {
         "message": "RC Expo"
     },
+    "pidTuningRateDynamics": {
+        "message": "Rate Dynamics"
+    },
+    "pidTuningRateDynamicsHelp": {
+        "message": "Rate Dynamics introduces stick feel variables including 'rate_center_[sensitivity|correction|weight]' and 'rate_end_[sensitivity|correction|weight]'. The above graph does not yet account for Rate Dynamics."
+    },
     "pidTuningTPA_P": {
         "message": "TPA P"
     },
@@ -5119,6 +5125,12 @@
       },
       "pidTuningImufW": {
           "message": "IMU-F W"
+      },
+      "pidTuningImufSharpness": {
+          "message": "IMU-F Sharpness"
+      },
+      "pidTuningKalmanFilterSharpnessHelp": {
+          "message": "'imuf_sharpness' is the aggressiveness of the dynamic reduction on IMUF overfiltering. Default is 2500. Range is 1 to 16000"
       },
       "pidTuningKalmanFilterQHelp": {
           "message": "IMU-F filter Q Coefficient. The amount of trust in gyro data accuracy (Higher value = more trust and less filtering)"
