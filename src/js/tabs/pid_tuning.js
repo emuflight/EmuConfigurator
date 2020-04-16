@@ -390,7 +390,11 @@ TABS.pid_tuning.initialize = function(callback) {
             $('input[id="itermrotation"]').prop('checked', ADVANCED_TUNING.itermRotation !== 0);
 
             // Smart Feed Forward
-            $('input[id="smartfeedforward"]').prop('checked', ADVANCED_TUNING.smartFeedforward !== 0);
+            if (semver.lt(CONFIG.apiVersion, "1.43.0")) {
+                $('input[id="smartfeedforward"]').prop('checked', ADVANCED_TUNING.smartFeedforward !== 0);
+            } else {
+                $('.smartfeedforward').hide();
+            }
 
             // I Term Relax
             var itermRelaxCheck = $('input[id="itermrelax"]');
@@ -427,13 +431,18 @@ TABS.pid_tuning.initialize = function(callback) {
             var errorBoostLimitNumberElement = $('input[name="errorBoostLimit-number"]');
             errorBoostLimitNumberElement.val(ADVANCED_TUNING.errorBoostLimit).trigger('input');
 
-            // errorBoost Control
-            var errorBoostYawNumberElement = $('input[name="errorBoostYaw-number"]');
-            errorBoostYawNumberElement.val(ADVANCED_TUNING.errorBoostYaw).trigger('input');
+            if (semver.gte(CONFIG.apiVersion, "1.42.0")) {
+                // errorBoost Control
+                var errorBoostYawNumberElement = $('input[name="errorBoostYaw-number"]');
+                errorBoostYawNumberElement.val(ADVANCED_TUNING.errorBoostYaw).trigger('input');
 
-            // errorBoost Limit Control
-            var errorBoostLimitYawNumberElement = $('input[name="errorBoostLimitYaw-number"]');
-            errorBoostLimitYawNumberElement.val(ADVANCED_TUNING.errorBoostLimitYaw).trigger('input');
+                // errorBoost Limit Control
+                var errorBoostLimitYawNumberElement = $('input[name="errorBoostLimitYaw-number"]');
+                errorBoostLimitYawNumberElement.val(ADVANCED_TUNING.errorBoostLimitYaw).trigger('input');
+            } else {
+                $('.errorBoostYaw').hide();
+                $('.errorBoostLimitYaw').hide();
+            }
 
             // Throttle Boost
             var throttleBoostNumberElement = $('input[name="throttleBoost-number"]');
@@ -865,11 +874,9 @@ TABS.pid_tuning.initialize = function(callback) {
                 ADVANCED_TUNING.setPointITransition = parseFloat($('.spa input[name="spa_I"]').val());
                 ADVANCED_TUNING.setPointDTransition = parseFloat($('.spa input[name="spa_D"]').val());
             } else {
-
                 ADVANCED_TUNING.setPointPTransitionRoll = parseFloat($('.spa_roll input[name="spaRoll_P"]').val());
                 ADVANCED_TUNING.setPointITransitionRoll = parseFloat($('.spa_roll input[name="spaRoll_I"]').val());
                 ADVANCED_TUNING.setPointDTransitionRoll = parseFloat($('.spa_roll input[name="spaRoll_D"]').val());
-
                 ADVANCED_TUNING.setPointPTransitionPitch = parseFloat($('.spa_pitch input[name="spaPitch_P"]').val());
                 ADVANCED_TUNING.setPointITransitionPitch = parseFloat($('.spa_pitch input[name="spaPitch_I"]').val());
                 ADVANCED_TUNING.setPointDTransitionPitch = parseFloat($('.spa_pitch input[name="spaPitch_D"]').val());
@@ -878,6 +885,7 @@ TABS.pid_tuning.initialize = function(callback) {
             ADVANCED_TUNING.setPointITransitionYaw = parseFloat($('.spa_yaw input[name="spaYaw_I"]').val());
             ADVANCED_TUNING.setPointDTransitionYaw = parseFloat($('.spa_yaw input[name="spaYaw_D"]').val());
         }
+
         //save smart_dterm_smoothing_, witchcraft_ //first build with legit MSP144 is 0.2.35
         if ( semver.gte(CONFIG.apiVersion, "1.44.0") && semver.gte(CONFIG.flightControllerVersion, "0.2.35") ) {
             FILTER_CONFIG.smartSmoothing_roll  = parseFloat($('.smartDTermWitchBox input[name="smartdTermRoll"]').val());
