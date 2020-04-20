@@ -1143,48 +1143,76 @@
                                 </tr>
                             </table>
                             <table>
-                            <th colspan="2"></th>
+                            <th colspan="3"></th>
                                 <tr>
 
                                     <td>
+                                        <div>
                                         <input id="imuf_roll_q" type="number" name="imuf_roll_q" step="100" min="100" max="16000"/>
-                                    </td>
-                                    <td>
-                                        <div>
-                                            <label>
-                                                <span i18n="pidTuningImufRollQ"></span>
-                                            </label>
-                                            <div class="helpicon cf_tip" i18n_title="pidTuningKalmanFilterQHelp"></div>
-                                        </div>
-                                    </td>
-
-                                </tr>
-                                <tr>
-                                    <td>
                                         <input id="imuf_pitch_q" type="number" name="imuf_pitch_q" step="100" min="100" max="16000"/>
+                                        <input id="imuf_yaw_q" type="number" name="imuf_yaw_q" step="100" min="100" max="16000"/>
+                                        </div>
                                     </td>
                                     <td>
                                         <div>
                                             <label>
-                                                <span i18n="pidTuningImufPitchQ"></span>
+                                                <span i18n="pidTuningRoll"></span>
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <label>
+                                                <span i18n="pidTuningPitch"></span>
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <label>
+                                                <span i18n="pidTuningYaw"></span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <label>
+                                                <span i18n="pidTuningImufQ"></span>
                                             </label>
                                             <div class="helpicon cf_tip" i18n_title="pidTuningKalmanFilterQHelp"></div>
                                         </div>
                                     </td>
                                 </tr>
-                                <tr>
+                            
+                                <tr class="imuf_roll_lpf_cutoff_hz_tr">
                                     <td>
-                                        <input id="imuf_yaw_q" type="number" name="imuf_yaw_q" step="100" min="100" max="48000"/>
+                                        <input id="imuf_roll_lpf_cutoff_hz" type="number" name="imuf_roll_lpf_cutoff_hz" step="1" min="0" max="450"/>
+                                        <input id="imuf_pitch_lpf_cutoff_hz" type="number" name="imuf_pitch_lpf_cutoff_hz" step="1" min="0" max="450"/>
+                                        <input id="imuf_yaw_lpf_cutoff_hz" type="number" name="imuf_yaw_lpf_cutoff_hz" step="1" min="0" max="450"/>
                                     </td>
                                     <td>
                                         <div>
                                             <label>
-                                                <span i18n="pidTuningImufYawQ"></span>
+                                                <span i18n="pidTuningRoll"></span>
                                             </label>
-                                            <div class="helpicon cf_tip" i18n_title="pidTuningKalmanFilterQHelp"></div>
+                                        </div>
+                                        <div>
+                                            <label>
+                                                <span i18n="pidTuningPitch"></span>
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <label>
+                                                <span i18n="pidTuningYaw"></span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <label>
+                                                <span i18n="pidTuningImuflpf"></span>
+                                            </label>
+                                            <div class="helpicon cf_tip" i18n_title="pidTuningImuflpfRollHelp"></div>
                                         </div>
                                     </td>
                                 </tr>
+
                                 <tr>
                                     <td>
                                         <input id="imuf_w" type="number" name="imuf_w" step="1" min="3" max="1024"/>
@@ -1194,8 +1222,10 @@
                                             <label>
                                                 <span i18n="pidTuningImufW"></span>
                                             </label>
-                                            <div class="helpicon cf_tip" i18n_title="pidTuningKalmanFilterWHelp"></div>
                                         </div>
+                                    </td>
+                                    <td>
+                                        <div class="helpicon cf_tip" i18n_title="pidTuningKalmanFilterWHelp"></div>
                                     </td>
                                 </tr>
                                 <tr class="imufSharpness">
@@ -1207,49 +1237,13 @@
                                             <label>
                                                 <span i18n="pidTuningImufSharpness"></span>
                                             </label>
-                                            <div class="helpicon cf_tip" i18n_title="pidTuningKalmanFilterSharpnessHelp"></div>
                                         </div>
                                     </td>
-                                </tr>
-                                <tr class="imuf_roll_lpf_cutoff_hz_tr">
                                     <td>
-                                        <input id="imuf_roll_lpf_cutoff_hz" type="number" name="imuf_roll_lpf_cutoff_hz" step="1" min="0" max="450"/>
-                                    </td>
-                                    <td>
-                                        <div>
-                                            <label>
-                                                <span i18n="pidTuningImuflpfRoll"></span>
-                                            </label>
-                                            <div class="helpicon cf_tip" i18n_title="pidTuningImuflpfRollHelp"></div>
-                                        </div>
+                                        <div class="helpicon cf_tip" i18n_title="pidTuningKalmanFilterSharpnessHelp"></div>
                                     </td>
                                 </tr>
-                                <tr class="imuf_pitch_lpf_cutoff_hz_tr">
-                                    <td>
-                                        <input id="imuf_pitch_lpf_cutoff_hz" type="number" name="imuf_pitch_lpf_cutoff_hz" step="1" min="0" max="450"/>
-                                    </td>
-                                    <td>
-                                        <div>
-                                            <label>
-                                                <span i18n="pidTuningImuflpfPitch"></span>
-                                            </label>
-                                            <div class="helpicon cf_tip" i18n_title="pidTuningImuflpfPitchHelp"></div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr class="imuf_yaw_lpf_cutoff_hz_tr">
-                                    <td>
-                                        <input id="imuf_yaw_lpf_cutoff_hz" type="number" name="imuf_yaw_lpf_cutoff_hz" step="1" min="0" max="450"/>
-                                    </td>
-                                    <td>
-                                        <div>
-                                            <label>
-                                                <span i18n="pidTuningImuflpfYaw"></span>
-                                            </label>
-                                            <div class="helpicon cf_tip" i18n_title="pidTuningImuflpfYawHelp"></div>
-                                        </div>
-                                    </td>
-                                </tr>
+                                
                                 <tr class="imuf_acc_lpf_cutoff_hz_tr">
                                     <td>
                                         <input id="imuf_acc_lpf_cutoff_hz" type="number" name="imuf_acc_lpf_cutoff_hz" step="1" min="0" max="450"/>
@@ -1259,8 +1253,10 @@
                                             <label>
                                                 <span i18n="pidTuningImuflpfAcc"></span>
                                             </label>
-                                            <div class="helpicon cf_tip" i18n_title="pidTuningImuflpfAccHelp"></div>
                                         </div>
+                                    </td>
+                                    <td>
+                                        <div class="helpicon cf_tip" i18n_title="pidTuningImuflpfAccHelp"></div>
                                     </td>
                                 </tr>
 

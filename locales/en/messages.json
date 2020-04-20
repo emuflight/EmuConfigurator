@@ -3197,10 +3197,10 @@
         "message": "Gyro Lowpass 1 Cutoff Frequency [Hz]"
     },
     "pidTuningGyroNotch1": {
-        "message": "Gyro Notch Filter 1 [Hz]"
+        "message": "Gyro Notch Filter 1 Frequency [Hz]"
     },
     "pidTuningGyroNotch2": {
-        "message": "Gyro Notch Filter 2 [Hz]"
+        "message": "Gyro Notch Filter 2 Frequency [Hz]"
     },
     "pidTuningRoll": {
         "message": " - Roll"
@@ -3212,7 +3212,7 @@
         "message": " - Yaw"
     },
     "pidTuningGyroLowpassType": {
-        "message": "Gyro Lowpass 1 Filter Type"
+        "message": "Filter 1 Type"
     },
     "pidTuningGyroLowpassDynMinFrequency": {
         "message": "Gyro Lowpass 1 Dynamic Min Cutoff Frequency [Hz]"
@@ -3227,7 +3227,7 @@
         "message": "Gyro Lowpass 2 Cutoff Frequency [Hz]"
     },
     "pidTuningGyroLowpass2Type": {
-        "message": "Gyro Lowpass 2 Filter Type"
+        "message": "Filter 2 Type"
     },
     "pidTuningGyroNotchFiltersGroup": {
         "message": "Gyro Notch Filters"
@@ -3236,19 +3236,19 @@
         "message": "Gyro Dyn Filter"
     },
     "pidTuningGyroNotch1Frequency": {
-        "message": "Center Frequency"
+        "message": "Center"
     },
     "pidTuningGyroDynLpf": {
         "message": "Gyro Dynamic Filter"
     },
     "pidTuningGyroNotch2Frequency": {
-        "message": "Center Frequency"
+        "message": "Center"
     },
     "pidTuningGyroNotch1Cutoff": {
-        "message": "Cutoff Frequency"
+        "message": "Cutoff"
     },
     "pidTuningGyroNotch2Cutoff": {
-        "message": "Cutoff Frequency"
+        "message": "Cutoff"
     },
     "pidTuningNotchFilterHelp": {
         "message": "The Notch Filter has a Center and a Cutoff. The filter is symmetrical. The Center Frequency is the center of the filter and the Cutoff Frequency is where Notch filter starts. For example with Notch Cutoff of 160 and Notch Center of 260 it means the range is 160-360Hz with most attenuation around center"
@@ -3296,7 +3296,7 @@
         "message": "D Term Lowpass Filters"
     },
     "pidTuningDTermLowpassType": {
-        "message": "D Term Lowpass Filter Type"
+        "message": "Filter Type"
     },
     "pidTuningDTermLowpassFrequency": {
         "message": "D Term Lowpass 1 Cutoff Frequency [Hz]"
@@ -5129,9 +5129,13 @@
     "pidTuningKalmanFilterQ": {
           "message": "IMU-F Q Coefficient"
       },
+    "pidTuningImufQ": {
+        "message": "IMU-F Q"
+    },
       "pidTuningImufRollQ": {
           "message": "IMU-F roll Q"
       },
+
       "pidTuningImufPitchQ": {
           "message": "IMU-F pitch Q"
       },
@@ -5149,6 +5153,9 @@
       },
       "pidTuningKalmanFilterQHelp": {
           "message": "IMU-F filter Q Coefficient. The amount of trust in gyro data accuracy (Higher value = more trust and less filtering)"
+      },
+      "pidTuningImuflpf": {
+        "message": "IMU-F LPF cutoff [Hz]"
       },
       "pidTuningImuflpfRoll": {
         "message": "IMU-F ROLL LPF cutoff Hz"
@@ -5169,7 +5176,7 @@
         "message": "Helio/Strix Hardware cutoff"
       },
       "pidTuningImuflpfAcc": {
-        "message": "IMU-F accelerometer LPF cutoff Hz"
+        "message": "IMU-F accelerometer LPF cutoff [Hz]"
       },
       "pidTuningImuflpfAccHelp": {
         "message": "Helio/Strix Hardware cutoff"
