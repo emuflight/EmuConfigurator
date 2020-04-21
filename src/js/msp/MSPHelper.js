@@ -330,7 +330,14 @@ MspHelper.prototype.process_data = function(dataHandler) {
                     RC_tuning.vbat_comp_ref = data.readU8();
                     RC_tuning.vbat_comp_throttle_level = data.readU8();
                     RC_tuning.vbat_comp_pid_level = data.readU8();
-
+                      if (semver.gte(CONFIG.apiVersion, "1.46.0")) {
+                        RC_tuning.rateSensCenter = data.readU8();
+                        RC_tuning.rateSensEnd = data.readU8();
+                        RC_tuning.rateCorrectionCenter = data.readU8();
+                        RC_tuning.rateCorrectionEnd = data.readU8();
+                        RC_tuning.rateWeightCenter = data.readU8();
+                        RC_tuning.rateWeightEnd = data.readU8();
+                      }
                 }
 
                 break;
@@ -1011,6 +1018,7 @@ MspHelper.prototype.process_data = function(dataHandler) {
                           FILTER_CONFIG.witchcraft_roll = data.readU8();
                           FILTER_CONFIG.witchcraft_pitch = data.readU8();
                           FILTER_CONFIG.witchcraft_yaw = data.readU8();
+
                       }
 
                     }
@@ -1028,6 +1036,9 @@ MspHelper.prototype.process_data = function(dataHandler) {
                 IMUF_FILTER_CONFIG.imuf_pitch_q = data.readU16();
                 IMUF_FILTER_CONFIG.imuf_yaw_q = data.readU16();
                 IMUF_FILTER_CONFIG.imuf_w = data.readU16();
+                if (semver.gte(CONFIG.apiVersion, "1.46.0")) {
+                  IMUF_FILTER_CONFIG.imuf_sharpness = data.readU16();
+                }
                 if (CONFIG.boardIdentifier === "HESP" || CONFIG.boardIdentifier === "SX10" || CONFIG.boardIdentifier === "FLUX") {
                     IMUF_FILTER_CONFIG.imuf_roll_lpf_cutoff_hz = data.readU16();
                     IMUF_FILTER_CONFIG.imuf_pitch_lpf_cutoff_hz = data.readU16();
@@ -1035,6 +1046,7 @@ MspHelper.prototype.process_data = function(dataHandler) {
                     if (semver.gte(CONFIG.apiVersion, "1.42.0")) {
                         IMUF_FILTER_CONFIG.imuf_acc_lpf_cutoff_hz = data.readU16();
                     }
+
                 }
                 break;
             case MSPCodes.MSP_SET_PID_ADVANCED:
@@ -1077,10 +1089,21 @@ MspHelper.prototype.process_data = function(dataHandler) {
                                     ADVANCED_TUNING.itermRelaxType = data.readU8();
                                     ADVANCED_TUNING.absoluteControlGain = data.readU8();
                                     ADVANCED_TUNING.throttleBoost = data.readU8();
+                                    if (semver.lt(CONFIG.apiVersion, "1.46.0")) {
                                     ADVANCED_TUNING.acroTrainerAngleLimit = data.readU8();
                                     ADVANCED_TUNING.feedforwardRoll  = data.readU16();
                                     ADVANCED_TUNING.feedforwardPitch = data.readU16();
                                     ADVANCED_TUNING.feedforwardYaw   = data.readU16();
+                                  }else{
+                                    ADVANCED_TUNING.p_angle_low = data.readU8();
+                                    ADVANCED_TUNING.d_angle_low = data.readU8();
+                                    ADVANCED_TUNING.f_angle = data.readU16();
+                                    ADVANCED_TUNING.p_angle_high = data.readU8();
+                                    ADVANCED_TUNING.d_angle_high = data.readU8();
+                                    ADVANCED_TUNING.horizonTransition = data.readU8();
+                                    ADVANCED_TUNING.horizonTiltEffect = data.readU8();
+                                    ADVANCED_TUNING.angleExpo = data.readU8();
+                                    }
                                     ADVANCED_TUNING.antiGravityMode  = data.readU8();
                                     ADVANCED_TUNING.itermRelaxCutoff = data.readU8();
 
@@ -1533,6 +1556,14 @@ MspHelper.prototype.crunch = function(code) {
                 buffer.push8(RC_tuning.vbat_comp_ref);
                 buffer.push8(RC_tuning.vbat_comp_throttle_level);
                 buffer.push8(RC_tuning.vbat_comp_pid_level);
+                    if (semver.gte(CONFIG.apiVersion, "1.46.0")) {
+                      buffer.push8(RC_tuning.rateSensCenter);
+                      buffer.push8(RC_tuning.rateSensEnd);
+                      buffer.push8(RC_tuning.rateCorrectionCenter);
+                      buffer.push8(RC_tuning.rateCorrectionEnd);
+                      buffer.push8(RC_tuning.rateWeightCenter);
+                      buffer.push8(RC_tuning.rateWeightEnd);
+              }
               }
             break;
 
@@ -1840,6 +1871,7 @@ MspHelper.prototype.crunch = function(code) {
                           .push8(FILTER_CONFIG.witchcraft_roll)
                           .push8(FILTER_CONFIG.witchcraft_pitch)
                           .push8(FILTER_CONFIG.witchcraft_yaw);
+
                         }
 
                 }
@@ -1855,6 +1887,9 @@ MspHelper.prototype.crunch = function(code) {
             buffer.push16(IMUF_FILTER_CONFIG.imuf_pitch_q);
             buffer.push16(IMUF_FILTER_CONFIG.imuf_yaw_q);
             buffer.push16(IMUF_FILTER_CONFIG.imuf_w);
+            if (semver.gte(CONFIG.apiVersion, "1.46.0")) {
+              buffer.push16(IMUF_FILTER_CONFIG.imuf_sharpness);
+            }
             if (CONFIG.boardIdentifier === "HESP" || CONFIG.boardIdentifier === "SX10" || CONFIG.boardIdentifier === "FLUX") {
                 buffer.push16(IMUF_FILTER_CONFIG.imuf_roll_lpf_cutoff_hz);
                 buffer.push16(IMUF_FILTER_CONFIG.imuf_pitch_lpf_cutoff_hz);
@@ -1862,6 +1897,7 @@ MspHelper.prototype.crunch = function(code) {
                 if (semver.gte(CONFIG.apiVersion, "1.42.0")) {
                     buffer.push16(IMUF_FILTER_CONFIG.imuf_acc_lpf_cutoff_hz);
                 }
+
             }
             break;
         case MSPCodes.MSP_SET_PID_ADVANCED:
@@ -1902,12 +1938,24 @@ MspHelper.prototype.crunch = function(code) {
                                       .push8(ADVANCED_TUNING.itermRelax)
                                       .push8(ADVANCED_TUNING.itermRelaxType)
                                       .push8(ADVANCED_TUNING.absoluteControlGain)
-                                      .push8(ADVANCED_TUNING.throttleBoost)
-                                      .push8(ADVANCED_TUNING.acroTrainerAngleLimit)
+                                      .push8(ADVANCED_TUNING.throttleBoost);
+                                      if (semver.lt(CONFIG.apiVersion, "1.46.0")) {
+                                      buffer.push8(ADVANCED_TUNING.acroTrainerAngleLimit)
                                       .push16(ADVANCED_TUNING.feedforwardRoll)
                                       .push16(ADVANCED_TUNING.feedforwardPitch)
-                                      .push16(ADVANCED_TUNING.feedforwardYaw)
-                                      .push8(ADVANCED_TUNING.antiGravityMode)
+                                      .push16(ADVANCED_TUNING.feedforwardYaw);
+                                    }else{
+                                        buffer.push8(ADVANCED_TUNING.p_angle_low)
+                                        .push8(ADVANCED_TUNING.d_angle_low)
+                                        .push16(ADVANCED_TUNING.f_angle)
+                                        .push8(ADVANCED_TUNING.p_angle_high)
+                                        .push8(ADVANCED_TUNING.d_angle_high)
+                                        .push8(ADVANCED_TUNING.horizonTransition)
+                                        .push8(ADVANCED_TUNING.horizonTiltEffect)
+                                        .push8(ADVANCED_TUNING.angleExpo);
+
+                                      }
+                                    buffer.push8(ADVANCED_TUNING.antiGravityMode)
                                       .push8(ADVANCED_TUNING.itermRelaxCutoff);
 
                                   if (semver.gte(CONFIG.apiVersion, "1.43.0")) {

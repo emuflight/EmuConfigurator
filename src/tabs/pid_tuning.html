@@ -119,7 +119,7 @@
                                 <td class="pid_data"><input type="number" name="p" step="1" min="0" max="200" /></td>
                                 <td class="pid_data"><input type="number" name="i" step="1" min="0" max="200" /></td>
                                 <td class="pid_data"><input type="number" name="d" step="1" min="0" max="200" /></td>
-                                <td class="pid_data"><input type="number" name="f" step="1" min="0" max="2000" /></td>
+                                <td class="pid_data feedforward"><input type="number" name="f" step="1" min="0" max="2000" /></td>
                             </tr>
                             <tr class="PITCH">
                                 <!-- 1 -->
@@ -127,7 +127,7 @@
                                 <td class="pid_data"><input type="number" name="p" step="1" min="0" max="200" /></td>
                                 <td class="pid_data"><input type="number" name="i" step="1" min="0" max="200" /></td>
                                 <td class="pid_data"><input type="number" name="d" step="1" min="0" max="200" /></td>
-                                <td class="pid_data"><input type="number" name="f" step="1" min="0" max="2000" /></td>
+                                <td class="pid_data feedforward"><input type="number" name="f" step="1" min="0" max="2000" /></td>
                             </tr>
                             <tr class="YAW">
                                 <!-- 2 -->
@@ -135,7 +135,7 @@
                                 <td class="pid_data"><input type="number" name="p" step="1" min="0" max="200" /></td>
                                 <td class="pid_data"><input type="number" name="i" step="1" min="0" max="200" /></td>
                                 <td class="pid_data"><input type="number" name="d" step="1" min="0" max="200" /></td>
-                                <td class="pid_data"><input type="number" name="f" step="1" min="0" max="2000" /></td>
+                                <td class="pid_data feedforward"><input type="number" name="f" step="1" min="0" max="2000" /></td>
                             </tr>
                             <tr class="YAW_JUMP_PREVENTION">
                                 <td colspan="3">
@@ -219,7 +219,7 @@
                                         </div>
                                     </td>
                                     <td class="pid_data"><input type="number" name="p_angle_high" step="1" min="0" max="200"></td>
-                                    <td class="pid_data"><input type="number" name="p_angle_low" step="1" min="0" max="200"></td>
+                                    <td class="pid_data"><input type="number" name="d_angle_high" step="1" min="0" max="200"></td>
                                 </tr>
                                 <tr class="LOW pid_tuning needed_by_LEVEL">
                                     <td class="pid_low needed_by_LEVEL">
@@ -228,7 +228,7 @@
                                             <div class="helpicon cf_tip" i18n_title="pidTuningAngleLowHelp"></div>
                                         </div>
                                     </td>
-                                    <td class="pid_data"><input type="number" name="d_angle_high" step="1" min="0" max="200"></td>
+                                    <td class="pid_data"><input type="number" name="p_angle_low" step="1" min="0" max="200"></td>
                                     <td class="pid_data"><input type="number" name="d_angle_low" step="1" min="0" max="200"></td>
                                 </tr>
                             </table>
@@ -253,7 +253,7 @@
                                 <tr class="pid_tuning needed_by_LEVEL">
                                     <td class=""></td>
                                     <td class="pid_data"><input type="number" name="f_angle" step="1" min="0" max="2000"></td>
-                                    <td class="pid_data"><input type="number" name="angle_expo" step="1" min="0" max="200"></td>
+                                    <td class="pid_data"><input type="number" name="angle_expo" step="1" min="0" max="100"></td>
                                 </tr>
                             </table>
                             <table class="pid_titlebar needed_by_LEVEL">
@@ -513,13 +513,16 @@
                                 </td>
                             </tr>
 
-                            <tr>
+                            <tr class="vbatpidcompensation">
+
                                 <td><input type="checkbox" id="vbatpidcompensation" class="toggle" /></td>
                                 <td colspan="2">
                                     <span i18n="pidTuningVbatPidCompensation"></span>
                                     <div class="helpicon cf_tip" i18n_title="pidTuningVbatPidCompensationHelp"></div>
                                 </td>
+
                             </tr>
+
 
                             <tr class="smartfeedforward">
                                 <td><input type="checkbox" id="smartfeedforward" class="toggle" /></td>
@@ -694,6 +697,40 @@
                             </table>
                         </div>
                     </div>
+                    <!--rateDynamics (Stick-pids)-->
+                    <div class="gui_box grey rateSetup rateDynamics">
+                        <table id="rateDynamics" class="pid_tuning">
+                            <tbody>
+                                <tr class="pid_titlebar">
+                                    <th colspan="4">
+                                        <div>
+                                            <div i18n="pidTuningRateDynamics" style="float:left;"></div>
+                                            <div class="helpicon cf_tip" i18n_title="pidTuningRateDynamicsHelp"></div>
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr class="pid_titlebar2">
+                                    <th>Stick</th>
+                                    <th>Sensitivity</th>
+                                    <th>Correction</th>
+                                    <th>Weight</th>
+                                </tr>
+                                <tr class="pid-tuning">
+                                    <td>Rate Center</td>
+                                    <td><input type="number" name="rateSensCenter" step="1" min="25" max="175"></td>
+                                    <td><input type="number" name="rateCorrectionCenter" step="1" min="0" max="95"></td>
+                                    <td><input type="number" name="rateWeightCenter" step="1" min="0" max="95"></td>
+                                </tr>
+                                <tr class="pid-tuning">
+                                    <td>Rate End</td>
+                                    <td><input type="number" name="rateSensEnd" step="1" min="25" max="175"></td>
+                                    <td><input type="number" name="rateCorrectionEnd" step="1" min="0" max="95"></td>
+                                    <td><input type="number" name="rateWeightEnd" step="1" min="0" max="95"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--end rateDynamics (Stick-pids)-->
                 </div>
                 <div class="cf_column">
                     <div class="gui_box tpa spacer_left">
@@ -1120,6 +1157,19 @@
                                                 <span i18n="pidTuningImufW"></span>
                                             </label>
                                             <div class="helpicon cf_tip" i18n_title="pidTuningKalmanFilterWHelp"></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="imufSharpness">
+                                    <td>
+                                        <input id="imuf_sharpness" type="number" name="imuf_sharpness" step="1" min="1" max="16000"/>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <label>
+                                                <span i18n="pidTuningImufSharpness"></span>
+                                            </label>
+                                            <div class="helpicon cf_tip" i18n_title="pidTuningKalmanFilterSharpnessHelp"></div>
                                         </div>
                                     </td>
                                 </tr>
