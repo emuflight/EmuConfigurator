@@ -924,7 +924,24 @@
                             <tr>
                                 <td>
                                     <span class="groupSwitchValue">
-                                        <span class="inputSwitch"><input type="checkbox" id="gyroLowpassEnabled" class="toggle" /></span>
+                                        <span class="inputSwitch"><input type="checkbox" id="gyroLowpassEnabled" class="toggle" />
+                                          <select name="gyroLowpassType">
+                                            <!--  Populated on execution -->
+                                        </select>
+                                        </span>
+
+                                    </span>
+                                </td>
+                                <td>
+                                    <div>
+                                        <label>
+                                            <span i18n="pidTuningGyroLowpassType"></span>
+                                        </label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
                                         <div class="gyroLowpassFrequency">
                                         <span class="inputValue"><input type="number" class="nonProfile" name="gyroLowpassFrequency" step="1" min="1" max="255"/></span>
                                         </div>
@@ -933,7 +950,7 @@
                                         <span class="inputValue"><input type="number" class="nonProfile" name="gyroLowpassFrequencyPitch" step="1" min="1" max="16000"/><br clear="all"></span>
                                         <span class="inputValue"><input type="number" class="nonProfile" name="gyroLowpassFrequencyYaw" step="1" min="1" max="16000"/></span>
                                         </div>
-                                    </span>
+
                                 </td>
 
                                 <td>
@@ -961,20 +978,7 @@
 
                                 </td>
                             </tr>
-                            <tr>
-                                <td>
-                                    <select name="gyroLowpassType">
-                                        <!--  Populated on execution -->
-                                    </select>
-                                </td>
-                                <td>
-                                    <div>
-                                        <label>
-                                            <span i18n="pidTuningGyroLowpassType"></span>
-                                        </label>
-                                    </div>
-                                </td>
-                            </tr>
+
                             <tr>
                                 <th colspan="2">
                                     <div >
@@ -984,9 +988,28 @@
                                 </th>
                             </tr>
                             <tr class="gyroLowpass2">
+                              <td>
+                                  <span class="groupSwitchValue">
+                                      <span class="inputSwitch"><input type="checkbox" id="gyroLowpass2Enabled" class="toggle" />
+                                        <select name="gyroLowpass2Type" >
+                                          <!--  Populated on execution -->
+                                      </select>
+                                      </span>
+
+                                  </span>
+                              </td>
+                              <td>
+                                  <div>
+                                      <label>
+                                          <span i18n="pidTuningGyroLowpass2Type"></span>
+                                      </label>
+                                  </div>
+                              </td>
+                          </tr>
+                          <tr>
                                 <td>
                                     <span class="groupSwitchValue">
-                                        <span class="inputSwitch"><input type="checkbox" id="gyroLowpass2Enabled" class="toggle" /></span>
+
                                         <div class="gyroLowpass2Frequency">
                                         <span class="inputValue"><input type="number" class="nonProfile" name="gyroLowpass2Frequency" step="1" min="1" max="16000"/></span>
                                         </div>
@@ -1023,20 +1046,7 @@
                                 </td>
                             </tr>
 
-                            <tr class="gyroLowpass2Type">
-                                <td>
-                                    <select name="gyroLowpass2Type">
-                                        <!--  Populated on execution -->
-                                    </select>
-                                </td>
-                                <td>
-                                    <div>
-                                        <label>
-                                            <span i18n="pidTuningGyroLowpass2Type"></span>
-                                        </label>
-                                    </div>
-                                </td>
-                            </tr>
+
 
 
                             <tr>
@@ -1361,9 +1371,28 @@
                                 </th>
                             </tr>
                             <tr>
+                              <td>
+                                  <span class="groupSwitchValue">
+                                      <span class="inputSwitch"><input type="checkbox" id="dtermLowpassEnabled" class="toggle" />
+                                        <select name="dtermLowpassType" >
+                                          <!--  Populated on execution -->
+                                      </select>
+                                      </span>
+
+                                  </span>
+                              </td>
+                              <td>
+                                  <div>
+                                      <label>
+                                          <span i18n="pidTuningDTermLowpassType"></span>
+                                      </label>
+                                  </div>
+                              </td>
+                          </tr>
+                          <tr>
                                 <td>
                                     <span class="groupSwitchValue">
-                                        <span class="inputSwitch"><input type="checkbox" id="dtermLowpassEnabled" class="toggle" /></span>
+
                                         <div class="dtermLowpassFrequency">
                                         <span class="inputValue"><input type="number" name="dtermLowpassFrequency" step="1" min="1" max="16000"/></span>
                                         </div>
@@ -1401,20 +1430,7 @@
                                 </td>
                             </tr>
 
-                            <tr>
-                                <td>
-                                    <select name="dtermLowpassType">
-                                        <!--  Populated on execution -->
-                                    </select>
-                                </td>
-                                <td>
-                                    <div>
-                                        <label>
-                                            <span i18n="pidTuningDTermLowpassType"></span>
-                                        </label>
-                                    </div>
-                                </td>
-                            </tr>
+
                             <tr>
                                 <th colspan="2">
                                     <div >

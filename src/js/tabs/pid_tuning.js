@@ -162,11 +162,13 @@ TABS.pid_tuning.initialize = function(callback) {
                 if (semver.gte(CONFIG.apiVersion, "1.44.0")){
                   $('.pid_filter input[name="gyroLowpassFrequency"]').val(FILTER_CONFIG.gyro_lowpass_hz_roll);
                   $('.pid_filter input[name="dtermLowpassFrequency"]').val(FILTER_CONFIG.gyro_lowpass_hz_pitch);
+                  $('.yawLowpassFrequency').hide();
                 }else{
                 $('.pid_filter input[name="gyroLowpassFrequency"]').val(FILTER_CONFIG.gyro_lowpass_hz);
                 $('.pid_filter input[name="dtermLowpassFrequency"]').val(FILTER_CONFIG.dterm_lowpass_hz);
-              }
                 $('.pid_filter input[name="yawLowpassFrequency"]').val(FILTER_CONFIG.yaw_lowpass_hz);
+              }
+
             }
         } else {
             $('.tab-pid_tuning .subtab-filter').hide();
