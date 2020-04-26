@@ -3236,19 +3236,19 @@
         "message": "Gyro Dyn Filter"
     },
     "pidTuningGyroNotch1Frequency": {
-        "message": "Center"
+        "message": "Gyro Notch Filter 1 Center Frequency [Hz]"
     },
     "pidTuningGyroDynLpf": {
         "message": "Gyro Dynamic Filter"
     },
     "pidTuningGyroNotch2Frequency": {
-        "message": "Center"
+        "message": "Gyro Notch Filter 2 Center Frequency [Hz]"
     },
     "pidTuningGyroNotch1Cutoff": {
-        "message": "Cutoff"
+        "message": "Gyro Notch Filter 1 Cutoff Frequency [Hz]"
     },
     "pidTuningGyroNotch2Cutoff": {
-        "message": "Cutoff"
+        "message": "Gyro Notch Filter 2 Cutoff Frequency [Hz]"
     },
     "pidTuningNotchFilterHelp": {
         "message": "The Notch Filter has a Center and a Cutoff. The filter is symmetrical. The Center Frequency is the center of the filter and the Cutoff Frequency is where Notch filter starts. For example with Notch Cutoff of 160 and Notch Center of 260 it means the range is 160-360Hz with most attenuation around center"

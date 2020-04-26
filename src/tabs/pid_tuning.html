@@ -906,10 +906,18 @@
 
                         <table class="filterTable">
                             <tr>
-                                <th colspan="3">
+                                <th colspan="2">
                                     <div class="pid_mode">
                                         <div i18n="pidTuningGyroLowpassFiltersGroup" />
                                         <div class="helpicon cf_tip" i18n_title="pidTuningLowpassFilterHelp" />
+                                    </div>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th colspan="2">
+                                    <div >
+                                        <div  i18n="pidTuningGyroLowpassFrequency" />
+
                                     </div>
                                 </th>
                             </tr>
@@ -927,29 +935,30 @@
                                         </div>
                                     </span>
                                 </td>
+
                                 <td>
-                                    <div>
-                                        <label>
-                                            <span i18n="pidTuningRoll"></span>
-                                        </label>
-                                    </div>
-                                    <div>
-                                        <label>
-                                            <span i18n="pidTuningPitch"></span>
-                                        </label>
-                                    </div>
-                                    <div>
-                                        <label>
-                                            <span i18n="pidTuningYaw"></span>
-                                        </label>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div>
+                                    <div class="gyroLowpassFrequency">
                                         <label>
                                             <span i18n="pidTuningGyroLowpassFrequency"></span>
                                         </label>
                                     </div>
+                                    <div class="gyroLowpassFrequencyAxis">
+                                        <label>
+                                            <span i18n="pidTuningRoll"></span>
+                                        </label>
+                                    </div>
+                                    <div class="gyroLowpassFrequencyAxis">
+                                        <label>
+                                            <span i18n="pidTuningPitch"></span>
+                                        </label>
+                                    </div>
+                                    <div class="gyroLowpassFrequencyAxis">
+                                        <label>
+                                            <span i18n="pidTuningYaw"></span>
+                                        </label>
+                                    </div>
+
+
                                 </td>
                             </tr>
                             <tr>
@@ -966,6 +975,14 @@
                                     </div>
                                 </td>
                             </tr>
+                            <tr>
+                                <th colspan="2">
+                                    <div >
+                                        <div i18n="pidTuningGyroLowpass2Frequency" />
+
+                                    </div>
+                                </th>
+                            </tr>
                             <tr class="gyroLowpass2">
                                 <td>
                                     <span class="groupSwitchValue">
@@ -981,28 +998,28 @@
                                     </span>
                                 </td>
                                 <td>
-                                    <div>
-                                        <label>
-                                            <span i18n="pidTuningRoll"></span>
-                                        </label>
-                                    </div>
-                                    <div>
-                                        <label>
-                                            <span i18n="pidTuningPitch"></span>
-                                        </label>
-                                    </div>
-                                    <div>
-                                        <label>
-                                            <span i18n="pidTuningYaw"></span>
-                                        </label>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div>
+                                    <div class="gyroLowpass2Frequency">
                                         <label>
                                             <span i18n="pidTuningGyroLowpass2Frequency"></span>
                                         </label>
                                     </div>
+                                    <div class="gyroLowpass2FrequencyAxis">
+                                        <label>
+                                            <span i18n="pidTuningRoll"></span>
+                                        </label>
+                                    </div>
+                                    <div class="gyroLowpass2FrequencyAxis">
+                                        <label>
+                                            <span i18n="pidTuningPitch"></span>
+                                        </label>
+                                    </div>
+                                    <div class="gyroLowpass2FrequencyAxis">
+                                        <label>
+                                            <span i18n="pidTuningYaw"></span>
+                                        </label>
+                                    </div>
+
+
                                 </td>
                             </tr>
 
@@ -1023,7 +1040,7 @@
 
 
                             <tr>
-                                <th colspan="3">
+                                <th colspan="2">
                                     <div class="pid_mode">
                                         <div i18n="pidTuningGyroNotchFiltersGroup" />
                                         <div class="helpicon cf_tip" i18n_title="pidTuningNotchFilterHelp" />
@@ -1031,14 +1048,11 @@
                                 </th>
                             </tr>
 
-                            <tr >
+                            <tr class="newFilter">
                                 <td>
                                     <span class="groupSwitchValue">
-                                        <div>
                                         <span class="inputSwitch"><input type="checkbox" id="gyroNotch1Enabled" class="toggle" /></span>
                                         <span class="inputValue"><input type="number" class="nonProfile" name="gyroNotch1Frequency" step="1" min="1" max="16000"/></span>
-                                        <span class="inputValue"><input type="number" class="nonProfile" name="gyroNotch1Cutoff" step="1" min="0" max="16000"/></span>
-                                        </div>
                                     </span>
                                 </td>
                                 <td>
@@ -1047,29 +1061,27 @@
                                             <span i18n="pidTuningGyroNotch1Frequency"></span>
                                         </label>
                                     </div>
+                                </td>
+                            </tr>
+
+                            <tr class="newFilter">
+                                <td>
+                                    <input type="number" class="nonProfile" name="gyroNotch1Cutoff" step="1" min="0" max="16000"/>
+                                </td>
+                                <td>
                                     <div>
                                         <label>
                                             <span i18n="pidTuningGyroNotch1Cutoff"></span>
                                         </label>
                                     </div>
                                 </td>
-                                <td>
-                                    <div>
-                                        <label>
-                                            <span i18n="pidTuningGyroNotch1"></span>
-                                        </label>
-                                    </div>
-                                </td>
                             </tr>
 
-                            <tr >
+                            <tr class="newFilter gyroNotch2">
                                 <td>
                                     <span class="groupSwitchValue">
-                                        <div>
                                         <span class="inputSwitch"><input type="checkbox" id="gyroNotch2Enabled" class="toggle" /></span>
                                         <span class="inputValue"><input type="number" class="nonProfile" name="gyroNotch2Frequency" step="1" min="1" max="16000"/></span>
-                                        <span class="inputValue"><input type="number" class="nonProfile" name="gyroNotch2Cutoff" step="1" min="0" max="16000"/></span>
-                                        </div>
                                     </span>
                                 </td>
                                 <td>
@@ -1078,16 +1090,17 @@
                                             <span i18n="pidTuningGyroNotch2Frequency"></span>
                                         </label>
                                     </div>
-                                    <div>
-                                        <label>
-                                            <span i18n="pidTuningGyroNotch2Cutoff"></span>
-                                        </label>
-                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="newFilter gyroNotch2">
+                                <td>
+                                    <input type="number" class="nonProfile" name="gyroNotch2Cutoff" step="1" min="0" max="16000"/>
                                 </td>
                                 <td>
                                     <div>
                                         <label>
-                                            <span i18n="pidTuningGyroNotch2"></span>
+                                            <span i18n="pidTuningGyroNotch2Cutoff"></span>
                                         </label>
                                     </div>
                                 </td>
@@ -1143,126 +1156,131 @@
                                 </tr>
                             </table>
                             <table>
-                            <th colspan="3"></th>
-                                <tr>
+                              <th colspan="2"></th>
+                                 <tr>
 
-                                    <td>
-                                        <div>
-                                        <input id="imuf_roll_q" type="number" name="imuf_roll_q" step="100" min="100" max="16000"/>
-                                        <input id="imuf_pitch_q" type="number" name="imuf_pitch_q" step="100" min="100" max="16000"/>
-                                        <input id="imuf_yaw_q" type="number" name="imuf_yaw_q" step="100" min="100" max="16000"/>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div>
-                                            <label>
-                                                <span i18n="pidTuningRoll"></span>
-                                            </label>
-                                        </div>
-                                        <div>
-                                            <label>
-                                                <span i18n="pidTuningPitch"></span>
-                                            </label>
-                                        </div>
-                                        <div>
-                                            <label>
-                                                <span i18n="pidTuningYaw"></span>
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div>
-                                            <label>
-                                                <span i18n="pidTuningImufQ"></span>
-                                            </label>
-                                            <div class="helpicon cf_tip" i18n_title="pidTuningKalmanFilterQHelp"></div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            
-                                <tr class="imuf_roll_lpf_cutoff_hz_tr">
-                                    <td>
-                                        <input id="imuf_roll_lpf_cutoff_hz" type="number" name="imuf_roll_lpf_cutoff_hz" step="1" min="0" max="450"/>
-                                        <input id="imuf_pitch_lpf_cutoff_hz" type="number" name="imuf_pitch_lpf_cutoff_hz" step="1" min="0" max="450"/>
-                                        <input id="imuf_yaw_lpf_cutoff_hz" type="number" name="imuf_yaw_lpf_cutoff_hz" step="1" min="0" max="450"/>
-                                    </td>
-                                    <td>
-                                        <div>
-                                            <label>
-                                                <span i18n="pidTuningRoll"></span>
-                                            </label>
-                                        </div>
-                                        <div>
-                                            <label>
-                                                <span i18n="pidTuningPitch"></span>
-                                            </label>
-                                        </div>
-                                        <div>
-                                            <label>
-                                                <span i18n="pidTuningYaw"></span>
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div>
-                                            <label>
-                                                <span i18n="pidTuningImuflpf"></span>
-                                            </label>
-                                            <div class="helpicon cf_tip" i18n_title="pidTuningImuflpfRollHelp"></div>
-                                        </div>
-                                    </td>
-                                </tr>
+                                     <td>
+                                         <input id="imuf_roll_q" type="number" name="imuf_roll_q" step="100" min="100" max="16000"/>
+                                     </td>
+                                     <td>
+                                         <div>
+                                             <label>
+                                                 <span i18n="pidTuningImufRollQ"></span>
+                                             </label>
+                                             <div class="helpicon cf_tip" i18n_title="pidTuningKalmanFilterQHelp"></div>
+                                         </div>
+                                     </td>
 
-                                <tr>
-                                    <td>
-                                        <input id="imuf_w" type="number" name="imuf_w" step="1" min="3" max="1024"/>
-                                    </td>
-                                    <td>
-                                        <div>
-                                            <label>
-                                                <span i18n="pidTuningImufW"></span>
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="helpicon cf_tip" i18n_title="pidTuningKalmanFilterWHelp"></div>
-                                    </td>
-                                </tr>
-                                <tr class="imufSharpness">
-                                    <td>
-                                        <input id="imuf_sharpness" type="number" name="imuf_sharpness" step="1" min="1" max="16000"/>
-                                    </td>
-                                    <td>
-                                        <div>
-                                            <label>
-                                                <span i18n="pidTuningImufSharpness"></span>
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="helpicon cf_tip" i18n_title="pidTuningKalmanFilterSharpnessHelp"></div>
-                                    </td>
-                                </tr>
-                                
-                                <tr class="imuf_acc_lpf_cutoff_hz_tr">
-                                    <td>
-                                        <input id="imuf_acc_lpf_cutoff_hz" type="number" name="imuf_acc_lpf_cutoff_hz" step="1" min="0" max="450"/>
-                                    </td>
-                                    <td>
-                                        <div>
-                                            <label>
-                                                <span i18n="pidTuningImuflpfAcc"></span>
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="helpicon cf_tip" i18n_title="pidTuningImuflpfAccHelp"></div>
-                                    </td>
-                                </tr>
+                                 </tr>
+                                 <tr>
+                                     <td>
+                                         <input id="imuf_pitch_q" type="number" name="imuf_pitch_q" step="100" min="100" max="16000"/>
+                                     </td>
+                                     <td>
+                                         <div>
+                                             <label>
+                                                 <span i18n="pidTuningImufPitchQ"></span>
+                                             </label>
+                                             <div class="helpicon cf_tip" i18n_title="pidTuningKalmanFilterQHelp"></div>
+                                         </div>
+                                     </td>
+                                 </tr>
+                                 <tr>
+                                     <td>
+                                         <input id="imuf_yaw_q" type="number" name="imuf_yaw_q" step="100" min="100" max="48000"/>
+                                     </td>
+                                     <td>
+                                         <div>
+                                             <label>
+                                                 <span i18n="pidTuningImufYawQ"></span>
+                                             </label>
+                                             <div class="helpicon cf_tip" i18n_title="pidTuningKalmanFilterQHelp"></div>
+                                         </div>
+                                     </td>
+                                 </tr>
+                                 <tr>
+                                     <td>
+                                         <input id="imuf_w" type="number" name="imuf_w" step="1" min="3" max="1024"/>
+                                     </td>
+                                     <td>
+                                         <div>
+                                             <label>
+                                                 <span i18n="pidTuningImufW"></span>
+                                             </label>
+                                             <div class="helpicon cf_tip" i18n_title="pidTuningKalmanFilterWHelp"></div>
+                                         </div>
+                                     </td>
+                                 </tr>
+                                 <tr class="imufSharpness">
+                                     <td>
+                                         <input id="imuf_sharpness" type="number" name="imuf_sharpness" step="1" min="1" max="16000"/>
+                                     </td>
+                                     <td>
+                                         <div>
+                                             <label>
+                                                 <span i18n="pidTuningImufSharpness"></span>
+                                             </label>
+                                             <div class="helpicon cf_tip" i18n_title="pidTuningKalmanFilterSharpnessHelp"></div>
+                                         </div>
+                                     </td>
+                                 </tr>
+                                 <tr class="imuf_roll_lpf_cutoff_hz_tr">
+                                     <td>
+                                         <input id="imuf_roll_lpf_cutoff_hz" type="number" name="imuf_roll_lpf_cutoff_hz" step="1" min="0" max="450"/>
+                                     </td>
+                                     <td>
+                                         <div>
+                                             <label>
+                                                 <span i18n="pidTuningImuflpfRoll"></span>
+                                             </label>
+                                             <div class="helpicon cf_tip" i18n_title="pidTuningImuflpfRollHelp"></div>
+                                         </div>
+                                     </td>
+                                 </tr>
+                                 <tr class="imuf_pitch_lpf_cutoff_hz_tr">
+                                     <td>
+                                         <input id="imuf_pitch_lpf_cutoff_hz" type="number" name="imuf_pitch_lpf_cutoff_hz" step="1" min="0" max="450"/>
+                                     </td>
+                                     <td>
+                                         <div>
+                                             <label>
+                                                 <span i18n="pidTuningImuflpfPitch"></span>
+                                             </label>
+                                             <div class="helpicon cf_tip" i18n_title="pidTuningImuflpfPitchHelp"></div>
+                                         </div>
+                                     </td>
+                                 </tr>
+                                 <tr class="imuf_yaw_lpf_cutoff_hz_tr">
+                                     <td>
+                                         <input id="imuf_yaw_lpf_cutoff_hz" type="number" name="imuf_yaw_lpf_cutoff_hz" step="1" min="0" max="450"/>
+                                     </td>
+                                     <td>
+                                         <div>
+                                             <label>
+                                                 <span i18n="pidTuningImuflpfYaw"></span>
+                                             </label>
+                                             <div class="helpicon cf_tip" i18n_title="pidTuningImuflpfYawHelp"></div>
+                                         </div>
+                                     </td>
+                                 </tr>
+                                 <tr class="imuf_acc_lpf_cutoff_hz_tr">
+                                     <td>
+                                         <input id="imuf_acc_lpf_cutoff_hz" type="number" name="imuf_acc_lpf_cutoff_hz" step="1" min="0" max="450"/>
+                                     </td>
+                                     <td>
+                                         <div>
+                                             <label>
+                                                 <span i18n="pidTuningImuflpfAcc"></span>
+                                             </label>
+                                             <div class="helpicon cf_tip" i18n_title="pidTuningImuflpfAccHelp"></div>
+                                         </div>
+                                     </td>
+                                 </tr>
 
-                            </table>
-                        </div>
-                        <!-- end IMUF-->
+                             </table>
+                         </div>
+                         <!-- end IMUF-->
+
 
                         <!-- smartdterm witchcraft table -->
                         <div class="smartDTermWitchBox" > <!-- class smartDTermWitchBox required -->
@@ -1334,7 +1352,14 @@
 
                                 </th>
                             </tr>
+                            <tr>
+                                <th colspan="2">
+                                    <div >
+                                        <div i18n="pidTuningDTermLowpassFrequency" />
 
+                                    </div>
+                                </th>
+                            </tr>
                             <tr>
                                 <td>
                                     <span class="groupSwitchValue">
@@ -1349,29 +1374,30 @@
                                         </div>
                                     </span>
                                 </td>
+
                                 <td>
-                                    <div>
-                                        <label>
-                                            <span i18n="pidTuningRoll"></span>
-                                        </label>
-                                    </div>
-                                    <div>
-                                        <label>
-                                            <span i18n="pidTuningPitch"></span>
-                                        </label>
-                                    </div>
-                                    <div>
-                                        <label>
-                                            <span i18n="pidTuningYaw"></span>
-                                        </label>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div>
+                                    <div class="dtermLowpassFrequency">
                                         <label>
                                             <span i18n="pidTuningDTermLowpassFrequency"></span>
                                         </label>
                                     </div>
+                                    <div class="dtermLowpassFrequencyAxis">
+                                        <label>
+                                            <span i18n="pidTuningRoll"></span>
+                                        </label>
+                                    </div>
+                                    <div class="dtermLowpassFrequencyAxis">
+                                        <label>
+                                            <span i18n="pidTuningPitch"></span>
+                                        </label>
+                                    </div>
+                                    <div class="dtermLowpassFrequencyAxis">
+                                        <label>
+                                            <span i18n="pidTuningYaw"></span>
+                                        </label>
+                                    </div>
+
+
                                 </td>
                             </tr>
 
@@ -1389,7 +1415,14 @@
                                     </div>
                                 </td>
                             </tr>
+                            <tr>
+                                <th colspan="2">
+                                    <div >
+                                        <div i18n="pidTuningDTermLowpass2Frequency" />
 
+                                    </div>
+                                </th>
+                            </tr>
                             <tr class="dtermLowpass2">
                                 <td>
                                     <span class="groupSwitchValue">
@@ -1405,29 +1438,30 @@
                                         </div>
                                     </span>
                                 </td>
+
                                 <td>
-                                    <div>
-                                        <label>
-                                            <span i18n="pidTuningRoll"></span>
-                                        </label>
-                                    </div>
-                                    <div>
-                                        <label>
-                                            <span i18n="pidTuningPitch"></span>
-                                        </label>
-                                    </div>
-                                    <div>
-                                        <label>
-                                            <span i18n="pidTuningYaw"></span>
-                                        </label>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div>
+                                    <div class="dtermLowpass2Frequency">
                                         <label>
                                             <span i18n="pidTuningDTermLowpass2Frequency"></span>
                                         </label>
                                     </div>
+                                    <div class="dtermLowpass2FrequencyAxis">
+                                        <label>
+                                            <span i18n="pidTuningRoll"></span>
+                                        </label>
+                                    </div>
+                                    <div class="dtermLowpass2FrequencyAxis">
+                                        <label>
+                                            <span i18n="pidTuningPitch"></span>
+                                        </label>
+                                    </div>
+                                    <div class="dtermLowpass2FrequencyAxis">
+                                        <label>
+                                            <span i18n="pidTuningYaw"></span>
+                                        </label>
+                                    </div>
+
+
                                 </td>
                             </tr>
                             <tr class="dtermNotch">
