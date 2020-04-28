@@ -72,8 +72,8 @@ deploy:
     on:
       tags: true
   - provider: bintray
-    user: "${BINTRAY_USER}"
-    key: "${BINTRAY_API_KEY}"
+    user: "${BINTRAY2_USER}"
+    key: "${BINTRAY2_API_KEY}"
     file: bintray-conf.json
     cleanup: false # do not delete what has just been built
     skip_cleanup: true #travis report deprecated, but seems necessary anyway
@@ -81,7 +81,7 @@ deploy:
       #tags: true
       branches:
         only:
-          -master
+          - master
 
 after_deploy:
   - >
