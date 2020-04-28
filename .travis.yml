@@ -79,9 +79,7 @@ deploy:
     skip_cleanup: true #travis report deprecated, but seems necessary anyway
     on:
       #tags: true
-      branches:
-        only:
-          - master
+      branch: master
 
 after_deploy:
   - >
