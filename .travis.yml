@@ -81,7 +81,7 @@ deploy:
       #tags: true
       branches:
         only:
-          -master
+          - master
 
 after_deploy:
   - >
