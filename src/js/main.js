@@ -644,6 +644,34 @@ function updateTabList(features) {
     } else {
         $('#tabs ul.mode-connected li.tab_vtx').hide();
     }
+
+    //experimental: show/hide with expert-mode
+    if (isExpertModeEnabled()) {  //expert
+        if (semver.gte(CONFIG.apiVersion, "1.44.0")) {
+            $('.gyroLowpassFrequencyAxis').show();
+            $('.dtermLowpassFrequencyAxis').show();
+            $('.gyroLowpassFrequency').hide();
+            $('.dtermLowpassFrequency').hide();
+
+            $('.gyroLowpass2FrequencyAxis').show();
+            $('.dtermLowpass2FrequencyAxis').show();
+            $('.gyroLowpass2Frequency').hide();
+            $('.dtermLowpass2Frequency').hide();
+        }
+    } else {   //basic
+        if (semver.gte(CONFIG.apiVersion, "1.16.0")) {
+            $('.gyroLowpassFrequency').show();
+            $('.dtermLowpassFrequency').show();
+            $('.gyroLowpassFrequencyAxis').hide();
+            $('.dtermLowpassFrequencyAxis').hide();
+        }
+        if (semver.gte(CONFIG.apiVersion, "1.39.0")) {
+            $('.gyroLowpass2FrequencyAxis').hide();
+            $('.dtermLowpass2FrequencyAxis').hide();
+            $('.gyroLowpass2Frequency').show();
+            $('.dtermLowpass2Frequency').show();
+        }
+    }
 }
 
 function zeroPad(value, width) {
