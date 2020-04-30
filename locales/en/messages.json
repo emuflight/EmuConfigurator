@@ -3155,13 +3155,13 @@
         "message": "High Angle Error"
     },
     "pidTuningAngleHighHelp": {
-        "message": "High Angle Error deals with crash recovery and quick stick movement."
+        "message": "High Angle Error settings deal with crash recovery and quick stick movement.  This will be the P used as high PID-error occurs for example at the moment of crashing."
     },
     "pidTuningAngleLow": {
         "message": "Low Angle Error"
     },
     "pidTuningAngleLowHelp": {
-        "message": "Low Angle Error"
+        "message": "Low Angle Error settings are used when PID-error is minimal during normal flight."
     },
     "pidTuningAngleFeedForward": {
         "message": "Angle Feed-Forward"
