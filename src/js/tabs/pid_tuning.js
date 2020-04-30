@@ -161,7 +161,7 @@ TABS.pid_tuning.initialize = function(callback) {
                 $('.dtermLowpassFrequencyAxis').hide();
                 if (semver.gte(CONFIG.apiVersion, "1.44.0")){
                   $('.pid_filter input[name="gyroLowpassFrequency"]').val(FILTER_CONFIG.gyro_lowpass_hz_roll);
-                  $('.pid_filter input[name="dtermLowpassFrequency"]').val(FILTER_CONFIG.gyro_lowpass_hz_pitch);
+                  $('.pid_filter input[name="dtermLowpassFrequency"]').val(FILTER_CONFIG.dterm_lowpass_hz_roll);
                   $('.yawLowpassFrequency').hide();
                 }else{
                 $('.pid_filter input[name="gyroLowpassFrequency"]').val(FILTER_CONFIG.gyro_lowpass_hz);
@@ -323,7 +323,7 @@ TABS.pid_tuning.initialize = function(callback) {
                   $('.gyroLowpass2FrequencyAxis').hide();
                   $('.dtermLowpass2FrequencyAxis').hide();
                   $('.pid_filter input[name="gyroLowpass2Frequency"]').val(FILTER_CONFIG.gyro_lowpass2_hz_roll);
-                    $('.pid_filter input[name="dtermLowpass2Frequency"]').val(FILTER_CONFIG.dterm_lowpass2_hz_roll);
+                  $('.pid_filter input[name="dtermLowpass2Frequency"]').val(FILTER_CONFIG.dterm_lowpass2_hz_roll);
                 }else{
                 $('.gyroLowpass2Frequency').hide();
                 $('.dtermLowpass2Frequency').hide();

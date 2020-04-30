@@ -664,12 +664,18 @@ function updateTabList(features) {
             $('.dtermLowpassFrequency').show();
             $('.gyroLowpassFrequencyAxis').hide();
             $('.dtermLowpassFrequencyAxis').hide();
+            //synchronize the hidden simple version - not the best location, but fails inside pid_tuning.js
+            $('.pid_filter input[name="gyroLowpassFrequency"]').val(parseInt($('.pid_filter input[name="gyroLowpassFrequencyRoll"]').val()));
+            $('.pid_filter input[name="dtermLowpassFrequency"]').val(parseInt($('.pid_filter input[name="dtermLowpassFrequencyRoll"]').val()));
         }
         if (semver.gte(CONFIG.apiVersion, "1.39.0")) {
             $('.gyroLowpass2FrequencyAxis').hide();
             $('.dtermLowpass2FrequencyAxis').hide();
             $('.gyroLowpass2Frequency').show();
             $('.dtermLowpass2Frequency').show();
+            //synchronize the hidden simple version - not the best location, but fails inside pid_tuning.js
+            $('.pid_filter input[name="gyroLowpass2Frequency"]').val(parseInt($('.pid_filter input[name="gyroLowpass2FrequencyRoll"]').val()));
+            $('.pid_filter input[name="dtermLowpass2Frequency"]').val(parseInt($('.pid_filter input[name="dtermLowpass2FrequencyRoll"]').val()));
         }
     }
 }
