@@ -644,6 +644,16 @@ function updateTabList(features) {
     } else {
         $('#tabs ul.mode-connected li.tab_vtx').hide();
     }
+
+    //experimental: show/hide with expert-mode
+    if (isExpertModeEnabled()) {
+        $('.isexpertmode').show();
+        if (!have_sensor(CONFIG.activeSensors, 'acc')) {
+            $('#pid_accel').hide();
+        }
+    } else {
+        $('.isexpertmode').hide();
+    }
 }
 
 function zeroPad(value, width) {
