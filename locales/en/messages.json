@@ -3155,13 +3155,13 @@
         "message": "High Angle Error"
     },
     "pidTuningAngleHighHelp": {
-        "message": "High Angle Error deals with crash recovery and quick stick movement."
+        "message": "High Angle Error settings deal with crash recovery and quick stick movement.  This will be the P used as high PID-error occurs for example at the moment of crashing."
     },
     "pidTuningAngleLow": {
         "message": "Low Angle Error"
     },
     "pidTuningAngleLowHelp": {
-        "message": "Low Angle Error"
+        "message": "Low Angle Error settings are used when PID-error is minimal during normal flight."
     },
     "pidTuningAngleFeedForward": {
         "message": "Angle Feed-Forward"
@@ -3344,7 +3344,7 @@
         "message": "WitchCraft"
     },
     "pidTuningSmartDTermSmoothingHelp": {
-        "message": "'smart_dterm_smoothing_[roll|pitch|yaw]' is a dTerm minimizer based on how high dTerm is at any given moment.  It will reduce dTerm when it is small, but will allow full dTerm when it is big.  A value of 0 is off.  Default is 5 (0.5%) on Roll and Pitch, 0 on Yaw. Maximum allowed is 250 (25%). Smoothing mathematics does not cause delay."
+        "message": "'smart_dterm_smoothing_[roll|pitch|yaw]' is a dTerm minimizer based on how high dTerm is at any given moment.  It will reduce dTerm when it is small, but will allow full dTerm when it is big.  Default is 0 (Off). A value of 5 is 0.5%. Maximum allowed is 250 (25%). Smoothing mathematics does not cause delay."
     },
     "pidTuningWitchcraftHelp": {
         "message": "'witchcraft_[roll|pitch|yaw]' smooths dTerm over time. The value is how many pid loop iteration samples are averaged to calculate dTerm. A value of 0 or 1 is effectively off. Default is 2 on Roll and Pitch, 0 on Yaw. Maximum allowed is 10. May cause delay."
