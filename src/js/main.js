@@ -645,6 +645,7 @@ function updateTabList(features) {
         $('#tabs ul.mode-connected li.tab_vtx').hide();
     }
 
+    //experimental: show/hide with expert-mode
     if (semver.gte(CONFIG.apiVersion, "1.44.0")) {
         if (!isExpertModeEnabled()) {
             $('.LPFPit').hide();
@@ -663,6 +664,15 @@ function updateTabList(features) {
         }
     }
 
+    //experimental: show/hide with expert-mode
+    if (isExpertModeEnabled()) {
+        $('.isexpertmode').show();
+        if (!have_sensor(CONFIG.activeSensors, 'acc')) {
+            $('#pid_accel').hide();
+        }
+    } else {
+        $('.isexpertmode').hide();
+    }
 }
 
 function zeroPad(value, width) {
