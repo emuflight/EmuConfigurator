@@ -673,6 +673,17 @@ function updateTabList(features) {
     } else {
         $('.isexpertmode').hide();
     }
+
+    //experimental: expert-mode undo show for old firmware that does not support.
+    if (semver.lt(CONFIG.apiVersion, "1.43.0")) {
+        $('.spa').hide();
+        $('.spa_roll').hide();
+        $('.spa_pitch').hide();
+        $('.spa_yaw').hide();
+    }
+    if ( semver.lt(CONFIG.apiVersion, "1.44.0") || semver.lt(CONFIG.flightControllerVersion, "0.2.35") ) {
+        $('.smartDTermWitchBox').hide();
+    }
 }
 
 function zeroPad(value, width) {
