@@ -3202,15 +3202,6 @@
     "pidTuningGyroNotch2": {
         "message": "Gyro Notch Filter 2 Frequency [Hz]"
     },
-    "pidTuningRoll": {
-        "message": " - Roll"
-    },
-    "pidTuningPitch": {
-        "message": " - Pitch"
-    },
-    "pidTuningYaw": {
-        "message": " - Yaw"
-    },
     "pidTuningGyroLowpassType": {
         "message": "Filter 1 Type"
     },
@@ -3228,6 +3219,24 @@
     },
     "pidTuningGyroLowpass2Type": {
         "message": "Filter 2 Type"
+    },
+    "gyroLowpassFrequencyRoll": {
+        "message": " Roll Gyro Lowpass 1 Cutoff Frequency [Hz]"
+    },
+    "gyroLowpassFrequencyPitch": {
+        "message": " Pitch Gyro Lowpass 1 Cutoff Frequency [Hz]"
+    },
+    "gyroLowpassFrequencyYaw": {
+        "message": " Yaw Gyro Lowpass 1 Cutoff Frequency [Hz]"
+    },
+    "gyroLowpass2FrequencyRoll": {
+        "message": " Roll Gyro Lowpass 2 Cutoff Frequency [Hz]"
+    },
+    "gyroLowpass2FrequencyPitch": {
+        "message": " Pitch Gyro Lowpass 2 Cutoff Frequency [Hz]"
+    },
+    "gyroLowpass2FrequencyYaw": {
+        "message": " Yaw Gyro Lowpass 2 Cutoff Frequency [Hz]"
     },
     "pidTuningGyroNotchFiltersGroup": {
         "message": "Gyro Notch Filters"
@@ -3306,6 +3315,24 @@
     },
     "pidTuningDTermLowpass2Type": {
         "message": "D Term Lowpass 2 Filter Type"
+    },
+    "dtermLowpassFrequencyRoll": {
+        "message": " Roll D-Term Lowpass 1 Cutoff Frequency [Hz]"
+    },
+    "dtermLowpassFrequencyPitch": {
+        "message": " Pitch D-Term Lowpass 1 Cutoff Frequency [Hz]"
+    },
+    "dtermLowpassFrequencyYaw": {
+        "message": " Yaw D-Term Lowpass 1 Cutoff Frequency [Hz]"
+    },
+    "dtermLowpass2FrequencyRoll": {
+        "message": " Roll D-Term Lowpass 2 Cutoff Frequency [Hz]"
+    },
+    "dtermLowpass2FrequencyPitch": {
+        "message": " Pitch D-Term Lowpass 2 Cutoff Frequency [Hz]"
+    },
+    "dtermLowpass2FrequencyYaw": {
+        "message": " Yaw D-Term Lowpass 2 Cutoff Frequency [Hz]"
     },
     "pidTuningDTermLowpassDynMinFrequency": {
         "message": "D Term Lowpass 1 Dynamic Min Cutoff Frequency [Hz]"

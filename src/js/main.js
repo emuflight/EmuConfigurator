@@ -656,10 +656,10 @@ function updateTabList(features) {
         } else {
             $('.LPFPit').show();
             $('.LPFYaw').show();
-            $('#pid-tuning .gyroLowpassFrequencyAxis .LPFRol').text(i18n.getMessage("pidTuningRoll"));
-            $('#pid-tuning .gyroLowpass2FrequencyAxis .LPFRol').text(i18n.getMessage("pidTuningRoll"));
-            $('#pid-tuning .dtermLowpassFrequencyAxis .LPFRol').text(i18n.getMessage("pidTuningRoll"));
-            $('#pid-tuning .dtermLowpass2FrequencyAxis .LPFRol').text(i18n.getMessage("pidTuningRoll"));
+            $('#pid-tuning .gyroLowpassFrequencyAxis .LPFRol').text(i18n.getMessage("gyroLowpassFrequencyRoll"));
+            $('#pid-tuning .gyroLowpass2FrequencyAxis .LPFRol').text(i18n.getMessage("gyroLowpass2FrequencyRoll"));
+            $('#pid-tuning .dtermLowpassFrequencyAxis .LPFRol').text(i18n.getMessage("dtermLowpassFrequencyRoll"));
+            $('#pid-tuning .dtermLowpass2FrequencyAxis .LPFRol').text(i18n.getMessage("dtermLowpass2FrequencyRoll"));
         }
     }
 
