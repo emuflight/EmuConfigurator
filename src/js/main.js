@@ -645,39 +645,24 @@ function updateTabList(features) {
         $('#tabs ul.mode-connected li.tab_vtx').hide();
     }
 
-    //experimental: show/hide with expert-mode
-    if (isExpertModeEnabled()) {  //expert
-        if (semver.gte(CONFIG.apiVersion, "1.44.0")) {
-            $('.gyroLowpassFrequencyAxis').show();
-            $('.dtermLowpassFrequencyAxis').show();
-            $('.gyroLowpassFrequency').hide();
-            $('.dtermLowpassFrequency').hide();
-
-            $('.gyroLowpass2FrequencyAxis').show();
-            $('.dtermLowpass2FrequencyAxis').show();
-            $('.gyroLowpass2Frequency').hide();
-            $('.dtermLowpass2Frequency').hide();
-        }
-    } else {   //basic
-        if (semver.gte(CONFIG.apiVersion, "1.16.0")) {
-            $('.gyroLowpassFrequency').show();
-            $('.dtermLowpassFrequency').show();
-            $('.gyroLowpassFrequencyAxis').hide();
-            $('.dtermLowpassFrequencyAxis').hide();
-            //synchronize the hidden simple version - not the best location, but fails inside pid_tuning.js
-            $('.pid_filter input[name="gyroLowpassFrequency"]').val(parseInt($('.pid_filter input[name="gyroLowpassFrequencyRoll"]').val()));
-            $('.pid_filter input[name="dtermLowpassFrequency"]').val(parseInt($('.pid_filter input[name="dtermLowpassFrequencyRoll"]').val()));
-        }
-        if (semver.gte(CONFIG.apiVersion, "1.39.0")) {
-            $('.gyroLowpass2FrequencyAxis').hide();
-            $('.dtermLowpass2FrequencyAxis').hide();
-            $('.gyroLowpass2Frequency').show();
-            $('.dtermLowpass2Frequency').show();
-            //synchronize the hidden simple version - not the best location, but fails inside pid_tuning.js
-            $('.pid_filter input[name="gyroLowpass2Frequency"]').val(parseInt($('.pid_filter input[name="gyroLowpass2FrequencyRoll"]').val()));
-            $('.pid_filter input[name="dtermLowpass2Frequency"]').val(parseInt($('.pid_filter input[name="dtermLowpass2FrequencyRoll"]').val()));
+    if (semver.gte(CONFIG.apiVersion, "1.44.0")) {
+        if (!isExpertModeEnabled()) {
+            $('.LPFPit').hide();
+            $('.LPFYaw').hide();
+            $('#pid-tuning .gyroLowpassFrequencyAxis .LPFRol').text(i18n.getMessage("pidTuningGyroLowpassFrequency"));
+            $('#pid-tuning .gyroLowpass2FrequencyAxis .LPFRol').text(i18n.getMessage("pidTuningGyroLowpass2Frequency"));
+            $('#pid-tuning .dtermLowpassFrequencyAxis .LPFRol').text(i18n.getMessage("pidTuningDTermLowpassFrequency"));
+            $('#pid-tuning .dtermLowpass2FrequencyAxis .LPFRol').text(i18n.getMessage("pidTuningDTermLowpass2Frequency"));
+        } else {
+            $('.LPFPit').show();
+            $('.LPFYaw').show();
+            $('#pid-tuning .gyroLowpassFrequencyAxis .LPFRol').text(i18n.getMessage("pidTuningRoll"));
+            $('#pid-tuning .gyroLowpass2FrequencyAxis .LPFRol').text(i18n.getMessage("pidTuningRoll"));
+            $('#pid-tuning .dtermLowpassFrequencyAxis .LPFRol').text(i18n.getMessage("pidTuningRoll"));
+            $('#pid-tuning .dtermLowpass2FrequencyAxis .LPFRol').text(i18n.getMessage("pidTuningRoll"));
         }
     }
+
 }
 
 function zeroPad(value, width) {

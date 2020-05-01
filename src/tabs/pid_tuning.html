@@ -947,8 +947,8 @@
                                         </div>
                                         <div class="gyroLowpassFrequencyAxis">
                                         <span class="inputValue"><input type="number" class="nonProfile" name="gyroLowpassFrequencyRoll" step="1" min="0" max="16000"/><br clear="all"></span>
-                                        <span class="inputValue"><input type="number" class="nonProfile" name="gyroLowpassFrequencyPitch" step="1" min="0" max="16000"/><br clear="all"></span>
-                                        <span class="inputValue"><input type="number" class="nonProfile" name="gyroLowpassFrequencyYaw" step="1" min="0" max="16000"/></span>
+                                        <span class="inputValue LPFPit"><input type="number" class="nonProfile" name="gyroLowpassFrequencyPitch" step="1" min="0" max="16000"/><br clear="all"></span>
+                                        <span class="inputValue LPFYaw"><input type="number" class="nonProfile" name="gyroLowpassFrequencyYaw" step="1" min="0" max="16000"/></span>
                                         </div>
 
                                 </td>
@@ -959,17 +959,17 @@
                                             <span i18n="pidTuningGyroLowpassFrequency"></span>
                                         </label>
                                     </div>
-                                    <div class="gyroLowpassFrequencyAxis">
+                                    <div class="gyroLowpassFrequencyAxis LPFRol">
                                         <label>
-                                            <span i18n="pidTuningRoll"></span>
+                                            <span class="LPFRol" i18n="pidTuningRoll"></span>
                                         </label>
                                     </div>
-                                    <div class="gyroLowpassFrequencyAxis">
+                                    <div class="gyroLowpassFrequencyAxis LPFPit">
                                         <label>
                                             <span i18n="pidTuningPitch"></span>
                                         </label>
                                     </div>
-                                    <div class="gyroLowpassFrequencyAxis">
+                                    <div class="gyroLowpassFrequencyAxis LPFYaw">
                                         <label>
                                             <span i18n="pidTuningYaw"></span>
                                         </label>
@@ -1015,8 +1015,8 @@
                                         </div>
                                         <div class="gyroLowpass2FrequencyAxis">
                                         <span class="inputValue"><input type="number" class="nonProfile" name="gyroLowpass2FrequencyRoll" step="1" min="0" max="16000"/><br clear="all"></span>
-                                        <span class="inputValue"><input type="number" class="nonProfile" name="gyroLowpass2FrequencyPitch" step="1" min="0" max="16000"/><br clear="all"></span>
-                                        <span class="inputValue"><input type="number" class="nonProfile" name="gyroLowpass2FrequencyYaw" step="1" min="0" max="16000"/></span>
+                                        <span class="inputValue LPFPit"><input type="number" class="nonProfile" name="gyroLowpass2FrequencyPitch" step="1" min="0" max="16000"/><br clear="all"></span>
+                                        <span class="inputValue LPFYaw"><input type="number" class="nonProfile" name="gyroLowpass2FrequencyYaw" step="1" min="0" max="16000"/></span>
                                         </div>
                                     </span>
                                 </td>
@@ -1026,28 +1026,23 @@
                                             <span i18n="pidTuningGyroLowpass2Frequency"></span>
                                         </label>
                                     </div>
-                                    <div class="gyroLowpass2FrequencyAxis">
+                                    <div class="gyroLowpass2FrequencyAxis LPFRol">
                                         <label>
-                                            <span i18n="pidTuningRoll"></span>
+                                            <span class="LPFRol" i18n="pidTuningRoll"></span>
                                         </label>
                                     </div>
-                                    <div class="gyroLowpass2FrequencyAxis">
+                                    <div class="gyroLowpass2FrequencyAxis LPFPit">
                                         <label>
                                             <span i18n="pidTuningPitch"></span>
                                         </label>
                                     </div>
-                                    <div class="gyroLowpass2FrequencyAxis">
+                                    <div class="gyroLowpass2FrequencyAxis LPFYaw">
                                         <label>
                                             <span i18n="pidTuningYaw"></span>
                                         </label>
                                     </div>
-
-
                                 </td>
                             </tr>
-
-
-
 
                             <tr>
                                 <th colspan="2">
@@ -1398,8 +1393,8 @@
                                         </div>
                                         <div class="dtermLowpassFrequencyAxis">
                                         <span class="inputValue"><input type="number" name="dtermLowpassFrequencyRoll" step="1" min="0" max="16000"/><br clear="all"></span>
-                                        <span class="inputValue"><input type="number" name="dtermLowpassFrequencyPitch" step="1" min="0" max="16000"/><br clear="all"></span>
-                                        <span class="inputValue"><input type="number" name="dtermLowpassFrequencyYaw" step="1" min="0" max="16000"/></span>
+                                        <span class="inputValue LPFPit"><input type="number" name="dtermLowpassFrequencyPitch" step="1" min="0" max="16000"/><br clear="all"></span>
+                                        <span class="inputValue LPFYaw"><input type="number" name="dtermLowpassFrequencyYaw" step="1" min="0" max="16000"/></span>
                                         </div>
                                     </span>
                                 </td>
@@ -1410,17 +1405,17 @@
                                             <span i18n="pidTuningDTermLowpassFrequency"></span>
                                         </label>
                                     </div>
-                                    <div class="dtermLowpassFrequencyAxis">
+                                    <div class="dtermLowpassFrequencyAxis LPFRol">
                                         <label>
-                                            <span i18n="pidTuningRoll"></span>
+                                            <span class="LPFRol" i18n="pidTuningRoll"></span>
                                         </label>
                                     </div>
-                                    <div class="dtermLowpassFrequencyAxis">
+                                    <div class="dtermLowpassFrequencyAxis LPFPit">
                                         <label>
                                             <span i18n="pidTuningPitch"></span>
                                         </label>
                                     </div>
-                                    <div class="dtermLowpassFrequencyAxis">
+                                    <div class="dtermLowpassFrequencyAxis LPFYaw">
                                         <label>
                                             <span i18n="pidTuningYaw"></span>
                                         </label>
@@ -1449,8 +1444,8 @@
                                         </div>
                                         <div class="dtermLowpass2FrequencyAxis">
                                         <span class="inputValue"><input type="number" name="dtermLowpass2FrequencyRoll" step="1" min="0" max="16000"/><br clear="all"></span>
-                                        <span class="inputValue"><input type="number" name="dtermLowpass2FrequencyPitch" step="1" min="0" max="16000"/><br clear="all"></span>
-                                        <span class="inputValue"><input type="number" name="dtermLowpass2FrequencyYaw" step="1" min="0" max="16000"/></span>
+                                        <span class="inputValue LPFPit"><input type="number" name="dtermLowpass2FrequencyPitch" step="1" min="0" max="16000"/><br clear="all"></span>
+                                        <span class="inputValue LPFYaw"><input type="number" name="dtermLowpass2FrequencyYaw" step="1" min="0" max="16000"/></span>
                                         </div>
                                     </span>
                                 </td>
@@ -1461,17 +1456,17 @@
                                             <span i18n="pidTuningDTermLowpass2Frequency"></span>
                                         </label>
                                     </div>
-                                    <div class="dtermLowpass2FrequencyAxis">
+                                    <div class="dtermLowpass2FrequencyAxis LPFRol">
                                         <label>
-                                            <span i18n="pidTuningRoll"></span>
+                                            <span class="LPFRol" i18n="pidTuningRoll"></span>
                                         </label>
                                     </div>
-                                    <div class="dtermLowpass2FrequencyAxis">
+                                    <div class="dtermLowpass2FrequencyAxis LPFPit">
                                         <label>
                                             <span i18n="pidTuningPitch"></span>
                                         </label>
                                     </div>
-                                    <div class="dtermLowpass2FrequencyAxis">
+                                    <div class="dtermLowpass2FrequencyAxis LPFYaw">
                                         <label>
                                             <span i18n="pidTuningYaw"></span>
                                         </label>

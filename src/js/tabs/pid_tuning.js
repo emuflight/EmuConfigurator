@@ -146,7 +146,7 @@ TABS.pid_tuning.initialize = function(callback) {
 
         if (semver.gte(CONFIG.apiVersion, "1.16.0")) {
             $('.pid_tuning input[name="rc_rate_yaw"]').val(RC_tuning.rcYawRate.toFixed(2));
-            if (semver.gte(CONFIG.apiVersion, "1.44.0") && (isExpertModeEnabled())) {
+            if (semver.gte(CONFIG.apiVersion, "1.44.0")) {
                 $('.pid_filter input[name="gyroLowpassFrequencyRoll"]').val(FILTER_CONFIG.gyro_lowpass_hz_roll);
                 $('.pid_filter input[name="gyroLowpassFrequencyPitch"]').val(FILTER_CONFIG.gyro_lowpass_hz_pitch);
                 $('.pid_filter input[name="gyroLowpassFrequencyYaw"]').val(FILTER_CONFIG.gyro_lowpass_hz_yaw);
@@ -156,25 +156,39 @@ TABS.pid_tuning.initialize = function(callback) {
                 $('.gyroLowpassFrequency').hide();
                 $('.dtermLowpassFrequency').hide();
                 $('.yawLowpassFrequency').hide();
+                //experimental expert-mode show/hide also in main.js
+                if (!isExpertModeEnabled()) {
+                    $('.LPFPit').hide();
+                    $('.LPFYaw').hide();
+                    $('#pid-tuning .gyroLowpassFrequencyAxis .LPFRol').text(i18n.getMessage("pidTuningGyroLowpassFrequency"));
+                    $('#pid-tuning .dtermLowpassFrequencyAxis .LPFRol').text(i18n.getMessage("pidTuningDTermLowpassFrequency"));
+                }
             } else {
                 $('.gyroLowpassFrequencyAxis').hide();
                 $('.dtermLowpassFrequencyAxis').hide();
-                if (semver.gte(CONFIG.apiVersion, "1.44.0")){
-                  $('.pid_filter input[name="gyroLowpassFrequency"]').val(FILTER_CONFIG.gyro_lowpass_hz_roll);
-                  $('.pid_filter input[name="dtermLowpassFrequency"]').val(FILTER_CONFIG.dterm_lowpass_hz_roll);
-                  $('.yawLowpassFrequency').hide();
-                }else{
                 $('.pid_filter input[name="gyroLowpassFrequency"]').val(FILTER_CONFIG.gyro_lowpass_hz);
                 $('.pid_filter input[name="dtermLowpassFrequency"]').val(FILTER_CONFIG.dterm_lowpass_hz);
                 $('.pid_filter input[name="yawLowpassFrequency"]').val(FILTER_CONFIG.yaw_lowpass_hz);
-              }
-
             }
         } else {
             $('.tab-pid_tuning .subtab-filter').hide();
             $('.tab-pid_tuning .tab_container').hide();
             $('.pid_tuning input[name="rc_rate_yaw"]').hide();
         }
+
+        //experimental expert-mode synchronize hidden Pitch/Yaw
+        $('.pid_filter input[name="gyroLowpassFrequencyRoll"]').change(function() {
+            if (!isExpertModeEnabled()) {
+                $('.pid_filter input[name="gyroLowpassFrequencyPitch"]').val(parseInt($('.pid_filter input[name="gyroLowpassFrequencyRoll"]').val()));
+                $('.pid_filter input[name="gyroLowpassFrequencyYaw"]').val(parseInt($('.pid_filter input[name="gyroLowpassFrequencyRoll"]').val()));
+            }
+        });
+        $('.pid_filter input[name="dtermLowpassFrequencyRoll"]').change(function() {
+            if (!isExpertModeEnabled()) {
+                $('.pid_filter input[name="dtermLowpassFrequencyPitch"]').val(parseInt($('.pid_filter input[name="dtermLowpassFrequencyRoll"]').val()));
+                $('.pid_filter input[name="dtermLowpassFrequencyYaw"]').val(parseInt($('.pid_filter input[name="dtermLowpassFrequencyRoll"]').val()));
+            }
+        });
 
         if (semver.gte(CONFIG.apiVersion, "1.20.0") ||
             semver.gte(CONFIG.apiVersion, "1.16.0") && FEATURE_CONFIG.features.isEnabled('SUPEREXPO_RATES')) {
@@ -318,22 +332,23 @@ TABS.pid_tuning.initialize = function(callback) {
                 $('.pid_filter input[name="gyroLowpassFrequency"]').val(FILTER_CONFIG.gyro_lowpass_hz);
                 $('.dtermLowpass2FrequencyAxis').hide();
                 $('.gyroLowpass2FrequencyAxis').hide();
-            } else {
-                if( !isExpertModeEnabled()){
-                  $('.gyroLowpass2FrequencyAxis').hide();
-                  $('.dtermLowpass2FrequencyAxis').hide();
-                  $('.pid_filter input[name="gyroLowpass2Frequency"]').val(FILTER_CONFIG.gyro_lowpass2_hz_roll);
-                  $('.pid_filter input[name="dtermLowpass2Frequency"]').val(FILTER_CONFIG.dterm_lowpass2_hz_roll);
-                }else{
+            } else {   //gte 1.44  - perAxis LPF
                 $('.gyroLowpass2Frequency').hide();
                 $('.dtermLowpass2Frequency').hide();
                 $('.pid_filter input[name="gyroLowpass2FrequencyRoll"]').val(FILTER_CONFIG.gyro_lowpass2_hz_roll);
                 $('.pid_filter input[name="gyroLowpass2FrequencyPitch"]').val(FILTER_CONFIG.gyro_lowpass2_hz_pitch);
                 $('.pid_filter input[name="gyroLowpass2FrequencyYaw"]').val(FILTER_CONFIG.gyro_lowpass2_hz_yaw);
+                console.log('dterm_lowpass2_hz_roll' + FILTER_CONFIG.dterm_lowpass2_hz_roll);
                 $('.pid_filter input[name="dtermLowpass2FrequencyRoll"]').val(FILTER_CONFIG.dterm_lowpass2_hz_roll);
                 $('.pid_filter input[name="dtermLowpass2FrequencyPitch"]').val(FILTER_CONFIG.dterm_lowpass2_hz_pitch);
                 $('.pid_filter input[name="dtermLowpass2FrequencyYaw"]').val(FILTER_CONFIG.dterm_lowpass2_hz_yaw);
-              }
+                //experimental expert-mode show/hid also in main.js
+                if (!isExpertModeEnabled()) {
+                    $('.LPFPit').hide();
+                    $('.LPFYaw').hide();
+                    $('#pid-tuning .gyroLowpass2FrequencyAxis .LPFRol').text(i18n.getMessage("pidTuningGyroLowpass2Frequency"));
+                    $('#pid-tuning .dtermLowpass2FrequencyAxis .LPFRol').text(i18n.getMessage("pidTuningDTermLowpass2Frequency"));
+                }
             }
             //removes 5th column which is Feedforward
             $('#pid_main .pid_titlebar2 th').attr('colspan', 4);
@@ -344,40 +359,18 @@ TABS.pid_tuning.initialize = function(callback) {
             $('#pid_main .pid_titlebar2 th').attr('colspan', 4);
         }
 
-        //synchronize the hidden values for users who toggle expert-mode
-        // set per axis from single
-        $('.pid_filter input[name="gyroLowpassFrequency"]').change(function() {
-            $('.pid_filter input[name="gyroLowpassFrequencyRoll"]').val(parseInt($('.pid_filter input[name="gyroLowpassFrequency"]').val()));
-            $('.pid_filter input[name="gyroLowpassFrequencyPitch"]').val(parseInt($('.pid_filter input[name="gyroLowpassFrequency"]').val()));
-            $('.pid_filter input[name="gyroLowpassFrequencyYaw"]').val(parseInt($('.pid_filter input[name="gyroLowpassFrequency"]').val()));
-        });
-        $('.pid_filter input[name="dtermLowpassFrequency"]').change(function() {
-            $('.pid_filter input[name="dtermLowpassFrequencyRoll"]').val(parseInt($('.pid_filter input[name="dtermLowpassFrequency"]').val()));
-            $('.pid_filter input[name="dtermLowpassFrequencyPitch"]').val(parseInt($('.pid_filter input[name="dtermLowpassFrequency"]').val()));
-            $('.pid_filter input[name="dtermLowpassFrequencyYaw"]').val(parseInt($('.pid_filter input[name="dtermLowpassFrequency"]').val()));
-        });
-        $('.pid_filter input[name="gyroLowpass2Frequency"]').change(function() {
-            $('.pid_filter input[name="gyroLowpass2FrequencyRoll"]').val(parseInt($('.pid_filter input[name="gyroLowpass2Frequency"]').val()));
-            $('.pid_filter input[name="gyroLowpass2FrequencyPitch"]').val(parseInt($('.pid_filter input[name="gyroLowpass2Frequency"]').val()));
-            $('.pid_filter input[name="gyroLowpass2FrequencyYaw"]').val(parseInt($('.pid_filter input[name="gyroLowpass2Frequency"]').val()));
-        });
-        $('.pid_filter input[name="dtermLowpass2Frequency"]').change(function() {
-            $('.pid_filter input[name="dtermLowpass2FrequencyRoll"]').val(parseInt($('.pid_filter input[name="dtermLowpass2Frequency"]').val()));
-            $('.pid_filter input[name="dtermLowpass2FrequencyPitch"]').val(parseInt($('.pid_filter input[name="dtermLowpass2Frequency"]').val()));
-            $('.pid_filter input[name="dtermLowpass2FrequencyYaw"]').val(parseInt($('.pid_filter input[name="dtermLowpass2Frequency"]').val()));
-        });
-        // set single from Roll
-        $('.pid_filter input[name="gyroLowpassFrequencyRoll"]').change(function() {
-            $('.pid_filter input[name="gyroLowpassFrequency"]').val(parseInt($('.pid_filter input[name="gyroLowpassFrequencyRoll"]').val()));
-        });
-        $('.pid_filter input[name="dtermLowpassFrequencyRoll"]').change(function() {
-            $('.pid_filter input[name="dtermLowpassFrequency"]').val(parseInt($('.pid_filter input[name="dtermLowpassFrequencyRoll"]').val()));
-        });
+        //experimental expert-mode synchronize hidden Pitch/Yaw
         $('.pid_filter input[name="gyroLowpass2FrequencyRoll"]').change(function() {
-            $('.pid_filter input[name="gyroLowpass2Frequency"]').val(parseInt($('.pid_filter input[name="gyroLowpass2FrequencyRoll"]').val()));
+            if (!isExpertModeEnabled()) {
+                $('.pid_filter input[name="gyroLowpass2FrequencyPitch"]').val(parseInt($('.pid_filter input[name="gyroLowpass2FrequencyRoll"]').val()));
+                $('.pid_filter input[name="gyroLowpass2FrequencyYaw"]').val(parseInt($('.pid_filter input[name="gyroLowpass2FrequencyRoll"]').val()));
+            }
         });
         $('.pid_filter input[name="dtermLowpass2FrequencyRoll"]').change(function() {
-            $('.pid_filter input[name="dtermLowpass2Frequency"]').val(parseInt($('.pid_filter input[name="dtermLowpass2FrequencyRoll"]').val()));
+            if (!isExpertModeEnabled()) {
+                $('.pid_filter input[name="dtermLowpass2FrequencyPitch"]').val(parseInt($('.pid_filter input[name="dtermLowpass2FrequencyRoll"]').val()));
+                $('.pid_filter input[name="dtermLowpass2FrequencyYaw"]').val(parseInt($('.pid_filter input[name="dtermLowpass2FrequencyRoll"]').val()));
+            }
         });
 
         if (semver.gte(CONFIG.apiVersion, "1.40.0")) {
@@ -803,21 +796,12 @@ TABS.pid_tuning.initialize = function(callback) {
             FILTER_CONFIG.dterm_lowpass_hz = parseInt($('.pid_filter input[name="dtermLowpassFrequency"]').val());
             FILTER_CONFIG.yaw_lowpass_hz = parseInt($('.pid_filter input[name="yawLowpassFrequency"]').val());
         } else {
-          if(!isExpertModeEnabled()) {
-            FILTER_CONFIG.gyro_lowpass_hz_roll = parseInt($('.pid_filter input[name="gyroLowpassFrequency"]').val());
-            FILTER_CONFIG.gyro_lowpass_hz_pitch = parseInt($('.pid_filter input[name="gyroLowpassFrequency"]').val());
-            FILTER_CONFIG.gyro_lowpass_hz_yaw = parseInt($('.pid_filter input[name="gyroLowpassFrequency"]').val());
-            FILTER_CONFIG.dterm_lowpass_hz_roll = parseInt($('.pid_filter input[name="dtermLowpassFrequency"]').val());
-            FILTER_CONFIG.dterm_lowpass_hz_pitch = parseInt($('.pid_filter input[name="dtermLowpassFrequency"]').val());
-            FILTER_CONFIG.dterm_lowpass_hz_yaw = parseInt($('.pid_filter input[name="dtermLowpassFrequency"]').val());
-          }else{
             FILTER_CONFIG.gyro_lowpass_hz_roll = parseInt($('.pid_filter input[name="gyroLowpassFrequencyRoll"]').val());
             FILTER_CONFIG.gyro_lowpass_hz_pitch = parseInt($('.pid_filter input[name="gyroLowpassFrequencyPitch"]').val());
             FILTER_CONFIG.gyro_lowpass_hz_yaw = parseInt($('.pid_filter input[name="gyroLowpassFrequencyYaw"]').val());
             FILTER_CONFIG.dterm_lowpass_hz_roll = parseInt($('.pid_filter input[name="dtermLowpassFrequencyRoll"]').val());
             FILTER_CONFIG.dterm_lowpass_hz_pitch = parseInt($('.pid_filter input[name="dtermLowpassFrequencyPitch"]').val());
             FILTER_CONFIG.dterm_lowpass_hz_yaw = parseInt($('.pid_filter input[name="dtermLowpassFrequencyYaw"]').val());
-          }
         }
 
         if (semver.gte(CONFIG.apiVersion, "1.16.0") && !semver.gte(CONFIG.apiVersion, "1.20.0")) {
@@ -866,22 +850,13 @@ TABS.pid_tuning.initialize = function(callback) {
         }
 
         if (semver.gte(CONFIG.apiVersion, "1.39.0")) {
-            if (semver.gte(CONFIG.apiVersion, "1.44.0") ) {
-                if(!isExpertModeEnabled()) {
-                  FILTER_CONFIG.gyro_lowpass2_hz_roll = parseInt($('.pid_filter input[name="gyroLowpass2Frequency"]').val());
-                  FILTER_CONFIG.gyro_lowpass2_hz_pitch = parseInt($('.pid_filter input[name="gyroLowpass2Frequency"]').val());
-                  FILTER_CONFIG.gyro_lowpass2_hz_yaw = parseInt($('.pid_filter input[name="gyroLowpass2Frequency"]').val());
-                  FILTER_CONFIG.dterm_lowpass2_hz_roll = parseInt($('.pid_filter input[name="dtermLowpass2Frequency"]').val());
-                  FILTER_CONFIG.dterm_lowpass2_hz_pitch = parseInt($('.pid_filter input[name="dtermLowpass2Frequency"]').val());
-                  FILTER_CONFIG.dterm_lowpass2_hz_yaw = parseInt($('.pid_filter input[name="dtermLowpass2Frequency"]').val());
-                }else{
+            if (semver.gte(CONFIG.apiVersion, "1.44.0")) {
                 FILTER_CONFIG.gyro_lowpass2_hz_roll = parseInt($('.pid_filter input[name="gyroLowpass2FrequencyRoll"]').val());
                 FILTER_CONFIG.gyro_lowpass2_hz_pitch = parseInt($('.pid_filter input[name="gyroLowpass2FrequencyPitch"]').val());
                 FILTER_CONFIG.gyro_lowpass2_hz_yaw = parseInt($('.pid_filter input[name="gyroLowpass2FrequencyYaw"]').val());
                 FILTER_CONFIG.dterm_lowpass2_hz_roll = parseInt($('.pid_filter input[name="dtermLowpass2FrequencyRoll"]').val());
                 FILTER_CONFIG.dterm_lowpass2_hz_pitch = parseInt($('.pid_filter input[name="dtermLowpass2FrequencyPitch"]').val());
                 FILTER_CONFIG.dterm_lowpass2_hz_yaw = parseInt($('.pid_filter input[name="dtermLowpass2FrequencyYaw"]').val());
-              }
             } else {
                 FILTER_CONFIG.gyro_lowpass2_hz = parseInt($('.pid_filter input[name="gyroLowpass2Frequency"]').val());
                 FILTER_CONFIG.dterm_lowpass2_hz = parseInt($('.pid_filter input[name="dtermLowpass2Frequency"]').val());
