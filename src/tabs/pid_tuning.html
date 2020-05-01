@@ -153,7 +153,7 @@
                     <!-- BARO, MAG, GPS - Non-existent/Broken/Purged -->
 
                     <!-- ENTIRE ANGLE UI -->
-                    <div id="pid_accel" class="pid_optional needed_by_LEVEL gui_box grey topspacer pid_tuning">
+                    <div id="pid_accel" class="pid_optional needed_by_LEVEL gui_box grey topspacer pid_tuning isexpertmode">
                         <!-- show Angle/NFE/Horizon both old and new UI-->
                         <table id="pid_level" class="pid_tuning needed_by_LEVEL">
                             <tr class="needed_by_LEVEL">
@@ -702,7 +702,7 @@
                         <table id="rateDynamics" class="pid_tuning">
                             <tbody>
                                 <tr class="pid_titlebar">
-                                    <th colspan="4">
+                                    <th colspan="4" style="background-color:#22B7EB;">
                                         <div>
                                             <div i18n="pidTuningRateDynamics" style="float:left;"></div>
                                             <div class="helpicon cf_tip" i18n_title="pidTuningRateDynamicsHelp"></div>
@@ -753,7 +753,8 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="gui_box -grey -spa spacer_left">
+                    <!-- experimental: expert-mode will show/hide SPA -->
+                    <div class="gui_box -grey -spa spacer_left isexpertmode">
                         <table class="cf pid_tuning">
                             <thead>
                                 <tr colspan="4">
@@ -865,7 +866,7 @@
                         </table>
                     </div>
                 </div>
-                <div class="cf_column">
+                <div class="cf_column isexpertmode">
                     <div class="gui_box ratePreview grey spacer_left">
                         <table class="pid_titlebar">
                             <thead>
@@ -1281,7 +1282,8 @@
 
 
                         <!-- smartdterm witchcraft table -->
-                        <div class="smartDTermWitchBox" > <!-- class smartDTermWitchBox required -->
+                        <!-- insludes expertmode show/hide -->
+                        <div class="smartDTermWitchBox isexpertmode" > <!-- class smartDTermWitchBox required -->
                             <table class="cf pid_tuning topspacer"> <!-- class cf pid_tuning topspaceer required -->
                                 <thead>
                                     <tr colspan="4">
