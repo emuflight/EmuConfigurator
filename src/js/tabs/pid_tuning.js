@@ -745,6 +745,11 @@ TABS.pid_tuning.initialize = function(callback) {
             $('input[id="dtermLowpass2Enabled"]').prop('checked', FILTER_CONFIG.dterm_lowpass2_hz_pitch != 0).change();
             $('input[id="gyroLowpass2Enabled"]').prop('checked', FILTER_CONFIG.gyro_lowpass2_hz_pitch != 0).change();
         }
+
+        //experimental expert-mode show/hide SPA
+        if (!isExpertModeEnabled()) {
+            $('.isexpertmode').hide();
+        }
     } //pid_and_rc_to_form()
 
     function form_to_pid_and_rc() {
@@ -1935,7 +1940,7 @@ TABS.pid_tuning.initialize = function(callback) {
 
         GUI.content_ready(callback);
     }
-};
+}; //end TABS.pid_tuning.initialize = function
 
 TABS.pid_tuning.getRecieverData = function() {
     MSP.send_message(MSPCodes.MSP_RC, false, false);
