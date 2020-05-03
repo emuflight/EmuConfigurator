@@ -3202,15 +3202,6 @@
     "pidTuningGyroNotch2": {
         "message": "Gyro Notch Filter 2 Frequency [Hz]"
     },
-    "pidTuningRoll": {
-        "message": " - Roll"
-    },
-    "pidTuningPitch": {
-        "message": " - Pitch"
-    },
-    "pidTuningYaw": {
-        "message": " - Yaw"
-    },
     "pidTuningGyroLowpassType": {
         "message": "Filter 1 Type"
     },
@@ -3229,6 +3220,24 @@
     "pidTuningGyroLowpass2Type": {
         "message": "Filter 2 Type"
     },
+    "gyroLowpassFrequencyRoll": {
+        "message": " Roll Gyro Lowpass 1 Cutoff Frequency [Hz]"
+    },
+    "gyroLowpassFrequencyPitch": {
+        "message": " Pitch Gyro Lowpass 1 Cutoff Frequency [Hz]"
+    },
+    "gyroLowpassFrequencyYaw": {
+        "message": " Yaw Gyro Lowpass 1 Cutoff Frequency [Hz]"
+    },
+    "gyroLowpass2FrequencyRoll": {
+        "message": " Roll Gyro Lowpass 2 Cutoff Frequency [Hz]"
+    },
+    "gyroLowpass2FrequencyPitch": {
+        "message": " Pitch Gyro Lowpass 2 Cutoff Frequency [Hz]"
+    },
+    "gyroLowpass2FrequencyYaw": {
+        "message": " Yaw Gyro Lowpass 2 Cutoff Frequency [Hz]"
+    },
     "pidTuningGyroNotchFiltersGroup": {
         "message": "Gyro Notch Filters"
     },
@@ -3236,19 +3245,19 @@
         "message": "Gyro Dyn Filter"
     },
     "pidTuningGyroNotch1Frequency": {
-        "message": "Center"
+        "message": "Gyro Notch Filter 1 Center Frequency [Hz]"
     },
     "pidTuningGyroDynLpf": {
         "message": "Gyro Dynamic Filter"
     },
     "pidTuningGyroNotch2Frequency": {
-        "message": "Center"
+        "message": "Gyro Notch Filter 2 Center Frequency [Hz]"
     },
     "pidTuningGyroNotch1Cutoff": {
-        "message": "Cutoff"
+        "message": "Gyro Notch Filter 1 Cutoff Frequency [Hz]"
     },
     "pidTuningGyroNotch2Cutoff": {
-        "message": "Cutoff"
+        "message": "Gyro Notch Filter 2 Cutoff Frequency [Hz]"
     },
     "pidTuningNotchFilterHelp": {
         "message": "The Notch Filter has a Center and a Cutoff. The filter is symmetrical. The Center Frequency is the center of the filter and the Cutoff Frequency is where Notch filter starts. For example with Notch Cutoff of 160 and Notch Center of 260 it means the range is 160-360Hz with most attenuation around center"
@@ -3306,6 +3315,24 @@
     },
     "pidTuningDTermLowpass2Type": {
         "message": "D Term Lowpass 2 Filter Type"
+    },
+    "dtermLowpassFrequencyRoll": {
+        "message": " Roll D-Term Lowpass 1 Cutoff Frequency [Hz]"
+    },
+    "dtermLowpassFrequencyPitch": {
+        "message": " Pitch D-Term Lowpass 1 Cutoff Frequency [Hz]"
+    },
+    "dtermLowpassFrequencyYaw": {
+        "message": " Yaw D-Term Lowpass 1 Cutoff Frequency [Hz]"
+    },
+    "dtermLowpass2FrequencyRoll": {
+        "message": " Roll D-Term Lowpass 2 Cutoff Frequency [Hz]"
+    },
+    "dtermLowpass2FrequencyPitch": {
+        "message": " Pitch D-Term Lowpass 2 Cutoff Frequency [Hz]"
+    },
+    "dtermLowpass2FrequencyYaw": {
+        "message": " Yaw D-Term Lowpass 2 Cutoff Frequency [Hz]"
     },
     "pidTuningDTermLowpassDynMinFrequency": {
         "message": "D Term Lowpass 1 Dynamic Min Cutoff Frequency [Hz]"
