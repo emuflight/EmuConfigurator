@@ -66,15 +66,15 @@ TABS.pid_tuning.initialize = function(callback) {
 
     if (CONFIG.boardIdentifier !== "HESP" && CONFIG.boardIdentifier !== "SX10" && CONFIG.boardIdentifier !== "FLUX") {
         if (semver.gte(CONFIG.apiVersion, "1.46.0")) {
-            presetJson = require(presetsFolders + '/presets-nonHELIO_v0.3.0.json');
+            presetJson = require(presetsFolders + '/presets-nonHELIO-v0.3.0.json');
         } else {
-            presetJson = require(presetsFolders + '/presets-nonHELIO_v0.2.0.json');
+            presetJson = require(presetsFolders + '/presets-nonHELIO-v0.2.0.json');
         }
     } else {
         if (semver.gte(CONFIG.apiVersion, "1.46.0")) {
-            presetJson = require(presetsFolders + '/presets-HELIO_v0.3.0.json');
+            presetJson = require(presetsFolders + '/presets-HELIO-v0.3.0.json');
         } else {
-            presetJson = require(presetsFolders + '/presets-HELIO_v0.2.0.json');
+            presetJson = require(presetsFolders + '/presets-HELIO-v0.2.0.json');
         }
     }
 
