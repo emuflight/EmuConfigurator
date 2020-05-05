@@ -3,6 +3,8 @@
 const fs = require('fs');
 const os = require('os');
 
+var client, nonHelioUrlv020, helioUrlv020, nonHelioUrlv030, helioUrlv030;
+
 // folder to store the downloaded preset files in
 // TODO: migrate to non-global
 const presetsFolders = os.tmpdir();
@@ -22,14 +24,14 @@ var HttpClient = function() {
 }
 
 // TODO: move all of this to a class instead of being global
-var client = new HttpClient();
+client = new HttpClient();
 // FIXME: hardcoded URIs
 // TODO: why seperate files?
-var nonHelioUrlv020 = "https://raw.githubusercontent.com/emuflight/emuflight-presets/master/presets-0.2.0/presets-nonHELIO.json";
-var helioUrlv020 = "https://raw.githubusercontent.com/emuflight/emuflight-presets/master/presets-0.2.0/presets-HELIO.json";
+nonHelioUrlv020 = "https://raw.githubusercontent.com/emuflight/emuflight-presets/master/presets-0.2.0/presets-nonHELIO.json";
+helioUrlv020 = "https://raw.githubusercontent.com/emuflight/emuflight-presets/master/presets-0.2.0/presets-HELIO.json";
 
-var nonHelioUrlv030 = "https://raw.githubusercontent.com/emuflight/emuflight-presets/master/presets-0.3.0/presets-nonHELIO.json";
-var helioUrlv030 = "https://raw.githubusercontent.com/emuflight/emuflight-presets/master/presets-0.3.0/presets-HELIO.json";
+nonHelioUrlv030 = "https://raw.githubusercontent.com/emuflight/emuflight-presets/master/presets-0.3.0/presets-nonHELIO.json";
+helioUrlv030 = "https://raw.githubusercontent.com/emuflight/emuflight-presets/master/presets-0.3.0/presets-HELIO.json";
 
 // TODO: migrate to a function to get rid of code duplication
 
