@@ -25,12 +25,16 @@ var HttpClient = function() {
 var client = new HttpClient();
 // FIXME: hardcoded URIs
 // TODO: why seperate files?
-var nonHelioUrl = 'https://raw.githubusercontent.com/emuflight/EmuConfigurator/master/presets/presets-nonHELIO.json';
-var helioUrl = 'https://raw.githubusercontent.com/emuflight/EmuConfigurator/master/presets/presets-HELIO.json';
+var nonHelioUrl_v0_2_0 = 'https://raw.githubusercontent.com/emuflight/emuflight-presets/master/presets-0.2.0/presets-nonHELIO.json';
+var helioUrl_v0_2_0 = 'https://raw.githubusercontent.com/emuflight/emuflight-presets/master/presets-0.2.0/presets-HELIO.json';
+
+var nonHelioUrl_v0_3_0 = 'https://raw.githubusercontent.com/emuflight/emuflight-presets/master/presets-0.3.0/presets-nonHELIO.json';
+var helioUrl_v0_3_0 = 'https://raw.githubusercontent.com/emuflight/emuflight-presets/master/presets-0.3.0/presets-HELIO.json';
 
 // TODO: migrate to a function to get rid of code duplication
-client.get(nonHelioUrl, function(response) {
-  fs.writeFile(presetsFolders + '/presets-nonHELIO.json', response, (err) => {
+
+client.get(nonHelioUrl_v0_2_0, function(response) {
+  fs.writeFile(presetsFolders + '/presets-nonHELIO_v0.2.0.json', response, (err) => {
     if (err) {
       // FIXME: add error handling
       console.error(err);
@@ -40,8 +44,8 @@ client.get(nonHelioUrl, function(response) {
   })
 });
 
-client.get(helioUrl, function(response) {
-    fs.writeFile(presetsFolders + '/presets-HELIO.json', response, (err) => {
+client.get(helioUrl_v0_2_0, function(response) {
+    fs.writeFile(presetsFolders + '/presets-HELIO_v0.2.0.json', response, (err) => {
         if (err) {
         console.error(err);
         return;
@@ -49,6 +53,27 @@ client.get(helioUrl, function(response) {
         //file written successfully
     })
 });
+
+client.get(nonHelioUrl_v0_3_0, function(response) {
+    fs.writeFile(presetsFolders + '/presets-nonHELIO_v0.3.0.json', response, (err) => {
+      if (err) {
+        // FIXME: add error handling
+        console.error(err);
+        return;
+      }
+      //file written successfully
+    })
+  });
+  
+  client.get(helioUrl_v0_3_0, function(response) {
+      fs.writeFile(presetsFolders + '/presets-HELIO_v0.3.0.json', response, (err) => {
+          if (err) {
+          console.error(err);
+          return;
+          }
+          //file written successfully
+      })
+  });
 
 $(document).ready(function () {
     $.getJSON('version.json', function(data) {
