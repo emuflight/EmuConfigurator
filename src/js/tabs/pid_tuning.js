@@ -66,15 +66,15 @@ TABS.pid_tuning.initialize = function(callback) {
 
     if (CONFIG.boardIdentifier !== "HESP" && CONFIG.boardIdentifier !== "SX10" && CONFIG.boardIdentifier !== "FLUX") {
         if (semver.gte(CONFIG.apiVersion, "1.46.0")) {
-            presetJson = require(presetsFolders + '/presets-nonHELIO-v0.3.0.json');
+            presetJson = require(presetsFolders + "/presets-nonHELIO-v0.3.0.json");
         } else {
-            presetJson = require(presetsFolders + '/presets-nonHELIO-v0.2.0.json');
+            presetJson = require(presetsFolders + "/presets-nonHELIO-v0.2.0.json");
         }
     } else {
         if (semver.gte(CONFIG.apiVersion, "1.46.0")) {
-            presetJson = require(presetsFolders + '/presets-HELIO-v0.3.0.json');
+            presetJson = require(presetsFolders + "/presets-HELIO-v0.3.0.json");
         } else {
-            presetJson = require(presetsFolders + '/presets-HELIO-v0.2.0.json');
+            presetJson = require(presetsFolders + "/presets-HELIO-v0.2.0.json");
         }
     }
 
@@ -1275,24 +1275,24 @@ TABS.pid_tuning.initialize = function(callback) {
         var save_and_reboot = false;
 
         $('#pid-tuning .presetBuild').hide();
-        
+
         $('.tab-pid_tuning select[name="preset"]').change(function() {
             var presetSelected = $('.tab-pid_tuning select[name="preset"]').val();
-            
+
             if (presetSelected == "default") {
                 //resetProfile();
-                
+
                 pid_and_rc_to_form();
                 save_and_reboot = false;
             } else {
                 // preset warning message
                 save_and_reboot = false;
-                
-                var presetNote = presetJson[presetSelected]['preset_note'];  
-                var presetBuildMotors = presetJson[presetSelected]['build_motors'];  
-                var presetBuildFrame = presetJson[presetSelected]['build_frame'];  
-                var presetBuildProps = presetJson[presetSelected]['build_props'];  
-                var presetBuildBattery = presetJson[presetSelected]['build_battery'];  
+
+                var presetNote = presetJson[presetSelected]['preset_note'];
+                var presetBuildMotors = presetJson[presetSelected]['build_motors'];
+                var presetBuildFrame = presetJson[presetSelected]['build_frame'];
+                var presetBuildProps = presetJson[presetSelected]['build_props'];
+                var presetBuildBattery = presetJson[presetSelected]['build_battery'];
 
                 const warningPreset = '<span class=\"message-negative\">IMPORTANT:</span> <br>Test each preset with hover. Check motors temperature and check for problems. Not all presets will work with your quad. Use at your own risk. <br><br>';
                 var presetMessage =  warningPreset + presetNote + '<br><br> Preset was made based on such components: <br> <b> • MOTORS: </b>' + presetBuildMotors + '<br> <b> • FRAME: </b>' + presetBuildFrame  + '<br> <b> • PROPS: </b>' + presetBuildProps + '<br> <b> • BATTERY: </b>' + presetBuildBattery ;
@@ -1370,7 +1370,7 @@ TABS.pid_tuning.initialize = function(callback) {
                     $('.smartDTermWitchBox input[name="smartdTermRoll"]').val(presetJson[presetSelected]['smart_dterm_smoothing_roll']);
                     $('.smartDTermWitchBox input[name="smartdTermPitch"]').val(presetJson[presetSelected]['smart_dterm_smoothing_pitch']);
                     $('.smartDTermWitchBox input[name="smartdTermYaw"]').val(presetJson[presetSelected]['smart_dterm_smoothing_yaw']);
-        
+
                     $('.smartDTermWitchBox input[name="witchcraftRoll"]').val(presetJson[presetSelected]['witchcraft_roll']);
                     $('.smartDTermWitchBox input[name="witchcraftPitch"]').val(presetJson[presetSelected]['witchcraft_pitch']);
                     $('.smartDTermWitchBox input[name="witchcraftYaw"]').val(presetJson[presetSelected]['witchcraft_yaw']);
