@@ -238,7 +238,7 @@ TABS.motors.initialize = function (callback) {
         var motor_voltage_e = $('.motors-bat-voltage'),
             motor_mah_drawing_e = $('.motors-bat-mah-drawing'),
             motor_mah_drawn_e = $('.motors-bat-mah-drawn');
-            
+
 
         var raw_data_text_ements = {
                 x: [],
@@ -407,7 +407,7 @@ TABS.motors.initialize = function (callback) {
             motor_voltage_e.text(i18n.getMessage('motorsVoltageValue', [ANALOG.voltage]));
             motor_mah_drawing_e.text(i18n.getMessage('motorsADrawingValue', [ANALOG.amperage.toFixed(2)]));
             motor_mah_drawn_e.text(i18n.getMessage('motorsmAhDrawnValue', [ANALOG.mAhdrawn]));
-            
+
         }
         GUI.interval_add('motors_power_data_pull_slow', power_data_pull, 250, true); // 4 fps
 
@@ -648,5 +648,8 @@ TABS.motors.initialize = function (callback) {
 };
 
 TABS.motors.cleanup = function (callback) {
+    CONFIG.runawayTakeoffPreventionDisabled = false;
+    CONFIG.armingDisabled = true;
+    console.log('prevent arming again on tab cleanup');
     if (callback) callback();
 };
