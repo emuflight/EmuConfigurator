@@ -247,8 +247,6 @@ TABS.pid_tuning.initialize = function(callback) {
                     $('.pid_tuning input[name="d_angle_high"]').val(ADVANCED_TUNING.d_angle_high);
                     $('.pid_tuning input[name="d_angle_low"]').val(ADVANCED_TUNING.d_angle_low);
                     $('.pid_tuning input[name="f_angle"]').val(ADVANCED_TUNING.f_angle);
-                    $('.pid_tuning input[name="d_angle_low"]').val(ADVANCED_TUNING.d_angle_low);
-
                     $('.pid_tuning input[name="angle_expo"]').val(ADVANCED_TUNING.angleExpo );
                     $('.pid_tuning input[name="horizon_tilt_effect"]').val(ADVANCED_TUNING.horizonTiltEffect);
                     $('.pid_tuning input[name="horizon_transition"]').val(ADVANCED_TUNING.horizonTransition);
