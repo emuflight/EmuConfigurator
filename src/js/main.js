@@ -8,7 +8,6 @@ var client, nonHelioUrlv020, helioUrlv020, nonHelioUrlv030, helioUrlv030;
 // folder to store the downloaded preset files in
 // TODO: migrate to non-global
 const presetsFolders = os.tmpdir();
-console.log('Presets file location: ' + presetsFolders);
 
 var HttpClient = function() {
     this.get = function(aUrl, aCallback) {
@@ -22,6 +21,8 @@ var HttpClient = function() {
         anHttpRequest.send( null );
     }
 }
+
+console.log('Presets file location: ' + presetsFolders);
 
 // TODO: move all of this to a class instead of being global
 client = new HttpClient();
