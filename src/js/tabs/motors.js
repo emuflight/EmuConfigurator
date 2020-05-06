@@ -650,6 +650,7 @@ TABS.motors.initialize = function (callback) {
 TABS.motors.cleanup = function (callback) {
     CONFIG.runawayTakeoffPreventionDisabled = false;
     CONFIG.armingDisabled = true;
+    mspHelper.setArmingEnabled(false, false);
     console.log('prevent arming again on tab cleanup');
     if (callback) callback();
 };
