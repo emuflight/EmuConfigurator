@@ -63,10 +63,19 @@ TABS.pid_tuning.initialize = function(callback) {
     }
 
     var presetJson;
+
     if (CONFIG.boardIdentifier !== "HESP" && CONFIG.boardIdentifier !== "SX10" && CONFIG.boardIdentifier !== "FLUX") {
-        presetJson = require(presetsFolders + '/presets-nonHELIO.json');
+        if (semver.gte(CONFIG.apiVersion, "1.46.0")) {
+            presetJson = require(presetsFolders + "/presets-nonHELIO-v0.3.0.json");
+        } else {
+            presetJson = require(presetsFolders + "/presets-nonHELIO-v0.2.0.json");
+        }
     } else {
-        presetJson = require(presetsFolders + '/presets-HELIO.json');
+        if (semver.gte(CONFIG.apiVersion, "1.46.0")) {
+            presetJson = require(presetsFolders + "/presets-HELIO-v0.3.0.json");
+        } else {
+            presetJson = require(presetsFolders + "/presets-HELIO-v0.2.0.json");
+        }
     }
 
     function pid_and_rc_to_form() {
@@ -385,10 +394,10 @@ TABS.pid_tuning.initialize = function(callback) {
                 $('#imuf_w').val(IMUF_FILTER_CONFIG.imuf_w);
                 $('.imufSharpness').hide();
                 if (semver.gte(CONFIG.apiVersion, "1.46.0")) {
-                $('.imufSharpness').show();
-                console.log('sharpness' + IMUF_FILTER_CONFIG.imuf_sharpness);
-                $('#imuf_sharpness').val(IMUF_FILTER_CONFIG.imuf_sharpness);
-              }
+                    $('.imufSharpness').show();
+                    console.log('sharpness' + IMUF_FILTER_CONFIG.imuf_sharpness);
+                    $('#imuf_sharpness').val(IMUF_FILTER_CONFIG.imuf_sharpness);
+                }
                 if (CONFIG.boardIdentifier === "HESP" || CONFIG.boardIdentifier === "SX10" || CONFIG.boardIdentifier === "FLUX") {
                     $('#imuf_pitch_lpf_cutoff_hz').val(IMUF_FILTER_CONFIG.imuf_pitch_lpf_cutoff_hz);
                     $('#imuf_roll_lpf_cutoff_hz').val(IMUF_FILTER_CONFIG.imuf_roll_lpf_cutoff_hz);
@@ -1263,16 +1272,39 @@ TABS.pid_tuning.initialize = function(callback) {
 
         var save_and_reboot = false;
 
+        $('#pid-tuning .presetBuild').hide();
+
         $('.tab-pid_tuning select[name="preset"]').change(function() {
             var presetSelected = $('.tab-pid_tuning select[name="preset"]').val();
 
             if (presetSelected == "default") {
                 //resetProfile();
+
                 pid_and_rc_to_form();
                 save_and_reboot = false;
             } else {
-                // preset filter values
+                // preset warning message
                 save_and_reboot = false;
+
+                var presetNote = presetJson[presetSelected]['preset_note'];
+                var presetBuildMotors = presetJson[presetSelected]['build_motors'];
+                var presetBuildFrame = presetJson[presetSelected]['build_frame'];
+                var presetBuildProps = presetJson[presetSelected]['build_props'];
+                var presetBuildBattery = presetJson[presetSelected]['build_battery'];
+
+                const warningPreset = '<span class=\"message-negative\">IMPORTANT:</span> <br>Test each preset with hover. Check motors temperature and check for problems. Not all presets will work with your quad. Use at your own risk. <br><br>';
+                var presetMessage =  warningPreset + presetNote + '<br><br> Preset was made based on such components: <br> <b> • MOTORS: </b>' + presetBuildMotors + '<br> <b> • FRAME: </b>' + presetBuildFrame  + '<br> <b> • PROPS: </b>' + presetBuildProps + '<br> <b> • BATTERY: </b>' + presetBuildBattery ;
+
+                $('#pid-tuning .presetBuild').html(presetMessage);
+
+                // TODO not working need to fix
+                if (presetSelected == "default") {
+                    $('#pid-tuning .presetBuild').hide();
+                } else {
+                    $('#pid-tuning .presetBuild').show();
+                }
+
+                // preset filter values
                 if (CONFIG.boardIdentifier !== "HESP" && CONFIG.boardIdentifier !== "SX10" && CONFIG.boardIdentifier !== "FLUX" && semver.lt(CONFIG.apiVersion, "1.42.0")) {
                     $('.pid_filter input[name="kalmanQCoefficient"]').val(presetJson[presetSelected]['gyro_filter_q']);
                     $('.pid_filter input[name="kalmanRCoefficient"]').val(presetJson[presetSelected]['gyro_filter_w']);
@@ -1281,6 +1313,9 @@ TABS.pid_tuning.initialize = function(callback) {
                     $('#imuf_pitch_q').val(presetJson[presetSelected]['imuf_pitch_q']);
                     $('#imuf_yaw_q').val(presetJson[presetSelected]['imuf_yaw_q']);
                     $('#imuf_w').val(presetJson[presetSelected]['imuf_w']);
+                    if (semver.gte(CONFIG.apiVersion, "1.46.0")) {
+                        $('#imuf_sharpness').val(presetJson[presetSelected]['imuf_sharpness']);
+                    }
                     if (CONFIG.boardIdentifier === "HESP" || CONFIG.boardIdentifier === "SX10" || CONFIG.boardIdentifier === "FLUX") {
                         $('#imuf_pitch_lpf_cutoff_hz').val(presetJson[presetSelected]['imuf_pitch_lpf_cutoff_hz']);
                         $('#imuf_roll_lpf_cutoff_hz').val(presetJson[presetSelected]['imuf_roll_lpf_cutoff_hz']);
@@ -1329,7 +1364,15 @@ TABS.pid_tuning.initialize = function(callback) {
                     $('.pid_filter input[name="dtermLowpassFrequency"]').val(presetJson[presetSelected]['dterm_lowpass_hz']);
                     $('.pid_filter input[name="dtermLowpass2Frequency"]').val(presetJson[presetSelected]['dterm_lowpass2_hz']);
                 }
+                if (semver.gte(CONFIG.apiVersion, "1.46.0")) {
+                    $('.smartDTermWitchBox input[name="smartdTermRoll"]').val(presetJson[presetSelected]['smart_dterm_smoothing_roll']);
+                    $('.smartDTermWitchBox input[name="smartdTermPitch"]').val(presetJson[presetSelected]['smart_dterm_smoothing_pitch']);
+                    $('.smartDTermWitchBox input[name="smartdTermYaw"]').val(presetJson[presetSelected]['smart_dterm_smoothing_yaw']);
 
+                    $('.smartDTermWitchBox input[name="witchcraftRoll"]').val(presetJson[presetSelected]['witchcraft_roll']);
+                    $('.smartDTermWitchBox input[name="witchcraftPitch"]').val(presetJson[presetSelected]['witchcraft_pitch']);
+                    $('.smartDTermWitchBox input[name="witchcraftYaw"]').val(presetJson[presetSelected]['witchcraft_yaw']);
+                }
                 $('input[id="dTermNotchEnabled"]').prop('checked', presetJson[presetSelected]['dterm_notch_enabled'] !== "OFF").change();
                 $('.pid_filter input[name="dTermNotchFrequency"]').val(presetJson[presetSelected]['dterm_notch_hz']);
                 $('.pid_filter input[name="dTermNotchCutoff"]').val(presetJson[presetSelected]['dterm_notch_cutoff']);
@@ -1396,6 +1439,7 @@ TABS.pid_tuning.initialize = function(callback) {
                     $('.spa_yaw input[name="spaYaw_I"]').val(presetJson[presetSelected]['spa_rate_i_yaw']);
                     $('.spa_yaw input[name="spaYaw_D"]').val(presetJson[presetSelected]['spa_rate_d_yaw']);
                 }
+
 
                 // pid preset values
                 PID_names.forEach(function(elementPid, indexPid) {
@@ -2328,3 +2372,4 @@ TABS.pid_tuning.updateFilterWarning = function() {
     }
 
 }
+
