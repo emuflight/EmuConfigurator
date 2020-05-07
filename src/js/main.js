@@ -6,8 +6,6 @@
 const fs = require('fs');
 const os = require('os');
 
-// var client, nonHelioUrlv020, helioUrlv020, nonHelioUrlv030, helioUrlv030;
-
 // folder to store the downloaded preset files in
 // TODO: migrate to non-global
 
@@ -30,7 +28,7 @@ console.log('Presets file location: ' + presetsFolders);
 
 // TODO: move all of this to a class instead of being global
 var client = new HttpClient();
-// FIXME: hardcoded URIs
+
 // TODO: why seperate files?
 var nonHelioUrlv020 = "https://raw.githubusercontent.com/emuflight/emuflight-presets/master/presets-0.2.0/presets-nonHELIO.json";
 var helioUrlv020 = "https://raw.githubusercontent.com/emuflight/emuflight-presets/master/presets-0.2.0/presets-HELIO.json";
