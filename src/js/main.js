@@ -1,5 +1,8 @@
 'use strict';
 
+/*global presetsFolders */
+/*eslint no-undef: "error"*/
+
 const fs = require('fs');
 const os = require('os');
 
@@ -7,6 +10,7 @@ var client, nonHelioUrlv020, helioUrlv020, nonHelioUrlv030, helioUrlv030;
 
 // folder to store the downloaded preset files in
 // TODO: migrate to non-global
+
 const presetsFolders = os.tmpdir();
 
 var HttpClient = function() {
