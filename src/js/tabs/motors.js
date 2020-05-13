@@ -238,7 +238,7 @@ TABS.motors.initialize = function (callback) {
         var motor_voltage_e = $('.motors-bat-voltage'),
             motor_mah_drawing_e = $('.motors-bat-mah-drawing'),
             motor_mah_drawn_e = $('.motors-bat-mah-drawn');
-            
+
 
         var raw_data_text_ements = {
                 x: [],
@@ -407,7 +407,7 @@ TABS.motors.initialize = function (callback) {
             motor_voltage_e.text(i18n.getMessage('motorsVoltageValue', [ANALOG.voltage]));
             motor_mah_drawing_e.text(i18n.getMessage('motorsADrawingValue', [ANALOG.amperage.toFixed(2)]));
             motor_mah_drawn_e.text(i18n.getMessage('motorsmAhDrawnValue', [ANALOG.mAhdrawn]));
-            
+
         }
         GUI.interval_add('motors_power_data_pull_slow', power_data_pull, 250, true); // 4 fps
 
@@ -648,5 +648,10 @@ TABS.motors.initialize = function (callback) {
 };
 
 TABS.motors.cleanup = function (callback) {
+    if  ($('#motorsEnableTestMode').is(':checked')) {
+        console.log('reboot due arming enabled');
+        GUI.log(i18n.getMessage('deviceRebooting'));
+        MSP.send_message(MSPCodes.MSP_SET_REBOOT, false, false);
+    }
     if (callback) callback();
 };
