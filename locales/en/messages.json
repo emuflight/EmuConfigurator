@@ -1663,6 +1663,21 @@
     "pidTuningRcExpo": {
         "message": "RC Expo"
     },
+    "pidTuningRateDynamics": {
+        "message": "Rate Dynamics"
+    },
+    "pidTuningRateDynamicsHelp": {
+        "message": "Rate Dynamics introduces stick feel variables including 'rate_center_[sensitivity|correction|weight]' and 'rate_end_[sensitivity|correction|weight]'. The above graph does not yet account for Rate Dynamics."
+    },
+    "rateSensitivityHelp": {
+        "message": "Sensitivity can either increase or decrease the RC command your flight controller sees. Your sensitivity value is the percentage that your RC command is boosted or shrunk. A value of 120 will boost your RC command to 120% of its normal value while a value of 80 will shrink your RC command to 80%.  Default is 100(%) which is no change."
+    },
+    "rateCorrectionHelp": {
+        "message": "Correction is the percentage of return-to-normal function in each iteration of RC command.  It corrects for the boosted or shrunk RC command created by sensitivity. Larger values correct faster. Default/Minimum value 10(%) will try to correct any speedup or delay by 10% per RX update.  If Sensitivity is 100%, then Correction has no effect."
+    },
+    "rateWeightHelp": {
+        "message": "Weight is the dampening of RC Command as it changes value. Weight inhibits change to the RC command.  Default value of 0(%) is no change. A high value will dampen more giving a heavy feel."
+    },
     "pidTuningTPA_P": {
         "message": "TPA P"
     },
@@ -3149,13 +3164,13 @@
         "message": "High Angle Error"
     },
     "pidTuningAngleHighHelp": {
-        "message": "High Angle Error deals with crash recovery and quick stick movement."
+        "message": "High Angle Error settings deal with crash recovery and quick stick movement.  This will be the P used as high PID-error occurs for example at the moment of crashing."
     },
     "pidTuningAngleLow": {
         "message": "Low Angle Error"
     },
     "pidTuningAngleLowHelp": {
-        "message": "Low Angle Error"
+        "message": "Low Angle Error settings are used when PID-error is minimal during normal flight."
     },
     "pidTuningAngleFeedForward": {
         "message": "Angle Feed-Forward"
@@ -3190,8 +3205,14 @@
     "pidTuningGyroLowpassFrequency": {
         "message": "Gyro Lowpass 1 Cutoff Frequency [Hz]"
     },
+    "pidTuningGyroNotch1": {
+        "message": "Gyro Notch Filter 1 Frequency [Hz]"
+    },
+    "pidTuningGyroNotch2": {
+        "message": "Gyro Notch Filter 2 Frequency [Hz]"
+    },
     "pidTuningGyroLowpassType": {
-        "message": "Gyro Lowpass 1 Filter Type"
+        "message": "Filter 1 Type"
     },
     "pidTuningGyroLowpassDynMinFrequency": {
         "message": "Gyro Lowpass 1 Dynamic Min Cutoff Frequency [Hz]"
@@ -3206,7 +3227,25 @@
         "message": "Gyro Lowpass 2 Cutoff Frequency [Hz]"
     },
     "pidTuningGyroLowpass2Type": {
-        "message": "Gyro Lowpass 2 Filter Type"
+        "message": "Filter 2 Type"
+    },
+    "gyroLowpassFrequencyRoll": {
+        "message": " Roll Gyro Lowpass 1 Cutoff Frequency [Hz]"
+    },
+    "gyroLowpassFrequencyPitch": {
+        "message": " Pitch Gyro Lowpass 1 Cutoff Frequency [Hz]"
+    },
+    "gyroLowpassFrequencyYaw": {
+        "message": " Yaw Gyro Lowpass 1 Cutoff Frequency [Hz]"
+    },
+    "gyroLowpass2FrequencyRoll": {
+        "message": " Roll Gyro Lowpass 2 Cutoff Frequency [Hz]"
+    },
+    "gyroLowpass2FrequencyPitch": {
+        "message": " Pitch Gyro Lowpass 2 Cutoff Frequency [Hz]"
+    },
+    "gyroLowpass2FrequencyYaw": {
+        "message": " Yaw Gyro Lowpass 2 Cutoff Frequency [Hz]"
     },
     "pidTuningGyroNotchFiltersGroup": {
         "message": "Gyro Notch Filters"
@@ -3275,7 +3314,7 @@
         "message": "D Term Lowpass Filters"
     },
     "pidTuningDTermLowpassType": {
-        "message": "D Term Lowpass Filter Type"
+        "message": "Filter Type"
     },
     "pidTuningDTermLowpassFrequency": {
         "message": "D Term Lowpass 1 Cutoff Frequency [Hz]"
@@ -3285,6 +3324,24 @@
     },
     "pidTuningDTermLowpass2Type": {
         "message": "D Term Lowpass 2 Filter Type"
+    },
+    "dtermLowpassFrequencyRoll": {
+        "message": " Roll D-Term Lowpass 1 Cutoff Frequency [Hz]"
+    },
+    "dtermLowpassFrequencyPitch": {
+        "message": " Pitch D-Term Lowpass 1 Cutoff Frequency [Hz]"
+    },
+    "dtermLowpassFrequencyYaw": {
+        "message": " Yaw D-Term Lowpass 1 Cutoff Frequency [Hz]"
+    },
+    "dtermLowpass2FrequencyRoll": {
+        "message": " Roll D-Term Lowpass 2 Cutoff Frequency [Hz]"
+    },
+    "dtermLowpass2FrequencyPitch": {
+        "message": " Pitch D-Term Lowpass 2 Cutoff Frequency [Hz]"
+    },
+    "dtermLowpass2FrequencyYaw": {
+        "message": " Yaw D-Term Lowpass 2 Cutoff Frequency [Hz]"
     },
     "pidTuningDTermLowpassDynMinFrequency": {
         "message": "D Term Lowpass 1 Dynamic Min Cutoff Frequency [Hz]"
@@ -3323,7 +3380,7 @@
         "message": "WitchCraft"
     },
     "pidTuningSmartDTermSmoothingHelp": {
-        "message": "'smart_dterm_smoothing_[roll|pitch|yaw]' is a dTerm minimizer based on how high dTerm is at any given moment.  It will reduce dTerm when it is small, but will allow full dTerm when it is big.  A value of 0 is off.  Default is 5 (0.5%) on Roll and Pitch, 0 on Yaw. Maximum allowed is 250 (25%). Smoothing mathematics does not cause delay."
+        "message": "'smart_dterm_smoothing_[roll|pitch|yaw]' is a dTerm minimizer based on how high dTerm is at any given moment.  It will reduce dTerm when it is small, but will allow full dTerm when it is big.  Default is 0 (Off). A value of 5 is 0.5%. Maximum allowed is 250 (25%). Smoothing mathematics does not cause delay."
     },
     "pidTuningWitchcraftHelp": {
         "message": "'witchcraft_[roll|pitch|yaw]' smooths dTerm over time. The value is how many pid loop iteration samples are averaged to calculate dTerm. A value of 0 or 1 is effectively off. Default is 2 on Roll and Pitch, 0 on Yaw. Maximum allowed is 10. May cause delay."
@@ -5108,9 +5165,13 @@
     "pidTuningKalmanFilterQ": {
           "message": "IMU-F Q Coefficient"
       },
+    "pidTuningImufQ": {
+        "message": "IMU-F Q"
+    },
       "pidTuningImufRollQ": {
           "message": "IMU-F roll Q"
       },
+
       "pidTuningImufPitchQ": {
           "message": "IMU-F pitch Q"
       },
@@ -5120,8 +5181,17 @@
       "pidTuningImufW": {
           "message": "IMU-F W"
       },
+      "pidTuningImufSharpness": {
+          "message": "IMU-F Sharpness"
+      },
+      "pidTuningKalmanFilterSharpnessHelp": {
+          "message": "'imuf_sharpness' is the aggressiveness of the dynamic reduction on IMUF overfiltering. Default is 2500. Range is 1 to 16000"
+      },
       "pidTuningKalmanFilterQHelp": {
           "message": "IMU-F filter Q Coefficient. The amount of trust in gyro data accuracy (Higher value = more trust and less filtering)"
+      },
+      "pidTuningImuflpf": {
+        "message": "IMU-F LPF cutoff [Hz]"
       },
       "pidTuningImuflpfRoll": {
         "message": "IMU-F ROLL LPF cutoff Hz"
@@ -5142,7 +5212,7 @@
         "message": "Helio/Strix Hardware cutoff"
       },
       "pidTuningImuflpfAcc": {
-        "message": "IMU-F accelerometer LPF cutoff Hz"
+        "message": "IMU-F accelerometer LPF cutoff [Hz]"
       },
       "pidTuningImuflpfAccHelp": {
         "message": "Helio/Strix Hardware cutoff"
