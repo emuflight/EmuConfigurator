@@ -1298,7 +1298,7 @@ TABS.pid_tuning.initialize = function(callback) {
                 $('#pid-tuning .presetBuild').html(presetMessage);
 
                 // TODO not working need to fix
-                if (presetSelected == "default") {
+                if ( (presetSelected == "Default") || semver.lt(CONFIG.apiVersion, "1.46.0") ) {
                     $('#pid-tuning .presetBuild').hide();
                 } else {
                     $('#pid-tuning .presetBuild').show();

@@ -2604,10 +2604,10 @@ i18next-xhr-backend@^3.2.0:
   dependencies:
     "@babel/runtime" "^7.5.5"
 
-i18next@^19.4.0:
-  version "19.4.0"
-  resolved "https://registry.yarnpkg.com/i18next/-/i18next-19.4.0.tgz#492a03aac701d9efeeee86509d101a09d960b000"
-  integrity sha512-NvSz/Pb5KiLqhL+nqHu5SXNUtWDpHkVosVwD6PRSZWtBpVs6pXzqrRhyFdFvVivQcQheSxiHD3Oq1WKxoWy1ow==
+i18next@^19.4.4:
+  version "19.4.4"
+  resolved "https://registry.yarnpkg.com/i18next/-/i18next-19.4.4.tgz#c0a18bc2f2be554da636e67bfbf5200c7948b60d"
+  integrity sha512-ofaHtdsDdX3A5nYur1HWblB7J4hIcjr2ACdnwTAJgc8hTfPbyzZfGX0hVkKpI3vzDIgO6Uzc4v1ffW2W6gG6zw==
   dependencies:
     "@babel/runtime" "^7.3.1"
 
@@ -3159,12 +3159,12 @@ karma-chrome-launcher@^3.0.0:
   dependencies:
     which "^1.2.1"
 
-karma-mocha@^1.3.0:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/karma-mocha/-/karma-mocha-1.3.0.tgz#eeaac7ffc0e201eb63c467440d2b69c7cf3778bf"
-  integrity sha1-7qrH/8DiAetjxGdEDStpx883eL8=
+karma-mocha@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/karma-mocha/-/karma-mocha-2.0.1.tgz#4b0254a18dfee71bdbe6188d9a6861bf86b0cd7d"
+  integrity sha512-Tzd5HBjm8his2OA4bouAsATYEpZrp9vC7z5E5j4C5Of5Rrs1jY67RAwXNcVmd/Bnk1wgvQRou0zGVLey44G4tQ==
   dependencies:
-    minimist "1.2.0"
+    minimist "^1.2.3"
 
 karma-sinon-chai@^2.0.2:
   version "2.0.2"
@@ -3624,12 +3624,7 @@ minimist@0.0.8:
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-0.0.8.tgz#857fcabfc3397d2625b8228262e86aa7a011b05d"
   integrity sha1-hX/Kv8M5fSYluCKCYuhqp6ARsF0=
 
-minimist@1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.0.tgz#a35008b20f41383eec1fb914f4cd5df79a264284"
-  integrity sha1-o1AIsg9BOD7sH7kU9M1d95omQoQ=
-
-minimist@^1.1.0, minimist@^1.1.1, minimist@^1.1.3, minimist@^1.2.0, minimist@^1.2.5:
+minimist@^1.1.0, minimist@^1.1.1, minimist@^1.1.3, minimist@^1.2.0, minimist@^1.2.3, minimist@^1.2.5:
   version "1.2.5"
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.5.tgz#67d66014b66a6a8aaa0c083c5fd58df4e4e97602"
   integrity sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==
@@ -4813,10 +4808,10 @@ shebang-regex@^1.0.0:
   resolved "https://registry.yarnpkg.com/shebang-regex/-/shebang-regex-1.0.0.tgz#da42f49740c0b42db2ca9728571cb190c98efea3"
   integrity sha1-2kL0l0DAtC2yypcoVxyxkMmO/qM=
 
-short-unique-id@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/short-unique-id/-/short-unique-id-1.1.1.tgz#3fd92081cfef21e8cdcdfc3fe3bf35c88b5d97f9"
-  integrity sha512-gyWJ4pknxpCx0WlUIdCIwHiQ/4sCy0i0YpDOniXP/TboMMRs6rkg6PPKR2nmNfZ9VYeAIm0x9qz/QmJysd9jNg==
+short-unique-id@^2.0.7:
+  version "2.0.7"
+  resolved "https://registry.yarnpkg.com/short-unique-id/-/short-unique-id-2.0.7.tgz#c9dba0a05eb1fce458af55b53280abb240a696d7"
+  integrity sha512-UaxGP2rc7l0z5eC0CXKSlvS+7n61Q95zRxCxPh5pigs/Z3B88h5etfkn3tT8wWA50OsnKonIGr9gXJ6PMk8ElA==
 
 shortid@^2.1.3:
   version "2.2.15"
