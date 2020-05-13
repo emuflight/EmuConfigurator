@@ -120,6 +120,10 @@
     background-color: #393b3a;
 }
 
+.tab-pid_tuning .pid_titlebar_bling {
+  background-color: #288fda;
+}
+
 .tab-pid_tuning .number input {
     background-color: #3a3a3a;
     color: rgb(230, 230, 230);
