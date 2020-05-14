@@ -72,7 +72,7 @@
     "karma-sinon": "^1.0.5",
     "karma-sinon-chai": "^2.0.2",
     "makensis": "^0.18.1",
-    "mocha": "^7.1.1",
+    "mocha": "^7.1.2",
     "nw-builder": "^3.5.7",
     "os": "^0.1.1",
     "rpm-builder": "^1.0.0",
