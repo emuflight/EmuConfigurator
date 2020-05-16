@@ -277,7 +277,8 @@ TABS.pid_tuning.initialize = function(callback) {
             $('.antigravity input[name="itermThrottleThreshold"]').val(ADVANCED_TUNING.itermThrottleThreshold);
             $('.antigravity input[name="itermAcceleratorGain"]').val(ADVANCED_TUNING.itermAcceleratorGain / 1000);
 
-            if (FEATURE_CONFIG.features.isEnabled('ANTI_GRAVITY')) {
+            //quick & dirty 0.3.0
+            if (FEATURE_CONFIG.features.isEnabled('ANTI_GRAVITY') && semver.lt(CONFIG.flightControllerVersion, "0.3.0")) {
                 $('.antigravity').show();
             } else {
                 $('.antigravity').hide();
@@ -566,6 +567,12 @@ TABS.pid_tuning.initialize = function(callback) {
             $('#pid_main tr :nth-child(6)').hide();
 
             $('#pid-tuning .feedforwardTransition').hide();
+        }
+
+        //quick & dirty 0.3.0
+        if (semver.gte(CONFIG.flightControllerVersion, "0.3.0")) {
+            $('.absoluteControlGain').hide();
+            $('.itermrelax').hide();
         }
 
         //smart_dterm_smoothing, witchcraft_, table //first build with legit MSP144 is 0.2.35
