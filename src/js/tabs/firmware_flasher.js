@@ -631,7 +631,7 @@ TABS.firmware_flasher.initialize = function (callback) {
             if (result.erase_chip) {
                 $('input.erase_chip').prop('checked', true);
             } else {
-                $('input.erase_chip').prop('checked', false);
+                $('input.erase_chip').prop('checked', true);   //force true because people flashing without regard for new configs
             }
 
             $('input.erase_chip').change(function () {
