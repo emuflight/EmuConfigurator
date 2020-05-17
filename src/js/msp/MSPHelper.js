@@ -1027,8 +1027,8 @@ MspHelper.prototype.process_data = function(dataHandler) {
                     }
 
                     if (semver.gte(CONFIG.apiVersion, "1.47.0")) {
-                        FILTER_CONFIG.dynamic_gyro_notch_q = data.readU8();
-                        FILTER_CONFIG.dynamic_gyro_notch_min_hz = data.readU8();
+                        FILTER_CONFIG.dynamic_gyro_notch_q = data.readU16();
+                        FILTER_CONFIG.dynamic_gyro_notch_min_hz = data.readU16();
                     }
                 }
                 break;
@@ -1061,7 +1061,7 @@ MspHelper.prototype.process_data = function(dataHandler) {
             case MSPCodes.MSP_SET_PID_ADVANCED:
                 console.log("Advanced PID settings saved");
                 break;
-                
+
             case MSPCodes.MSP_PID_ADVANCED:
                 ADVANCED_TUNING.rollPitchItermIgnoreRate = data.readU16();
                 ADVANCED_TUNING.yawItermIgnoreRate = data.readU16();
@@ -1888,8 +1888,8 @@ MspHelper.prototype.crunch = function(code) {
                     }
                 }
                 if (semver.gte(CONFIG.apiVersion, "1.47.0")) {
-                    buffer.push8(FILTER_CONFIG.dynamic_gyro_notch_q)
-                          .push8(FILTER_CONFIG.dynamic_gyro_notch_min_hz)
+                    buffer.push16(FILTER_CONFIG.dynamic_gyro_notch_q)
+                          .push16(FILTER_CONFIG.dynamic_gyro_notch_min_hz)
                 }
             }
             break;
