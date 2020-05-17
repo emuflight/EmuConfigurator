@@ -529,7 +529,8 @@ TABS.pid_tuning.initialize = function(callback) {
                 $('.feedforwardTransition').hide();
             }
 
-            if (semver.gte(CONFIG.apiVersion, "1.47.0")) {
+            if (FEATURE_CONFIG.features.isEnabled('DYNAMIC_FILTER') && (semver.gte(CONFIG.apiVersion, "1.47.0"))) {
+                $('.matrixFilter').show();
                 $('.pid_filter input[name="MatrixNotchQ"]').val(FILTER_CONFIG.dynamic_gyro_notch_q);
                 $('.pid_filter input[name="MatrixNotchMin"]').val(FILTER_CONFIG.dynamic_gyro_notch_min_hz);
             } else {
@@ -2391,4 +2392,3 @@ TABS.pid_tuning.updateFilterWarning = function() {
     }
 
 }
-
