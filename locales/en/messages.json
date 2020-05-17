@@ -3250,6 +3250,9 @@
     "pidTuningGyroNotchFiltersGroup": {
         "message": "Gyro Notch Filters"
     },
+    "pidTuningMatrixFilterGroup": {
+        "message": "MATRIX Filter"
+    },
     "pidTuningGyroDynLpfGroup": {
         "message": "Gyro Dyn Filter"
     },
@@ -3270,6 +3273,15 @@
     },
     "pidTuningNotchFilterHelp": {
         "message": "The Notch Filter has a Center and a Cutoff. The filter is symmetrical. The Center Frequency is the center of the filter and the Cutoff Frequency is where Notch filter starts. For example with Notch Cutoff of 160 and Notch Center of 260 it means the range is 160-360Hz with most attenuation around center"
+    },
+    "pidTuningMatrixFilterHelp": {
+        "message": "Matrix filter help"
+    },
+    "pidTuningMatrixNotchQ": {
+        "message": "Matrix filter notch Q"
+    },
+    "pidTuningMatrixNotchQMin": {
+        "message": "Matrix filter notch min"
     },
     "pidTuningDynamicNotchFilterGroup": {
         "message": "Dynamic Notch Filter"
