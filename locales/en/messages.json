@@ -3275,7 +3275,7 @@
         "message": "The Notch Filter has a Center and a Cutoff. The filter is symmetrical. The Center Frequency is the center of the filter and the Cutoff Frequency is where Notch filter starts. For example with Notch Cutoff of 160 and Notch Center of 260 it means the range is 160-360Hz with most attenuation around center"
     },
     "pidTuningMatrixFilterHelp": {
-        "message": "Matrix filter help"
+        "message": "The Matrix filter is a dynamic notch filter. It puts a notch on each axis where it finds the max noise. the min hz is the lowest value that the matrix filter will reach. The q is the width of the notch filter. ex: higher q is a more narrow notch filter "
     },
     "pidTuningMatrixNotchQ": {
         "message": "Matrix filter notch Q"
