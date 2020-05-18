@@ -400,6 +400,8 @@ var FC = {
             dyn_notch_width_percent:    0,
             dyn_notch_q:                0,
             dyn_notch_min_hz:           0,
+            dynamic_gyro_notch_q:       0,
+            dynamic_gyro_notch_min_hz:  0,
         };
 
         IMUF_FILTER_CONFIG = {

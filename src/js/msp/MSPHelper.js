@@ -914,8 +914,6 @@ MspHelper.prototype.process_data = function(dataHandler) {
                     RX_CONFIG.rcInterpolationInterval = 0;
                     RX_CONFIG.airModeActivateThreshold = 0;
                 }
-
-
                 break;
 
             case MSPCodes.MSP_FAILSAFE_CONFIG:
@@ -957,70 +955,80 @@ MspHelper.prototype.process_data = function(dataHandler) {
                     }
                 }
                 break;
+
             case MSPCodes.MSP_FILTER_CONFIG:
-            if (semver.lt(CONFIG.apiVersion, "1.44.0")) {
-                FILTER_CONFIG.gyro_lowpass_hz = data.readU8();
-                FILTER_CONFIG.dterm_lowpass_hz = data.readU16();
-                FILTER_CONFIG.yaw_lowpass_hz = data.readU16();
-              }else{
-                  FILTER_CONFIG.dterm_lowpass_hz_roll = data.readU16();
+                if (semver.lt(CONFIG.apiVersion, "1.44.0")) {
+                    FILTER_CONFIG.gyro_lowpass_hz = data.readU8();
+                    FILTER_CONFIG.dterm_lowpass_hz = data.readU16();
+                    FILTER_CONFIG.yaw_lowpass_hz = data.readU16();
+                }else{
+                    FILTER_CONFIG.dterm_lowpass_hz_roll = data.readU16();
                     FILTER_CONFIG.dterm_lowpass_hz_pitch = data.readU16();
-                      FILTER_CONFIG.dterm_lowpass_hz_yaw = data.readU16();
-              }
-
-
+                    FILTER_CONFIG.dterm_lowpass_hz_yaw = data.readU16();
+                }
 
                 if (semver.eq(CONFIG.apiVersion, "1.43.0")) {
-                  FILTER_CONFIG.dterm_dyn_lpf = data.readU16();
-                  if (CONFIG.boardIdentifier != "HESP" && CONFIG.boardIdentifier != "SX10" && CONFIG.boardIdentifier != "FLUX") {
-                  FILTER_CONFIG.gyro_dyn_lpf = data.readU16();
-                  }
+                    FILTER_CONFIG.dterm_dyn_lpf = data.readU16();
+                    if (CONFIG.boardIdentifier != "HESP" && CONFIG.boardIdentifier != "SX10" && CONFIG.boardIdentifier != "FLUX") {
+                        FILTER_CONFIG.gyro_dyn_lpf = data.readU16();
+                    }
                 }
+
                 if (semver.gte(CONFIG.apiVersion, "1.20.0")) {
                     FILTER_CONFIG.gyro_notch_hz = data.readU16();
                     FILTER_CONFIG.gyro_notch_cutoff = data.readU16();
+
                     if (semver.lt(CONFIG.apiVersion, "1.44.0")) {
-                    FILTER_CONFIG.dterm_notch_hz = data.readU16();
-                    FILTER_CONFIG.dterm_notch_cutoff = data.readU16();
-                  }
+                        FILTER_CONFIG.dterm_notch_hz = data.readU16();
+                        FILTER_CONFIG.dterm_notch_cutoff = data.readU16();
+                    }
+
                     if (semver.gte(CONFIG.apiVersion, "1.21.0")) {
                         FILTER_CONFIG.gyro_notch2_hz = data.readU16();
                         FILTER_CONFIG.gyro_notch2_cutoff = data.readU16();
                     }
+
                     if (semver.gte(CONFIG.apiVersion, "1.36.0")) {
                         FILTER_CONFIG.dterm_lowpass_type = data.readU8();
                     }
+
                     if (semver.gte(CONFIG.apiVersion, "1.39.0")) {
                         FILTER_CONFIG.gyro_hardware_lpf = data.readU8();
                         let gyro_32khz_hardware_lpf = data.readU8();
+
                         if (semver.lt(CONFIG.apiVersion, "1.44.0")) {
-                          FILTER_CONFIG.gyro_lowpass_hz = data.readU16();
-                          FILTER_CONFIG.gyro_lowpass2_hz = data.readU16();
+                            FILTER_CONFIG.gyro_lowpass_hz = data.readU16();
+                            FILTER_CONFIG.gyro_lowpass2_hz = data.readU16();
                         }else{
-                        FILTER_CONFIG.gyro_lowpass_hz_roll = data.readU16();
-                        FILTER_CONFIG.gyro_lowpass_hz_pitch = data.readU16();
-                        FILTER_CONFIG.gyro_lowpass_hz_yaw = data.readU16();
-                        FILTER_CONFIG.gyro_lowpass2_hz_roll = data.readU16();
-                        FILTER_CONFIG.gyro_lowpass2_hz_pitch = data.readU16();
-                        FILTER_CONFIG.gyro_lowpass2_hz_yaw = data.readU16();
-                      }
+                            FILTER_CONFIG.gyro_lowpass_hz_roll = data.readU16();
+                            FILTER_CONFIG.gyro_lowpass_hz_pitch = data.readU16();
+                            FILTER_CONFIG.gyro_lowpass_hz_yaw = data.readU16();
+                            FILTER_CONFIG.gyro_lowpass2_hz_roll = data.readU16();
+                            FILTER_CONFIG.gyro_lowpass2_hz_pitch = data.readU16();
+                            FILTER_CONFIG.gyro_lowpass2_hz_yaw = data.readU16();
+                        }
+
                         FILTER_CONFIG.gyro_lowpass_type = data.readU8();
                         FILTER_CONFIG.gyro_lowpass2_type = data.readU8();
+
                         if (semver.lt(CONFIG.apiVersion, "1.44.0")) {
-                        FILTER_CONFIG.dterm_lowpass2_hz = data.readU16();
+                            FILTER_CONFIG.dterm_lowpass2_hz = data.readU16();
                         }else{
-                          FILTER_CONFIG.dterm_lowpass2_hz_roll = data.readU16();
-                          FILTER_CONFIG.dterm_lowpass2_hz_pitch = data.readU16();
-                          FILTER_CONFIG.dterm_lowpass2_hz_yaw = data.readU16();
-                          FILTER_CONFIG.smartSmoothing_roll = data.readU8();
-                          FILTER_CONFIG.smartSmoothing_pitch = data.readU8();
-                          FILTER_CONFIG.smartSmoothing_yaw = data.readU8();
-                          FILTER_CONFIG.witchcraft_roll = data.readU8();
-                          FILTER_CONFIG.witchcraft_pitch = data.readU8();
-                          FILTER_CONFIG.witchcraft_yaw = data.readU8();
+                            FILTER_CONFIG.dterm_lowpass2_hz_roll = data.readU16();
+                            FILTER_CONFIG.dterm_lowpass2_hz_pitch = data.readU16();
+                            FILTER_CONFIG.dterm_lowpass2_hz_yaw = data.readU16();
+                            FILTER_CONFIG.smartSmoothing_roll = data.readU8();
+                            FILTER_CONFIG.smartSmoothing_pitch = data.readU8();
+                            FILTER_CONFIG.smartSmoothing_yaw = data.readU8();
+                            FILTER_CONFIG.witchcraft_roll = data.readU8();
+                            FILTER_CONFIG.witchcraft_pitch = data.readU8();
+                            FILTER_CONFIG.witchcraft_yaw = data.readU8();
+                        }
+                    }
 
-                      }
-
+                    if (semver.gte(CONFIG.apiVersion, "1.47.0")) {
+                        FILTER_CONFIG.dynamic_gyro_notch_q = data.readU16();
+                        FILTER_CONFIG.dynamic_gyro_notch_min_hz = data.readU16();
                     }
                 }
                 break;
@@ -1049,9 +1057,11 @@ MspHelper.prototype.process_data = function(dataHandler) {
 
                 }
                 break;
+                
             case MSPCodes.MSP_SET_PID_ADVANCED:
                 console.log("Advanced PID settings saved");
                 break;
+
             case MSPCodes.MSP_PID_ADVANCED:
                 ADVANCED_TUNING.rollPitchItermIgnoreRate = data.readU16();
                 ADVANCED_TUNING.yawItermIgnoreRate = data.readU16();
@@ -1809,34 +1819,35 @@ MspHelper.prototype.crunch = function(code) {
                 }
             }
             break;
-        case MSPCodes.MSP_SET_FILTER_CONFIG:
-        if (semver.lt(CONFIG.apiVersion, "1.44.0")) {
-            buffer.push8(FILTER_CONFIG.gyro_lowpass_hz)
-            .push16(FILTER_CONFIG.dterm_lowpass_hz)
-            .push16(FILTER_CONFIG.yaw_lowpass_hz);
-          }else{
-            buffer.push16(FILTER_CONFIG.dterm_lowpass_hz_roll)
-            .push16(FILTER_CONFIG.dterm_lowpass_hz_pitch)
-            .push16(FILTER_CONFIG.dterm_lowpass_hz_yaw);
 
-          }
-                if (semver.eq(CONFIG.apiVersion, "1.43.0")) {
-                      buffer.push16(FILTER_CONFIG.dterm_dyn_lpf);
-                      if (CONFIG.boardIdentifier != "HESP" && CONFIG.boardIdentifier != "SX10" && CONFIG.boardIdentifier != "FLUX") {
-                          buffer.push16(FILTER_CONFIG.gyro_dyn_lpf);
-                        }
-                  }
+        case MSPCodes.MSP_SET_FILTER_CONFIG:
+            if (semver.lt(CONFIG.apiVersion, "1.44.0")) {
+                buffer.push8(FILTER_CONFIG.gyro_lowpass_hz)
+                      .push16(FILTER_CONFIG.dterm_lowpass_hz)
+                      .push16(FILTER_CONFIG.yaw_lowpass_hz);
+            }else{
+                buffer.push16(FILTER_CONFIG.dterm_lowpass_hz_roll)
+                      .push16(FILTER_CONFIG.dterm_lowpass_hz_pitch)
+                      .push16(FILTER_CONFIG.dterm_lowpass_hz_yaw);
+            }
+
+            if (semver.eq(CONFIG.apiVersion, "1.43.0")) {
+                buffer.push16(FILTER_CONFIG.dterm_dyn_lpf);
+                if (CONFIG.boardIdentifier != "HESP" && CONFIG.boardIdentifier != "SX10" && CONFIG.boardIdentifier != "FLUX") {
+                    buffer.push16(FILTER_CONFIG.gyro_dyn_lpf);
+                }
+            }
+
             if (semver.gte(CONFIG.apiVersion, "1.20.0")) {
                 buffer.push16(FILTER_CONFIG.gyro_notch_hz)
-                    .push16(FILTER_CONFIG.gyro_notch_cutoff);
-                    if (semver.lt(CONFIG.apiVersion, "1.44.0")) {
-
+                      .push16(FILTER_CONFIG.gyro_notch_cutoff);
+                if (semver.lt(CONFIG.apiVersion, "1.44.0")) {
                     buffer.push16(FILTER_CONFIG.dterm_notch_hz)
-                    .push16(FILTER_CONFIG.dterm_notch_cutoff);
-                  }
+                          .push16(FILTER_CONFIG.dterm_notch_cutoff);
+                }
                 if (semver.gte(CONFIG.apiVersion, "1.21.0")) {
                     buffer.push16(FILTER_CONFIG.gyro_notch2_hz)
-                        .push16(FILTER_CONFIG.gyro_notch2_cutoff);
+                          .push16(FILTER_CONFIG.gyro_notch2_cutoff);
                 }
                 if (semver.gte(CONFIG.apiVersion, "1.36.0")) {
                     buffer.push8(FILTER_CONFIG.dterm_lowpass_type);
@@ -1846,41 +1857,48 @@ MspHelper.prototype.crunch = function(code) {
                     gyro_32khz_hardware_lpf = FILTER_CONFIG.gyro_32khz_hardware_lpf;
                     buffer.push8(FILTER_CONFIG.gyro_hardware_lpf)
                           .push8(gyro_32khz_hardware_lpf);
-                          if (semver.lt(CONFIG.apiVersion, "1.44.0")) {
-                          buffer.push16(FILTER_CONFIG.gyro_lowpass_hz)
-                          .push16(FILTER_CONFIG.gyro_lowpass2_hz);
-                        }else{
-                          buffer.push16(FILTER_CONFIG.gyro_lowpass_hz_roll)
-                          .push16(FILTER_CONFIG.gyro_lowpass_hz_pitch)
-                          .push16(FILTER_CONFIG.gyro_lowpass_hz_yaw)
-                          .push16(FILTER_CONFIG.gyro_lowpass2_hz_roll)
-                          .push16(FILTER_CONFIG.gyro_lowpass2_hz_pitch)
-                          .push16(FILTER_CONFIG.gyro_lowpass2_hz_yaw);
-                        }
-                          buffer.push8(FILTER_CONFIG.gyro_lowpass_type)
+
+                    if (semver.lt(CONFIG.apiVersion, "1.44.0")) {
+                        buffer.push16(FILTER_CONFIG.gyro_lowpass_hz)
+                              .push16(FILTER_CONFIG.gyro_lowpass2_hz);
+                    }else{
+                        buffer.push16(FILTER_CONFIG.gyro_lowpass_hz_roll)
+                              .push16(FILTER_CONFIG.gyro_lowpass_hz_pitch)
+                              .push16(FILTER_CONFIG.gyro_lowpass_hz_yaw)
+                              .push16(FILTER_CONFIG.gyro_lowpass2_hz_roll)
+                              .push16(FILTER_CONFIG.gyro_lowpass2_hz_pitch)
+                              .push16(FILTER_CONFIG.gyro_lowpass2_hz_yaw);
+                    }
+
+                    buffer.push8(FILTER_CONFIG.gyro_lowpass_type)
                           .push8(FILTER_CONFIG.gyro_lowpass2_type);
-                          if (semver.lt(CONFIG.apiVersion, "1.44.0")){
-                          buffer.push16(FILTER_CONFIG.dterm_lowpass2_hz);
-                        }else{
-                          buffer.push16(FILTER_CONFIG.dterm_lowpass2_hz_roll)
-                          .push16(FILTER_CONFIG.dterm_lowpass2_hz_pitch)
-                          .push16(FILTER_CONFIG.dterm_lowpass2_hz_yaw)
-                          .push8(FILTER_CONFIG.smartSmoothing_roll)
-                          .push8(FILTER_CONFIG.smartSmoothing_pitch)
-                          .push8(FILTER_CONFIG.smartSmoothing_yaw)
-                          .push8(FILTER_CONFIG.witchcraft_roll)
-                          .push8(FILTER_CONFIG.witchcraft_pitch)
-                          .push8(FILTER_CONFIG.witchcraft_yaw);
 
-                        }
-
+                    if (semver.lt(CONFIG.apiVersion, "1.44.0")){
+                        buffer.push16(FILTER_CONFIG.dterm_lowpass2_hz);
+                    }else{
+                        buffer.push16(FILTER_CONFIG.dterm_lowpass2_hz_roll)
+                              .push16(FILTER_CONFIG.dterm_lowpass2_hz_pitch)
+                              .push16(FILTER_CONFIG.dterm_lowpass2_hz_yaw)
+                              .push8(FILTER_CONFIG.smartSmoothing_roll)
+                              .push8(FILTER_CONFIG.smartSmoothing_pitch)
+                              .push8(FILTER_CONFIG.smartSmoothing_yaw)
+                              .push8(FILTER_CONFIG.witchcraft_roll)
+                              .push8(FILTER_CONFIG.witchcraft_pitch)
+                              .push8(FILTER_CONFIG.witchcraft_yaw);
+                    }
+                }
+                if (semver.gte(CONFIG.apiVersion, "1.47.0")) {
+                    buffer.push16(FILTER_CONFIG.dynamic_gyro_notch_q)
+                          .push16(FILTER_CONFIG.dynamic_gyro_notch_min_hz)
                 }
             }
             break;
+
        case MSPCodes.MSP_SET_FAST_KALMAN:
             buffer.push16(KALMAN_FILTER_CONFIG.gyro_filter_q);
             buffer.push16(KALMAN_FILTER_CONFIG.gyro_filter_w);
             break;
+
         case MSPCodes.MSP_SET_IMUF_CONFIG:
             buffer.push16(IMUF_FILTER_CONFIG.imuf_mode);
             buffer.push16(IMUF_FILTER_CONFIG.imuf_roll_q);

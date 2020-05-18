@@ -529,6 +529,13 @@ TABS.pid_tuning.initialize = function(callback) {
                 $('.feedforwardTransition').hide();
             }
 
+            if (FEATURE_CONFIG.features.isEnabled('DYNAMIC_FILTER') && (semver.gte(CONFIG.apiVersion, "1.47.0"))) {
+                $('.matrixFilter').show();
+                $('.pid_filter input[name="MatrixNotchQ"]').val(FILTER_CONFIG.dynamic_gyro_notch_q);
+                $('.pid_filter input[name="MatrixNotchMin"]').val(FILTER_CONFIG.dynamic_gyro_notch_min_hz);
+            } else {
+                $('.matrixFilter').hide();
+            }
             var feedforwardTransitionNumberElement = $('input[name="feedforwardTransition-number"]');
             feedforwardTransitionNumberElement.val(ADVANCED_TUNING.feedforwardTransition / 100);
 
@@ -974,6 +981,12 @@ TABS.pid_tuning.initialize = function(callback) {
             FILTER_CONFIG.witchcraft_pitch     = parseFloat($('.smartDTermWitchBox input[name="witchcraftPitch"]').val());
             FILTER_CONFIG.witchcraft_yaw       = parseFloat($('.smartDTermWitchBox input[name="witchcraftYaw"]').val());
         }
+
+        if ( semver.gte(CONFIG.apiVersion, "1.47.0")) {
+            FILTER_CONFIG.dynamic_gyro_notch_q  = parseFloat($('.pid_filter input[name="MatrixNotchQ"]').val());
+            FILTER_CONFIG.dynamic_gyro_notch_min_hz = parseFloat($('.pid_filter input[name="MatrixNotchMin"]').val());
+        }
+
     } //end function form_to_pid_and_rc()
 
     function showAllPids() {
@@ -2379,4 +2392,3 @@ TABS.pid_tuning.updateFilterWarning = function() {
     }
 
 }
-
