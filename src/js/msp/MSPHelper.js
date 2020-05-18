@@ -969,29 +969,36 @@ MspHelper.prototype.process_data = function(dataHandler) {
                     FILTER_CONFIG.dterm_lowpass_hz_pitch = data.readU16();
                     FILTER_CONFIG.dterm_lowpass_hz_yaw = data.readU16();
                 }
+
                 if (semver.eq(CONFIG.apiVersion, "1.43.0")) {
                     FILTER_CONFIG.dterm_dyn_lpf = data.readU16();
                     if (CONFIG.boardIdentifier != "HESP" && CONFIG.boardIdentifier != "SX10" && CONFIG.boardIdentifier != "FLUX") {
                         FILTER_CONFIG.gyro_dyn_lpf = data.readU16();
                     }
                 }
+
                 if (semver.gte(CONFIG.apiVersion, "1.20.0")) {
                     FILTER_CONFIG.gyro_notch_hz = data.readU16();
                     FILTER_CONFIG.gyro_notch_cutoff = data.readU16();
+
                     if (semver.lt(CONFIG.apiVersion, "1.44.0")) {
                         FILTER_CONFIG.dterm_notch_hz = data.readU16();
                         FILTER_CONFIG.dterm_notch_cutoff = data.readU16();
                     }
+
                     if (semver.gte(CONFIG.apiVersion, "1.21.0")) {
                         FILTER_CONFIG.gyro_notch2_hz = data.readU16();
                         FILTER_CONFIG.gyro_notch2_cutoff = data.readU16();
                     }
+
                     if (semver.gte(CONFIG.apiVersion, "1.36.0")) {
                         FILTER_CONFIG.dterm_lowpass_type = data.readU8();
                     }
+
                     if (semver.gte(CONFIG.apiVersion, "1.39.0")) {
                         FILTER_CONFIG.gyro_hardware_lpf = data.readU8();
                         let gyro_32khz_hardware_lpf = data.readU8();
+
                         if (semver.lt(CONFIG.apiVersion, "1.44.0")) {
                             FILTER_CONFIG.gyro_lowpass_hz = data.readU16();
                             FILTER_CONFIG.gyro_lowpass2_hz = data.readU16();
@@ -1003,6 +1010,7 @@ MspHelper.prototype.process_data = function(dataHandler) {
                             FILTER_CONFIG.gyro_lowpass2_hz_pitch = data.readU16();
                             FILTER_CONFIG.gyro_lowpass2_hz_yaw = data.readU16();
                         }
+
                         FILTER_CONFIG.gyro_lowpass_type = data.readU8();
                         FILTER_CONFIG.gyro_lowpass2_type = data.readU8();
 
@@ -1020,6 +1028,7 @@ MspHelper.prototype.process_data = function(dataHandler) {
                             FILTER_CONFIG.witchcraft_yaw = data.readU8();
                         }
                     }
+
                     if (semver.gte(CONFIG.apiVersion, "1.47.0")) {
                         FILTER_CONFIG.dynamic_gyro_notch_q = data.readU16();
                         FILTER_CONFIG.dynamic_gyro_notch_min_hz = data.readU16();
