@@ -683,7 +683,7 @@
         "message": "Activate Boot Loader / DFU"
     },
     "initialSetupBackupRestoreText": {
-        "message": "<strong>Backup</strong> your configuration in case of an accident, <strong>CLI</strong> settings are <span class=\"message-negative\">not</span> included - use the command 'diff all' in CLI for this."
+        "message": "<strong>Backup</strong> your configuration by using the CLI.  The command '<strong>diff all</strong>' will show non-defaults.  And '<strong>dump all</strong>' will show everything. Save the results to a file."
     },
     "initialSetupRebootBootloaderText": {
         "message": "Reboot into <strong>boot loader / DFU</strong> mode."
