@@ -982,7 +982,7 @@ TABS.pid_tuning.initialize = function(callback) {
             FILTER_CONFIG.witchcraft_yaw       = parseFloat($('.smartDTermWitchBox input[name="witchcraftYaw"]').val());
         }
 
-        if ( semver.gte(CONFIG.apiVersion, "1.47.0")) {
+        if ( FEATURE_CONFIG.features.isEnabled('DYNAMIC_FILTER') && semver.gte(CONFIG.apiVersion, "1.47.0")) {
             FILTER_CONFIG.dynamic_gyro_notch_q  = parseFloat($('.pid_filter input[name="MatrixNotchQ"]').val());
             FILTER_CONFIG.dynamic_gyro_notch_min_hz = parseFloat($('.pid_filter input[name="MatrixNotchMin"]').val());
         }
