@@ -65,7 +65,7 @@
     "gulp-rename": "^1.4.0",
     "gulp-yarn": "^2.0.0",
     "gulp-zip": "^5.0.0",
-    "karma": "^5.0.5",
+    "karma": "^5.0.8",
     "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^3.0.0",
     "karma-mocha": "^2.0.1",
