@@ -416,7 +416,7 @@ MspHelper.prototype.process_data = function(dataHandler) {
                 break;
 
             case MSPCodes.MSP_GPS_RESCUE:
-                GPS_RESCUE.angle             = data.readU16();
+                GPS_RESCUE.angle            = data.readU16();
                 GPS_RESCUE.initialAltitude  = data.readU16();
                 GPS_RESCUE.descentDistance  = data.readU16();
                 GPS_RESCUE.rescueGroundspeed = data.readU16();

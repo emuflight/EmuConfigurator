@@ -111,7 +111,7 @@ var MSPCodes = {
     MSP_GPS_CONFIG:                 132,
     MSP_COMPASS_CONFIG:             133,
     MSP_GPS_RESCUE:                 135,
-
+    MSP_GPS_RESCUE_PIDS:            136,
     MSP_STATUS_EX:                  150,
 
     MSP_UID:                        160,
@@ -146,7 +146,17 @@ var MSPCodes = {
     MSP_SET_MOTOR_CONFIG:           222,
     MSP_SET_GPS_CONFIG:             223,
     MSP_SET_COMPASS_CONFIG:         224,
-    MSP_SET_GPS_RESCUE:             230,
+
+    MSP_FAST_KALMAN:                225,
+    MSP_SET_FAST_KALMAN:            226,
+    MSP_IMUF_CONFIG:                227,
+    MSP_SET_IMUF_CONFIG:            228,
+    MSP_IMUF_INFO:                  229,
+    MSP_EMUF:                       231,
+    MSP_SET_EMUF:                   232,
+
+    MSP_SET_GPS_RESCUE:             233,
+    MSP_SET_GPS_RESCUE_PIDS:        234,
 
     MSP_MODE_RANGES_EXTRA:          238,
     MSP_SET_ACC_TRIM:               239,
@@ -163,11 +173,5 @@ var MSPCodes = {
     MSP_DEBUGMSG:                   253, // Not used
     MSP_DEBUG:                      254,
 
-    MSP_FAST_KALMAN:                225,
-    MSP_SET_FAST_KALMAN:            226,
-    MSP_IMUF_CONFIG:                227,
-    MSP_SET_IMUF_CONFIG:            228,
-    MSP_IMUF_INFO:                  229,
-    MSP_EMUF:                       231,
-    MSP_SET_EMUF:                   232,
+
 };
