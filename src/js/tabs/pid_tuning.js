@@ -259,7 +259,6 @@ TABS.pid_tuning.initialize = function(callback) {
                     $('.pid_tuning input[name="angle_expo"]').val(ADVANCED_TUNING.angleExpo );
                     $('.pid_tuning input[name="horizon_tilt_effect"]').val(ADVANCED_TUNING.horizonTiltEffect);
                     $('.pid_tuning input[name="horizon_transition"]').val(ADVANCED_TUNING.horizonTransition);
-
                     $('.OLDANGLEUI').hide();
                     $('.NEWANGLEUI').show();
                     $('.pid_optional').show();
@@ -642,10 +641,10 @@ TABS.pid_tuning.initialize = function(callback) {
             var type = (FILTER_CONFIG.gyro_lowpass_hz > 0 || FILTER_CONFIG.gyro_lowpass_hz_roll > 0) ? FILTER_CONFIG.gyro_lowpass_type : FILTER_DEFAULT.gyro_lowpass_type;
 
             if(!isExpertModeEnabled() && (semver.gte(CONFIG.apiVersion, "1.45.0"))) {
-            $('.pid_filter input[name="gyroLowpassFrequency"]').val((checked) ? cutoffRoll : 0).attr('disabled', !checked);
-          }else{
-              $('.pid_filter input[name="gyroLowpassFrequency"]').val((checked) ? cutoff : 0).attr('disabled', !checked);
-          }
+                $('.pid_filter input[name="gyroLowpassFrequency"]').val((checked) ? cutoffRoll : 0).attr('disabled', !checked);
+            }else{
+                $('.pid_filter input[name="gyroLowpassFrequency"]').val((checked) ? cutoff : 0).attr('disabled', !checked);
+            }
             $('.pid_filter input[name="gyroLowpassFrequencyRoll"]').val((checked) ? cutoffRoll : 0).attr('disabled', !checked);
             $('.pid_filter input[name="gyroLowpassFrequencyPitch"]').val((checked) ? cutoffPitch : 0).attr('disabled', !checked);
             $('.pid_filter input[name="gyroLowpassFrequencyYaw"]').val((checked) ? cutoffYaw : 0).attr('disabled', !checked);
@@ -664,9 +663,9 @@ TABS.pid_tuning.initialize = function(callback) {
             var type = (FILTER_CONFIG.gyro_lowpass2_hz > 0 || FILTER_CONFIG.gyro_lowpass2_hz_roll > 0) ? FILTER_CONFIG.gyro_lowpass2_type : FILTER_DEFAULT.gyro_lowpass2_type;
 
             if(!isExpertModeEnabled() &&  (semver.gte(CONFIG.apiVersion, "1.45.0"))) {
-            $('.pid_filter input[name="gyroLowpass2Frequency"]').val(checked ? cutoffRoll : 0).attr('disabled', !checked);
+                $('.pid_filter input[name="gyroLowpass2Frequency"]').val(checked ? cutoffRoll : 0).attr('disabled', !checked);
             }else{
-            $('.pid_filter input[name="gyroLowpass2Frequency"]').val(checked ? cutoff : 0).attr('disabled', !checked);
+                $('.pid_filter input[name="gyroLowpass2Frequency"]').val(checked ? cutoff : 0).attr('disabled', !checked);
             }
             $('.pid_filter input[name="gyroLowpass2FrequencyRoll"]').val(checked ? cutoffRoll : 0).attr('disabled', !checked);
             $('.pid_filter input[name="gyroLowpass2FrequencyPitch"]').val(checked ? cutoffPitch : 0).attr('disabled', !checked);
@@ -684,9 +683,9 @@ TABS.pid_tuning.initialize = function(callback) {
             var type = (FILTER_CONFIG.dterm_lowpass_hz > 0 || FILTER_CONFIG.dterm_lowpass_hz_roll > 0) ? FILTER_CONFIG.dterm_lowpass_type : FILTER_DEFAULT.dterm_lowpass_type;
 
             if(!isExpertModeEnabled() &&  (semver.gte(CONFIG.apiVersion, "1.45.0"))) {
-            $('.pid_filter input[name="dtermLowpassFrequency"]').val((checked) ? cutoffRoll : 0).attr('disabled', !checked);
+                $('.pid_filter input[name="dtermLowpassFrequency"]').val((checked) ? cutoffRoll : 0).attr('disabled', !checked);
             }else{
-            $('.pid_filter input[name="dtermLowpassFrequency"]').val((checked) ? cutoff : 0).attr('disabled', !checked);
+                $('.pid_filter input[name="dtermLowpassFrequency"]').val((checked) ? cutoff : 0).attr('disabled', !checked);
             }
             $('.pid_filter input[name="dtermLowpassFrequencyRoll"]').val((checked) ? cutoffRoll : 0).attr('disabled', !checked);
             $('.pid_filter input[name="dtermLowpassFrequencyPitch"]').val((checked) ? cutoffPitch : 0).attr('disabled', !checked);
@@ -705,9 +704,9 @@ TABS.pid_tuning.initialize = function(callback) {
             var cutoffYaw = FILTER_CONFIG.dterm_lowpass2_hz_yaw > 0 ? FILTER_CONFIG.dterm_lowpass2_hz_yaw : FILTER_DEFAULT.dterm_lowpass2_hz;
 
             if(!isExpertModeEnabled() &&  (semver.gte(CONFIG.apiVersion, "1.45.0"))) {
-            $('.pid_filter input[name="dtermLowpass2Frequency"]').val(checked ? cutoffRoll : 0).attr('disabled', !checked);
+                $('.pid_filter input[name="dtermLowpass2Frequency"]').val(checked ? cutoffRoll : 0).attr('disabled', !checked);
             }else{
-            $('.pid_filter input[name="dtermLowpass2Frequency"]').val(checked ? cutoff : 0).attr('disabled', !checked);
+                $('.pid_filter input[name="dtermLowpass2Frequency"]').val(checked ? cutoff : 0).attr('disabled', !checked);
             }
 
             $('.pid_filter input[name="dtermLowpass2FrequencyRoll"]').val(checked ? cutoffRoll : 0).attr('disabled', !checked);
@@ -982,7 +981,7 @@ TABS.pid_tuning.initialize = function(callback) {
             FILTER_CONFIG.witchcraft_yaw       = parseFloat($('.smartDTermWitchBox input[name="witchcraftYaw"]').val());
         }
 
-        if ( semver.gte(CONFIG.apiVersion, "1.47.0")) {
+        if ( FEATURE_CONFIG.features.isEnabled('DYNAMIC_FILTER') && semver.gte(CONFIG.apiVersion, "1.47.0")) {
             FILTER_CONFIG.dynamic_gyro_notch_q  = parseFloat($('.pid_filter input[name="MatrixNotchQ"]').val());
             FILTER_CONFIG.dynamic_gyro_notch_min_hz = parseFloat($('.pid_filter input[name="MatrixNotchMin"]').val());
         }
