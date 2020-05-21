@@ -960,12 +960,12 @@
                                 <td>
                                     <span class="groupSwitchValue">
                                         <div class="gyroLowpassFrequency">
-                                        <span class="inputValue"><input type="number" class="nonProfile" name="gyroLowpassFrequency" step="1" min="0" max="255"/></span>
+                                            <span class="inputValue"><input type="number" class="nonProfile" name="gyroLowpassFrequency" step="1" min="0" max="255"/></span>
                                         </div>
                                         <div class="gyroLowpassFrequencyAxis">
-                                        <span class="inputValue"><input type="number" class="nonProfile" name="gyroLowpassFrequencyRoll" step="1" min="0" max="16000"/><br clear="all"></span>
-                                        <span class="inputValue LPFPit"><input type="number" class="nonProfile" name="gyroLowpassFrequencyPitch" step="1" min="0" max="16000"/><br clear="all"></span>
-                                        <span class="inputValue LPFYaw"><input type="number" class="nonProfile" name="gyroLowpassFrequencyYaw" step="1" min="0" max="16000"/></span>
+                                            <span class="inputValue"><input type="number" class="nonProfile" name="gyroLowpassFrequencyRoll" step="1" min="0" max="16000"/><br clear="all"></span>
+                                            <span class="inputValue LPFPit"><input type="number" class="nonProfile" name="gyroLowpassFrequencyPitch" step="1" min="0" max="16000"/><br clear="all"></span>
+                                            <span class="inputValue LPFYaw"><input type="number" class="nonProfile" name="gyroLowpassFrequencyYaw" step="1" min="0" max="16000"/></span>
                                         </div>
                                     </span>
                                 </td>
@@ -1128,6 +1128,42 @@
                                     </div>
                                 </td>
                             </tr>
+
+                                <tr class="matrixFilter">
+                                    <th colspan="2">
+                                        <div class="pid_mode">
+                                            <div i18n="pidTuningMatrixFilterGroup" />
+                                            <div class="helpicon cf_tip" i18n_title="pidTuningMatrixFilterHelp" />
+                                        </div>
+                                    </th>
+                                </tr>
+
+                                <tr class="matrixFilter">
+                                    <td>
+                                        <input type="number" class="nonProfile" name="MatrixNotchQ" step="1" min="1" max="1000"/>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <label>
+                                                <span i18n="pidTuningMatrixNotchQ"></span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr class="matrixFilter">
+                                    <td>
+                                        <input type="number" class="nonProfile" name="MatrixNotchMin" step="1" min="30" max="1000"/>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <label>
+                                                <span i18n="pidTuningMatrixNotchQMin"></span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                </tr>
+
                         </table>
                     </div>
 
@@ -1330,26 +1366,20 @@
                                     <!-- Roll smartdterm, witchcraft-->
                                     <tr class="ROLL" colspan="4">
                                         <td class="pid_roll"></td>
-                                        <td class="leftzero"><input type="number" name="smartdTermRoll" step="1" min="0"
-                                            max="250" /></td>
-                                        <td class="leftzero"><input type="number" name="witchcraftRoll" step="1" min="0"
-                                            max="10" /></td>
+                                        <td class="leftzero"><input type="number" name="smartdTermRoll" step="1" min="0" max="250" /></td>
+                                        <td class="leftzero"><input type="number" name="witchcraftRoll" step="1" min="0" max="10" /></td>
                                     </tr>
                                     <!-- Pitch smartdterm, witchcraft-->
                                     <tr class="PITCH" colspan="4">
                                         <td class="pid_pitch"></td>
-                                        <td class="leftzero"><input type="number" name="smartdTermPitch" step="1" min="0"
-                                            max="250" /></td>
-                                        <td class="leftzero"><input type="number" name="witchcraftPitch" step="1" min="0"
-                                            max="10" /></td>
+                                        <td class="leftzero"><input type="number" name="smartdTermPitch" step="1" min="0" max="250" /></td>
+                                        <td class="leftzero"><input type="number" name="witchcraftPitch" step="1" min="0" max="10" /></td>
                                     </tr>
                                     <!-- yaw smartdterm, witchcraft-->
                                     <tr class="YAW" colspan="4">
                                         <td class="pid_yaw"></td>
-                                        <td class="leftzero"><input type="number" name="smartdTermYaw" step="1" min="0"
-                                            max="250" /></td>
-                                        <td class="leftzero"><input type="number" name="witchcraftYaw" step="1" min="0"
-                                            max="10" /></td>
+                                        <td class="leftzero"><input type="number" name="smartdTermYaw" step="1" min="0" max="250" /></td>
+                                        <td class="leftzero"><input type="number" name="witchcraftYaw" step="1" min="0" max="10" /></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -1400,12 +1430,12 @@
                                     <span class="groupSwitchValue">
 
                                         <div class="dtermLowpassFrequency">
-                                        <span class="inputValue"><input type="number" name="dtermLowpassFrequency" step="1" min="0" max="16000"/></span>
+                                            <span class="inputValue"><input type="number" name="dtermLowpassFrequency" step="1" min="0" max="16000"/></span>
                                         </div>
                                         <div class="dtermLowpassFrequencyAxis">
-                                        <span class="inputValue"><input type="number" name="dtermLowpassFrequencyRoll" step="1" min="0" max="16000"/><br clear="all"></span>
-                                        <span class="inputValue LPFPit"><input type="number" name="dtermLowpassFrequencyPitch" step="1" min="0" max="16000"/><br clear="all"></span>
-                                        <span class="inputValue LPFYaw"><input type="number" name="dtermLowpassFrequencyYaw" step="1" min="0" max="16000"/></span>
+                                            <span class="inputValue"><input type="number" name="dtermLowpassFrequencyRoll" step="1" min="0" max="16000"/><br clear="all"></span>
+                                            <span class="inputValue LPFPit"><input type="number" name="dtermLowpassFrequencyPitch" step="1" min="0" max="16000"/><br clear="all"></span>
+                                            <span class="inputValue LPFYaw"><input type="number" name="dtermLowpassFrequencyYaw" step="1" min="0" max="16000"/></span>
                                         </div>
                                     </span>
                                 </td>
@@ -1448,12 +1478,12 @@
                                     <span class="groupSwitchValue">
                                         <span class="inputSwitch"><input type="checkbox" id="dtermLowpass2Enabled" class="toggle" /></span>
                                         <div class="dtermLowpass2Frequency">
-                                        <span class="inputValue" id='test'><input type="number" name="dtermLowpass2Frequency" step="1" min="0" max="16000"/></span>
+                                            <span class="inputValue" id='test'><input type="number" name="dtermLowpass2Frequency" step="1" min="0" max="16000"/></span>
                                         </div>
                                         <div class="dtermLowpass2FrequencyAxis">
-                                        <span class="inputValue"><input type="number" name="dtermLowpass2FrequencyRoll" step="1" min="0" max="16000"/><br clear="all"></span>
-                                        <span class="inputValue LPFPit"><input type="number" name="dtermLowpass2FrequencyPitch" step="1" min="0" max="16000"/><br clear="all"></span>
-                                        <span class="inputValue LPFYaw"><input type="number" name="dtermLowpass2FrequencyYaw" step="1" min="0" max="16000"/></span>
+                                            <span class="inputValue"><input type="number" name="dtermLowpass2FrequencyRoll" step="1" min="0" max="16000"/><br clear="all"></span>
+                                            <span class="inputValue LPFPit"><input type="number" name="dtermLowpass2FrequencyPitch" step="1" min="0" max="16000"/><br clear="all"></span>
+                                            <span class="inputValue LPFYaw"><input type="number" name="dtermLowpass2FrequencyYaw" step="1" min="0" max="16000"/></span>
                                         </div>
                                     </span>
                                 </td>
@@ -1549,6 +1579,7 @@
         </div>
         <div class="clear-both"></div>
     </div>
+
     <div class="content_toolbar">
         <div class="btn refresh_btn">
             <a class="refresh" href="#" i18n="pidTuningButtonRefresh"></a>

@@ -400,22 +400,25 @@ var FC = {
             dyn_notch_width_percent:    0,
             dyn_notch_q:                0,
             dyn_notch_min_hz:           0,
+            dynamic_gyro_notch_q:       0,
+            dynamic_gyro_notch_min_hz:  0,
         };
 
         IMUF_FILTER_CONFIG = {
-                  imuf_mode:                0,
-                  imuf_roll_q:              0,
-                  imuf_pitch_q:             0,
-                  imuf_yaw_q:               0,
-                  imuf_w:                   0,
-                  imuf_roll_lpf_cutoff_hz:  0,
-                  imuf_pitch_lpf_cutoff_hz: 0,
-                  imuf_yaw_lpf_cutoff_hz:   0,
-                  imuf_acc_lpf_cutoff_hz:   0,
-              };
+            imuf_mode:                  0,
+            imuf_roll_q:                0,
+            imuf_pitch_q:               0,
+            imuf_yaw_q:                 0,
+            imuf_w:                     0,
+            imuf_roll_lpf_cutoff_hz:    0,
+            imuf_pitch_lpf_cutoff_hz:   0,
+            imuf_yaw_lpf_cutoff_hz:     0,
+            imuf_acc_lpf_cutoff_hz:     0,
+        };
+
         KALMAN_FILTER_CONFIG = {
-           gyro_filter_q:            0,
-            gyro_filter_w:            0,
+            gyro_filter_q:              0,
+            gyro_filter_w:              0,
         };
 
         ADVANCED_TUNING = {
@@ -472,48 +475,48 @@ var FC = {
         };
 
         RX_CONFIG = {
-            serialrx_provider:            0,
-            stick_max:                    0,
-            stick_center:                 0,
-            stick_min:                    0,
-            spektrum_sat_bind:            0,
-            cinematicYaw:                 0,
-            rx_min_usec:                  0,
-            rx_max_usec:                  0,
-            rcInterpolation:              0,
-            rcInterpolationInterval:      0,
-            rcInterpolationChannels:      0,
-            airModeActivateThreshold:     0,
-            rxSpiProtocol:                0,
-            rxSpiId:                      0,
-            rxSpiRfChannelCount:          0,
-            fpvCamAngleDegrees:           0,
-            rcSmoothingType:              0,
-            rcSmoothingInputCutoff:       0,
-            rcSmoothingDerivativeCutoff:  0,
-            rcSmoothingInputType:         0,
-            rcSmoothingDerivativeType:    0,
+            serialrx_provider:          0,
+            stick_max:                  0,
+            stick_center:               0,
+            stick_min:                  0,
+            spektrum_sat_bind:          0,
+            cinematicYaw:               0,
+            rx_min_usec:                0,
+            rx_max_usec:                0,
+            rcInterpolation:            0,
+            rcInterpolationInterval:    0,
+            rcInterpolationChannels:    0,
+            airModeActivateThreshold:   0,
+            rxSpiProtocol:              0,
+            rxSpiId:                    0,
+            rxSpiRfChannelCount:        0,
+            fpvCamAngleDegrees:         0,
+            rcSmoothingType:            0,
+            rcSmoothingInputCutoff:     0,
+            rcSmoothingDerivativeCutoff:0,
+            rcSmoothingInputType:       0,
+            rcSmoothingDerivativeType:  0,
         };
 
         FAILSAFE_CONFIG = {
-            failsafe_delay:                 0,
-            failsafe_off_delay:             0,
-            failsafe_throttle:              0,
-            failsafe_switch_mode:           0,
-            failsafe_throttle_low_delay:    0,
-            failsafe_procedure:             0,
+            failsafe_delay:             0,
+            failsafe_off_delay:         0,
+            failsafe_throttle:          0,
+            failsafe_switch_mode:       0,
+            failsafe_throttle_low_delay:0,
+            failsafe_procedure:         0,
         };
 
         GPS_RESCUE = {
-            angle:                          0,
-            initialAltitude:               0,
-            descentDistance:               0,
-            rescueGroundspeed:              0,
-            throttleMin:                    0,
-            throttleMax:                    0,
-            throttleHover:                  0,
-            sanityChecks:                   0,
-            minSats:                        0,
+            angle:                      0,
+            initialAltitude:            0,
+            descentDistance:            0,
+            rescueGroundspeed:          0,
+            throttleMin:                0,
+            throttleMax:                0,
+            throttleHover:              0,
+            sanityChecks:               0,
+            minSats:                    0,
         };
 
         RXFAIL_CONFIG = [];
