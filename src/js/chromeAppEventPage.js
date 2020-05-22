@@ -13,7 +13,7 @@ function startApplication() {
         },
     }, function (createdWindow) {
         if (getChromeVersion() >= 54) {
-            createdWindow.icon = 'images/bf_icon_128.png';
+            createdWindow.icon = 'images/emu_icon_128.png';
         }
     });
 }
