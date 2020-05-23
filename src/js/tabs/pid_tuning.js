@@ -2391,3 +2391,8 @@ TABS.pid_tuning.updateFilterWarning = function() {
     }
 
 }
+
+TABS.pid_tuning.cleanup = function (callback) {
+    this.keepRendering = false;
+    if (callback) callback();
+};
