@@ -1206,7 +1206,12 @@ TABS.pid_tuning.initialize = function(callback) {
         // This vars are used here for populate the profile (and rate profile) selector AND in the copy profile (and rate profile) window
         var selectRateProfileValues = loadRateProfilesList();
         var selectProfileValues = loadProfilesList();
-        var selectPresetValues = loadPresetsList();
+        var selectPresetValues;
+        if (presetJson) {
+            selectPresetValues = loadPresetsList();
+        } else {
+            selectPresetValues = [];
+        }
 
         function populateProfilesSelector(selectProfileValues) {
             var profileSelect = $('select[name="profile"]');
