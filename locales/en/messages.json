@@ -1022,7 +1022,7 @@
         "message": "Temporary boost I-Term on high throttle changes"
     },
     "featureDYNAMIC_FILTER": {
-        "message": "Dynamic gyro notch filtering"
+        "message": "Dynamic gyro matrix filtering (Dynamic per-axis notch)"
     },
     "featureLEGACY_SA_SUPPORT": {
       "message": "Legacy AKK and Mach2 VTX Smart Audio support"
