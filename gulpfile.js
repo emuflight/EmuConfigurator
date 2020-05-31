@@ -40,7 +40,7 @@ var gitChangeSetId;
 
 var nwBuilderOptions = {
     // FIXME: hardcoded version number
-    version: '0.42.2',
+    version: '0.46.0',
     files: './dist/**/*',
     macIcns: './assets/osx/app-icon.icns',
     macPlist: { 'CFBundleDisplayName': 'Emuflight Configurator'},
