@@ -3,7 +3,7 @@ os:
   - osx
   - windows
 
-osx_image: xcode11.3
+osx_image: xcode11.4
 dist: bionic # linux
 language: node_js
 
@@ -78,8 +78,7 @@ deploy:
     cleanup: false # do not delete what has just been built
     skip_cleanup: true #travis report deprecated, but seems necessary anyway
     on:
-      #tags: true
-      branch: master
+      all_branches: true
 
 after_deploy:
   - >

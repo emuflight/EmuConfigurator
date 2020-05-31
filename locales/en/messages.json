@@ -625,10 +625,10 @@
         "message": "Emuflight documentation is available in release notes and wiki.<br /><br />"
     },
     "defaultDocumentation1": {
-        "message": "The Emuflight wiki is a great resource for information, it can be found <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">here</a>."
+        "message": "The Emuflight wiki is a great resource for information, it can be found <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">here</a>.<br />The release notes for the firmware can be read at GitHub releases page, <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\">here</a>.<br />"
     },
     "defaultDocumentation2": {
-        "message": "The release notes for the firmware can be read at GitHub releases page, <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\">here</a>."
+        "message": "The EmuConfigurator wiki can be found <a href=\"https://github.com/emuflight/EmuConfigurator/wiki\" target=\"_blank\">here</a>.<br />The Configurator release notes can be read at GitHub releases page, <a href=\"https://github.com/emuflight/EmuConfigurator/releases\" target=\"_blank\">here</a>.<br />"
     },
     "defaultSupportHead": {
         "message": "Support"
@@ -683,7 +683,7 @@
         "message": "Activate Boot Loader / DFU"
     },
     "initialSetupBackupRestoreText": {
-        "message": "<strong>Backup</strong> your configuration in case of an accident, <strong>CLI</strong> settings are <span class=\"message-negative\">not</span> included - use the command 'diff all' in CLI for this."
+        "message": "<strong>Backup</strong> your configuration by using the CLI.  The command '<strong>diff all</strong>' will show non-defaults.  And '<strong>dump all</strong>' will show everything. Save the results to a file."
     },
     "initialSetupRebootBootloaderText": {
         "message": "Reboot into <strong>boot loader / DFU</strong> mode."
@@ -1022,7 +1022,7 @@
         "message": "Temporary boost I-Term on high throttle changes"
     },
     "featureDYNAMIC_FILTER": {
-        "message": "Dynamic gyro notch filtering"
+        "message": "Dynamic gyro matrix filtering (Dynamic per-axis notch)"
     },
     "featureLEGACY_SA_SUPPORT": {
       "message": "Legacy AKK and Mach2 VTX Smart Audio support"
