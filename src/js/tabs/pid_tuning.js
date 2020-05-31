@@ -527,7 +527,86 @@ TABS.pid_tuning.initialize = function(callback) {
                 $('#pid_main .feedforward').hide();
                 $('.feedforwardTransition').hide();
             }
+            if (semver.gte(CONFIG.apiVersion, "1.46.0")) {
 
+                //rateSensCenter
+                var rateSensCenterNumberElement = $('input[name="rateSensCenter-number"]');
+                var rateSensCenterRangeElement = $('input[name="rateSensCenter-range"]');
+                
+                //Use 'input' event for coupled controls to allow synchronized update
+                rateSensCenterNumberElement.on('input', function () {
+                    rateSensCenterRangeElement.val($(this).val());
+                });
+                rateSensCenterRangeElement.on('input', function () {
+                    rateSensCenterNumberElement.val($(this).val());
+                });
+                rateSensCenterNumberElement.val(RC_tuning.rateSensCenter).trigger('input');
+
+                //rateSensEnd
+                var rateSensEndNumberElement = $('input[name="rateSensEnd-number"]');
+                var rateSensEndRangeElement = $('input[name="rateSensEnd-range"]');
+                
+                //Use 'input' event for coupled controls to allow synchronized update
+                rateSensEndNumberElement.on('input', function () {
+                    rateSensEndRangeElement.val($(this).val());
+                });
+                rateSensEndRangeElement.on('input', function () {
+                    rateSensEndNumberElement.val($(this).val());
+                });
+                rateSensEndNumberElement.val(RC_tuning.rateSensEnd).trigger('input');
+ 
+                //rateCorrectionCenter
+                var rateCorrectionCenterNumberElement = $('input[name="rateCorrectionCenter-number"]');
+                var rateCorrectionCenterRangeElement = $('input[name="rateCorrectionCenter-range"]');
+                
+                //Use 'input' event for coupled controls to allow synchronized update
+                rateCorrectionCenterNumberElement.on('input', function () {
+                    rateCorrectionCenterRangeElement.val($(this).val());
+                });
+                rateCorrectionCenterRangeElement.on('input', function () {
+                    rateCorrectionCenterNumberElement.val($(this).val());
+                });
+                rateCorrectionCenterNumberElement.val(RC_tuning.rateCorrectionCenter).trigger('input');     
+                
+                //rateCorrectionEnd
+                var rateCorrectionEndNumberElement = $('input[name="rateCorrectionEnd-number"]');
+                var rateCorrectionEndRangeElement = $('input[name="rateCorrectionEnd-range"]');
+                
+                //Use 'input' event for coupled controls to allow synchronized update
+                rateCorrectionEndNumberElement.on('input', function () {
+                    rateCorrectionEndRangeElement.val($(this).val());
+                });
+                rateCorrectionEndRangeElement.on('input', function () {
+                    rateCorrectionEndNumberElement.val($(this).val());
+                });
+                rateCorrectionEndNumberElement.val(RC_tuning.rateCorrectionEnd).trigger('input');      
+
+                //rateWeightCenter
+                var rateWeightCenterNumberElement = $('input[name="rateWeightCenter-number"]');
+                var rateWeightCenterRangeElement = $('input[name="rateWeightCenter-range"]');
+                
+                //Use 'input' event for coupled controls to allow synchronized update
+                rateWeightCenterNumberElement.on('input', function () {
+                    rateWeightCenterRangeElement.val($(this).val());
+                });
+                rateWeightCenterRangeElement.on('input', function () {
+                    rateWeightCenterNumberElement.val($(this).val());
+                });
+                rateWeightCenterNumberElement.val(RC_tuning.rateWeightCenter).trigger('input');    
+
+                 //rateWeightEnd
+                 var rateWeightEndNumberElement = $('input[name="rateWeightEnd-number"]');
+                 var rateWeightEndRangeElement = $('input[name="rateWeightEnd-range"]');
+                 
+                 //Use 'input' event for coupled controls to allow synchronized update
+                 rateWeightEndNumberElement.on('input', function () {
+                     rateWeightEndRangeElement.val($(this).val());
+                 });
+                 rateWeightEndRangeElement.on('input', function () {
+                     rateWeightEndNumberElement.val($(this).val());
+                 });
+                 rateWeightEndNumberElement.val(RC_tuning.rateWeightEnd).trigger('input');                                   
+            }
             if (FEATURE_CONFIG.features.isEnabled('DYNAMIC_FILTER') && (semver.gte(CONFIG.apiVersion, "1.47.0"))) {
                 $('.matrixFilter').show();
                 $('.pid_filter input[name="MatrixNotchQ"]').val(FILTER_CONFIG.dynamic_gyro_notch_q);
@@ -808,12 +887,12 @@ TABS.pid_tuning.initialize = function(callback) {
 
         // rateDynamincs (Stick-pids)
         if (semver.gte(CONFIG.apiVersion, "1.46.0")) {
-            (RC_tuning.rateSensCenter) = parseInt($('.rateDynamics input[name="rateSensCenter"]').val());
-            (RC_tuning.rateSensEnd) = parseInt($('.rateDynamics input[name="rateSensEnd"]').val());
-            (RC_tuning.rateCorrectionCenter) = parseInt($('.rateDynamics input[name="rateCorrectionCenter"]').val());
-            (RC_tuning.rateCorrectionEnd) = parseInt($('.rateDynamics input[name="rateCorrectionEnd"]').val());
-            (RC_tuning.rateWeightCenter) = parseInt($('.rateDynamics input[name="rateWeightCenter"]').val());
-            (RC_tuning.rateWeightEnd) = parseInt($('.rateDynamics input[name="rateWeightEnd"]').val());
+            (RC_tuning.rateSensCenter) = parseInt($('.rateDynamics input[name="rateSensCenter-number"]').val());
+            (RC_tuning.rateSensEnd) = parseInt($('.rateDynamics input[name="rateSensEnd-number"]').val());
+            (RC_tuning.rateCorrectionCenter) = parseInt($('.rateDynamics input[name="rateCorrectionCenter-number"]').val());
+            (RC_tuning.rateCorrectionEnd) = parseInt($('.rateDynamics input[name="rateCorrectionEnd-number"]').val());
+            (RC_tuning.rateWeightCenter) = parseInt($('.rateDynamics input[name="rateWeightCenter-number"]').val());
+            (RC_tuning.rateWeightEnd) = parseInt($('.rateDynamics input[name="rateWeightEnd-number"]').val());
         }
 
         if (semver.lt(CONFIG.apiVersion, "1.44.0")) {
@@ -1206,7 +1285,12 @@ TABS.pid_tuning.initialize = function(callback) {
         // This vars are used here for populate the profile (and rate profile) selector AND in the copy profile (and rate profile) window
         var selectRateProfileValues = loadRateProfilesList();
         var selectProfileValues = loadProfilesList();
-        var selectPresetValues = loadPresetsList();
+        var selectPresetValues;
+        if (presetJson) {
+            selectPresetValues = loadPresetsList();
+        } else {
+            selectPresetValues = [];
+        }
 
         function populateProfilesSelector(selectProfileValues) {
             var profileSelect = $('select[name="profile"]');
@@ -1686,12 +1770,12 @@ TABS.pid_tuning.initialize = function(callback) {
 
         // rateDynamincs (Stick-pids)
         if (semver.gte(CONFIG.apiVersion, "1.46.0")) {
-            $('.rateDynamics input[name="rateSensCenter"]').val(RC_tuning.rateSensCenter);
-            $('.rateDynamics input[name="rateSensEnd"]').val(RC_tuning.rateSensEnd);
-            $('.rateDynamics input[name="rateCorrectionCenter"]').val(RC_tuning.rateCorrectionCenter);
-            $('.rateDynamics input[name="rateCorrectionEnd"]').val(RC_tuning.rateCorrectionEnd);
-            $('.rateDynamics input[name="rateWeightCenter"]').val(RC_tuning.rateWeightCenter);
-            $('.rateDynamics input[name="rateWeightEnd"]').val(RC_tuning.rateWeightEnd);
+            $('.rateDynamics input[name="rateSensCenter-number"]').val(RC_tuning.rateSensCenter);
+            $('.rateDynamics input[name="rateSensEnd-number"]').val(RC_tuning.rateSensEnd);
+            $('.rateDynamics input[name="rateCorrectionCenter-number"]').val(RC_tuning.rateCorrectionCenter);
+            $('.rateDynamics input[name="rateCorrectionEnd-number"]').val(RC_tuning.rateCorrectionEnd);
+            $('.rateDynamics input[name="rateWeightCenter-number"]').val(RC_tuning.rateWeightCenter);
+            $('.rateDynamics input[name="rateWeightEnd-number"]').val(RC_tuning.rateWeightEnd);
         } else {
             $('.rateDynamics').hide();
         }
