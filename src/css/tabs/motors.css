@@ -281,16 +281,41 @@
     width: calc(50% - 50px);
 }
 
+/*motor sliders*/
 .tab-motors .motor_testing .sliders input {
-    -webkit-appearance: slider-vertical;
-    width: calc((100% / 9) - 13px);
-    height: 73px;
-    margin-left: 10px;
+    /*-webkit-appearance: slider-vertical;*/
+    -webkit-appearance: none;
+    width: calc((100% / 9) - 5px);
+    height: 2px;
+    margin-left: 1px;
+    color: #22B7EB;
+    background: #BBBBBB;
+    border-radius: 0px;
+    border: 0px solid #000000;
 }
 
 .tab-motors .motor_testing .sliders input:first-child {
     margin-left: 0px;
 }
+
+.tab-motors .motor_testing .sliders input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  box-shadow: 0px 0px 0px #000000;
+  border: 2px solid #2497E3;
+  height: 22px;
+  width: 7px;
+  border-radius: 7px;
+  background: #22B7EB;
+  cursor: pointer;
+  margin-top: -10.5px;
+}
+
+.tab-motors .motor_testing .sliders input:disabled::-webkit-slider-thumb {
+  /*gray thumb when disabled*/
+  border: 2px solid #999999;
+  background: #BBBBBB;
+}
+
 
 .tab-motors .motor_testing .values {
     margin-top: 5px;
