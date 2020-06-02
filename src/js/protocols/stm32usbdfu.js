@@ -13,9 +13,9 @@
 'use strict';
 
 var STM32DFU_protocol = function () {
-    this.callback; // ref
-    this.hex; // ref
-    this.verify_hex;
+    this.callback = null;
+    this.hex = null;
+    this.verify_hex = [];
 
     this.handle = null; // connection handle
 
@@ -73,10 +73,13 @@ STM32DFU_protocol.prototype.connect = function (device, hex, options, callback) 
     self.callback = callback;
 
     self.options = {
-        erase_chip:     false
+        erase_chip: false,
+        exitDfu: false,
     };
 
-    if (options.erase_chip) {
+    if (options.exitDfu) {
+        self.options.exitDfu = true;
+    } else if (options.erase_chip) {
         self.options.erase_chip = true;
     }
 
@@ -85,9 +88,7 @@ STM32DFU_protocol.prototype.connect = function (device, hex, options, callback) 
     self.verify_hex = [];
 
     // reset progress bar to initial state
-    TABS.firmware_flasher.flashingMessage(null, TABS.firmware_flasher.FLASH_MESSAGE_TYPES.NEUTRAL)
-                         .flashProgress(0);
-
+    TABS.firmware_flasher.flashingMessage(null, TABS.firmware_flasher.FLASH_MESSAGE_TYPES.NEUTRAL).flashProgress(0);
 
     chrome.usb.getDevices(device, function (result) {
         if (result.length) {
@@ -160,12 +161,16 @@ STM32DFU_protocol.prototype.claimInterface = function (interfaceNumber) {
         // the interface is in fact successfully claimed.
         if (self.checkChromeError() && (GUI.operating_system !== "MacOS")) {
             console.log('Failed to claim USB device!');
-            self.upload_procedure(99);
+            self.cleanup();
         }
 
         console.log('Claimed interface: ' + interfaceNumber);
 
-        self.upload_procedure(0);
+        if (self.options.exitDfu) {
+            self.leave();
+        } else {
+            self.upload_procedure(0);
+        }
     });
 };
 
@@ -225,34 +230,34 @@ STM32DFU_protocol.prototype.getInterfaceDescriptors = function (interfaceNum, ca
             return;
         }
 
-	var interfaceID = 0;
-	var descriptorStringArray = [];
-	var getDescriptorString = function () {
-		if(interfaceID < config.interfaces.length) {
-			self.getInterfaceDescriptor(interfaceID, function (descriptor, resultCode) {
-				if (resultCode) {
-				    callback([], resultCode);
-				    return;
-				}
-				interfaceID++;
-				self.getString(descriptor.iInterface, function (descriptorString, resultCode) {
-					if (resultCode) {
-					    callback([], resultCode);
-					    return;
-					}
-					if (descriptor.bInterfaceNumber == interfaceNum) {
-						descriptorStringArray.push(descriptorString);
-					}
-					getDescriptorString();
-				});
-			});
-		} else {
-			//console.log(descriptorStringArray);
-			callback(descriptorStringArray, 0);
-			return;
-		}
-	}
-	getDescriptorString();
+    var interfaceID = 0;
+    var descriptorStringArray = [];
+    var getDescriptorString = function () {
+        if(interfaceID < config.interfaces.length) {
+            self.getInterfaceDescriptor(interfaceID, function (descriptor, resultCode) {
+                if (resultCode) {
+                    callback([], resultCode);
+                    return;
+                }
+                interfaceID++;
+                self.getString(descriptor.iInterface, function (descriptorString, resultCode) {
+                    if (resultCode) {
+                        callback([], resultCode);
+                        return;
+                    }
+                    if (descriptor.bInterfaceNumber == interfaceNum) {
+                        descriptorStringArray.push(descriptorString);
+                    }
+                    getDescriptorString();
+                });
+            });
+        } else {
+            //console.log(descriptorStringArray);
+            callback(descriptorStringArray, 0);
+            return;
+        }
+    }
+    getDescriptorString();
     });
 }
 
@@ -346,7 +351,7 @@ STM32DFU_protocol.prototype.getChipInfo = function (_interface, callback) {
 
             // H750 Partitions: Flash, Config, Firmware, 1x BB Management block + x BB Replacement blocks)
             if (str == "@External Flash /0x90000000/1001*128Kg,3*128Kg,20*128Ka") {
-                str = "@External Flash /0x90000000/998*128Kg,1*128Kg,4*128Kg,21*128Ka" 
+                str = "@External Flash /0x90000000/998*128Kg,1*128Kg,4*128Kg,21*128Ka"
             }
 
             // split main into [location, start_addr, sectors]
@@ -399,11 +404,6 @@ STM32DFU_protocol.prototype.getChipInfo = function (_interface, callback) {
                     case 'K':
                         page_size *= 1024;
                         break;
-/*		    case ' ':
-			break;
-                    default:
-                        return null;
-*/
                 }
 
                 sectors.push({
@@ -422,12 +422,12 @@ STM32DFU_protocol.prototype.getChipInfo = function (_interface, callback) {
                 'sectors'      : sectors,
                 'total_size'   : total_size
             }
-	    return memory;
-	}
-	var chipInfo = descriptors.map(parseDescriptor).reduce(function(o, v, i) {
-		o[v.type.toLowerCase().replace(' ', '_')] = v;
-		return o;
-	}, {});
+        return memory;
+    }
+    var chipInfo = descriptors.map(parseDescriptor).reduce(function(o, v, i) {
+        o[v.type.toLowerCase().replace(' ', '_')] = v;
+        return o;
+    }, {});
         callback(chipInfo, resultCode);
     });
 }
@@ -438,7 +438,7 @@ STM32DFU_protocol.prototype.controlTransfer = function (direction, request, valu
     // timeout support was added in chrome v43
     var timeout;
     if (typeof _timeout === "undefined") {
-	timeout = 0; // default is 0 (according to chrome.usb API)
+        timeout = 0; // default is 0 (according to chrome.usb API)
     } else {
         timeout = _timeout;
     }
@@ -530,17 +530,17 @@ STM32DFU_protocol.prototype.loadAddress = function (address, callback, abort) {
                             callback(data);
                         } else {
                             console.log('Failed to execute address load');
-			    if(typeof abort === "undefined" || abort) {
-                            	self.upload_procedure(99);
-			    } else {
-				callback(data);
-			    }
+                            if(typeof abort === "undefined" || abort) {
+                                self.cleanup();
+                            } else {
+                                callback(data);
+                            }
                         }
                     });
                 }, delay);
             } else {
                 console.log('Failed to request address load');
-                self.upload_procedure(99);
+                self.cleanup();
             }
         });
     });
@@ -570,22 +570,22 @@ STM32DFU_protocol.prototype.upload_procedure = function (step) {
             self.getChipInfo(0, function (chipInfo, resultCode) {
                 if (resultCode != 0 || typeof chipInfo === "undefined") {
                     console.log('Failed to detect chip info, resultCode: ' + resultCode);
-                    self.upload_procedure(99);
+                    self.cleanup();
                 } else {
                     if (typeof chipInfo.internal_flash !== "undefined") {
                         // internal flash
                         self.chipInfo = chipInfo;
-                        
+
                         self.flash_layout = chipInfo.internal_flash;
                         self.available_flash_size = self.flash_layout.total_size - (self.hex.start_linear_address - self.flash_layout.start_address);
-    
+
                         GUI.log(i18n.getMessage('dfu_device_flash_info', (self.flash_layout.total_size / 1024).toString()));
-    
+
                         if (self.hex.bytes_total > self.available_flash_size) {
-                            GUI.log(i18n.getMessage('dfu_error_image_size', 
-                                [(self.hex.bytes_total / 1024.0).toFixed(1), 
+                            GUI.log(i18n.getMessage('dfu_error_image_size',
+                                [(self.hex.bytes_total / 1024.0).toFixed(1),
                                 (self.available_flash_size / 1024.0).toFixed(1)]));
-                            self.upload_procedure(99);
+                            self.cleanup();
                         } else {
                             self.getFunctionalDescriptor(0, function (descriptor, resultCode) {
                                 self.transferSize = resultCode ? 2048 : descriptor.wTransferSize;
@@ -599,7 +599,7 @@ STM32DFU_protocol.prototype.upload_procedure = function (step) {
                         // external flash, flash to the 3rd partition.
                         self.chipInfo = chipInfo;
                         self.flash_layout = chipInfo.external_flash;
-                        
+
                         var firmware_partition_index = 2;
                         var firmware_sectors = self.flash_layout.sectors[firmware_partition_index];
                         var firmware_partition_size = firmware_sectors.total_size;
@@ -609,10 +609,10 @@ STM32DFU_protocol.prototype.upload_procedure = function (step) {
                         GUI.log(i18n.getMessage('dfu_device_flash_info', (self.flash_layout.total_size / 1024).toString()));
 
                         if (self.hex.bytes_total > self.available_flash_size) {
-                            GUI.log(i18n.getMessage('dfu_error_image_size', 
-                                [(self.hex.bytes_total / 1024.0).toFixed(1), 
+                            GUI.log(i18n.getMessage('dfu_error_image_size',
+                                [(self.hex.bytes_total / 1024.0).toFixed(1),
                                 (self.available_flash_size / 1024.0).toFixed(1)]));
-                            self.upload_procedure(99);
+                            self.cleanup();
                         } else {
                             self.getFunctionalDescriptor(0, function (descriptor, resultCode) {
                                 self.transferSize = resultCode ? 2048 : descriptor.wTransferSize;
@@ -624,128 +624,126 @@ STM32DFU_protocol.prototype.upload_procedure = function (step) {
                         }
                     } else {
                         console.log('Failed to detect internal or external flash');
-                        self.upload_procedure(99);
+                        self.cleanup();
                     }
                 }
             });
             break;
         case 1:
-		if (typeof self.chipInfo.option_bytes === "undefined") {
-			console.log('Failed to detect option bytes');
-			self.upload_procedure(99);
-		}
+            if (typeof self.chipInfo.option_bytes === "undefined") {
+                console.log('Failed to detect option bytes');
+                self.cleanup();
+            }
 
-		var unprotect = function() {
-			console.log('Initiate read unprotect');
-			let messageReadProtected = i18n.getMessage('stm32ReadProtected'); 
-			GUI.log(messageReadProtected);
-			TABS.firmware_flasher.flashingMessage(messageReadProtected, TABS.firmware_flasher.FLASH_MESSAGE_TYPES.ACTION)
+            var unprotect = function() {
+                console.log('Initiate read unprotect');
+                let messageReadProtected = i18n.getMessage('stm32ReadProtected');
+                GUI.log(messageReadProtected);
+                TABS.firmware_flasher.flashingMessage(messageReadProtected, TABS.firmware_flasher.FLASH_MESSAGE_TYPES.ACTION)
 
-			self.controlTransfer('out', self.request.DNLOAD, 0, 0, 0, [0x92], function () { // 0x92 initiates read unprotect
-		            self.controlTransfer('in', self.request.GETSTATUS, 0, 0, 6, 0, function (data) {
-		                if (data[4] == self.state.dfuDNBUSY) { // completely normal
-		                    var delay = data[1] | (data[2] << 8) | (data[3] << 16);
-				    var total_delay = delay + 20000; // wait at least 20 seconds to make sure the user does not disconnect the board while erasing the memory
-				    var timeSpentWaiting = 0;
-				    var incr = 1000; // one sec increments
-		                    var waitForErase = setInterval(function () {
+                self.controlTransfer('out', self.request.DNLOAD, 0, 0, 0, [0x92], function () { // 0x92 initiates read unprotect
+                    self.controlTransfer('in', self.request.GETSTATUS, 0, 0, 6, 0, function (data) {
+                        if (data[4] == self.state.dfuDNBUSY) { // completely normal
+                            var delay = data[1] | (data[2] << 8) | (data[3] << 16);
+                            var total_delay = delay + 20000; // wait at least 20 seconds to make sure the user does not disconnect the board while erasing the memory
+                            var timeSpentWaiting = 0;
+                            var incr = 1000; // one sec increments
+                            var waitForErase = setInterval(function () {
 
-                    TABS.firmware_flasher.flashProgress(Math.min(timeSpentWaiting / total_delay, 1) * 100);
+                                TABS.firmware_flasher.flashProgress(Math.min(timeSpentWaiting / total_delay, 1) * 100);
 
-					if(timeSpentWaiting < total_delay)
-					{
-						timeSpentWaiting += incr; 
-						return;
-					}
-					clearInterval(waitForErase);
-		                        self.controlTransfer('in', self.request.GETSTATUS, 0, 0, 6, 0, function (data, error) { // should stall/disconnect
-						if(error) { // we encounter an error, but this is expected. should be a stall.
-							console.log('Unprotect memory command ran successfully. Unplug flight controller. Connect again in DFU mode and try flashing again.');
-							GUI.log(i18n.getMessage('stm32UnprotectSuccessful'));
-							
-                            let messageUnprotectUnplug = i18n.getMessage('stm32UnprotectUnplug'); 
-                            GUI.log(messageUnprotectUnplug);
+                                if(timeSpentWaiting < total_delay) {
+                                    timeSpentWaiting += incr;
+                                    return;
+                                }
+                                clearInterval(waitForErase);
+                                self.controlTransfer('in', self.request.GETSTATUS, 0, 0, 6, 0, function (data, error) { // should stall/disconnect
+                                    if(error) { // we encounter an error, but this is expected. should be a stall.
+                                        console.log('Unprotect memory command ran successfully. Unplug flight controller. Connect again in DFU mode and try flashing again.');
+                                        GUI.log(i18n.getMessage('stm32UnprotectSuccessful'));
 
-		                    TABS.firmware_flasher.flashingMessage(messageUnprotectUnplug, TABS.firmware_flasher.FLASH_MESSAGE_TYPES.ACTION)
-		                                         .flashProgress(0);
+                                        let messageUnprotectUnplug = i18n.getMessage('stm32UnprotectUnplug');
+                                        GUI.log(messageUnprotectUnplug);
 
-						} else { // unprotecting the flight controller did not work. It did not reboot.
-		                                	console.log('Failed to execute unprotect memory command');
-		                                	
-							GUI.log(i18n.getMessage('stm32UnprotectFailed'));
-							TABS.firmware_flasher.flashingMessage(i18n.getMessage('stm32UnprotectFailed'), TABS.firmware_flasher.FLASH_MESSAGE_TYPES.INVALID);
-							console.log(data);
-		                                	self.upload_procedure(99);
-						}
-		                        }, 2000); // this should stall/disconnect anyways. so we only wait 2 sec max.
-		                    }, incr); 
-		                } else {
-		                    console.log('Failed to initiate unprotect memory command');
-                            let messageUnprotectInitFailed = i18n.getMessage('stm32UnprotectInitFailed')
-                            GUI.log(messageUnprotectInitFailed);
-                            TABS.firmware_flasher.flashingMessage(messageUnprotectInitFailed, TABS.firmware_flasher.FLASH_MESSAGE_TYPES.INVALID)
-		                    self.upload_procedure(99);
-		                }
-		            });
-		        });
-		}
+                                        TABS.firmware_flasher.flashingMessage(messageUnprotectUnplug, TABS.firmware_flasher.FLASH_MESSAGE_TYPES.ACTION)
+                                                             .flashProgress(0);
 
+                                    } else { // unprotecting the flight controller did not work. It did not reboot.
+                                        console.log('Failed to execute unprotect memory command');
 
-		var tryReadOB = function() {
-		    // the following should fail if read protection is active
-	            self.controlTransfer('in', self.request.UPLOAD, 2, 0, self.chipInfo.option_bytes.total_size, 0, function (ob_data, errcode) {
-			if(errcode) {
-				console.log('USB transfer error while reading option bytes: ' + errcode1);
-				self.upload_procedure(99);
-				return;
-			}
-			self.controlTransfer('in', self.request.GETSTATUS, 0, 0, 6, 0, function (data) {
-				if (data[4] == self.state.dfuUPLOAD_IDLE && ob_data.length == self.chipInfo.option_bytes.total_size) {
-					console.log('Option bytes read successfully');
-					console.log('Chip does not appear read protected');
-					GUI.log(i18n.getMessage('stm32NotReadProtected'));
-					// it is pretty safe to continue to erase flash
-					self.clearStatus(function() {
-						self.upload_procedure(2);
-					});
-					/* // this snippet is to protect the flash memory (only for the brave)
-					ob_data[1] = 0x0;
-					var writeOB = function() {
-						self.controlTransfer('out', self.request.DNLOAD, 2, 0, 0, ob_data, function () {
-							self.controlTransfer('in', self.request.GETSTATUS, 0, 0, 6, 0, function (data) {
-							    if (data[4] == self.state.dfuDNBUSY) {
-								var delay = data[1] | (data[2] << 8) | (data[3] << 16);
+                                        GUI.log(i18n.getMessage('stm32UnprotectFailed'));
+                                        TABS.firmware_flasher.flashingMessage(i18n.getMessage('stm32UnprotectFailed'), TABS.firmware_flasher.FLASH_MESSAGE_TYPES.INVALID);
+                                        console.log(data);
+                                        self.cleanup();
+                                    }
+                                }, 2000); // this should stall/disconnect anyways. so we only wait 2 sec max.
+                            }, incr);
+                        } else {
+                                console.log('Failed to initiate unprotect memory command');
+                                let messageUnprotectInitFailed = i18n.getMessage('stm32UnprotectInitFailed')
+                                GUI.log(messageUnprotectInitFailed);
+                                TABS.firmware_flasher.flashingMessage(messageUnprotectInitFailed, TABS.firmware_flasher.FLASH_MESSAGE_TYPES.INVALID)
+                                self.cleanup();
+                        }
+                    });
+                });
+            }
 
-								setTimeout(function () {
-								    self.controlTransfer('in', self.request.GETSTATUS, 0, 0, 6, 0, function (data) {
-									if (data[4] == self.state.dfuDNLOAD_IDLE) {
-									    console.log('Failed to write ob');
-									    self.upload_procedure(99);								    
-									} else {
-									    console.log('Success writing ob');
-									    self.upload_procedure(99);
-									}
-								    });
-								}, delay);
-							    } else {
-								console.log('Failed to initiate write ob');
-								self.upload_procedure(99);
-							    }
-							});
-						});
-					}
-					self.clearStatus(function () {
-						self.loadAddress(self.chipInfo.option_bytes.start_address, function () {
-						    self.clearStatus(writeOB);
-						});
-					}); // */
-				} else {
-					console.log('Option bytes could not be read. Quite possibly read protected.');
-					self.clearStatus(unprotect);
-				}
-		    	});
-	            });
-		}
+            var tryReadOB = function() {
+                // the following should fail if read protection is active
+                self.controlTransfer('in', self.request.UPLOAD, 2, 0, self.chipInfo.option_bytes.total_size, 0, function (ob_data, errcode) {
+                if(errcode) {
+                    console.log('USB transfer error while reading option bytes: ' + errcode1);
+                    self.cleanup();
+                    return;
+                }
+                self.controlTransfer('in', self.request.GETSTATUS, 0, 0, 6, 0, function (data) {
+                    if (data[4] == self.state.dfuUPLOAD_IDLE && ob_data.length == self.chipInfo.option_bytes.total_size) {
+                        console.log('Option bytes read successfully');
+                        console.log('Chip does not appear read protected');
+                        GUI.log(i18n.getMessage('stm32NotReadProtected'));
+                        // it is pretty safe to continue to erase flash
+                        self.clearStatus(function() {
+                            self.upload_procedure(2);
+                        });
+                        /* // this snippet is to protect the flash memory (only for the brave)
+                        ob_data[1] = 0x0;
+                        var writeOB = function() {
+                            self.controlTransfer('out', self.request.DNLOAD, 2, 0, 0, ob_data, function () {
+                                self.controlTransfer('in', self.request.GETSTATUS, 0, 0, 6, 0, function (data) {
+                                    if (data[4] == self.state.dfuDNBUSY) {
+                                    var delay = data[1] | (data[2] << 8) | (data[3] << 16);
+
+                                    setTimeout(function () {
+                                        self.controlTransfer('in', self.request.GETSTATUS, 0, 0, 6, 0, function (data) {
+                                        if (data[4] == self.state.dfuDNLOAD_IDLE) {
+                                            console.log('Failed to write ob');
+                                            self.cleanup();
+                                        } else {
+                                            console.log('Success writing ob');
+                                            self.cleanup();
+                                        }
+                                        });
+                                    }, delay);
+                                    } else {
+                                    console.log('Failed to initiate write ob');
+                                    self.cleanup();
+                                    }
+                                });
+                            });
+                        }
+                        self.clearStatus(function () {
+                            self.loadAddress(self.chipInfo.option_bytes.start_address, function () {
+                                self.clearStatus(writeOB);
+                            });
+                        }); // */
+                    } else {
+                        console.log('Option bytes could not be read. Quite possibly read protected.');
+                        self.clearStatus(unprotect);
+                    }
+                    });
+                    });
+            }
 
             var initReadOB = function (loadAddressResponse) {
                 // contrary to what is in the docs. Address load should in theory work even if read protection is active
@@ -760,14 +758,14 @@ STM32DFU_protocol.prototype.upload_procedure = function (step) {
                     self.clearStatus(tryReadOB);
                 } else {
                     GUI.log(i18n.getMessage('stm32AddressLoadUnknown'));
-                    self.upload_procedure(99);
+                    self.cleanup();
                 }
             }
 
-	        self.clearStatus(function () {
-			// load address fails if read protection is active unlike as stated in the docs
-			self.loadAddress(self.chipInfo.option_bytes.start_address, initReadOB, false);
-	        });
+            self.clearStatus(function () {
+            // load address fails if read protection is active unlike as stated in the docs
+            self.loadAddress(self.chipInfo.option_bytes.start_address, initReadOB, false);
+            });
             break;
         case 2:
             // erase
@@ -798,27 +796,40 @@ STM32DFU_protocol.prototype.upload_procedure = function (step) {
                     }
                   }
                 }
-                
+
                 if (erase_pages.length === 0) {
                     console.log('Aborting, No flash pages to erase');
                     TABS.firmware_flasher.flashingMessage(i18n.getMessage('stm32InvalidHex'), TABS.firmware_flasher.FLASH_MESSAGE_TYPES.INVALID);
-                    self.upload_procedure(99);
+                    self.cleanup();
                     break;
                 }
 
 
                 TABS.firmware_flasher.flashingMessage(i18n.getMessage('stm32Erase'), TABS.firmware_flasher.FLASH_MESSAGE_TYPES.NEUTRAL);
-                console.log('Executing local chip erase', erase_pages); 
+                console.log('Executing local chip erase', erase_pages);
 
                 var page = 0;
                 var total_erased = 0; // bytes
 
+                var erase_page_next = function() {
+                    TABS.firmware_flasher.flashProgress((page + 1) / erase_pages.length * 100);
+                    page++;
+
+                    if(page == erase_pages.length) {
+                        console.log("Erase: complete");
+                        GUI.log(i18n.getMessage('dfu_erased_kilobytes', (total_erased / 1024).toString()));
+                        self.upload_procedure(4);
+                    } else {
+                        erase_page();
+                    }
+                }
+
                 var erase_page = function() {
-                    var page_addr = erase_pages[page].page * self.flash_layout.sectors[erase_pages[page].sector].page_size + 
+                    var page_addr = erase_pages[page].page * self.flash_layout.sectors[erase_pages[page].sector].page_size +
                             self.flash_layout.sectors[erase_pages[page].sector].start_address;
                     var cmd = [0x41, page_addr & 0xff, (page_addr >> 8) & 0xff, (page_addr >> 16) & 0xff, (page_addr >> 24) & 0xff];
                     total_erased += self.flash_layout.sectors[erase_pages[page].sector].page_size;
-                    console.log('Erasing. sector ' + erase_pages[page].sector + 
+                    console.log('Erasing. sector ' + erase_pages[page].sector +
                                 ', page ' + erase_pages[page].page + ' @ 0x' + page_addr.toString(16));
 
                     self.controlTransfer('out', self.request.DNLOAD, 0, 0, 0, cmd, function () {
@@ -828,27 +839,41 @@ STM32DFU_protocol.prototype.upload_procedure = function (step) {
 
                                 setTimeout(function () {
                                     self.controlTransfer('in', self.request.GETSTATUS, 0, 0, 6, 0, function (data) {
-                                        if (data[4] == self.state.dfuDNLOAD_IDLE) {
-                                            // update progress bar
-                                            TABS.firmware_flasher.flashProgress((page + 1) / erase_pages.length * 100);
-                                            page++;
 
-                                            if(page == erase_pages.length) {
-                                                console.log("Erase: complete");
-                                                GUI.log(i18n.getMessage('dfu_erased_kilobytes', (total_erased / 1024).toString()));
-                                                self.upload_procedure(4);
-                                            }
-                                            else
-                                                erase_page();
+                                        if (data[4] == self.state.dfuDNBUSY) {
+
+                                            //
+                                            // H743 Rev.V (probably other H7 Rev.Vs also) remains in dfuDNBUSY state after the specified delay time.
+                                            // STM32CubeProgrammer deals with behavior with an undocumented procedure as follows.
+                                            //     1. Issue DFU_CLRSTATUS, which ends up with (14,10) = (errUNKNOWN, dfuERROR)
+                                            //     2. Issue another DFU_CLRSTATUS which delivers (0,2) = (OK, dfuIDLE)
+                                            //     3. Treat the current erase successfully finished.
+                                            // Here, we call clarStatus to get to the dfuIDLE state.
+                                            //
+
+                                            console.log('erase_page: dfuDNBUSY after timeout, clearing');
+
+                                            self.clearStatus(function() {
+                                                self.controlTransfer('in', self.request.GETSTATUS, 0, 0, 6, 0, function (data) {
+                                                    if (data[4] == self.state.dfuIDLE) {
+                                                        erase_page_next();
+                                                    } else {
+                                                        console.log('Failed to erase page 0x' + page_addr.toString(16) + ' (did not reach dfuIDLE after clearing');
+                                                        self.cleanup();
+                                                    }
+                                                })
+                                            });
+                                        } else if (data[4] == self.state.dfuDNLOAD_IDLE) {
+                                            erase_page_next();
                                         } else {
                                             console.log('Failed to erase page 0x' + page_addr.toString(16));
-                                            self.upload_procedure(99);
+                                            self.cleanup();
                                         }
                                     });
                                 }, delay);
                             } else {
                                 console.log('Failed to initiate page erase, page 0x' + page_addr.toString(16));
-                                self.upload_procedure(99);
+                                self.cleanup();
                             }
                         });
                     });
@@ -897,13 +922,13 @@ STM32DFU_protocol.prototype.upload_procedure = function (step) {
                                             write();
                                         } else {
                                             console.log('Failed to write ' + bytes_to_write + 'bytes to 0x' + address.toString(16));
-                                            self.upload_procedure(99);
+                                            self.cleanup();
                                         }
                                     });
                                 }, delay);
                             } else {
                                 console.log('Failed to initiate write ' + bytes_to_write + 'bytes to 0x' + address.toString(16));
-                                self.upload_procedure(99);
+                                self.cleanup();
                             }
                         });
                     })
@@ -1005,48 +1030,60 @@ STM32DFU_protocol.prototype.upload_procedure = function (step) {
                             TABS.firmware_flasher.flashingMessage(i18n.getMessage('stm32ProgrammingSuccessful'), TABS.firmware_flasher.FLASH_MESSAGE_TYPES.VALID);
 
                             // proceed to next step
-                            self.upload_procedure(6);
+                            self.leave();
                         } else {
                             console.log('Programming: FAILED');
                             // update progress bar
                             TABS.firmware_flasher.flashingMessage(i18n.getMessage('stm32ProgrammingFailed'), TABS.firmware_flasher.FLASH_MESSAGE_TYPES.INVALID);
 
                             // disconnect
-                            self.upload_procedure(99);
+                            self.cleanup();
                         }
                     }
                 }
             }
             break;
-        case 6:
-            // jump to application code
-            var address = self.hex.data[0].address;
+    }
+};
 
-            self.clearStatus(function () {
-                self.loadAddress(address, leave);
-            });
+STM32DFU_protocol.prototype.leave = function () {
+    // leave DFU
 
-            var leave = function () {
-                self.controlTransfer('out', self.request.DNLOAD, 0, 0, 0, 0, function () {
-                    self.controlTransfer('in', self.request.GETSTATUS, 0, 0, 6, 0, function (data) {
-                        self.upload_procedure(99);
-                    });
+    const self = this;
+
+    let address;
+    if (self.hex) {
+        address = self.hex.data[0].address;
+    } else {
+        // Assuming we're running off internal flash
+        address =  0x08000000;
+    }
+
+    self.clearStatus(function () {
+        self.loadAddress(address, function () {
+            // 'downloading' 0 bytes to the program start address followed by a GETSTATUS is used to trigger DFU exit on STM32
+            self.controlTransfer('out', self.request.DNLOAD, 0, 0, 0, 0, function () {
+                self.controlTransfer('in', self.request.GETSTATUS, 0, 0, 6, 0, function (data) {
+                    self.cleanup();
                 });
-            }
+            });
+        });
+    });
+};
 
-            break;
-        case 99:
-            // cleanup
-            self.releaseInterface(0);
+STM32DFU_protocol.prototype.cleanup = function () {
+    const self = this;
 
-            GUI.connect_lock = false;
+    self.releaseInterface(0);
 
-            var timeSpent = new Date().getTime() - self.upload_time_start;
+    GUI.connect_lock = false;
 
-            console.log('Script finished after: ' + (timeSpent / 1000) + ' seconds');
+    var timeSpent = new Date().getTime() - self.upload_time_start;
 
-            if (self.callback) self.callback();
-            break;
+    console.log('Script finished after: ' + (timeSpent / 1000) + ' seconds');
+
+    if (self.callback) {
+        self.callback();
     }
 };
 
