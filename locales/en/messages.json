@@ -4920,6 +4920,12 @@
     "osdWarningRssiDbm": {
         "message": "Warns when RSSI dBm value is below alarm setting"
     },
+    "osdWarningTextDji": {
+        "message": "DJI warnings"
+    },
+    "osdWarningDji": {
+        "message": "DJI hack. Show warnings instead of craft name."
+    },
     "osdWarningTextUnknown": {
         "message": "Unknown $1"
     },
