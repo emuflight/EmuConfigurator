@@ -404,6 +404,10 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
             escprotocols.push('DSHOT300');
             escprotocols.push('DSHOT600');
             escprotocols.push('DSHOT1200');
+            if (semver.gte(CONFIG.apiVersion, "1.48.0")) {
+                escprotocols.push('DSHOT2400');
+                escprotocols.push('DSHOT4800');
+            }
             if (semver.gte(CONFIG.apiVersion, "1.36.0")) {
                 escprotocols.push('PROSHOT1000');
             }
