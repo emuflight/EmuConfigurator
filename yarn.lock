@@ -30,7 +30,7 @@
     "@nodelib/fs.scandir" "2.1.3"
     fastq "^1.6.0"
 
-"@nsis/language-data@^0.7.2":
+"@nsis/language-data@^0.7.3":
   version "0.7.3"
   resolved "https://registry.yarnpkg.com/@nsis/language-data/-/language-data-0.7.3.tgz#46c6ea1296e6695e1e63006bc37e2cc09a28d1a1"
   integrity sha512-lZj/ajbHTwxxuCi3t1Tg0PMrfKvoAP63DOt7AE9+PJVVTnpS5BaMiYvz0WSphBQaiZI338VXXMiRDetE1PuN/Q==
@@ -3569,12 +3569,12 @@ make-iterator@^1.0.0:
   dependencies:
     kind-of "^6.0.2"
 
-makensis@^0.20.3:
-  version "0.20.3"
-  resolved "https://registry.yarnpkg.com/makensis/-/makensis-0.20.3.tgz#ef94b00d8748f9337f2361cd326d8d4b2bbcb6fb"
-  integrity sha512-SUxlKgorrDXfoBlfkIj1IeihvNfEEJR7oBA1RdSo7LYJKXVJHLqS++TEMaq/XKmWbYW6NowJ+jzH+o0eJanRHQ==
+makensis@^0.21.0:
+  version "0.21.0"
+  resolved "https://registry.yarnpkg.com/makensis/-/makensis-0.21.0.tgz#2159bd4804c632430bdf25807966a86c470b6a7b"
+  integrity sha512-OTZIbHKfNbGZ3apyyNCIgrQ0f0NStKFJtNIIuQVqacc8a8Rcb8ZKmAdcfewZGbdSTDRAlFDux+P7zzS28uWLBA==
   dependencies:
-    "@nsis/language-data" "^0.7.2"
+    "@nsis/language-data" "^0.7.3"
 
 map-cache@^0.2.0, map-cache@^0.2.2:
   version "0.2.2"
