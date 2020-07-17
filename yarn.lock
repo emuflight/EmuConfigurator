@@ -3569,10 +3569,10 @@ make-iterator@^1.0.0:
   dependencies:
     kind-of "^6.0.2"
 
-makensis@^0.21.0:
-  version "0.21.0"
-  resolved "https://registry.yarnpkg.com/makensis/-/makensis-0.21.0.tgz#2159bd4804c632430bdf25807966a86c470b6a7b"
-  integrity sha512-OTZIbHKfNbGZ3apyyNCIgrQ0f0NStKFJtNIIuQVqacc8a8Rcb8ZKmAdcfewZGbdSTDRAlFDux+P7zzS28uWLBA==
+makensis@^0.21.1:
+  version "0.21.1"
+  resolved "https://registry.yarnpkg.com/makensis/-/makensis-0.21.1.tgz#137d36c714f4a971d5fe22269f52547e243f8406"
+  integrity sha512-5fEa31KqcFXmygmlvw6B+AUEhACnWWYs8f9bmxH2gQk0GjNkinR/tjyH/6aqbIx9FcMg46+q0mMgWegcA6rzDA==
   dependencies:
     "@nsis/language-data" "^0.7.3"
 
