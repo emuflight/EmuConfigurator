@@ -759,12 +759,18 @@ function listReleaseTasks(done) {
     }
 
     if (platforms.indexOf('win32') !== -1) {
+        releaseTasks.push(function release_win32_zip() {
+            return release_zip('win32');
+        });
         releaseTasks.push(function release_win32(done) {
             return release_win('win32', done);
         });
     }
 
     if (platforms.indexOf('win64') !== -1) {
+        releaseTasks.push(function release_win64_zip() {
+            return release_zip('win64');
+        });
         releaseTasks.push(function release_win64(done) {
             return release_win('win64', done);
         });
