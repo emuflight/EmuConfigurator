@@ -38,12 +38,18 @@ const LINUX_INSTALL_DIR = '/opt/emuflight';
 // Global variable to hold the change hash from when we get it, to when we use it.
 var gitChangeSetId;
 
+// FIXME: hardcoded version number
+var NWversion;
+if ((os.platform() === 'win32') || (os.platform() === 'win64')) {
+    NWversion ='0.42.6'
+} else {
+    NWversion ='0.47.1'
+}
 
 // 0.45.6 Win7 connects; 0.42.3 fixed OSX Flashing; 0.46.X breaks Win7 connect
 // maybe serial/usb needs updating
 var nwBuilderOptions = {
-    // FIXME: hardcoded version number
-    version: '0.45.6',
+    version: NWversion,
     files: './dist/**/*',
     macIcns: './assets/osx/app-icon.icns',
     macPlist: { 'CFBundleDisplayName': 'Emuflight Configurator'},

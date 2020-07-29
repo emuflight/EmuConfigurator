@@ -63,7 +63,7 @@ var GUI_control = function () {
     // Check the method of execution
     this.nwGui = null;
     try {
-      this.nwGui = require('nw.gui');
+      this.nwGui = new nw.gui();
       this.Mode = GUI_Modes.NWJS;
     } catch (ex) {
       if (window.chrome && chrome.storage && chrome.storage.local) {
@@ -72,6 +72,7 @@ var GUI_control = function () {
         this.Mode = GUI_Modes.Other;
       }
     }
+    console.log("GUI_Mode = ",this.Mode);
 };
 
 const GUI_Modes = {
