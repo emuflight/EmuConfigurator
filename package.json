@@ -55,7 +55,7 @@
     "object-hash": "^2.0.3",
     "request": "^2.88.2",
     "short-unique-id": "^3.0.4",
-    "tslib": "^2.0.0",
+    "tslib": "^2.0.1",
     "universal-ga": "^1.2.0"
   },
   "devDependencies": {
@@ -83,7 +83,7 @@
     "nw-builder": "^3.5.7",
     "os": "^0.1.1",
     "rpm-builder": "^1.2.1",
-    "sinon": "^9.0.2",
+    "sinon": "^9.0.3",
     "sinon-chai": "^3.5.0",
     "targz": "^1.0.1",
     "temp": "^0.9.1",
