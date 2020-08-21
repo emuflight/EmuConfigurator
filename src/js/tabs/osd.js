@@ -1582,7 +1582,7 @@ OSD.chooseFields = function () {
             F.CORE_TEMPERATURE,
             F.RC_SMOOTHING_FAILURE
         ]);
-        if (semver.gte(CONFIG.flightControllerVersion, "0.3.1")) {
+        if (semver.gte(CONFIG.flightControllerVersion, "0.3.2")) {
             F.DJI = {
                 name: 'DJI',
                 text: 'osdWarningTextDji',
