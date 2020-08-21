@@ -41,9 +41,10 @@ var gitChangeSetId;
 
 // 0.45.6 Win7 connects; 0.42.3 fixed OSX Flashing; 0.46.X breaks Win7 connect
 // maybe serial/usb needs updating
+// revert to 0.42.6 due to Windows® users increased CLI-tab buffer/autocomplete issues.
 var nwBuilderOptions = {
     // FIXME: hardcoded version number
-    version: '0.45.6',
+    version: '0.42.6',
     files: './dist/**/*',
     macIcns: './assets/osx/app-icon.icns',
     macPlist: { 'CFBundleDisplayName': 'Emuflight Configurator'},
@@ -759,12 +760,18 @@ function listReleaseTasks(done) {
     }
 
     if (platforms.indexOf('win32') !== -1) {
+        releaseTasks.push(function release_win32_zip() {
+            return release_zip('win32');
+        });
         releaseTasks.push(function release_win32(done) {
             return release_win('win32', done);
         });
     }
 
     if (platforms.indexOf('win64') !== -1) {
+        releaseTasks.push(function release_win64_zip() {
+            return release_zip('win64');
+        });
         releaseTasks.push(function release_win64(done) {
             return release_win('win64', done);
         });
