@@ -3436,6 +3436,18 @@
     "pidTuningEmuBoostLimitYawHelp": {
         "message": "Puts a limit on how much the EmuBoost is allowed to boost your error. Its measured as a percentage of the total error that EmuBoost is allowed to add. A high EmuBoost with a low EmuBoost Limit can give a snappy feeling near the center of the stick. Tune this according to preference."
     },
+    "pidTuningDBoost": {
+        "message": "DBoost"
+    },
+    "pidTuningDBoostLimit": {
+        "message": "DBoost Limit"
+    },
+    "pidTuningDBoostHelp": {
+        "message": "Adds a nonlinear boost to the error seen by your dTerm similar to EmuBoost. Default is OFF at a value of zero (0). When using feathered-pids lower than 70±, it may introduce a D-kick which could be mitigated possibly with WitchCraft."
+    },
+    "pidTuningDBoostLimitHelp": {
+        "message": "Puts a limit on how much the DBoost is allowed to boost your error. Its measured as a percentage of the total error that DBoost is allowed to add."
+    },
     "pidTuningItermRotation": {
         "message": "I Term Rotation"
     },
@@ -3489,6 +3501,18 @@
     },
     "pidTuningItermRelaxCutoff": {
         "message": "Cutoff:"
+    },
+    "pidTuningITermRelaxV2": {
+        "message": "I-Term Relax Roll/Pitch"
+    },
+    "pidTuningITermRelaxV2Help": {
+        "message": "Limits the accumulation of iTerm on Roll and Pitch when fast movements happen. This helps specially to reduce the bounce-back at the end of fast movements. Movement detection is based upon SetPoint (stick) only. This feature also locks iTerm accumulation from increasing (`_INC` mode). 0 is off. Default is 11 for Roll/Pitch."
+    },
+    "pidTuningITermRelaxYawV2": {
+        "message": "I-Term Relax Yaw"
+    },
+    "pidTuningITermRelaxYawV2Help": {
+        "message": "Limits the accumulation of iTerm for Yaw when fast movements happen. This helps specially to reduce the bounce-back at the end of fast movements. Movement detection is based upon SetPoint (stick) only. This feature also locks iTerm accumulation from increasing (`_INC` mode). 0 is off. Default is 25 for Yaw."
     },
     "pidTuningAbsoluteControlGain": {
         "message": "Absolute Control"

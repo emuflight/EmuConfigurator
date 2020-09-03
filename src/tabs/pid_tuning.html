@@ -478,7 +478,28 @@
                                     </div>
                                  </td>
                             </tr>
-
+                            <tr id="dtermBoost">
+                                <td><input type="number" name="dtermBoost-number" step="5" min="0" max="1000"/></td>
+                                 <td colspan="1">
+                                    <div>
+                                        <label>
+                                        <span i18n="pidTuningDBoost"></span>
+                                        </label>
+                                        <div class="helpicon cf_tip" i18n_title="pidTuningDBoostHelp"></div>
+                                    </div>
+                                 </td>
+                            </tr>
+                            <tr id="dtermBoostLimit">
+                                <td><input type="number" name="dtermBoostLimit-number" step="1" min="0" max="250"/></td>
+                                 <td colspan="1">
+                                    <div>
+                                        <label>
+                                        <span i18n="pidTuningDBoostLimit"></span>
+                                        </label>
+                                        <div class="helpicon cf_tip" i18n_title="pidTuningDBoostLimitHelp"></div>
+                                    </div>
+                                 </td>
+                            </tr>
                             <tr id="featheredPidsLine" class="feathered_pids">
                                 <td><input type="checkbox" id="feathered_pids" class="toggle" /></td>
                                 <td colspan="2">
@@ -516,6 +537,29 @@
                                     <span i18n="pidTuningItermRotation"></span>
                                     <div class="helpicon cf_tip" i18n_title="pidTuningItermRotationHelp"></div>
                                 </td>
+                            </tr>
+
+                            <tr id="iRelaxV2">
+                                <td><input type="number" name="iRelax-number" step="1" min="0" max="100"/></td>
+                                 <td colspan="1">
+                                    <div>
+                                        <label>
+                                        <span i18n="pidTuningITermRelaxV2"></span>
+                                        </label>
+                                        <div class="helpicon cf_tip" i18n_title="pidTuningITermRelaxV2Help"></div>
+                                    </div>
+                                 </td>
+                            </tr>
+                            <tr id="iRelaxYawV2">
+                                <td><input type="number" name="iRelaxYaw-number" step="1" min="0" max="100"/></td>
+                                 <td colspan="1">
+                                    <div>
+                                        <label>
+                                        <span i18n="pidTuningITermRelaxYawV2"></span>
+                                        </label>
+                                        <div class="helpicon cf_tip" i18n_title="pidTuningITermRelaxYawV2Help"></div>
+                                    </div>
+                                 </td>
                             </tr>
 
                             <tr class="vbatpidcompensation">
