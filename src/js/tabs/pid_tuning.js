@@ -381,6 +381,10 @@ TABS.pid_tuning.initialize = function(callback) {
         });
 
         if (semver.gte(CONFIG.apiVersion, "1.40.0")) {
+            if (semver.gte(CONFIG.apiVersion, "1.49.0")) {
+                 $('.pid_filter input[name="imuf_sharpness"]').attr("min", "0");
+            }
+
 
             if (CONFIG.boardIdentifier !== "HESP" && CONFIG.boardIdentifier !== "SX10" && CONFIG.boardIdentifier !== "FLUX" && semver.lt(CONFIG.apiVersion, "1.42.0")) {
                 $('.kalmanFilterSettingsPanel').show();
