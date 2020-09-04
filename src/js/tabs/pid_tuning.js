@@ -511,10 +511,11 @@ TABS.pid_tuning.initialize = function(callback) {
 
             //dBoost //read //not setup for presets
             if (semver.gte(CONFIG.apiVersion, "1.49.0")) {
-                $('#dtermBoost').show();
-                $('#dtermBoostLimit').show();
                 $('input[name="dtermBoost-number"]').val(ADVANCED_TUNING.dtermBoost);
                 $('input[name="dtermBoostLimit-number"]').val(ADVANCED_TUNING.dtermBoostLimit);
+
+                $('#dtermBoost').show();
+                $('#dtermBoostLimit').show();
 
             } else {
                 $('#dtermBoost').hide();
@@ -1020,7 +1021,7 @@ TABS.pid_tuning.initialize = function(callback) {
                 ADVANCED_TUNING.iterm_relax_cutoff = parseInt($('input[name="iRelax-number"]').val());
                 ADVANCED_TUNING.iterm_relax_cutoff_yaw = parseInt($('input[name="iRelaxYaw-number"]').val());
                 ADVANCED_TUNING.dtermBoostLimit = parseInt($('input[name="dtermBoostLimit-number"]').val());
-            } else {
+            } else { //iTermRelax V1 save
                 ADVANCED_TUNING.itermRelax = $('input[id="itermrelax"]').is(':checked') ? $('select[id="itermrelaxAxes"]').val() : 0;
                 ADVANCED_TUNING.itermRelaxType = $('input[id="itermrelax"]').is(':checked') ? $('select[id="itermrelaxType"]').val() : 0;
                 ADVANCED_TUNING.itermRelaxCutoff = parseInt($('input[name="itermRelaxCutoff"]').val());
@@ -1549,6 +1550,18 @@ TABS.pid_tuning.initialize = function(callback) {
 
                 var errorBoostLimitYawNumberElement = $('input[name="errorBoostLimitYaw-number"]');
                 errorBoostLimitYawNumberElement.val(presetJson[presetSelected]['emu_boost_limit_yaw']).trigger('input');
+
+                //dBoost preset to default (0) //msp 1.49
+                if (semver.gte(CONFIG.apiVersion, "1.49.0")) {
+                    $('input[name="dtermBoost-number"]').val('0');
+                    $('input[name="dtermBoostLimit-number"]').val('0');
+                }
+
+                //iTermRelaxV2 preset to default //msp 1.49
+                if (semver.gte(CONFIG.apiVersion, "1.49.0")) {
+                    $('input[name="iRelax-number"]').val('11');
+                    $('input[name="iRelaxYaw-number"]').val('25');
+                }
 
                 $('input[name="featheredPids-number"]').val(presetJson[presetSelected]['feathered_pids']);
                 $('input[id="itermrotation"]').prop('checked', presetJson[presetSelected]['iterm_rotation'] !== "OFF").change();
