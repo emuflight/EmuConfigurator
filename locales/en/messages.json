@@ -3443,7 +3443,7 @@
         "message": "DBoost Limit"
     },
     "pidTuningDBoostHelp": {
-        "message": "Adds a nonlinear boost to the error seen by your dTerm similar to EmuBoost. Default is OFF at a value of zero (0). When using feathered-pids lower than 70±, it may introduce a D-kick which could be mitigated possibly with WitchCraft."
+        "message": "Adds a nonlinear boost to the error seen by your dTerm similar to EmuBoost. Default is OFF at a value of zero (0)."
     },
     "pidTuningDBoostLimitHelp": {
         "message": "Puts a limit on how much the DBoost is allowed to boost your error. Its measured as a percentage of the total error that DBoost is allowed to add."
