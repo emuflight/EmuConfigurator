@@ -42,7 +42,7 @@
   "dependencies": {
     "bluebird": "^3.7.2",
     "configstore": "^5.0.1",
-    "dot-prop": "^5.2.0",
+    "dot-prop": "^5.3.0",
     "i18next": "^19.7.0",
     "i18next-xhr-backend": "^3.2.2",
     "inflection": "1.12.0",
