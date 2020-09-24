@@ -121,7 +121,7 @@ If you have 3D model animation problems, enable "Override software rendering lis
 
 If you need help __please__ reach out in [Emuflight support chat](https://discordapp.com/channels/547211754845765635/596913667447062547) on Discord before raising issues on Github.
 
-Please register and [join via this link](https://discord.gg/TM5hpcM).
+Please register and [join via this link](https://discord.gg/gdP9CwE).
 
 ### Issue trackers
 
