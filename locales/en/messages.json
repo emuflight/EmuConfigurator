@@ -4124,11 +4124,11 @@
         "message": "Instantaneous main battery voltage (flashes when below alarm threshold)"
     },
     "osdTextElementRssiValue": {
-        "message": "RSSI value",
+        "message": "RSSI/LQ value",
         "description": "One of the elements of the OSD"
     },
     "osdDescElementRssiValue": {
-        "message": "Instantaneous RSSI value (flashes when below alarm threshold)"
+        "message": "Instantaneous RSSI value (flashes when below alarm threshold). LQ Only available in EmuFlight 0.3.2 and above."
     },
     "osdTextElementTimer": {
         "message": "Timer",
