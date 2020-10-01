@@ -435,7 +435,7 @@
         "message": "Errore del pacchetto:"
     },
     "statusbar_i2c_error": {
-        "message": "Errore I2C:"
+        "message": "Errori I2C:"
     },
     "statusbar_cycle_time": {
         "message": "Tempo di ciclo:"
@@ -504,10 +504,10 @@
         "message": "La documentazione Emuflight è disponibile nelle note di versione e wiki.<br \/><br \/>"
     },
     "defaultDocumentation1": {
-        "message": "Emuflight wiki è una grande risorsa in cui trovare informazioni, lo trovi <a href=\"https:\/\/github.com\/emuflight\/EmuFlight\/wiki\" target=\"_blank\">QUI<\/a>."
+        "message": "Emuflight wiki è una grande risorsa in cui trovare informazioni, la trovi <a href=\"https:\/\/github.com\/emuflight\/EmuFlight\/wiki\" target=\"_blank\">QUI<\/a>."
     },
     "defaultDocumentation2": {
-        "message": "Le informazioni relative alla release per il firmware possono essere lette sulla pagina GitHub delle nuove versioni, <a href=\"https:\/\/github.com\/Emuflight\/EmuFlight\/releases\" target=\"_blank\">QUI<\/a>."
+        "message": "Le informazioni relative alla release del firmware possono essere trovate sulla pagina GitHub delle nuove versioni, <a href=\"https:\/\/github.com\/Emuflight\/EmuFlight\/releases\" target=\"_blank\">QUI<\/a>."
     },
     "defaultSupportHead": {
         "message": "Supporto"
@@ -519,7 +519,7 @@
         "message": "Sviluppatore"
     },
     "defaultSupport": {
-        "message": "Per avere supporto prova a cercare nei forum e pagine wiki prima o contatta il tuo fornitore.<br \/><br \/>"
+        "message": "Per avere supporto prova a cercare nei forum e sulle pagine wiki o prova a contattare il tuo fornitore.<br \/><br \/>"
     },
     "defaultSupport1": {
         "message": "<a href=\"https:\/\/discordapp.com\/channels\/547211754845765635\" target=\"_blank\">Discord<\/a>"
@@ -735,7 +735,7 @@
         "message": "EEPROM <span class=\"message-positive\">salvata<\/span>"
     },
     "featureNone": {
-        "message": "&lt;Seleziona Uno&gt;"
+        "message": "&lt;Seleziona&gt;"
     },
     "featureRX_PPM": {
         "message": "PPM RX input"
@@ -942,10 +942,10 @@
         "message": "Declinazione Magnetometro [gradi]"
     },
     "configurationReverseMotorSwitch": {
-        "message": "Il motore gira al contrario"
+        "message": "I motori girano al contrario"
     },
     "configurationReverseMotorSwitchHelp": {
-        "message": "Questa opzione configura il mixer per aspettarsi l'inversione di marcia del motore e le eliche per essere su di conseguenza. <strong>Attenzione:<\/strong> Ciò non inverte la direzione del motore. Utilizza lo strumento di configurazione dei tuoi ESCs o cambia l'ordine dei cavi fra motore e ESC per ottenere questo obiettivo. Inoltre, assicurati di controllare con le eliche smontate che i motori girino nelle direzioni indicate nel diagramma qui sopra prima di armare."
+        "message": "Questa opzione configura il mixer per aspettarsi la rotazione inversa dei motori e delle eliche. <strong>Attenzione:<\/strong> Ciò non inverte la direzione dei motori. Utilizza lo strumento di configurazione dei tuoi ESCs o cambia l'ordine dei cavi fra motore e ESC per ottenere questo obiettivo. Inoltre, assicurati di controllare con le eliche smontate che i motori girino nelle direzioni indicate nel diagramma qui sopra prima di armare."
     },
     "configurationAutoDisarmDelay": {
         "message": "Disarma i motori dopo un ritardo di [secondi] secondi (richiede MOTOR_STOP)"
@@ -987,16 +987,16 @@
         "message": "Tono Beacon"
     },
     "configurationDshotBeaconHelp": {
-        "message": "Il beacon Dshot utilizza i regolatori e i motori per produrre il suono. Ciò significa che il beacon Dshot non può essere utilizzato quando i motori girano. In Emuflight 3.4 e successivi, quando si prova ad armare mentre il BEACON Dshot è attivo, si ha un ritardo di 2 secondi dopo l'ultimo beacon prima che il modello sia armato. Questo per impedire che la funzionalità di beacon interferisca con i comandi Dshot inviati quando si arma.<br\/><strong>Attenzione:<\/strong> poiché il beacon Dshot porta corrente attraverso i motori quando è attivo, può provocare surriscaldamento e danni ai motori e \/ o ai regolatori se la forza del beacon è impostata troppo alta. Utilizzare BLHeli Configurator o la Suite BLHeli per regolare e testare la potenza del beacon."
+        "message": "Il beacon Dshot utilizza i regolatori e i motori per produrre il suono. Ciò significa che il beacon Dshot non può essere utilizzato quando i motori girano. In Emuflight 3.4 e successivi, quando si prova ad armare mentre il BEACON Dshot è attivo, si ha un ritardo di 2 secondi dopo l'ultimo beacon prima che il modello sia armato. Questo per impedire che la funzionalità di beacon interferisca con i comandi Dshot inviati quando si arma.<br\/><strong>Attenzione:<\/strong> poiché il beacon Dshot porta corrente attraverso i motori quando è attivo, può provocare surriscaldamento e danni ai motori e \/ o ai regolatori se il volume del beacon è troppo alto. Utilizzare BLHeli Configurator o la Suite BLHeli per regolare e testare la potenza del beacon."
     },
     "configurationBeeper": {
         "message": "Configurazione dei Beep"
     },
     "beeperGYRO_CALIBRATED": {
-        "message": "Beep quando il giroscopio è calibrato"
+        "message": "Beep quando il giroscopio viene calibrato"
     },
     "beeperRX_LOST": {
-        "message": "Beep quando TX viene spento o viene perso il segnale (ripeti finchè non viene ristabilita la connessione con la TX)"
+        "message": "Beep quando la TX viene spenta o viene perso il segnale (ripetuto finchè non viene ristabilita la connessione con la TX)"
     },
     "beeperRX_LOST_LANDING": {
         "message": "Beep di SOS quando armata e TX viene spento o viene perso il segnale (autoatterraggio\/autodisarma)"
@@ -1137,10 +1137,10 @@
         "message": "<strong>Nota:<\/strong> non tutte le combinazioni sono valide. Quando il firmware del flight controller rileva questa situazione, la configurazione delle porte seriali viene resettata."
     },
     "portsMSPHelp": {
-        "message": "<strong>Nota:<\/strong>  <span class=\"message-negative\">NON <\/span> disabilitare mai MSP sulla prima porta seriale a meno che tu non sappia BENE cosa stai per fare. Potrebbe rendersi necessario reflashsare e cancellare la tua configurazione se lo fai."
+        "message": "<strong>Nota:<\/strong>  <span class=\"message-negative\">NON <\/span> disabilitare mai MSP sulla prima porta seriale a meno che tu non sappia BENE cosa stai per fare. Potrebbe rendersi necessario riflashsare e cancellare la tua configurazione se lo fai."
     },
     "portsFirmwareUpgradeRequired": {
-        "message": "<span class=\"message-negative\">E' necessario<\/span> un aggiornamento del Firmware. La configurazione delle porte seriali non è supportata per firmware &lt; di 1.8.0"
+        "message": "<span class=\"message-negative\">E' necessario<\/span> un aggiornamento del Firmware. La configurazione delle porte seriali non è supportata per firmware minori di 1.8.0"
     },
     "portsButtonSave": {
         "message": "Salva e riavvia"
@@ -1227,7 +1227,7 @@
         "message": "Impostazioni controller PID indipendenti dal profilo"
     },
     "pidTuningAntiGravityMode": {
-        "message": "Modo Anti Gravity"
+        "message": "Modalità Anti Gravity"
     },
     "pidTuningAntiGravityModeOptionSmooth": {
         "message": "Liscio",
@@ -1368,7 +1368,7 @@
         "message": "Super Rate"
     },
     "pidTuningRatesPreview": {
-        "message": "Anteprima di velocità"
+        "message": "Anteprima dei rate"
     },
     "pidTuningRcExpo": {
         "message": "Esponenziale"
@@ -1386,10 +1386,10 @@
         "message": "Punto di interruzione TPA"
     },
     "pidTuningThrottleLimitType": {
-        "message": "Limite acceleratore"
+        "message": "Limite gas"
     },
     "pidTuningThrottleLimitPercent": {
-        "message": "Limite acceleratore %"
+        "message": "Limite gas %"
     },
     "pidTuningThrottleLimitTypeOff": {
         "message": "SPENTO"
@@ -1458,13 +1458,13 @@
         "message": "Profilo del controllore di volo: <strong class=\"message-positive\">$1<\/strong>"
     },
     "pidTuningReceivedRateProfile": {
-        "message": "Profilo velocità controllore di volo: <strong class=\"message-positive\">$1<\/strong>"
+        "message": "Profilo rate controllore di volo: <strong class=\"message-positive\">$1<\/strong>"
     },
     "pidTuningLoadedProfile": {
         "message": "Profilo caricato: <strong class=\"message-positive\">$1<\/strong>"
     },
     "pidTuningLoadedRateProfile": {
-        "message": "Profilo Velocità Caricato: <strong class=\"message-positive\">$1<\/strong>"
+        "message": "Profilo Rate Caricato: <strong class=\"message-positive\">$1<\/strong>"
     },
     "pidTuningDataRefreshed": {
         "message": "dati dei PID <strong>aggiornati<\/strong>"
@@ -2088,7 +2088,7 @@
         "message": "Il tuo controllore di volo non supporta la registrazione nel Blackbox."
     },
     "blackboxMaybeSupported": {
-        "message": "Il firmware del tuo controllore di volo è troppo vecchio per supportare questa scheda oppure la funzione di scatola nera è disabilitata nella scheda Configurazioni."
+        "message": "Il firmware del tuo controllore di volo è troppo vecchio per supportare questa scheda oppure la funzione Blackbox è disabilitata nella scheda Configurazioni."
     },
     "blackboxConfiguration": {
         "message": "configurazione Blackbox"
@@ -2100,7 +2100,7 @@
         "message": "Nessuna registrazione"
     },
     "blackboxLoggingFlash": {
-        "message": "Flash integrato"
+        "message": "Flash integrata"
     },
     "blackboxLoggingSdCard": {
         "message": "Scheda di memoria SD"
@@ -2133,7 +2133,7 @@
         "message": "Il tuo controllore di volo non ha un chip di dataflash compatibile disponibile."
     },
     "dataflashFirmwareUpgradeRequired": {
-        "message": "Dataflash richiede firmware&gt; = 1.8.0."
+        "message": "Dataflash richiede firmware &gt;= 1.8.0."
     },
     "dataflashButtonSaveFile": {
         "message": "Salva flash su file ..."
@@ -2172,7 +2172,7 @@
         "message": "Annulla"
     },
     "dataflashFileWriteFailed": {
-        "message": "La scrittura sul file selezionato è fallita, assicurati di avere i permessi necessari sul file o la cartella che lo contiene"
+        "message": "La scrittura sul file selezionato è fallita, assicurati di avere i permessi necessari sul file o sulla cartella che lo contiene"
     },
     "sdcardStatusNoCard": {
         "message": "nessuna scheda inserita"
@@ -2546,7 +2546,7 @@
         "description": "One of the modes in Color Mode in Led Strip"
     },
     "ledStripModeColorsModeBlinkBg": {
-        "message": "Sfondo lampeggia",
+        "message": "Sfondo lampeggiante",
         "description": "One of the modes in Color Mode in Led Strip"
     },
     "ledStripModeColorsModeGPSNoSats": {
@@ -2554,11 +2554,11 @@
         "description": "One of the modes in Color Mode in Led Strip"
     },
     "ledStripModeColorsModeGPSNoLock": {
-        "message": "GPS: nessun blocco",
+        "message": "GPS: nessun fix",
         "description": "One of the modes in Color Mode in Led Strip"
     },
     "ledStripModeColorsModeGPSLocked": {
-        "message": "GPS: bloccato",
+        "message": "GPS: fix",
         "description": "One of the modes in Color Mode in Led Strip"
     },
     "ledStripWiring": {
@@ -2756,13 +2756,13 @@
         "message": "Impostazioni filtro profilo indipendente"
     },
     "pidTuningGyroLowpassFiltersGroup": {
-        "message": "Filtri passo-basso del giroscopio"
+        "message": "Filtri passa-basso del giroscopio"
     },
     "pidTuningGyroLowpassFrequency": {
-        "message": "Frequenza [Hz] di taglio passo-basso 1 del giroscopio"
+        "message": "Frequenza [Hz] di taglio passa-basso 1 del giroscopio"
     },
     "pidTuningGyroLowpassType": {
-        "message": "Tipo 1 filtro passo-basso del giroscopio"
+        "message": "Tipo 1 filtro passa-basso del giroscopio"
     },
     "pidTuningGyroLowpass2Frequency": {
         "message": "Frequenza [Hz] di taglio passa-basso 2 del giroscopio"
@@ -2792,16 +2792,16 @@
         "message": "Impostazioni filtro profilo dipendente"
     },
     "pidTuningDTermLowpassFiltersGroup": {
-        "message": "Filtri passo-basso del D Term"
+        "message": "Filtri passa-basso del D Term"
     },
     "pidTuningDTermLowpassType": {
         "message": "Tipo 1 filtro passa-basso del D Term"
     },
     "pidTuningDTermLowpassFrequency": {
-        "message": "Frequenza [Hz] di taglio passo-basso 1 D Term"
+        "message": "Frequenza [Hz] di taglio passa-basso 1 D Term"
     },
     "pidTuningDTermLowpass2Frequency": {
-        "message": "Frequenza [Hz] di taglio passo-basso D Term 2"
+        "message": "Frequenza [Hz] di taglio passa-basso D Term 2"
     },
     "pidTuningDTermNotchFiltersGroup": {
         "message": "Filtri Notch del D Term"
@@ -2813,7 +2813,7 @@
         "message": "Frequenza di taglio [Hz] del Filtro Notch del D Term"
     },
     "pidTuningYawLospassFiltersGroup": {
-        "message": "Filtri passo-basso yaw"
+        "message": "Filtri passa-basso yaw"
     },
     "pidTuningYawLowpassFrequency": {
         "message": "Frequenza [Hz] di taglio passa-basso Yaw"
@@ -2861,9 +2861,10 @@
         "message": "EmuBoost Limit"
     },
     "pidTuningEmuBoostHelp": {
-        "message": "Adds a nonlinear boost to the error seen by your p and i term. Adds a different feeling to the sticks. Values that are to high will cause oscillations. Craft with a lower power to weight like whoops seem happy with quite high values and EmuBoost can really help give them a locked in feeling."
+        "message": "Aggiunge un boost non linerare all'errore visto dai termini P ed I. Aggiunge un feeling diverso agli stick. Valori troppo alti causano oscillazioni. Multirotori con un rapporto peso/potenza più basso come i whoop adorano valori abbastanza alti di EmuBoost e vengono resi molto più precisi."
     },
     "pidTuningEmuBoostLimitHelp": {
+        "message": "Mette un limite a quanto EmuBoost può amplificare l'errore. Viene misurato come percentuale di quanto errore può aggiungere EmuBoost. Un EmuBoost alto con un limite EmuBoost basso può dare un feeling molto reattivo vicino al centro dello stick. Modifica secondo le tue preferenze."
         "message": "Puts a limit on how much the EmuBoost is allowed to boost your error. Its measured as a percentage of the total error that EmuBoost is allowed to add. A high EmuBoost with a low EmuBoost Limit can give a snappy feeling near the center of the stick. Tune this according to preference."
     },
     "pidTuningAbsoluteControlGain": {
@@ -3464,7 +3465,7 @@
         "message": "Elemento sconosciuto (dettagli da aggiungere in una versione futura)"
     },
     "osdDescElementCoreTemperature": {
-        "message": "Temperatura del nucleo della MCU STM32"
+        "message": "Temperatura del core della MCU STM32"
     },
     "osdDescAntiGravity": {
         "message": "Abilita un indicatore quando anti gravity è attivo"
@@ -3506,7 +3507,7 @@
         "message": "Distanza massima dalla posizione di partenza"
     },
     "osdDescStatBlackboxLogNumber": {
-        "message": "Numero di registro per questi Blackbox di volo"
+        "message": "Numero di registro per questo log Blackbox"
     },
     "osdDescStatTimer1": {
         "message": "Valore del timer 1 al momento del disarmo"
