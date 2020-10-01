@@ -2865,7 +2865,6 @@
     },
     "pidTuningEmuBoostLimitHelp": {
         "message": "Mette un limite a quanto EmuBoost può amplificare l'errore. Viene misurato come percentuale di quanto errore può aggiungere EmuBoost. Un EmuBoost alto con un limite EmuBoost basso può dare un feeling molto reattivo vicino al centro dello stick. Modifica secondo le tue preferenze."
-        "message": "Puts a limit on how much the EmuBoost is allowed to boost your error. Its measured as a percentage of the total error that EmuBoost is allowed to add. A high EmuBoost with a low EmuBoost Limit can give a snappy feeling near the center of the stick. Tune this according to preference."
     },
     "pidTuningAbsoluteControlGain": {
         "message": "Controllo assoluto"
