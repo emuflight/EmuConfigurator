@@ -65,18 +65,24 @@ TABS.pid_tuning.initialize = function(callback) {
     var presetJson;
 
     if (CONFIG.boardIdentifier !== "HESP" && CONFIG.boardIdentifier !== "SX10" && CONFIG.boardIdentifier !== "FLUX") {
-        if (semver.gte(CONFIG.apiVersion, "1.46.0")) {
+        if (semver.gte(CONFIG.apiVersion,"1.49.0")) {
+          presetJson = require(presetsFolders + "/presets-nonHELIO-v0.3.2.json");
+        }else if (semver.gte(CONFIG.apiVersion, "1.46.0")) {
             presetJson = require(presetsFolders + "/presets-nonHELIO-v0.3.0.json");
         } else {
             presetJson = require(presetsFolders + "/presets-nonHELIO-v0.2.0.json");
         }
+
     } else {
-        if (semver.gte(CONFIG.apiVersion, "1.46.0")) {
+      if (semver.gte(CONFIG.apiVersion,"1.49.0")) {
+        presetJson = require(presetsFolders + "/presets-HELIO-v0.3.2.json");
+      }else if (semver.gte(CONFIG.apiVersion, "1.46.0")) {
             presetJson = require(presetsFolders + "/presets-HELIO-v0.3.0.json");
         } else {
             presetJson = require(presetsFolders + "/presets-HELIO-v0.2.0.json");
         }
     }
+
 
     function pid_and_rc_to_form() {
         self.setProfile();
@@ -224,7 +230,11 @@ TABS.pid_tuning.initialize = function(callback) {
 
             dtermSetpointTransitionNumberElement.val(ADVANCED_TUNING.dtermSetpointTransition / 100);
 
+            f (semver.gte(CONFIG.apiVersion, "1.49.0")) {
+              $('input[name="dtermBoost-number"]').val(ADVANCED_TUNING.dtermBoost);
+            } else {
             $('input[name="dtermSetpoint-number"]').val(ADVANCED_TUNING.dtermSetpointWeight / 100);
+          }
         } else {
             $('.pid_filter .newFilter').hide();
         }
@@ -561,7 +571,7 @@ TABS.pid_tuning.initialize = function(callback) {
                 //rateSensCenter
                 var rateSensCenterNumberElement = $('input[name="rateSensCenter-number"]');
                 var rateSensCenterRangeElement = $('input[name="rateSensCenter-range"]');
-                
+
                 //Use 'input' event for coupled controls to allow synchronized update
                 rateSensCenterNumberElement.on('input', function () {
                     rateSensCenterRangeElement.val($(this).val());
@@ -574,7 +584,7 @@ TABS.pid_tuning.initialize = function(callback) {
                 //rateSensEnd
                 var rateSensEndNumberElement = $('input[name="rateSensEnd-number"]');
                 var rateSensEndRangeElement = $('input[name="rateSensEnd-range"]');
-                
+
                 //Use 'input' event for coupled controls to allow synchronized update
                 rateSensEndNumberElement.on('input', function () {
                     rateSensEndRangeElement.val($(this).val());
@@ -583,11 +593,11 @@ TABS.pid_tuning.initialize = function(callback) {
                     rateSensEndNumberElement.val($(this).val());
                 });
                 rateSensEndNumberElement.val(RC_tuning.rateSensEnd).trigger('input');
- 
+
                 //rateCorrectionCenter
                 var rateCorrectionCenterNumberElement = $('input[name="rateCorrectionCenter-number"]');
                 var rateCorrectionCenterRangeElement = $('input[name="rateCorrectionCenter-range"]');
-                
+
                 //Use 'input' event for coupled controls to allow synchronized update
                 rateCorrectionCenterNumberElement.on('input', function () {
                     rateCorrectionCenterRangeElement.val($(this).val());
@@ -595,12 +605,12 @@ TABS.pid_tuning.initialize = function(callback) {
                 rateCorrectionCenterRangeElement.on('input', function () {
                     rateCorrectionCenterNumberElement.val($(this).val());
                 });
-                rateCorrectionCenterNumberElement.val(RC_tuning.rateCorrectionCenter).trigger('input');     
-                
+                rateCorrectionCenterNumberElement.val(RC_tuning.rateCorrectionCenter).trigger('input');
+
                 //rateCorrectionEnd
                 var rateCorrectionEndNumberElement = $('input[name="rateCorrectionEnd-number"]');
                 var rateCorrectionEndRangeElement = $('input[name="rateCorrectionEnd-range"]');
-                
+
                 //Use 'input' event for coupled controls to allow synchronized update
                 rateCorrectionEndNumberElement.on('input', function () {
                     rateCorrectionEndRangeElement.val($(this).val());
@@ -608,12 +618,12 @@ TABS.pid_tuning.initialize = function(callback) {
                 rateCorrectionEndRangeElement.on('input', function () {
                     rateCorrectionEndNumberElement.val($(this).val());
                 });
-                rateCorrectionEndNumberElement.val(RC_tuning.rateCorrectionEnd).trigger('input');      
+                rateCorrectionEndNumberElement.val(RC_tuning.rateCorrectionEnd).trigger('input');
 
                 //rateWeightCenter
                 var rateWeightCenterNumberElement = $('input[name="rateWeightCenter-number"]');
                 var rateWeightCenterRangeElement = $('input[name="rateWeightCenter-range"]');
-                
+
                 //Use 'input' event for coupled controls to allow synchronized update
                 rateWeightCenterNumberElement.on('input', function () {
                     rateWeightCenterRangeElement.val($(this).val());
@@ -621,12 +631,12 @@ TABS.pid_tuning.initialize = function(callback) {
                 rateWeightCenterRangeElement.on('input', function () {
                     rateWeightCenterNumberElement.val($(this).val());
                 });
-                rateWeightCenterNumberElement.val(RC_tuning.rateWeightCenter).trigger('input');    
+                rateWeightCenterNumberElement.val(RC_tuning.rateWeightCenter).trigger('input');
 
                  //rateWeightEnd
                  var rateWeightEndNumberElement = $('input[name="rateWeightEnd-number"]');
                  var rateWeightEndRangeElement = $('input[name="rateWeightEnd-range"]');
-                 
+
                  //Use 'input' event for coupled controls to allow synchronized update
                  rateWeightEndNumberElement.on('input', function () {
                      rateWeightEndRangeElement.val($(this).val());
@@ -634,7 +644,7 @@ TABS.pid_tuning.initialize = function(callback) {
                  rateWeightEndRangeElement.on('input', function () {
                      rateWeightEndNumberElement.val($(this).val());
                  });
-                 rateWeightEndNumberElement.val(RC_tuning.rateWeightEnd).trigger('input');                                   
+                 rateWeightEndNumberElement.val(RC_tuning.rateWeightEnd).trigger('input');
             }
             if (FEATURE_CONFIG.features.isEnabled('DYNAMIC_FILTER') && (semver.gte(CONFIG.apiVersion, "1.47.0"))) {
                 $('.matrixFilter').show();
@@ -1553,14 +1563,14 @@ TABS.pid_tuning.initialize = function(callback) {
 
                 //dBoost preset to default (0) //msp 1.49
                 if (semver.gte(CONFIG.apiVersion, "1.49.0")) {
-                    $('input[name="dtermBoost-number"]').val('0');
-                    $('input[name="dtermBoostLimit-number"]').val('0');
+                    $('input[name="dtermBoost-number"]').val(presetJson[presetSelected]['dtermBoost']);
+                    $('input[name="dtermBoostLimit-number"]').val(presetJson[presetSelected]['dtermBoostLimit']);
                 }
 
                 //iTermRelaxV2 preset to default //msp 1.49
                 if (semver.gte(CONFIG.apiVersion, "1.49.0")) {
-                    $('input[name="iRelax-number"]').val('11');
-                    $('input[name="iRelaxYaw-number"]').val('25');
+                    $('input[name="iRelax-number"]').val(presetJson[presetSelected]['iRelax']);
+                    $('input[name="iRelaxYaw-number"]').val(presetJson[presetSelected]['iRelaxYaw']);
                 }
 
                 $('input[name="featheredPids-number"]').val(presetJson[presetSelected]['feathered_pids']);
