@@ -230,7 +230,7 @@ TABS.pid_tuning.initialize = function(callback) {
 
             dtermSetpointTransitionNumberElement.val(ADVANCED_TUNING.dtermSetpointTransition / 100);
 
-            f (semver.gte(CONFIG.apiVersion, "1.49.0")) {
+            if (semver.gte(CONFIG.apiVersion, "1.49.0")) {
               $('input[name="dtermBoost-number"]').val(ADVANCED_TUNING.dtermBoost);
             } else {
             $('input[name="dtermSetpoint-number"]').val(ADVANCED_TUNING.dtermSetpointWeight / 100);
