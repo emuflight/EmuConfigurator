@@ -40,8 +40,8 @@ var helioUrlv030 = "https://raw.githubusercontent.com/emuflight/emuflight-preset
 var presetNonHelioFileName030 = "/presets-nonHELIO-v0.3.0.json"
 var presetHelioFileName030 = "/presets-HELIO-v0.3.0.json"
 
-var nonHelioUrlv032 = "https://raw.githubusercontent.com/emuflight/emuflight-presets/master/presets-0.2.0/presets-nonHELIO.json";
-var helioUrlv032 = "https://raw.githubusercontent.com/emuflight/emuflight-presets/master/presets-0.2.0/presets-HELIO.json";
+var nonHelioUrlv032 = "https://raw.githubusercontent.com/emuflight/emuflight-presets/adding-0.3.2/presets-0.3.2/presets-nonHELIO.json";
+var helioUrlv032 = "https://raw.githubusercontent.com/emuflight/emuflight-presets/adding-0.3.2/presets-0.3.2/presets-nonHELIO.json";
 var presetNonHelioFileName032 = "/presets-nonHELIO-v0.3.2.json"
 var presetHelioFileName032 = "/presets-HELIO-v0.3.2.json"
 // TODO: migrate to a function to get rid of code duplication

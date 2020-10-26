@@ -1563,15 +1563,13 @@ TABS.pid_tuning.initialize = function(callback) {
 
                 //dBoost preset to default (0) //msp 1.49
                 if (semver.gte(CONFIG.apiVersion, "1.49.0")) {
-                    $('input[name="dtermBoost-number"]').val(presetJson[presetSelected]['dtermBoost']);
-                    $('input[name="dtermBoostLimit-number"]').val(presetJson[presetSelected]['dtermBoostLimit']);
+                    $('input[name="dtermBoost-number"]').val(presetJson[presetSelected]['dterm_boost']);
+                    $('input[name="dtermBoostLimit-number"]').val(presetJson[presetSelected]['dterm_boost_limit']);
+                    $('input[name="iRelax-number"]').val(presetJson[presetSelected]['iterm_relax_cutoff']);
+                    $('input[name="iRelaxYaw-number"]').val(presetJson[presetSelected]['iterm_relax_cutoff_yaw']);
+
                 }
 
-                //iTermRelaxV2 preset to default //msp 1.49
-                if (semver.gte(CONFIG.apiVersion, "1.49.0")) {
-                    $('input[name="iRelax-number"]').val(presetJson[presetSelected]['iRelax']);
-                    $('input[name="iRelaxYaw-number"]').val(presetJson[presetSelected]['iRelaxYaw']);
-                }
 
                 $('input[name="featheredPids-number"]').val(presetJson[presetSelected]['feathered_pids']);
                 $('input[id="itermrotation"]').prop('checked', presetJson[presetSelected]['iterm_rotation'] !== "OFF").change();
