@@ -290,7 +290,6 @@ TABS.cli.initialize = function (callback, nwGui) {
 
                 if (CliAutoComplete.isBuilding()) {
                     console.log('CliAutoComplete.isBuilding()=true ignoring input');
-                    GUI.log('CliAutoComplete.isBuilding()=true ignoring input');
                     return; // silently ignore commands if autocomplete is still building
                 }
 
@@ -367,7 +366,6 @@ function writeLineToOutput(text) {
     if (CliAutoComplete.isBuilding()) {
         CliAutoComplete.builderParseLine(text);
         console.log('CliAutoComplete.isBuilding()=true suppressing output');
-        GUI.log('CliAutoComplete.isBuilding()=true suppressing output');
         return; // suppress output if in building state
     }
 
@@ -472,10 +470,8 @@ TABS.cli.read = function (readInfo) {
         if (CliAutoComplete.isEnabled() && !CliAutoComplete.isBuilding()) {
             // start building autoComplete
             console.log('CliAutoComplete.builderStart() command calling...');
-            GUI.log('CliAutoComplete.builderStart() command calling...');
             CliAutoComplete.builderStart();
             console.log('CliAutoComplete.builderStart() command finished');
-            GUI.log('CliAutoComplete.builderStart() command finished');
         }
     }
 
