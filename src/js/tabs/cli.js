@@ -1,7 +1,7 @@
 'use strict';
 
 TABS.cli = {
-    lineDelayMs: 60,
+    lineDelayMs: 30,
     profileSwitchDelayMs: 600,
     outputHistory: "",
     cliBuffer: "",
