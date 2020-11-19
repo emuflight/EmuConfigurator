@@ -438,7 +438,7 @@ STM32DFU_protocol.prototype.controlTransfer = function (direction, request, valu
     // timeout support was added in chrome v43
     var timeout;
     if (typeof _timeout === "undefined") {
-	timeout = 0; // default is 0 (according to chrome.usb API)
+	timeout = 5; // default is 0 (according to chrome.usb API)
     } else {
         timeout = _timeout;
     }
