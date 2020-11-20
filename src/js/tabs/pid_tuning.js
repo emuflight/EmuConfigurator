@@ -381,6 +381,10 @@ TABS.pid_tuning.initialize = function(callback) {
         });
 
         if (semver.gte(CONFIG.apiVersion, "1.40.0")) {
+            //sharpness allows off 0 in msp 1.49
+            if (semver.gte(CONFIG.apiVersion, "1.49.0")) {
+                 $('.pid_filter input[name="imuf_sharpness"]').attr("min", "0");
+            }
 
             if (CONFIG.boardIdentifier !== "HESP" && CONFIG.boardIdentifier !== "SX10" && CONFIG.boardIdentifier !== "FLUX" && semver.lt(CONFIG.apiVersion, "1.42.0")) {
                 $('.kalmanFilterSettingsPanel').show();
@@ -445,7 +449,19 @@ TABS.pid_tuning.initialize = function(callback) {
                 $('.smartfeedforward').hide();
             }
 
-            // I Term Relax
+            //iTermRelax V2 //read
+            if (semver.gte(CONFIG.apiVersion, "1.49.0")) {
+                $('#iRelaxV2').show();
+                $('#iRelaxYawV2').show();
+                $('input[name="iRelax-number"]').val(ADVANCED_TUNING.iterm_relax_cutoff);
+                $('input[name="iRelaxYaw-number"]').val(ADVANCED_TUNING.iterm_relax_cutoff_yaw);
+
+            } else {
+                $('#iRelaxV2').hide();
+                $('#iRelaxYawV2').hide();
+            }
+
+            // I Term Relax (V1)
             var itermRelaxCheck = $('input[id="itermrelax"]');
 
             itermRelaxCheck.prop('checked', ADVANCED_TUNING.itermRelax !== 0);
@@ -491,6 +507,19 @@ TABS.pid_tuning.initialize = function(callback) {
             } else {
                 $('.errorBoostYaw').hide();
                 $('.errorBoostLimitYaw').hide();
+            }
+
+            //dBoost //read //not setup for presets
+            if (semver.gte(CONFIG.apiVersion, "1.49.0")) {
+                $('input[name="dtermBoost-number"]').val(ADVANCED_TUNING.dtermBoost);
+                $('input[name="dtermBoostLimit-number"]').val(ADVANCED_TUNING.dtermBoostLimit);
+
+                $('#dtermBoost').show();
+                $('#dtermBoostLimit').show();
+
+            } else {
+                $('#dtermBoost').hide();
+                $('#dtermBoostLimit').hide();
             }
 
             // Throttle Boost
@@ -918,7 +947,12 @@ TABS.pid_tuning.initialize = function(callback) {
 
         if (semver.gte(CONFIG.apiVersion, "1.20.0")) {
             ADVANCED_TUNING.dtermSetpointTransition = parseInt($('input[name="dtermSetpointTransition-number"]').val() * 100);
-            ADVANCED_TUNING.dtermSetpointWeight = parseInt($('input[name="dtermSetpoint-number"]').val() * 100);
+            //dBoost //save
+            if (semver.gte(CONFIG.apiVersion, "1.49.0")) {
+                ADVANCED_TUNING.dtermBoost = parseInt($('input[name="dtermBoost-number"]').val());
+            } else {
+                ADVANCED_TUNING.dtermSetpointWeight = parseInt($('input[name="dtermSetpoint-number"]').val() * 100);
+            }
 
             FILTER_CONFIG.gyro_notch_hz = parseInt($('.pid_filter input[name="gyroNotch1Frequency"]').val());
             FILTER_CONFIG.gyro_notch_cutoff = parseInt($('.pid_filter input[name="gyroNotch1Cutoff"]').val());
@@ -981,9 +1015,17 @@ TABS.pid_tuning.initialize = function(callback) {
                 ADVANCED_TUNING.nfe_racermode = $('input[id="nferacermode"]').is(':checked') ? 1 : 0;
             }
             ADVANCED_TUNING.smartFeedforward = $('input[id="smartfeedforward"]').is(':checked') ? 1 : 0;
-            ADVANCED_TUNING.itermRelax = $('input[id="itermrelax"]').is(':checked') ? $('select[id="itermrelaxAxes"]').val() : 0;
-            ADVANCED_TUNING.itermRelaxType = $('input[id="itermrelax"]').is(':checked') ? $('select[id="itermrelaxType"]').val() : 0;
-            ADVANCED_TUNING.itermRelaxCutoff = parseInt($('input[name="itermRelaxCutoff"]').val());
+            //iTermRelax V2 //save
+            //dBoost //save
+            if (semver.gte(CONFIG.apiVersion, "1.49.0")) {
+                ADVANCED_TUNING.iterm_relax_cutoff = parseInt($('input[name="iRelax-number"]').val());
+                ADVANCED_TUNING.iterm_relax_cutoff_yaw = parseInt($('input[name="iRelaxYaw-number"]').val());
+                ADVANCED_TUNING.dtermBoostLimit = parseInt($('input[name="dtermBoostLimit-number"]').val());
+            } else { //iTermRelax V1 save
+                ADVANCED_TUNING.itermRelax = $('input[id="itermrelax"]').is(':checked') ? $('select[id="itermrelaxAxes"]').val() : 0;
+                ADVANCED_TUNING.itermRelaxType = $('input[id="itermrelax"]').is(':checked') ? $('select[id="itermrelaxType"]').val() : 0;
+                ADVANCED_TUNING.itermRelaxCutoff = parseInt($('input[name="itermRelaxCutoff"]').val());
+            }
             ADVANCED_TUNING.absoluteControlGain = $('input[name="absoluteControlGain-number"]').val();
             ADVANCED_TUNING.iDecay = $('input[name="iDecay-number"]').val();
             ADVANCED_TUNING.errorBoost = $('input[name="errorBoost-number"]').val();
@@ -1508,6 +1550,18 @@ TABS.pid_tuning.initialize = function(callback) {
 
                 var errorBoostLimitYawNumberElement = $('input[name="errorBoostLimitYaw-number"]');
                 errorBoostLimitYawNumberElement.val(presetJson[presetSelected]['emu_boost_limit_yaw']).trigger('input');
+
+                //dBoost preset to default (0) //msp 1.49
+                if (semver.gte(CONFIG.apiVersion, "1.49.0")) {
+                    $('input[name="dtermBoost-number"]').val('0');
+                    $('input[name="dtermBoostLimit-number"]').val('0');
+                }
+
+                //iTermRelaxV2 preset to default //msp 1.49
+                if (semver.gte(CONFIG.apiVersion, "1.49.0")) {
+                    $('input[name="iRelax-number"]').val('11');
+                    $('input[name="iRelaxYaw-number"]').val('25');
+                }
 
                 $('input[name="featheredPids-number"]').val(presetJson[presetSelected]['feathered_pids']);
                 $('input[id="itermrotation"]').prop('checked', presetJson[presetSelected]['iterm_rotation'] !== "OFF").change();

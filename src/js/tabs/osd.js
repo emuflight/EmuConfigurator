@@ -1582,6 +1582,17 @@ OSD.chooseFields = function () {
             F.CORE_TEMPERATURE,
             F.RC_SMOOTHING_FAILURE
         ]);
+        if (semver.gte(CONFIG.apiVersion, "1.49.0")) {
+            F.DJI = {
+                name: 'DJI',
+                text: 'osdWarningTextDji',
+                desc: 'osdWarningDji'
+            };
+
+            OSD.constants.WARNINGS = OSD.constants.WARNINGS.concat([
+                F.DJI
+            ]);
+        }
     }
 
     OSD.constants.TIMER_TYPES = [
