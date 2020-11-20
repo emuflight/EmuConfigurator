@@ -1059,7 +1059,7 @@ MspHelper.prototype.process_data = function(dataHandler) {
                     }
                 }
                 break;
-                
+
             case MSPCodes.MSP_SET_PID_ADVANCED:
                 console.log("Advanced PID settings saved");
                 break;
@@ -1089,12 +1089,22 @@ MspHelper.prototype.process_data = function(dataHandler) {
                             ADVANCED_TUNING.itermThrottleThreshold = data.readU16();
                             ADVANCED_TUNING.itermAcceleratorGain = data.readU16();
                             if (semver.gte(CONFIG.apiVersion, "1.39.0")) {
-                                ADVANCED_TUNING.dtermSetpointWeight = data.readU16();
+                                if (semver.gte(CONFIG.apiVersion, "1.49.0")) {
+                                    ADVANCED_TUNING.dtermBoost = data.readU16();
+                                } else {
+                                    ADVANCED_TUNING.dtermSetpointWeight = data.readU16();
+                                }
                                 if (semver.gte(CONFIG.apiVersion, "1.40.0")) {
                                     ADVANCED_TUNING.itermRotation = data.readU8();
-                                    ADVANCED_TUNING.smartFeedforward = data.readU8();
-                                    ADVANCED_TUNING.itermRelax = data.readU8();
-                                    ADVANCED_TUNING.itermRelaxType = data.readU8();
+                                    if (semver.gte(CONFIG.apiVersion, "1.49.0")) {
+                                        ADVANCED_TUNING.iterm_relax_cutoff = data.readU8();
+                                        ADVANCED_TUNING.iterm_relax_cutoff_yaw = data.readU8();
+                                        ADVANCED_TUNING.dtermBoostLimit = data.readU8();
+                                    } else {
+                                        ADVANCED_TUNING.smartFeedforward = data.readU8();
+                                        ADVANCED_TUNING.itermRelax = data.readU8();
+                                        ADVANCED_TUNING.itermRelaxType = data.readU8();
+                                    }
                                     ADVANCED_TUNING.absoluteControlGain = data.readU8();
                                     ADVANCED_TUNING.throttleBoost = data.readU8();
                                     if (semver.lt(CONFIG.apiVersion, "1.46.0")) {
@@ -1951,7 +1961,6 @@ MspHelper.prototype.crunch = function(code) {
                 if (semver.gte(CONFIG.apiVersion, "1.42.0")) {
                     buffer.push16(IMUF_FILTER_CONFIG.imuf_acc_lpf_cutoff_hz);
                 }
-
             }
             break;
 
@@ -1981,13 +1990,23 @@ MspHelper.prototype.crunch = function(code) {
                         buffer.push16(ADVANCED_TUNING.itermThrottleThreshold)
                               .push16(ADVANCED_TUNING.itermAcceleratorGain);
                         if (semver.gte(CONFIG.apiVersion, "1.39.0")) {
-                            buffer.push16(ADVANCED_TUNING.dtermSetpointWeight);
+                            if (semver.gte(CONFIG.apiVersion, "1.49.0")) {
+                                buffer.push16(ADVANCED_TUNING.dtermBoost);
+                            } else {
+                                buffer.push16(ADVANCED_TUNING.dtermSetpointWeight);
+                            }
                             if (semver.gte(CONFIG.apiVersion, "1.40.0")) {
-                                buffer.push8(ADVANCED_TUNING.itermRotation)
-                                      .push8(ADVANCED_TUNING.smartFeedforward)
-                                      .push8(ADVANCED_TUNING.itermRelax)
-                                      .push8(ADVANCED_TUNING.itermRelaxType)
-                                      .push8(ADVANCED_TUNING.absoluteControlGain)
+                                buffer.push8(ADVANCED_TUNING.itermRotation);
+                                if (semver.gte(CONFIG.apiVersion, "1.49.0")) {
+                                    buffer.push8(ADVANCED_TUNING.iterm_relax_cutoff)
+                                          .push8(ADVANCED_TUNING.iterm_relax_cutoff_yaw)
+                                          .push8(ADVANCED_TUNING.dtermBoostLimit);
+                                } else {
+                                    buffer.push8(ADVANCED_TUNING.smartFeedforward)
+                                          .push8(ADVANCED_TUNING.itermRelax)
+                                          .push8(ADVANCED_TUNING.itermRelaxType);
+                                }
+                                buffer.push8(ADVANCED_TUNING.absoluteControlGain)
                                       .push8(ADVANCED_TUNING.throttleBoost);
                                 if (semver.lt(CONFIG.apiVersion, "1.46.0")) {
                                     buffer.push8(ADVANCED_TUNING.acroTrainerAngleLimit)
