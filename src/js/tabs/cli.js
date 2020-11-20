@@ -2,7 +2,7 @@
 
 TABS.cli = {
     lineDelayMs: 30,
-    profileSwitchDelayMs: 600,
+    profileSwitchDelayMs: 1000,  //1 second
     outputHistory: "",
     cliBuffer: "",
     GUI: {
