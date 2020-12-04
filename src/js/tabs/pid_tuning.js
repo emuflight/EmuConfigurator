@@ -65,24 +65,19 @@ TABS.pid_tuning.initialize = function(callback) {
     var presetJson;
 
     if (CONFIG.boardIdentifier !== "HESP" && CONFIG.boardIdentifier !== "SX10" && CONFIG.boardIdentifier !== "FLUX") {
-        if (semver.gte(CONFIG.apiVersion,"1.49.0")) {
-          presetJson = require(presetsFolders + "/presets-nonHELIO-v0.3.2.json");
-        }else if (semver.gte(CONFIG.apiVersion, "1.46.0")) {
+        if (semver.gte(CONFIG.apiVersion, "1.46.0")) {
             presetJson = require(presetsFolders + "/presets-nonHELIO-v0.3.0.json");
         } else {
             presetJson = require(presetsFolders + "/presets-nonHELIO-v0.2.0.json");
         }
 
     } else {
-      if (semver.gte(CONFIG.apiVersion,"1.49.0")) {
-        presetJson = require(presetsFolders + "/presets-HELIO-v0.3.2.json");
-      }else if (semver.gte(CONFIG.apiVersion, "1.46.0")) {
+        if (semver.gte(CONFIG.apiVersion, "1.46.0")) {
             presetJson = require(presetsFolders + "/presets-HELIO-v0.3.0.json");
         } else {
             presetJson = require(presetsFolders + "/presets-HELIO-v0.2.0.json");
         }
     }
-
 
     function pid_and_rc_to_form() {
         self.setProfile();
@@ -231,9 +226,9 @@ TABS.pid_tuning.initialize = function(callback) {
             dtermSetpointTransitionNumberElement.val(ADVANCED_TUNING.dtermSetpointTransition / 100);
 
             if (semver.gte(CONFIG.apiVersion, "1.49.0")) {
-              $('input[name="dtermBoost-number"]').val(ADVANCED_TUNING.dtermBoost);
+                $('input[name="dtermBoost-number"]').val(ADVANCED_TUNING.dtermBoost);
             } else {
-            $('input[name="dtermSetpoint-number"]').val(ADVANCED_TUNING.dtermSetpointWeight / 100);
+                $('input[name="dtermSetpoint-number"]').val(ADVANCED_TUNING.dtermSetpointWeight / 100);
           }
         } else {
             $('.pid_filter .newFilter').hide();
@@ -519,7 +514,7 @@ TABS.pid_tuning.initialize = function(callback) {
                 $('.errorBoostLimitYaw').hide();
             }
 
-            //dBoost //read //not setup for presets
+            //dBoost //read
             if (semver.gte(CONFIG.apiVersion, "1.49.0")) {
                 $('input[name="dtermBoost-number"]').val(ADVANCED_TUNING.dtermBoost);
                 $('input[name="dtermBoostLimit-number"]').val(ADVANCED_TUNING.dtermBoostLimit);
@@ -1561,15 +1556,41 @@ TABS.pid_tuning.initialize = function(callback) {
                 var errorBoostLimitYawNumberElement = $('input[name="errorBoostLimitYaw-number"]');
                 errorBoostLimitYawNumberElement.val(presetJson[presetSelected]['emu_boost_limit_yaw']).trigger('input');
 
-                //dBoost preset to default (0) //msp 1.49
+                //dBoost and iRelaxV2 presets //msp 1.49
+                // if non-existing preset, use hardcoded defaults
                 if (semver.gte(CONFIG.apiVersion, "1.49.0")) {
-                    $('input[name="dtermBoost-number"]').val(presetJson[presetSelected]['dterm_boost']);
-                    $('input[name="dtermBoostLimit-number"]').val(presetJson[presetSelected]['dterm_boost_limit']);
-                    $('input[name="iRelax-number"]').val(presetJson[presetSelected]['iterm_relax_cutoff']);
-                    $('input[name="iRelaxYaw-number"]').val(presetJson[presetSelected]['iterm_relax_cutoff_yaw']);
+                    if (typeof presetJson[presetSelected]['dterm_boost'] === 'undefined' || presetJson[presetSelected]['dterm_boost'] === null) {
+                        // variable is undefined or null (non-exist)
+                        $('input[name="dtermBoost-number"]').val('0');
+                    } else {
+                        // preset exists, so set it.
+                        $('input[name="dtermBoost-number"]').val(presetJson[presetSelected]['dterm_boost']);
+                    }
 
-                }
+                    if (typeof presetJson[presetSelected]['dterm_boost_limit'] === 'undefined' || presetJson[presetSelected]['dterm_boost_limit'] === null) {
+                        // variable is undefined or null (non-exist)
+                        $('input[name="dtermBoostLimit-number"]').val('0');
+                    } else {
+                        // preset exists, so set it.
+                        $('input[name="dtermBoostLimit-number"]').val(presetJson[presetSelected]['dterm_boost_limit']);
+                    }
 
+                    if (typeof presetJson[presetSelected]['iterm_relax2_cutoff'] === 'undefined' || presetJson[presetSelected]['iterm_relax2_cutoff'] === null) {
+                        // variable is undefined or null (non-exist)
+                        $('input[name="iRelax-number"]').val('11');
+                    } else {
+                        // preset exists, so set it.
+                        $('input[name="iRelax-number"]').val(presetJson[presetSelected]['iterm_relax2_cutoff']);
+                    }
+
+                    if (typeof presetJson[presetSelected]['iterm_relax2_cutoff_yaw'] === 'undefined' || presetJson[presetSelected]['iterm_relax2_cutoff_yaw'] === null) {
+                        // variable is undefined or null (non-exist)
+                        $('input[name="iRelaxYaw-number"]').val('25');
+                    } else {
+                        // preset exists, so set it.
+                        $('input[name="iRelaxYaw-number"]').val(presetJson[presetSelected]['iterm_relax2_cutoff_yaw']);
+                    }
+                } //end - dBoost and iRelaxV2 presets //msp 1.49
 
                 $('input[name="featheredPids-number"]').val(presetJson[presetSelected]['feathered_pids']);
                 $('input[id="itermrotation"]').prop('checked', presetJson[presetSelected]['iterm_rotation'] !== "OFF").change();
