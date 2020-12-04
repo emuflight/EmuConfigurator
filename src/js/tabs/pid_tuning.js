@@ -1563,7 +1563,7 @@ TABS.pid_tuning.initialize = function(callback) {
                         // variable is undefined or null (non-exist)
                         $('input[name="dtermBoost-number"]').val('0');
                     } else {
-                        // preset exists, so set it.
+                        // preset exists, so use it.
                         $('input[name="dtermBoost-number"]').val(presetJson[presetSelected]['dterm_boost']);
                     }
 
@@ -1571,7 +1571,7 @@ TABS.pid_tuning.initialize = function(callback) {
                         // variable is undefined or null (non-exist)
                         $('input[name="dtermBoostLimit-number"]').val('0');
                     } else {
-                        // preset exists, so set it.
+                        // preset exists, so use it.
                         $('input[name="dtermBoostLimit-number"]').val(presetJson[presetSelected]['dterm_boost_limit']);
                     }
 
@@ -1579,7 +1579,7 @@ TABS.pid_tuning.initialize = function(callback) {
                         // variable is undefined or null (non-exist)
                         $('input[name="iRelax-number"]').val('11');
                     } else {
-                        // preset exists, so set it.
+                        // preset exists, so use it.
                         $('input[name="iRelax-number"]').val(presetJson[presetSelected]['iterm_relax2_cutoff']);
                     }
 
@@ -1587,7 +1587,7 @@ TABS.pid_tuning.initialize = function(callback) {
                         // variable is undefined or null (non-exist)
                         $('input[name="iRelaxYaw-number"]').val('25');
                     } else {
-                        // preset exists, so set it.
+                        // preset exists, so use it.
                         $('input[name="iRelaxYaw-number"]').val(presetJson[presetSelected]['iterm_relax2_cutoff_yaw']);
                     }
                 } //end - dBoost and iRelaxV2 presets //msp 1.49
