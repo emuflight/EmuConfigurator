@@ -1317,6 +1317,8 @@ TABS.pid_tuning.initialize = function(callback) {
         function loadPresetsList() {
             var numberOfPresets = Object.keys(presetJson).length;
             var keys = Object.keys(presetJson);
+            keys.sort();
+            keys.reverse();
             var presetsElements = [];
             for (var i = 0; i < numberOfPresets; i++) {
                 presetsElements.push(keys[i]);
