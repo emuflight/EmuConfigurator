@@ -1515,17 +1515,9 @@ OSD.chooseFields = function () {
                                     if (semver.gte(CONFIG.apiVersion, "1.49.0")) {
                                         OSD.constants.DISPLAY_FIELDS = OSD.constants.DISPLAY_FIELDS.concat([
                                             F.CRSF_SNR_VALUE,
+                                            F.CRSF_TX_POWER,
+                                            F.CRSF_RSSI_VALUE,
                                         ]);
-                                        if (semver.gte(CONFIG.apiVersion, "1.49.0")) {
-                                            OSD.constants.DISPLAY_FIELDS = OSD.constants.DISPLAY_FIELDS.concat([
-                                                F.CRSF_TX_POWER,
-                                            ]);
-                                            if (semver.gte(CONFIG.apiVersion, "1.49.0")) {
-                                                OSD.constants.DISPLAY_FIELDS = OSD.constants.DISPLAY_FIELDS.concat([
-                                                    F.CRSF_RSSI_VALUE,
-                                                ]);
-                                            }
-                                        }
                                     }
                                 }
                             }
