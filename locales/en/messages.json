@@ -4557,14 +4557,27 @@
     "osdDescElementOsdProfileName": {
         "message": "OSD profile name as set in the \"osd_profile_1_name\", \"osd_profile_2_name\" and \"osd_profile_3_name\" CLI variables"
     },
-    "osdTextElementRssiDbmValue": {
-        "message": "RSSI dBm value",
+    "osdTextElementCrsfSnrValue": {
+        "message": "CRSF SNR",
         "description": "One of the elements of the OSD"
     },
-    "osdDescElementRssiDbmValue": {
-        "message": "Value in dBm of the RSSI signal if available"
+    "osdDescElementCrsfSnrValue": {
+        "message": "Signal-to-noise ratio as reported by CRSF telemetry"
     },
-
+    "osdTextElementCrsfTxPower": {
+        "message": "CRSF TX Power",
+        "description": "One of the elements of the OSD"
+    },
+    "osdDescElementCrsfTxPower": {
+        "message": "TX power as reported by CRSF telemetry"
+    },
+    "osdTextElementCrsfRssiValue": {
+        "message": "CRSF RSSI dBm",
+        "description": "One of the elements of the OSD"
+    },
+    "osdDescElementCrsfRssiValue": {
+        "message": "RSSI dBm as reported by CRSF telemetry"
+    },
     "osdTextElementUnknown": {
         "message": "Unknown $1",
         "description": "One of the elements of the OSD"
