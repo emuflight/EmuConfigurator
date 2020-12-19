@@ -4564,7 +4564,27 @@
     "osdDescElementRssiDbmValue": {
         "message": "Value in dBm of the RSSI signal if available"
     },
-
+    "osdTextElementCrsfSnrValue": {
+        "message": "CRSF SNR",
+        "description": "One of the elements of the OSD"
+    },
+    "osdDescElementCrsfSnrValue": {
+        "message": "Signal-to-noise ratio as reported by CRSF telemetry"
+    },
+    "osdTextElementCrsfTxPower": {
+        "message": "CRSF TX Power",
+        "description": "One of the elements of the OSD"
+    },
+    "osdDescElementCrsfTxPower": {
+        "message": "TX power as reported by CRSF telemetry"
+    },
+    "osdTextElementCrsfRssiValue": {
+        "message": "CRSF RSSI dBm",
+        "description": "One of the elements of the OSD"
+    },
+    "osdDescElementCrsfRssiValue": {
+        "message": "RSSI dBm as reported by CRSF telemetry"
+    },
     "osdTextElementUnknown": {
         "message": "Unknown $1",
         "description": "One of the elements of the OSD"
