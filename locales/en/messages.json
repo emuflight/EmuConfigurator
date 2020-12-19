@@ -4564,13 +4564,6 @@
     "osdDescElementRssiDbmValue": {
         "message": "Value in dBm of the RSSI signal if available"
     },
-    "osdTextElementPercentMAHUsedValue": {
-        "message": "MAH Percent",
-        "description": "One of the elements of the OSD"
-    },
-    "osdDescElementPercentMAHUsedValue": {
-        "message": "Percentage of MAH used."
-    },
 
     "osdTextElementUnknown": {
         "message": "Unknown $1",
@@ -4614,6 +4607,13 @@
     },
     "osdDescStatUsedMah": {
         "message": "Battery capacity used"
+    },
+    "osdTextElementPercentMAHUsedValue": {
+        "message": "Battery mAh percent used.",
+        "description": "One of the elements of the OSD"
+    },
+    "osdDescElementPercentMAHUsedValue": {
+        "message": "Battery mAh percent used."
     },
     "osdTextStatMaxAltitude": {
         "message": "Altitude maximum",
