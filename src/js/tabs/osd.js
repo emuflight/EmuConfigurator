@@ -1112,6 +1112,33 @@ OSD.loadDisplayFields = function() {
             positionable: true,
             preview: FONT.symbol(SYM.RSSI) + '-130'
         },
+        CRSF_SNR_VALUE: {
+            name: 'OSD_PROFILE_NAME',
+            text: 'osdTextElementCrsfSnrValue',
+            desc: 'osdDescElementCrsfSnrValue',
+            default_position: -1,
+            draw_order: 465,
+            positionable: true,
+            preview: 'SN 70DB'
+        },
+        CRSF_TX_POWER: {
+            name: 'OSD_PROFILE_NAME',
+            text: 'osdTextElementCrsfTxPower',
+            desc: 'osdDescElementCrsfTxPower',
+            default_position: -1,
+            draw_order: 455,
+            positionable: true,
+            preview: '250MW'
+        },
+        CRSF_RSSI_VALUE: {
+            name: 'OSD_PROFILE_NAME',
+            text: 'osdTextElementCrsfRssiValue',
+            desc: 'osdDescElementCrsfRssiValue',
+            default_position: -1,
+            draw_order: 460,
+            positionable: true,
+            preview: '-20DBM'
+        }
     };
 };
 
@@ -1485,13 +1512,20 @@ OSD.chooseFields = function () {
                                     F.ADJUSTMENT_RANGE,
                                     F.CORE_TEMPERATURE
                                 ]);
-                                if (semver.gte(CONFIG.apiVersion, "1.39.0")) {
+                                if (!(semver.gte(CONFIG.apiVersion, "1.47.0"))) {
                                     OSD.constants.DISPLAY_FIELDS = OSD.constants.DISPLAY_FIELDS.concat([
                                         F.ANTI_GRAVITY
                                     ]);
-                                    if (semver.gte(CONFIG.apiVersion, "1.40.0")) {
+                                }
+                                if (semver.gte(CONFIG.apiVersion, "1.40.0")) {
+                                    OSD.constants.DISPLAY_FIELDS = OSD.constants.DISPLAY_FIELDS.concat([
+                                        F.G_FORCE,
+                                    ]);
+                                    if (semver.gte(CONFIG.apiVersion, "1.49.0")) {
                                         OSD.constants.DISPLAY_FIELDS = OSD.constants.DISPLAY_FIELDS.concat([
-                                            F.G_FORCE,
+                                            F.CRSF_SNR_VALUE,
+                                            F.CRSF_TX_POWER,
+                                            F.CRSF_RSSI_VALUE,
                                         ]);
                                         if (semver.gte(CONFIG.apiVersion, "1.50.0")) {
                                             OSD.constants.DISPLAY_FIELDS = OSD.constants.DISPLAY_FIELDS.concat([
