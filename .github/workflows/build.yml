@@ -67,13 +67,6 @@ jobs:
         continue-on-error: false
         if: ${{ startsWith(matrix.os, 'windows') }}
         run: yarn gulp release  --win32 --win64
-      - name: rename to build no and SHA    #will this even work non-Linux?
-        continue-on-error: false   #mod this to true?
-        run: |
-          sudo apt -y install rename
-          cd release
-          export buildname="_Build_${{ github.RUN_NUMBER }}_${{ env.SHORT_SHA }}"
-          rename rename 's/\./${buildname}\./' emuflight-configurator*
       - name: Upload Artifacts
         uses: actions/upload-artifact@master
         with:
@@ -103,12 +96,6 @@ jobs:
       - name: list artifacts
         continue-on-error: true
         run: |
-          ls -lhr ./*
-      - name: rename artifacts
-        continue-on-error: false
-        run: |
-          sudo apt -y install rename
-          rename 's/_Build_.*\./\./' emuflight-configurator*
           ls -lhr ./*
       - name: draft release
         continue-on-error: true
@@ -165,6 +152,13 @@ jobs:
         continue-on-error: true
         run: |
           ls -lhr ./*
+      - name: rename with BuildNum and SHA
+        continue-on-error: false   #mod this to true?
+        run: |
+          sudo apt -y install rename
+          cd release
+          export buildname="_Build_${{ github.RUN_NUMBER }}_${{ env.SHORT_SHA }}"
+          rename rename 's/\./${buildname}\./' emuflight-configurator*
       - name: upload to bintray
         continue-on-error: true
         run: |
