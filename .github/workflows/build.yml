@@ -151,13 +151,14 @@ jobs:
       - name: list artifacts
         continue-on-error: true
         run: |
-          ls -lhr ./*
+          ls -lh ./emuflight-configurator*
       - name: rename with BuildNum and SHA
         continue-on-error: false   #mod this to true?
         run: |
           sudo apt -y install rename
           export buildname="_Build_${{ github.RUN_NUMBER }}_${{ env.SHORT_SHA }}"
-          rename "s/\./${buildname}\./" emuflight-configurator*
+          rename "s/\.(?=[^.]*$)/${buildname}\./" emuflight-configurator*.???
+          ls -lh ./emuflight-configurator*
       - name: upload to bintray
         continue-on-error: true
         run: |
