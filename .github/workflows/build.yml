@@ -157,7 +157,7 @@ jobs:
         run: |
           sudo apt -y install rename
           export buildname="_Build_${{ github.RUN_NUMBER }}_${{ env.SHORT_SHA }}"
-          rename 's/\./${buildname}\./' emuflight-configurator*
+          rename "s/\./${buildname}\./" emuflight-configurator*
       - name: upload to bintray
         continue-on-error: true
         run: |
