@@ -26,7 +26,7 @@ jobs:
       - name: git checkout
         continue-on-error: false
         uses: actions/checkout@master
-      - name: get tag
+      - name: get tag & short-sha
         continue-on-error: true
         run: |
           echo "REVISION_TAG=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
@@ -96,13 +96,13 @@ jobs:
       - name: list artifacts
         continue-on-error: true
         run: |
-          ls -lh ./*
+          ls -lh ./*.???
       - name: draft release
         continue-on-error: true
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          files: ./emuflight-configurator*
+          files: ./emuflight-configurator*.???
           draft: true
           prerelease: true
           tag_name: ${{ github.RUN_NUMBER }}   # use the build Number, but we manually change to version so that it creates a version-tag on release
@@ -152,8 +152,8 @@ jobs:
         continue-on-error: true
         run: |
           ls -lh ./emuflight-configurator*.???
-      - name: rename with BuildNum and SHA
-        continue-on-error: false   #bad rename breaks upload
+      - name: rename with build_num and sha
+        continue-on-error: false   #bad rename breaks upload to bintray
         run: |
           sudo apt -y install rename
           export buildname="_Build_${{ github.RUN_NUMBER }}_${{ env.SHORT_SHA }}"
