@@ -73,7 +73,7 @@ jobs:
           sudo apt -y install rename
           cd release
           export buildname="_Build_${{ github.RUN_NUMBER }}_${{ env.SHORT_SHA }}"
-          rename rename 's/\./${buildname}\./' emuflight-configurator_*
+          rename rename 's/\./${buildname}\./' emuflight-configurator*
       - name: Upload Artifacts
         uses: actions/upload-artifact@master
         with:
