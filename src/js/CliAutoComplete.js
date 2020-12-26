@@ -87,6 +87,8 @@ CliAutoComplete._builderWatchdogStop = function() {
 };
 
 CliAutoComplete.builderStart = function() {
+    console.log('CliAutoComplete.builderStart called and running...');
+    GUI.log('CliAutoComplete.builderStart called and running...');
     if (this.builder.state == 'reset') {
         this.cache = {
             commands: [],
