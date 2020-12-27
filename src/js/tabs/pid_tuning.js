@@ -438,7 +438,7 @@ TABS.pid_tuning.initialize = function(callback) {
             }
 
             // nfe racer mode
-            if (semver.gte(CONFIG.apiVersion, "1.43.0")) {
+            if (semver.gte(CONFIG.apiVersion, "1.43.0") && semver.lt(CONFIG.flightControllerVersion, "0.3.3") ) {
                 $('input[id="nferacermode"]').prop('checked', ADVANCED_TUNING.nfe_racermode !== 0);
             } else {
                 $('.nferacermode').hide();
