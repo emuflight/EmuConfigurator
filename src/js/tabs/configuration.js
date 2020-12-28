@@ -693,7 +693,7 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
             serialRXtypes.push('FrSky FPort');
         }
 
-        if (semver.gte(CONFIG.flightControllerVersion, "0.3.3")) { // we didn't bump MSP, so we'll use version
+        if (semver.gte(CONFIG.apiVersion, "1.50.0")) {
             serialRXtypes.push('IRC GHOST');
         }
 
