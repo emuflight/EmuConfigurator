@@ -598,7 +598,7 @@ OSD.loadDisplayFields = function() {
             default_position: -16,
             draw_order: 141,
             positionable: true,
-            preview: FONT.symbol(SYM.MAH) + '30%'
+            preview: FONT.symbol(SYM.MAH) + ' 30%'
         },
         CRAFT_NAME: {
             name: 'CRAFT_NAME',
