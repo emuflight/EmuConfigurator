@@ -591,6 +591,15 @@ OSD.loadDisplayFields = function() {
                 return semver.gte(CONFIG.apiVersion, "1.36.0") ? ' 690' + FONT.symbol(SYM.MAH) : FONT.symbol(SYM.MAH) + '690';
             }
         },
+        OSD_MAH_PERCENT: {
+            name: 'OSD_MAH_PERCENT',
+            text: 'osdTextElementPercentMAHUsedValue',
+            desc: 'osdDescElementPercentMAHUsedValue',
+            default_position: -16,
+            draw_order: 141,
+            positionable: true,
+            preview: FONT.symbol(SYM.MAH) + ' 30%'
+        },
         CRAFT_NAME: {
             name: 'CRAFT_NAME',
             text: 'osdTextElementCraftName',
@@ -1518,6 +1527,11 @@ OSD.chooseFields = function () {
                                             F.CRSF_TX_POWER,
                                             F.CRSF_RSSI_VALUE,
                                         ]);
+                                        if (semver.gte(CONFIG.apiVersion, "1.50.0")) {
+                                            OSD.constants.DISPLAY_FIELDS = OSD.constants.DISPLAY_FIELDS.concat([
+                                                F.OSD_MAH_PERCENT,
+                                            ]);
+                                        }
                                     }
                                 }
                             }

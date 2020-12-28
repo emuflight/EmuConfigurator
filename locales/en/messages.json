@@ -4628,6 +4628,13 @@
     "osdDescStatUsedMah": {
         "message": "Battery capacity used"
     },
+    "osdTextElementPercentMAHUsedValue": {
+        "message": "Battery mAh percent used.",
+        "description": "One of the elements of the OSD"
+    },
+    "osdDescElementPercentMAHUsedValue": {
+        "message": "Battery mAh percent used."
+    },
     "osdTextStatMaxAltitude": {
         "message": "Altitude maximum",
         "description": "One of the statistics that can be shown at the end of the flight in the OSD"
