@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "minimum_chrome_version": "49",
-    "version": "0.3.3",
+    "version": "0.3.5",
     "author": "Emuflight Team",
     "name": "Emuflight Configurator",
     "short_name": "EmuConfigurator",

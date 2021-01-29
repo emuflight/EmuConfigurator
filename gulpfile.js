@@ -43,11 +43,12 @@ var NWversion;
 if ((os.platform() === 'win32') || (os.platform() === 'win64')) {
     NWversion ='0.42.6'
 } else {
-    NWversion ='0.47.1'
+    NWversion ='0.50.2'
 }
 
 // 0.45.6 Win7 connects; 0.42.3 fixed OSX Flashing; 0.46.X breaks Win7 connect
 // maybe serial/usb needs updating
+// revert to 0.42.6 due to Windows® users increased CLI-tab buffer/autocomplete issues.
 var nwBuilderOptions = {
     version: NWversion,
     files: './dist/**/*',

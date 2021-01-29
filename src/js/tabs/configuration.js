@@ -656,6 +656,9 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
 
 
         // generate serial RX
+        // The order of names must match the order of ENUM in rx/rx.h
+        // https://github.com/emuflight/EmuFlight/blob/master/src/main/rx/rx.h#L55
+        // The names defined here do not matter, they should be written as human readable
         var serialRXtypes = [
             'SPEKTRUM1024',
             'SPEKTRUM2048',
@@ -688,6 +691,10 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
 
         if (semver.gte(CONFIG.apiVersion, "1.37.0"))  {
             serialRXtypes.push('FrSky FPort');
+        }
+
+        if (semver.gte(CONFIG.apiVersion, "1.50.0")) {
+            serialRXtypes.push('IRC GHOST');
         }
 
         var serialRX_e = $('select.serialRX');
@@ -727,6 +734,12 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
                     'A7105_FLYSKY',
                     'A7105_FLYSKY_2A',
                     'NRF24_KN'
+                );
+            }
+
+            if (semver.gte(CONFIG.apiVersion, "1.44.0")) {
+                spiRxTypes.push(
+                    'SFHSS'
                 );
             }
 
