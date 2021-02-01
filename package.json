@@ -51,7 +51,7 @@
     "jquery-textcomplete": "^1.8.5",
     "jquery-ui-npm": "1.12.0",
     "lru_map": "^0.3.3",
-    "marked": "^1.1.1",
+    "marked": "^1.2.8",
     "object-hash": "^2.0.3",
     "request": "^2.88.2",
     "short-unique-id": "^3.0.4",
@@ -61,7 +61,7 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "command-exists": "^1.2.9",
-    "del": "^5.1.0",
+    "del": "^6.0.0",
     "electron-installer-dmg": "^3.0.0",
     "follow-redirects": "^1.13.0",
     "fs-extra": "^9.0.1",
@@ -72,7 +72,7 @@
     "gulp-rename": "^2.0.0",
     "gulp-yarn": "^2.0.0",
     "gulp-zip": "^5.0.2",
-    "karma": "^5.2.2",
+    "karma": "^5.2.3",
     "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^3.1.0",
     "karma-mocha": "^2.0.1",
@@ -88,7 +88,7 @@
     "targz": "^1.0.1",
     "temp": "^0.9.1",
     "vinyl-source-stream": "^2.0.0",
-    "yarn": "^1.22.5"
+    "yarn": "^1.22.10"
   },
   "optionalDependencies": {
     "gulp-appdmg": "^1.0.3"
