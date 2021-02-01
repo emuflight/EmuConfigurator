@@ -4564,7 +4564,27 @@
     "osdDescElementRssiDbmValue": {
         "message": "Value in dBm of the RSSI signal if available"
     },
-
+    "osdTextElementCrsfSnrValue": {
+        "message": "CRSF SNR",
+        "description": "One of the elements of the OSD"
+    },
+    "osdDescElementCrsfSnrValue": {
+        "message": "Signal-to-noise ratio as reported by CRSF telemetry"
+    },
+    "osdTextElementCrsfTxPower": {
+        "message": "CRSF TX Power",
+        "description": "One of the elements of the OSD"
+    },
+    "osdDescElementCrsfTxPower": {
+        "message": "TX power as reported by CRSF telemetry"
+    },
+    "osdTextElementCrsfRssiValue": {
+        "message": "CRSF RSSI dBm",
+        "description": "One of the elements of the OSD"
+    },
+    "osdDescElementCrsfRssiValue": {
+        "message": "RSSI dBm as reported by CRSF telemetry"
+    },
     "osdTextElementUnknown": {
         "message": "Unknown $1",
         "description": "One of the elements of the OSD"
@@ -4607,6 +4627,13 @@
     },
     "osdDescStatUsedMah": {
         "message": "Battery capacity used"
+    },
+    "osdTextElementPercentMAHUsedValue": {
+        "message": "Battery mAh percent used.",
+        "description": "One of the elements of the OSD"
+    },
+    "osdDescElementPercentMAHUsedValue": {
+        "message": "Battery mAh percent used."
     },
     "osdTextStatMaxAltitude": {
         "message": "Altitude maximum",
@@ -5227,7 +5254,7 @@
           "message": "IMU-F Sharpness"
       },
       "pidTuningKalmanFilterSharpnessHelp": {
-          "message": "'imuf_sharpness' is the aggressiveness of the dynamic reduction on IMUF overfiltering. Default is 2500. Range is 1 to 16000"
+          "message": "'imuf_sharpness' is the aggressiveness of the dynamic reduction of IMUF overfiltering. Higher values dynamically relax IMUF filtering more, but only when needed. Default is 2500. Range is 1 to 16000. 0 is OFF for versions that allow such."
       },
       "pidTuningKalmanFilterQHelp": {
           "message": "IMU-F filter Q Coefficient. The amount of trust in gyro data accuracy (Higher value = more trust and less filtering)"
