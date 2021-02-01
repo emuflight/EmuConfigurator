@@ -283,13 +283,6 @@ TABS.led_strip.initialize = function (callback, scrollPosition) {
             }
         });
 
-        $('.colors').children().on({
-            mouseleave: function () {
-                if (!$('.colorDefineSliders').is(":hover"))
-                    $('.colorDefineSliders').hide();
-            }
-        });
-
         $('.funcWire').click(function() {
             $(this).toggleClass('btnOn');
             TABS.led_strip.wireMode = $(this).hasClass('btnOn');
