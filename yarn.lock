@@ -3594,12 +3594,13 @@ make-iterator@^1.0.0:
   dependencies:
     kind-of "^6.0.2"
 
-makensis@^0.21.2:
-  version "0.21.2"
-  resolved "https://registry.yarnpkg.com/makensis/-/makensis-0.21.2.tgz#5a04e9ff2bb068088f31d31859cebbf332518b37"
-  integrity sha512-+LszPGlGkXykCJd2b1hjONwz5KU2BJ2tOUunJ7mx4uOl1pfygIiAqc8n5o01QRGDHcSKjgHjnkoV0l3jpIAKOg==
+makensis@^0.23.4:
+  version "0.23.4"
+  resolved "https://registry.yarnpkg.com/makensis/-/makensis-0.23.4.tgz#f46d99ec5ed8d3105f379aa3d655812afe8242bf"
+  integrity sha512-1ZQoGkjLdMEy2TAD3CHpMBdOablmjZg4DJgjDA44nD6yxcGP/HdhhNBiuK6j7VXciV4eQ57kbjz3e4oC34E2Iw==
   dependencies:
     "@nsis/language-data" "^0.7.4"
+    quoted-string-space-split "^1.0.0"
 
 map-cache@^0.2.0, map-cache@^0.2.2:
   version "0.2.2"
@@ -4465,6 +4466,11 @@ qs@~6.5.2:
   version "6.5.2"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
   integrity sha512-N5ZAX4/LxJmF+7wN74pUD6qAh9/wnvdQcjq9TZjevvXzSUo7bfmw91saqMjzGS2xq91/odN2dW/WOl7qQHNDGA==
+
+quoted-string-space-split@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/quoted-string-space-split/-/quoted-string-space-split-1.0.0.tgz#d94afd8ae22c3612738532f4996cfd0e4e663b09"
+  integrity sha512-dNKlgjMXUww3tkmwsghCZ62EdIqRKMSb4RpNxfqFEVEXph+mvo6HNmdz2m/Bk2QV04Zfla9LPA5OKq++ho5Zvw==
 
 random-path@^0.1.0:
   version "0.1.1"
