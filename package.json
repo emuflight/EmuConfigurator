@@ -54,7 +54,7 @@
     "marked": "^1.2.8",
     "object-hash": "^2.0.3",
     "request": "^2.88.2",
-    "short-unique-id": "^3.0.4",
+    "short-unique-id": "^3.2.3",
     "tslib": "^2.0.1",
     "universal-ga": "^1.2.0"
   },
