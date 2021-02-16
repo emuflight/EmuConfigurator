@@ -55,7 +55,7 @@
     "object-hash": "^2.0.3",
     "request": "^2.88.2",
     "short-unique-id": "^3.2.3",
-    "tslib": "^2.0.1",
+    "tslib": "^2.1.0",
     "universal-ga": "^1.2.0"
   },
   "devDependencies": {
