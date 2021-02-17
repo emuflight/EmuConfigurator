@@ -1939,10 +1939,10 @@ fmix@^0.1.0:
   dependencies:
     imul "^1.0.0"
 
-follow-redirects@^1.0.0, follow-redirects@^1.13.0:
-  version "1.13.0"
-  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.13.0.tgz#b42e8d93a2a7eea5ed88633676d6597bc8e384db"
-  integrity sha512-aq6gF1BEKje4a9i9+5jimNFIpq4Q1WiwBToeRK5NvZBd/TRsmW8BsJfOEGkr76TbOyPVD3OVDN910EcUNtRYEA==
+follow-redirects@^1.0.0, follow-redirects@^1.13.2:
+  version "1.13.2"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.13.2.tgz#dd73c8effc12728ba5cf4259d760ea5fb83e3147"
+  integrity sha512-6mPTgLxYm3r6Bkkg0vNM0HTjfGrOEtsfbhagQvbxDEsEkpNhw582upBaoRZylzen6krEmxXJgt9Ju6HiI4O7BA==
 
 for-in@^1.0.1, for-in@^1.0.2:
   version "1.0.2"
