@@ -112,21 +112,24 @@ function startProcess() {
     var debugMode = typeof process === "object" && process.versions['nw-flavor'] === 'sdk';
 
     if (GUI.isNWJS()) {
-        var win = GUI.nwGui.Window.get();
-        win.on('close', closeHandler);
-        win.on('new-win-policy', function(frame, url, policy) {
+        console.log("GUI.isNWJS");
+        let nwWindow = GUI.nwGui.Window.get();
+        nwWindow.on('close', closeHandler);
+        nwWindow.on('new-win-policy', function(frame, url, policy) {
             // do not open the window
             policy.ignore();
             // and open it in external browser
             GUI.nwGui.Shell.openExternal(url);
         });
-     }else if (!GUI.isOther()) {
-        chrome.app.window.onClosed.addListener(closeHandler);
+    } else if (GUI.isChromeApp()) {
+        console.log("GUI.isChromeApp");
+        chrome.app.window.onClosed.addListener(closeHandler); //does not seem to work with NW2
         // This event does not actually get fired:
         chrome.runtime.onSuspend.addListener(closeHandler);
     }
 
     function closeHandler() {
+        console.log("closing...");
         this.hide();
         MSP.send_message(MSPCodes.MSP_SET_REBOOT, false, false);
         this.close(true);
