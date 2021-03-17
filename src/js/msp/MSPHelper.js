@@ -918,6 +918,10 @@ MspHelper.prototype.process_data = function(dataHandler) {
                     RX_CONFIG.rcInterpolationInterval = 0;
                     RX_CONFIG.airModeActivateThreshold = 0;
                 }
+                //added in MSP 1.51
+                if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+                    RX_CONFIG.sbus_baud_fast = data.readU8();
+                }
                 break;
 
             case MSPCodes.MSP_FAILSAFE_CONFIG:
@@ -1033,6 +1037,16 @@ MspHelper.prototype.process_data = function(dataHandler) {
                         FILTER_CONFIG.dynamic_gyro_notch_q = data.readU16();
                         FILTER_CONFIG.dynamic_gyro_notch_min_hz = data.readU16();
                     }
+
+                    //added in MSP 1.51
+                    if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+                        FILTER_CONFIG.gyro_ABG_alpha = data.readU16();
+                        FILTER_CONFIG.gyro_ABG_boost = data.readU16();
+                        FILTER_CONFIG.gyro_ABG_half_life = data.readU8();
+                        FILTER_CONFIG.dterm_ABG_alpha = data.readU16();
+                        FILTER_CONFIG.dterm_ABG_boost = data.readU16();
+                        FILTER_CONFIG.dterm_ABG_half_life = data.readU8();
+                    }
                 }
                 break;
 
@@ -1146,6 +1160,18 @@ MspHelper.prototype.process_data = function(dataHandler) {
                                             ADVANCED_TUNING.setPointDTransitionYaw = data.readU8();
                                         }
                                         ADVANCED_TUNING.nfe_racermode = data.readU8();
+                                        //added in MSP 1.51
+                                        if (semver.lt(CONFIG.apiVersion, "1.51.0")) {
+                                            ADVANCED_TUNINGlinear_thrust_low_output  = data.readU8();
+                                            ADVANCED_TUNINGlinear_thrust_high_output  = data.readU8();
+                                            ADVANCED_TUNINGlinear_throttle  = data.readU8();
+                                            ADVANCED_TUNINGmixer_impl  = data.readU8();
+                                            ADVANCED_TUNINGmixer_laziness  = data.readU8();
+                                            ADVANCED_TUNINGdirectFF_yaw  = data.readU8();
+                                            ADVANCED_TUNINGaxis_lock_hz  = data.readU8();
+                                            ADVANCED_TUNINGaxis_lock_multiplier  = data.readU8();
+                                            ADVANCED_TUNINGemuGravityGain  = data.readU8();
+                                        }
                                     }
                                 }
                             }
