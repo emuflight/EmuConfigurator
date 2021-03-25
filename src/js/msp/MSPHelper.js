@@ -920,8 +920,11 @@ MspHelper.prototype.process_data = function(dataHandler) {
                 }
                 //added in MSP 1.51
                 if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+                    console.log('RX_CONFIG.sbus_baud_fast before read: ' + RX_CONFIG.sbus_baud_fast)
                     RX_CONFIG.sbus_baud_fast = data.readU8();
+                    console.log('RX_CONFIG.sbus_baud_fast after read: ' + RX_CONFIG.sbus_baud_fast)
                 }
+                //end MSP 1.51
                 break;
 
             case MSPCodes.MSP_FAILSAFE_CONFIG:
@@ -1047,6 +1050,7 @@ MspHelper.prototype.process_data = function(dataHandler) {
                         FILTER_CONFIG.dterm_ABG_boost = data.readU16();
                         FILTER_CONFIG.dterm_ABG_half_life = data.readU8();
                     }
+                    //end MSP 1.51
                 }
                 break;
 
@@ -1172,6 +1176,7 @@ MspHelper.prototype.process_data = function(dataHandler) {
                                             ADVANCED_TUNINGaxis_lock_multiplier  = data.readU8();
                                             ADVANCED_TUNINGemuGravityGain  = data.readU8();
                                         }
+                                        //end MSP 1.51
                                     }
                                 }
                             }
@@ -1788,6 +1793,11 @@ MspHelper.prototype.crunch = function(code) {
                               .push8(RX_CONFIG.rcSmoothingDerivativeCutoff)
                               .push8(RX_CONFIG.rcSmoothingInputType)
                               .push8(RX_CONFIG.rcSmoothingDerivativeType);
+                        // added in MSP 1.51
+                        if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+                            buffer.push8(RX_CONFIG.sbus_baud_fast);
+                        }
+                        //end MSP 1.51
                     }
                 }
             }
