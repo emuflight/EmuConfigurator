@@ -437,6 +437,16 @@ TABS.pid_tuning.initialize = function(callback) {
                 $('input[id="feathered_pids"]').prop('checked', ADVANCED_TUNING.feathered_pids !== 0);
             }
 
+            // MSP 1.51
+            // emuGravity
+            if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+                $('#emuGravity').show();
+                $('input[name="emuGravity-number"]').val(ADVANCED_TUNING.emuGravityGain);
+            } else {
+                $('#emuGravity').hide();
+            }
+            //end MSP 1.51
+
             // nfe racer mode
             if (semver.gte(CONFIG.apiVersion, "1.43.0") && semver.lt(CONFIG.flightControllerVersion, "0.3.3") ) {
                 $('input[id="nferacermode"]').prop('checked', ADVANCED_TUNING.nfe_racermode !== 0);
@@ -1015,6 +1025,14 @@ TABS.pid_tuning.initialize = function(callback) {
             } else {
                 ADVANCED_TUNING.feathered_pids = $('input[id="feathered_pids"]').is(':checked') ? 1 : 0;
             }
+
+            // MSP 1.51
+            // emuGravity
+            if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+                ADVANCED_TUNING.emuGravityGain = $('input[name="emuGravity-number"]').val();
+            }
+            //end MSP 1.51
+
             ADVANCED_TUNING.itermRotation = $('input[id="itermrotation"]').is(':checked') ? 1 : 0;
             if (semver.gte(CONFIG.apiVersion, "1.43.0")) {
                 ADVANCED_TUNING.nfe_racermode = $('input[id="nferacermode"]').is(':checked') ? 1 : 0;

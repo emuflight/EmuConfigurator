@@ -3412,6 +3412,12 @@
     "pidTuningFeatheredPids": {
         "message": "Feathered PIDs"
     },
+    "emuGravityPids": {
+        "message": "EmuGravity"
+    },
+        "emuGravityPidsHelp": {
+        "message": "EmuGravity is an AntiGravity implementation that simply boosts the error upon throttle. Increase as needed for nose dips. Increasing too much may introduce oscillation.  Default = 100."
+    },
     "pidTuningNfeRacerMode": {
         "message": "NFE racer mode"
     },

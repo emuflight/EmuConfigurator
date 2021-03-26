@@ -1165,16 +1165,16 @@ MspHelper.prototype.process_data = function(dataHandler) {
                                         }
                                         ADVANCED_TUNING.nfe_racermode = data.readU8();
                                         //added in MSP 1.51
-                                        if (semver.lt(CONFIG.apiVersion, "1.51.0")) {
-                                            ADVANCED_TUNINGlinear_thrust_low_output  = data.readU8();
-                                            ADVANCED_TUNINGlinear_thrust_high_output  = data.readU8();
-                                            ADVANCED_TUNINGlinear_throttle  = data.readU8();
-                                            ADVANCED_TUNINGmixer_impl  = data.readU8();
-                                            ADVANCED_TUNINGmixer_laziness  = data.readU8();
-                                            ADVANCED_TUNINGdirectFF_yaw  = data.readU8();
-                                            ADVANCED_TUNINGaxis_lock_hz  = data.readU8();
-                                            ADVANCED_TUNINGaxis_lock_multiplier  = data.readU8();
-                                            ADVANCED_TUNINGemuGravityGain  = data.readU8();
+                                        if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+                                            ADVANCED_TUNING.linear_thrust_low_output = data.readU8();
+                                            ADVANCED_TUNING.linear_thrust_high_output = data.readU8();
+                                            ADVANCED_TUNING.linear_throttle  = data.readU8();
+                                            ADVANCED_TUNING.mixer_impl = data.readU8();
+                                            ADVANCED_TUNING.mixer_laziness = data.readU8();
+                                            ADVANCED_TUNING.directFF_yaw = data.readU8();
+                                            ADVANCED_TUNING.axis_lock_hz = data.readU8();
+                                            ADVANCED_TUNING.axis_lock_multiplier = data.readU8();
+                                            ADVANCED_TUNING.emuGravityGain = data.readU8();
                                         }
                                         //end MSP 1.51
                                     }
@@ -2083,6 +2083,19 @@ MspHelper.prototype.crunch = function(code) {
                                           .push8(ADVANCED_TUNING.setPointDTransitionYaw);
                                     }
                                     buffer.push8(ADVANCED_TUNING.nfe_racermode);
+                                    // MSP 1.51
+                                    if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+                                        buffer.push8(ADVANCED_TUNING.linear_thrust_low_output)
+                                              .push8(ADVANCED_TUNING.linear_thrust_high_output)
+                                              .push8(ADVANCED_TUNING.linear_throttle)
+                                              .push8(ADVANCED_TUNING.mixer_impl)
+                                              .push8(ADVANCED_TUNING.mixer_laziness)
+                                              .push8(ADVANCED_TUNING.directFF_yaw)
+                                              .push8(ADVANCED_TUNING.axis_lock_hz)
+                                              .push8(ADVANCED_TUNING.axis_lock_multiplier)
+                                              .push8(ADVANCED_TUNING.emuGravityGain);
+                                    }
+                                    //end MSP 1.51
                                 }
                             }
                         }

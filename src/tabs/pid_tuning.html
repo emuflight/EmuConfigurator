@@ -515,14 +515,23 @@
                                 <td><input type="number" name="featheredPids-number" step="10" min="0" max="100"/></td>
                                 <td colspan="1">
                                     <div>
-
                                         <span i18n="pidTuningFeatheredPids"></span>
-
                                         <div class="helpicon cf_tip" i18n_title="pidTuningFeatheredPidsHelp"></div>
                                     </div>
                                 </td>
                             </tr>
-
+                            <!-- MSP 1.51 -->
+                            <!-- display before NFE -- but NFE non-exist 1.50+, and MSP is after NFE -->
+                            <tr id="emuGravity" class="emuGravity">
+                                <td><input type="number" name="emuGravity-number" step="1" min="0" max="255"/></td>
+                                <td colspan="1">
+                                    <div>
+                                        <span i18n="emuGravityPids"></span>
+                                        <div class="helpicon cf_tip" i18n_title="emuGravityPidsHelp"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- end MSP 1.51 -->
                             <tr class="nferacermode">
                                 <td><input type="checkbox" id="nferacermode" class="toggle" /></td>
                                 <td colspan="2">
