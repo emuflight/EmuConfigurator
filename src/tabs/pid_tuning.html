@@ -520,18 +520,7 @@
                                     </div>
                                 </td>
                             </tr>
-                            <!-- MSP 1.51 -->
-                            <!-- display before NFE -- but NFE non-exist 1.50+, and MSP is after NFE -->
-                            <tr id="emuGravity" class="emuGravity">
-                                <td><input type="number" name="emuGravity-number" step="1" min="0" max="255"/></td>
-                                <td colspan="1">
-                                    <div>
-                                        <span i18n="emuGravityPids"></span>
-                                        <div class="helpicon cf_tip" i18n_title="emuGravityPidsHelp"></div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <!-- end MSP 1.51 -->
+
                             <tr class="nferacermode">
                                 <td><input type="checkbox" id="nferacermode" class="toggle" /></td>
                                 <td colspan="2">
@@ -658,6 +647,46 @@
                                     </span>
                                 </td>
                             </tr>
+
+                            <!-- MSP 1.51 -->
+                            <tr id="emuGravity" class="emuGravity">
+                                <td><input type="number" name="emuGravity-number" step="1" min="0" max="255"/></td>
+                                <td colspan="1">
+                                    <div>
+                                        <span i18n="pidTuningEmuGravity"></span>
+                                        <div class="helpicon cf_tip" i18n_title="pidTuningEmuGravityHelp"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr id="DFyaw" class="DFyaw">
+                                <td><input type="number" name="DFyaw-number" step="1" min="0" max="200"/></td>
+                                <td colspan="1">
+                                    <div>
+                                        <span i18n="pidTuningDFyaw"></span>
+                                        <div class="helpicon cf_tip" i18n_title="pidTuningDFyawHelp"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr id="axisLockMultiplier" class="axisLockMultiplier">
+                                <td><input type="number" name="axisLockMultiplier-number" step="1" min="0" max="10"/></td>
+                                <td colspan="1">
+                                    <div>
+                                        <span i18n="pidTuningAxisLockMultiplier"></span>
+                                        <div class="helpicon cf_tip" i18n_title="pidTuningAxisLockMultiplierHelp"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr id="axisLockHz" class="axisLockHz">
+                                <td><input type="number" name="axisLockHz-number" step="1" min="0" max="50"/></td>
+                                <td colspan="1">
+                                    <div>
+                                        <span i18n="pidTuningAxisLockHz"></span>
+                                        <div class="helpicon cf_tip" i18n_title="pidTuningAxisLockHzHelp"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- end MSP 1.51 -->
+
                         </table>
                     </div>
                 </div>

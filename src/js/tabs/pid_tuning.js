@@ -438,12 +438,22 @@ TABS.pid_tuning.initialize = function(callback) {
             }
 
             // MSP 1.51
-            // emuGravity
             if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+                // emuGravity
                 $('#emuGravity').show();
                 $('input[name="emuGravity-number"]').val(ADVANCED_TUNING.emuGravityGain);
+                // df_yaw
+                $('#DFyaw').show();
+                $('input[name="DFyaw-number"]').val(ADVANCED_TUNING.directFF_yaw);
+                //axis-lock
+                //axis-lock
+                $('input[name="axisLockHz-number"]').val(ADVANCED_TUNING.axis_lock_hz )
+                $('input[name="axisLockMultiplier-number"]').val(ADVANCED_TUNING.axis_lock_multiplier)
             } else {
                 $('#emuGravity').hide();
+                $('#DFyaw').hide();
+                $('#axisLockMultiplier').hide();
+                $('#axisLockHz').hide();
             }
             //end MSP 1.51
 
@@ -1027,9 +1037,14 @@ TABS.pid_tuning.initialize = function(callback) {
             }
 
             // MSP 1.51
-            // emuGravity
             if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+                // emuGravity
                 ADVANCED_TUNING.emuGravityGain = $('input[name="emuGravity-number"]').val();
+                //df_yaw
+                ADVANCED_TUNING.directFF_yaw = $('input[name="DFyaw-number"]').val();
+                //axis-lock
+                ADVANCED_TUNING.axis_lock_hz = $('input[name="axisLockHz-number"]').val();
+                ADVANCED_TUNING.axis_lock_multiplier = $('input[name="axisLockMultiplier-number"]').val();
             }
             //end MSP 1.51
 

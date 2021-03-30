@@ -3412,12 +3412,6 @@
     "pidTuningFeatheredPids": {
         "message": "Feathered PIDs"
     },
-    "emuGravityPids": {
-        "message": "EmuGravity"
-    },
-        "emuGravityPidsHelp": {
-        "message": "EmuGravity is an AntiGravity implementation that simply boosts the error upon throttle. Increase as needed for nose dips. Increasing too much may introduce oscillation.  Default = 100."
-    },
     "pidTuningNfeRacerMode": {
         "message": "NFE racer mode"
     },
@@ -3553,7 +3547,30 @@
     "pidTuningIntegratedYawHelp": {
         "message": "Integrated Yaw is a feature which corrects a fundamental issue with quad control: while the pitch and roll axis are controlled by the thrust differentials the props generate yaw is different. Integrated Yaw fixes this by integrating the output of the yaw pid before applying them to the mixer. This normalizes the way the pids work. You can now tune as any other axis. It requires use of absolute control since no I is needed with Integrated Yaw."
     },
-
+    "pidTuningEmuGravity": {
+        "message": "EmuGravity"
+    },
+        "pidTuningEmuGravityHelp": {
+        "message": "EmuGravity is an AntiGravity implementation that simply boosts the error upon throttle. Increase as needed for nose dips. Increasing too much may introduce oscillation.  Range 0 to 255.  Zero is off.  Default = 100."
+    },
+    "pidTuningDFyaw": {
+        "message": "Direct Feed Yaw"
+    },
+        "pidTuningDFyawHelp": {
+        "message": "A different type of feed forward implementation for yaw. Allows yaw to act faster based on setpoint and have less i-Term windup. Range 0 to 200. Zero is off. Default = 15."
+    },
+    "pidTuningAxisLockMultiplier": {
+        "message": "Axis Lock Multiplier"
+    },
+        "pidTuningAxisLockMultiplierHelp": {
+        "message": "'Axis-lock' Significantly reduces pidsum for opposing axes. Multiplier range is 0 to 10. Sweet-spot seems to be 3 to 4. Default is 0 (off)."
+    },
+        "pidTuningAxisLockHz": {
+        "message": "Axis Lock Cutoff Hz"
+    },
+        "pidTuningAxisLockHzHelp": {
+        "message": "'Axis-lock' Significantly reduces pidsum for opposing axes. Cutoff-Hz range is 1 to 50. Sweet-spot seems to be 6 to 8. Default is 2. When multiplier is 0, 'Axis-Lock' is disabled."
+    },
     "configHelp2": {
         "message": "Arbitrary board rotation in degrees, to allow mounting it sideways / upside down / rotated etc. When running external sensors, use the sensor alignments (Gyro, Acc, Mag) to define sensor position independent from board orientation. "
     },
