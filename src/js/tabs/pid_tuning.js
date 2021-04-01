@@ -708,6 +708,7 @@ TABS.pid_tuning.initialize = function(callback) {
             $('#pid-tuning .feedforwardTransition').hide();
         }
 
+
         //quick & dirty 0.3.0
         if (semver.gte(CONFIG.flightControllerVersion, "0.3.0")) {
             $('.absoluteControlGain').hide();
@@ -898,6 +899,22 @@ TABS.pid_tuning.initialize = function(callback) {
             $('input[id="dtermLowpass2Enabled"]').prop('checked', FILTER_CONFIG.dterm_lowpass2_hz_pitch != 0).change();
             $('input[id="gyroLowpass2Enabled"]').prop('checked', FILTER_CONFIG.gyro_lowpass2_hz_pitch != 0).change();
         }
+
+        // MSP 1.51
+        if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+            //ABG gyro
+            $('input[name="gyroABGalpha-number"]').val(FILTER_CONFIG.gyro_ABG_alpha);
+            $('input[name="gyroABGboost-number"]').val(FILTER_CONFIG.gyro_ABG_boost);
+            $('input[name="gyroABGhalflife-number"]').val(FILTER_CONFIG.gyro_ABG_half_life);
+            //ABG dterm
+            $('input[name="dtermABGalpha-number"]').val(FILTER_CONFIG.dterm_ABG_alpha);
+            $('input[name="dtermABGboost-number"]').val(FILTER_CONFIG.dterm_ABG_boost);
+            $('input[name="dtermABGhalflife-number"]').val(FILTER_CONFIG.dterm_ABG_half_life);
+        } else {
+            $('#GyroABGFilter').hide();
+            $('#DTermABGFilter').hide();
+        }
+        // end MSP 1.51
 
         //experimental expert-mode show/hide SPA
         if (!isExpertModeEnabled()) {
@@ -1144,6 +1161,21 @@ TABS.pid_tuning.initialize = function(callback) {
             FILTER_CONFIG.dynamic_gyro_notch_q  = parseFloat($('.pid_filter input[name="MatrixNotchQ"]').val());
             FILTER_CONFIG.dynamic_gyro_notch_min_hz = parseFloat($('.pid_filter input[name="MatrixNotchMin"]').val());
         }
+
+        // MSP 1.51
+        if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+            //ABG gyro
+            FILTER_CONFIG.gyro_ABG_alpha = $('.pid_filter input[name="gyroABGalpha-number"]').val();
+            FILTER_CONFIG.gyro_ABG_boost = $('.pid_filter input[name="gyroABGboost-number"]').val();
+            FILTER_CONFIG.gyro_ABG_half_life = $('.pid_filter input[name="gyroABGhalflife-number"]').val();
+
+            //ABG dterm
+            FILTER_CONFIG.dterm_ABG_alpha = $('.pid_filter input[name="dtermABGalpha-number"]').val();
+            FILTER_CONFIG.dterm_ABG_boost = $('.pid_filter input[name="dtermABGboost-number"]').val();
+            FILTER_CONFIG.dterm_ABG_half_life = $('.pid_filter input[name="dtermABGhalflife-number"]').val();
+        }
+        // end MSP 1.51
+
 
     } //end function form_to_pid_and_rc()
 

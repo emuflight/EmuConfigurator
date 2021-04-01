@@ -717,7 +717,6 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
 
         // MSP 1.51
         if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
-            console.log('RX_CONFIG.sbus_baud_fast : ' + RX_CONFIG.sbus_baud_fast)
             $('input[id="configurationSerialRXFastSBUS"]').prop('checked', RX_CONFIG.sbus_baud_fast !== 0);
             $('.serialFastSBUS').show();
         } else {
@@ -1106,7 +1105,6 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
             // MSP 1.51
             if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
                 RX_CONFIG.sbus_baud_fast = $('input[id="configurationSerialRXFastSBUS"]').is(':checked') ? 1 : 0;
-                console.log("RX_CONFIG.sbus_baud_fast UI is set to: "+ RX_CONFIG.sbus_baud_fast);
             }
             //end MSP 1.51
 

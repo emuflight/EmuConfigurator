@@ -920,9 +920,7 @@ MspHelper.prototype.process_data = function(dataHandler) {
                 }
                 //added in MSP 1.51
                 if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
-                    console.log('RX_CONFIG.sbus_baud_fast before read: ' + RX_CONFIG.sbus_baud_fast)
                     RX_CONFIG.sbus_baud_fast = data.readU8();
-                    console.log('RX_CONFIG.sbus_baud_fast after read: ' + RX_CONFIG.sbus_baud_fast)
                 }
                 //end MSP 1.51
                 break;
@@ -1973,6 +1971,17 @@ MspHelper.prototype.crunch = function(code) {
                     buffer.push16(FILTER_CONFIG.dynamic_gyro_notch_q)
                           .push16(FILTER_CONFIG.dynamic_gyro_notch_min_hz)
                 }
+
+                // MSP 1.51
+                if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+                    buffer.push16(FILTER_CONFIG.gyro_ABG_alpha)
+                          .push16(FILTER_CONFIG.gyro_ABG_boost)
+                          .push8(FILTER_CONFIG.gyro_ABG_half_life)
+                          .push16(FILTER_CONFIG.dterm_ABG_alpha)
+                          .push16(FILTER_CONFIG.dterm_ABG_boost)
+                          .push8(FILTER_CONFIG.dterm_ABG_half_life)
+                }
+                // end MSP 1.51
             }
             break;
 

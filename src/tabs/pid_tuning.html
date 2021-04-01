@@ -1267,7 +1267,60 @@
                                         </div>
                                     </td>
                                 </tr>
-
+                                <!-- MSP 1.51 -->
+                                <div class="GyroABGFilter">
+                                <tr class="GyroABGFilter">
+                                    <th colspan="2">
+                                        <div class="pid_mode">
+                                            <div i18n="pidTuningGyroABGFilterGroup" />
+                                            <div class="helpicon cf_tip" i18n_title="pidTuningABGFilterGroupHelp" />
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr class="GyroABGFilter">
+                                    <td>
+                                        <input type="number" class="nonProfile" name="gyroABGalpha-number" step="1" min="0" max="1000"/>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <label>
+                                                <span i18n="pidTuningABGalpha"></span>
+                                            </label>
+                                            <div class="helpicon cf_tip" i18n_title="pidTuningABGalphaHelp"></div>
+                                        </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="GyroABGFilter">
+                                    <td>
+                                        <input type="number" class="nonProfile" name="gyroABGboost-number" step="1" min="0" max="2000"/>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <label>
+                                                <span i18n="pidTuningABGboost"></span>
+                                            </label>
+                                            <div class="helpicon cf_tip" i18n_title="pidTuningABGboostHelp"></div>
+                                        </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="GyroABGFilter">
+                                    <td>
+                                        <input type="number" class="nonProfile" name="gyroABGhalflife-number" step="1" min="0" max="250"/>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <label>
+                                                <span i18n="pidTuningABGhalflife"></span>
+                                            </label>
+                                            <div class="helpicon cf_tip" i18n_title="pidTuningABGhalflifeHelp"></div>
+                                        </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                </div>
+                                <!-- end MSP 1.51 -->
                         </table>
                     </div>
 
@@ -1676,6 +1729,62 @@
                                     </div>
                                 </td>
                             </tr>
+
+                                <!-- MSP 1.51 -->
+                                <div class="DTermABGFilter">
+                                <tr class="DTermABGFilter">
+                                    <th colspan="2">
+                                        <div class="pid_mode">
+                                            <div i18n="pidTuningDTermABGFilterGroup" />
+                                            <div class="helpicon cf_tip" i18n_title="pidTuningABGFilterGroupHelp" />
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr class="DTermABGFilter">
+                                    <td>
+                                        <input type="number" class="nonProfile" name="dtermABGalpha-number" step="1" min="0" max="1000"/>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <label>
+                                                <span i18n="pidTuningABGalpha"></span>
+                                            </label>
+                                            <div class="helpicon cf_tip" i18n_title="pidTuningABGalphaHelp"></div>
+                                        </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="DTermABGFilter">
+                                    <td>
+                                        <input type="number" class="nonProfile" name="dtermABGboost-number" step="1" min="0" max="2000"/>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <label>
+                                                <span i18n="pidTuningABGboost"></span>
+                                            </label>
+                                            <div class="helpicon cf_tip" i18n_title="pidTuningABGboostHelp"></div>
+                                        </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="DTermABGFilter">
+                                    <td>
+                                        <input type="number" class="nonProfile" name="dtermABGhalflife-number" step="1" min="0" max="250"/>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <label>
+                                                <span i18n="pidTuningABGhalflife"></span>
+                                            </label>
+                                            <div class="helpicon cf_tip" i18n_title="pidTuningABGhalflifeHelp"></div>
+                                        </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                </div>
+                                <!-- end MSP 1.51 -->
+
                         </table>
                     </div>
                 </div>

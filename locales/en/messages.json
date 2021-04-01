@@ -3322,6 +3322,38 @@
     "pidTuningDynamicNotchMinHzHelp": {
         "message": "Defines the lowest dynamic notch center frequency below which the dynamic notch will not go."
     },
+
+    "COMMENT": {"message": "MSP1.51"},
+    "pidTuningGyroABGFilterGroup": {
+        "message": "Gyro ABG (α-β-γ) Filter"
+    },
+    "pidTuningDTermABGFilterGroup": {
+        "message": "D Term ABG (α-β-γ) Filter"
+    },
+        "pidTuningABGFilterGroupHelp": {
+        "message": "Alpha Beta Gamma (α-β-γ) Filter -- Values are typically adjusted experimentally. In general, larger Alpha and Boost values tend to produce faster response for tracking transient changes, while smaller values reduce the level of noise in the state estimates.  Enabling ABG may require re-tuning of PIDS (lower) and/or LPF Filters (higher). Configure Alpha (α), Boost, and HalfLife. Beta (β) and gamma (γ) are computed internally."
+    },
+    "pidTuningABGalpha": {
+        "message": "Gyro ABG Filter's Alpha"
+    },
+        "pidTuningABGalphaHelp": {
+        "message": "The Alpha (α) is the gain of the ABG filter. Higher is less filtering; Lower is more filtering. Range is 0 to 1000. Default is 0 off.)"
+    },
+    "pidTuningABGboost": {
+        "message": "Gyro ABG Filter's Boost"
+    },
+        "pidTuningABGboostHelp": {
+        "message": "Boost adds to the error calculated within the ABG filter. It gives the ABG filter an extra kick to react faster. Range is 0 to 2000. Default is 275."
+    },
+    "pidTuningABGhalflife": {
+        "message": "Gyro ABG Filter's HalfLife"
+    },
+        "pidTuningABGhalflifeHelp": {
+        "message": "HalfLife is the timespan in centiseconds (milliseconds*10) that the sample-data's importance decays. Range is 0 to 250. Default is 50 (half-second)."
+    },
+    "COMMENT": {"message": "end MSP1.51"},
+
+
     "pidTuningLowpassFilterHelp": {
         "message": "The Lowpass Filters can have two variants: static and dynamic. The static lowpass filter cutoff remains constant.  The noise above the cutoff is attenuated.  The dynamic lowpass cutoff is a minimum that will move higher based on error and gyro. If both static and dynamic are enabled concurrently, it will double filter."
     },
