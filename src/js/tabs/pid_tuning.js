@@ -85,6 +85,17 @@ TABS.pid_tuning.initialize = function(callback) {
             self.setRateProfile();
         }
 
+        // MSP 1.51
+        if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+            $('.feel').show();
+            console.log('Enable FEEL tab');
+        } else {
+            $('.feel').hide();
+            console.log('Disable FEEL tab');
+        }
+        //end MSP 1.51
+
+
         // Fill in the data from PIDs array
 
         // For each pid name
@@ -1335,7 +1346,7 @@ TABS.pid_tuning.initialize = function(callback) {
         }
 
         function activateSubtab(subtabName) {
-            const names = ['pid', 'rates', 'filter'];
+            const names = ['pid', 'rates', 'filter','feel'];
             if (!names.includes(subtabName)) {
                 console.debug('Invalid subtab name: "' + subtabName + '"');
                 return;
@@ -1356,6 +1367,8 @@ TABS.pid_tuning.initialize = function(callback) {
         $('.tab-pid_tuning .tab_container .rates').on('click', () => activateSubtab('rates'));
 
         $('.tab-pid_tuning .tab_container .filter').on('click', () => activateSubtab('filter'));
+
+        $('.tab-pid_tuning .tab_container .feel').on('click', () => activateSubtab('feel'));
 
         function loadProfilesList() {
             var numberOfProfiles = 3;

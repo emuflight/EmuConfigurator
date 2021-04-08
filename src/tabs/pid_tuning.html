@@ -59,7 +59,7 @@
         </div>
         <div class="tab_container">
             <table>
-                <tr>
+                <tr class="pidTuningSubTabs" id="pidTuningSubTabs">
                     <td class="pid active">
                         <a href="#" i18n="pidTuningSubTabPid" />
                     </td>
@@ -68,6 +68,9 @@
                     </td>
                     <td class="filter">
                         <a href="#" i18n="pidTuningSubTabFilter" />
+                    </td>
+                    <td class="feel">
+                        <a href="#" i18n="pidTuningSubTabFeel" />
                     </td>
                 </tr>
             </table>
@@ -1036,8 +1039,8 @@
                             <tr>
                                 <th colspan="2">
                                     <div class="pid_mode">
-                                        <div i18n="pidTuningGyroLowpassFiltersGroup" />
-                                        <div class="helpicon cf_tip" i18n_title="pidTuningLowpassFilterHelp" />
+                                        <div i18n="pidTuningGyroLowpassFiltersGroup"></div>
+                                        <div class="helpicon cf_tip" i18n_title="pidTuningLowpassFilterHelp"></div>
                                     </div>
                                 </th>
                             </tr>
@@ -1163,8 +1166,8 @@
                             <tr>
                                 <th colspan="2">
                                     <div class="pid_mode">
-                                        <div i18n="pidTuningGyroNotchFiltersGroup" />
-                                        <div class="helpicon cf_tip" i18n_title="pidTuningNotchFilterHelp" />
+                                        <div i18n="pidTuningGyroNotchFiltersGroup"></div>
+                                        <div class="helpicon cf_tip" i18n_title="pidTuningNotchFilterHelp"></div>
                                     </div>
                                 </th>
                             </tr>
@@ -1236,8 +1239,8 @@
                                 <tr class="matrixFilter">
                                     <th colspan="2">
                                         <div class="pid_mode">
-                                            <div i18n="pidTuningMatrixFilterGroup" />
-                                            <div class="helpicon cf_tip" i18n_title="pidTuningMatrixFilterHelp" />
+                                            <div i18n="pidTuningMatrixFilterGroup"></div>
+                                            <div class="helpicon cf_tip" i18n_title="pidTuningMatrixFilterHelp"></div>
                                         </div>
                                     </th>
                                 </tr>
@@ -1272,8 +1275,8 @@
                                 <tr class="GyroABGFilter">
                                     <th colspan="2">
                                         <div class="pid_mode">
-                                            <div i18n="pidTuningGyroABGFilterGroup" />
-                                            <div class="helpicon cf_tip" i18n_title="pidTuningABGFilterGroupHelp" />
+                                            <div i18n="pidTuningGyroABGFilterGroup"></div>
+                                            <div class="helpicon cf_tip" i18n_title="pidTuningABGFilterGroupHelp"></div>
                                         </div>
                                     </th>
                                 </tr>
@@ -1288,7 +1291,7 @@
                                             </label>
                                             <div class="helpicon cf_tip" i18n_title="pidTuningABGalphaHelp"></div>
                                         </div>
-                                        </div>
+
                                     </td>
                                 </tr>
                                 <tr class="GyroABGFilter">
@@ -1302,7 +1305,7 @@
                                             </label>
                                             <div class="helpicon cf_tip" i18n_title="pidTuningABGboostHelp"></div>
                                         </div>
-                                        </div>
+
                                     </td>
                                 </tr>
                                 <tr class="GyroABGFilter">
@@ -1316,7 +1319,7 @@
                                             </label>
                                             <div class="helpicon cf_tip" i18n_title="pidTuningABGhalflifeHelp"></div>
                                         </div>
-                                        </div>
+
                                     </td>
                                 </tr>
                                 </div>
@@ -1557,8 +1560,8 @@
                             <tr>
                                 <th colspan="3">
                                     <div class="pid_mode">
-                                        <div i18n="pidTuningDTermLowpassFiltersGroup" />
-                                        <div class="helpicon cf_tip" i18n_title="pidTuningLowpassFilterHelp" />
+                                        <div i18n="pidTuningDTermLowpassFiltersGroup"></div>
+                                        <div class="helpicon cf_tip" i18n_title="pidTuningLowpassFilterHelp"></div>
                                     </div>
 
 
@@ -1672,8 +1675,8 @@
                             <tr class="dtermNotch">
                                 <th colspan="2">
                                     <div class="pid_mode">
-                                        <div  i18n="pidTuningDTermNotchFiltersGroup" />
-                                        <div class="helpicon cf_tip" i18n_title="pidTuningNotchFilterHelp" />
+                                        <div  i18n="pidTuningDTermNotchFiltersGroup"></div>
+                                        <div class="helpicon cf_tip" i18n_title="pidTuningNotchFilterHelp"></div>
                                     </div>
 
                                 </th>
@@ -1710,7 +1713,7 @@
 
                             <tr class="yawLowpassFrequency">
                                 <th colspan="2">
-                                    <div class="pid_mode" i18n="pidTuningYawLospassFiltersGroup" />
+                                    <div class="pid_mode" i18n="pidTuningYawLospassFiltersGroup"></div>
                                 </th>
                             </tr>
 
@@ -1735,14 +1738,14 @@
                                 <tr class="DTermABGFilter">
                                     <th colspan="2">
                                         <div class="pid_mode">
-                                            <div i18n="pidTuningDTermABGFilterGroup" />
-                                            <div class="helpicon cf_tip" i18n_title="pidTuningABGFilterGroupHelp" />
+                                            <div i18n="pidTuningDTermABGFilterGroup"></div>
+                                            <div class="helpicon cf_tip" i18n_title="pidTuningABGFilterGroupHelp"></div>
                                         </div>
                                     </th>
                                 </tr>
                                 <tr class="DTermABGFilter">
                                     <td>
-                                        <input type="number" class="nonProfile" name="dtermABGalpha-number" step="1" min="0" max="1000"/>
+                                        <input type="number" class="-nonProfile" name="dtermABGalpha-number" step="1" min="0" max="1000"/>
                                     </td>
                                     <td>
                                         <div>
@@ -1751,12 +1754,12 @@
                                             </label>
                                             <div class="helpicon cf_tip" i18n_title="pidTuningABGalphaHelp"></div>
                                         </div>
-                                        </div>
+
                                     </td>
                                 </tr>
                                 <tr class="DTermABGFilter">
                                     <td>
-                                        <input type="number" class="nonProfile" name="dtermABGboost-number" step="1" min="0" max="2000"/>
+                                        <input type="number" class="-nonProfile" name="dtermABGboost-number" step="1" min="0" max="2000"/>
                                     </td>
                                     <td>
                                         <div>
@@ -1765,12 +1768,12 @@
                                             </label>
                                             <div class="helpicon cf_tip" i18n_title="pidTuningABGboostHelp"></div>
                                         </div>
-                                        </div>
+
                                     </td>
                                 </tr>
                                 <tr class="DTermABGFilter">
                                     <td>
-                                        <input type="number" class="nonProfile" name="dtermABGhalflife-number" step="1" min="0" max="250"/>
+                                        <input type="number" class="-nonProfile" name="dtermABGhalflife-number" step="1" min="0" max="250"/>
                                     </td>
                                     <td>
                                         <div>
@@ -1778,7 +1781,6 @@
                                                 <span i18n="pidTuningABGhalflife"></span>
                                             </label>
                                             <div class="helpicon cf_tip" i18n_title="pidTuningABGhalflifeHelp"></div>
-                                        </div>
                                         </div>
                                     </td>
                                 </tr>
@@ -1788,7 +1790,174 @@
                         </table>
                     </div>
                 </div>
-            </div>
+            </div> <!-- end subtab-filter -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- MSP 1.51 -->
+            <div class="subtab-feel" style="display: none;">
+                <div class="clear-both"></div>
+                <div class="cf_column two_columns">
+                    <!-- left column -->
+                    <div class="gui_box grey topspacer pid_filter two_columns_first" style="float: left; width: 32%; margin-right: 5px;">
+                        <table class="pid_titlebar new_rates">
+                            <tr>
+                                <th i18n="pidTuningPIDProfileSettings"></th>
+                            </tr>
+                        </table>
+                        <table class="-filterTable">
+                            <div class="MotorMixer">
+                                <tr class="MotorMixer">
+                                    <th colspan="2">
+                                        <div class="pid_mode">
+                                            <div i18n="pidTuningMotorMixer"></div>
+                                            <!--
+                                            <div class="helpicon cf_tip" i18n_title="pidTuning______Help"></div>
+                                            -->
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr class="MotorMixer">
+                                    <td>
+                                        <select name="MotorMixerImpl" >
+                                          <!--  Populated on execution -->
+                                      </select>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <label>
+                                                <span i18n="pidTuningMixerImplementation"></span>
+                                            </label>
+                                            <div class="helpicon cf_tip" i18n_title="pidTuningMixerImplementationHelp"></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="MotorMixer">
+                                    <td>
+                                      <span class="inputSwitch"><input type="checkbox" id="MixerLazinessEnabled" class="toggle" />
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <label>
+                                                <span i18n="pidTuningMixerLaziness"></span>
+                                            </label>
+                                            <div class="helpicon cf_tip" i18n_title="pidTuningMixerLazinessHelp"></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </div>
+                        </table>
+                    </div><!-- end left column -->
+                    <!-- center column -->
+                   <div class="cf_column two_columns two_columns_second gui_box topspacer -grey -pid_filter" style="float: left; width: 32%; margin-left: 5px; margin-right: 5px;">
+                        <!-- class gui_box topspacer required -->
+                        <table class="pid_titlebar -new_rates">
+                            <tr>
+                                <th i18n="pidTuningPIDProfileSettings"></th>
+                            </tr>
+                        </table>
+                        <table class="-filterTable">
+                            <div class="ThrustLinear">
+                                <tr class="ThrustLinear">
+                                    <th colspan="2">
+                                        <div class="pid_mode">
+                                            <div i18n="pidTuningThrustLinearization"></div>
+                                            <!--
+                                            <div class="helpicon cf_tip" i18n_title="pidTuning______Help"></div>
+                                            -->
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr class="ThrustLinear">
+                                    <td>
+                                        <input type="number" class="-nonProfile" name="-number" step="1" min="0" max="100">
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <label>
+                                                <span i18n="pidTuningTLLowOuput"></span>
+                                            </label>
+                                            <div class="helpicon cf_tip" i18n_title="pidTuningTLLowOuputHelp"></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="ThrustLinear">
+                                    <td>
+                                        <input type="number" class="-nonProfile" name="-number" step="1" min="0" max="100">
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <label>
+                                                <span i18n="pidTuningTLHighOuput"></span>
+                                            </label>
+                                            <div class="helpicon cf_tip" i18n_title="pidTuningTLHighOuputHelp"></div>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            </div>
+                        </table>
+                    </div><!-- end center column -->
+                    <!-- right column -->
+                    <div class="cf_column right gui_box grey topspacer pid_filter two_columns_second" style="float: left; width: 32%; margin-left: 5px; ">
+                        <table class="pid_titlebar new_rates">
+                            <tr>
+                                <th i18n="pidTuningPIDProfileSettings"></th>
+                            </tr>
+                        </table>
+                        <table class="-filterTable">
+                            <div class="ThrottleLinear">
+                                <tr class="ThrottleLinear">
+                                    <th colspan="2">
+                                        <div class="pid_mode">
+                                            <div i18n="pidTuningThrottleLinearization"></div>
+                                            <!-- <div class="helpicon cf_tip" i18n_title="pidTuning______Help"></div>
+                                            -->
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr class="ThrottleLinear">
+                                    <td>
+                                      <span class="inputSwitch"><input type="checkbox" id="LinearThrottleEnabled" class="toggle" />
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <label>
+                                                <span i18n="pidTuningLinearThrottle"></span>
+                                            </label>
+                                            <div class="helpicon cf_tip" i18n_title="pidTuningLinearThrottleHelp"></div>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            </div>
+                        </table>
+                    </div><!-- end right column -->
+                </div><!--end multi-columns -->
+            </div><!-- end subtab-feel-->
+            <!-- end MSP 1.51 -->
+
+
+
+
+
+
+
+
+
+
+
+
         </form>
         </div>
         <div class="clear-both"></div>

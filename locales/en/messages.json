@@ -1448,6 +1448,11 @@
     "pidTuningSubTabFilter": {
         "message": "Filter Settings"
     },
+    "COMMENT": {"message": "MSP 1.51"},
+    "pidTuningSubTabFeel": {
+        "message": "Feel Settings"
+    },
+    "COMMENT": {"message": "end MSP 1.51"},
     "pidTuningShowAllPids": {
         "message": "Show all PIDs"
     },
@@ -3323,7 +3328,7 @@
         "message": "Defines the lowest dynamic notch center frequency below which the dynamic notch will not go."
     },
 
-    "COMMENT": {"message": "MSP1.51"},
+    "COMMENT": {"message": "MSP 1.51"},
     "pidTuningGyroABGFilterGroup": {
         "message": "Gyro ABG (α-β-γ) Filter"
     },
@@ -3351,7 +3356,7 @@
         "pidTuningABGhalflifeHelp": {
         "message": "HalfLife is the timespan in centiseconds (milliseconds*10) that the sample-data's importance decays. Range is 0 to 250. Default is 50 (half-second)."
     },
-    "COMMENT": {"message": "end MSP1.51"},
+    "COMMENT": {"message": "end MSP 1.51"},
 
 
     "pidTuningLowpassFilterHelp": {
@@ -3579,6 +3584,7 @@
     "pidTuningIntegratedYawHelp": {
         "message": "Integrated Yaw is a feature which corrects a fundamental issue with quad control: while the pitch and roll axis are controlled by the thrust differentials the props generate yaw is different. Integrated Yaw fixes this by integrating the output of the yaw pid before applying them to the mixer. This normalizes the way the pids work. You can now tune as any other axis. It requires use of absolute control since no I is needed with Integrated Yaw."
     },
+    "COMMENT": {"message": "MSP 1.51"},
     "pidTuningEmuGravity": {
         "message": "EmuGravity"
     },
@@ -3603,6 +3609,58 @@
         "pidTuningAxisLockHzHelp": {
         "message": "'Axis-lock' Significantly reduces pidsum for opposing axes. Cutoff-Hz range is 1 to 50. Default is 2. When multiplier is 0, 'Axis-Lock' is disabled."
     },
+    "COMMENT": {"message": "end MSP 1.51"},
+    "COMMENT": {"message": "MSP 1.51"},
+    "pidTuningPIDProfileSettings": {
+        "message": "PID Profile Dependent Settings"
+    },
+    "pidTuningMotorMixer": {
+        "message": "Motor Mixer"
+    },
+
+    "pidTuningMixerImplementation": {
+        "message": "Motor Mixer Implementation"
+    },
+    "pidTuningMixerImplementationHelp": {
+        "message": "EmuFlight introduces SMOOTH and 2PASS variants for the motor output mixer.  SMOOTH is a simple variant that avoids clipping.  2PASS is a smooth variant that treats Roll and Pitch separately from Yaw in order to guarantee thrust linearity. Default 'mixer_impl = LEGACY'."
+    },
+    "pidTuningMixerLaziness": {
+        "message": "Mixer Laziness"
+    },
+    "pidTuningMixerLazinessHelp": {
+        "message": "A smarter, minimal clipping-prevention strategy. When ON, requires Thrust-Linearization to be enabled/configured. Default 'mixer_laziness = OFF'."
+    },
+    "pidTuningThrustLinearization": {
+        "message": "Thrust Linearization"
+    },
+    "pidTuningTLLowOuput": {
+        "message": "Thrust Linearization Low Output"
+    },
+        "pidTuningTLLowOuputHelp": {
+        "message": "Value in Percentage of output at low end. Default 'linear_thrust_low_output = 65'."
+    },
+    "pidTuningTLHighOuput": {
+        "message": "Thrust Linearization High Output"
+    },
+        "pidTuningTLHighOuputHelp": {
+        "message": "Value in Percentage of output at high end. Default 'linear_thrust_high_output = 0' (OFF)."
+    },
+    "pidTuningThrottleLinearization": {
+        "message": "Throttle Linearization"
+    },
+    "pidTuningLinearThrottle": {
+        "message": "Linear Throttle"
+    },
+        "pidTuningLinearThrottleHelp": {
+        "message": "Linearizes the throttle response. Enabling this may drop the hover-point but increase high-end range. Default OFF."
+    },
+    "COMMENT": {"message": "end MSP 1.51"},
+
+
+
+
+
+
     "configHelp2": {
         "message": "Arbitrary board rotation in degrees, to allow mounting it sideways / upside down / rotated etc. When running external sensors, use the sensor alignments (Gyro, Acc, Mag) to define sensor position independent from board orientation. "
     },
