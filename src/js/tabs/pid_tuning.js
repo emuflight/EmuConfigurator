@@ -451,15 +451,16 @@ TABS.pid_tuning.initialize = function(callback) {
             // MSP 1.51
             if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
                 // emuGravity
-                $('#emuGravity').show();
                 $('input[name="emuGravity-number"]').val(ADVANCED_TUNING.emuGravityGain);
+                $('#emuGravity').show();
                 // df_yaw
-                $('#DFyaw').show();
                 $('input[name="DFyaw-number"]').val(ADVANCED_TUNING.directFF_yaw);
-                //axis-lock
+                $('#DFyaw').show();
                 //axis-lock
                 $('input[name="axisLockHz-number"]').val(ADVANCED_TUNING.axis_lock_hz )
                 $('input[name="axisLockMultiplier-number"]').val(ADVANCED_TUNING.axis_lock_multiplier)
+                $('#axisLockMultiplier').show();
+                $('#axisLockHz').show();
             } else {
                 $('#emuGravity').hide();
                 $('#DFyaw').hide();
@@ -927,6 +928,21 @@ TABS.pid_tuning.initialize = function(callback) {
         }
         // end MSP 1.51
 
+        // MSP 1.51
+        if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+            // Motor Mixer
+            $('.MotorMixer select[name="MotorMixerImplSelect"]').val(ADVANCED_TUNING.mixer_impl);
+            $('.MotorMixer input[name="MixerLazinessEnabled"').prop('checked',ADVANCED_TUNING.mixer_laziness !== 0);
+            //Thrust Linearization
+            $('.ThrustLinear input[name="pidTuningTLLowOuput-number"').val(ADVANCED_TUNING.linear_thrust_low_output);
+            $('.ThrustLinear input[name="pidTuningTLHighOuput-number"').val(ADVANCED_TUNING.linear_thrust_high_output);
+            //Throttle Linearization
+            $('.ThrottleLinear input[name="LinearThrottleEnabled"').prop('checked',ADVANCED_TUNING.linear_throttle !== 0);
+        } else {
+            //$('#___').hide();
+        }
+        //end MSP 1.51
+
         //experimental expert-mode show/hide SPA
         if (!isExpertModeEnabled()) {
             $('.isexpertmode').hide();
@@ -1187,6 +1203,18 @@ TABS.pid_tuning.initialize = function(callback) {
         }
         // end MSP 1.51
 
+        // MSP 1.51
+        if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+            //MotorMixer
+            ADVANCED_TUNING.mixer_impl = $('.MotorMixer select[name="MotorMixerImplSelect"]').val();
+            ADVANCED_TUNING.mixer_laziness = $('input[name="MixerLazinessEnabled"]').is(':checked') ? 1 : 0;
+            //Thrust Linearization
+            ADVANCED_TUNING.linear_thrust_low_output = $('input[name="pidTuningTLLowOuput-number"]').val();
+            ADVANCED_TUNING.linear_thrust_high_output = $('input[name="pidTuningTLHighOuput-number"]').val();
+            //Throttle Linearization
+            ADVANCED_TUNING.linear_throttle = $('input[name="LinearThrottleEnabled"]').is(':checked') ? 1 : 0;
+        }
+        // end MSP 1.51
 
     } //end function form_to_pid_and_rc()
 
@@ -1848,6 +1876,26 @@ TABS.pid_tuning.initialize = function(callback) {
         populateFilterTypeSelector('dtermLowpassType', loadFilterTypeValues());
         populateFilterTypeSelector('dtermLowpass2Type', loadFilterTypeValues());
         //populateFilterTypeSelector('dtermLowpassDynType', loadFilterTypeValues());
+
+        // MSP 1.51
+        // MotorMixer Implementation
+        function loadMotorMixerImplValues() {
+            var motorMixerImplValues = [];
+            motorMixerImplValues.push("LEGACY");
+            motorMixerImplValues.push("SMOOTH");
+            motorMixerImplValues.push("2PASS");
+            return motorMixerImplValues;
+        }
+
+        function populateMotorMixerImplSelector(name, selectMotorMixerImplValues) {
+            var motorMixerImplSelect = $('select[name="' + name + '"]');
+            selectMotorMixerImplValues.forEach(function(value, key) {
+                motorMixerImplSelect.append('<option value="' + key + '">' + value + '</option>');
+            });
+        }
+
+        populateMotorMixerImplSelector('MotorMixerImplSelect', loadMotorMixerImplValues());
+        //end MSP 1.51
 
         pid_and_rc_to_form();
 

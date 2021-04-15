@@ -1792,18 +1792,6 @@
                 </div>
             </div> <!-- end subtab-filter -->
 
-
-
-
-
-
-
-
-
-
-
-
-
             <!-- MSP 1.51 -->
             <div class="subtab-feel" style="display: none;">
                 <div class="clear-both"></div>
@@ -1829,7 +1817,7 @@
                                 </tr>
                                 <tr class="MotorMixer">
                                     <td>
-                                        <select name="MotorMixerImpl" >
+                                        <select id="MotorMixerImplSelect" name="MotorMixerImplSelect" >
                                           <!--  Populated on execution -->
                                       </select>
                                     </td>
@@ -1844,7 +1832,7 @@
                                 </tr>
                                 <tr class="MotorMixer">
                                     <td>
-                                      <span class="inputSwitch"><input type="checkbox" id="MixerLazinessEnabled" class="toggle" />
+                                      <span class="inputSwitch"><input type="checkbox" name="MixerLazinessEnabled" id="MixerLazinessEnabled" class="toggle" />
                                     </td>
                                     <td>
                                         <div>
@@ -1880,7 +1868,7 @@
                                 </tr>
                                 <tr class="ThrustLinear">
                                     <td>
-                                        <input type="number" class="-nonProfile" name="-number" step="1" min="0" max="100">
+                                        <input type="number" class="-nonProfile" name="pidTuningTLLowOuput-number" step="1" min="0" max="100">
                                     </td>
                                     <td>
                                         <div>
@@ -1893,7 +1881,7 @@
                                 </tr>
                                 <tr class="ThrustLinear">
                                     <td>
-                                        <input type="number" class="-nonProfile" name="-number" step="1" min="0" max="100">
+                                        <input type="number" class="-nonProfile" name="pidTuningTLHighOuput-number" step="1" min="0" max="100">
                                     </td>
                                     <td>
                                         <div>
@@ -1928,7 +1916,7 @@
                                 </tr>
                                 <tr class="ThrottleLinear">
                                     <td>
-                                      <span class="inputSwitch"><input type="checkbox" id="LinearThrottleEnabled" class="toggle" />
+                                      <span class="inputSwitch"><input type="checkbox" name="LinearThrottleEnabled" id="LinearThrottleEnabled" class="toggle" />
                                     </td>
                                     <td>
                                         <div>
@@ -1946,17 +1934,6 @@
                 </div><!--end multi-columns -->
             </div><!-- end subtab-feel-->
             <!-- end MSP 1.51 -->
-
-
-
-
-
-
-
-
-
-
-
 
         </form>
         </div>
