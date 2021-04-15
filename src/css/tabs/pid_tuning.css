@@ -715,6 +715,21 @@
     height: fit-content;
 }
 
+/* MSP 1.51 */
+.subtab-feel .two_columns .two_columns_first {
+    float: left;
+    width: 32%;
+    margin-right: 5px;
+}
+
+.subtab-feel .two_columns .two_columns_second {
+    float: left;
+    width: 32%;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+/* end MSP 1.51 */
+
 .tab-pid_tuning .tabboarder {
     background-color: var(--accent);
     float: left;
