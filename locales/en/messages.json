@@ -3615,11 +3615,11 @@
         "message": "PID Profile Dependent Settings"
     },
     "pidTuningMotorMixer": {
-        "message": "Motor Mixer"
+        "message": "Motor Mixer Smoothing"
     },
 
     "pidTuningMixerImplementation": {
-        "message": "Motor Mixer Implementation"
+        "message": "Mixer Implementation"
     },
     "pidTuningMixerImplementationHelp": {
         "message": "EmuFlight introduces SMOOTH and 2PASS variants for the motor output mixer.  SMOOTH is a simple variant that avoids clipping.  2PASS is a smooth variant that treats Roll and Pitch separately from Yaw in order to guarantee thrust linearity. Default 'mixer_impl = LEGACY'."
@@ -3634,16 +3634,16 @@
         "message": "Thrust Linearization"
     },
     "pidTuningTLLowOuput": {
-        "message": "Thrust Linearization Low Output"
+        "message": "Low Output Compensation "
     },
         "pidTuningTLLowOuputHelp": {
-        "message": "Value in Percentage of output at low end. Default 'linear_thrust_low_output = 65'."
+        "message": "Value in Percentage for RPM output compensation at low end. Default 'linear_thrust_low_output = 65'."
     },
     "pidTuningTLHighOuput": {
-        "message": "Thrust Linearization High Output"
+        "message": "High Output Compensation"
     },
         "pidTuningTLHighOuputHelp": {
-        "message": "Value in Percentage of output at high end. Default 'linear_thrust_high_output = 0' (OFF)."
+        "message": "Value in Percentage for RPM output compensation at high end. Default 'linear_thrust_high_output = 0' (OFF)."
     },
     "pidTuningThrottleLinearization": {
         "message": "Throttle Linearization"
