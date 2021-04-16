@@ -725,6 +725,21 @@ function updateTabList(features) {
     if ( semver.lt(CONFIG.apiVersion, "1.44.0") || semver.lt(CONFIG.flightControllerVersion, "0.2.35") ) {
         $('.smartDTermWitchBox').hide();
     }
+
+    // MSP 1.51
+    //expermode show/hide
+    if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+        if (!isExpertModeEnabled()) {
+
+        } else {
+            if (TABS.pid_tuning.activeSubtab == 'feel') {
+                //debug
+                //console.log("Active subtab is :"+ TABS.pid_tuning.activeSubtab + 'Setting to Filter');
+                $('.tab-pid_tuning .tab_container .filter').click();  //jQuery specific command
+            }
+        }
+    }
+    // MSP 1.51
 }
 
 function zeroPad(value, width) {

@@ -86,12 +86,14 @@ TABS.pid_tuning.initialize = function(callback) {
         }
 
         // MSP 1.51
-        if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+        if (semver.gte(CONFIG.apiVersion, "1.51.0") && isExpertModeEnabled() ) {
             $('.feel').show();
-            console.log('Enable FEEL tab');
+            //debug
+            //console.log('Enable FEEL tab');
         } else {
             $('.feel').hide();
-            console.log('Disable FEEL tab');
+            //debug
+            //console.log('Disable FEEL tab');
         }
         //end MSP 1.51
 
@@ -918,15 +920,15 @@ TABS.pid_tuning.initialize = function(callback) {
             $('input[name="gyroABGalpha-number"]').val(FILTER_CONFIG.gyro_ABG_alpha);
             $('input[name="gyroABGboost-number"]').val(FILTER_CONFIG.gyro_ABG_boost);
             $('input[name="gyroABGhalflife-number"]').val(FILTER_CONFIG.gyro_ABG_half_life);
-            $('.GyroABGFilter').show();
+            $('#GyroABGFilter').show();
             //ABG dterm
             $('input[name="dtermABGalpha-number"]').val(FILTER_CONFIG.dterm_ABG_alpha);
             $('input[name="dtermABGboost-number"]').val(FILTER_CONFIG.dterm_ABG_boost);
             $('input[name="dtermABGhalflife-number"]').val(FILTER_CONFIG.dterm_ABG_half_life);
-            $('.DTermABGFilter').show();
+            $('#DTermABGFilter').show();
         } else {
-            $('.GyroABGFilter').hide();
-            $('.DTermABGFilter').hide();
+            $('#GyroABGFilter').hide();
+            $('#DTermABGFilter').hide();
         }
         // end MSP 1.51
 
@@ -1388,6 +1390,8 @@ TABS.pid_tuning.initialize = function(callback) {
             $('.tab-pid_tuning .tab_container td').removeClass('active');
             $('.tab-pid_tuning .tab_container .' + subtabName).addClass('active');
             self.activeSubtab = subtabName;
+            //debug
+            //console.log('Activated subtab: '+subtabName);
         }
 
         activateSubtab(self.activeSubtab);

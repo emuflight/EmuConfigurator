@@ -69,9 +69,11 @@
                     <td class="filter">
                         <a href="#" i18n="pidTuningSubTabFilter" />
                     </td>
-                    <td class="feel">
+                    <!-- MSP 1.51 -->
+                    <td class="feel isexpertmode">
                         <a href="#" i18n="pidTuningSubTabFeel" />
                     </td>
+                    <!-- end MSP 1.51 -->
                 </tr>
             </table>
         </div>
@@ -652,7 +654,7 @@
                             </tr>
 
                             <!-- MSP 1.51 -->
-                            <tr id="emuGravity" class="emuGravity">
+                            <tr id="emuGravity" class="emuGravity isexpertmode">
                                 <td><input type="number" name="emuGravity-number" step="1" min="0" max="255"/></td>
                                 <td colspan="1">
                                     <div>
@@ -661,7 +663,7 @@
                                     </div>
                                 </td>
                             </tr>
-                            <tr id="DFyaw" class="DFyaw">
+                            <tr id="DFyaw" class="DFyaw isexpertmode">
                                 <td><input type="number" name="DFyaw-number" step="1" min="0" max="200"/></td>
                                 <td colspan="1">
                                     <div>
@@ -670,7 +672,7 @@
                                     </div>
                                 </td>
                             </tr>
-                            <tr id="axisLockMultiplier" class="axisLockMultiplier">
+                            <tr id="axisLockMultiplier" class="axisLockMultiplier isexpertmode">
                                 <td><input type="number" name="axisLockMultiplier-number" step="1" min="0" max="10"/></td>
                                 <td colspan="1">
                                     <div>
@@ -679,7 +681,7 @@
                                     </div>
                                 </td>
                             </tr>
-                            <tr id="axisLockHz" class="axisLockHz">
+                            <tr id="axisLockHz" class="axisLockHz isexpertmode">
                                 <td><input type="number" name="axisLockHz-number" step="1" min="0" max="50"/></td>
                                 <td colspan="1">
                                     <div>
@@ -1271,8 +1273,8 @@
                                     </td>
                                 </tr>
                                 <!-- MSP 1.51 -->
-                                <div class="GyroABGFilter">
-                                <tr class="GyroABGFilter">
+                                <div class="GyroABGFilter isexpertmode">
+                                <tr class="GyroABGFilter isexpertmode">
                                     <th colspan="2">
                                         <div class="pid_mode">
                                             <div i18n="pidTuningGyroABGFilterGroup"></div>
@@ -1280,7 +1282,7 @@
                                         </div>
                                     </th>
                                 </tr>
-                                <tr class="GyroABGFilter">
+                                <tr class="GyroABGFilter isexpertmode">
                                     <td>
                                         <input type="number" class="nonProfile" name="gyroABGalpha-number" step="1" min="0" max="1000"/>
                                     </td>
@@ -1294,7 +1296,7 @@
 
                                     </td>
                                 </tr>
-                                <tr class="GyroABGFilter">
+                                <tr class="GyroABGFilter isexpertmode">
                                     <td>
                                         <input type="number" class="nonProfile" name="gyroABGboost-number" step="1" min="0" max="2000"/>
                                     </td>
@@ -1308,7 +1310,7 @@
 
                                     </td>
                                 </tr>
-                                <tr class="GyroABGFilter">
+                                <tr class="GyroABGFilter isexpertmode">
                                     <td>
                                         <input type="number" class="nonProfile" name="gyroABGhalflife-number" step="1" min="0" max="250"/>
                                     </td>
@@ -1734,8 +1736,8 @@
                             </tr>
 
                                 <!-- MSP 1.51 -->
-                                <div class="DTermABGFilter">
-                                <tr class="DTermABGFilter">
+                                <div class="DTermABGFilter isexpertmode">
+                                <tr class="DTermABGFilter isexpertmode">
                                     <th colspan="2">
                                         <div class="pid_mode">
                                             <div i18n="pidTuningDTermABGFilterGroup"></div>
@@ -1743,7 +1745,7 @@
                                         </div>
                                     </th>
                                 </tr>
-                                <tr class="DTermABGFilter">
+                                <tr class="DTermABGFilter isexpertmode">
                                     <td>
                                         <input type="number" class="-nonProfile" name="dtermABGalpha-number" step="1" min="0" max="1000"/>
                                     </td>
@@ -1757,7 +1759,7 @@
 
                                     </td>
                                 </tr>
-                                <tr class="DTermABGFilter">
+                                <tr class="DTermABGFilter isexpertmode">
                                     <td>
                                         <input type="number" class="-nonProfile" name="dtermABGboost-number" step="1" min="0" max="2000"/>
                                     </td>
@@ -1771,7 +1773,7 @@
 
                                     </td>
                                 </tr>
-                                <tr class="DTermABGFilter">
+                                <tr class="DTermABGFilter isexpertmode">
                                     <td>
                                         <input type="number" class="-nonProfile" name="dtermABGhalflife-number" step="1" min="0" max="250"/>
                                     </td>
@@ -1793,19 +1795,20 @@
             </div> <!-- end subtab-filter -->
 
             <!-- MSP 1.51 -->
-            <div class="subtab-feel" style="display: none;">
+            <!-- FEEL SUBTAB -->
+            <div class="subtab-feel isexpertmode" style="display: none;">
                 <div class="clear-both"></div>
                 <div class="cf_column two_columns">
                     <!-- left column -->
-                    <div class="gui_box grey topspacer pid_filter two_columns_first" xstyle="float: left; width: 32%; margin-right: 5px;">
+                    <div class="gui_box grey topspacer pid_filter two_columns_first">
                         <table class="pid_titlebar new_rates">
                             <tr>
                                 <th i18n="pidTuningPIDProfileSettings"></th>
                             </tr>
                         </table>
                         <table class="-filterTable">
-                            <div class="MotorMixer">
-                                <tr class="MotorMixer">
+                            <div class="MotorMixer  isexpertmode">
+                                <tr class="MotorMixer  isexpertmode">
                                     <th colspan="2">
                                         <div class="pid_mode">
                                             <div i18n="pidTuningMotorMixer"></div>
@@ -1815,7 +1818,7 @@
                                         </div>
                                     </th>
                                 </tr>
-                                <tr class="MotorMixer">
+                                <tr class="MotorMixer isexpertmode">
                                     <td>
                                         <select id="MotorMixerImplSelect" name="MotorMixerImplSelect" >
                                           <!--  Populated on execution -->
@@ -1830,7 +1833,7 @@
                                         </div>
                                     </td>
                                 </tr>
-                                <tr class="MotorMixer">
+                                <tr class="MotorMixer isexpertmode">
                                     <td>
                                       <span class="inputSwitch"><input type="checkbox" name="MixerLazinessEnabled" id="MixerLazinessEnabled" class="toggle" />
                                     </td>
@@ -1847,7 +1850,7 @@
                         </table>
                     </div><!-- end left column -->
                     <!-- center column -->
-                   <div class="cf_column two_columns two_columns_second gui_box topspacer -grey -pid_filter" xstyle="float: left; width: 32%; margin-left: 5px; margin-right: 5px;">
+                   <div class="cf_column two_columns two_columns_second gui_box topspacer -grey -pid_filter">
                         <!-- class gui_box topspacer required -->
                         <table class="pid_titlebar -new_rates">
                             <tr>
@@ -1855,8 +1858,8 @@
                             </tr>
                         </table>
                         <table class="-filterTable">
-                            <div class="ThrustLinear">
-                                <tr class="ThrustLinear">
+                            <div class="ThrustLinear isexpertmode">
+                                <tr class="ThrustLinear isexpertmode">
                                     <th colspan="2">
                                         <div class="pid_mode">
                                             <div i18n="pidTuningThrustLinearization"></div>
@@ -1866,7 +1869,7 @@
                                         </div>
                                     </th>
                                 </tr>
-                                <tr class="ThrustLinear">
+                                <tr class="ThrustLinear isexpertmode">
                                     <td>
                                         <input type="number" class="-nonProfile" name="pidTuningTLLowOuput-number" step="1" min="0" max="100">
                                     </td>
@@ -1879,7 +1882,7 @@
                                         </div>
                                     </td>
                                 </tr>
-                                <tr class="ThrustLinear">
+                                <tr class="ThrustLinear isexpertmode">
                                     <td>
                                         <input type="number" class="-nonProfile" name="pidTuningTLHighOuput-number" step="1" min="0" max="100">
                                     </td>
@@ -1897,7 +1900,7 @@
                         </table>
                     </div><!-- end center column -->
                     <!-- right column -->
-                    <div class="cf_column right gui_box grey topspacer pid_filter two_columns_second" xstyle="float: left; width: 32%; margin-left: 5px; ">
+                    <div class="cf_column right gui_box grey topspacer pid_filter two_columns_second">
                         <table class="pid_titlebar new_rates">
                             <tr>
                                 <th i18n="pidTuningPIDProfileSettings"></th>
@@ -1934,7 +1937,6 @@
                 </div><!--end multi-columns -->
             </div><!-- end subtab-feel-->
             <!-- end MSP 1.51 -->
-
         </form>
         </div>
         <div class="clear-both"></div>
