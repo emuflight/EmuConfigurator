@@ -918,13 +918,15 @@ TABS.pid_tuning.initialize = function(callback) {
             $('input[name="gyroABGalpha-number"]').val(FILTER_CONFIG.gyro_ABG_alpha);
             $('input[name="gyroABGboost-number"]').val(FILTER_CONFIG.gyro_ABG_boost);
             $('input[name="gyroABGhalflife-number"]').val(FILTER_CONFIG.gyro_ABG_half_life);
+            $('.GyroABGFilter').show();
             //ABG dterm
             $('input[name="dtermABGalpha-number"]').val(FILTER_CONFIG.dterm_ABG_alpha);
             $('input[name="dtermABGboost-number"]').val(FILTER_CONFIG.dterm_ABG_boost);
             $('input[name="dtermABGhalflife-number"]').val(FILTER_CONFIG.dterm_ABG_half_life);
+            $('.DTermABGFilter').show();
         } else {
-            $('#GyroABGFilter').hide();
-            $('#DTermABGFilter').hide();
+            $('.GyroABGFilter').hide();
+            $('.DTermABGFilter').hide();
         }
         // end MSP 1.51
 
