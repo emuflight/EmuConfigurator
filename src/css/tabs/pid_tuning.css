@@ -721,6 +721,25 @@
     flex: 1;
 }
 
+.tab-pid_tuning .subtab-feel {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.tab-pid_tuning .subtab-feel .cf_column {
+    min-width: 200px;
+    flex: 1;
+}
+
+@media only screen and (max-width: 1405px) {
+
+.tab-pid_tuning .subtab-feel .ratePreview.spacer_left {
+    width: 100%;
+}
+}
+
 .tab-pid_tuning .subtab-feel .gui_box {
     float: none;
 }
