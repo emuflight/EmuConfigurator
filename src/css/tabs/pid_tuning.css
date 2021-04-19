@@ -716,17 +716,32 @@
 }
 
 /* MSP 1.51 */
-.subtab-feel .two_columns .two_columns_first {
+.tab-pid_tuning .subtab-feel .cf_column {
+    min-width: 200px;
+    flex: 1;
+}
+
+.tab-pid_tuning .subtab-feel .gui_box {
+    float: none;
+}
+
+.subtab-feel .three_columns .three_columns_first {
     float: left;
     width: 32%;
     margin-right: 5px;
 }
 
-.subtab-feel .two_columns .two_columns_second {
+.subtab-feel .three_columns .three_columns_second {
     float: left;
     width: 32%;
     margin-left: 5px;
     margin-right: 5px;
+}
+
+.subtab-feel .three_columns .three_columns_third {
+    float: left;
+    width: 32%;
+    margin-left: 5px;
 }
 /* end MSP 1.51 */
 
