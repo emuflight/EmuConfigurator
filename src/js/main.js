@@ -730,12 +730,10 @@ function updateTabList(features) {
     //expermode show/hide
     if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
         if (!isExpertModeEnabled()) {
-
-        } else {
             if (TABS.pid_tuning.activeSubtab == 'feel') {
                 //debug
-                //console.log("Active subtab is :"+ TABS.pid_tuning.activeSubtab + 'Setting to Filter');
-                $('.tab-pid_tuning .tab_container .filter').click();  //jQuery specific command
+                //console.log("Active subtab is :"+ TABS.pid_tuning.activeSubtab + 'Setting to PID');
+                $('.tab-pid_tuning .tab_container .pid').click();  //jQuery specific command
             }
         }
     }
