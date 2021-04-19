@@ -1776,10 +1776,10 @@
                                 <th i18n="pidTuningPIDProfileSettings"></th>
                             </tr>
                         </table>
-                        <table class="-filterTable">
+                        <table class="MotorMixer">
                             <div class="MotorMixer  isexpertmode">
                                 <tr class="MotorMixer  isexpertmode">
-                                    <th colspan="2">
+                                    <th colspan="3">
                                         <div class="pid_mode">
                                             <div i18n="pidTuningMotorMixer"></div>
                                             <!--
@@ -1789,12 +1789,12 @@
                                     </th>
                                 </tr>
                                 <tr class="MotorMixer isexpertmode">
-                                    <td>
+                                    <td colspan="1">
                                         <select id="MotorMixerImplSelect" name="MotorMixerImplSelect" >
                                           <!--  Populated on execution -->
                                       </select>
                                     </td>
-                                    <td>
+                                    <td colspan="2">
                                         <div>
                                             <label>
                                                 <span i18n="pidTuningMixerImplementation"></span>
@@ -1804,10 +1804,10 @@
                                     </td>
                                 </tr>
                                 <tr class="MotorMixer isexpertmode">
-                                    <td>
+                                    <td colspan="1">
                                       <span class="inputSwitch"><input type="checkbox" name="MixerLazinessEnabled" id="MixerLazinessEnabled" class="toggle"></span>
                                     </td>
-                                    <td>
+                                    <td colspan="2">
                                         <div>
                                             <label>
                                                 <span i18n="pidTuningMixerLaziness"></span>
@@ -1819,10 +1819,10 @@
                             </div>
                         </table>
 
-                        <table class="-filterTable">
+                        <table class="ThrustLinear">
                             <div class="ThrustLinear isexpertmode">
                                 <tr class="ThrustLinear isexpertmode">
-                                    <th colspan="2">
+                                    <th colspan="3">
                                         <div class="pid_mode">
                                             <div i18n="pidTuningThrustLinearization"></div>
                                             <!--
@@ -1832,10 +1832,10 @@
                                     </th>
                                 </tr>
                                 <tr class="ThrustLinear isexpertmode">
-                                    <td>
+                                    <td colspan="1">
                                         <input type="number" class="-nonProfile" name="pidTuningTLLowOuput-number" step="1" min="0" max="100">
                                     </td>
-                                    <td>
+                                    <td colspan="2">
                                         <div>
                                             <label>
                                                 <span i18n="pidTuningTLLowOuput"></span>
@@ -1845,10 +1845,10 @@
                                     </td>
                                 </tr>
                                 <tr class="ThrustLinear isexpertmode">
-                                    <td>
+                                    <td colspan="1">
                                         <input type="number" class="-nonProfile" name="pidTuningTLHighOuput-number" step="1" min="0" max="100">
                                     </td>
-                                    <td>
+                                    <td colspan="2">
                                         <div>
                                             <label>
                                                 <span i18n="pidTuningTLHighOuput"></span>
@@ -1861,10 +1861,10 @@
                             </div>
                         </table>
 
-                        <table class="-filterTable">
+                        <table class="ThrottleLinear">
                             <div class="ThrottleLinear">
                                 <tr class="ThrottleLinear">
-                                    <th colspan="2">
+                                    <th colspan="3">
                                         <div class="pid_mode">
                                             <div i18n="pidTuningThrottleLinearization"></div>
                                             <!-- <div class="helpicon cf_tip" i18n_title="pidTuning______Help"></div>
@@ -1873,10 +1873,10 @@
                                     </th>
                                 </tr>
                                 <tr class="ThrottleLinear">
-                                    <td>
+                                    <td colspan="1">
                                       <span class="inputSwitch"><input type="checkbox" name="LinearThrottleEnabled" id="LinearThrottleEnabled" class="toggle"></span>
                                     </td>
-                                    <td>
+                                    <td colspan="2">
                                         <div>
                                             <label>
                                                 <span i18n="pidTuningLinearThrottle"></span>
@@ -1899,9 +1899,9 @@
                             </tr>
                         </table>
 
-                        <table class="-filterTable">
+                        <table class="DirectFeedForward">
                             <tr class="DirectFeedForward isexpertmode">
-                                    <th colspan="2">
+                                    <th colspan="3">
                                         <div class="pid_mode">
                                             <div i18n="DirectFeedForward"></div>
                                             <!--
@@ -1911,8 +1911,10 @@
                                     </th>
                                 </tr>
                             <tr id="DFyaw" class="DFyaw isexpertmode">
-                                <td><input type="number" name="DFyaw-number" step="1" min="0" max="200"></td>
                                 <td colspan="1">
+                                    <input type="number" name="DFyaw-number" step="1" min="0" max="200">
+                                </td>
+                                <td colspan="2">
                                     <div>
                                         <span i18n="pidTuningDFyaw"></span>
                                         <div class="helpicon cf_tip" i18n_title="pidTuningDFyawHelp"></div>
@@ -1930,9 +1932,9 @@
                                 <th i18n="pidTuningPIDProfileSettings"></th>
                             </tr>
                         </table>
-                        <table class="-filterTable">
+                        <table class="AxisLock">
                             <tr class="AxisLock isexpertmode">
-                                <th colspan="2">
+                                <th colspan="3">
                                     <div class="pid_mode">
                                         <div i18n="AxisLock"></div>
                                         <!--
@@ -1942,8 +1944,10 @@
                                 </th>
                             </tr>
                             <tr id="axisLockMultiplier" class="axisLockMultiplier isexpertmode">
-                                <td><input type="number" name="axisLockMultiplier-number" step="1" min="0" max="10"></td>
                                 <td colspan="1">
+                                    <input type="number" name="axisLockMultiplier-number" step="1" min="0" max="10">
+                                </td>
+                                <td colspan="2">
                                     <div>
                                         <span i18n="pidTuningAxisLockMultiplier"></span>
                                         <div class="helpicon cf_tip" i18n_title="pidTuningAxisLockMultiplierHelp"></div>
@@ -1951,8 +1955,10 @@
                                 </td>
                             </tr>
                             <tr id="axisLockHz" class="axisLockHz isexpertmode">
-                                <td><input type="number" name="axisLockHz-number" step="1" min="0" max="50"></td>
                                 <td colspan="1">
+                                    <input type="number" name="axisLockHz-number" step="1" min="0" max="50">
+                                </td>
+                                <td colspan="2">
                                     <div>
                                         <span i18n="pidTuningAxisLockHz"></span>
                                         <div class="helpicon cf_tip" i18n_title="pidTuningAxisLockHzHelp"></div>
