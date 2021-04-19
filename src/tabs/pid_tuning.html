@@ -61,13 +61,13 @@
             <table>
                 <tr class="pidTuningSubTabs" id="pidTuningSubTabs">
                     <td class="pid active">
-                        <a href="#" i18n="pidTuningSubTabPid" />
+                        <a href="#" i18n="pidTuningSubTabPid"></a>
                     </td>
                     <td class="rates">
-                        <a href="#" i18n="pidTuningSubTabRates" />
+                        <a href="#" i18n="pidTuningSubTabRates"></a>
                     </td>
                     <td class="filter">
-                        <a href="#" i18n="pidTuningSubTabFilter" />
+                        <a href="#" i18n="pidTuningSubTabFilter"></a>
                     </td>
                     <!-- MSP 1.51 -->
                     <td class="feel isexpertmode">
@@ -126,26 +126,26 @@
                             <tr class="ROLL">
                                 <!-- 0 -->
                                 <td class="pid_roll"></td>
-                                <td class="pid_data"><input type="number" name="p" step="1" min="0" max="200" /></td>
-                                <td class="pid_data"><input type="number" name="i" step="1" min="0" max="200" /></td>
-                                <td class="pid_data"><input type="number" name="d" step="1" min="0" max="200" /></td>
-                                <td class="pid_data feedforward"><input type="number" name="f" step="1" min="0" max="2000" /></td>
+                                <td class="pid_data"><input type="number" name="p" step="1" min="0" max="200"></td>
+                                <td class="pid_data"><input type="number" name="i" step="1" min="0" max="200"></td>
+                                <td class="pid_data"><input type="number" name="d" step="1" min="0" max="200"></td>
+                                <td class="pid_data feedforward"><input type="number" name="f" step="1" min="0" max="2000"></td>
                             </tr>
                             <tr class="PITCH">
                                 <!-- 1 -->
                                 <td class="pid_pitch"></td>
-                                <td class="pid_data"><input type="number" name="p" step="1" min="0" max="200" /></td>
-                                <td class="pid_data"><input type="number" name="i" step="1" min="0" max="200" /></td>
-                                <td class="pid_data"><input type="number" name="d" step="1" min="0" max="200" /></td>
-                                <td class="pid_data feedforward"><input type="number" name="f" step="1" min="0" max="2000" /></td>
+                                <td class="pid_data"><input type="number" name="p" step="1" min="0" max="200"></td>
+                                <td class="pid_data"><input type="number" name="i" step="1" min="0" max="200"></td>
+                                <td class="pid_data"><input type="number" name="d" step="1" min="0" max="200"></td>
+                                <td class="pid_data feedforward"><input type="number" name="f" step="1" min="0" max="2000"></td>
                             </tr>
                             <tr class="YAW">
                                 <!-- 2 -->
                                 <td class="pid_yaw"></td>
-                                <td class="pid_data"><input type="number" name="p" step="1" min="0" max="200" /></td>
-                                <td class="pid_data"><input type="number" name="i" step="1" min="0" max="200" /></td>
-                                <td class="pid_data"><input type="number" name="d" step="1" min="0" max="200" /></td>
-                                <td class="pid_data feedforward"><input type="number" name="f" step="1" min="0" max="2000" /></td>
+                                <td class="pid_data"><input type="number" name="p" step="1" min="0" max="200"></td>
+                                <td class="pid_data"><input type="number" name="i" step="1" min="0" max="200"></td>
+                                <td class="pid_data"><input type="number" name="d" step="1" min="0" max="200"></td>
+                                <td class="pid_data feedforward"><input type="number" name="f" step="1" min="0" max="2000"></td>
                             </tr>
                             <tr class="YAW_JUMP_PREVENTION">
                                 <td colspan="3">
@@ -154,7 +154,7 @@
                                         <div class="helpicon cf_tip" i18n_title="pidTuningYawJumpPreventionHelp"></div>
                                     </div>
                                 </td>
-                                <td class="pid_data"><input type="number" name="d" step="1" min="0" max="255" /></td>
+                                <td class="pid_data"><input type="number" name="d" step="1" min="0" max="255"></td>
                                 <td colspan="4"></td>
                             </tr>
                         </table>
@@ -187,14 +187,14 @@
                                 <tr class="LEVEL">
                                     <!-- 7 -->
                                     <td class="third" i18n="pidTuningAngle"></td>
-                                    <td class="third"><input type="number" name="p" step="1" min="0" max="255" /></td>
+                                    <td class="third"><input type="number" name="p" step="1" min="0" max="255"></td>
                                     <td class="third"></td>
                                 </tr>
                                 <tr class="LEVEL">
                                     <!-- 7 -->
                                     <td class="third" i18n="pidTuningHorizon"></td>
-                                    <td class="third"><input type="number" name="i" step="1" min="0" max="255" /></td>
-                                    <td class="third"><input type="number" name="d" step="1" min="0" max="255" /></td>
+                                    <td class="third"><input type="number" name="i" step="1" min="0" max="255"></td>
+                                    <td class="third"><input type="number" name="d" step="1" min="0" max="255"></td>
                                 </tr>
                             </table>
                         </div> <!-- class OLDANGLEUI -->
@@ -339,8 +339,8 @@
                             <tr class="delta">
                                 <td>
                                     <select id="delta-select">
-                                        <option value="0" i18n="pidTuningDeltaError"/>
-                                        <option value="1" i18n="pidTuningDeltaMeasurement"/>
+                                        <option value="0" i18n="pidTuningDeltaError"></option>
+                                        <option value="1" i18n="pidTuningDeltaMeasurement"></option>
                                     </select>
                                 </td>
                                 <td>
@@ -353,7 +353,7 @@
                                 </td>
                             </tr>
                             <tr class="dtermSetpoint">
-                                <td><input type="number" name="dtermSetpoint-number" step="0.01" min="0.00" max="20"/></td>
+                                <td><input type="number" name="dtermSetpoint-number" step="0.01" min="0.00" max="20"></td>
                                 <td>
                                     <div>
                                         <label>
@@ -364,7 +364,7 @@
                                 </td>
                             </tr>
                             <tr class="dtermSetpointTransition">
-                                <td><input type="number" name="dtermSetpointTransition-number" step="0.01" min="0.01" max="1.00"/></td>
+                                <td><input type="number" name="dtermSetpointTransition-number" step="0.01" min="0.01" max="1.00"></td>
                                 <td colspan="1">
                                     <div>
                                         <label>
@@ -381,7 +381,7 @@
                             </tr>
 
                             <tr class="feedforwardTransition">
-                                <td><input type="number" name="feedforwardTransition-number" step="0.01" min="0.00" max="1.00"/></td>
+                                <td><input type="number" name="feedforwardTransition-number" step="0.01" min="0.00" max="1.00"></td>
                                 <td colspan="1">
                                     <div>
                                         <label>
@@ -393,7 +393,7 @@
                             </tr>
 
                             <tr class="acroTrainerAngleLimit">
-                                <td><input type="number" name="acroTrainerAngleLimit-number" step="1" min="10" max="80"/></td>
+                                <td><input type="number" name="acroTrainerAngleLimit-number" step="1" min="10" max="80"></td>
                                 <td colspan="1">
                                     <div>
                                         <label>
@@ -405,7 +405,7 @@
                             </tr>
 
                             <tr class="throttleBoost">
-                                <td><input type="number" name="throttleBoost-number" step="1" min="0" max="100"/></td>
+                                <td><input type="number" name="throttleBoost-number" step="1" min="0" max="100"></td>
                                 <td colspan="1">
                                     <div>
                                         <label>
@@ -417,7 +417,7 @@
                             </tr>
 
                             <tr class="absoluteControlGain">
-                                <td><input type="number" name="absoluteControlGain-number" step="1" min="0" max="20"/></td>
+                                <td><input type="number" name="absoluteControlGain-number" step="1" min="0" max="20"></td>
                                 <td colspan="1">
                                     <div>
                                         <label>
@@ -428,7 +428,7 @@
                                 </td>
                             </tr>
                             <tr class="iDecay">
-                                <td><input type="number" name="iDecay-number" step="1" min="1" max="10"/></td>
+                                <td><input type="number" name="iDecay-number" step="1" min="1" max="10"></td>
                                  <td colspan="1">
                                     <div>
                                         <label>
@@ -439,7 +439,7 @@
                                  </td>
                             </tr>
                             <tr class="errorBoost">
-                                <td><input type="number" name="errorBoost-number" step="5" min="0" max="1000"/></td>
+                                <td><input type="number" name="errorBoost-number" step="5" min="0" max="1000"></td>
                                  <td colspan="1">
                                     <div>
                                         <label>
@@ -450,7 +450,7 @@
                                  </td>
                             </tr>
                             <tr class="errorBoostLimit">
-                                <td><input type="number" name="errorBoostLimit-number" step="1" min="0" max="250"/></td>
+                                <td><input type="number" name="errorBoostLimit-number" step="1" min="0" max="250"></td>
                                  <td colspan="1">
                                     <div>
                                         <label>
@@ -462,7 +462,7 @@
                             </tr>
 
                             <tr class="errorBoostYaw">
-                                <td><input type="number" name="errorBoostYaw-number" step="5" min="0" max="1000"/></td>
+                                <td><input type="number" name="errorBoostYaw-number" step="5" min="0" max="1000"></td>
                                  <td colspan="1">
                                     <div>
                                         <label>
@@ -473,7 +473,7 @@
                                  </td>
                             </tr>
                             <tr class="errorBoostLimitYaw">
-                                <td><input type="number" name="errorBoostLimitYaw-number" step="1" min="0" max="250"/></td>
+                                <td><input type="number" name="errorBoostLimitYaw-number" step="1" min="0" max="250"></td>
                                  <td colspan="1">
                                     <div>
                                         <label>
@@ -484,7 +484,7 @@
                                  </td>
                             </tr>
                             <tr id="dtermBoost">
-                                <td><input type="number" name="dtermBoost-number" step="5" min="0" max="1000"/></td>
+                                <td><input type="number" name="dtermBoost-number" step="5" min="0" max="1000"></td>
                                  <td colspan="1">
                                     <div>
                                         <label>
@@ -495,7 +495,7 @@
                                  </td>
                             </tr>
                             <tr id="dtermBoostLimit">
-                                <td><input type="number" name="dtermBoostLimit-number" step="1" min="0" max="250"/></td>
+                                <td><input type="number" name="dtermBoostLimit-number" step="1" min="0" max="250"></td>
                                  <td colspan="1">
                                     <div>
                                         <label>
@@ -506,7 +506,7 @@
                                  </td>
                             </tr>
                             <tr id="featheredPidsLine" class="feathered_pids">
-                                <td><input type="checkbox" id="feathered_pids" class="toggle" /></td>
+                                <td><input type="checkbox" id="feathered_pids" class="toggle"></td>
                                 <td colspan="2">
                                     <div>
                                         <label for="feathered_pids">
@@ -517,7 +517,7 @@
                                 </td>
                             </tr>
                             <tr id="featheredPidsLineNumber" class="feathered_pids" style="display: none;">
-                                <td><input type="number" name="featheredPids-number" step="10" min="0" max="100"/></td>
+                                <td><input type="number" name="featheredPids-number" step="10" min="0" max="100"></td>
                                 <td colspan="1">
                                     <div>
                                         <span i18n="pidTuningFeatheredPids"></span>
@@ -527,7 +527,7 @@
                             </tr>
 
                             <tr class="nferacermode">
-                                <td><input type="checkbox" id="nferacermode" class="toggle" /></td>
+                                <td><input type="checkbox" id="nferacermode" class="toggle"></td>
                                 <td colspan="2">
                                     <span i18n="pidTuningNfeRacerMode"></span>
                                     <div class="helpicon cf_tip" i18n_title="pidTuningNfeRacerModeHelp"></div>
@@ -535,7 +535,7 @@
                             </tr>
 
                             <tr class="itermrotation">
-                                <td><input type="checkbox" id="itermrotation" class="toggle" /></td>
+                                <td><input type="checkbox" id="itermrotation" class="toggle"></td>
                                 <td colspan="2">
                                     <span i18n="pidTuningItermRotation"></span>
                                     <div class="helpicon cf_tip" i18n_title="pidTuningItermRotationHelp"></div>
@@ -543,7 +543,7 @@
                             </tr>
 
                             <tr id="iRelaxV2">
-                                <td><input type="number" name="iRelax-number" step="1" min="0" max="100"/></td>
+                                <td><input type="number" name="iRelax-number" step="1" min="0" max="100"></td>
                                  <td colspan="1">
                                     <div>
                                         <label>
@@ -554,7 +554,7 @@
                                  </td>
                             </tr>
                             <tr id="iRelaxYawV2">
-                                <td><input type="number" name="iRelaxYaw-number" step="1" min="0" max="100"/></td>
+                                <td><input type="number" name="iRelaxYaw-number" step="1" min="0" max="100"></td>
                                  <td colspan="1">
                                     <div>
                                         <label>
@@ -567,7 +567,7 @@
 
                             <tr class="vbatpidcompensation">
 
-                                <td><input type="checkbox" id="vbatpidcompensation" class="toggle" /></td>
+                                <td><input type="checkbox" id="vbatpidcompensation" class="toggle"></td>
                                 <td colspan="2">
                                     <span i18n="pidTuningVbatPidCompensation"></span>
                                     <div class="helpicon cf_tip" i18n_title="pidTuningVbatPidCompensationHelp"></div>
@@ -577,7 +577,7 @@
 
 
                             <tr class="smartfeedforward">
-                                <td><input type="checkbox" id="smartfeedforward" class="toggle" /></td>
+                                <td><input type="checkbox" id="smartfeedforward" class="toggle"></td>
                                 <td colspan="2">
                                     <span i18n="pidTuningSmartFeedforward"></span>
                                     <div class="helpicon cf_tip" i18n_title="pidTuningSmartFeedforwardHelp"></div>
@@ -585,69 +585,69 @@
                             </tr>
 
                             <tr class="itermrelax">
-                                <td><input type="checkbox" id="itermrelax" class="toggle" /></td>
+                                <td><input type="checkbox" id="itermrelax" class="toggle"></td>
                                 <td colspan="2">
                                     <div class="helpicon cf_tip" i18n_title="pidTuningItermRelaxHelp"></div>
-                                    <span i18n="pidTuningItermRelax" />
+                                    <span i18n="pidTuningItermRelax"></span>
 
                                     <span class="suboption">
                                         <select id="itermrelaxAxes">
-                                            <option i18n="pidTuningItermRelaxAxesOptionRP"     value="1">
-                                            <option i18n="pidTuningItermRelaxAxesOptionRPY"    value="2"/>
-                                            <option i18n="pidTuningItermRelaxAxesOptionRPInc"  value="3"/>
-                                            <option i18n="pidTuningItermRelaxAxesOptionRPYInc" value="4"/>
+                                            <option i18n="pidTuningItermRelaxAxesOptionRP"     value="1"></option>
+                                            <option i18n="pidTuningItermRelaxAxesOptionRPY"    value="2"></option>
+                                            <option i18n="pidTuningItermRelaxAxesOptionRPInc"  value="3"></option>
+                                            <option i18n="pidTuningItermRelaxAxesOptionRPYInc" value="4"></option>
                                         </select>
                                         <label for="itermrelaxAxes">
-                                            <span i18n="pidTuningItermRelaxAxes" />
+                                            <span i18n="pidTuningItermRelaxAxes"></span>
                                         </label>
                                     </span>
 
                                     <span class="suboption">
                                         <select id="itermrelaxType">
-                                            <option i18n="pidTuningItermRelaxTypeOptionGyro"     value="0"/>
-                                            <option i18n="pidTuningItermRelaxTypeOptionSetpoint" value="1"/>
+                                            <option i18n="pidTuningItermRelaxTypeOptionGyro"     value="0"></option>
+                                            <option i18n="pidTuningItermRelaxTypeOptionSetpoint" value="1"></option>
                                         </select>
                                         <label for="itermrelaxType">
-                                            <span i18n="pidTuningItermRelaxType" />
+                                            <span i18n="pidTuningItermRelaxType"></span>
                                         </label>
                                     </span>
 
                                     <span class="itermRelaxCutoff suboption">
-                                        <input type="number" name="itermRelaxCutoff" step="1" min="1" max="100" />
+                                        <input type="number" name="itermRelaxCutoff" step="1" min="1" max="100">
                                         <label for="itermRelaxCutoff">
-                                            <span i18n="pidTuningItermRelaxCutoff" />
+                                            <span i18n="pidTuningItermRelaxCutoff"></span>
                                         </label>
                                     </span>
                                 </td>
                             </tr>
 
                             <tr class="antigravity">
-                                <td><input type="checkbox" id="antiGravitySwitch" class="toggle" /></td>
+                                <td><input type="checkbox" id="antiGravitySwitch" class="toggle"></td>
                                 <td colspan="3">
                                     <div class="helpicon cf_tip" i18n_title="pidTuningAntiGravityHelp"></div>
-                                    <span i18n="pidTuningAntiGravity" />
+                                    <span i18n="pidTuningAntiGravity"></span>
 
                                     <span class="suboption antiGravityMode">
                                         <select id="antiGravityMode">
-                                            <option i18n="pidTuningAntiGravityModeOptionSmooth"     value="0"/>
-                                            <option i18n="pidTuningAntiGravityModeOptionStep"       value="1"/>
+                                            <option i18n="pidTuningAntiGravityModeOptionSmooth"     value="0"></option>
+                                            <option i18n="pidTuningAntiGravityModeOptionStep"       value="1"></option>
                                         </select>
                                         <label for="antiGravityMode">
-                                            <span i18n="pidTuningAntiGravityMode" />
+                                            <span i18n="pidTuningAntiGravityMode"></span>
                                         </label>
                                     </span>
 
                                     <span class="suboption">
-                                        <input type="number" name="itermAcceleratorGain" step="0.1" min="1.1" max="30" />
+                                        <input type="number" name="itermAcceleratorGain" step="0.1" min="1.1" max="30">
                                         <label for="antiGravityGain">
-                                            <span i18n="pidTuningAntiGravityGain" />
+                                            <span i18n="pidTuningAntiGravityGain"></span>
                                         </label>
                                     </span>
 
                                     <span class="suboption antiGravityThres">
-                                        <input type="number" name="itermThrottleThreshold" step="10" min="20" max="1000" />
+                                        <input type="number" name="itermThrottleThreshold" step="10" min="20" max="1000">
                                         <label for="antiGravityThres">
-                                            <span i18n="pidTuningAntiGravityThres" />
+                                            <span i18n="pidTuningAntiGravityThres"></span>
                                         </label>
                                     </span>
                                 </td>
@@ -721,16 +721,16 @@
                             <tr class="ROLL">
                                 <td class="pid_roll"></td>
                                 <td class="rc_rate">
-                                    <input type="number" name="rc_rate" step="0.01" min="0.01" max="2.55" />
+                                    <input type="number" name="rc_rate" step="0.01" min="0.01" max="2.55">
                                 </td>
                                 <td class="roll_rate">
-                                    <input type="number" name="roll_rate" step="0.01" min="0" max="1.00" />
+                                    <input type="number" name="roll_rate" step="0.01" min="0" max="1.00">
                                 </td>
                                 <td class="roll_pitch_rate" rowspan="2">
-                                    <input type="number" name="roll_pitch_rate" step="0.01" min="0" max="1.00" />
+                                    <input type="number" name="roll_pitch_rate" step="0.01" min="0" max="1.00">
                                 </td>
                                 <td rowspan="2" class="inputBackground">
-                                    <input type="number" name="rc_expo" step="0.01" min="0" max="1" />
+                                    <input type="number" name="rc_expo" step="0.01" min="0" max="1">
                                     <div class="bracket"></div>
                                 </td>
                                 <td class="new_rates maxAngularVelRoll"></td>
@@ -738,26 +738,26 @@
                             <tr class="PITCH">
                                 <td class="pid_pitch"></td>
                                 <td>
-                                    <input type="number" name="rc_rate_pitch" step="0.01" min="0.01" max="2.55" />
+                                    <input type="number" name="rc_rate_pitch" step="0.01" min="0.01" max="2.55">
                                 </td>
                                 <td class="pitch_rate">
-                                    <input type="number" name="pitch_rate" step="0.01" min="0" max="1.00" />
+                                    <input type="number" name="pitch_rate" step="0.01" min="0" max="1.00">
                                 </td>
                                 <td>
-                                    <input type="number" name="rc_pitch_expo" step="0.01" min="0" max="1" />
+                                    <input type="number" name="rc_pitch_expo" step="0.01" min="0" max="1">
                                 </td>
                                 <td class="new_rates maxAngularVelPitch"></td>
                             </tr>
                             <tr class="YAW">
                                 <td class="pid_yaw"></td>
                                 <td rowspan="1">
-                                    <input type="number" name="rc_rate_yaw" step="0.01" min="0.01" max="2.55" />
+                                    <input type="number" name="rc_rate_yaw" step="0.01" min="0.01" max="2.55">
                                 </td>
                                 <td>
-                                    <input type="number" name="yaw_rate" step="0.01" min="0" max="2.55" />
+                                    <input type="number" name="yaw_rate" step="0.01" min="0" max="2.55">
                                 </td>
                                 <td>
-                                    <input type="number" name="rc_yaw_expo" step="0.01" min="0" max="1" />
+                                    <input type="number" name="rc_yaw_expo" step="0.01" min="0" max="1">
                                 </td>
                                 <td class="new_rates maxAngularVelYaw"></td>
                             </tr>
@@ -779,7 +779,7 @@
                                 <tbody>
                                     <tr>
                                         <td colspan="2">
-                                            <div class="rate_curve" style="position:relative;" >
+                                            <div class="rate_curve" style="position:relative;">
                                                 <canvas id="rate_curve_layer0" height="120px" style="position:absolute; top: 0; left: 0; z-index: 0; height:100%; width:100%;"></canvas>
                                                 <canvas id="rate_curve_layer1" height="120px" style="position:absolute; top: 0; left: 0; z-index: 1; height:100%; width:100%;"></canvas>
                                             </div>
@@ -803,10 +803,10 @@
                                 </tr>
                                 <tr class="pid_titlebar">
                                 	<td></td>
-                                    <th >
+                                    <th>
                                         <div style="text-align: center; font-size: 13px;">Rate center</div>
                                     </th>
-                                    <th >
+                                    <th>
                                          <div style="text-align: center; font-size: 13px;">Rate end</div>
                                     </th>
                                 </tr>
@@ -831,29 +831,29 @@
                                     </td>
                                     <td>
                                         <span class="groupSwitchValue">
-                                            <div >
-                                                <span ><input type="range" name="rateSensCenter-range" step="1" min="25" max="175" list="tickmarks"><datalist id="tickmarks"><option value="100" label="100%"></option></datalist></span>
-                                                <span ><input type="range" name="rateCorrectionCenter-range" step="1" min="10" max="95"/></span>
-                                                <span ><input type="range" name="rateWeightCenter-range" step="1" min="0" max="95"/></span>
+                                            <div>
+                                                <span><input type="range" name="rateSensCenter-range" step="1" min="25" max="175" list="tickmarks"><datalist id="tickmarks"><option value="100" label="100%"></option></datalist></span>
+                                                <span><input type="range" name="rateCorrectionCenter-range" step="1" min="10" max="95"></span>
+                                                <span><input type="range" name="rateWeightCenter-range" step="1" min="0" max="95"></span>
                                             </div>
                                             <div style="50px;margin-left: 10px;">
-                                                <span ><input type="number" class="nonProfile" name="rateSensCenter-number" step="1" min="1" max="175"/></span>
-                                                <span ><input type="number" class="nonProfile" name="rateCorrectionCenter-number" step="1" min="10" max="95"/></span>
-                                                <span ><input type="number" class="nonProfile" name="rateWeightCenter-number" step="1" min="0" max="95"/></span>
+                                                <span><input type="number" class="nonProfile" name="rateSensCenter-number" step="1" min="1" max="175"></span>
+                                                <span><input type="number" class="nonProfile" name="rateCorrectionCenter-number" step="1" min="10" max="95"></span>
+                                                <span><input type="number" class="nonProfile" name="rateWeightCenter-number" step="1" min="0" max="95"></span>
                                             </div>
                                         </span>
                                     </td>
                                     <td>
                                         <span class="groupSwitchValue">
-                                            <div >
-                                                <span ><input type="range" name="rateSensEnd-range" step="1" min="25" max="175" list="tickmarks"><datalist id="tickmarks"><option value="100" label="100%"></option></datalist></span>
-                                                <span ><input type="range" name="rateCorrectionEnd-range" step="1" min="10" max="95"/></span>
-                                                <span ><input type="range" name="rateWeightEnd-range" step="1" min="0" max="95"/></span>
+                                            <div>
+                                                <span><input type="range" name="rateSensEnd-range" step="1" min="25" max="175" list="tickmarks"><datalist id="tickmarks"><option value="100" label="100%"></option></datalist></span>
+                                                <span><input type="range" name="rateCorrectionEnd-range" step="1" min="10" max="95"></span>
+                                                <span><input type="range" name="rateWeightEnd-range" step="1" min="0" max="95"></span>
                                             </div>
                                             <div style="50px;margin-left: 10px;">
-                                                <span ><input type="number" class="nonProfile" name="rateSensEnd-number" step="1" min="1" max="175"/></span>
-                                                <span ><input type="number" class="nonProfile" name="rateCorrectionEnd-number" step="1" min="10" max="95"/></span>
-                                                <span ><input type="number" class="nonProfile" name="rateWeightEnd-number" step="1" min="0" max="95"/></span>
+                                                <span><input type="number" class="nonProfile" name="rateSensEnd-number" step="1" min="1" max="175"></span>
+                                                <span><input type="number" class="nonProfile" name="rateCorrectionEnd-number" step="1" min="10" max="95"></span>
+                                                <span><input type="number" class="nonProfile" name="rateWeightEnd-number" step="1" min="0" max="95"></span>
                                             </div>
                                         </span>
                                     </td>
@@ -954,12 +954,12 @@
                                 <tr>
                                     <td>
                                         <select id="throttleLimitType">
-                                            <option i18n="pidTuningThrottleLimitTypeOff" value="0">
-                                            <option i18n="pidTuningThrottleLimitTypeScale" value="1">
-                                            <option i18n="pidTuningThrottleLimitTypeClip" value="2">
+                                            <option i18n="pidTuningThrottleLimitTypeOff" value="0"></option>
+                                            <option i18n="pidTuningThrottleLimitTypeScale" value="1"></option>
+                                            <option i18n="pidTuningThrottleLimitTypeClip" value="2"></option>
                                         </select>
                                     </td>
-                                    <td><input type="number" name="throttleLimitPercent" step="1" min="25" max="100" /></td>
+                                    <td><input type="number" name="throttleLimitPercent" step="1" min="25" max="100"></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -974,8 +974,8 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><input type="number" name="mid" step="0.01" min="0" max="1" /></td>
-                                    <td><input type="number" name="expo" step="0.01" min="0" max="1" /></td>
+                                    <td><input type="number" name="mid" step="0.01" min="0" max="1"></td>
+                                    <td><input type="number" name="expo" step="0.01" min="0" max="1"></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1049,7 +1049,7 @@
                             <tr>
                                 <td>
                                     <span class="groupSwitchValue">
-                                        <span class="inputSwitch"><input type="checkbox" id="gyroLowpassEnabled" class="toggle" />
+                                        <span class="inputSwitch"><input type="checkbox" id="gyroLowpassEnabled" class="toggle">
                                           <select name="gyroLowpassType">
                                             <!--  Populated on execution -->
                                         </select>
@@ -1069,12 +1069,12 @@
                                 <td>
                                     <span class="groupSwitchValue">
                                         <div class="gyroLowpassFrequency">
-                                            <span class="inputValue"><input type="number" class="nonProfile" name="gyroLowpassFrequency" step="1" min="0" max="255"/></span>
+                                            <span class="inputValue"><input type="number" class="nonProfile" name="gyroLowpassFrequency" step="1" min="0" max="255"></span>
                                         </div>
                                         <div class="gyroLowpassFrequencyAxis">
-                                            <span class="inputValue"><input type="number" class="nonProfile" name="gyroLowpassFrequencyRoll" step="1" min="0" max="16000"/><br clear="all"></span>
-                                            <span class="inputValue LPFPit"><input type="number" class="nonProfile" name="gyroLowpassFrequencyPitch" step="1" min="0" max="16000"/><br clear="all"></span>
-                                            <span class="inputValue LPFYaw"><input type="number" class="nonProfile" name="gyroLowpassFrequencyYaw" step="1" min="0" max="16000"/></span>
+                                            <span class="inputValue"><input type="number" class="nonProfile" name="gyroLowpassFrequencyRoll" step="1" min="0" max="16000"><br clear="all"></span>
+                                            <span class="inputValue LPFPit"><input type="number" class="nonProfile" name="gyroLowpassFrequencyPitch" step="1" min="0" max="16000"><br clear="all"></span>
+                                            <span class="inputValue LPFYaw"><input type="number" class="nonProfile" name="gyroLowpassFrequencyYaw" step="1" min="0" max="16000"></span>
                                         </div>
                                     </span>
                                 </td>
@@ -1112,8 +1112,8 @@
                             <tr class="gyroLowpass2">
                               <td>
                                   <span class="groupSwitchValue">
-                                      <span class="inputSwitch"><input type="checkbox" id="gyroLowpass2Enabled" class="toggle" />
-                                        <select name="gyroLowpass2Type" >
+                                      <span class="inputSwitch"><input type="checkbox" id="gyroLowpass2Enabled" class="toggle">
+                                        <select name="gyroLowpass2Type">
                                           <!--  Populated on execution -->
                                       </select>
                                       </span>
@@ -1132,12 +1132,12 @@
                                     <span class="groupSwitchValue">
 
                                         <div class="gyroLowpass2Frequency">
-                                        <span class="inputValue"><input type="number" class="nonProfile" name="gyroLowpass2Frequency" step="1" min="0" max="16000"/></span>
+                                        <span class="inputValue"><input type="number" class="nonProfile" name="gyroLowpass2Frequency" step="1" min="0" max="16000"></span>
                                         </div>
                                         <div class="gyroLowpass2FrequencyAxis">
-                                        <span class="inputValue"><input type="number" class="nonProfile" name="gyroLowpass2FrequencyRoll" step="1" min="0" max="16000"/><br clear="all"></span>
-                                        <span class="inputValue LPFPit"><input type="number" class="nonProfile" name="gyroLowpass2FrequencyPitch" step="1" min="0" max="16000"/><br clear="all"></span>
-                                        <span class="inputValue LPFYaw"><input type="number" class="nonProfile" name="gyroLowpass2FrequencyYaw" step="1" min="0" max="16000"/></span>
+                                        <span class="inputValue"><input type="number" class="nonProfile" name="gyroLowpass2FrequencyRoll" step="1" min="0" max="16000"><br clear="all"></span>
+                                        <span class="inputValue LPFPit"><input type="number" class="nonProfile" name="gyroLowpass2FrequencyPitch" step="1" min="0" max="16000"><br clear="all"></span>
+                                        <span class="inputValue LPFYaw"><input type="number" class="nonProfile" name="gyroLowpass2FrequencyYaw" step="1" min="0" max="16000"></span>
                                         </div>
                                     </span>
                                 </td>
@@ -1177,8 +1177,8 @@
                             <tr class="newFilter">
                                 <td>
                                     <span class="groupSwitchValue">
-                                        <span class="inputSwitch"><input type="checkbox" id="gyroNotch1Enabled" class="toggle" /></span>
-                                        <span class="inputValue"><input type="number" class="nonProfile" name="gyroNotch1Frequency" step="1" min="1" max="16000"/></span>
+                                        <span class="inputSwitch"><input type="checkbox" id="gyroNotch1Enabled" class="toggle"></span>
+                                        <span class="inputValue"><input type="number" class="nonProfile" name="gyroNotch1Frequency" step="1" min="1" max="16000"></span>
                                     </span>
                                 </td>
                                 <td>
@@ -1192,7 +1192,7 @@
 
                             <tr class="newFilter">
                                 <td>
-                                    <input type="number" class="nonProfile" name="gyroNotch1Cutoff" step="1" min="0" max="16000"/>
+                                    <input type="number" class="nonProfile" name="gyroNotch1Cutoff" step="1" min="0" max="16000">
                                 </td>
                                 <td>
                                     <div>
@@ -1212,8 +1212,8 @@
                             <tr class="newFilter gyroNotch2">
                                 <td>
                                     <span class="groupSwitchValue">
-                                        <span class="inputSwitch"><input type="checkbox" id="gyroNotch2Enabled" class="toggle" /></span>
-                                        <span class="inputValue"><input type="number" class="nonProfile" name="gyroNotch2Frequency" step="1" min="1" max="16000"/></span>
+                                        <span class="inputSwitch"><input type="checkbox" id="gyroNotch2Enabled" class="toggle"></span>
+                                        <span class="inputValue"><input type="number" class="nonProfile" name="gyroNotch2Frequency" step="1" min="1" max="16000"></span>
                                     </span>
                                 </td>
                                 <td>
@@ -1227,7 +1227,7 @@
 
                             <tr class="newFilter gyroNotch2">
                                 <td>
-                                    <input type="number" class="nonProfile" name="gyroNotch2Cutoff" step="1" min="0" max="16000"/>
+                                    <input type="number" class="nonProfile" name="gyroNotch2Cutoff" step="1" min="0" max="16000">
                                 </td>
                                 <td>
                                     <div>
@@ -1249,7 +1249,7 @@
 
                                 <tr class="matrixFilter">
                                     <td>
-                                        <input type="number" class="nonProfile" name="MatrixNotchQ" step="1" min="1" max="1000"/>
+                                        <input type="number" class="nonProfile" name="MatrixNotchQ" step="1" min="1" max="1000">
                                     </td>
                                     <td>
                                         <div>
@@ -1262,7 +1262,7 @@
 
                                 <tr class="matrixFilter">
                                     <td>
-                                        <input type="number" class="nonProfile" name="MatrixNotchMin" step="1" min="30" max="1000"/>
+                                        <input type="number" class="nonProfile" name="MatrixNotchMin" step="1" min="30" max="1000">
                                     </td>
                                     <td>
                                         <div>
@@ -1330,7 +1330,7 @@
                     </div>
 
                     <!-- center column -->
-                    <div class="-cf_column gui_box topspacer -grey -pid_filter" > <!-- class gui_box topspacer required -->
+                    <div class="-cf_column gui_box topspacer -grey -pid_filter"> <!-- class gui_box topspacer required -->
                         <!-- IMUF -->
                         <div class="-gui_box -grey -topspacer -pid_filter kalmanFilterSettingsPanel">
                             <table class="cf_table pid_titlebar new_rates">
@@ -1342,7 +1342,7 @@
 
                                 <tr>
                                     <td>
-                                        <input id="QCoefficient" type="number" name="kalmanQCoefficient" step="1" min="0" max="16000"/>
+                                        <input id="QCoefficient" type="number" name="kalmanQCoefficient" step="1" min="0" max="16000">
                                     </td>
                                     <td>
                                         <div>
@@ -1355,7 +1355,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <input type="number" name="kalmanRCoefficient" step="1" min="3" max="512"/>
+                                        <input type="number" name="kalmanRCoefficient" step="1" min="3" max="512">
                                     </td>
                                     <td>
                                         <div>
@@ -1373,15 +1373,15 @@
                         <div id="imufFilterSettingsPanel" style="display: none;" class="-gui_box -grey -topspacer pid_filter">
                             <table class="pid_titlebar new_rates">
                                 <tr>
-                                    <th i18n="pidTuningIMUFFilterSettings" ></th>
+                                    <th i18n="pidTuningIMUFFilterSettings"></th>
                                 </tr>
                             </table>
                             <table>
-                              <th colspan="2"></th>
+                              <tr><th colspan="2"></th></tr>
                                  <tr>
 
                                      <td>
-                                         <input id="imuf_roll_q" type="number" name="imuf_roll_q" step="100" min="100" max="16000"/>
+                                         <input id="imuf_roll_q" type="number" name="imuf_roll_q" step="100" min="100" max="16000">
                                      </td>
                                      <td>
                                          <div>
@@ -1395,7 +1395,7 @@
                                  </tr>
                                  <tr>
                                      <td>
-                                         <input id="imuf_pitch_q" type="number" name="imuf_pitch_q" step="100" min="100" max="16000"/>
+                                         <input id="imuf_pitch_q" type="number" name="imuf_pitch_q" step="100" min="100" max="16000">
                                      </td>
                                      <td>
                                          <div>
@@ -1408,7 +1408,7 @@
                                  </tr>
                                  <tr>
                                      <td>
-                                         <input id="imuf_yaw_q" type="number" name="imuf_yaw_q" step="100" min="100" max="16000"/>
+                                         <input id="imuf_yaw_q" type="number" name="imuf_yaw_q" step="100" min="100" max="16000">
                                      </td>
                                      <td>
                                          <div>
@@ -1421,7 +1421,7 @@
                                  </tr>
                                  <tr>
                                      <td>
-                                         <input id="imuf_w" type="number" name="imuf_w" step="1" min="3" max="512"/>
+                                         <input id="imuf_w" type="number" name="imuf_w" step="1" min="3" max="512">
                                      </td>
                                      <td>
                                          <div>
@@ -1435,7 +1435,7 @@
                                  <tr class="imufSharpness">
                                      <td>
                                          <!-- js will mod min to 0 for msp 1.49+ -->
-                                         <input id="imuf_sharpness" type="number" name="imuf_sharpness" step="1" min="1" max="16000"/>
+                                         <input id="imuf_sharpness" type="number" name="imuf_sharpness" step="1" min="1" max="16000">
                                      </td>
                                      <td>
                                          <div>
@@ -1448,7 +1448,7 @@
                                  </tr>
                                  <tr class="imuf_roll_lpf_cutoff_hz_tr">
                                      <td>
-                                         <input id="imuf_roll_lpf_cutoff_hz" type="number" name="imuf_roll_lpf_cutoff_hz" step="1" min="0" max="450"/>
+                                         <input id="imuf_roll_lpf_cutoff_hz" type="number" name="imuf_roll_lpf_cutoff_hz" step="1" min="0" max="450">
                                      </td>
                                      <td>
                                          <div>
@@ -1461,7 +1461,7 @@
                                  </tr>
                                  <tr class="imuf_pitch_lpf_cutoff_hz_tr">
                                      <td>
-                                         <input id="imuf_pitch_lpf_cutoff_hz" type="number" name="imuf_pitch_lpf_cutoff_hz" step="1" min="0" max="450"/>
+                                         <input id="imuf_pitch_lpf_cutoff_hz" type="number" name="imuf_pitch_lpf_cutoff_hz" step="1" min="0" max="450">
                                      </td>
                                      <td>
                                          <div>
@@ -1474,7 +1474,7 @@
                                  </tr>
                                  <tr class="imuf_yaw_lpf_cutoff_hz_tr">
                                      <td>
-                                         <input id="imuf_yaw_lpf_cutoff_hz" type="number" name="imuf_yaw_lpf_cutoff_hz" step="1" min="0" max="450"/>
+                                         <input id="imuf_yaw_lpf_cutoff_hz" type="number" name="imuf_yaw_lpf_cutoff_hz" step="1" min="0" max="450">
                                      </td>
                                      <td>
                                          <div>
@@ -1487,7 +1487,7 @@
                                  </tr>
                                  <tr class="imuf_acc_lpf_cutoff_hz_tr">
                                      <td>
-                                         <input id="imuf_acc_lpf_cutoff_hz" type="number" name="imuf_acc_lpf_cutoff_hz" step="1" min="0" max="450"/>
+                                         <input id="imuf_acc_lpf_cutoff_hz" type="number" name="imuf_acc_lpf_cutoff_hz" step="1" min="0" max="450">
                                      </td>
                                      <td>
                                          <div>
@@ -1506,7 +1506,7 @@
 
                         <!-- smartdterm witchcraft table -->
                         <!-- insludes expertmode show/hide -->
-                        <div class="smartDTermWitchBox isexpertmode" > <!-- class smartDTermWitchBox required -->
+                        <div class="smartDTermWitchBox isexpertmode"> <!-- class smartDTermWitchBox required -->
                             <table class="cf pid_tuning topspacer"> <!-- class cf pid_tuning topspaceer required -->
                                 <thead>
                                     <tr colspan="4">
@@ -1529,20 +1529,20 @@
                                     <!-- Roll smartdterm, witchcraft-->
                                     <tr class="ROLL" colspan="4">
                                         <td class="pid_roll"></td>
-                                        <td class="leftzero"><input type="number" name="smartdTermRoll" step="1" min="0" max="250" /></td>
-                                        <td class="leftzero"><input type="number" name="witchcraftRoll" step="1" min="0" max="10" /></td>
+                                        <td class="leftzero"><input type="number" name="smartdTermRoll" step="1" min="0" max="250"></td>
+                                        <td class="leftzero"><input type="number" name="witchcraftRoll" step="1" min="0" max="10"></td>
                                     </tr>
                                     <!-- Pitch smartdterm, witchcraft-->
                                     <tr class="PITCH" colspan="4">
                                         <td class="pid_pitch"></td>
-                                        <td class="leftzero"><input type="number" name="smartdTermPitch" step="1" min="0" max="250" /></td>
-                                        <td class="leftzero"><input type="number" name="witchcraftPitch" step="1" min="0" max="10" /></td>
+                                        <td class="leftzero"><input type="number" name="smartdTermPitch" step="1" min="0" max="250"></td>
+                                        <td class="leftzero"><input type="number" name="witchcraftPitch" step="1" min="0" max="10"></td>
                                     </tr>
                                     <!-- yaw smartdterm, witchcraft-->
                                     <tr class="YAW" colspan="4">
                                         <td class="pid_yaw"></td>
-                                        <td class="leftzero"><input type="number" name="smartdTermYaw" step="1" min="0" max="250" /></td>
-                                        <td class="leftzero"><input type="number" name="witchcraftYaw" step="1" min="0" max="10" /></td>
+                                        <td class="leftzero"><input type="number" name="smartdTermYaw" step="1" min="0" max="250"></td>
+                                        <td class="leftzero"><input type="number" name="witchcraftYaw" step="1" min="0" max="10"></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -1565,15 +1565,13 @@
                                         <div i18n="pidTuningDTermLowpassFiltersGroup"></div>
                                         <div class="helpicon cf_tip" i18n_title="pidTuningLowpassFilterHelp"></div>
                                     </div>
-
-
                                 </th>
                             </tr>
                             <tr>
                               <td>
                                   <span class="groupSwitchValue">
-                                      <span class="inputSwitch"><input type="checkbox" id="dtermLowpassEnabled" class="toggle" />
-                                        <select name="dtermLowpassType" >
+                                      <span class="inputSwitch"><input type="checkbox" id="dtermLowpassEnabled" class="toggle">
+                                        <select name="dtermLowpassType">
                                           <!--  Populated on execution -->
                                       </select>
                                       </span>
@@ -1593,12 +1591,12 @@
                                     <span class="groupSwitchValue">
 
                                         <div class="dtermLowpassFrequency">
-                                            <span class="inputValue"><input type="number" name="dtermLowpassFrequency" step="1" min="0" max="16000"/></span>
+                                            <span class="inputValue"><input type="number" name="dtermLowpassFrequency" step="1" min="0" max="16000"></span>
                                         </div>
                                         <div class="dtermLowpassFrequencyAxis">
-                                            <span class="inputValue"><input type="number" name="dtermLowpassFrequencyRoll" step="1" min="0" max="16000"/><br clear="all"></span>
-                                            <span class="inputValue LPFPit"><input type="number" name="dtermLowpassFrequencyPitch" step="1" min="0" max="16000"/><br clear="all"></span>
-                                            <span class="inputValue LPFYaw"><input type="number" name="dtermLowpassFrequencyYaw" step="1" min="0" max="16000"/></span>
+                                            <span class="inputValue"><input type="number" name="dtermLowpassFrequencyRoll" step="1" min="0" max="16000"><br clear="all"></span>
+                                            <span class="inputValue LPFPit"><input type="number" name="dtermLowpassFrequencyPitch" step="1" min="0" max="16000"><br clear="all"></span>
+                                            <span class="inputValue LPFYaw"><input type="number" name="dtermLowpassFrequencyYaw" step="1" min="0" max="16000"></span>
                                         </div>
                                     </span>
                                 </td>
@@ -1639,14 +1637,14 @@
                             <tr class="dtermLowpass2">
                                 <td>
                                     <span class="groupSwitchValue">
-                                        <span class="inputSwitch"><input type="checkbox" id="dtermLowpass2Enabled" class="toggle" /></span>
+                                        <span class="inputSwitch"><input type="checkbox" id="dtermLowpass2Enabled" class="toggle"></span>
                                         <div class="dtermLowpass2Frequency">
-                                            <span class="inputValue" id='test'><input type="number" name="dtermLowpass2Frequency" step="1" min="0" max="16000"/></span>
+                                            <span class="inputValue" id='test'><input type="number" name="dtermLowpass2Frequency" step="1" min="0" max="16000"></span>
                                         </div>
                                         <div class="dtermLowpass2FrequencyAxis">
-                                            <span class="inputValue"><input type="number" name="dtermLowpass2FrequencyRoll" step="1" min="0" max="16000"/><br clear="all"></span>
-                                            <span class="inputValue LPFPit"><input type="number" name="dtermLowpass2FrequencyPitch" step="1" min="0" max="16000"/><br clear="all"></span>
-                                            <span class="inputValue LPFYaw"><input type="number" name="dtermLowpass2FrequencyYaw" step="1" min="0" max="16000"/></span>
+                                            <span class="inputValue"><input type="number" name="dtermLowpass2FrequencyRoll" step="1" min="0" max="16000"><br clear="all"></span>
+                                            <span class="inputValue LPFPit"><input type="number" name="dtermLowpass2FrequencyPitch" step="1" min="0" max="16000"><br clear="all"></span>
+                                            <span class="inputValue LPFYaw"><input type="number" name="dtermLowpass2FrequencyYaw" step="1" min="0" max="16000"></span>
                                         </div>
                                     </span>
                                 </td>
@@ -1687,8 +1685,8 @@
                             <tr class="dtermNotch">
                                 <td>
                                     <span class="groupSwitchValue">
-                                        <span class="inputSwitch"><input type="checkbox" id="dTermNotchEnabled" class="toggle" /></span>
-                                        <span class="inputValue"><input type="number" name="dTermNotchFrequency" step="1" min="1" max="16000"/></span>
+                                        <span class="inputSwitch"><input type="checkbox" id="dTermNotchEnabled" class="toggle"></span>
+                                        <span class="inputValue"><input type="number" name="dTermNotchFrequency" step="1" min="1" max="16000"></span>
                                     </span>
                                 </td>
                                 <td>
@@ -1702,7 +1700,7 @@
 
                             <tr class="dtermNotch">
                                 <td>
-                                    <input type="number" name="dTermNotchCutoff" step="1" min="0" max="16000"/>
+                                    <input type="number" name="dTermNotchCutoff" step="1" min="0" max="16000">
                                 </td>
                                 <td>
                                     <div>
@@ -1722,8 +1720,8 @@
                             <tr class="yawLowpassFrequency">
                                 <td>
                                     <span class="groupSwitchValue">
-                                        <span class="inputSwitch"><input type="checkbox" id="yawLowpassEnabled" class="toggle" /></span>
-                                        <span class="inputValue"><input type="number" name="yawLowpassFrequency" step="1" min="1" max="500"/></span>
+                                        <span class="inputSwitch"><input type="checkbox" id="yawLowpassEnabled" class="toggle"></span>
+                                        <span class="inputValue"><input type="number" name="yawLowpassFrequency" step="1" min="1" max="500"></span>
                                     </span>
                                 </td>
                                 <td>
