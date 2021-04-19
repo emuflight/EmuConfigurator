@@ -3109,6 +3109,30 @@
     "controlAxisAux16": {
         "message": "AUX 16"
     },
+    "controlAxisAux17": {
+        "message": "AUX 17"
+    },
+    "controlAxisAux18": {
+        "message": "AUX 18"
+    },
+    "controlAxisAux19": {
+        "message": "AUX 19"
+    },
+    "controlAxisAux20": {
+        "message": "AUX 20"
+    },
+    "controlAxisAux21": {
+        "message": "AUX 21"
+    },
+    "controlAxisAux22": {
+        "message": "AUX 22"
+    },
+    "controlAxisAux23": {
+        "message": "AUX 23"
+    },
+    "controlAxisAux24": {
+        "message": "AUX 24"
+    },
     "pidTuningBasic": {
         "message": "PIDs"
     },
