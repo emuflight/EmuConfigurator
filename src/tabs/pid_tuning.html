@@ -654,39 +654,12 @@
                             </tr>
 
                             <!-- MSP 1.51 -->
-                            <tr id="emuGravity" class="emuGravity isexpertmode">
+                            <tr id="emuGravity" class="emuGravity -isexpertmode">
                                 <td><input type="number" name="emuGravity-number" step="1" min="0" max="255"></td>
                                 <td colspan="1">
                                     <div>
                                         <span i18n="pidTuningEmuGravity"></span>
                                         <div class="helpicon cf_tip" i18n_title="pidTuningEmuGravityHelp"></div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr id="DFyaw" class="DFyaw isexpertmode">
-                                <td><input type="number" name="DFyaw-number" step="1" min="0" max="200"></td>
-                                <td colspan="1">
-                                    <div>
-                                        <span i18n="pidTuningDFyaw"></span>
-                                        <div class="helpicon cf_tip" i18n_title="pidTuningDFyawHelp"></div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr id="axisLockMultiplier" class="axisLockMultiplier isexpertmode">
-                                <td><input type="number" name="axisLockMultiplier-number" step="1" min="0" max="10"></td>
-                                <td colspan="1">
-                                    <div>
-                                        <span i18n="pidTuningAxisLockMultiplier"></span>
-                                        <div class="helpicon cf_tip" i18n_title="pidTuningAxisLockMultiplierHelp"></div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr id="axisLockHz" class="axisLockHz isexpertmode">
-                                <td><input type="number" name="axisLockHz-number" step="1" min="0" max="50"></td>
-                                <td colspan="1">
-                                    <div>
-                                        <span i18n="pidTuningAxisLockHz"></span>
-                                        <div class="helpicon cf_tip" i18n_title="pidTuningAxisLockHzHelp"></div>
                                     </div>
                                 </td>
                             </tr>
@@ -1845,15 +1818,7 @@
                                 </tr>
                             </div>
                         </table>
-                    </div><!-- end left column -->
-                    <!-- center column -->
-                   <div class="cf_column three_columns three_columns_second gui_box topspacer -grey -pid_filter">
-                        <!-- class gui_box topspacer required -->
-                        <table class="pid_titlebar -new_rates">
-                            <tr>
-                                <th i18n="pidTuningPIDProfileSettings"></th>
-                            </tr>
-                        </table>
+
                         <table class="-filterTable">
                             <div class="ThrustLinear isexpertmode">
                                 <tr class="ThrustLinear isexpertmode">
@@ -1895,14 +1860,7 @@
 
                             </div>
                         </table>
-                    </div><!-- end center column -->
-                    <!-- right column -->
-                    <div class="cf_column right gui_box grey topspacer -pid_filter three_columns_third">
-                        <table class="pid_titlebar new_rates">
-                            <tr>
-                                <th i18n="pidTuningPIDProfileSettings"></th>
-                            </tr>
-                        </table>
+
                         <table class="-filterTable">
                             <div class="ThrottleLinear">
                                 <tr class="ThrottleLinear">
@@ -1930,7 +1888,80 @@
 
                             </div>
                         </table>
+
+                    </div><!-- end left column -->
+                    <!-- center column -->
+                   <div class="cf_column three_columns three_columns_second gui_box topspacer -grey -pid_filter">
+                        <!-- class gui_box topspacer required -->
+                        <table class="pid_titlebar new_rates">
+                            <tr>
+                                <th i18n="pidTuningPIDProfileSettings"></th>
+                            </tr>
+                        </table>
+
+                        <table class="-filterTable">
+                            <tr class="DirectFeedForward isexpertmode">
+                                    <th colspan="2">
+                                        <div class="pid_mode">
+                                            <div i18n="DirectFeedForward"></div>
+                                            <!--
+                                            <div class="helpicon cf_tip" i18n_title="pidTuning______Help"></div>
+                                            -->
+                                        </div>
+                                    </th>
+                                </tr>
+                            <tr id="DFyaw" class="DFyaw isexpertmode">
+                                <td><input type="number" name="DFyaw-number" step="1" min="0" max="200"></td>
+                                <td colspan="1">
+                                    <div>
+                                        <span i18n="pidTuningDFyaw"></span>
+                                        <div class="helpicon cf_tip" i18n_title="pidTuningDFyawHelp"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </div><!-- end center column -->
+
+                    <!-- right column -->
+                    <div class="cf_column right gui_box grey topspacer -pid_filter three_columns_third">
+                        <table class="pid_titlebar new_rates">
+                            <tr>
+                                <th i18n="pidTuningPIDProfileSettings"></th>
+                            </tr>
+                        </table>
+                        <table class="-filterTable">
+                            <tr class="AxisLock isexpertmode">
+                                <th colspan="2">
+                                    <div class="pid_mode">
+                                        <div i18n="AxisLock"></div>
+                                        <!--
+                                        <div class="helpicon cf_tip" i18n_title="pidTuning______Help"></div>
+                                        -->
+                                    </div>
+                                </th>
+                            </tr>
+                            <tr id="axisLockMultiplier" class="axisLockMultiplier isexpertmode">
+                                <td><input type="number" name="axisLockMultiplier-number" step="1" min="0" max="10"></td>
+                                <td colspan="1">
+                                    <div>
+                                        <span i18n="pidTuningAxisLockMultiplier"></span>
+                                        <div class="helpicon cf_tip" i18n_title="pidTuningAxisLockMultiplierHelp"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr id="axisLockHz" class="axisLockHz isexpertmode">
+                                <td><input type="number" name="axisLockHz-number" step="1" min="0" max="50"></td>
+                                <td colspan="1">
+                                    <div>
+                                        <span i18n="pidTuningAxisLockHz"></span>
+                                        <div class="helpicon cf_tip" i18n_title="pidTuningAxisLockHzHelp"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
                     </div><!-- end right column -->
+
                 </div><!--end multi-columns -->
             </div><!-- end subtab-feel-->
             <!-- end MSP 1.51 -->

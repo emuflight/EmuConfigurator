@@ -3591,11 +3591,17 @@
         "pidTuningEmuGravityHelp": {
         "message": "EmuGravity is an AntiGravity implementation that simply boosts the error upon throttle. Increase as needed for nose dips. Increasing too much may introduce oscillation.  Range 0 to 255.  Zero is off.  Default = 100."
     },
+    "DirectFeedForward": {
+        "message":"Direct Feed Forward"
+    },
     "pidTuningDFyaw": {
         "message": "Direct Feed Yaw"
     },
         "pidTuningDFyawHelp": {
         "message": "A different type of feed forward implementation for yaw. Allows yaw to act faster based on setpoint and have less i-Term windup. Range 0 to 200. Zero is off. Default = 15."
+    },
+    "AxisLock": {
+        "message":"Axis Lock"
     },
     "pidTuningAxisLockMultiplier": {
         "message": "Axis Lock Multiplier"

@@ -717,7 +717,7 @@
 
 /* MSP 1.51 */
 .tab-pid_tuning .subtab-feel .cf_column {
-    min-width: 200px;
+    min-width: 150px;
     flex: 1;
 }
 
@@ -726,11 +726,6 @@
     flex-flow: row wrap;
     align-items: flex-start;
     justify-content: center;
-}
-
-.tab-pid_tuning .subtab-feel .cf_column {
-    min-width: 200px;
-    flex: 1;
 }
 
 @media only screen and (max-width: 1405px) {
@@ -961,7 +956,7 @@
 }
 
 .tab-pid_tuning .subtab-pid .cf_column {
-    min-width: 472px;
+    min-width: 250px;
     flex: 1;
 }
 
