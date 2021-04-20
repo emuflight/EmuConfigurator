@@ -68,10 +68,27 @@ jobs:
         if: ${{ startsWith(matrix.os, 'windows') }}
         run: yarn gulp release  --win32 --win64
       - name: Upload Artifacts
+        if: ${{ startsWith(matrix.os, 'ubuntu') }}
         uses: actions/upload-artifact@master
         with:
-          name: EmuConfigurator-${{ github.ACTOR }}-${{ github.RUN_NUMBER }}
-          path: release/*
+          name: EmuConfigurator-${{ github.ACTOR }}-${{ github.RUN_NUMBER }}-Linux
+          path: |
+            release/*.rpm
+            release/*.deb
+            release/*linux64.zip
+      - name: Upload Artifacts
+        if: ${{ startsWith(matrix.os, 'macos') }}
+        uses: actions/upload-artifact@master
+        with:
+          name: EmuConfigurator-${{ github.ACTOR }}-${{ github.RUN_NUMBER }}-OSX
+          path: release/*.dmg
+      - name: Upload Artifacts
+        if: ${{ startsWith(matrix.os, 'windows') }}
+        uses: actions/upload-artifact@master
+        with:
+          name: EmuConfigurator-${{ github.ACTOR }}-${{ github.RUN_NUMBER }}-Windows
+          path: release/*win*
+
   draft:
     if: startsWith(github.ref, 'refs/tags/')
     needs: build
@@ -91,8 +108,8 @@ jobs:
       - name: download artifacts
         continue-on-error: false
         uses: actions/download-artifact@master
-        with:
-          name: EmuConfigurator-${{ github.ACTOR }}-${{ github.RUN_NUMBER }}
+        #with:
+        #  name: EmuConfigurator-${{ github.ACTOR }}-${{ github.RUN_NUMBER }}
       - name: list artifacts
         continue-on-error: true
         run: |
@@ -102,7 +119,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          files: ./emuflight-configurator*.???
+          files: ./EmuConfigurator*/emuflight-configurator*.???
           draft: true
           prerelease: true
           tag_name: ${{ github.RUN_NUMBER }}   # use the build Number, but we manually change to version so that it creates a version-tag on release
@@ -146,19 +163,22 @@ jobs:
       - name: download artifacts
         continue-on-error: false
         uses: actions/download-artifact@master
-        with:
-          name: EmuConfigurator-${{ github.ACTOR }}-${{ github.RUN_NUMBER }}
+        #with:
+        #  name: EmuConfigurator-${{ github.ACTOR }}-${{ github.RUN_NUMBER }}
       - name: list artifacts
         continue-on-error: true
         run: |
-          ls -lh ./emuflight-configurator*.???
+          echo "######## debug find emuconfig* ########"
+          find ./ -iname "emuconfig-*"
+          echo "######## debug find emuflight* ########"
+          find ./ -iname "emuflight-*"
       - name: rename with build_num and sha
         continue-on-error: false   #bad rename breaks upload to bintray
         run: |
           sudo apt -y install rename
           export buildname="_Build_${{ github.RUN_NUMBER }}_${{ env.SHORT_SHA }}"
           rename "s/\.(?=[^.]*$)/${buildname}\./" emuflight-configurator*.???
-          ls -lh ./emuflight-configurator*.???
+          find ./ -iname "emuflight-*"
       - name: upload to bintray
         continue-on-error: true
         run: |
@@ -175,4 +195,4 @@ jobs:
           export datestring="$(date +"%Y-%m-%d")"
           ./jfrog bt package-create --pub-dn=true --vcs-url="https://github.com/emuflight" "${repo}/${package}" || true
           ./jfrog bt version-create "${repo}/${package}/${version}"  || true
-          ./jfrog bt upload --publish=true "./emuflight-configurator*" "${repo}/${package}/${version}" "${datestring}_EmuConfigurator_GitHub_Build_${version}_${revtag}/" || true
+          ./jfrog bt upload --publish=true "./EmuConfigurator*/emuflight-configurator*" "${repo}/${package}/${version}" "${datestring}_EmuConfigurator_GitHub_Build_${version}_${revtag}/" || true
