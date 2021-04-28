@@ -728,17 +728,49 @@ function updateTabList(features) {
 
     // MSP 1.51
     //expermode show/hide
-    if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
-        if (!isExpertModeEnabled()) {
-            if (TABS.pid_tuning.activeSubtab == 'feel') {
-                //debug
-                //console.log("Active subtab is :"+ TABS.pid_tuning.activeSubtab + 'Setting to PID');
-                $('.tab-pid_tuning .tab_container .pid').click();  //jQuery specific command
-            }
+    if (isExpertModeEnabled()) {
+        if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+            //debug
+            console.log("expert-toggle: MSP 1.51 -- show stuff");
+            $('.tab_container .subtab-feel').show();
+            //$('.feel').show();
+            $('.emuGravity').show();
+            $('.DFyaw').show();
+            $('.GyroABGFilter').show();
+            $('.DTermABGFilter').show();
+            $('.MotorMixer').show();
+            $('.ThrustLinear').show();
+            $('.ThrottleLinear').show();
+            $('.AxisLock').show();
+        } else { //not MSP 1.51
+            //debug
+            console.log("expert-toggle: not MSP 1.51 -- hide stuff");
+            $('.tab_container .subtab-feel').hide();
+            $('.subtab-feel').hide();
+            $('.feel').hide();
+            $('.emuGravity').hide();
+            $('.DFyaw').hide();
+            $('.GyroABGFilter').hide();
+            $('.DTermABGFilter').hide();
+            $('.MotorMixer').hide();
+            $('.ThrustLinear').hide();
+            $('.ThrottleLinear').hide();
+            $('.AxisLock').hide();
+        }
+    } else { //not expert
+        //unfocus feel tab
+        //debug
+        console.log("expert-toggle: not expertMode; ");
+        $('.tab_container .subtab-feel').hide();
+        $('.subtab-feel').hide();
+        if ( semver.gte(CONFIG.apiVersion, "1.51.0") && TABS.pid_tuning.activeSubtab == 'feel' ) {
+            //debug
+            console.log("Active subtab is :"+ TABS.pid_tuning.activeSubtab + 'Setting to PID');
+            $('.tab-pid_tuning .tab_container .pid').click();  //jQuery specific command
         }
     }
-    // MSP 1.51
-}
+    // end MSP 1.51
+} //end updateTabList
 
 function zeroPad(value, width) {
     value = "" + value;
