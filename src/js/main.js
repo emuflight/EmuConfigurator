@@ -733,7 +733,8 @@ function updateTabList(features) {
             //debug
             console.log("expert-toggle: MSP 1.51 -- show stuff");
             $('.tab_container .subtab-feel').show();
-            //$('.feel').show();
+            //$('.subtab-feel').show();
+            //$('.feel').hide();
             $('.emuGravity').show();
             $('.DFyaw').show();
             $('.GyroABGFilter').show();
@@ -747,7 +748,7 @@ function updateTabList(features) {
             console.log("expert-toggle: not MSP 1.51 -- hide stuff");
             $('.tab_container .subtab-feel').hide();
             $('.subtab-feel').hide();
-            $('.feel').hide();
+            $('.feel').hide(); //hacky but works
             $('.emuGravity').hide();
             $('.DFyaw').hide();
             $('.GyroABGFilter').hide();
