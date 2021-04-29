@@ -707,7 +707,7 @@ function updateTabList(features) {
 
     //experimental: show/hide with expert-mode
     if (isExpertModeEnabled()) {
-        $('.isexpertmode').show();
+        $('.isexpertmode').show(); //show everything but turn off things per MSP below
         if (!have_sensor(CONFIG.activeSensors, 'acc')) {
             $('#pid_accel').hide();
         }
