@@ -282,8 +282,25 @@ TABS.pid_tuning.initialize = function(callback) {
                     $('.pid_optional').show();
                     //removes 5th column which is Feedforward
                     //$('#pid_main .pid_titlebar2 th').attr('colspan', 4);
-                    $('#pid_main').attr('colspan', 4);
+                    $('#pid_main').attr('colspan', 4);  //almost certain this line has zero effect
                     $('#pid_main .feedforward').hide();
+
+                    //MSP 1.51
+                    if ( semver.gte(CONFIG.apiVersion, "1.51.0") ) {
+                        // hide roll/pitch ff, but not yaw
+                        $('#pid_main .feedforward').hide();
+                        $('#pid_main .DFyaw').show(); //order matters
+                    } else {
+                        //removes 5th column which is Feedforward
+                        //$('#pid_main .pid_titlebar2 th').attr('colspan', 4);
+                        $('#pid_main').attr('colspan', 4);
+                        $('#pid_main .feedforward').hide();
+                        //MSP 1.51
+                        $('#pid_main .DFyaw').hide()
+                    }
+                    //end MSP 1.51
+
+
                     console.log('hide OLDANGLEUI; show NEWANGLEUI; show pid_Optional');
                 }
             }

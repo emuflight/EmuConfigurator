@@ -3592,7 +3592,10 @@
         "message": "EmuGravity is an AntiGravity implementation that simply boosts the error upon throttle. Increase as needed for nose dips. Increasing too much may introduce oscillation.  Range 0 to 255.  Zero is off.  Default = 100."
     },
     "DirectFeedForward": {
-        "message":"Direct Feed Forward"
+        "message":"Direct Feed"
+    },
+    "DirectFeedForwardHelp": {
+        "message": "A different type of feed forward implementation. Allows to act faster based on setpoint and have less i-Term windup. Range 0 to 200. Zero is off. Default = 15."
     },
     "pidTuningDFyaw": {
         "message": "Direct Feed Yaw"
