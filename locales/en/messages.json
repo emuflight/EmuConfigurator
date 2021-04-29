@@ -3639,6 +3639,12 @@
     "pidTuningMixerLazinessHelp": {
         "message": "A smarter, minimal clipping-prevention strategy. When ON, requires Thrust-Linearization to be enabled/configured. Default 'mixer_laziness = OFF'."
     },
+    "pidTuningMixerThrottleComp":{
+        "message":"Mixer 2Pass Yaw Throttle Compensation"
+    },
+    "pidTuningMixerThrottleCompHelp": {
+        "message": "Quick Yaw movements induce throttle increase in the Smooth mixer variants.  This compensates throttle setpoint for such in 2PASS variant only.  Default 'mixer_yaw_throttle_comp = ON'; Recommended ON unless non-standard frame."
+    },
     "pidTuningThrustLinearization": {
         "message": "Thrust Linearization"
     },

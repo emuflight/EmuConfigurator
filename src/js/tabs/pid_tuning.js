@@ -954,6 +954,7 @@ TABS.pid_tuning.initialize = function(callback) {
             // Motor Mixer
             $('.MotorMixer select[name="MotorMixerImplSelect"]').val(ADVANCED_TUNING.mixer_impl);
             $('.MotorMixer input[name="MixerLazinessEnabled"').prop('checked',ADVANCED_TUNING.mixer_laziness !== 0);
+            $('.MotorMixer input[name="MixerThrottleCompEnabled"').prop('checked',ADVANCED_TUNING.mixer_yaw_throttle_comp !== 0);
             //Thrust Linearization
             $('.ThrustLinear input[name="pidTuningTLLowOuput-number"').val(ADVANCED_TUNING.linear_thrust_low_output);
             $('.ThrustLinear input[name="pidTuningTLHighOuput-number"').val(ADVANCED_TUNING.linear_thrust_high_output);
@@ -1229,6 +1230,8 @@ TABS.pid_tuning.initialize = function(callback) {
             //MotorMixer
             ADVANCED_TUNING.mixer_impl = $('.MotorMixer select[name="MotorMixerImplSelect"]').val();
             ADVANCED_TUNING.mixer_laziness = $('input[name="MixerLazinessEnabled"]').is(':checked') ? 1 : 0;
+            ADVANCED_TUNING.mixer_yaw_throttle_comp = $('input[name="MixerThrottleCompEnabled"]').is(':checked') ? 1 : 0;
+            MixerThrottleCompEnabled
             //Thrust Linearization
             ADVANCED_TUNING.linear_thrust_low_output = $('input[name="pidTuningTLLowOuput-number"]').val();
             ADVANCED_TUNING.linear_thrust_high_output = $('input[name="pidTuningTLHighOuput-number"]').val();

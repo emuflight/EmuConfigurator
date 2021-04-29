@@ -1169,6 +1169,7 @@ MspHelper.prototype.process_data = function(dataHandler) {
                                             ADVANCED_TUNING.linear_throttle  = data.readU8();
                                             ADVANCED_TUNING.mixer_impl = data.readU8();
                                             ADVANCED_TUNING.mixer_laziness = data.readU8();
+                                            ADVANCED_TUNING.mixer_yaw_throttle_comp = data.readU8();
                                             ADVANCED_TUNING.directFF_yaw = data.readU8();
                                             ADVANCED_TUNING.axis_lock_hz = data.readU8();
                                             ADVANCED_TUNING.axis_lock_multiplier = data.readU8();
@@ -2099,6 +2100,7 @@ MspHelper.prototype.crunch = function(code) {
                                               .push8(ADVANCED_TUNING.linear_throttle)
                                               .push8(ADVANCED_TUNING.mixer_impl)
                                               .push8(ADVANCED_TUNING.mixer_laziness)
+                                              .push8(ADVANCED_TUNING.mixer_yaw_throttle_comp)
                                               .push8(ADVANCED_TUNING.directFF_yaw)
                                               .push8(ADVANCED_TUNING.axis_lock_hz)
                                               .push8(ADVANCED_TUNING.axis_lock_multiplier)
