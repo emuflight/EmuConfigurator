@@ -3624,7 +3624,7 @@
         "message": "PID Profile Dependent Settings"
     },
     "pidTuningMotorMixer": {
-        "message": "Motor Mixer Smoothing"
+        "message": "Motor Output Mixer Smoothing"
     },
 
     "pidTuningMixerImplementation": {
