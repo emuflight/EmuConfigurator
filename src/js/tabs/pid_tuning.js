@@ -7,6 +7,7 @@ TABS.pid_tuning = {
     dirty: false,
     currentProfile: null,
     currentRateProfile: null,
+    currentRatesType: null,
     SETPOINT_WEIGHT_RANGE_LOW: 2.55,
     SETPOINT_WEIGHT_RANGE_HIGH: 20,
     SETPOINT_WEIGHT_RANGE_LEGACY: 2.54,
@@ -115,6 +116,15 @@ TABS.pid_tuning.initialize = function(callback) {
         });
 
         // Fill in data from RC_tuning object
+        // MSP 1.51
+        if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+            $('select[name="rcRatesTypeSelect"]').val(RC_tuning.rates_type);
+        } else {
+            $('#rates_type').hide();
+            $('.rates_type').hide();
+        }
+        // end MSP 1.51
+
         $('.pid_tuning input[name="rc_rate"]').val(RC_tuning.RC_RATE.toFixed(2));
         $('.pid_tuning input[name="roll_pitch_rate"]').val(RC_tuning.roll_pitch_rate.toFixed(2));
         $('.pid_tuning input[name="roll_rate"]').val(RC_tuning.roll_rate.toFixed(2));
@@ -299,7 +309,6 @@ TABS.pid_tuning.initialize = function(callback) {
                         $('#pid_main .DFyaw').hide()
                     }
                     //end MSP 1.51
-
 
                     console.log('hide OLDANGLEUI; show NEWANGLEUI; show pid_Optional');
                 }
@@ -989,6 +998,12 @@ TABS.pid_tuning.initialize = function(callback) {
         });
 
         // catch RC_tuning changes
+        // MSP 1.51
+        if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+            RC_tuning.rates_type = $('select[name="rcRatesTypeSelect"]').val();
+        }
+        //end MSP 1.51
+
         RC_tuning.RC_RATE = parseFloat($('.pid_tuning input[name="rc_rate"]').val());
         RC_tuning.roll_pitch_rate = parseFloat($('.pid_tuning input[name="roll_pitch_rate"]').val());
         RC_tuning.roll_rate = parseFloat($('.pid_tuning input[name="roll_rate"]').val());
@@ -1920,6 +1935,27 @@ TABS.pid_tuning.initialize = function(callback) {
         populateMotorMixerImplSelector('MotorMixerImplSelect', loadMotorMixerImplValues());
         //end MSP 1.51
 
+        // MSP 1.51
+        // RC Rates Types
+        function loadRCRatesTypeValues() {
+            var rcRatesTypeValues = [];
+            rcRatesTypeValues.push("BETAFLIGHT");
+            rcRatesTypeValues.push("RACEFLIGHT");
+            rcRatesTypeValues.push("KISS");
+            rcRatesTypeValues.push("ACTUAL");
+            return rcRatesTypeValues;
+        }
+
+        function populateRCRatesTypeSelector(name, selectRCRatesTypeValues) {
+            var rcRatesTypeSelect = $('select[name="' + name + '"]');
+            selectRCRatesTypeValues.forEach(function(value, key) {
+                rcRatesTypeSelect.append('<option value="' + key + '">' + value + '</option>');
+            });
+        }
+
+        populateRCRatesTypeSelector('rcRatesTypeSelect', loadRCRatesTypeValues());
+        //end MSP 1.51
+
         pid_and_rc_to_form();
 
         var pidController_e = $('select[name="controller"]');
@@ -2310,7 +2346,7 @@ TABS.pid_tuning.initialize = function(callback) {
         self.updating = false;
 
         // enable RC data pulling for rates preview
-        GUI.interval_add('receiver_pull', self.getRecieverData, true);
+        GUI.interval_add('receiver_pull', self.getReceiverData, true);
 
         // status data pulled via separate timer with static speed
         GUI.interval_add('status_pull', function status_pull() {
@@ -2321,7 +2357,7 @@ TABS.pid_tuning.initialize = function(callback) {
     }
 }; //end TABS.pid_tuning.initialize = function
 
-TABS.pid_tuning.getRecieverData = function() {
+TABS.pid_tuning.getReceiverData = function() {
     MSP.send_message(MSPCodes.MSP_RC, false, false);
 };
 

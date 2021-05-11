@@ -284,6 +284,11 @@ MspHelper.prototype.process_data = function(dataHandler) {
                 BATTERY_CONFIG.currentMeterSource = data.readU8();
                 break;
             case MSPCodes.MSP_RC_TUNING:
+                //MSP 1.51
+                if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+                    RC_tuning.rates_type = data.readU8();
+                }
+                //end MSP 1.51
                 RC_tuning.RC_RATE = parseFloat((data.readU8() / 100).toFixed(2));
                 RC_tuning.RC_EXPO = parseFloat((data.readU8() / 100).toFixed(2));
                 if (semver.lt(CONFIG.apiVersion, "1.7.0")) {
@@ -1600,6 +1605,11 @@ MspHelper.prototype.crunch = function(code) {
             break;
 
         case MSPCodes.MSP_SET_RC_TUNING:
+            //MSP 1.51
+            if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+                buffer.push8(RC_tuning.rates_type);
+            }
+            //end MSP 1.51
             buffer.push8(Math.round(RC_tuning.RC_RATE * 100))
                   .push8(Math.round(RC_tuning.RC_EXPO * 100));
             if (semver.lt(CONFIG.apiVersion, "1.7.0")) {

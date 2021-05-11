@@ -1674,6 +1674,14 @@
     "pidTuningRcExpo": {
         "message": "RC Expo"
     },
+    "COMMENT": {"message": "MSP 1.51"},
+    "pidTuningRCRatesType": {
+        "message": "Rates Type"
+    },
+    "pidTuningRCRatesTypeHelp": {
+        "message": "'rates_type' Allowed values: BETAFLIGHT, RACEFLIGHT, KISS, ACTUAL. Default: BETAFLIGHT"
+    },
+    "COMMENT": {"message": "end MSP 1.51"},
     "pidTuningRateDynamics": {
         "message": "Rate Dynamics"
     },
