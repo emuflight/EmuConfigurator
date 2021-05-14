@@ -355,6 +355,7 @@ TABS.pid_tuning.initialize = function(callback) {
         // this block needed to be below all of the prior rc rates items
         if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
             $('select[name="rcRatesTypeSelect"]').val(RC_tuning.rates_type);
+            console.log('initial call to changeRatesType with RC_tuning.rates_type: '+RC_tuning.rates_type);
             self.changeRatesType(RC_tuning.rates_type); // update rate type code when updating the tab
             // ??????????????????????????????????  check sameType stuff for first run????
         } else {
@@ -1040,7 +1041,8 @@ TABS.pid_tuning.initialize = function(callback) {
         RC_tuning.RC_PITCH_EXPO = parseFloat(rc_pitch_expo_e.val());
        if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
             switch(self.currentRatesType) {
-                case 1:
+                case 1: //raceflight
+                    console.log('raceflight / 100 code');
                     RC_tuning.pitch_rate = parseFloat(pitch_rate_e.val()) / 100;
                     RC_tuning.roll_rate = parseFloat(roll_rate_e.val()) / 100;
                     RC_tuning.yaw_rate = parseFloat(yaw_rate_e.val()) / 100;
@@ -1051,7 +1053,8 @@ TABS.pid_tuning.initialize = function(callback) {
                     RC_tuning.RC_EXPO = parseFloat(rc_expo_e.val()) / 100;
                     RC_tuning.RC_YAW_EXPO = parseFloat(rc_yaw_expo_e.val()) / 100;
                     break;
-                case 2:
+                case 3: //actual
+                    console.log('actual / 1000 code');
                     RC_tuning.pitch_rate = parseFloat(pitch_rate_e.val()) / 1000;
                     RC_tuning.roll_rate = parseFloat(roll_rate_e.val()) / 1000;
                     RC_tuning.yaw_rate = parseFloat(yaw_rate_e.val()) / 1000;
@@ -2018,10 +2021,10 @@ TABS.pid_tuning.initialize = function(callback) {
         // RC Rates Types
         function loadRCRatesTypeValues() {
             var rcRatesTypeValues = [];
-            rcRatesTypeValues.push("BETAFLIGHT");
-            rcRatesTypeValues.push("RACEFLIGHT");
-            rcRatesTypeValues.push("KISS");
-            rcRatesTypeValues.push("ACTUAL");
+            rcRatesTypeValues.push("BETAFLIGHT"); //0
+            rcRatesTypeValues.push("RACEFLIGHT"); //1
+            rcRatesTypeValues.push("KISS");       //2
+            rcRatesTypeValues.push("ACTUAL");     //3
             return rcRatesTypeValues;
         }
 
@@ -2186,6 +2189,7 @@ TABS.pid_tuning.initialize = function(callback) {
                     if (targetElement.attr('id') === 'rcRatesTypeSelect' && semver.gte(CONFIG.apiVersion, "1.51.0")) {
                         self.changeRatesType(targetValue);
                         updateNeeded = true;
+                        console.log('changeRatesType targetvalue: '+targetValue+'+ updateNeeded: '+updateNeeded);
                     }
                     //end MSP 1.51
                 } else { // no event was passed, just force a graph update
@@ -2853,6 +2857,7 @@ TABS.pid_tuning.changeRatesType = function(rateTypeID) {
     self.changeRatesSystem(sameRatesType);
 };
 TABS.pid_tuning.changeRatesSystem = function(sameType) {
+    console.log('changeRatesSystem with parameter sameType = '+sameType)
     const self = this;
     let rcRateMax = 2.55, rcRateMin = 0.01, rcRateStep = 0.01;
     let rateMax = 1.0, rateStep = 0.01;
@@ -2885,7 +2890,7 @@ TABS.pid_tuning.changeRatesSystem = function(sameType) {
         rc_yaw_expo_e.val(RC_tuning.RC_YAW_EXPO.toFixed(2));
     }
     switch(self.currentRatesType) {
-        case 1:
+        case 1: //raceflight
             rcRateLabel.text(i18n.getMessage("pidTuningRcRateRaceflight"));
             rateLabel.text(i18n.getMessage("pidTuningRateRaceflight"));
             rcExpoLabel.text(i18n.getMessage("pidTuningRcExpoRaceflight"));
@@ -2897,6 +2902,7 @@ TABS.pid_tuning.changeRatesSystem = function(sameType) {
             expoMax = 100;
             expoStep = 1;
             if (sameType) {
+                console.log('raceflight sameType');
                 pitch_rate_e.val((RC_tuning.pitch_rate * 100).toFixed(0));
                 roll_rate_e.val((RC_tuning.roll_rate * 100).toFixed(0));
                 yaw_rate_e.val((RC_tuning.yaw_rate * 100).toFixed(0));
@@ -2907,18 +2913,20 @@ TABS.pid_tuning.changeRatesSystem = function(sameType) {
                 rc_expo_e.val((RC_tuning.RC_EXPO * 100).toFixed(0));
                 rc_yaw_expo_e.val((RC_tuning.RC_YAW_EXPO * 100).toFixed(0));
             } else {
+                console.log('raceflight not sameType');
                 rcRateDefault = (370).toFixed(0);
                 rateDefault = (80).toFixed(0);
                 expoDefault = (50).toFixed(0);
             }
             break;
-        case 2:
+        case 2: //kiss
+            console.log('kiss');
             rcRateLabel.text(i18n.getMessage("pidTuningRcRate"));
             rateLabel.text(i18n.getMessage("pidTuningRcRateRaceflight"));
             rcExpoLabel.text(i18n.getMessage("pidTuningRcExpoKISS"));
             rateMax = 0.99;
             break;
-        case 3:
+        case 3: //actual
             rcRateLabel.text(i18n.getMessage("pidTuningRcRateActual"));
             rateLabel.text(i18n.getMessage("pidTuningRateQuickRates"));
             rcExpoLabel.text(i18n.getMessage("pidTuningRcExpoRaceflight"));
@@ -2928,6 +2936,7 @@ TABS.pid_tuning.changeRatesSystem = function(sameType) {
             rcRateMin = 10;
             rcRateStep = 10;
             if (sameType) {
+                console.log('actual sameType');
                 pitch_rate_e.val((RC_tuning.pitch_rate * 1000).toFixed(0));
                 roll_rate_e.val((RC_tuning.roll_rate * 1000).toFixed(0));
                 yaw_rate_e.val((RC_tuning.yaw_rate * 1000).toFixed(0));
@@ -2935,6 +2944,7 @@ TABS.pid_tuning.changeRatesSystem = function(sameType) {
                 rc_rate_e.val((RC_tuning.RC_RATE * 1000).toFixed(0));
                 rc_rate_yaw_e.val((RC_tuning.rcYawRate * 1000).toFixed(0));
             } else {
+                console.log('actual not sameType');
                 rcRateDefault = (200).toFixed(0);
                 rateDefault = (670).toFixed(0);
                 expoDefault = (0.54).toFixed(2);
@@ -2942,6 +2952,7 @@ TABS.pid_tuning.changeRatesSystem = function(sameType) {
             break;
         // add future rates types here
         default: // BetaFlight
+            console.log('betaflight');
             rcRateLabel.text(i18n.getMessage("pidTuningRcRate"));
             rateLabel.text(i18n.getMessage("pidTuningRate"));
             rcExpoLabel.text(i18n.getMessage("pidTuningRcExpo"));
