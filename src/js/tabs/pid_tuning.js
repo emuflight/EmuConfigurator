@@ -116,14 +116,7 @@ TABS.pid_tuning.initialize = function(callback) {
         });
 
         // Fill in data from RC_tuning object
-        // MSP 1.51
-        if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
-            $('select[name="rcRatesTypeSelect"]').val(RC_tuning.rates_type);
-        } else {
-            $('#rates_type').hide();
-            $('.rates_type').hide();
-        }
-        // end MSP 1.51
+
 
         $('.pid_tuning input[name="rc_rate"]').val(RC_tuning.RC_RATE.toFixed(2));
         $('.pid_tuning input[name="roll_pitch_rate"]').val(RC_tuning.roll_pitch_rate.toFixed(2));
@@ -357,6 +350,18 @@ TABS.pid_tuning.initialize = function(callback) {
             $('.pid_tuning input[name="rc_rate_pitch"]').val(RC_tuning.rcPitchRate.toFixed(2));
             $('.pid_tuning input[name="rc_pitch_expo"]').val(RC_tuning.RC_PITCH_EXPO.toFixed(2));
         }
+
+        // MSP 1.51
+        // this block needed to be below all of the prior rc rates items
+        if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+            $('select[name="rcRatesTypeSelect"]').val(RC_tuning.rates_type);
+            self.changeRatesType(RC_tuning.rates_type); // update rate type code when updating the tab
+            // ??????????????????????????????????  check sameType stuff for first run????
+        } else {
+            $('#rates_type').hide();
+            $('.rates_type').hide();
+        }
+        // end MSP 1.51
 
         if (semver.gte(CONFIG.apiVersion, "1.39.0")) {
             $('.pid_filter select[name="gyroLowpassType"]').val(FILTER_CONFIG.gyro_lowpass_type);
@@ -1004,17 +1009,62 @@ TABS.pid_tuning.initialize = function(callback) {
         }
         //end MSP 1.51
 
-        RC_tuning.RC_RATE = parseFloat($('.pid_tuning input[name="rc_rate"]').val());
-        RC_tuning.roll_pitch_rate = parseFloat($('.pid_tuning input[name="roll_pitch_rate"]').val());
-        RC_tuning.roll_rate = parseFloat($('.pid_tuning input[name="roll_rate"]').val());
-        RC_tuning.pitch_rate = parseFloat($('.pid_tuning input[name="pitch_rate"]').val());
-        RC_tuning.yaw_rate = parseFloat($('.pid_tuning input[name="yaw_rate"]').val());
-        RC_tuning.RC_EXPO = parseFloat($('.pid_tuning input[name="rc_expo"]').val());
-        RC_tuning.RC_YAW_EXPO = parseFloat($('.pid_tuning input[name="rc_yaw_expo"]').val());
-        RC_tuning.rcYawRate = parseFloat($('.pid_tuning input[name="rc_rate_yaw"]').val());
-        RC_tuning.rcPitchRate = parseFloat($('.pid_tuning input[name="rc_rate_pitch"]').val());
-        RC_tuning.RC_PITCH_EXPO = parseFloat($('.pid_tuning input[name="rc_pitch_expo"]').val());
-        RC_tuning.throttle_MID = parseFloat($('.throttle input[name="mid"]').val());
+        //MSP 1.51
+        //RC_tuning.RC_RATE = parseFloat($('.pid_tuning input[name="rc_rate"]').val());
+        const pitch_rate_e = $('.pid_tuning input[name="pitch_rate"]');
+        const roll_rate_e = $('.pid_tuning input[name="roll_rate"]');
+        const yaw_rate_e = $('.pid_tuning input[name="yaw_rate"]');
+        const rc_rate_pitch_e = $('.pid_tuning input[name="rc_rate_pitch"]');
+        const rc_rate_e = $('.pid_tuning input[name="rc_rate"]');
+        const rc_rate_yaw_e = $('.pid_tuning input[name="rc_rate_yaw"]');
+        const rc_pitch_expo_e = $('.pid_tuning input[name="rc_pitch_expo"]');
+        const rc_expo_e = $('.pid_tuning input[name="rc_expo"]');
+        const rc_yaw_expo_e = $('.pid_tuning input[name="rc_yaw_expo"]');
+
+        //RC_tuning.roll_rate = parseFloat($('.pid_tuning input[name="roll_rate"]').val());
+        //RC_tuning.pitch_rate = parseFloat($('.pid_tuning input[name="pitch_rate"]').val());
+        //RC_tuning.yaw_rate = parseFloat($('.pid_tuning input[name="yaw_rate"]').val());
+        //RC_tuning.RC_EXPO = parseFloat($('.pid_tuning input[name="rc_expo"]').val());
+        //RC_tuning.RC_YAW_EXPO = parseFloat($('.pid_tuning input[name="rc_yaw_expo"]').val());
+        //RC_tuning.rcYawRate = parseFloat($('.pid_tuning input[name="rc_rate_yaw"]').val());
+        //RC_tuning.rcPitchRate = parseFloat($('.pid_tuning input[name="rc_rate_pitch"]').val());
+        //RC_tuning.RC_PITCH_EXPO = parseFloat($('.pid_tuning input[name="rc_pitch_expo"]').val());
+        RC_tuning.RC_RATE = parseFloat(rc_rate_e.val());
+        RC_tuning.roll_rate = parseFloat(roll_rate_e.val());
+        RC_tuning.pitch_rate = parseFloat(pitch_rate_e.val());
+        RC_tuning.yaw_rate = parseFloat(yaw_rate_e.val());
+        RC_tuning.RC_EXPO = parseFloat(rc_expo_e.val());
+        RC_tuning.RC_YAW_EXPO = parseFloat(rc_yaw_expo_e.val());
+        RC_tuning.rcYawRate = parseFloat(rc_rate_yaw_e.val());
+        RC_tuning.rcPitchRate = parseFloat(rc_rate_pitch_e.val());
+        RC_tuning.RC_PITCH_EXPO = parseFloat(rc_pitch_expo_e.val());
+       if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+            switch(self.currentRatesType) {
+                case 1:
+                    RC_tuning.pitch_rate = parseFloat(pitch_rate_e.val()) / 100;
+                    RC_tuning.roll_rate = parseFloat(roll_rate_e.val()) / 100;
+                    RC_tuning.yaw_rate = parseFloat(yaw_rate_e.val()) / 100;
+                    RC_tuning.rcPitchRate = parseFloat(rc_rate_pitch_e.val()) / 1000;
+                    RC_tuning.RC_RATE = parseFloat(rc_rate_e.val()) / 1000;
+                    RC_tuning.rcYawRate = parseFloat(rc_rate_yaw_e.val()) / 1000;
+                    RC_tuning.RC_PITCH_EXPO = parseFloat(rc_pitch_expo_e.val()) / 100;
+                    RC_tuning.RC_EXPO = parseFloat(rc_expo_e.val()) / 100;
+                    RC_tuning.RC_YAW_EXPO = parseFloat(rc_yaw_expo_e.val()) / 100;
+                    break;
+                case 2:
+                    RC_tuning.pitch_rate = parseFloat(pitch_rate_e.val()) / 1000;
+                    RC_tuning.roll_rate = parseFloat(roll_rate_e.val()) / 1000;
+                    RC_tuning.yaw_rate = parseFloat(yaw_rate_e.val()) / 1000;
+                    RC_tuning.rcPitchRate = parseFloat(rc_rate_pitch_e.val()) / 1000;
+                    RC_tuning.RC_RATE = parseFloat(rc_rate_e.val()) / 1000;
+                    RC_tuning.rcYawRate = parseFloat(rc_rate_yaw_e.val()) / 1000;
+                    break;
+                // add future rates types here
+                default: // BetaFlight
+                    break;
+            }
+        }
+        //end MSP 1.51
         RC_tuning.throttle_EXPO = parseFloat($('.throttle input[name="expo"]').val());
         RC_tuning.dynamic_THR_PID_P = parseFloat($('.tpa input[name="tpa_P"]').val());
         RC_tuning.dynamic_THR_breakpoint = parseInt($('.tpa input[name="tpa-breakpoint"]').val());
@@ -1408,6 +1458,35 @@ TABS.pid_tuning.initialize = function(callback) {
             self.currentRates.rc_rate_pitch = self.currentRates.rc_rate;
             self.currentRates.rc_expo_pitch = self.currentRates.rc_expo;
         }
+
+        // MSP 1.51
+        if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+            switch(RC_tuning.rates_type) {
+                case 1: //raceflight
+                    self.currentRates.roll_rate *= 100;
+                    self.currentRates.pitch_rate *= 100;
+                    self.currentRates.yaw_rate *= 100;
+                    self.currentRates.rc_rate *= 1000;
+                    self.currentRates.rc_rate_yaw *= 1000;
+                    self.currentRates.rc_rate_pitch *= 1000;
+                    self.currentRates.rc_expo *= 100;
+                    self.currentRates.rc_yaw_expo *= 100;
+                    self.currentRates.rc_pitch_expo *= 100;
+                    break;
+                case 3: //actual
+                    self.currentRates.roll_rate *= 1000;
+                    self.currentRates.pitch_rate *= 1000;
+                    self.currentRates.yaw_rate *= 1000;
+                    self.currentRates.rc_rate *= 1000;
+                    self.currentRates.rc_rate_yaw *= 1000;
+                    self.currentRates.rc_rate_pitch *= 1000;
+                    break;
+                // add future rates types here
+                default: // BetaFlight
+                    break;
+            }
+        }
+        //end MSP 1.51
 
         function activateSubtab(subtabName) {
             const names = ['pid', 'rates', 'filter','feel'];
@@ -2071,6 +2150,11 @@ TABS.pid_tuning.initialize = function(callback) {
                         targetValue = checkInput(targetElement);
 
                     if (self.currentRates.hasOwnProperty(targetElement.attr('name')) && targetValue !== undefined) {
+                        //MSP 1.51
+                        const stepValue = parseFloat(targetElement.prop('step')); // adjust value to match step (change only the result, not the the actual value)
+                        if (stepValue != null) {
+                            targetValue = Math.round(targetValue / stepValue) * stepValue;
+                        }
                         self.currentRates[targetElement.attr('name')] = targetValue;
                         updateNeeded = true;
                     }
@@ -2097,6 +2181,13 @@ TABS.pid_tuning.initialize = function(callback) {
                     if (targetElement.attr('name') === 'rc_expo' && semver.lt(CONFIG.apiVersion, "1.37.0")) {
                         self.currentRates.rc_pitch_expo = targetValue;
                     }
+
+                    //MSP 1.51
+                    if (targetElement.attr('id') === 'rcRatesTypeSelect' && semver.gte(CONFIG.apiVersion, "1.51.0")) {
+                        self.changeRatesType(targetValue);
+                        updateNeeded = true;
+                    }
+                    //end MSP 1.51
                 } else { // no event was passed, just force a graph update
                     updateNeeded = true;
                 }
@@ -2346,7 +2437,7 @@ TABS.pid_tuning.initialize = function(callback) {
         self.updating = false;
 
         // enable RC data pulling for rates preview
-        GUI.interval_add('receiver_pull', self.getReceiverData, true);
+        GUI.interval_add('receiver_pull', self.getRecieverData, true);
 
         // status data pulled via separate timer with static speed
         GUI.interval_add('status_pull', function status_pull() {
@@ -2357,7 +2448,7 @@ TABS.pid_tuning.initialize = function(callback) {
     }
 }; //end TABS.pid_tuning.initialize = function
 
-TABS.pid_tuning.getReceiverData = function() {
+TABS.pid_tuning.getRecieverData = function() {
     MSP.send_message(MSPCodes.MSP_RC, false, false);
 };
 
@@ -2745,6 +2836,134 @@ TABS.pid_tuning.updateFilterWarning = function() {
     }
 
 }
+
+//MSP 1.51
+TABS.pid_tuning.changeRatesType = function(rateTypeID) {
+    const self = this;
+    //const dialogRatesType = $('.dialogRatesType')[0];
+    let sameRatesType = true;
+    self.currentRatesType = rateTypeID; //?????????????????????????
+    if (self.currentRatesType !== RC_tuning.rates_type) {
+        sameRatesType = false;
+        console.log('changing rates type from '+RC_tuning.rates_type+' to '+self.currentRatesType);
+    } else {
+        console.log('no change of rates type: '+RC_tuning.rates_type+' to '+self.currentRatesType);
+    }
+    console.log('called changeRatesType with rateTypeID '+rateTypeID+' sameRatesType is '+sameRatesType);
+    self.changeRatesSystem(sameRatesType);
+};
+TABS.pid_tuning.changeRatesSystem = function(sameType) {
+    const self = this;
+    let rcRateMax = 2.55, rcRateMin = 0.01, rcRateStep = 0.01;
+    let rateMax = 1.0, rateStep = 0.01;
+    let expoMax = 1.0, expoStep = 0.01;
+    const rateMin = 0;
+    const expoMin = 0;
+    const pitch_rate_e = $('.pid_tuning input[name="pitch_rate"]');
+    const roll_rate_e = $('.pid_tuning input[name="roll_rate"]');
+    const yaw_rate_e = $('.pid_tuning input[name="yaw_rate"]');
+    const rc_rate_pitch_e = $('.pid_tuning input[name="rc_rate_pitch"]');
+    const rc_rate_e = $('.pid_tuning input[name="rc_rate"]');
+    const rc_rate_yaw_e = $('.pid_tuning input[name="rc_rate_yaw"]');
+    const rc_pitch_expo_e = $('.pid_tuning input[name="rc_pitch_expo"]');
+    const rc_expo_e = $('.pid_tuning input[name="rc_expo"]');
+    const rc_yaw_expo_e = $('.pid_tuning input[name="rc_yaw_expo"]');
+    const rcRateLabel = $('#pid-tuning .pid_titlebar .rc_rate');
+    const rateLabel = $('#pid-tuning .pid_titlebar .rate');
+    const rcExpoLabel = $('#pid-tuning .pid_titlebar .rc_expo');
+    // default values for betaflight curve. all the default values produce the same betaflight default curve (or at least near enough)
+    let rcRateDefault = (1).toFixed(2), rateDefault = (0.7).toFixed(2), expoDefault = (0).toFixed(2);
+    if (sameType) { // if selected rates type is different from the saved one, set values to default instead of reading
+        pitch_rate_e.val(RC_tuning.pitch_rate.toFixed(2));
+        roll_rate_e.val(RC_tuning.roll_rate.toFixed(2));
+        yaw_rate_e.val(RC_tuning.yaw_rate.toFixed(2));
+        rc_rate_pitch_e.val(RC_tuning.rcPitchRate.toFixed(2));
+        rc_rate_e.val(RC_tuning.RC_RATE.toFixed(2));
+        rc_rate_yaw_e.val(RC_tuning.rcYawRate.toFixed(2));
+        rc_pitch_expo_e.val(RC_tuning.RC_PITCH_EXPO.toFixed(2));
+        rc_expo_e.val(RC_tuning.RC_EXPO.toFixed(2));
+        rc_yaw_expo_e.val(RC_tuning.RC_YAW_EXPO.toFixed(2));
+    }
+    switch(self.currentRatesType) {
+        case 1:
+            rcRateLabel.text(i18n.getMessage("pidTuningRcRateRaceflight"));
+            rateLabel.text(i18n.getMessage("pidTuningRateRaceflight"));
+            rcExpoLabel.text(i18n.getMessage("pidTuningRcExpoRaceflight"));
+            rcRateMax = 2000;
+            rcRateMin = 10;
+            rcRateStep = 10;
+            rateMax = 255;
+            rateStep = 1;
+            expoMax = 100;
+            expoStep = 1;
+            if (sameType) {
+                pitch_rate_e.val((RC_tuning.pitch_rate * 100).toFixed(0));
+                roll_rate_e.val((RC_tuning.roll_rate * 100).toFixed(0));
+                yaw_rate_e.val((RC_tuning.yaw_rate * 100).toFixed(0));
+                rc_rate_pitch_e.val((RC_tuning.rcPitchRate * 1000).toFixed(0));
+                rc_rate_e.val((RC_tuning.RC_RATE * 1000).toFixed(0));
+                rc_rate_yaw_e.val((RC_tuning.rcYawRate * 1000).toFixed(0));
+                rc_pitch_expo_e.val((RC_tuning.RC_PITCH_EXPO * 100).toFixed(0));
+                rc_expo_e.val((RC_tuning.RC_EXPO * 100).toFixed(0));
+                rc_yaw_expo_e.val((RC_tuning.RC_YAW_EXPO * 100).toFixed(0));
+            } else {
+                rcRateDefault = (370).toFixed(0);
+                rateDefault = (80).toFixed(0);
+                expoDefault = (50).toFixed(0);
+            }
+            break;
+        case 2:
+            rcRateLabel.text(i18n.getMessage("pidTuningRcRate"));
+            rateLabel.text(i18n.getMessage("pidTuningRcRateRaceflight"));
+            rcExpoLabel.text(i18n.getMessage("pidTuningRcExpoKISS"));
+            rateMax = 0.99;
+            break;
+        case 3:
+            rcRateLabel.text(i18n.getMessage("pidTuningRcRateActual"));
+            rateLabel.text(i18n.getMessage("pidTuningRateQuickRates"));
+            rcExpoLabel.text(i18n.getMessage("pidTuningRcExpoRaceflight"));
+            rateMax = 2000;
+            rateStep = 10;
+            rcRateMax = 2000;
+            rcRateMin = 10;
+            rcRateStep = 10;
+            if (sameType) {
+                pitch_rate_e.val((RC_tuning.pitch_rate * 1000).toFixed(0));
+                roll_rate_e.val((RC_tuning.roll_rate * 1000).toFixed(0));
+                yaw_rate_e.val((RC_tuning.yaw_rate * 1000).toFixed(0));
+                rc_rate_pitch_e.val((RC_tuning.rcPitchRate * 1000).toFixed(0));
+                rc_rate_e.val((RC_tuning.RC_RATE * 1000).toFixed(0));
+                rc_rate_yaw_e.val((RC_tuning.rcYawRate * 1000).toFixed(0));
+            } else {
+                rcRateDefault = (200).toFixed(0);
+                rateDefault = (670).toFixed(0);
+                expoDefault = (0.54).toFixed(2);
+            }
+            break;
+        // add future rates types here
+        default: // BetaFlight
+            rcRateLabel.text(i18n.getMessage("pidTuningRcRate"));
+            rateLabel.text(i18n.getMessage("pidTuningRate"));
+            rcExpoLabel.text(i18n.getMessage("pidTuningRcExpo"));
+            break;
+    }
+    const rc_rate_input_c = $('#pid-tuning input[class="rc_rate_input"]');
+    const rate_input_c = $('#pid-tuning input[class="rate_input"]');
+    const expo_input_c = $('#pid-tuning input[class="expo_input"]');
+    if (!sameType) {
+        rate_input_c.val(rateDefault);
+        rc_rate_input_c.val(rcRateDefault);
+        expo_input_c.val(expoDefault);
+    }
+    rc_rate_input_c.attr({"max":rcRateMax, "min":rcRateMin, "step":rcRateStep}).change();
+    rate_input_c.attr({"max":rateMax, "min":rateMin, "step":rateStep}).change();
+    expo_input_c.attr({"max":expoMax, "min":expoMin, "step":expoStep}).change();
+    if (sameType) {
+        self.setDirty(false);
+    }
+};
+//end MSP 1.51
+
 
 TABS.pid_tuning.cleanup = function (callback) {
     this.keepRendering = false;
