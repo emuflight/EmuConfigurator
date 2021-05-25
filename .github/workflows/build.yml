@@ -48,7 +48,7 @@ jobs:
       - name: setup node
         uses: actions/setup-node@v2
         with:
-          node-version: '11'
+          node-version: '13'
         continue-on-error: false
 
       # for debugging
