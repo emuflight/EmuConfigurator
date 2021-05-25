@@ -59,7 +59,7 @@
     "universal-ga": "^1.2.0"
   },
   "devDependencies": {
-    "chai": "^4.2.0",
+    "chai": "^4.3.4",
     "command-exists": "^1.2.9",
     "del": "^6.0.0",
     "electron-installer-dmg": "^3.0.0",
