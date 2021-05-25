@@ -82,6 +82,7 @@ jobs:
       - name: yarn gulp release --osx64
         if: ${{ startsWith(matrix.os, 'macos') }}
         run: |
+          yarn add fs-xattr
           yarn gulp release --osx64
         continue-on-error: false
 
