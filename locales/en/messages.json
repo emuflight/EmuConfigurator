@@ -3621,7 +3621,7 @@
         "message": "EmuGravity"
     },
         "pidTuningEmuGravityHelp": {
-        "message": "EmuGravity is an AntiGravity implementation that simply boosts the error upon throttle-up. Increase as needed for nose dips. Increasing too much may introduce oscillation.  'emu_gravity' range 0 to 255.  Zero is off.  Default = 50.  100 is easily acceptable; however, ABG may prefer lower values."
+        "message": "EmuGravity is an AntiGravity implementation that simply boosts the error upon throttle-up. Increase as needed for nose dips. Increasing too much may introduce oscillation.  'emu_gravity' range 0 to 255.  Zero is off.  Default = 50.  100 is easily acceptable; However, Smith-predictor may prefer lower values."
     },
     "DirectFeedForward": {
         "message":"Direct Feed"
