@@ -327,7 +327,7 @@
         "message": "ACHTUNG: Flugkontroller abstecken und im DFU Modus neu verbinden. Anschließend versuchen nochmal zu flashen!"
     },
     "stm32UnprotectFailed": {
-        "message": "Failed to initiate unprotect routine" "Fehler beim einleiten der Routine zum entfernen des Schutzes"
+        "message": "Fehler beim einleiten der Routine zum entfernen des Schutzes"
     },
     "stm32UnprotectInitFailed": {
         "message": "Fehler beim ausführen der Routine zum entfernen des Schutzes"
