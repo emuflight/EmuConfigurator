@@ -1674,6 +1674,38 @@
     "pidTuningRcExpo": {
         "message": "RC Expo"
     },
+    "COMMENT": {"message": "MSP 1.51"},
+    "pidTuningRCRatesType": {
+        "message": "Rates Type"
+    },
+    "pidTuningRCRatesTypeHelp": {
+        "message": "Changing rates type will not convert, but will instead reset fields to baseline defaults. 'rates_type' allowed values: BETAFLIGHT, RACEFLIGHT, KISS, ACTUAL. Default: BETAFLIGHT"
+    },
+    "pidTuningRatesType": {
+        "message": "Rates Type"
+    },
+    "pidTuningRatesTypeTip": {
+        "message": "Changing rates type will change the rates curve and the way you can set it"
+    },
+    "pidTuningRcRateRaceflight": {
+        "message": "Rate"
+    },
+    "pidTuningRcExpoRaceflight": {
+        "message": "Expo"
+    },
+    "pidTuningRateRaceflight": {
+        "message": "Acro+"
+    },
+    "pidTuningRcExpoKISS": {
+        "message": "RC Curve"
+    },
+    "pidTuningRateQuickRates": {
+        "message": "Max Rate"
+    },
+    "pidTuningRcRateActual": {
+        "message": "Center Sensitivity"
+    },
+    "COMMENT": {"message": "end MSP 1.51"},
     "pidTuningRateDynamics": {
         "message": "Rate Dynamics"
     },
