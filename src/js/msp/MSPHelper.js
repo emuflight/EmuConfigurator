@@ -1049,6 +1049,7 @@ MspHelper.prototype.process_data = function(dataHandler) {
                         FILTER_CONFIG.gyro_ABG_alpha = data.readU16();
                         FILTER_CONFIG.gyro_ABG_boost = data.readU16();
                         FILTER_CONFIG.gyro_ABG_half_life = data.readU8();
+                        FILTER_CONFIG.smithPredictorEnabled = data.readU8();
                         FILTER_CONFIG.dterm_ABG_alpha = data.readU16();
                         FILTER_CONFIG.dterm_ABG_boost = data.readU16();
                         FILTER_CONFIG.dterm_ABG_half_life = data.readU8();
@@ -1988,6 +1989,7 @@ MspHelper.prototype.crunch = function(code) {
                     buffer.push16(FILTER_CONFIG.gyro_ABG_alpha)
                           .push16(FILTER_CONFIG.gyro_ABG_boost)
                           .push8(FILTER_CONFIG.gyro_ABG_half_life)
+                          .push8(FILTER_CONFIG.smithPredictorEnabled)
                           .push16(FILTER_CONFIG.dterm_ABG_alpha)
                           .push16(FILTER_CONFIG.dterm_ABG_boost)
                           .push8(FILTER_CONFIG.dterm_ABG_half_life)
