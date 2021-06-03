@@ -736,7 +736,7 @@ function updateTabList(features) {
             //$('.subtab-feel').show();
             //$('.feel').hide();
             $('.emuGravity').show();
-            $('.DFyaw').show();
+            //$('.DFyaw').show();
             $('.GyroABGFilter').show();
             $('.DTermABGFilter').show();
             $('.MotorMixer').show();
@@ -750,7 +750,7 @@ function updateTabList(features) {
             $('.subtab-feel').hide();
             $('.feel').hide(); //hacky but works
             $('.emuGravity').hide();
-            $('.DFyaw').hide();
+            //$('.DFyaw').hide();
             $('.GyroABGFilter').hide();
             $('.DTermABGFilter').hide();
             $('.MotorMixer').hide();
