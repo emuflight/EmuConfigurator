@@ -3623,6 +3623,12 @@
         "pidTuningEmuGravityHelp": {
         "message": "EmuGravity is an AntiGravity implementation that simply boosts the error upon throttle-up. Increase as needed for nose dips. Increasing too much may introduce oscillation.  'emu_gravity' range 0 to 255.  Zero is off.  Default = 50.  100 is easily acceptable; However, Smith-predictor may prefer lower values."
     },
+    "pidTuningSmithPredictorEnabledSwitch": {
+        "message": "Smith Predictor"
+    },
+        "pidTuningSmithPredictorEnabledSwitchHelp": {
+        "message": "Smith predictor compensates for inherit 'deadtime', or delay, of control processing. i.e. PID and Filter processing.  Smith predictor prefers clean gyro. Noisy gyro may cause amplifications. Default is ON. Further fine tuning of Smith Prediction can be performed in the CLI by way of `get smith_predict`; However, defaults are good for most aircraft."
+    },
     "DirectFeedForward": {
         "message":"Direct Feed"
     },

@@ -966,6 +966,16 @@ TABS.pid_tuning.initialize = function(callback) {
 
         // MSP 1.51
         if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+            //SmithPredictor
+            $('input[name="SmithPredictorEnabledSwitch"]').prop('checked', FILTER_CONFIG.smithPredictorEnabled !== 0);
+            $('#SmithPredictorEnabledSwitch').show();
+        } else {
+            $('#SmithPredictorEnabledSwitch').hide();
+        }
+        // end MSP 1.51
+
+        // MSP 1.51
+        if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
             // Motor Mixer
             $('.MotorMixer select[name="MotorMixerImplSelect"]').val(ADVANCED_TUNING.mixer_impl);
             $('.MotorMixer input[name="MixerLazinessEnabled"').prop('checked',ADVANCED_TUNING.mixer_laziness !== 0);
@@ -1290,6 +1300,13 @@ TABS.pid_tuning.initialize = function(callback) {
             FILTER_CONFIG.dterm_ABG_alpha = $('.pid_filter input[name="dtermABGalpha-number"]').val();
             FILTER_CONFIG.dterm_ABG_boost = $('.pid_filter input[name="dtermABGboost-number"]').val();
             FILTER_CONFIG.dterm_ABG_half_life = $('.pid_filter input[name="dtermABGhalflife-number"]').val();
+        }
+        // end MSP 1.51
+
+        // MSP 1.51
+        if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+            //SmithPredictor
+            FILTER_CONFIG.smithPredictorEnabled = $('input[name="SmithPredictorEnabledSwitch"]').is(':checked') ? 1 : 0;
         }
         // end MSP 1.51
 
