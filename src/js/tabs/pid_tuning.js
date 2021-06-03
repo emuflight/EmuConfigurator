@@ -966,9 +966,9 @@ TABS.pid_tuning.initialize = function(callback) {
         if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
             //SmithPredictor
             $('input[name="SmithPredictorEnabledSwitch"]').prop('checked', FILTER_CONFIG.smithPredictorEnabled !== 0);
-            $('#SmithPredictorEnabledSwitch').show();
+            $('#SmithPredictor').show();
         } else {
-            $('#SmithPredictorEnabledSwitch').hide();
+            $('#SmithPredictor').hide();
         }
         // end MSP 1.51
 
