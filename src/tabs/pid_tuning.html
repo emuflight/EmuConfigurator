@@ -705,11 +705,11 @@
                                     <td class="pid_roll"></td>
                                     <td class="rc_rate">
                                         <!-- MSP 1.51 adds class= -->
-                                        <input type="number" class="rc_rate_input"  name="rc_rate" step="0.01" min="0.01" max="2.55">
+                                        <input type="number" class="rc_rate_input" name="rc_rate" step="0.01" min="0.01" max="2.55">
                                     </td>
                                     <td class="roll_rate">
                                         <!-- MSP 1.51 adds class= -->
-                                        <input type="number" class="rate_input"  name="roll_rate" step="0.01" min="0" max="1.00">
+                                        <input type="number" class="rate_input" name="roll_rate" step="0.01" min="0" max="1.00">
                                     </td>
                                     <td class="roll_pitch_rate" rowspan="2">
                                         <input type="number" name="roll_pitch_rate" step="0.01" min="0" max="1.00">
@@ -1748,7 +1748,8 @@
                 <!-- FEEL SUBTAB -->
                 <div class="subtab-feel isexpertmode" style="display: none;">
                     <div class="clear-both"></div>
-                    <div class="subtab-feel cf_column three_columns"> <!-- subtab-feel required for hide/show expertmode, hacky but works -->
+                    <div class="subtab-feel cf_column three_columns">
+                        <!-- subtab-feel required for hide/show expertmode, hacky but works -->
                         <!-- left column -->
                         <div class="gui_box grey topspacer -pid_filter cf_column three_columns_first">
                             <table class="pid_titlebar new_rates">

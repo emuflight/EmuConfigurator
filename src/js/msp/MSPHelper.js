@@ -923,7 +923,7 @@ MspHelper.prototype.process_data = function(dataHandler) {
                     RX_CONFIG.rcInterpolationInterval = 0;
                     RX_CONFIG.airModeActivateThreshold = 0;
                 }
-                //added in MSP 1.51
+                //MSP 1.51
                 if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
                     RX_CONFIG.sbus_baud_fast = data.readU8();
                 }
@@ -1044,7 +1044,7 @@ MspHelper.prototype.process_data = function(dataHandler) {
                         FILTER_CONFIG.dynamic_gyro_notch_min_hz = data.readU16();
                     }
 
-                    //added in MSP 1.51
+                    //MSP 1.51
                     if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
                         FILTER_CONFIG.gyro_ABG_alpha = data.readU16();
                         FILTER_CONFIG.gyro_ABG_boost = data.readU16();
@@ -1168,7 +1168,7 @@ MspHelper.prototype.process_data = function(dataHandler) {
                                             ADVANCED_TUNING.setPointDTransitionYaw = data.readU8();
                                         }
                                         ADVANCED_TUNING.nfe_racermode = data.readU8();
-                                        //added in MSP 1.51
+                                        //MSP 1.51
                                         if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
                                             ADVANCED_TUNING.linear_thrust_low_output = data.readU8();
                                             ADVANCED_TUNING.linear_thrust_high_output = data.readU8();
@@ -1803,7 +1803,7 @@ MspHelper.prototype.crunch = function(code) {
                               .push8(RX_CONFIG.rcSmoothingDerivativeCutoff)
                               .push8(RX_CONFIG.rcSmoothingInputType)
                               .push8(RX_CONFIG.rcSmoothingDerivativeType);
-                        // added in MSP 1.51
+                        //MSP 1.51
                         if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
                             buffer.push8(RX_CONFIG.sbus_baud_fast);
                         }
@@ -1984,7 +1984,7 @@ MspHelper.prototype.crunch = function(code) {
                           .push16(FILTER_CONFIG.dynamic_gyro_notch_min_hz)
                 }
 
-                // MSP 1.51
+                //MSP 1.51
                 if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
                     buffer.push16(FILTER_CONFIG.gyro_ABG_alpha)
                           .push16(FILTER_CONFIG.gyro_ABG_boost)
@@ -1994,7 +1994,7 @@ MspHelper.prototype.crunch = function(code) {
                           .push16(FILTER_CONFIG.dterm_ABG_boost)
                           .push8(FILTER_CONFIG.dterm_ABG_half_life)
                 }
-                // end MSP 1.51
+                //end MSP 1.51
             }
             break;
 
@@ -2105,7 +2105,7 @@ MspHelper.prototype.crunch = function(code) {
                                           .push8(ADVANCED_TUNING.setPointDTransitionYaw);
                                     }
                                     buffer.push8(ADVANCED_TUNING.nfe_racermode);
-                                    // MSP 1.51
+                                    //MSP 1.51
                                     if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
                                         buffer.push8(ADVANCED_TUNING.linear_thrust_low_output)
                                               .push8(ADVANCED_TUNING.linear_thrust_high_output)

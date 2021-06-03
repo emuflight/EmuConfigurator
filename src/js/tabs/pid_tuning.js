@@ -352,12 +352,11 @@ TABS.pid_tuning.initialize = function(callback) {
         }
 
         // MSP 1.51
-        // this block needed to be below all of the prior rc rates items
+        // this block needs to be below all of the prior rc rates items in order for it to work properly
         if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
             $('select[name="rcRatesTypeSelect"]').val(RC_tuning.rates_type);
             console.log('initial call to changeRatesType with RC_tuning.rates_type: '+RC_tuning.rates_type);
             self.changeRatesType(RC_tuning.rates_type); // update rate type code when updating the tab
-            // ??????????????????????????????????  check sameType stuff for first run????
         } else {
             $('#rates_type').hide();
             $('.rates_type').hide();
@@ -484,10 +483,10 @@ TABS.pid_tuning.initialize = function(callback) {
 
             // MSP 1.51
             if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
-                // emuGravity
+                //emuGravity
                 $('input[name="emuGravity-number"]').val(ADVANCED_TUNING.emuGravityGain);
                 $('#emuGravity').show();
-                // df_yaw
+                //df_yaw
                 $('input[name="DFyaw-number"]').val(ADVANCED_TUNING.directFF_yaw);
                 $('#DFyaw').show();
                 //axis-lock
@@ -616,13 +615,11 @@ TABS.pid_tuning.initialize = function(callback) {
                 var feedforwardTransitionNumberElement = $('input[name="feedforwardTransition-number"]');
                 feedforwardTransitionNumberElement.val(ADVANCED_TUNING.feedforwardTransition / 100);
                 //adds 5th column which is Feedforward
-                //$('#pid_main .pid_titlebar2 th').attr('colspan', 5);
                 $('#pid_main').attr('colspan', 5);
                 $('#pid_main .feedforward').show();
                 $('.feedforwardTransition').show();
             } else {
                 //removes 5th column which is Feedforward
-                //$('#pid_main .pid_titlebar2 th').attr('colspan', 4);
                 $('#pid_main').attr('colspan', 4);
                 $('#pid_main .feedforward').hide();
                 $('.feedforwardTransition').hide();
@@ -965,6 +962,7 @@ TABS.pid_tuning.initialize = function(callback) {
         // end MSP 1.51
 
         // MSP 1.51
+        //this could easily be located below emu_gravity(pid_tab) as well, but instead located here since it's related to gyro struct
         if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
             //SmithPredictor
             $('input[name="SmithPredictorEnabledSwitch"]').prop('checked', FILTER_CONFIG.smithPredictorEnabled !== 0);
@@ -985,9 +983,7 @@ TABS.pid_tuning.initialize = function(callback) {
             $('.ThrustLinear input[name="pidTuningTLHighOuput-number"').val(ADVANCED_TUNING.linear_thrust_high_output);
             //Throttle Linearization
             $('.ThrottleLinear input[name="LinearThrottleEnabled"').prop('checked',ADVANCED_TUNING.linear_throttle !== 0);
-        } else {
-            //$('#___').hide();
-        }
+        }  // does not require ELSE-block to hide fields, because container feel-tab is hidden/unhidden.
         //end MSP 1.51
 
         //experimental expert-mode show/hide SPA
@@ -1022,7 +1018,6 @@ TABS.pid_tuning.initialize = function(callback) {
         //end MSP 1.51
 
         //MSP 1.51
-        //RC_tuning.RC_RATE = parseFloat($('.pid_tuning input[name="rc_rate"]').val());
         const pitch_rate_e = $('.pid_tuning input[name="pitch_rate"]');
         const roll_rate_e = $('.pid_tuning input[name="roll_rate"]');
         const yaw_rate_e = $('.pid_tuning input[name="yaw_rate"]');
@@ -1033,14 +1028,6 @@ TABS.pid_tuning.initialize = function(callback) {
         const rc_expo_e = $('.pid_tuning input[name="rc_expo"]');
         const rc_yaw_expo_e = $('.pid_tuning input[name="rc_yaw_expo"]');
 
-        //RC_tuning.roll_rate = parseFloat($('.pid_tuning input[name="roll_rate"]').val());
-        //RC_tuning.pitch_rate = parseFloat($('.pid_tuning input[name="pitch_rate"]').val());
-        //RC_tuning.yaw_rate = parseFloat($('.pid_tuning input[name="yaw_rate"]').val());
-        //RC_tuning.RC_EXPO = parseFloat($('.pid_tuning input[name="rc_expo"]').val());
-        //RC_tuning.RC_YAW_EXPO = parseFloat($('.pid_tuning input[name="rc_yaw_expo"]').val());
-        //RC_tuning.rcYawRate = parseFloat($('.pid_tuning input[name="rc_rate_yaw"]').val());
-        //RC_tuning.rcPitchRate = parseFloat($('.pid_tuning input[name="rc_rate_pitch"]').val());
-        //RC_tuning.RC_PITCH_EXPO = parseFloat($('.pid_tuning input[name="rc_pitch_expo"]').val());
         RC_tuning.RC_RATE = parseFloat(rc_rate_e.val());
         RC_tuning.roll_rate = parseFloat(roll_rate_e.val());
         RC_tuning.pitch_rate = parseFloat(pitch_rate_e.val());
@@ -1182,7 +1169,7 @@ TABS.pid_tuning.initialize = function(callback) {
 
             // MSP 1.51
             if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
-                // emuGravity
+                //emuGravity
                 ADVANCED_TUNING.emuGravityGain = $('input[name="emuGravity-number"]').val();
                 //df_yaw
                 ADVANCED_TUNING.directFF_yaw = $('input[name="DFyaw-number"]').val();
@@ -1324,7 +1311,6 @@ TABS.pid_tuning.initialize = function(callback) {
             ADVANCED_TUNING.linear_throttle = $('input[name="LinearThrottleEnabled"]').is(':checked') ? 1 : 0;
         }
         // end MSP 1.51
-
     } //end function form_to_pid_and_rc()
 
     function showAllPids() {
@@ -1525,7 +1511,7 @@ TABS.pid_tuning.initialize = function(callback) {
             $('.tab-pid_tuning .tab_container .' + subtabName).addClass('active');
             self.activeSubtab = subtabName;
             //debug
-            //console.log('Activated subtab: '+subtabName);
+            console.log('Activated subtab: '+subtabName);
         }
 
         activateSubtab(self.activeSubtab);
@@ -1536,7 +1522,9 @@ TABS.pid_tuning.initialize = function(callback) {
 
         $('.tab-pid_tuning .tab_container .filter').on('click', () => activateSubtab('filter'));
 
+        //MSP 1.51
         $('.tab-pid_tuning .tab_container .feel').on('click', () => activateSubtab('feel'));
+        //end MSP 1.51
 
         function loadProfilesList() {
             var numberOfProfiles = 3;
@@ -2864,15 +2852,17 @@ TABS.pid_tuning.updateFilterWarning = function() {
 //MSP 1.51
 TABS.pid_tuning.changeRatesType = function(rateTypeID) {
     const self = this;
-    //const dialogRatesType = $('.dialogRatesType')[0];
     let sameRatesType = true;
-    self.currentRatesType = rateTypeID; //?????????????????????????
+    self.currentRatesType = rateTypeID;
     if (self.currentRatesType !== RC_tuning.rates_type) {
         sameRatesType = false;
+        //debug
         console.log('changing rates type from '+RC_tuning.rates_type+' to '+self.currentRatesType);
     } else {
+        //debug
         console.log('no change of rates type: '+RC_tuning.rates_type+' to '+self.currentRatesType);
     }
+    //debug
     console.log('called changeRatesType with rateTypeID '+rateTypeID+' sameRatesType is '+sameRatesType);
     self.changeRatesSystem(sameRatesType);
 };
