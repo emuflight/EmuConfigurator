@@ -3648,13 +3648,13 @@
         "message": "Axis Lock Multiplier"
     },
         "pidTuningAxisLockMultiplierHelp": {
-        "message": "'Axis-lock' Significantly reduces pidsum for opposing axes. Multiplier range is 0 to 10. Default is 0 (off)."
+        "message": "Axis-Lock significantly reduces pidsum for opposing axes. Multiplier range is 0 to 10. Default is 0 (Axis-Lock OFF)."
     },
         "pidTuningAxisLockHz": {
         "message": "Axis Lock Cutoff Hz"
     },
         "pidTuningAxisLockHzHelp": {
-        "message": "'Axis-lock' Significantly reduces pidsum for opposing axes. Cutoff-Hz range is 1 to 50. Default is 2. When multiplier is 0, 'Axis-Lock' is disabled."
+        "message": "Axis-Lock significantly reduces pidsum for opposing axes. Cutoff-Hz range is 1 to 50. Default is 2, but has no effect when Axis-Lock is off."
     },
     "COMMENT": {"message": "end MSP 1.51"},
     "COMMENT": {"message": "MSP 1.51"},
@@ -3681,7 +3681,7 @@
         "message":"Mixer 2Pass Yaw Throttle Compensation"
     },
     "pidTuningMixerThrottleCompHelp": {
-        "message": "Quick Yaw movements induce throttle increase in the Smooth mixer variants.  This compensates throttle setpoint for such in 2PASS variant only.  Default 'mixer_yaw_throttle_comp = ON'; Recommended ON unless non-standard frame."
+        "message": "Quick yaw movements induce throttle increase in the smoothing mixer variants.  This option compensates throttle setpoint in 2PASS variant only.  Default 'mixer_yaw_throttle_comp = ON'."
     },
     "pidTuningThrustLinearization": {
         "message": "Thrust Linearization"
@@ -3690,13 +3690,13 @@
         "message": "Low Output Compensation "
     },
         "pidTuningTLLowOuputHelp": {
-        "message": "Value in Percentage for RPM output compensation at low end. Default 'linear_thrust_low_output = 65'."
+        "message": "Value in Percentage for RPM output compensation at low end. Default 'linear_thrust_low_output = 65'. Tuning this is usually motor/prop size specific; please reference EmuFlight Wiki."
     },
     "pidTuningTLHighOuput": {
         "message": "High Output Compensation"
     },
         "pidTuningTLHighOuputHelp": {
-        "message": "Value in Percentage for RPM output compensation at high end. Default 'linear_thrust_high_output = 0' (OFF)."
+        "message": "Value in Percentage for RPM output compensation at high end. Default 'linear_thrust_high_output = 0' (OFF). Note that TPA is automatically disabled when Thrust-Linearization is enabled because it already solves high throttle issues.  Tuning this is usually motor/prop size specific; please reference EmuFlight Wiki."
     },
     "pidTuningThrottleLinearization": {
         "message": "Throttle Linearization"
