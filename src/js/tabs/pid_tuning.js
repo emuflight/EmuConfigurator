@@ -1080,6 +1080,14 @@ TABS.pid_tuning.initialize = function(callback) {
             (RC_tuning.rateWeightEnd) = parseInt($('.rateDynamics input[name="rateWeightEnd-number"]').val());
         }
 
+        //MSP 1.51
+        if ( semver.gte(CONFIG.apiVersion, "1.51.0") ) {
+            RC_tuning.addRollToYawRc =parseInt($('.DualAxisSteering input[name="addRollToYawRc-number"]').val()); //.pid_tuning //#DualAxisSteering
+            RC_tuning.addYawToRollRc = parseInt($('.DualAxisSteering input[name="addYawToRollRc-number"]').val()); //.pid_tuning //#DualAxisSteering
+            console.log("parsed form to DAS: " + RC_tuning.addRollToYawRc + " & " + RC_tuning.addYawToRollRc );
+        }
+        //end MSP 1.51
+
         if (semver.lt(CONFIG.apiVersion, "1.44.0")) {
             FILTER_CONFIG.gyro_lowpass_hz = parseInt($('.pid_filter input[name="gyroLowpassFrequency"]').val());
             FILTER_CONFIG.dterm_lowpass_hz = parseInt($('.pid_filter input[name="dtermLowpassFrequency"]').val());
@@ -2139,6 +2147,17 @@ TABS.pid_tuning.initialize = function(callback) {
         } else {
             $('.rateDynamics').hide();
         }
+
+        //MSP 1.51
+        if ( semver.gte(CONFIG.apiVersion, "1.51.0") ) {
+            $('.DualAxisSteering input[name="addRollToYawRc-number"]').val(RC_tuning.addRollToYawRc); //.pid_tuning  //#DualAxisSteering
+            $('.DualAxisSteering input[name="addYawToRollRc-number"]').val(RC_tuning.addYawToRollRc); //.pid_tuning  //#DualAxisSteering
+            $('.DualAxisSteering').show();
+        } else {
+            $('.DualAxisSteering').hide();
+        }
+        //end MSP 1.51
+
 
         // Getting the DOM elements for curve display
         var rcCurveElement = $('.rate_curve canvas#rate_curve_layer0').get(0),

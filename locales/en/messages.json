@@ -3239,6 +3239,26 @@
     "pidTuningHorizTransitionHelp": {
         "message": "The strength of the transition from angle to acro."
     },
+    "COMMENT": {"message": "MSP 1.51"},
+    "pidTuningDualAxisSteering": {
+        "message": "Dual Axis Steering"
+    },
+        "pidTuningDualAxisSteeringHelp": {
+        "message": "Mix roll-stick into yaw or mix yaw-stick into roll. This method benefits over the radio-mix method."
+    },
+        "pidTuningAddRollToYawRc": {
+        "message": "Yaw with Roll-Input"
+    },
+        "pidTuningAddRollToYawRcHelp": {
+        "message": "This option will add a percentage of yawing as you move the roll-stick."
+    },
+        "pidTuningAddYawToRollRc": {
+        "message": "Roll with Yaw-Input"
+    },
+        "pidTuningAddYawToRollRcHelp": {
+        "message": "This option will add a percentage of rolling as you move the yaw-stick."
+    },
+    "COMMENT": {"message": "end MSP 1.51"},
     "pidTuningNonProfileFilterSettings": {
         "message": "Profile independent Filter Settings"
     },

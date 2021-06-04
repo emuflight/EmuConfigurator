@@ -320,6 +320,7 @@
                                     </td>
                                 </tr>
                             </table>
+
                         </div> <!-- END ENTIRE ANGLE UI -->
                     </div> <!-- end cf_column -->
                     <div class="cf_column">
@@ -858,6 +859,40 @@
                             </table>
                         </div>
                         <!--end rateDynamics (Stick-pids)-->
+
+                        <!-- MSP 1.51 -->
+                        <div class="pid_tuning gui_box grey -rateSetup DualAxisSteering">
+                            <table id="DualAxisSteering" class="pid_tuning">
+                                <tbody>
+                                <tr class="pid_tuning pid_titlebar DualAxisSteering">
+                                    <th class="name"></th>
+                                    <th class="">
+                                        <div class="name-helpicon-flex">
+                                            <div i18n="pidTuningAddRollToYawRc"></div>
+                                            <div class="helpicon cf_tip" i18n_title="pidTuningAddRollToYawRcHelp"></div>
+                                        </div>
+                                    </th>
+                                    <th class="">
+                                        <div class="name-helpicon-flex">
+                                            <div i18n="pidTuningAddYawToRollRc"></div>
+                                            <div class="helpicon cf_tip" i18n_title="pidTuningAddYawToRollRcHelp"></div>
+                                        </div>
+                                    </th>
+                                </tr>
+                                    <tr class="pid_tuning DualAxisSteering">
+                                        <td class="DualAxisSteering">
+                                            <div class="name-helpicon-flex">
+                                                <div i18n="pidTuningDualAxisSteering" style="float:left;"></div>
+                                                <div class="helpicon cf_tip" i18n_title="pidTuningDualAxisSteeringHelp"></div>
+                                            </div>
+                                        </td>
+                                        <td class="DualAxisSteering"><input type="number" class="DualAxisSteering" name="addRollToYawRc-number" step="1" min="0" max="100"></td>
+                                        <td class="DualAxisSteering"><input type="number" class="pid_tuning" name="addYawToRollRc-number" step="1" min="0" max="100"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- end MSP 1.51 -->
                     </div>
                     <div class="cf_column">
                         <div class="gui_box tpa spacer_left">

@@ -342,6 +342,13 @@ MspHelper.prototype.process_data = function(dataHandler) {
                         RC_tuning.rateCorrectionEnd = data.readU8();
                         RC_tuning.rateWeightCenter = data.readU8();
                         RC_tuning.rateWeightEnd = data.readU8();
+                        //MSP 1.51
+                        if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+                            RC_tuning.addRollToYawRc = data.readU8(); //das_yaw_with_roll_input
+                            RC_tuning.addYawToRollRc = data.readU8(); //das_roll_with_yaw_input
+                            console.log("pull DAS " +  + RC_tuning.addRollToYawRc + " & " + RC_tuning.addYawToRollRc );
+                        }
+                        //end MSP 1.51
                     }
                 }
 
@@ -1653,6 +1660,13 @@ MspHelper.prototype.crunch = function(code) {
                     buffer.push8(RC_tuning.rateCorrectionEnd);
                     buffer.push8(RC_tuning.rateWeightCenter);
                     buffer.push8(RC_tuning.rateWeightEnd);
+                    //MSP 1.51
+                    if ( semver.gte(CONFIG.apiVersion, "1.51.0") ) {
+                        buffer.push8(RC_tuning.addRollToYawRc);
+                        buffer.push8(RC_tuning.addYawToRollRc);
+                        console.log("push DAS " +  + RC_tuning.addRollToYawRc + " & " + RC_tuning.addYawToRollRc );
+                    }
+                    //end MSP 1.51
                 }
               }
             break;
