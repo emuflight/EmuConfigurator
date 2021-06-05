@@ -3071,12 +3071,12 @@ iterate-value@^1.0.0:
     es-get-iterator "^1.0.2"
     iterate-iterator "^1.0.1"
 
-jbox@1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/jbox/-/jbox-1.2.0.tgz#90e058768fad28741d5df12657989b4d4e4a38a2"
-  integrity sha512-TCReU5oT+cQz8YFoSumFuJ1czrY4VXxgSg8WJ/1klxFtAs4wXDhBvvmltXFA9qJgQQUhd8CErwArHRP3R11j/A==
+jbox@1.3.2:
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/jbox/-/jbox-1.3.2.tgz#5bceb910002b6e13ce41add9d5f0215589cefc02"
+  integrity sha512-MPhJ0MVjbCLql9KVkFuHBucOQEsd17+gmiKZdlkkyEnzio3TsMkCGmV75fL78Ef7bFKS5vGg+LgEeDfkQRNiBQ==
   dependencies:
-    jquery "^3.5.0"
+    jquery "^3.6.0"
 
 jquery-textcomplete@^1.8.5:
   version "1.8.5"
@@ -3093,10 +3093,10 @@ jquery@3.4.1:
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.4.1.tgz#714f1f8d9dde4bdfa55764ba37ef214630d80ef2"
   integrity sha512-36+AdBzCL+y6qjw5Tx7HgzeGCzC81MDDgaUP8ld2zhx58HdqXGoBd+tHdrBMiyjGQs0Hxs/MLZTu/eHNJJuWPw==
 
-jquery@^3.5.0:
-  version "3.5.1"
-  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.5.1.tgz#d7b4d08e1bfdb86ad2f1a3d039ea17304717abb5"
-  integrity sha512-XwIBPqcMn57FxfT+Go5pzySnm4KWkT1Tv7gjrpT1srtf8Weynl6R273VJ5GjkRb51IzMp5nbaPjJXMWeju2MKg==
+jquery@^3.6.0:
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.6.0.tgz#c72a09f15c1bdce142f49dbf1170bdf8adac2470"
+  integrity sha512-JVzAR/AjBvVt2BmYhxRCSYysDsPcssdmTFnzyLEts9qNwmjmu4JTAMYubEfwVOSwpQ1I1sKKFcxhZCI2buerfw==
 
 js-yaml@3.14.0:
   version "3.14.0"
