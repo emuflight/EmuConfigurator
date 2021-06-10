@@ -1076,7 +1076,7 @@ MspHelper.prototype.process_data = function(dataHandler) {
                 IMUF_FILTER_CONFIG.imuf_pitch_q = data.readU16();
                 IMUF_FILTER_CONFIG.imuf_yaw_q = data.readU16();
                 IMUF_FILTER_CONFIG.imuf_w = data.readU16();
-                if (semver.gte(CONFIG.apiVersion, "1.46.0")) {
+                if (semver.gte(CONFIG.apiVersion, "1.46.0")) {  //will need to mod for MSP 1.51, but not until merged master and MSP for master fixed.
                   IMUF_FILTER_CONFIG.imuf_sharpness = data.readU16();
                 }
                 if (CONFIG.boardIdentifier === "HESP" || CONFIG.boardIdentifier === "SX10" || CONFIG.boardIdentifier === "FLUX") {
@@ -2023,7 +2023,7 @@ MspHelper.prototype.crunch = function(code) {
             buffer.push16(IMUF_FILTER_CONFIG.imuf_pitch_q);
             buffer.push16(IMUF_FILTER_CONFIG.imuf_yaw_q);
             buffer.push16(IMUF_FILTER_CONFIG.imuf_w);
-            if (semver.gte(CONFIG.apiVersion, "1.46.0")) {
+            if (semver.gte(CONFIG.apiVersion, "1.46.0")) { //will need to mod for MSP 1.51, but not until merged master and MSP for master fixed.
                 buffer.push16(IMUF_FILTER_CONFIG.imuf_sharpness);
             }
             if (CONFIG.boardIdentifier === "HESP" || CONFIG.boardIdentifier === "SX10" || CONFIG.boardIdentifier === "FLUX") {

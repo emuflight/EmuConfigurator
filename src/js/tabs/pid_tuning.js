@@ -431,7 +431,8 @@ TABS.pid_tuning.initialize = function(callback) {
 
         if (semver.gte(CONFIG.apiVersion, "1.40.0")) {
             //sharpness allows off 0 in msp 1.49
-            if (semver.gte(CONFIG.apiVersion, "1.49.0")) {
+            //MSP 1.51 adjustment //semver.lt
+            if (semver.gte(CONFIG.apiVersion, "1.49.0") && semver.lt(CONFIG.apiVersion, "1.51.0")) {
                  $('.pid_filter input[name="imuf_sharpness"]').attr("min", "0");
             }
 
@@ -446,7 +447,8 @@ TABS.pid_tuning.initialize = function(callback) {
                 $('#imuf_yaw_q').val(IMUF_FILTER_CONFIG.imuf_yaw_q);
                 $('#imuf_w').val(IMUF_FILTER_CONFIG.imuf_w);
                 $('.imufSharpness').hide();
-                if (semver.gte(CONFIG.apiVersion, "1.46.0")) {
+                //MSP 1.51 adjustment  //semver.lt
+                if (semver.gte(CONFIG.apiVersion, "1.46.0") && semver.lt(CONFIG.apiVersion, "1.51.0")){
                     $('.imufSharpness').show();
                     console.log('sharpness' + IMUF_FILTER_CONFIG.imuf_sharpness);
                     $('#imuf_sharpness').val(IMUF_FILTER_CONFIG.imuf_sharpness);
@@ -1227,7 +1229,10 @@ TABS.pid_tuning.initialize = function(callback) {
                 IMUF_FILTER_CONFIG.imuf_pitch_q = parseInt($('#imuf_pitch_q').val());
                 IMUF_FILTER_CONFIG.imuf_yaw_q = parseInt($('#imuf_yaw_q').val());
                 IMUF_FILTER_CONFIG.imuf_w = parseInt($('#imuf_w').val());
-                IMUF_FILTER_CONFIG.imuf_sharpness = parseInt($('#imuf_sharpness').val());
+                //MSP 1.51 adjustment
+                if (semver.lt(CONFIG.apiVersion, "1.51.0")) {
+                    IMUF_FILTER_CONFIG.imuf_sharpness = parseInt($('#imuf_sharpness').val());
+                } //end MSP 1.51 adjustment
 
                 if (CONFIG.boardIdentifier === "HESP" || CONFIG.boardIdentifier === "SX10" || CONFIG.boardIdentifier === "FLUX") {
                     IMUF_FILTER_CONFIG.imuf_roll_lpf_cutoff_hz = parseInt($('#imuf_roll_lpf_cutoff_hz').val());
@@ -1707,7 +1712,8 @@ TABS.pid_tuning.initialize = function(callback) {
                     $('#imuf_pitch_q').val(presetJson[presetSelected]['imuf_pitch_q']);
                     $('#imuf_yaw_q').val(presetJson[presetSelected]['imuf_yaw_q']);
                     $('#imuf_w').val(presetJson[presetSelected]['imuf_w']);
-                    if (semver.gte(CONFIG.apiVersion, "1.46.0")) {
+                    //MSP 1.51 adjustment //semver.lt
+                    if (semver.gte(CONFIG.apiVersion, "1.46.0") && semver.lt(CONFIG.apiVersion, "1.51.0")) {
                         $('#imuf_sharpness').val(presetJson[presetSelected]['imuf_sharpness']);
                     }
                     if (CONFIG.boardIdentifier === "HESP" || CONFIG.boardIdentifier === "SX10" || CONFIG.boardIdentifier === "FLUX") {
