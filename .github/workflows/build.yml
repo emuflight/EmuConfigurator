@@ -150,8 +150,14 @@ jobs:
             ### Build ${{ github.run_number }}
             ### Commit SHA: ${{ needs.build.outputs.shortsha }} (${{ github.sha }})
             ### BuildTag: ${{ needs.build.outputs.buildtag }}
-            ### Changes in this Build:
             ### What to Test/Feedback: (Feedback in EmuFlight's Discord or GitHub Discussions)
+            ### Changes in this Build:
+            <!-- require single blank line below -->
+
+            ```
+            [insert commit history here]
+            ```
+            </details>
         continue-on-error: true
 
       # Draft Dev-master releases via ncipollo/release-action
@@ -175,8 +181,14 @@ jobs:
             ### Build ${{ github.run_number }}
             ### Commit SHA: ${{ needs.build.outputs.shortsha }} (${{ github.sha }})
             ### BuildTag: ${{ needs.build.outputs.buildtag }}
-            ### Changes in this Build:
             ### Feedback Welcome in EmuFlight's Discord or GitHub Discussions.
+            ### Changes in this Build:
+            <!-- require single blank line below -->
+
+            ```
+            [insert commit history here]
+            ```
+            </details>
         continue-on-error: true
 
       - name: main-repo draft release
@@ -197,5 +209,11 @@ jobs:
             ### Build: ${{ github.RUN_NUMBER }}
             ### Commit SHA: ${{ needs.build.outputs.shortsha }} (${{ github.sha }})
             ### BuildTag: ${{ needs.build.outputs.buildtag }}
-            ### Changes in this Relase:
+            ### Changes in this Release:
+            <!-- require single blank line below -->
+
+            ```
+            [insert commit history here]
+            ```
+            </details>
         continue-on-error: false
