@@ -1996,6 +1996,11 @@ TABS.pid_tuning.initialize = function(callback) {
             if (semver.lt(CONFIG.apiVersion, "1.39.0")) {
                 filterTypeValues.push("FIR");
             }
+            if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+                filterTypeValues.push("PT2");
+                filterTypeValues.push("PT3");
+                filterTypeValues.push("PT4");
+            }
             return filterTypeValues;
         }
 
