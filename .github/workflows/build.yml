@@ -151,7 +151,7 @@ jobs:
             ### Commit SHA: ${{ needs.build.outputs.shortsha }} (${{ github.sha }})
             ### BuildTag: ${{ needs.build.outputs.buildtag }}
             ### What to Test/Feedback: (Feedback in EmuFlight's Discord or GitHub Discussions)
-            ### Changes in this Build:
+            <details><summary>Changes in this Build:</summary>
             <!-- require single blank line below -->
 
             ```
@@ -182,7 +182,7 @@ jobs:
             ### Commit SHA: ${{ needs.build.outputs.shortsha }} (${{ github.sha }})
             ### BuildTag: ${{ needs.build.outputs.buildtag }}
             ### Feedback Welcome in EmuFlight's Discord or GitHub Discussions.
-            ### Changes in this Build:
+            <details><summary>Changes in this Build:</summary>
             <!-- require single blank line below -->
 
             ```
@@ -209,7 +209,7 @@ jobs:
             ### Build: ${{ github.RUN_NUMBER }}
             ### Commit SHA: ${{ needs.build.outputs.shortsha }} (${{ github.sha }})
             ### BuildTag: ${{ needs.build.outputs.buildtag }}
-            ### Changes in this Release:
+            <details><summary>Changes in this Release:</summary>
             <!-- require single blank line below -->
 
             ```
