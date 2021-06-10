@@ -400,6 +400,14 @@ TABS.pid_tuning.initialize = function(callback) {
                 $('#imuf_roll_q').val(IMUF_FILTER_CONFIG.imuf_roll_q);
                 $('#imuf_pitch_q').val(IMUF_FILTER_CONFIG.imuf_pitch_q);
                 $('#imuf_yaw_q').val(IMUF_FILTER_CONFIG.imuf_yaw_q);
+                //experimental expert-mode show/hide also in main.js
+                if (!isExpertModeEnabled()) {
+                    $('.IMUFroll').show();
+                    $('.IMUFpitch').hide();
+                    $('.IMUFyaw').hide();
+                    $('#pid-tuning .IMUFroll').text(i18n.getMessage("pidTuningImufQ"));
+                }
+
                 $('#imuf_w').val(IMUF_FILTER_CONFIG.imuf_w);
                 $('.imufSharpness').hide();
                 if (semver.gte(CONFIG.apiVersion, "1.46.0")) {
@@ -427,6 +435,8 @@ TABS.pid_tuning.initialize = function(callback) {
                 $('#filterTuningHelp').hide();
                 $('#imufFilterSettingsPanel').show();
             }
+
+
 
             // Feathered PIDs
             if (semver.gte(CONFIG.apiVersion, "1.42.0")) {
