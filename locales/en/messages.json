@@ -5266,13 +5266,13 @@
         "message": "Helio/Strix Hardware cutoff"
       },
       "pidTuningImuflpfRoll": {
-        "message": "IMU-F ROLL LPF cutoff Hz"
+        "message": "IMU-F roll LPF cutoff Hz"
       },
       "pidTuningImuflpfPitch": {
-        "message": "IMU-F PITCH LPF cutoff Hz"
+        "message": "IMU-F pitch LPF cutoff Hz"
       },
       "pidTuningImuflpfYaw": {
-        "message": "IMU-F YAW LPF cutoff Hz"
+        "message": "IMU-F yaw LPF cutoff Hz"
       },
       "pidTuningImuflpfAcc": {
         "message": "IMU-F accelerometer LPF cutoff [Hz]"
