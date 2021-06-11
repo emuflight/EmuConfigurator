@@ -444,6 +444,13 @@ TABS.pid_tuning.initialize = function(callback) {
                 $('#imuf_roll_q').val(IMUF_FILTER_CONFIG.imuf_roll_q);
                 $('#imuf_pitch_q').val(IMUF_FILTER_CONFIG.imuf_pitch_q);
                 $('#imuf_yaw_q').val(IMUF_FILTER_CONFIG.imuf_yaw_q);
+                //experimental expert-mode show/hide also in main.js
+                if (!isExpertModeEnabled()) {
+                    $('.IMUFQroll').show();
+                    $('.IMUFQpitch').hide();
+                    $('.IMUFQyaw').hide();
+                    $('#pid-tuning .IMUFQroll').text(i18n.getMessage("pidTuningImufQ"));
+                } //end expert-mode
                 $('#imuf_w').val(IMUF_FILTER_CONFIG.imuf_w);
                 $('.imufSharpness').hide();
                 if (semver.gte(CONFIG.apiVersion, "1.46.0")) {
@@ -452,17 +459,24 @@ TABS.pid_tuning.initialize = function(callback) {
                     $('#imuf_sharpness').val(IMUF_FILTER_CONFIG.imuf_sharpness);
                 }
                 if (CONFIG.boardIdentifier === "HESP" || CONFIG.boardIdentifier === "SX10" || CONFIG.boardIdentifier === "FLUX") {
-                    $('#imuf_pitch_lpf_cutoff_hz').val(IMUF_FILTER_CONFIG.imuf_pitch_lpf_cutoff_hz);
                     $('#imuf_roll_lpf_cutoff_hz').val(IMUF_FILTER_CONFIG.imuf_roll_lpf_cutoff_hz);
+                    $('#imuf_pitch_lpf_cutoff_hz').val(IMUF_FILTER_CONFIG.imuf_pitch_lpf_cutoff_hz);
                     $('#imuf_yaw_lpf_cutoff_hz').val(IMUF_FILTER_CONFIG.imuf_yaw_lpf_cutoff_hz);
+                    //experimental expert-mode show/hide also in main.js
+                    if (!isExpertModeEnabled()) {
+                        $('.IMUFLPFroll').show();
+                        $('.IMUFLPFpitch').hide();
+                        $('.IMUFLPFyaw').hide();
+                        $('#pid-tuning .IMUFLPFroll').text(i18n.getMessage("pidTuningImuflpf"));
+                    } //end expert-mode
                     if (semver.gte(CONFIG.apiVersion, "1.42.0")) {
                         $('#imuf_acc_lpf_cutoff_hz').val(IMUF_FILTER_CONFIG.imuf_acc_lpf_cutoff_hz);
                     } else {
                         $('.imuf_acc_lpf_cutoff_hz_tr').hide();
                     }
                 } else {
-                    $('.imuf_pitch_lpf_cutoff_hz_tr').hide();
                     $('.imuf_roll_lpf_cutoff_hz_tr').hide();
+                    $('.imuf_pitch_lpf_cutoff_hz_tr').hide();
                     $('.imuf_yaw_lpf_cutoff_hz_tr').hide();
                     $('.imuf_acc_lpf_cutoff_hz_tr').hide();
                 }
@@ -471,6 +485,22 @@ TABS.pid_tuning.initialize = function(callback) {
                 $('#filterTuningHelp').hide();
                 $('#imufFilterSettingsPanel').show();
             }
+
+            //experimental expert-mode synchronize hidden Pitch/Yaw
+            $('.pid_filter input[name="imuf_roll_q"]').change(function() {
+                if (!isExpertModeEnabled()) {
+                    $('.pid_filter input[name="imuf_pitch_q"]').val(parseInt($('.pid_filter input[name="imuf_roll_q"]').val()));
+                    $('.pid_filter input[name="imuf_yaw_q"]').val(parseInt($('.pid_filter input[name="imuf_roll_q"]').val()));
+                }
+            });
+
+              //experimental expert-mode synchronize hidden Pitch/Yaw
+              $('.pid_filter input[name="imuf_roll_lpf_cutoff_hz"]').change(function() {
+                  if (!isExpertModeEnabled()) {
+                      $('.pid_filter input[name="imuf_pitch_lpf_cutoff_hz"]').val(parseInt($('.pid_filter input[name="imuf_roll_lpf_cutoff_hz"]').val()));
+                      $('.pid_filter input[name="imuf_yaw_lpf_cutoff_hz"]').val(parseInt($('.pid_filter input[name="imuf_roll_lpf_cutoff_hz"]').val()));
+                  }
+              });
 
             // Feathered PIDs
             if (semver.gte(CONFIG.apiVersion, "1.42.0")) {
