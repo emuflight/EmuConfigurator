@@ -743,7 +743,9 @@ function updateTabList(features) {
         $('.spa_pitch').hide();
         $('.spa_yaw').hide();
     }
-    if ( semver.lt(CONFIG.apiVersion, "1.44.0") || semver.lt(CONFIG.flightControllerVersion, "0.2.35") ) {
+
+    //MSP 15.51 adjust semver.gte
+    if ( semver.lt(CONFIG.apiVersion, "1.44.0") || semver.lt(CONFIG.flightControllerVersion, "0.2.35") || semver.gte(CONFIG.apiVersion, "1.51.0")  ) {
         $('.smartDTermWitchBox').hide();
     }
 

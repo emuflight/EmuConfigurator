@@ -791,7 +791,8 @@ TABS.pid_tuning.initialize = function(callback) {
         }
 
         //smart_dterm_smoothing, witchcraft_, table //first build with legit MSP144 is 0.2.35
-        if ( semver.gte(CONFIG.apiVersion, "1.44.0") && semver.gte(CONFIG.flightControllerVersion, "0.2.35") ) {
+        //MSP 1.51 adjustment // semver.lt
+        if ( semver.gte(CONFIG.apiVersion, "1.44.0") && semver.gte(CONFIG.flightControllerVersion, "0.2.35") && semver.lt(CONFIG.apiVersion, "1.51.0")) {
             $('.smartDTermWitchBox input[name="smartdTermRoll"]').val(FILTER_CONFIG.smartSmoothing_roll);
             $('.smartDTermWitchBox input[name="smartdTermPitch"]').val(FILTER_CONFIG.smartSmoothing_pitch);
             $('.smartDTermWitchBox input[name="smartdTermYaw"]').val(FILTER_CONFIG.smartSmoothing_yaw);
