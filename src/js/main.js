@@ -706,6 +706,27 @@ function updateTabList(features) {
     }
 
     //experimental: show/hide with expert-mode
+    if (!isExpertModeEnabled()) {
+        $('.IMUFQroll').show();
+        $('.IMUFQpitch').hide();
+        $('.IMUFQyaw').hide();
+        $('#pid-tuning .IMUFQroll').text(i18n.getMessage("pidTuningImufQ"));
+        $('.IMUFLPFroll').show();
+        $('.IMUFLPFpitch').hide();
+        $('.IMUFLPFyaw').hide();
+        $('#pid-tuning .IMUFLPFroll').text(i18n.getMessage("pidTuningImuflpf"));
+    } else {
+        $('.IMUFQroll').show();
+        $('.IMUFQpitch').show();
+        $('.IMUFQyaw').show();
+        $('#pid-tuning .IMUFQroll').text(i18n.getMessage("pidTuningImufRollQ"));
+        $('.IMUFLPFroll').show();
+        $('.IMUFLPFpitch').show();
+        $('.IMUFLPFyaw').show();
+        $('#pid-tuning .IMUFLPFroll').text(i18n.getMessage("pidTuningImuflpfRoll"));
+    }
+
+    //experimental: show/hide with expert-mode
     if (isExpertModeEnabled()) {
         $('.isexpertmode').show();
         if (!have_sensor(CONFIG.activeSensors, 'acc')) {
