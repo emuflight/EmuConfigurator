@@ -436,7 +436,13 @@ TABS.pid_tuning.initialize = function(callback) {
                 $('#imufFilterSettingsPanel').show();
             }
 
-
+        //experimental expert-mode synchronize hidden Pitch/Yaw
+        $('.pid_filter input[name="imuf_roll_q"]').change(function() {
+            if (!isExpertModeEnabled()) {
+                $('.pid_filter input[name="imuf_pitch_q"]').val(parseInt($('.pid_filter input[name="imuf_roll_q"]').val()));
+                $('.pid_filter input[name="imuf_yaw_q"]').val(parseInt($('.pid_filter input[name="imuf_roll_q"]').val()));
+            }
+        });
 
             // Feathered PIDs
             if (semver.gte(CONFIG.apiVersion, "1.42.0")) {

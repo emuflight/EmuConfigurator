@@ -706,6 +706,19 @@ function updateTabList(features) {
     }
 
     //experimental: show/hide with expert-mode
+    if (!isExpertModeEnabled()) {
+        $('.IMUFroll').show();
+        $('.IMUFpitch').hide();
+        $('.IMUFyaw').hide();
+        $('#pid-tuning .IMUFroll').text(i18n.getMessage("pidTuningImufQ"));
+    } else {
+        $('.IMUFroll').show();
+        $('.IMUFpitch').show();
+        $('.IMUFyaw').show();
+        $('#pid-tuning .IMUFroll').text(i18n.getMessage("pidTuningImufRollQ"));
+    }
+
+    //experimental: show/hide with expert-mode
     if (isExpertModeEnabled()) {
         $('.isexpertmode').show();
         if (!have_sensor(CONFIG.activeSensors, 'acc')) {
