@@ -1191,18 +1191,19 @@
                             </table>
                         </div>
                         <!-- center column -->
-                        <div class="-cf_column gui_box topspacer -grey -pid_filter">
+                        <div class="cf_column gui_box topspacer -grey -pid_filter">
                             <!-- class gui_box topspacer required -->
                             <!-- IMUF -->
                             <div class="-gui_box -grey -topspacer -pid_filter kalmanFilterSettingsPanel">
                                 <table class="cf_table pid_titlebar new_rates">
+                                    <th colspan="3"></th>
                                     <tr>
                                         <th i18n="pidTuningKalmanFilterSettings"></th>
                                     </tr>
                                 </table>
                                 <table>
                                     <tr>
-                                        <td>
+                                        <td colspan="2">
                                             <input id="QCoefficient" type="number" name="kalmanQCoefficient" step="1" min="0" max="16000">
                                         </td>
                                         <td>
@@ -1237,14 +1238,14 @@
                                 </table>
                                 <table>
                                     <tr>
-                                        <th colspan="2"></th>
+                                        <th colspan="3"></th>
                                     </tr>
 <!-- expert-mode per axis -->
                                     <tr class="">
-                                        <td>
+                                        <td colspan="1">
                                             <input id="imuf_roll_q" type="number" name="imuf_roll_q" step="100" min="100" max="16000">
                                         </td>
-                                        <td>
+                                        <td colspan="2">
                                             <div>
                                                 <label>
                                                     <span class="IMUFQroll" i18n="pidTuningImufRollQ"></span>
@@ -1254,10 +1255,10 @@
                                         </td>
                                     </tr>
                                     <tr class="IMUFQpitch">
-                                        <td>
+                                        <td colspan="1">
                                             <input id="imuf_pitch_q" type="number" name="imuf_pitch_q" step="100" min="100" max="16000">
                                         </td>
-                                        <td>
+                                        <td colspan="2">
                                             <div>
                                                 <label>
                                                     <span i18n="pidTuningImufPitchQ"></span>
@@ -1267,10 +1268,10 @@
                                         </td>
                                     </tr>
                                     <tr class="IMUFQyaw">
-                                        <td>
+                                        <td colspan="1">
                                             <input id="imuf_yaw_q" type="number" name="imuf_yaw_q" step="100" min="100" max="16000">
                                         </td>
-                                        <td>
+                                        <td colspan="2">
                                             <div>
                                                 <label>
                                                     <span i18n="pidTuningImufYawQ"></span>
@@ -1281,10 +1282,10 @@
                                     </tr>
 <!-- end expert-mode per axis -->
                                     <tr>
-                                        <td>
+                                        <td colspan="1">
                                             <input id="imuf_w" type="number" name="imuf_w" step="1" min="3" max="512">
                                         </td>
-                                        <td>
+                                        <td colspan="2">
                                             <div>
                                                 <label>
                                                     <span i18n="pidTuningImufW"></span>
@@ -1293,11 +1294,11 @@
                                             </div>
                                         </td>
                                     <tr class="imufSharpness">
-                                        <td>
+                                        <td colspan="1">
                                             <!-- js will mod min to 0 for msp 1.49+ -->
                                             <input id="imuf_sharpness" type="number" name="imuf_sharpness" step="1" min="1" max="16000">
                                         </td>
-                                        <td>
+                                        <td colspan="2">
                                             <div>
                                                 <label>
                                                     <span i18n="pidTuningImufSharpness"></span>
@@ -1311,7 +1312,7 @@
                                         <td>
                                             <input id="imuf_roll_lpf_cutoff_hz" type="number" name="imuf_roll_lpf_cutoff_hz" step="1" min="0" max="450">
                                         </td>
-                                        <td>
+                                        <td colspan="2">
                                             <div>
                                                 <label>
                                                     <span class="IMUFLPFroll" i18n="pidTuningImuflpfRoll"></span>
@@ -1324,7 +1325,7 @@
                                         <td>
                                             <input id="imuf_pitch_lpf_cutoff_hz" type="number" name="imuf_pitch_lpf_cutoff_hz" step="1" min="0" max="450">
                                         </td>
-                                        <td>
+                                        <td colspan="2">
                                             <div>
                                                 <label>
                                                     <span i18n="pidTuningImuflpfPitch"></span>
@@ -1334,10 +1335,10 @@
                                         </td>
                                     </tr>
                                     <tr class="IMUFLPFyaw">
-                                        <td>
+                                        <td colspan="1">
                                             <input id="imuf_yaw_lpf_cutoff_hz" type="number" name="imuf_yaw_lpf_cutoff_hz" step="1" min="0" max="450">
                                         </td>
-                                        <td>
+                                        <td colspan="2">
                                             <div>
                                                 <label>
                                                     <span i18n="pidTuningImuflpfYaw"></span>
@@ -1348,10 +1349,10 @@
                                     </tr>
 <!-- end expert-mode per axis -->
                                     <tr class="imuf_acc_lpf_cutoff_hz_tr">
-                                        <td>
+                                        <td colspan="1">
                                             <input id="imuf_acc_lpf_cutoff_hz" type="number" name="imuf_acc_lpf_cutoff_hz" step="1" min="0" max="450">
                                         </td>
-                                        <td>
+                                        <td colspan="2">
                                             <div>
                                                 <label>
                                                     <span i18n="pidTuningImuflpfAcc"></span>
