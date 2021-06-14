@@ -1710,7 +1710,7 @@
         "message": "Rate Dynamics"
     },
     "pidTuningRateDynamicsHelp": {
-        "message": "Rate Dynamics introduces stick feel variables including 'rate_center_[sensitivity|correction|weight]' and 'rate_end_[sensitivity|correction|weight]'. The above graph does not account for Rate Dynamics unless 'show_altered_rc' is enabled."
+        "message": "Rate Dynamics introduces stick feel variables including 'rate_center_[sensitivity|correction|weight]' and 'rate_end_[sensitivity|correction|weight]'. The rates graph does not account for Rate Dynamics unless 'show_altered_rc' is enabled."
     },
     "rateSensitivityHelp": {
         "message": "Sensitivity can either increase or decrease the RC command your flight controller sees. Your sensitivity value is the percentage that your RC command is boosted or shrunk. A value of 120 will boost your RC command to 120% of its normal value while a value of 80 will shrink your RC command to 80%.  Default is 100(%) which is no change."
@@ -3268,7 +3268,7 @@
         "message": "Dual Axis Steering"
     },
         "pidTuningDualAxisSteeringHelp": {
-        "message": "Mix roll-stick into yaw or mix yaw-stick into roll. This method benefits over the radio-mix method."
+        "message": "Mix roll-stick into yaw or mix yaw-stick into roll. This method benefits over the radio-mix method. The rates graph does not account for DAS unless 'show_altered_rc' is enabled."
     },
         "pidTuningAddRollToYawRc": {
         "message": "Yaw with Roll-Input"

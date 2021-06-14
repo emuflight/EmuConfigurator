@@ -756,32 +756,6 @@
                                 </tr>
                             </table>
                         </div>
-                        <div class="gui_box rc_curve">
-                            <div class="rc_curve_bg">
-                                <table class="cf rc_curve">
-                                    <thead>
-                                        <tr>
-                                            <th colspan="2">
-                                                <div>
-                                                    <div i18n="pidTuningRatesCurve" style="float:left;"></div>
-                                                    <div class="helpicon cf_tip" i18n_title="pidTuningRatesTip"></div>
-                                                </div>
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td colspan="2">
-                                                <div class="rate_curve" style="position:relative;">
-                                                    <canvas id="rate_curve_layer0" height="120px" style="position:absolute; top: 0; left: 0; z-index: 0; height:100%; width:100%;"></canvas>
-                                                    <canvas id="rate_curve_layer1" height="120px" style="position:absolute; top: 0; left: 0; z-index: 1; height:100%; width:100%;"></canvas>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
                         <!--rateDynamics (Stick-pids)-->
                         <div class="gui_box grey rateSetup rateDynamics">
                             <table id="rateDynamics" class="pid_tuning">
@@ -893,6 +867,35 @@
                             </table>
                         </div>
                         <!-- end MSP 1.51 -->
+
+                        <!-- rates curve graph -->
+                        <div class="gui_box rc_curve">
+                            <div class="rc_curve_bg">
+                                <table class="cf rc_curve">
+                                    <thead>
+                                        <tr>
+                                            <th colspan="2">
+                                                <div>
+                                                    <div i18n="pidTuningRatesCurve" style="float:left;"></div>
+                                                    <div class="helpicon cf_tip" i18n_title="pidTuningRatesTip"></div>
+                                                </div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="2">
+                                                <div class="rate_curve" style="position:relative;">
+                                                    <canvas id="rate_curve_layer0" height="120px" style="position:absolute; top: 0; left: 0; z-index: 0; height:100%; width:100%;"></canvas>
+                                                    <canvas id="rate_curve_layer1" height="120px" style="position:absolute; top: 0; left: 0; z-index: 1; height:100%; width:100%;"></canvas>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- rates curve graph -->
                     </div>
                     <div class="cf_column">
                         <div class="gui_box tpa spacer_left">
