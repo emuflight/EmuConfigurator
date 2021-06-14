@@ -1037,12 +1037,15 @@ MspHelper.prototype.process_data = function(dataHandler) {
                             FILTER_CONFIG.dterm_lowpass2_hz_roll = data.readU16();
                             FILTER_CONFIG.dterm_lowpass2_hz_pitch = data.readU16();
                             FILTER_CONFIG.dterm_lowpass2_hz_yaw = data.readU16();
-                            FILTER_CONFIG.smartSmoothing_roll = data.readU8();
-                            FILTER_CONFIG.smartSmoothing_pitch = data.readU8();
-                            FILTER_CONFIG.smartSmoothing_yaw = data.readU8();
-                            FILTER_CONFIG.witchcraft_roll = data.readU8();
-                            FILTER_CONFIG.witchcraft_pitch = data.readU8();
-                            FILTER_CONFIG.witchcraft_yaw = data.readU8();
+                            //MSP 1.51 adjustment
+                            if (semver.lt(CONFIG.apiVersion, "1.51.0")) {
+                                FILTER_CONFIG.smartSmoothing_roll = data.readU8();
+                                FILTER_CONFIG.smartSmoothing_pitch = data.readU8();
+                                FILTER_CONFIG.smartSmoothing_yaw = data.readU8();
+                                FILTER_CONFIG.witchcraft_roll = data.readU8();
+                                FILTER_CONFIG.witchcraft_pitch = data.readU8();
+                                FILTER_CONFIG.witchcraft_yaw = data.readU8();
+                            }
                         }
                     }
 
@@ -1984,13 +1987,16 @@ MspHelper.prototype.crunch = function(code) {
                     }else{
                         buffer.push16(FILTER_CONFIG.dterm_lowpass2_hz_roll)
                               .push16(FILTER_CONFIG.dterm_lowpass2_hz_pitch)
-                              .push16(FILTER_CONFIG.dterm_lowpass2_hz_yaw)
-                              .push8(FILTER_CONFIG.smartSmoothing_roll)
-                              .push8(FILTER_CONFIG.smartSmoothing_pitch)
-                              .push8(FILTER_CONFIG.smartSmoothing_yaw)
-                              .push8(FILTER_CONFIG.witchcraft_roll)
-                              .push8(FILTER_CONFIG.witchcraft_pitch)
-                              .push8(FILTER_CONFIG.witchcraft_yaw);
+                              .push16(FILTER_CONFIG.dterm_lowpass2_hz_yaw);
+                        //MSP 1.51 adjustment
+                        if (semver.lt(CONFIG.apiVersion, "1.51.0")) {
+                            buffer.push8(FILTER_CONFIG.smartSmoothing_roll)
+                                  .push8(FILTER_CONFIG.smartSmoothing_pitch)
+                                  .push8(FILTER_CONFIG.smartSmoothing_yaw)
+                                  .push8(FILTER_CONFIG.witchcraft_roll)
+                                  .push8(FILTER_CONFIG.witchcraft_pitch)
+                                  .push8(FILTER_CONFIG.witchcraft_yaw);
+                        }
                     }
                 }
                 if (semver.gte(CONFIG.apiVersion, "1.47.0")) {
