@@ -481,6 +481,12 @@ TABS.pid_tuning.initialize = function(callback) {
                     $('.imuf_pitch_lpf_cutoff_hz_tr').hide();
                     $('.imuf_yaw_lpf_cutoff_hz_tr').hide();
                     $('.imuf_acc_lpf_cutoff_hz_tr').hide();
+                    $('.IMUFLPF').hide();
+                    $('.IMUFLPFroll').hide();
+                    $('.IMUFLPFpitch').hide();
+                    $('.IMUFLPFyaw').hide();
+                    console.log("PIDTAB: non-Helio hide IMUF LPF");
+
                 }
                 //Only show HELIO SPRING compatible settings
                 $('.kalmanFilterSettingsPanel').hide();
@@ -982,15 +988,15 @@ TABS.pid_tuning.initialize = function(callback) {
             $('input[name="gyroABGalpha-number"]').val(FILTER_CONFIG.gyro_ABG_alpha);
             $('input[name="gyroABGboost-number"]').val(FILTER_CONFIG.gyro_ABG_boost);
             $('input[name="gyroABGhalflife-number"]').val(FILTER_CONFIG.gyro_ABG_half_life);
-            $('#GyroABGFilter').show();
+            $('.GyroABGFilter').show();
             //ABG dterm
             $('input[name="dtermABGalpha-number"]').val(FILTER_CONFIG.dterm_ABG_alpha);
             $('input[name="dtermABGboost-number"]').val(FILTER_CONFIG.dterm_ABG_boost);
             $('input[name="dtermABGhalflife-number"]').val(FILTER_CONFIG.dterm_ABG_half_life);
-            $('#DTermABGFilter').show();
+            $('.DTermABGFilter').show();
         } else {
-            $('#GyroABGFilter').hide();
-            $('#DTermABGFilter').hide();
+            $('.GyroABGFilter').hide();
+            $('.DTermABGFilter').hide();
         }
         // end MSP 1.51
 
