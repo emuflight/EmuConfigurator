@@ -479,6 +479,12 @@ TABS.pid_tuning.initialize = function(callback) {
                     $('.imuf_pitch_lpf_cutoff_hz_tr').hide();
                     $('.imuf_yaw_lpf_cutoff_hz_tr').hide();
                     $('.imuf_acc_lpf_cutoff_hz_tr').hide();
+                    $('.IMUFLPF').hide();
+                    $('.IMUFLPFroll').hide();
+                    $('.IMUFLPFpitch').hide();
+                    $('.IMUFLPFyaw').hide();
+                    console.log("PIDTAB: non-Helio hide IMUF LPF");
+
                 }
                 //Only show HELIO SPRING compatible settings
                 $('.kalmanFilterSettingsPanel').hide();
