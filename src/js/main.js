@@ -711,19 +711,34 @@ function updateTabList(features) {
         $('.IMUFQpitch').hide();
         $('.IMUFQyaw').hide();
         $('#pid-tuning .IMUFQroll').text(i18n.getMessage("pidTuningImufQ"));
-        $('.IMUFLPFroll').show();
-        $('.IMUFLPFpitch').hide();
-        $('.IMUFLPFyaw').hide();
-        $('#pid-tuning .IMUFLPFroll').text(i18n.getMessage("pidTuningImuflpf"));
     } else {
         $('.IMUFQroll').show();
         $('.IMUFQpitch').show();
         $('.IMUFQyaw').show();
         $('#pid-tuning .IMUFQroll').text(i18n.getMessage("pidTuningImufRollQ"));
+    }
+
+    //experimental: show/hide with expert-mode
+    if (CONFIG.boardIdentifier == "HESP" || CONFIG.boardIdentifier == "SX10" || CONFIG.boardIdentifier == "FLUX") {
+        if (!isExpertModeEnabled()) {
+        $('.IMUFLPFroll').show();
+        $('.IMUFLPFpitch').hide();
+        $('.IMUFLPFyaw').hide();
+        $('#pid-tuning .IMUFLPFroll').text(i18n.getMessage("pidTuningImuflpf"));
+        console.log("Helio IMUF LPF basic mode");
+        } else {
         $('.IMUFLPFroll').show();
         $('.IMUFLPFpitch').show();
         $('.IMUFLPFyaw').show();
         $('#pid-tuning .IMUFLPFroll').text(i18n.getMessage("pidTuningImuflpfRoll"));
+        console.log("Helio IMUF LPF expert mode");
+        }
+    } else {
+        $('.IMUFLPF').hide();
+        $('.IMUFLPFroll').hide();
+        $('.IMUFLPFpitch').hide();
+        $('.IMUFLPFyaw').hide();
+        console.log("non-Helio hide IMUF LPF");
     }
 
     //experimental: show/hide with expert-mode
