@@ -86,7 +86,7 @@
     "sinon": "^9.2.4",
     "sinon-chai": "^3.5.0",
     "targz": "^1.0.1",
-    "temp": "^0.9.1",
+    "temp": "^0.9.4",
     "vinyl-source-stream": "^2.0.0",
     "yarn": "^1.22.10"
   },
