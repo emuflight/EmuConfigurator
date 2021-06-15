@@ -4850,10 +4850,10 @@ shebang-regex@^1.0.0:
   resolved "https://registry.yarnpkg.com/shebang-regex/-/shebang-regex-1.0.0.tgz#da42f49740c0b42db2ca9728571cb190c98efea3"
   integrity sha1-2kL0l0DAtC2yypcoVxyxkMmO/qM=
 
-short-unique-id@^3.2.3:
-  version "3.2.3"
-  resolved "https://registry.yarnpkg.com/short-unique-id/-/short-unique-id-3.2.3.tgz#c35c8230d4ece9c27a14c41d2ca24730344c6e01"
-  integrity sha512-DaUTmZe2PP34AQ2DmBOjo0W41Br/74EbKmEosfipbMJdJf2MCdzgJBOXn+PRe/ERFnr9uRKnUa6Kb5X+VC3bCQ==
+short-unique-id@^4.3.3:
+  version "4.3.3"
+  resolved "https://registry.yarnpkg.com/short-unique-id/-/short-unique-id-4.3.3.tgz#08cd79164c561940b5be03202fefdf74329b4390"
+  integrity sha512-wwo4qogI5t3So4EfNB2VtlgKTVrgImFQiKZKUHCi9lFcwR7CT/uWGWNzsTMSnS1Ryuj1MWfjo5jswsJ4BheTIg==
 
 shortid@^2.1.3:
   version "2.2.15"
