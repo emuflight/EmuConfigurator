@@ -226,7 +226,7 @@ function onOpen(openInfo) {
             if (semver.gte(CONFIG.apiVersion, CONFIGURATOR.apiVersionAccepted)) {
 
                 MSP.send_message(MSPCodes.MSP_FC_VARIANT, false, false, function () {
-                    if (CONFIG.flightControllerIdentifier === 'EMUF') {
+                    if (CONFIG.flightControllerIdentifier === 'EMUF' && semver.lte(CONFIG.apiVersion, CONFIGURATOR.max_msp) ){
                         MSP.send_message(MSPCodes.MSP_FC_VERSION, false, false, function () {
                             GUI.log(i18n.getMessage('fcInfoReceived', [CONFIG.flightControllerIdentifier, CONFIG.flightControllerVersion]));
                             updateStatusBarVersion(CONFIG.flightControllerVersion, CONFIG.flightControllerIdentifier);
@@ -263,7 +263,11 @@ function onOpen(openInfo) {
                     } else {
                         var dialog = $('.dialogConnectWarning')[0];
 
-                        $('.dialogConnectWarning-content').html(i18n.getMessage('firmwareTypeNotSupported'));
+                        if (semver.lte(CONFIG.apiVersion, CONFIGURATOR.max_msp)) {
+                            $('.dialogConnectWarning-content').html(i18n.getMessage('firmwareTypeNotSupported'));
+                        } else {
+                            $('.dialogConnectWarning-content').html(i18n.getMessage('firmwareMSPNotSupported'));
+                        }
 
                         $('.dialogConnectWarning-closebtn').click(function() {
                             dialog.close();

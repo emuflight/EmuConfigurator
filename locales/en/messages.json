@@ -441,6 +441,9 @@
     "firmwareTypeNotSupported": {
         "message": "Non - Cleanflight/Emuflight firmware is <span class=\"message-negative\">not supported</span>, except for CLI mode."
     },
+    "firmwareMSPNotSupported": {
+        "message":"MSP version is not supported. Please upgrade EmuConfigurator."
+    },
     "firmwareUpgradeRequired": {
         "message": "The firmware on this device needs upgrading to a newer version. Use CLI for backup before flashing. CLI backup/restore procedure is in the documention.<br />Alternatively download and use an old version of the configurator if you are not ready to upgrade."
     },
