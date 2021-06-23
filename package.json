@@ -2,6 +2,8 @@
   "name": "emuflight-configurator",
   "description": "Crossplatform configuration tool for Emuflight flight control system.",
   "version": "0.3.5",
+  "max_msp": "1.50.0",
+  "COMMENT": "MAX_MSP required!!!!",
   "main": "main.html",
   "chromium-args": "--disable-features=nw2",
   "bg-script": "js/eventPage.js",
