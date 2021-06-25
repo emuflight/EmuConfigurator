@@ -1,0 +1,39 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "11:00"
+  reviewers:
+  - loutwice
+  labels:
+  - dependencies
+  ignore:
+  - dependency-name: i18next
+    versions:
+    - 19.8.8
+    - 19.8.9
+    - 19.9.0
+    - 19.9.1
+    - 19.9.2
+    - 20.0.0
+    - 20.1.0
+    - 20.2.1
+  - dependency-name: follow-redirects
+    versions:
+    - 1.13.2
+    - 1.13.3
+  - dependency-name: mocha
+    versions:
+    - 8.2.1
+    - 8.3.0
+    - 8.3.1
+  - dependency-name: chai
+    versions:
+    - 4.3.0
+    - 4.3.1
+    - 4.3.3
+  - dependency-name: karma
+    versions:
+    - 6.1.0
