@@ -542,7 +542,7 @@ function startProcess() {
     });
 
     ConfigStorage.get('cliAutoComplete', function (result) {
-        CliAutoComplete.setEnabled(typeof result.cliAutoComplete == 'undefined' || result.cliAutoComplete); // On by default
+        CliAutoComplete.setEnabled(result.cliAutoComplete); //(typeof result.cliAutoComplete == 'undefined' || result.cliAutoComplete); // On by default
     });
 
     ConfigStorage.get('darkTheme', function (result) {
