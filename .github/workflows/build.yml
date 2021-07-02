@@ -137,7 +137,8 @@ jobs:
 
       - name: download artifacts
         uses: actions/download-artifact@v2
-        path: ./Artifacts
+        with:
+          path: ./Artifacts
         continue-on-error: false
 
       - name: list artifacts
