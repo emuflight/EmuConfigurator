@@ -137,6 +137,7 @@ jobs:
 
       - name: download artifacts
         uses: actions/download-artifact@v2
+        path: ./Artifacts
         continue-on-error: false
 
       - name: list artifacts
@@ -158,7 +159,7 @@ jobs:
           draft: true
           prerelease: true
           allowUpdates: true
-          artifacts: ./EmuConfigurator*/emuflight-configurator*.???
+          artifacts: ./Artifacts/emuflight-configurator*.???
           artifactContentType: raw
           name:  "DEV-UNSTABLE EmuConfig / Build ${{ github.run_number }}"
           body: |
@@ -189,7 +190,7 @@ jobs:
           draft: true
           prerelease: true
           allowUpdates: true
-          artifacts: ./EmuConfigurator*/emuflight-configurator*.???
+          artifacts: ./Artifacts/emuflight-configurator*.???
           artifactContentType: raw
           name:  "DEV-MASTER EmuConfig / Build ${{ github.run_number }}"
           body: |
@@ -217,7 +218,7 @@ jobs:
           allowUpdates: true
           # tag: use the build Number, but we MUST manually change to version so that it creates a version-tag on release
           tag: "${{ github.RUN_NUMBER }}"
-          artifacts: ./EmuConfigurator*/emuflight-configurator*.???
+          artifacts: ./Artifacts/emuflight-configurator*.???
           artifactContentType: raw
           name:  "DRAFT / EmuConfigurator / GitHub Build ${{ github.RUN_NUMBER }}"
           body: |
