@@ -160,7 +160,7 @@ jobs:
           draft: true
           prerelease: true
           allowUpdates: true
-          artifacts: ./Artifacts/emuflight-configurator*.???
+          artifacts: ./Artifacts/EmuConfigurator-*/emuflight-configurator*.*
           artifactContentType: raw
           name:  "DEV-UNSTABLE EmuConfig / Build ${{ github.run_number }}"
           body: |
@@ -191,7 +191,7 @@ jobs:
           draft: true
           prerelease: true
           allowUpdates: true
-          artifacts: ./Artifacts/emuflight-configurator*.???
+          artifacts: ./Artifacts/EmuConfigurator-*/emuflight-configurator*.*
           artifactContentType: raw
           name:  "DEV-MASTER EmuConfig / Build ${{ github.run_number }}"
           body: |
@@ -219,7 +219,7 @@ jobs:
           allowUpdates: true
           # tag: use the build Number, but we MUST manually change to version so that it creates a version-tag on release
           tag: "${{ github.RUN_NUMBER }}"
-          artifacts: ./Artifacts/emuflight-configurator*.???
+          artifacts: ./Artifacts/EmuConfigurator-*/emuflight-configurator*.*
           artifactContentType: raw
           name:  "DRAFT / EmuConfigurator / GitHub Build ${{ github.RUN_NUMBER }}"
           body: |
