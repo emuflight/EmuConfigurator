@@ -1087,6 +1087,12 @@
     "configurationOtherFeaturesHelp": {
         "message": "<strong>Note:</strong> Not all features are supported by all flight controllers. If you enable a specific feature, and it is disabled after you hit 'Save and Reboot', it means that this feature is not supported on your board."
     },
+    "configurationSerialRXFastSBUS": {
+        "message": "Fast SBUS"
+    },
+    "configurationSerialRXFastSBUSHelp": {
+        "message": "for DJI"
+    },
     "configurationBoardAlignment": {
         "message": "Board and Sensor Alignment"
     },
@@ -1445,6 +1451,11 @@
     "pidTuningSubTabFilter": {
         "message": "Filter Settings"
     },
+    "COMMENT": {"message": "MSP 1.51"},
+    "pidTuningSubTabFeel": {
+        "message": "Feel Settings"
+    },
+    "COMMENT": {"message": "end MSP 1.51"},
     "pidTuningShowAllPids": {
         "message": "Show all PIDs"
     },
@@ -1666,11 +1677,43 @@
     "pidTuningRcExpo": {
         "message": "RC Expo"
     },
+    "COMMENT": {"message": "MSP 1.51"},
+    "pidTuningRCRatesType": {
+        "message": "Rates Type"
+    },
+    "pidTuningRCRatesTypeHelp": {
+        "message": "Changing rates type will not convert, but will instead reset fields to baseline defaults. 'rates_type' allowed values: BETAFLIGHT, RACEFLIGHT, KISS, ACTUAL. Default: BETAFLIGHT"
+    },
+    "pidTuningRatesType": {
+        "message": "Rates Type"
+    },
+    "pidTuningRatesTypeTip": {
+        "message": "Changing rates type will change the rates curve and the way you can set it"
+    },
+    "pidTuningRcRateRaceflight": {
+        "message": "Rate"
+    },
+    "pidTuningRcExpoRaceflight": {
+        "message": "Expo"
+    },
+    "pidTuningRateRaceflight": {
+        "message": "Acro+"
+    },
+    "pidTuningRcExpoKISS": {
+        "message": "RC Curve"
+    },
+    "pidTuningRateQuickRates": {
+        "message": "Max Rate"
+    },
+    "pidTuningRcRateActual": {
+        "message": "Center Sensitivity"
+    },
+    "COMMENT": {"message": "end MSP 1.51"},
     "pidTuningRateDynamics": {
         "message": "Rate Dynamics"
     },
     "pidTuningRateDynamicsHelp": {
-        "message": "Rate Dynamics introduces stick feel variables including 'rate_center_[sensitivity|correction|weight]' and 'rate_end_[sensitivity|correction|weight]'. The above graph does not yet account for Rate Dynamics."
+        "message": "Rate Dynamics introduces stick feel variables including 'rate_center_[sensitivity|correction|weight]' and 'rate_end_[sensitivity|correction|weight]'. The rates graph does not account for Rate Dynamics unless 'show_altered_rc' is enabled."
     },
     "rateSensitivityHelp": {
         "message": "Sensitivity can either increase or decrease the RC command your flight controller sees. Your sensitivity value is the percentage that your RC command is boosted or shrunk. A value of 120 will boost your RC command to 120% of its normal value while a value of 80 will shrink your RC command to 80%.  Default is 100(%) which is no change."
@@ -3223,6 +3266,26 @@
     "pidTuningHorizTransitionHelp": {
         "message": "The strength of the transition from angle to acro."
     },
+    "COMMENT": {"message": "MSP 1.51"},
+    "pidTuningDualAxisSteering": {
+        "message": "Dual Axis Steering"
+    },
+        "pidTuningDualAxisSteeringHelp": {
+        "message": "Mix roll-stick into yaw or mix yaw-stick into roll. This method benefits over the radio-mix method. The rates graph does not account for DAS unless 'show_altered_rc' is enabled."
+    },
+        "pidTuningAddRollToYawRc": {
+        "message": "Yaw with Roll-Input"
+    },
+        "pidTuningAddRollToYawRcHelp": {
+        "message": "This option will add a percentage of yawing as you move the roll-stick."
+    },
+        "pidTuningAddYawToRollRc": {
+        "message": "Roll with Yaw-Input"
+    },
+        "pidTuningAddYawToRollRcHelp": {
+        "message": "This option will add a percentage of rolling as you move the yaw-stick."
+    },
+    "COMMENT": {"message": "end MSP 1.51"},
     "pidTuningNonProfileFilterSettings": {
         "message": "Profile independent Filter Settings"
     },
@@ -3343,6 +3406,38 @@
     "pidTuningDynamicNotchMinHzHelp": {
         "message": "Defines the lowest dynamic notch center frequency below which the dynamic notch will not go."
     },
+
+    "COMMENT": {"message": "MSP 1.51"},
+    "pidTuningGyroABGFilterGroup": {
+        "message": "Gyro ABG (α-β-γ) Filter"
+    },
+    "pidTuningDTermABGFilterGroup": {
+        "message": "D Term ABG (α-β-γ) Filter"
+    },
+        "pidTuningABGFilterGroupHelp": {
+        "message": "Alpha Beta Gamma (α-β-γ) Filter -- Values are typically adjusted experimentally. In general, larger Alpha and Boost values tend to produce faster response for tracking transient changes, while smaller values reduce the level of noise in the state estimates.  Enabling ABG may require re-tuning of PIDS (lower) and/or LPF Filters (higher). Configure Alpha (α), Boost, and HalfLife. Beta (β) and gamma (γ) are computed internally."
+    },
+    "pidTuningABGalpha": {
+        "message": "ABG Filter's Alpha"
+    },
+        "pidTuningABGalphaHelp": {
+        "message": "The Alpha (α) is the gain of the ABG filter. Higher is less filtering; Lower is more filtering. Range is 0 to 1000. Default is 0 off.)"
+    },
+    "pidTuningABGboost": {
+        "message": "ABG Filter's Boost"
+    },
+        "pidTuningABGboostHelp": {
+        "message": "Boost adds to the error calculated within the ABG filter. It gives the ABG filter an extra kick to react faster. Range is 0 to 2000. Default is 275."
+    },
+    "pidTuningABGhalflife": {
+        "message": "ABG Filter's HalfLife"
+    },
+        "pidTuningABGhalflifeHelp": {
+        "message": "HalfLife is the timespan in centiseconds (milliseconds*10) that the sample-data's importance decays. Range is 0 to 250. Default is 50 (half-second)."
+    },
+    "COMMENT": {"message": "end MSP 1.51"},
+
+
     "pidTuningLowpassFilterHelp": {
         "message": "The Lowpass Filters can have two variants: static and dynamic. The static lowpass filter cutoff remains constant.  The noise above the cutoff is attenuated.  The dynamic lowpass cutoff is a minimum that will move higher based on error and gyro. If both static and dynamic are enabled concurrently, it will double filter."
     },
@@ -3568,6 +3663,98 @@
     "pidTuningIntegratedYawHelp": {
         "message": "Integrated Yaw is a feature which corrects a fundamental issue with quad control: while the pitch and roll axis are controlled by the thrust differentials the props generate yaw is different. Integrated Yaw fixes this by integrating the output of the yaw pid before applying them to the mixer. This normalizes the way the pids work. You can now tune as any other axis. It requires use of absolute control since no I is needed with Integrated Yaw."
     },
+    "COMMENT": {"message": "MSP 1.51"},
+    "pidTuningEmuGravity": {
+        "message": "EmuGravity"
+    },
+        "pidTuningEmuGravityHelp": {
+        "message": "EmuGravity is an AntiGravity implementation that simply boosts the error upon throttle-up. Increase as needed for nose dips. Increasing too much may introduce oscillation.  'emu_gravity' range 0 to 255.  Zero is off.  Default = 50.  100 is easily acceptable; However, Smith-predictor may prefer lower values."
+    },
+    "pidTuningSmithPredictorEnabledSwitch": {
+        "message": "Smith Predictor"
+    },
+        "pidTuningSmithPredictorEnabledSwitchHelp": {
+        "message": "Smith predictor compensates for inherit 'deadtime', or delay, of control processing. i.e. PID and Filter processing.  Smith predictor prefers clean gyro. Noisy gyro may cause amplifications. Default is ON. Further fine tuning of Smith Prediction can be performed in the CLI. `get smith_predict`; However, defaults are good for most aircraft. Note that this is a Global filter setting, not PID-Profile."
+    },
+    "DirectFeedForward": {
+        "message":"Direct Feed"
+    },
+    "DirectFeedForwardHelp": {
+        "message": "A different type of feed forward implementation. Allows to act faster based on setpoint and have less i-Term windup. Range 0 to 200. Zero is off. Default = 15."
+    },
+    "pidTuningDFyaw": {
+        "message": "Direct Feed Yaw"
+    },
+        "pidTuningDFyawHelp": {
+        "message": "A different type of feed forward implementation for yaw. Allows yaw to act faster based on setpoint and have less i-Term windup. Range 0 to 200. Zero is off. Default = 15."
+    },
+    "AxisLock": {
+        "message":"Axis Lock"
+    },
+    "pidTuningAxisLockMultiplier": {
+        "message": "Axis Lock Multiplier"
+    },
+        "pidTuningAxisLockMultiplierHelp": {
+        "message": "Axis-Lock significantly reduces pidsum for opposing axes. Multiplier range is 0 to 10. Default 'axis_lock_multiplier = 0' (Axis-Lock OFF)."
+    },
+        "pidTuningAxisLockHz": {
+        "message": "Axis Lock Cutoff Hz"
+    },
+        "pidTuningAxisLockHzHelp": {
+        "message": "Axis-Lock significantly reduces pidsum for opposing axes. Cutoff-Hz range is 1 to 50. Default 'axis_lock_hz = 2', but has no effect when Axis-Lock is off."
+    },
+    "COMMENT": {"message": "end MSP 1.51"},
+    "COMMENT": {"message": "MSP 1.51"},
+    "pidTuningPIDProfileSettings": {
+        "message": "PID Profile Dependent Settings"
+    },
+    "pidTuningMotorMixer": {
+        "message": "Motor Output Mixer Smoothing"
+    },
+
+    "pidTuningMixerImplementation": {
+        "message": "Mixer Implementation"
+    },
+    "pidTuningMixerImplementationHelp": {
+        "message": "EmuFlight introduces SMOOTH and 2PASS variants for the motor output mixer.  SMOOTH is a simple variant that avoids clipping.  2PASS is a smooth variant that treats Roll and Pitch separately from Yaw in order to guarantee thrust linearity. Default 'mixer_impl = LEGACY'."
+    },
+    "pidTuningMixerLaziness": {
+        "message": "Mixer Laziness"
+    },
+    "pidTuningMixerLazinessHelp": {
+        "message": "A smarter, minimal clipping-prevention strategy. When ON, requires Thrust-Linearization to be enabled/configured. Default 'mixer_laziness = OFF'."
+    },
+    "pidTuningMixerThrottleComp":{
+        "message":"Mixer 2Pass Yaw Throttle Compensation"
+    },
+    "pidTuningMixerThrottleCompHelp": {
+        "message": "Quick yaw movements induce throttle increase in the smoothing mixer variants.  This option compensates throttle setpoint in 2PASS variant only.  Default 'mixer_yaw_throttle_comp = ON'."
+    },
+    "pidTuningThrustLinearization": {
+        "message": "Thrust Linearization"
+    },
+    "pidTuningTLLowOuput": {
+        "message": "Low Output Compensation "
+    },
+        "pidTuningTLLowOuputHelp": {
+        "message": "Value in Percentage for RPM output compensation at low end. Default 'linear_thrust_low_output = 65'. Tuning this is usually motor/prop size specific; please reference EmuFlight Wiki."
+    },
+    "pidTuningTLHighOuput": {
+        "message": "High Output Compensation"
+    },
+        "pidTuningTLHighOuputHelp": {
+        "message": "Value in Percentage for RPM output compensation at high end. Default 'linear_thrust_high_output = 0' (OFF). Note that TPA is automatically disabled when Thrust-Linearization is enabled because it already solves high throttle issues.  Tuning this is usually motor/prop size specific; please reference EmuFlight Wiki."
+    },
+    "pidTuningThrottleLinearization": {
+        "message": "Throttle Linearization"
+    },
+    "pidTuningLinearThrottle": {
+        "message": "Linear Throttle"
+    },
+        "pidTuningLinearThrottleHelp": {
+        "message": "Linearizes the throttle response. Enabling this may drop the hover-point but increase high-end range. Default 'linear_throttle' = OFF."
+    },
+    "COMMENT": {"message": "end MSP 1.51"},
 
     "configHelp2": {
         "message": "Arbitrary board rotation in degrees, to allow mounting it sideways / upside down / rotated etc. When running external sensors, use the sensor alignments (Gyro, Acc, Mag) to define sensor position independent from board orientation. "
@@ -5169,8 +5356,13 @@
         "message": "<b>Gyro Soft Filter:</b> Lowpass filter for gyro. Use lower value for more filtering.<br><b>D Term Filter:</b> Lowpass filter for Dterm. Can affect D tuning. Use lower value for more filtering. <br><b>Yaw Filter:</b> Filters yaw output. It can help on setups with noisy yaw axis."
     },
     "pidTuningPidTuningTipFeedforward": {
-        "message": "<b>Proportional:</b> You will notice a very strong resistant force to any attempts to move the MultiRotor<br><b>Integral:</b> Increase the ability to hold overall initial position and reduce drift, but also increase the delay in returning to initial position.<br><b>Derivative:</b> Improves the speed at which deviations are recovered, but increases noise<br><b>Feedforward:</b> Usually the PID controller reacts to the error. The Feedforward anticipates the error based on the stick input, giving responsiveness to the quad.<br>"
+        "message": "<b>Proportional:</b> You will notice a very strong resistant force to any attempts to move the MultiRotor<br><b>Integral:</b> Increase the ability to hold overall initial position and reduce drift, but also increase the delay in returning to initial position.<br><b>Derivative:</b> Improves the speed at which deviations are recovered, but increases noise<br>"
     },
+    "COMMENT": {"message": "MSP 1.51"},
+    "COMMENT": {
+        "message":"MOVED from pidTuningPidTuningTipFeedforward:<b>Feedforward:</b> Usually the PID controller reacts to the error. The Feedforward anticipates the error based on the stick input, giving responsiveness to the quad.<br>"
+    },
+    "COMMENT": {"message": "end MSP 1.51"},
     "pidTuningRatesTuningHelp":{
          "message":"<b>Rates and Expo</b>: Determine your stick feel based on these parameters. Use the graph and live 3D model to find your favourite rate setting"
     },
@@ -5280,6 +5472,14 @@
       "pidTuningImufSharpness": {
           "message": "IMU-F Sharpness"
       },
+      "COMMENT": {"message": "MSP 1.51"},
+      "pidTuningImufPTNOrder": {
+          "message": "IMU-F PT(n) order"
+      },
+      "pidTuningImufPTNOrderHelp": {
+          "message": "Helio IMU-F PT(n) order requires IMUF_256."
+      },
+      "COMMENT": {"message": "end MSP 1.51"},
       "pidTuningKalmanFilterSharpnessHelp": {
           "message": "'imuf_sharpness' is the aggressiveness of the dynamic reduction of IMUF overfiltering. Higher values dynamically relax IMUF filtering more, but only when needed. Default is 2500. Range is 1 to 16000. 0 is OFF for versions that allow such."
       },

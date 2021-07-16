@@ -36,6 +36,9 @@ var helioUrlv020 = "https://raw.githubusercontent.com/emuflight/emuflight-preset
 var nonHelioUrlv030 = "https://raw.githubusercontent.com/emuflight/emuflight-presets/master/presets-0.3.0/presets-nonHELIO.json";
 var helioUrlv030 = "https://raw.githubusercontent.com/emuflight/emuflight-presets/master/presets-0.3.0/presets-HELIO.json";
 
+var nonHelioUrlv040 = "https://raw.githubusercontent.com/emuflight/emuflight-presets/master/presets-0.4.0/presets-nonHELIO.json";
+var helioUrlv040 = "https://raw.githubusercontent.com/emuflight/emuflight-presets/master/presets-0.4.0/presets-HELIO.json";
+
 // TODO: migrate to a function to get rid of code duplication
 
 client.get(nonHelioUrlv020, function(response) {
@@ -79,6 +82,28 @@ client.get(nonHelioUrlv030, function(response) {
           //file written successfully
       })
   });
+
+client.get(nonHelioUrlv040, function(response) {
+    fs.writeFile(presetsFolders + "/presets-nonHELIO-v0.4.0.json", response, (err) => {
+      if (err) {
+        // FIXME: add error handling
+        console.error(err);
+        return;
+      }
+      //file written successfully
+    })
+  });
+
+  client.get(helioUrlv040, function(response) {
+      fs.writeFile(presetsFolders + "/presets-HELIO-v0.4.0.json", response, (err) => {
+          if (err) {
+          console.error(err);
+          return;
+          }
+          //file written successfully
+      })
+  });
+
 
 $(document).ready(function () {
     $.getJSON('version.json', function(data) {
@@ -749,7 +774,7 @@ function updateTabList(features) {
 
     //experimental: show/hide with expert-mode
     if (isExpertModeEnabled()) {
-        $('.isexpertmode').show();
+        $('.isexpertmode').show(); //show everything but turn off things per MSP below
         if (!have_sensor(CONFIG.activeSensors, 'acc')) {
             $('#pid_accel').hide();
         }
@@ -764,10 +789,58 @@ function updateTabList(features) {
         $('.spa_pitch').hide();
         $('.spa_yaw').hide();
     }
-    if ( semver.lt(CONFIG.apiVersion, "1.44.0") || semver.lt(CONFIG.flightControllerVersion, "0.2.35") ) {
+
+    //MSP 15.51 adjust semver.gte
+    if ( semver.lt(CONFIG.apiVersion, "1.44.0") || semver.lt(CONFIG.flightControllerVersion, "0.2.35") || semver.gte(CONFIG.apiVersion, "1.51.0")  ) {
         $('.smartDTermWitchBox').hide();
     }
-}
+
+    // MSP 1.51
+    //expermode show/hide
+    if (isExpertModeEnabled()) {
+        if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+            //debug
+            console.log("expert-toggle: MSP 1.51 -- show stuff");
+            $('.tab_container .subtab-feel').show();
+            //$('.subtab-feel').show();
+            //$('.feel').hide();
+            $('.emuGravity').show();
+            //$('.DFyaw').show();
+            $('.GyroABGFilter').show();
+            $('.DTermABGFilter').show();
+            $('.MotorMixer').show();
+            $('.ThrustLinear').show();
+            $('.ThrottleLinear').show();
+            $('.AxisLock').show();
+        } else { //not MSP 1.51
+            //debug
+            console.log("expert-toggle: not MSP 1.51 -- hide stuff");
+            $('.tab_container .subtab-feel').hide();
+            $('.subtab-feel').hide();
+            $('.feel').hide(); //hacky but works
+            $('.emuGravity').hide();
+            //$('.DFyaw').hide();
+            $('.GyroABGFilter').hide();
+            $('.DTermABGFilter').hide();
+            $('.MotorMixer').hide();
+            $('.ThrustLinear').hide();
+            $('.ThrottleLinear').hide();
+            $('.AxisLock').hide();
+        }
+    } else { //not expert
+        //unfocus feel tab
+        //debug
+        console.log("expert-toggle: not expertMode; ");
+        $('.tab_container .subtab-feel').hide();
+        $('.subtab-feel').hide();
+        if ( semver.gte(CONFIG.apiVersion, "1.51.0") && TABS.pid_tuning.activeSubtab == 'feel' ) {
+            //debug
+            console.log("Active subtab is :"+ TABS.pid_tuning.activeSubtab + 'Setting to PID');
+            $('.tab-pid_tuning .tab_container .pid').click();  //jQuery specific command
+        }
+    }
+    // end MSP 1.51
+} //end updateTabList
 
 function zeroPad(value, width) {
     value = "" + value;
