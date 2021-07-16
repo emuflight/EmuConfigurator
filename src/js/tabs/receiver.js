@@ -334,6 +334,15 @@ TABS.receiver.initialize = function (callback) {
             var rcSmoothingnNumberElement = $('input[name="rcSmoothingInputHz-number"]');
             var rcSmoothingnDerivativeNumberElement = $('input[name="rcSmoothingDerivativeCutoff-number"]');
 
+            // MSP 1.51
+            // no existing logic for filter types. it was hard-coded into HTML.
+            if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+                $('[name="rcSmoothingInputType-select"]').append(`<option value="2">PT2</option>`);
+                $('[name="rcSmoothingInputType-select"]').append(`<option value="3">PT3</option>`);
+                $('[name="rcSmoothingInputType-select"]').append(`<option value="4">PT4</option>`);
+            }
+            //end MPS 1.51
+
             $('.tab-receiver .rcSmoothing-input-cutoff').show();
             $('select[name="rcSmoothing-input-manual-select"]').val("1");
             $('.tab-receiver .rc-smoothing-input-blank').hide();
@@ -408,6 +417,11 @@ TABS.receiver.initialize = function (callback) {
             $('.tab-receiver .rcSmoothing-input-manual').hide();
             $('.tab-receiver .rc-smoothing-type').hide();
         }
+
+        // MSP 1.51
+        if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+            $('.tab-receiver .rc-smooth-deriv-hide').hide();
+        } //end MSP 1.51
 
         // Only show the MSP control sticks if the MSP Rx feature is enabled
         $(".sticks_btn").toggle(FEATURE_CONFIG.features.isEnabled('RX_MSP'));
@@ -529,7 +543,7 @@ TABS.receiver.initialize = function (callback) {
         tab.renderModel();
 
         // TODO: Combine two polls together
-        GUI.interval_add('receiver_pull_for_model_preview', tab.getRecieverData, 33, false);
+        GUI.interval_add('receiver_pull_for_model_preview', tab.getReceiverData, 33, false);
 
         // status data pulled via separate timer with static speed
         GUI.interval_add('status_pull', function status_pull() {
@@ -540,7 +554,7 @@ TABS.receiver.initialize = function (callback) {
     }
 };
 
-TABS.receiver.getRecieverData = function () {
+TABS.receiver.getReceiverData = function () {
     MSP.send_message(MSPCodes.MSP_RC, false, false);
 };
 
