@@ -60,6 +60,8 @@ MspHelper.prototype.reorderPwmProtocols = function (protocol) {
 MspHelper.prototype.process_data = function(dataHandler) {
     var self = this;
 
+  console.log("reading MSP...")
+
     var data = dataHandler.dataView; // DataView (allowing us to view arrayBuffer as struct/union)
     var code = dataHandler.code;
     if (code === 0) {
@@ -284,6 +286,11 @@ MspHelper.prototype.process_data = function(dataHandler) {
                 BATTERY_CONFIG.currentMeterSource = data.readU8();
                 break;
             case MSPCodes.MSP_RC_TUNING:
+                //MSP 1.51
+                if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+                    RC_tuning.rates_type = data.readU8();
+                }
+                //end MSP 1.51
                 RC_tuning.RC_RATE = parseFloat((data.readU8() / 100).toFixed(2));
                 RC_tuning.RC_EXPO = parseFloat((data.readU8() / 100).toFixed(2));
                 if (semver.lt(CONFIG.apiVersion, "1.7.0")) {
@@ -337,6 +344,13 @@ MspHelper.prototype.process_data = function(dataHandler) {
                         RC_tuning.rateCorrectionEnd = data.readU8();
                         RC_tuning.rateWeightCenter = data.readU8();
                         RC_tuning.rateWeightEnd = data.readU8();
+                        //MSP 1.51
+                        if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+                            RC_tuning.addRollToYawRc = data.readU8(); //das_yaw_with_roll_input
+                            RC_tuning.addYawToRollRc = data.readU8(); //das_roll_with_yaw_input
+                            console.log("pull DAS " +  + RC_tuning.addRollToYawRc + " & " + RC_tuning.addYawToRollRc );
+                        }
+                        //end MSP 1.51
                     }
                 }
 
@@ -918,6 +932,11 @@ MspHelper.prototype.process_data = function(dataHandler) {
                     RX_CONFIG.rcInterpolationInterval = 0;
                     RX_CONFIG.airModeActivateThreshold = 0;
                 }
+                //MSP 1.51
+                if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+                    RX_CONFIG.sbus_baud_fast = data.readU8();
+                }
+                //end MSP 1.51
                 break;
 
             case MSPCodes.MSP_FAILSAFE_CONFIG:
@@ -995,6 +1014,12 @@ MspHelper.prototype.process_data = function(dataHandler) {
                         FILTER_CONFIG.dterm_lowpass_type = data.readU8();
                     }
 
+                    //MSP 1.51
+                    if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+                        FILTER_CONFIG.dterm_lowpass2_type = data.readU8();
+                    }
+                    //end MSP 1.51
+
                     if (semver.gte(CONFIG.apiVersion, "1.39.0")) {
                         FILTER_CONFIG.gyro_hardware_lpf = data.readU8();
                         let gyro_32khz_hardware_lpf = data.readU8();
@@ -1020,19 +1045,49 @@ MspHelper.prototype.process_data = function(dataHandler) {
                             FILTER_CONFIG.dterm_lowpass2_hz_roll = data.readU16();
                             FILTER_CONFIG.dterm_lowpass2_hz_pitch = data.readU16();
                             FILTER_CONFIG.dterm_lowpass2_hz_yaw = data.readU16();
-                            FILTER_CONFIG.smartSmoothing_roll = data.readU8();
-                            FILTER_CONFIG.smartSmoothing_pitch = data.readU8();
-                            FILTER_CONFIG.smartSmoothing_yaw = data.readU8();
-                            FILTER_CONFIG.witchcraft_roll = data.readU8();
-                            FILTER_CONFIG.witchcraft_pitch = data.readU8();
-                            FILTER_CONFIG.witchcraft_yaw = data.readU8();
+                            //MSP 1.51 adjustment
+                            if (semver.lt(CONFIG.apiVersion, "1.51.0")) {
+                                FILTER_CONFIG.smartSmoothing_roll = data.readU8();
+                                FILTER_CONFIG.smartSmoothing_pitch = data.readU8();
+                                FILTER_CONFIG.smartSmoothing_yaw = data.readU8();
+                                FILTER_CONFIG.witchcraft_roll = data.readU8();
+                                FILTER_CONFIG.witchcraft_pitch = data.readU8();
+                                FILTER_CONFIG.witchcraft_yaw = data.readU8();
+                            }
                         }
                     }
 
                     if (semver.gte(CONFIG.apiVersion, "1.47.0")) {
+                        //MSP 1.51
+                        if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+                            FILTER_CONFIG.dynamic_gyro_notch_count = data.readU8();
+                        } //end MSP 1.51
                         FILTER_CONFIG.dynamic_gyro_notch_q = data.readU16();
                         FILTER_CONFIG.dynamic_gyro_notch_min_hz = data.readU16();
+                        //MSP 1.51
+                        if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+                            FILTER_CONFIG.dynamic_gyro_notch_max_hz = data.readU16();
+                        } //end MSP 1.51
                     }
+
+                    //MSP 1.51
+                    if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+                        FILTER_CONFIG.gyro_ABG_alpha = data.readU16();
+                        FILTER_CONFIG.gyro_ABG_boost = data.readU16();
+                        FILTER_CONFIG.gyro_ABG_half_life = data.readU8();
+                        FILTER_CONFIG.smithPredictorEnabled = data.readU8();
+                        FILTER_CONFIG.dterm_ABG_alpha = data.readU16();
+                        FILTER_CONFIG.dterm_ABG_boost = data.readU16();
+                        FILTER_CONFIG.dterm_ABG_half_life = data.readU8();
+                    }
+                    //end MSP 1.51
+
+                    //MSP 1.51 dyn dterm notch
+                    if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+                        FILTER_CONFIG.dterm_dyn_notch_enable = data.readU8();    //dterm_dyn_notch_enable
+                        FILTER_CONFIG.dterm_dyn_notch_q = data.readU16();        //dterm_dyn_notch_q
+                    }
+                    //end MSP 1.51
                 }
                 break;
 
@@ -1047,10 +1102,16 @@ MspHelper.prototype.process_data = function(dataHandler) {
                 IMUF_FILTER_CONFIG.imuf_pitch_q = data.readU16();
                 IMUF_FILTER_CONFIG.imuf_yaw_q = data.readU16();
                 IMUF_FILTER_CONFIG.imuf_w = data.readU16();
-                if (semver.gte(CONFIG.apiVersion, "1.46.0")) {
-                  IMUF_FILTER_CONFIG.imuf_sharpness = data.readU16();
+                // MSP 1.51 adjustment //semver.lt
+                if (semver.gte(CONFIG.apiVersion, "1.46.0") && semver.lt(CONFIG.apiVersion, "1.51.0")) {
+                    IMUF_FILTER_CONFIG.imuf_sharpness = data.readU16();
                 }
                 if (CONFIG.boardIdentifier === "HESP" || CONFIG.boardIdentifier === "SX10" || CONFIG.boardIdentifier === "FLUX") {
+                    //MSP 1.51
+                    if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+                        IMUF_FILTER_CONFIG.imuf_ptn_order = data.readU16();
+                    }
+                    //end MSP 1.51
                     IMUF_FILTER_CONFIG.imuf_roll_lpf_cutoff_hz = data.readU16();
                     IMUF_FILTER_CONFIG.imuf_pitch_lpf_cutoff_hz = data.readU16();
                     IMUF_FILTER_CONFIG.imuf_yaw_lpf_cutoff_hz = data.readU16();
@@ -1059,6 +1120,11 @@ MspHelper.prototype.process_data = function(dataHandler) {
                     }
                 }
                 break;
+
+            case MSPCodes.MSP_IMUF_INFO:
+                IMUF_FILTER_CONFIG.imufCurrentVersion = data.readU16();
+                console.log("MSP read IMUF_FILTER_CONFIG.imufCurrentVersion "+IMUF_FILTER_CONFIG.imufCurrentVersion)
+            break;
 
             case MSPCodes.MSP_SET_PID_ADVANCED:
                 console.log("Advanced PID settings saved");
@@ -1146,6 +1212,20 @@ MspHelper.prototype.process_data = function(dataHandler) {
                                             ADVANCED_TUNING.setPointDTransitionYaw = data.readU8();
                                         }
                                         ADVANCED_TUNING.nfe_racermode = data.readU8();
+                                        //MSP 1.51
+                                        if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+                                            ADVANCED_TUNING.linear_thrust_low_output = data.readU8();
+                                            ADVANCED_TUNING.linear_thrust_high_output = data.readU8();
+                                            ADVANCED_TUNING.linear_throttle  = data.readU8();
+                                            ADVANCED_TUNING.mixer_impl = data.readU8();
+                                            ADVANCED_TUNING.mixer_laziness = data.readU8();
+                                            ADVANCED_TUNING.mixer_yaw_throttle_comp = data.readU8();
+                                            ADVANCED_TUNING.directFF_yaw = data.readU8();
+                                            ADVANCED_TUNING.axis_lock_hz = data.readU8();
+                                            ADVANCED_TUNING.axis_lock_multiplier = data.readU8();
+                                            ADVANCED_TUNING.emuGravityGain = data.readU8();
+                                        }
+                                        //end MSP 1.51
                                     }
                                 }
                             }
@@ -1527,6 +1607,9 @@ MspHelper.prototype.process_data = function(dataHandler) {
 MspHelper.prototype.crunch = function(code) {
     var buffer = [];
     var self = this;
+
+    console.log("Writing MSP...")
+
     switch (code) {
 
         case MSPCodes.MSP_SET_FEATURE_CONFIG:
@@ -1571,6 +1654,11 @@ MspHelper.prototype.crunch = function(code) {
             break;
 
         case MSPCodes.MSP_SET_RC_TUNING:
+            //MSP 1.51
+            if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+                buffer.push8(RC_tuning.rates_type);
+            }
+            //end MSP 1.51
             buffer.push8(Math.round(RC_tuning.RC_RATE * 100))
                   .push8(Math.round(RC_tuning.RC_EXPO * 100));
             if (semver.lt(CONFIG.apiVersion, "1.7.0")) {
@@ -1612,6 +1700,13 @@ MspHelper.prototype.crunch = function(code) {
                     buffer.push8(RC_tuning.rateCorrectionEnd);
                     buffer.push8(RC_tuning.rateWeightCenter);
                     buffer.push8(RC_tuning.rateWeightEnd);
+                    //MSP 1.51
+                    if ( semver.gte(CONFIG.apiVersion, "1.51.0") ) {
+                        buffer.push8(RC_tuning.addRollToYawRc);
+                        buffer.push8(RC_tuning.addYawToRollRc);
+                        console.log("push DAS " +  + RC_tuning.addRollToYawRc + " & " + RC_tuning.addYawToRollRc );
+                    }
+                    //end MSP 1.51
                 }
               }
             break;
@@ -1762,6 +1857,11 @@ MspHelper.prototype.crunch = function(code) {
                               .push8(RX_CONFIG.rcSmoothingDerivativeCutoff)
                               .push8(RX_CONFIG.rcSmoothingInputType)
                               .push8(RX_CONFIG.rcSmoothingDerivativeType);
+                        //MSP 1.51
+                        if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+                            buffer.push8(RX_CONFIG.sbus_baud_fast);
+                        }
+                        //end MSP 1.51
                     }
                 }
             }
@@ -1898,6 +1998,13 @@ MspHelper.prototype.crunch = function(code) {
                 if (semver.gte(CONFIG.apiVersion, "1.36.0")) {
                     buffer.push8(FILTER_CONFIG.dterm_lowpass_type);
                 }
+
+                //MSP 1.51
+                if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+                    buffer.push8(FILTER_CONFIG.dterm_lowpass2_type);
+                }
+                //end MSP 1.51
+
                 if (semver.gte(CONFIG.apiVersion, "1.39.0")) {
                     let gyro_32khz_hardware_lpf = 0;
                     gyro_32khz_hardware_lpf = FILTER_CONFIG.gyro_32khz_hardware_lpf;
@@ -1924,19 +2031,49 @@ MspHelper.prototype.crunch = function(code) {
                     }else{
                         buffer.push16(FILTER_CONFIG.dterm_lowpass2_hz_roll)
                               .push16(FILTER_CONFIG.dterm_lowpass2_hz_pitch)
-                              .push16(FILTER_CONFIG.dterm_lowpass2_hz_yaw)
-                              .push8(FILTER_CONFIG.smartSmoothing_roll)
-                              .push8(FILTER_CONFIG.smartSmoothing_pitch)
-                              .push8(FILTER_CONFIG.smartSmoothing_yaw)
-                              .push8(FILTER_CONFIG.witchcraft_roll)
-                              .push8(FILTER_CONFIG.witchcraft_pitch)
-                              .push8(FILTER_CONFIG.witchcraft_yaw);
+                              .push16(FILTER_CONFIG.dterm_lowpass2_hz_yaw);
+                        //MSP 1.51 adjustment
+                        if (semver.lt(CONFIG.apiVersion, "1.51.0")) {
+                            buffer.push8(FILTER_CONFIG.smartSmoothing_roll)
+                                  .push8(FILTER_CONFIG.smartSmoothing_pitch)
+                                  .push8(FILTER_CONFIG.smartSmoothing_yaw)
+                                  .push8(FILTER_CONFIG.witchcraft_roll)
+                                  .push8(FILTER_CONFIG.witchcraft_pitch)
+                                  .push8(FILTER_CONFIG.witchcraft_yaw);
+                        }
                     }
                 }
                 if (semver.gte(CONFIG.apiVersion, "1.47.0")) {
+                    //MSP 1.51
+                    if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+                        buffer.push8(FILTER_CONFIG.dynamic_gyro_notch_count)
+                    } //end MSP 1.51
                     buffer.push16(FILTER_CONFIG.dynamic_gyro_notch_q)
                           .push16(FILTER_CONFIG.dynamic_gyro_notch_min_hz)
+                    //MSP 1.51
+                    if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+                        buffer.push16(FILTER_CONFIG.dynamic_gyro_notch_max_hz)
+                    } //end MSP 1.51
                 }
+
+                //MSP 1.51
+                if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+                    buffer.push16(FILTER_CONFIG.gyro_ABG_alpha)
+                          .push16(FILTER_CONFIG.gyro_ABG_boost)
+                          .push8(FILTER_CONFIG.gyro_ABG_half_life)
+                          .push8(FILTER_CONFIG.smithPredictorEnabled)
+                          .push16(FILTER_CONFIG.dterm_ABG_alpha)
+                          .push16(FILTER_CONFIG.dterm_ABG_boost)
+                          .push8(FILTER_CONFIG.dterm_ABG_half_life)
+                }
+                //end MSP 1.51
+
+                //MSP 1.51 dyn dterm notch
+                if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+                    buffer.push8(FILTER_CONFIG.dterm_dyn_notch_enable)    //dterm_dyn_notch_enable
+                    .push16(FILTER_CONFIG.dterm_dyn_notch_q)              //dterm_dyn_notch_q
+                }
+                //end MSP 1.51
             }
             break;
 
@@ -1951,10 +2088,16 @@ MspHelper.prototype.crunch = function(code) {
             buffer.push16(IMUF_FILTER_CONFIG.imuf_pitch_q);
             buffer.push16(IMUF_FILTER_CONFIG.imuf_yaw_q);
             buffer.push16(IMUF_FILTER_CONFIG.imuf_w);
-            if (semver.gte(CONFIG.apiVersion, "1.46.0")) {
+            // MSP 1.51 adjustment // semver.lt
+            if (semver.gte(CONFIG.apiVersion, "1.46.0") && semver.lt(CONFIG.apiVersion, "1.51.0")) {
                 buffer.push16(IMUF_FILTER_CONFIG.imuf_sharpness);
             }
             if (CONFIG.boardIdentifier === "HESP" || CONFIG.boardIdentifier === "SX10" || CONFIG.boardIdentifier === "FLUX") {
+                // MSP 1.51
+                if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+                    buffer.push16(IMUF_FILTER_CONFIG.imuf_ptn_order);
+                }
+                //end MSP 1.51
                 buffer.push16(IMUF_FILTER_CONFIG.imuf_roll_lpf_cutoff_hz);
                 buffer.push16(IMUF_FILTER_CONFIG.imuf_pitch_lpf_cutoff_hz);
                 buffer.push16(IMUF_FILTER_CONFIG.imuf_yaw_lpf_cutoff_hz);
@@ -2047,6 +2190,20 @@ MspHelper.prototype.crunch = function(code) {
                                           .push8(ADVANCED_TUNING.setPointDTransitionYaw);
                                     }
                                     buffer.push8(ADVANCED_TUNING.nfe_racermode);
+                                    //MSP 1.51
+                                    if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+                                        buffer.push8(ADVANCED_TUNING.linear_thrust_low_output)
+                                              .push8(ADVANCED_TUNING.linear_thrust_high_output)
+                                              .push8(ADVANCED_TUNING.linear_throttle)
+                                              .push8(ADVANCED_TUNING.mixer_impl)
+                                              .push8(ADVANCED_TUNING.mixer_laziness)
+                                              .push8(ADVANCED_TUNING.mixer_yaw_throttle_comp)
+                                              .push8(ADVANCED_TUNING.directFF_yaw)
+                                              .push8(ADVANCED_TUNING.axis_lock_hz)
+                                              .push8(ADVANCED_TUNING.axis_lock_multiplier)
+                                              .push8(ADVANCED_TUNING.emuGravityGain);
+                                    }
+                                    //end MSP 1.51
                                 }
                             }
                         }
