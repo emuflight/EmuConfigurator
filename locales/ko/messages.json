@@ -462,19 +462,10 @@
         "message": "비행 컨트롤러의 쉬운 업데이트, 환경설정 및 튜닝을 위한 도구인 <strong>베타플라이트 - 컨피규레이터<\/strong>에 오신 것을 환영합니다."
     },
     "defaultWelcomeHead": {
-        "message": "하드웨어"
-    },
-    "defaultWelcomeText": {
-        "message": "이 어플리케이션은 베타플라이트를 실행할 수 있는 모든 하드웨어를 지원합니다. 전체 하드웨어 목록은 플래시 탭을 확인하십시오.<br><br> <a href=\"https:\/\/github.com\/betaflight\/blackbox-log-viewer\/releases\" target=\"_blank\"> 베타플라이트 블랙박스 로그 뷰어 다운로드<\/a><br \/><br \/>펌웨어 소스 코드는 <a href=\"https:\/\/github.com\/betaflight\/betaflight\" title=\"www.github.com\" target=\"_blank\">여기서<\/a> 다운받으실 수 있습니다.<br \/><br \/>최신 <a href=\"http:\/\/www.silabs.com\/products\/mcu\/pages\/usbtouartbridgevcpdrivers.aspx\" title=\"http:\/\/www.silabs.com\" target=\"_blank\">CP210x 드라이버<\/a>는 <a href=\"http:\/\/www.silabs.com\/products\/mcu\/pages\/usbtouartbridgevcpdrivers.aspx\" title=\"http:\/\/www.silabs.com\" target=\"_blank\">여기서<\/a> 다운받으실 수 있습니다.<br \/>최신 <a href=\"http:\/\/www.st.com\/web\/en\/catalog\/tools\/PF257938\" title=\"http:\/\/www.st.com\" target=\"_blank\">STM USB VCP 드라이버<\/a>는 <a href=\"http:\/\/www.st.com\/web\/en\/catalog\/tools\/PF257938\" title=\"http:\/\/www.st.com\" target=\"_blank\">여기서<\/a> 다운받으실 수 있습니다.<br \/>최신 윈도우 USB 드라이버 설치를 위한 <a href=\"http:\/\/zadig.akeo.ie\/\" title=\"http:\/\/zadig.akeo.ie\" target=\"_blank\">Zadig<\/a>는 <a href=\"http:\/\/zadig.akeo.ie\/\" title=\"http:\/\/zadig.akeo.ie\" target=\"_blank\">여기서<\/a> 다운받으실 수 있습니다.<br \/>"
+        "message": "소식 "
     },
     "defaultContributingHead": {
         "message": "기여하기"
-    },
-    "defaultContributingText": {
-        "message": "베타플라이트를 더욱 효과적으로 만드는 데 도움이 되고 싶다면, 다음와 같은 다양한 방법으로 도움을 줄 수 있습니다:<br \/><ul><li>포럼과 IRC의 다른 사용자의 질문에 답변할 수 있습니다.<\/li><li>펌웨어와 컨피규레이터에 코드를 제공할 수 있습니다 - 새로운 기능, 오류 고침, 개선 등<\/li><li><a href=\"https:\/\/github.com\/Emuflight\/EmuFlight\/pulls\" target=\"_blank\">새로운 기능\/오류 고침<\/a>을 테스트하고 피드백을 제공할 수 있습니다.<\/li><li><a href=\"https:\/\/github.com\/emuflight\/EmuFlight\/issues\" target=\"_blank\">이슈와 기능 요청에 대한 제안<\/a>으로 도움을 줄 수 있습니다.<\/li><li>당신의 언어로 <a href=\"https:\/\/discordapp.com\/channels\/547211754845765635/596913667447062547\" target=\"_blank\">컨피규레이터 어플리케이션을 번역<\/a>하여 공동작업을 할 수 있습니다. <br \/>한글번역(교정) 문의: 류장협(oto4futur@gmail.com)<\/li><li><\/li><li><a href=\"https:\/\/www.youtube.com\/playlist?list=PLp92gAniAd2r2tY1b2xGnIKLQAbPiskQI\" target=\"_blank\">JJang FPV's 베타플라이트 설정 강의(동영상) 바로가기(클릭)<\/a><\/li><\/ul><br \/>"
-    },
-    "defaultFacebookText": {
-        "message": "우리는 또한 <a href=\"https:\/\/www.facebook.com\/groups\/betaflightgroup\/\" target=\"_blank\">페이스북 그룹<\/a>이 있습니다.<br \/>우리와 함께 베타플라이트에 대해 이야기하고, 환경설정 질문을 하거나, 동료 파일럿과 어울릴 수 있습니다."
     },
     "defaultChangelogAction": {
         "message": "변경이력"

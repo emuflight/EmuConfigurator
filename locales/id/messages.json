@@ -465,19 +465,13 @@
         "message": "Selamat Datang di <strong> Emuflight - Configurator <\/strong>, sebuah perangkat yang dirancang untuk memudahkan pembaruan, konfigurasi dan menyetel <em> flight controller<\/em> anda."
     },
     "defaultWelcomeHead": {
-        "message": "Perangkat Keras"
+        "message": "BERITA"
     },
     "defaultWelcomeText": {
-        "message": "Aplikasi ini mendukung semua perangkat keras yang dapat menjalankan Emuflight. Buka tab flash untuk daftar seluruh perangkat keras.<br><br> <a href=\"https:\/\/github.com\/betaflight\/blackbox-log-viewer\/releases\" target=\"_blank\"> Unduh Emuflight Blackbox Log Viewer<\/a><br \/><br \/>Source code firmware dapat diunduh dari <a href=\"https:\/\/github.com\/betaflight\/betaflight\" title=\"www.github.com\" target=\"_blank\">sini<\/a><br \/><br \/> <a href=\"http:\/\/www.silabs.com\/products\/mcu\/pages\/usbtouartbridgevcpdrivers.aspx\" title=\"http:\/\/www.silabs.com\" target=\"_blank\">Driver CP210x<\/a> terbaru dapat diunduh dari <a href=\"http:\/\/www.silabs.com\/products\/mcu\/pages\/usbtouartbridgevcpdrivers.aspx\" title=\"http:\/\/www.silabs.com\" target=\"_blank\">sini<\/a><br \/> <a href=\"http:\/\/www.st.com\/web\/en\/catalog\/tools\/PF257938\" title=\"http:\/\/www.st.com\" target=\"_blank\">Driver STM USB VCP<\/a> terbaru dapat diunduh dari <a href=\"http:\/\/www.st.com\/web\/en\/catalog\/tools\/PF257938\" title=\"http:\/\/www.st.com\" target=\"_blank\">sini<\/a><br \/> <a href=\"http:\/\/zadig.akeo.ie\/\" title=\"http:\/\/zadig.akeo.ie\" target=\"_blank\">Zadig<\/a> terbaru untuk installasi Driver USB Windows dapat diunduh dari <a href=\"http:\/\/zadig.akeo.ie\/\" title=\"http:\/\/zadig.akeo.ie\" target=\"_blank\">sini<\/a><br \/>"
+        "message": "Pengembangan EmuFlight sedang berubah-ubah. Beberapa fitur UI mungkin belum selesai atau beberapa fitur firmware hanya dapat diakses melalui CLI.<br><br>Kode sumber dan rilis EmuFlight berada di <a href=\"https://github.com/emuflight/EmuFlight\" title=\"github.com/emuflight/EmuFlight\" target=\"_blank\">GitHub</a>.<br /><br /> Helio/Strix IMUF dapat di-flash melalui <a href=\"https://github.com/emuflight/Nemesis/releases/tag/imuf-flasher-0.1.0\" target=\"_blank\">Alat Flasher IMUF</a> atau Diunduh dari <a href=\"https://github.com/emuflight/imu-f/releases\" target=\"_blank\">IMUF merilis</a> repositori. <br /><br />EmuFlight BlackBox Logs dapat dibaca dengan garpu BBE yang tersedia dari <a href=\"https://github.com/emuflight/EmuFlight-Blackbox-Explorer/releases\" target=\"_blank\">EmuFlight-BlackBox-Explorer</a> Repositori.<br /><br />Terbaru <a href=\"https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers\" title=\"http://www.silabs.com\" target=\"_blank\">Driver CP210x</a>.<br /> Terbaru <a href=\"https://www.st.com/en/development-tools/stsw-stm32102.html\" title=\"http://www.st.com\" target=\"_blank\">Driver VCP USB STM</a >.<br />Baru <a href=\"http://zadig.akeo.ie/\" title=\"http://zadig.akeo.ie\" target=\"_blank\">Zadig< /a>.<br /> "
     },
     "defaultContributingHead": {
         "message": "Berkontribusi"
-    },
-    "defaultContributingText": {
-        "message": "Jika anda ingin menjadikan Emuflight jadi lebih baik, anda bisa membantu dengan bermacam cara, termasuk:<br\/><ul> <li>Menjawab pertanyaan pengguna lainnya di forum dan IRC.<\/li> <li>Menyumbang kode ke firmware dan configurator - fitur baru, perbaikan, peningkatan<\/li><li>Menguji<a href=\"https:\/\/github.com\/Emuflight\/EmuFlight\/pulls\" target=\"_blank\">fitur baru\/perbaikan<\/a> dan memberikan umpan balik.<\/li><li>Membantu dengan <a href=\"https:\/\/github.com\/emuflight\/EmuFlight\/issues\" target=\"_blank\">Menerbitkan dan memberikan komentar pada permintaan fitur<\/a>.<\/li><li>Berkolaborasi dengan <a href=\"https:\/\/discordapp.com\/channels\/547211754845765635/596913667447062547\" target=\"_blank\">menerjemahkan aplikasi configurasi<\/a> ke bahasa anda.<\/li><li><\/li><\/ul>"
-    },
-    "defaultFacebookText": {
-        "message": "Kami juga memiliki <a href=\"https:\/\/www.facebook.com\/groups\/betaflightgroup\/\" target=\"_blank\">grup Facebook<\/a>.<br \/>Bergabunglah bersama kami sebagai wadah untuk membahas Emuflight, cara konfigurasi, atau hanya bergaul dengan sesama pilot."
     },
     "defaultChangelogAction": {
         "message": "Changelog"

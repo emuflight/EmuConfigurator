@@ -688,6 +688,16 @@ OSD.loadDisplayFields = function() {
             preview: FONT.symbol(SYM.GPS_LAT) + '-00.0000000 ',
             isexpertmode: true  //experimental
         },
+        GPS_PLUS: {
+            name: 'GPS_PLUS',
+            text: 'osdTextElementGPSPlusCode',
+            desc: 'osdDescElementGPSPlusCode',
+            default_position: -1,
+            draw_order: 810,
+            positionable: true,
+            preview: 'XXXXXXXX+XXXXX ',
+            isexpertmode: true  //experimental
+        },
         DEBUG: {
             name: 'DEBUG',
             text: 'osdTextElementDebug',
@@ -1531,6 +1541,13 @@ OSD.chooseFields = function () {
                                             OSD.constants.DISPLAY_FIELDS = OSD.constants.DISPLAY_FIELDS.concat([
                                                 F.OSD_MAH_PERCENT,
                                             ]);
+                                            //MSP 1.51
+                                            if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+                                            OSD.constants.DISPLAY_FIELDS = OSD.constants.DISPLAY_FIELDS.concat([
+                                                F.GPS_PLUS,
+                                            ]);
+                                            }
+                                            //end MPS 1.51
                                         }
                                     }
                                 }
