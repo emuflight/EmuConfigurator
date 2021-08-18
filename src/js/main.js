@@ -36,6 +36,9 @@ var helioUrlv020 = "https://raw.githubusercontent.com/emuflight/emuflight-preset
 var nonHelioUrlv030 = "https://raw.githubusercontent.com/emuflight/emuflight-presets/master/presets-0.3.0/presets-nonHELIO.json";
 var helioUrlv030 = "https://raw.githubusercontent.com/emuflight/emuflight-presets/master/presets-0.3.0/presets-HELIO.json";
 
+var nonHelioUrlv040 = "https://raw.githubusercontent.com/emuflight/emuflight-presets/master/presets-0.4.0/presets-nonHELIO.json";
+var helioUrlv040 = "https://raw.githubusercontent.com/emuflight/emuflight-presets/master/presets-0.4.0/presets-HELIO.json";
+
 // TODO: migrate to a function to get rid of code duplication
 
 client.get(nonHelioUrlv020, function(response) {
@@ -79,6 +82,28 @@ client.get(nonHelioUrlv030, function(response) {
           //file written successfully
       })
   });
+
+client.get(nonHelioUrlv040, function(response) {
+    fs.writeFile(presetsFolders + "/presets-nonHELIO-v0.4.0.json", response, (err) => {
+      if (err) {
+        // FIXME: add error handling
+        console.error(err);
+        return;
+      }
+      //file written successfully
+    })
+  });
+
+  client.get(helioUrlv040, function(response) {
+      fs.writeFile(presetsFolders + "/presets-HELIO-v0.4.0.json", response, (err) => {
+          if (err) {
+          console.error(err);
+          return;
+          }
+          //file written successfully
+      })
+  });
+
 
 $(document).ready(function () {
     $.getJSON('version.json', function(data) {
