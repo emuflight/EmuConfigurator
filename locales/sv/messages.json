@@ -466,19 +466,13 @@
         "message": "Välkommmen till <strong>Emuflight - Configurator<\/strong>, ett verktyg utformat för att förenkla uppdateringen, konfigurationen och inställningen av din flygkontroller."
     },
     "defaultWelcomeHead": {
-        "message": "Hårdvara"
+        "message": "NYHETER"
     },
     "defaultWelcomeText": {
-        "message": "Detta program stödjer all hårdvara som kan köra Emuflight. Se fullständig lista över hårdvara som stöds under flash-fliken.<br><br> <a href=\"https:\/\/github.com\/betaflight\/blackbox-log-viewer\/releases\" target=\"_blank\"> Ladda ner Emuflight Blackbox Log Viewer<\/a><br \/><br \/>Firmware-källkoden kan laddas ner <a href=\"https:\/\/github.com\/betaflight\/betaflight\" title=\"www.github.com\" target=\"_blank\">här<\/a><br \/><br \/>De senaste <a href=\"http:\/\/www.silabs.com\/products\/mcu\/pages\/usbtouartbridgevcpdrivers.aspx\" title=\"http:\/\/www.silabs.com\" target=\"_blank\">CP210x-drivrutinerna<\/a> kan laddas ner <a href=\"http:\/\/www.silabs.com\/products\/mcu\/pages\/usbtouartbridgevcpdrivers.aspx\" title=\"http:\/\/www.silabs.com\" target=\"_blank\">här<\/a><br \/>De senaste <a href=\"http:\/\/www.st.com\/web\/en\/catalog\/tools\/PF257938\" title=\"http:\/\/www.st.com\" target=\"_blank\">STM USB VCP-drivrutinerna<\/a> kan laddas ner <a href=\"http:\/\/www.st.com\/web\/en\/catalog\/tools\/PF257938\" title=\"http:\/\/www.st.com\" target=\"_blank\">här<\/a><br \/>Den senaste <a href=\"http:\/\/zadig.akeo.ie\/\" title=\"http:\/\/zadig.akeo.ie\" target=\"_blank\">Zadig<\/a> för Windows USB drivrutinsinstallationen kan laddas ner <a href=\"http:\/\/zadig.akeo.ie\/\" title=\"http:\/\/zadig.akeo.ie\" target=\"_blank\">här<\/a><br \/>"
+        "message": "EmuFlight -utvecklingen går kraftigt. Vissa UI -funktioner kan vara oavslutade eller vissa firmware -funktioner kan endast nås via CLI. <br> <br> EmuFlight -källkod och versioner finns på <a href = \"https://github.com/emuflight/EmuFlight \" title = \"github.com/emuflight/EmuFlight \" target = \"_ blank \"> GitHub </a>. <br /> <br /> Helio/Strix IMUF kan blinkas via <a href = \"https://github.com/emuflight/Nemesis/releases/tag/imuf-flasher-0.1.0 \"target = \"_blank\"> IMUF Flasher Tool </a> eller nedladdad från <a href = \" https://github.com/emuflight/imu-f/releases \"target = \"_blank\"> IMUF-versioner </a> -lagret. <br /> <br /> EmuFlight BlackBox-loggar kan läsas med en gaffel BBE tillgänglig från denna <a href = \"https://github.com/emuflight/EmuFlight-Blackbox-Explorer/releases \" target = \"_blank \"> EmuFlight-BlackBox-Explorer </a> -förråd. <br /> <br /> Senaste <a href = \"https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers \"title = \" http://www.silabs.com \"target = \"_blank\"> CP210x Drivers </a>. <br /> Senaste <a href = \" https://www.st.com/en/development-tools/stsw-stm32102.html \"title = \" http://www.st.com \"target = \"_blank\"> STM USB VCP-drivrutiner </a >. <br /> Senaste <a href=\"http://zadig.akeo.ie/\" title=\"http://zadig.akeo.ie\" target=\"_blank\"> Zadig </a>. <br /> "
     },
     "defaultContributingHead": {
         "message": "Medverka"
-    },
-    "defaultContributingText": {
-        "message": "Om du vill vara med och göra Emuflight ännu bättre kan du hjälpa till på många sätt, tex:<br \/><ul><li>Svara på andra användares frågor i forumen och på IRC.<\/li><li>Bidra med kod till firmwaren och konfiguratorn - nya funktioner, korrigeringar och förbättringar.<\/li><li>Testa <a href=\"https:\/\/github.com\/Emuflight\/EmuFlight\/pulls\" target=\"_blank\">nya funktioner\/korrigeringar<\/a> och ge feedback.<\/li><li>Hjälpa till med <a href=\"https:\/\/github.com\/emuflight\/EmuFlight\/issues\" target=\"_blank\">problem och kommentera funktionsförfrågningar<\/a>.<\/li><li>Samarbeta genom att <a href=\"https:\/\/discordapp.com\/channels\/547211754845765635/596913667447062547\" target=\"_blank\">översätta konfiguratorn<\/a> till ditt språk.<\/li><li><\/li><\/ul>"
-    },
-    "defaultFacebookText": {
-        "message": "Vi har också en <a href=\"https:\/\/www.facebook.com\/groups\/betaflightgroup\/\" target=\"_blank\">Facebookgrupp<\/a>.<br \/>Gå med oss för att prata om Emuflight, ställa konfigurationsfrågor, eller bara hänga med andra piloter."
     },
     "defaultChangelogAction": {
         "message": "Ändringslogg"

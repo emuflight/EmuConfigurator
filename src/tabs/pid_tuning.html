@@ -58,7 +58,7 @@
         </div>
         <div class="tab_container">
             <table>
-                <tr>
+                <tr class="pidTuningSubTabs" id="pidTuningSubTabs">
                     <td class="pid active">
                         <a href="#" i18n="pidTuningSubTabPid"></a>
                     </td>
@@ -68,6 +68,11 @@
                     <td class="filter">
                         <a href="#" i18n="pidTuningSubTabFilter"></a>
                     </td>
+                    <!-- MSP 1.51 -->
+                    <td class="feel -isexpertmode">
+                        <a href="#" i18n="pidTuningSubTabFeel"></a>
+                    </td>
+                    <!-- end MSP 1.51 -->
                 </tr>
             </table>
         </div>
@@ -115,6 +120,14 @@
                                             <div class="helpicon cf_tip" i18n_title="pidTuningFeedforwardHelp"></div>
                                         </div>
                                     </th>
+                                    <!-- MSP 1.51 -->
+                                    <th class="DFyaw">
+                                        <div class="name-helpicon-flex">
+                                            <div i18n="DirectFeedForward"></div>
+                                            <div class="helpicon cf_tip" i18n_title="DirectFeedForwardHelp"></div>
+                                        </div>
+                                    </th>
+                                    <!-- end MSP 1.51 -->
                                 </tr>
                                 <tr class="ROLL">
                                     <!-- 0 -->
@@ -139,6 +152,9 @@
                                     <td class="pid_data"><input type="number" name="i" step="1" min="0" max="200"></td>
                                     <td class="pid_data"><input type="number" name="d" step="1" min="0" max="200"></td>
                                     <td class="pid_data feedforward"><input type="number" name="f" step="1" min="0" max="2000"></td>
+                                    <!-- MSP 1.51 -->
+                                    <td class="pid_data DFyaw"><input type="number" name="DFyaw-number" step="1" min="0" max="200"></td>
+                                    <!-- end MSP 1.51 -->
                                 </tr>
                                 <tr class="YAW_JUMP_PREVENTION">
                                     <td colspan="3">
@@ -304,6 +320,7 @@
                                     </td>
                                 </tr>
                             </table>
+
                         </div> <!-- END ENTIRE ANGLE UI -->
                     </div> <!-- end cf_column -->
                     <div class="cf_column">
@@ -621,6 +638,28 @@
                                         </span>
                                     </td>
                                 </tr>
+                                <!-- MSP 1.51 -->
+                                <tr id="emuGravity" class="emuGravity">
+                                    <td><input type="number" name="emuGravity-number" step="1" min="0" max="255"></td>
+                                    <td colspan="1">
+                                        <div>
+                                            <span i18n="pidTuningEmuGravity"></span>
+                                            <div class="helpicon cf_tip" i18n_title="pidTuningEmuGravityHelp"></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr id="SmithPredictor" class="SmithPredictor">
+                                    <td>
+                                        <input type="checkbox" name="SmithPredictorEnabledSwitch" id="SmithPredictorEnabledSwitch" class="toggle">
+                                    </td>
+                                    <td colspan="1">
+                                        <div>
+                                            <span i18n="pidTuningSmithPredictorEnabledSwitch"></span>
+                                            <div class="helpicon cf_tip" i18n_title="pidTuningSmithPredictorEnabledSwitchHelp"></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- end MSP 1.51 -->
                             </table>
                         </div>
                     </div>
@@ -646,19 +685,39 @@
                                         </div>
                                     </th>
                                 </tr>
+                                <!-- MSP 1.51 -->
+                                <tr class="rates_type">
+                                    <td colspan="1">
+                                        <div>
+                                            <label>
+                                                <span i18n="pidTuningRCRatesType"></span>
+                                            </label>
+                                            <div class="helpicon cf_tip" i18n_title="pidTuningRCRatesTypeHelp"></div>
+                                        </div>
+                                    </td>
+                                    <td colspan="2">
+                                        <select id="rcRatesTypeSelect" name="rcRatesTypeSelect">
+                                            <!--  Populated on execution -->
+                                        </select>
+                                    </td>
+                                </tr>
+                                <!-- end MSP 1.51 -->
                                 <tr class="ROLL">
                                     <td class="pid_roll"></td>
                                     <td class="rc_rate">
-                                        <input type="number" name="rc_rate" step="0.01" min="0.01" max="2.55">
+                                        <!-- MSP 1.51 adds class= -->
+                                        <input type="number" class="rc_rate_input" name="rc_rate" step="0.01" min="0.01" max="2.55">
                                     </td>
                                     <td class="roll_rate">
-                                        <input type="number" name="roll_rate" step="0.01" min="0" max="1.00">
+                                        <!-- MSP 1.51 adds class= -->
+                                        <input type="number" class="rate_input" name="roll_rate" step="0.01" min="0" max="2.55">
                                     </td>
                                     <td class="roll_pitch_rate" rowspan="2">
-                                        <input type="number" name="roll_pitch_rate" step="0.01" min="0" max="1.00">
+                                        <input type="number" name="roll_pitch_rate" step="0.01" min="0" max="2.55">
                                     </td>
                                     <td rowspan="2" class="inputBackground">
-                                        <input type="number" name="rc_expo" step="0.01" min="0" max="1">
+                                        <!-- MSP 1.51 adds class= -->
+                                        <input type="number" class="expo_input" name="rc_expo" step="0.01" min="0" max="1">
                                         <div class="bracket"></div>
                                     </td>
                                     <td class="new_rates maxAngularVelRoll"></td>
@@ -666,56 +725,36 @@
                                 <tr class="PITCH">
                                     <td class="pid_pitch"></td>
                                     <td>
-                                        <input type="number" name="rc_rate_pitch" step="0.01" min="0.01" max="2.55">
+                                        <!-- MSP 1.51 adds class= -->
+                                        <input type="number" class="rc_rate_input" name="rc_rate_pitch" step="0.01" min="0.01" max="2.55">
                                     </td>
                                     <td class="pitch_rate">
-                                        <input type="number" name="pitch_rate" step="0.01" min="0" max="1.00">
+                                        <!-- MSP 1.51 adds class= -->
+                                        <input type="number" class="rate_input" name="pitch_rate" step="0.01" min="0" max="2.55">
                                     </td>
                                     <td>
-                                        <input type="number" name="rc_pitch_expo" step="0.01" min="0" max="1">
+                                        <!-- MSP 1.51 adds class= -->
+                                        <input type="number" class="expo_input" name="rc_pitch_expo" step="0.01" min="0" max="1">
                                     </td>
                                     <td class="new_rates maxAngularVelPitch"></td>
                                 </tr>
                                 <tr class="YAW">
                                     <td class="pid_yaw"></td>
                                     <td rowspan="1">
-                                        <input type="number" name="rc_rate_yaw" step="0.01" min="0.01" max="2.55">
+                                        <!-- MSP 1.51 adds class= -->
+                                        <input type="number" class="rc_rate_input" name="rc_rate_yaw" step="0.01" min="0.01" max="2.55">
                                     </td>
                                     <td>
-                                        <input type="number" name="yaw_rate" step="0.01" min="0" max="2.55">
+                                        <!-- MSP 1.51 adds class= -->
+                                        <input type="number" class="rate_input" name="yaw_rate" step="0.01" min="0" max="2.55">
                                     </td>
                                     <td>
-                                        <input type="number" name="rc_yaw_expo" step="0.01" min="0" max="1">
+                                        <!-- MSP 1.51 adds class= -->
+                                        <input type="number" class="expo_input" name="rc_yaw_expo" step="0.01" min="0" max="1">
                                     </td>
                                     <td class="new_rates maxAngularVelYaw"></td>
                                 </tr>
                             </table>
-                        </div>
-                        <div class="gui_box rc_curve">
-                            <div class="rc_curve_bg">
-                                <table class="cf rc_curve">
-                                    <thead>
-                                        <tr>
-                                            <th colspan="2">
-                                                <div>
-                                                    <div i18n="pidTuningRatesCurve" style="float:left;"></div>
-                                                    <div class="helpicon cf_tip" i18n_title="pidTuningRatesTip"></div>
-                                                </div>
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td colspan="2">
-                                                <div class="rate_curve" style="position:relative;">
-                                                    <canvas id="rate_curve_layer0" height="120px" style="position:absolute; top: 0; left: 0; z-index: 0; height:100%; width:100%;"></canvas>
-                                                    <canvas id="rate_curve_layer1" height="120px" style="position:absolute; top: 0; left: 0; z-index: 1; height:100%; width:100%;"></canvas>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
                         </div>
                         <!--rateDynamics (Stick-pids)-->
                         <div class="gui_box grey rateSetup rateDynamics">
@@ -794,6 +833,69 @@
                             </table>
                         </div>
                         <!--end rateDynamics (Stick-pids)-->
+
+                        <!-- MSP 1.51 -->
+                        <div class="pid_tuning gui_box grey -rateSetup DualAxisSteering">
+                            <table id="DualAxisSteering" class="pid_tuning">
+                                <tbody>
+                                <tr class="pid_tuning pid_titlebar DualAxisSteering">
+                                    <th class="name"></th>
+                                    <th class="">
+                                        <div class="name-helpicon-flex">
+                                            <div i18n="pidTuningAddRollToYawRc"></div>
+                                            <div class="helpicon cf_tip" i18n_title="pidTuningAddRollToYawRcHelp"></div>
+                                        </div>
+                                    </th>
+                                    <th class="">
+                                        <div class="name-helpicon-flex">
+                                            <div i18n="pidTuningAddYawToRollRc"></div>
+                                            <div class="helpicon cf_tip" i18n_title="pidTuningAddYawToRollRcHelp"></div>
+                                        </div>
+                                    </th>
+                                </tr>
+                                    <tr class="pid_tuning DualAxisSteering">
+                                        <td class="DualAxisSteering">
+                                            <div class="name-helpicon-flex">
+                                                <div i18n="pidTuningDualAxisSteering" style="float:left;"></div>
+                                                <div class="helpicon cf_tip" i18n_title="pidTuningDualAxisSteeringHelp"></div>
+                                            </div>
+                                        </td>
+                                        <td class="DualAxisSteering"><input type="number" class="DualAxisSteering" name="addRollToYawRc-number" step="1" min="0" max="100"></td>
+                                        <td class="DualAxisSteering"><input type="number" class="pid_tuning" name="addYawToRollRc-number" step="1" min="0" max="100"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- end MSP 1.51 -->
+
+                        <!-- rates curve graph -->
+                        <div class="gui_box rc_curve">
+                            <div class="rc_curve_bg">
+                                <table class="cf rc_curve">
+                                    <thead>
+                                        <tr>
+                                            <th colspan="2">
+                                                <div>
+                                                    <div i18n="pidTuningRatesCurve" style="float:left;"></div>
+                                                    <div class="helpicon cf_tip" i18n_title="pidTuningRatesTip"></div>
+                                                </div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="2">
+                                                <div class="rate_curve" style="position:relative;">
+                                                    <canvas id="rate_curve_layer0" height="120px" style="position:absolute; top: 0; left: 0; z-index: 0; height:100%; width:100%;"></canvas>
+                                                    <canvas id="rate_curve_layer1" height="120px" style="position:absolute; top: 0; left: 0; z-index: 1; height:100%; width:100%;"></canvas>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- rates curve graph -->
                     </div>
                     <div class="cf_column">
                         <div class="gui_box tpa spacer_left">
@@ -979,11 +1081,10 @@
                                 <tr>
                                     <td>
                                         <span class="groupSwitchValue">
-                                            <span class="inputSwitch"><input type="checkbox" id="gyroLowpassEnabled" class="toggle">
+                                            <span class="inputSwitch"><input type="checkbox" id="gyroLowpassEnabled" class="toggle"></span>
                                                 <select name="gyroLowpassType">
                                                     <!--  Populated on execution -->
                                                 </select>
-                                            </span>
                                         </span>
                                     </td>
                                     <td>
@@ -1038,11 +1139,10 @@
                                 <tr class="gyroLowpass2">
                                     <td>
                                         <span class="groupSwitchValue">
-                                            <span class="inputSwitch"><input type="checkbox" id="gyroLowpass2Enabled" class="toggle">
+                                            <span class="inputSwitch"><input type="checkbox" id="gyroLowpass2Enabled" class="toggle"></span>
                                                 <select name="gyroLowpass2Type">
                                                     <!--  Populated on execution -->
                                                 </select>
-                                            </span>
                                         </span>
                                     </td>
                                     <td>
@@ -1156,38 +1256,117 @@
                                         </div>
                                     </td>
                                 </tr>
-                                <tr class="matrixFilter">
+                                <tr class="dynNotchFilter">
                                     <th colspan="2">
                                         <div class="pid_mode">
-                                            <div i18n="pidTuningMatrixFilterGroup"></div>
-                                            <div class="helpicon cf_tip" i18n_title="pidTuningMatrixFilterHelp"></div>
+                                            <div i18n="pidTuningDynamicNotchFilterGroup"></div>
+                                            <div class="helpicon cf_tip" i18n_title="pidTuningDynamicNotchFilterGroupHelp"></div>
                                         </div>
                                     </th>
                                 </tr>
-                                <tr class="matrixFilter">
+                                <tr class="dynNotchFilter">
                                     <td>
-                                        <input type="number" class="nonProfile" name="MatrixNotchQ" step="1" min="1" max="1000">
+                                        <input type="number" class="nonProfile" name="DynamicNotchQ" step="1" min="1" max="1000">
                                     </td>
                                     <td>
                                         <div>
                                             <label>
-                                                <span i18n="pidTuningMatrixNotchQ"></span>
+                                                <span i18n="pidTuningDynamicNotchQ"></span>
                                             </label>
                                         </div>
                                     </td>
                                 </tr>
-                                <tr class="matrixFilter">
+                                <!-- MSP 1.51 -->
+                                <tr class="dynNotchFilter dynNotchFilter151">
                                     <td>
-                                        <input type="number" class="nonProfile" name="MatrixNotchMin" step="1" min="30" max="1000">
+                                        <input type="number" class="nonProfile" name="DynamicNotchCount" step="1" min="1" max="5">
                                     </td>
                                     <td>
                                         <div>
                                             <label>
-                                                <span i18n="pidTuningMatrixNotchQMin"></span>
+                                                <span i18n="pidTuningDynamicNotchCount"></span>
                                             </label>
                                         </div>
                                     </td>
                                 </tr>
+                                <!-- end MSP 1.51 -->
+                                <tr class="dynNotchFilter">
+                                    <td>
+                                        <input type="number" class="nonProfile" name="DynamicNotchMin" step="1" min="30" max="1000">
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <label>
+                                                <span i18n="pidTuningDynamicNotchMinHz"></span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- MSP 1.51 -->
+                                <tr class="dynNotchFilter dynNotchFilter151">
+                                    <td>
+                                        <input type="number" class="nonProfile" name="DynamicNotchMax" step="1" min="400" max="1000">
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <label>
+                                                <span i18n="pidTuningDynamicNotchMaxHz"></span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- end MSP 1.51 -->
+                                <!-- MSP 1.51 -->
+                                <div class="GyroABGFilter isexpertmode">
+                                    <tr class="GyroABGFilter isexpertmode">
+                                        <th colspan="2">
+                                            <div class="pid_mode">
+                                                <div i18n="pidTuningGyroABGFilterGroup"></div>
+                                                <div class="helpicon cf_tip" i18n_title="pidTuningABGFilterGroupHelp"></div>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                    <tr class="GyroABGFilter isexpertmode">
+                                        <td>
+                                            <input type="number" class="nonProfile" name="gyroABGalpha-number" step="1" min="0" max="1000">
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <label>
+                                                    <span i18n="pidTuningABGalpha"></span>
+                                                </label>
+                                                <div class="helpicon cf_tip" i18n_title="pidTuningABGalphaHelp"></div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="GyroABGFilter isexpertmode">
+                                        <td>
+                                            <input type="number" class="nonProfile" name="gyroABGboost-number" step="1" min="0" max="2000">
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <label>
+                                                    <span i18n="pidTuningABGboost"></span>
+                                                </label>
+                                                <div class="helpicon cf_tip" i18n_title="pidTuningABGboostHelp"></div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="GyroABGFilter isexpertmode">
+                                        <td>
+                                            <input type="number" class="nonProfile" name="gyroABGhalflife-number" step="1" min="0" max="250">
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <label>
+                                                    <span i18n="pidTuningABGhalflife"></span>
+                                                </label>
+                                                <div class="helpicon cf_tip" i18n_title="pidTuningABGhalflifeHelp"></div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </div>
+                                <!-- end MSP 1.51 -->
                             </table>
                         </div>
                         <!-- center column -->
@@ -1307,6 +1486,21 @@
                                             </div>
                                         </td>
                                     </tr>
+                                    <!-- MSP 1.51 -->
+                                    <tr class="imufPTNorder">
+                                        <td colspan="1">
+                                            <input id="imuf_ptn_order" type="number" name="imuf_ptn_order" step="1" min="1" max="4" value="3">
+                                        </td>
+                                        <td colspan="2">
+                                            <div>
+                                                <label>
+                                                    <span i18n="pidTuningImufPTNOrder"></span>
+                                                </label>
+                                                <div class="helpicon cf_tip" i18n_title="pidTuningImufPTNOrderHelp"></div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- MSP 1.51 -->
 <!-- expert-mode per axis -->
                                     <tr class="IMUFLPF">
                                         <td>
@@ -1430,11 +1624,10 @@
                                 <tr>
                                     <td>
                                         <span class="groupSwitchValue">
-                                            <span class="inputSwitch"><input type="checkbox" id="dtermLowpassEnabled" class="toggle">
+                                            <span class="inputSwitch"><input type="checkbox" id="dtermLowpassEnabled" class="toggle"></span>
                                                 <select name="dtermLowpassType">
                                                     <!--  Populated on execution -->
                                                 </select>
-                                            </span>
                                         </span>
                                     </td>
                                     <td>
@@ -1448,6 +1641,7 @@
                                 <tr>
                                     <td>
                                         <span class="groupSwitchValue">
+
                                             <div class="dtermLowpassFrequency">
                                                 <span class="inputValue"><input type="number" name="dtermLowpassFrequency" step="1" min="0" max="16000"></span>
                                             </div>
@@ -1481,15 +1675,32 @@
                                         </div>
                                     </td>
                                 </tr>
+
+                                <!-- MSP 1.51 -->
+                                <tr><td><br clear="all"></td></tr>
                                 <tr>
-                                    <th colspan="2">
-                                        <div> &nbsp; </div>
-                                    </th>
+                                    <td>
+                                        <span class="groupSwitchValue">
+                                            <span class="inputSwitch dLPF2_T"><input type="checkbox" id="dtermLowpass2Enabled" class="toggle"></span>
+                                                <select class="dtermLowpass2Type" name="dtermLowpass2Type">
+                                                    <!--  Populated on execution -->
+                                                </select>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <div class="dtermLowpass2Type">
+                                            <label>
+                                                <span i18n="pidTuningDTermLowpassType"></span>
+                                            </label>
+                                        </div>
+                                    </td>
                                 </tr>
+                                <!-- end MSP 1.51 -->
+
                                 <tr class="dtermLowpass2">
                                     <td>
                                         <span class="groupSwitchValue">
-                                            <span class="inputSwitch"><input type="checkbox" id="dtermLowpass2Enabled" class="toggle"></span>
+                                            <span class="inputSwitch NON_dLPF2_T"><input type="checkbox" id="dtermLowpass2Enabled" class="toggle"></span>
                                             <div class="dtermLowpass2Frequency">
                                                 <span class="inputValue" id='test'><input type="number" name="dtermLowpass2Frequency" step="1" min="0" max="16000"></span>
                                             </div>
@@ -1558,6 +1769,33 @@
                                         </div>
                                     </td>
                                 </tr>
+                                <!-- MSP 1.51 -->
+                                <tr class="dynNotchFilter dynNotchFilter151">
+                                    <th colspan="3">
+                                        <div class="pid_mode">
+                                            <div i18n="pidTuningDynamicDNotchFilterGroup"></div>
+                                            <div class="helpicon cf_tip" i18n_title="pidTuningDynamicDNotchFilterGroupHelp"></div>
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr class="dynNotchFilter dynNotchFilter151">
+                                    <td>
+                                        <span class="groupSwitchValue">
+                                            <span class="inputSwitch"><input type="checkbox" id="dynamicDNotchFilterEnable" class="toggle"></span>
+                                            <div class="dynamicDNotchFilter">
+                                                <span class="inputValue" id='test'><input type="number" name="dynamicDNotchFilterNotch" step="1" min="1" max="1000"></span>
+                                            </div>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <div class="dynNotchFilter dynNotchFilter151">
+                                            <label>
+                                                <span i18n="pidTuningDynamicDNotchFilterQ"></span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- end MSP 1.51 -->
                                 <tr class="yawLowpassFrequency">
                                     <th colspan="2">
                                         <div class="pid_mode" i18n="pidTuningYawLospassFiltersGroup"></div>
@@ -1578,12 +1816,239 @@
                                         </div>
                                     </td>
                                 </tr>
+                                <!-- MSP 1.51 -->
+                                <div class="DTermABGFilter isexpertmode">
+                                    <tr class="DTermABGFilter isexpertmode">
+                                        <th colspan="2">
+                                            <div class="pid_mode">
+                                                <div i18n="pidTuningDTermABGFilterGroup"></div>
+                                                <div class="helpicon cf_tip" i18n_title="pidTuningABGFilterGroupHelp"></div>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                    <tr class="DTermABGFilter isexpertmode">
+                                        <td>
+                                            <input type="number" class="-nonProfile" name="dtermABGalpha-number" step="1" min="0" max="1000">
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <label>
+                                                    <span i18n="pidTuningABGalpha"></span>
+                                                </label>
+                                                <div class="helpicon cf_tip" i18n_title="pidTuningABGalphaHelp"></div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="DTermABGFilter isexpertmode">
+                                        <td>
+                                            <input type="number" class="-nonProfile" name="dtermABGboost-number" step="1" min="0" max="2000">
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <label>
+                                                    <span i18n="pidTuningABGboost"></span>
+                                                </label>
+                                                <div class="helpicon cf_tip" i18n_title="pidTuningABGboostHelp"></div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="DTermABGFilter isexpertmode">
+                                        <td>
+                                            <input type="number" class="-nonProfile" name="dtermABGhalflife-number" step="1" min="0" max="250">
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <label>
+                                                    <span i18n="pidTuningABGhalflife"></span>
+                                                </label>
+                                                <div class="helpicon cf_tip" i18n_title="pidTuningABGhalflifeHelp"></div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </div>
+                                <!-- end MSP 1.51 -->
                             </table>
                         </div>
                     </div>
-                </div>
+                </div> <!-- end subtab-filter -->
+                <!-- MSP 1.51 -->
+                <!-- FEEL SUBTAB -->
+                <div class="subtab-feel -isexpertmode" style="display: none;">
+                    <div class="clear-both"></div>
+                    <div class="subtab-feel cf_column three_columns">
+                        <!-- subtab-feel required for hide/show expertmode, hacky but works -->
+                        <!-- left column -->
+                        <div class="gui_box grey topspacer -pid_filter cf_column three_columns_first">
+                            <table class="pid_titlebar new_rates">
+                                <tr>
+                                    <th i18n="pidTuningPIDProfileSettings"></th>
+                                </tr>
+                            </table>
+                            <table class="MotorMixer">
+                                <div class="MotorMixer -isexpertmode">
+                                    <tr class="MotorMixer -isexpertmode">
+                                        <th colspan="3">
+                                            <div class="pid_mode">
+                                                <div i18n="pidTuningMotorMixer"></div>
+                                                <!-- <div class="helpicon cf_tip" i18n_title="pidTuning______Help"></div> -->
+                                            </div>
+                                        </th>
+                                    </tr>
+                                    <tr class="MotorMixer -isexpertmode">
+                                        <td colspan="1">
+                                            <select id="MotorMixerImplSelect" name="MotorMixerImplSelect">
+                                                <!--  Populated on execution -->
+                                            </select>
+                                        </td>
+                                        <td colspan="2">
+                                            <div>
+                                                <label>
+                                                    <span i18n="pidTuningMixerImplementation"></span>
+                                                </label>
+                                                <div class="helpicon cf_tip" i18n_title="pidTuningMixerImplementationHelp"></div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="MotorMixer -isexpertmode">
+                                        <td colspan="1">
+                                            <span class="inputSwitch"><input type="checkbox" name="MixerLazinessEnabled" id="MixerLazinessEnabled" class="toggle"></span>
+                                        </td>
+                                        <td colspan="2">
+                                            <div>
+                                                <label>
+                                                    <span i18n="pidTuningMixerLaziness"></span>
+                                                </label>
+                                                <div class="helpicon cf_tip" i18n_title="pidTuningMixerLazinessHelp"></div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="MotorMixer -isexpertmode">
+                                        <td colspan="1">
+                                            <span class="inputSwitch"><input type="checkbox" name="MixerThrottleCompEnabled" id="MixerThrottleCompEnabled" class="toggle"></span>
+                                        </td>
+                                        <td colspan="2">
+                                            <div>
+                                                <label>
+                                                    <span i18n="pidTuningMixerThrottleComp"></span>
+                                                </label>
+                                                <div class="helpicon cf_tip" i18n_title="pidTuningMixerThrottleCompHelp"></div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </div>
+                            </table>
+                            <table class="ThrustLinear">
+                                <div class="ThrustLinear -isexpertmode">
+                                    <tr class="ThrustLinear -isexpertmode">
+                                        <th colspan="3">
+                                            <div class="pid_mode">
+                                                <div i18n="pidTuningThrustLinearization"></div>
+                                                <!-- <div class="helpicon cf_tip" i18n_title="pidTuning______Help"></div> -->
+                                            </div>
+                                        </th>
+                                    </tr>
+                                    <tr class="ThrustLinear -isexpertmode">
+                                        <td colspan="1">
+                                            <input type="number" class="-nonProfile" name="pidTuningTLLowOuput-number" step="1" min="0" max="100">
+                                        </td>
+                                        <td colspan="2">
+                                            <div>
+                                                <label>
+                                                    <span i18n="pidTuningTLLowOuput"></span>
+                                                </label>
+                                                <div class="helpicon cf_tip" i18n_title="pidTuningTLLowOuputHelp"></div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="ThrustLinear -isexpertmode">
+                                        <td colspan="1">
+                                            <input type="number" class="-nonProfile" name="pidTuningTLHighOuput-number" step="1" min="0" max="100">
+                                        </td>
+                                        <td colspan="2">
+                                            <div>
+                                                <label>
+                                                    <span i18n="pidTuningTLHighOuput"></span>
+                                                </label>
+                                                <div class="helpicon cf_tip" i18n_title="pidTuningTLHighOuputHelp"></div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </div>
+                            </table>
+                            <table class="ThrottleLinear">
+                                <div class="ThrottleLinear">
+                                    <tr class="ThrottleLinear">
+                                        <th colspan="3">
+                                            <div class="pid_mode">
+                                                <div i18n="pidTuningThrottleLinearization"></div>
+                                                <!-- <div class="helpicon cf_tip" i18n_title="pidTuning______Help"></div> -->
+                                            </div>
+                                        </th>
+                                    </tr>
+                                    <tr class="ThrottleLinear">
+                                        <td colspan="1">
+                                            <span class="inputSwitch"><input type="checkbox" name="LinearThrottleEnabled" id="LinearThrottleEnabled" class="toggle"></span>
+                                        </td>
+                                        <td colspan="2">
+                                            <div>
+                                                <label>
+                                                    <span i18n="pidTuningLinearThrottle"></span>
+                                                </label>
+                                                <div class="helpicon cf_tip" i18n_title="pidTuningLinearThrottleHelp"></div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </div>
+                            </table>
+                        </div><!-- end left column -->
+                        <!-- center column -->
+                        <!-- end center column -->
+                        <!-- right column -->
+                        <div class="cf_column right gui_box grey topspacer -pid_filter three_columns_third">
+                            <table class="pid_titlebar new_rates">
+                                <tr>
+                                    <th i18n="pidTuningPIDProfileSettings"></th>
+                                </tr>
+                            </table>
+                            <table class="AxisLock">
+                                <tr class="AxisLock -isexpertmode">
+                                    <th colspan="3">
+                                        <div class="pid_mode">
+                                            <div i18n="AxisLock"></div>
+                                            <!-- <div class="helpicon cf_tip" i18n_title="pidTuning______Help"></div> -->
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr id="axisLockMultiplier" class="axisLockMultiplier -isexpertmode">
+                                    <td colspan="1">
+                                        <input type="number" name="axisLockMultiplier-number" step="1" min="0" max="10">
+                                    </td>
+                                    <td colspan="2">
+                                        <div>
+                                            <span i18n="pidTuningAxisLockMultiplier"></span>
+                                            <div class="helpicon cf_tip" i18n_title="pidTuningAxisLockMultiplierHelp"></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr id="axisLockHz" class="axisLockHz -isexpertmode">
+                                    <td colspan="1">
+                                        <input type="number" name="axisLockHz-number" step="1" min="0" max="50">
+                                    </td>
+                                    <td colspan="2">
+                                        <div>
+                                            <span i18n="pidTuningAxisLockHz"></span>
+                                            <div class="helpicon cf_tip" i18n_title="pidTuningAxisLockHzHelp"></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div><!-- end right column -->
+                    </div>
+                    <!--end multi-columns -->
+                </div><!-- end subtab-feel-->
+                <!-- end MSP 1.51 -->
             </form>
-        </div>
+        </div><!-- tab area -->
         <div class="clear-both"></div>
     </div>
     <div class="content_toolbar">

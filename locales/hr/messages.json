@@ -462,19 +462,13 @@
         "message": "Dobrodošli u <strong>Emuflight - Konfigurator<\/strong>, alat dizajniran pojednostavljenju ažuriranja, konfiguriranja i ugađanja postavki vašeg kontrolera leta."
     },
     "defaultWelcomeHead": {
-        "message": "Hardware"
+        "message": "VIJESTI"
     },
     "defaultWelcomeText": {
-        "message": "Ova aplikacija podržava sav hardware koji može pokrenuti Emuflight. Provjerite alat za ažuriranje firmwarea za cijeli popis hardwarea.<br><br> <a href=\"https:\/\/github.com\/betaflight\/blackbox-log-viewer\/releases\" target=\"_blank\"> Preuzmite Emuflight Blackbox Log Viewer<\/a><br \/><br \/>Izvorni kod firmwarea može se preuzeti<a href=\"https:\/\/github.com\/betaflight\/betaflight\" title=\"www.github.com\" target=\"_blank\"> ovdje<\/a><br \/><br \/>Posljednji <a href=\"http:\/\/www.silabs.com\/products\/mcu\/pages\/usbtouartbridgevcpdrivers.aspx\" title=\"http:\/\/www.silabs.com\" target=\"_blank\">CP210x Driveri<\/a> mogu se preuzeti<a href=\"http:\/\/www.silabs.com\/products\/mcu\/pages\/usbtouartbridgevcpdrivers.aspx\" title=\"http:\/\/www.silabs.com\" target=\"_blank\"> ovdje<\/a><br \/>Posljednji <a href=\"http:\/\/www.st.com\/web\/en\/catalog\/tools\/PF257938\" title=\"http:\/\/www.st.com\" target=\"_blank\">STM USB VCP Driveri<\/a> mogu se preuzeti<a href=\"http:\/\/www.st.com\/web\/en\/catalog\/tools\/PF257938\" title=\"http:\/\/www.st.com\" target=\"_blank\"> ovdje<\/a><br \/>Posljednji <a href=\"http:\/\/zadig.akeo.ie\/\" title=\"http:\/\/zadig.akeo.ie\" target=\"_blank\">Zadig<\/a> za Windows USB driver instalaciju može se preuzeti<a href=\"http:\/\/zadig.akeo.ie\/\" title=\"http:\/\/zadig.akeo.ie\" target=\"_blank\"> ovdje<\/a><br \/>"
+        "message": "Razvoj EmuFlight -a je u velikom toku. Neke funkcije korisničkog sučelja mogu biti nedovršene ili je nekim funkcijama firmvera moguće pristupiti samo putem CLI -ja. <br> <br> Izvorni kod i izdanja EmuFlight -a nalaze se na <a href=\"https://github.com/emuflight/EmuFlight \" title=\"github.com/emuflight/EmuFlight \" target=\"_blank\"> GitHub </a>. <br/> <br/> Helio/Strix IMUF može se prebaciti putem <a href=\"https://github.com/emuflight/Nemesis/releases/tag/imuf-flasher-0.1.0\" target=\"_blank\"> IMUF Flasher Tool </a> ili preuzeto sa <a href = \" https://github.com/emuflight/imu-f/releases\" target=\"_blank\"> IMUF izdanja </a> spremište. <br/> <br/> EmuFlight BlackBox dnevnici mogu se čitati pomoću vilice BBE dostupne sa ovog <a href=\"https://github.com/emuflight/EmuFlight-Blackbox-Explorer/releases \" target=\"_blank \"> Spremište EmuFlight-BlackBox-Explorer </a>. <br/> <br/> Najnovije <a href=\"https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers\" title=\"http://www.silabs.com\" target=\"_blank\"> Upravljački programi CP210x</a>. <br/> Najnovije <a href=\" https://www.st.com/en/development-tools/stsw-stm32102.html\" title=\"http://www.st.com\" target=\"_blank\"> STM USB VCP upravljački programi</a >. <br/> Najnovije <a href=\"http://zadig.akeo.ie/\" title=\"http://zadig.akeo.ie\"target=\"_blank\">Zadig</a>. <br/> "
     },
     "defaultContributingHead": {
         "message": "Pridonošenje"
-    },
-    "defaultContributingText": {
-        "message": "Ako biste htjeli Emuflight učinit još boljim možete pomoći na razne načine, uključujući:<br \/><ul><li>Odgovaranjem na upite drugih korisnika na forumima i IRC-u<\/li><li>Dodavanjem programskog koda firmwareu i konfiguratoru - nove mogućnosti, popravci i nadogradnje<\/li><li>Testiranjem <a href=\"https:\/\/github.com\/Emuflight\/EmuFlight\/pulls\" target=\"_blank\">novih mogućnosti<\/a> i davanje povratnih informacija.<\/li><li>Pomaganjem <a href=\"https:\/\/github.com\/emuflight\/EmuFlight\/issues\" target=\"_blank\">problemima i komentiranjem na nove <\/a>.<\/li><li>Kolaboracijom u <a href=\"https:\/\/discordapp.com\/channels\/547211754845765635/596913667447062547\" target=\"_blank\">prevođenju aplikacije za konfiguriranje<\/a> na svoj jezik.<\/li><li><\/li><\/ul>"
-    },
-    "defaultFacebookText": {
-        "message": "Imamo i svoju <a href=\"https:\/\/www.facebook.com\/groups\/betaflightgroup\/\" target=\"_blank\">Facebook grupu<\/a>.<br \/>Pridružite nam se i postavite pitanja o Emuflightu, konfiguriranju i ostalom."
     },
     "defaultChangelogAction": {
         "message": "Popis promjena"
