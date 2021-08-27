@@ -266,7 +266,7 @@
 
 .tab-pid_tuning .tab_container {
     float: left;
-    width: 408px;
+    width: 520px;
     height: 29px;
     border-right-width: 0px;
     background: #fff;
@@ -715,6 +715,50 @@
     height: fit-content;
 }
 
+/* MSP 1.51 */
+.tab-pid_tuning .subtab-feel .cf_column {
+    min-width: 150px;
+    flex: 1;
+}
+
+.tab-pid_tuning .subtab-feel {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 1405px) {
+
+.tab-pid_tuning .subtab-feel .ratePreview.spacer_left {
+    width: 100%;
+}
+}
+
+.tab-pid_tuning .subtab-feel .gui_box {
+    float: none;
+}
+
+.subtab-feel .three_columns .three_columns_first {
+    float: left;
+    width: 32%;
+    margin-right: 5px;
+}
+
+.subtab-feel .three_columns .three_columns_second {
+    float: left;
+    width: 32%;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.subtab-feel .three_columns .three_columns_third {
+    float: left;
+    width: 32%;
+    margin-left: 5px;
+}
+/* end MSP 1.51 */
+
 .tab-pid_tuning .tabboarder {
     background-color: var(--accent);
     float: left;
@@ -912,7 +956,7 @@
 }
 
 .tab-pid_tuning .subtab-pid .cf_column {
-    min-width: 472px;
+    min-width: 250px;
     flex: 1;
 }
 
