@@ -715,6 +715,15 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
         // select current serial RX type
         serialRX_e.val(RX_CONFIG.serialrx_provider);
 
+        // MSP 1.51
+        if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+            $('input[id="configurationSerialRXFastSBUS"]').prop('checked', RX_CONFIG.sbus_baud_fast !== 0);
+            $('.serialFastSBUS').show();
+        } else {
+            $('.serialFastSBUS').hide();
+        }
+        //end MSP 1.51
+
         if (semver.gte(CONFIG.apiVersion, "1.31.0")) {
             var spiRxTypes = [
                 'NRF24_V202_250K',
@@ -743,6 +752,12 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
                 );
             }
 
+            if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+                spiRxTypes.push(
+                    'REDPINE'
+                );
+            }
+
             var spiRx_e = $('select.spiRx');
             for (var i = 0; i < spiRxTypes.length; i++) {
                 spiRx_e.append('<option value="' + i + '">' + spiRxTypes[i] + '</option>');
@@ -754,7 +769,7 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
 
             // select current serial RX type
             spiRx_e.val(RX_CONFIG.rxSpiProtocol);
-            }
+        }
 
         // for some odd reason chrome 38+ changes scroll according to the touched select element
         // i am guessing this is a bug, since this wasn't happening on 37
@@ -1087,11 +1102,17 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
 
             if (semver.gte(CONFIG.apiVersion, "1.31.0")) {
                 RX_CONFIG.fpvCamAngleDegrees = parseInt($('input[name="fpvCamAngleDegrees"]').val());
+            }
 
-                }
-                if (semver.gte(CONFIG.apiVersion, "1.43.0")) {
-                  RX_CONFIG.cinematicYaw = $('input[id="cinematicYawSwitch"]').is(':checked') ? 1 : 0;
-                }
+            if (semver.gte(CONFIG.apiVersion, "1.43.0")) {
+                RX_CONFIG.cinematicYaw = $('input[id="cinematicYawSwitch"]').is(':checked') ? 1 : 0;
+            }
+
+            // MSP 1.51
+            if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
+                RX_CONFIG.sbus_baud_fast = $('input[id="configurationSerialRXFastSBUS"]').is(':checked') ? 1 : 0;
+            }
+            //end MSP 1.51
 
             function save_serial_config() {
                 var next_callback = save_feature_config;

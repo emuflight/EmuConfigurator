@@ -487,7 +487,8 @@ function writeChangesetId() {
     var versionJson = new stream.Readable;
     versionJson.push(JSON.stringify({
         gitChangesetId: gitChangeSetId,
-        version: pkg.version
+        version: pkg.version,
+        max_msp: pkg.max_msp
         }, undefined, 2));
     versionJson.push(null);
     return versionJson

@@ -261,7 +261,6 @@ TABS.firmware_flasher.initialize = function (callback) {
             } else {
                 $('tr.build_type').hide();
                 $('tr.expert_mode').hide();
-                buildType_e.val(0).trigger('change');
             }
         }
 

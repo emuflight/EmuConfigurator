@@ -441,6 +441,9 @@
     "firmwareTypeNotSupported": {
         "message": "Non - Cleanflight/Emuflight firmware is <span class=\"message-negative\">not supported</span>, except for CLI mode."
     },
+    "firmwareMSPNotSupported": {
+        "message":"MSP version is not supported. Please upgrade EmuConfigurator."
+    },
     "firmwareUpgradeRequired": {
         "message": "The firmware on this device needs upgrading to a newer version. Use CLI for backup before flashing. CLI backup/restore procedure is in the documention.<br />Alternatively download and use an old version of the configurator if you are not ready to upgrade."
     },
@@ -577,13 +580,13 @@
         "message": "NEWS"
     },
     "defaultWelcomeText": {
-        "message": "EmuFlight development is in heavy flux.  Some UI features may be unfinished or some firmware features only accessible via CLI.<br><br>Hardware: The application supports all hardware that can run Emuflight. F3 Support was dropped for 0.2.0+. Check flash tab for full list of hardware.<br><br> <a href=\"https://github.com/betaflight/blackbox-log-viewer/releases\" target=\"_blank\">Download Betaflight Blackbox Log Viewer Stable Version</a> or <a href=\"https://github.com/betaflight/blackbox-log-viewer-nightlies/releases\" target=\"_blank\">Pre-Release</a>.<br /><br />EmuFlight source code and releases reside on <a href=\"https://github.com/emuflight/EmuFlight\" title=\"www.github.com\" target=\"_blank\">GitHub</a>.<br /><br />Helio/Strix <a href=\"https://github.com/emuflight/imu-f/releases\" target=\"_blank\">IMUF releases</a> can be downloaded from <a href=\"https://github.com/emuflight/imu-f/releases\" target=\"_blank\">here</a>.<br /><br />Latest <a href=\"http://www.silabs.com/products/mcu/pages/usbtouartbridgevcpdrivers.aspx\" title=\"http://www.silabs.com\" target=\"_blank\">CP210x Drivers</a> can be downloaded from <a href=\"http://www.silabs.com/products/mcu/pages/usbtouartbridgevcpdrivers.aspx\" title=\"http://www.silabs.com\" target=\"_blank\">here</a><br />Latest <a href=\"http://www.st.com/web/en/catalog/tools/PF257938\" title=\"http://www.st.com\" target=\"_blank\">STM USB VCP Drivers</a> can be downloaded from <a href=\"http://www.st.com/web/en/catalog/tools/PF257938\" title=\"http://www.st.com\" target=\"_blank\">here</a><br />Latest <a href=\"http://zadig.akeo.ie/\" title=\"http://zadig.akeo.ie\" target=\"_blank\">Zadig</a> for Windows USB driver installation can be downloaded from <a href=\"http://zadig.akeo.ie/\" title=\"http://zadig.akeo.ie\" target=\"_blank\">here</a><br />"
+        "message": "EmuFlight development is in heavy flux.  Some UI features may be unfinished or some firmware features only accessible via CLI.<br><br>EmuFlight source code and releases reside on <a href=\"https://github.com/emuflight/EmuFlight\" title=\"github.com/emuflight/EmuFlight\" target=\"_blank\">GitHub</a>.<br /><br /> Helio/Strix IMUF can be flashed via the <a href=\"https://github.com/emuflight/Nemesis/releases/tag/imuf-flasher-0.1.0\" target=\"_blank\">IMUF Flasher Tool</a> or Downloaded from the <a href=\"https://github.com/emuflight/imu-f/releases\" target=\"_blank\">IMUF releases</a> repository. <br /><br />EmuFlight BlackBox Logs can be read with a fork of BBE available from this <a href=\"https://github.com/emuflight/EmuFlight-Blackbox-Explorer/releases\" target=\"_blank\">EmuFlight-BlackBox-Explorer</a> repository.<br /><br />Latest <a href=\"https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers\" title=\"http://www.silabs.com\" target=\"_blank\">CP210x Drivers</a>.<br />Latest <a href=\"https://www.st.com/en/development-tools/stsw-stm32102.html\" title=\"http://www.st.com\" target=\"_blank\">STM USB VCP Drivers</a>.<br />Latest <a href=\"http://zadig.akeo.ie/\" title=\"http://zadig.akeo.ie\" target=\"_blank\">Zadig</a>.<br />"
     },
     "defaultContributingHead": {
         "message": "Contributing"
     },
     "defaultContributingText": {
-        "message": "<i><b>EmuFlight needs developers and contributors!</b></i><br/>If you would like to help make Emuflight even better, you can help in many ways, including:<br /><ul><li>Answering user questions in <a href=\"https://discordapp.com/channels/547211754845765635\" target=\"_blank\">Discord</a>.</li><li>Contributing code to the <a href=\"https://github.com/emuflight/EmuFlight\" target=\"_blank\">firmware</a> and <a href=\"https://github.com/emuflight/EmuConfigurator\" target=\"_blank\">configurator</a>.</li><li>Testing new <a href=\"https://github.com/emuflight/EmuFlight/branches\" target=\"_blank\">features/fixes</a> and providing feedback.</li><li>Helping out with <a href=\"https://github.com/emuflight/EmuFlight/issues\" target=\"_blank\">issues</a> and commenting on feature requests.</li><li><a href=\"https://github.com/emuflight/EmuConfigurator/tree/master/locales\" target=\"_blank\">Translate</a> the configurator application into your language.</li> <li></li> <li></li> <li></li> </ul>"},
+        "message": "<i><b>EmuFlight needs developers and contributors!</b></i><br/>If you would like to help make Emuflight even better, you can help in many ways, including:<br /><ul><li>Answering user questions in <a href=\"https://discordapp.com/channels/547211754845765635\" target=\"_blank\">Discord</a>.</li><li>Contributing code to the <a href=\"https://github.com/emuflight/EmuFlight\" target=\"_blank\">firmware</a> and <a href=\"https://github.com/emuflight/EmuConfigurator\" target=\"_blank\">configurator</a>.</li><li>Testing new <a href=\"https://github.com/emuflight/EmuFlight/discussions/\" target=\"_blank\">features/fixes</a> and providing feedback.</li><li>Helping out with <a href=\"https://github.com/emuflight/EmuFlight/issues\" target=\"_blank\">firmware issues</a> and <a href=\"https://github.com/emuflight/EmuConfigurator/issues\" target=\"_blank\">configurator issues</a>.</li><li><a href=\"https://github.com/emuflight/EmuConfigurator/tree/master/locales\" target=\"_blank\">Translate</a> the configurator application into your language.</li> <li></li> <li></li> <li></li> </ul>"},
     "defaultFacebookText": {
         "message": "We also have a <a href=\"https://www.facebook.com/groups/2253802077988152/\" target=\"_blank\">Facebook Group</a>.<br />Join us to get a place to talk about Emuflight, ask configuration questions, or just hang out with fellow pilots."
     },
@@ -1022,7 +1025,7 @@
         "message": "Temporary boost I-Term on high throttle changes"
     },
     "featureDYNAMIC_FILTER": {
-        "message": "Dynamic gyro matrix filtering (Dynamic per-axis notch)"
+        "message": "Dynamic per-axis gyro notch filter"
     },
     "featureLEGACY_SA_SUPPORT": {
       "message": "Legacy AKK and Mach2 VTX Smart Audio support"
@@ -1083,6 +1086,12 @@
     },
     "configurationOtherFeaturesHelp": {
         "message": "<strong>Note:</strong> Not all features are supported by all flight controllers. If you enable a specific feature, and it is disabled after you hit 'Save and Reboot', it means that this feature is not supported on your board."
+    },
+    "configurationSerialRXFastSBUS": {
+        "message": "Fast SBUS"
+    },
+    "configurationSerialRXFastSBUSHelp": {
+        "message": "for DJI"
     },
     "configurationBoardAlignment": {
         "message": "Board and Sensor Alignment"
@@ -1442,6 +1451,11 @@
     "pidTuningSubTabFilter": {
         "message": "Filter Settings"
     },
+    "COMMENT": {"message": "MSP 1.51"},
+    "pidTuningSubTabFeel": {
+        "message": "Feel Settings"
+    },
+    "COMMENT": {"message": "end MSP 1.51"},
     "pidTuningShowAllPids": {
         "message": "Show all PIDs"
     },
@@ -1663,11 +1677,43 @@
     "pidTuningRcExpo": {
         "message": "RC Expo"
     },
+    "COMMENT": {"message": "MSP 1.51"},
+    "pidTuningRCRatesType": {
+        "message": "Rates Type"
+    },
+    "pidTuningRCRatesTypeHelp": {
+        "message": "Changing rates type will not convert, but will instead reset fields to baseline defaults. 'rates_type' allowed values: BETAFLIGHT, RACEFLIGHT, KISS, ACTUAL. Default: BETAFLIGHT"
+    },
+    "pidTuningRatesType": {
+        "message": "Rates Type"
+    },
+    "pidTuningRatesTypeTip": {
+        "message": "Changing rates type will change the rates curve and the way you can set it"
+    },
+    "pidTuningRcRateRaceflight": {
+        "message": "Rate"
+    },
+    "pidTuningRcExpoRaceflight": {
+        "message": "Expo"
+    },
+    "pidTuningRateRaceflight": {
+        "message": "Acro+"
+    },
+    "pidTuningRcExpoKISS": {
+        "message": "RC Curve"
+    },
+    "pidTuningRateQuickRates": {
+        "message": "Max Rate"
+    },
+    "pidTuningRcRateActual": {
+        "message": "Center Sensitivity"
+    },
+    "COMMENT": {"message": "end MSP 1.51"},
     "pidTuningRateDynamics": {
         "message": "Rate Dynamics"
     },
     "pidTuningRateDynamicsHelp": {
-        "message": "Rate Dynamics introduces stick feel variables including 'rate_center_[sensitivity|correction|weight]' and 'rate_end_[sensitivity|correction|weight]'. The above graph does not yet account for Rate Dynamics."
+        "message": "Rate Dynamics introduces stick feel variables including 'rate_center_[sensitivity|correction|weight]' and 'rate_end_[sensitivity|correction|weight]'. The rates graph does not account for Rate Dynamics unless 'show_altered_rc' is enabled."
     },
     "rateSensitivityHelp": {
         "message": "Sensitivity can either increase or decrease the RC command your flight controller sees. Your sensitivity value is the percentage that your RC command is boosted or shrunk. A value of 120 will boost your RC command to 120% of its normal value while a value of 80 will shrink your RC command to 80%.  Default is 100(%) which is no change."
@@ -3109,6 +3155,30 @@
     "controlAxisAux16": {
         "message": "AUX 16"
     },
+    "controlAxisAux17": {
+        "message": "AUX 17"
+    },
+    "controlAxisAux18": {
+        "message": "AUX 18"
+    },
+    "controlAxisAux19": {
+        "message": "AUX 19"
+    },
+    "controlAxisAux20": {
+        "message": "AUX 20"
+    },
+    "controlAxisAux21": {
+        "message": "AUX 21"
+    },
+    "controlAxisAux22": {
+        "message": "AUX 22"
+    },
+    "controlAxisAux23": {
+        "message": "AUX 23"
+    },
+    "controlAxisAux24": {
+        "message": "AUX 24"
+    },
     "pidTuningBasic": {
         "message": "PIDs"
     },
@@ -3196,6 +3266,26 @@
     "pidTuningHorizTransitionHelp": {
         "message": "The strength of the transition from angle to acro."
     },
+    "COMMENT": {"message": "MSP 1.51"},
+    "pidTuningDualAxisSteering": {
+        "message": "Dual Axis Steering"
+    },
+        "pidTuningDualAxisSteeringHelp": {
+        "message": "Mix roll-stick into yaw or mix yaw-stick into roll. This method benefits over the radio-mix method. The rates graph does not account for DAS unless 'show_altered_rc' is enabled."
+    },
+        "pidTuningAddRollToYawRc": {
+        "message": "Yaw with Roll-Input"
+    },
+        "pidTuningAddRollToYawRcHelp": {
+        "message": "This option will add a percentage of yawing as you move the roll-stick."
+    },
+        "pidTuningAddYawToRollRc": {
+        "message": "Roll with Yaw-Input"
+    },
+        "pidTuningAddYawToRollRcHelp": {
+        "message": "This option will add a percentage of rolling as you move the yaw-stick."
+    },
+    "COMMENT": {"message": "end MSP 1.51"},
     "pidTuningNonProfileFilterSettings": {
         "message": "Profile independent Filter Settings"
     },
@@ -3203,91 +3293,83 @@
         "message": "Gyro Lowpass Filters"
     },
     "pidTuningGyroLowpassFrequency": {
-        "message": "Gyro Lowpass 1 Cutoff Frequency [Hz]"
+        "message": "Gyro Lowpass 1 Cutoff [Hz]"
     },
     "pidTuningGyroNotch1": {
-        "message": "Gyro Notch Filter 1 Frequency [Hz]"
+        "message": "Gyro Notch Filter 1 [Hz]"
     },
     "pidTuningGyroNotch2": {
-        "message": "Gyro Notch Filter 2 Frequency [Hz]"
+        "message": "Gyro Notch Filter 2 [Hz]"
     },
     "pidTuningGyroLowpassType": {
         "message": "Filter 1 Type"
     },
     "pidTuningGyroLowpassDynMinFrequency": {
-        "message": "Gyro Lowpass 1 Dynamic Min Cutoff Frequency [Hz]"
+        "message": "Gyro Lowpass 1 Dynamic Min Cutoff [Hz]"
     },
     "pidTuningGyroLowpassDynMaxFrequency": {
-        "message": "Gyro Lowpass 1 Dynamic Max Cutoff Frequency [Hz]"
+        "message": "Gyro Lowpass 1 Dynamic Max Cutoff [Hz]"
     },
     "pidTuningGyroLowpassDynType": {
         "message": "Gyro Lowpass 1 Dynamic Filter Type"
     },
     "pidTuningGyroLowpass2Frequency": {
-        "message": "Gyro Lowpass 2 Cutoff Frequency [Hz]"
+        "message": "Gyro Lowpass 2 Cutoff [Hz]"
     },
     "pidTuningGyroLowpass2Type": {
         "message": "Filter 2 Type"
     },
     "gyroLowpassFrequencyRoll": {
-        "message": " Roll Gyro Lowpass 1 Cutoff Frequency [Hz]"
+        "message": " Roll Gyro Lowpass 1 Cutoff [Hz]"
     },
     "gyroLowpassFrequencyPitch": {
-        "message": " Pitch Gyro Lowpass 1 Cutoff Frequency [Hz]"
+        "message": " Pitch Gyro Lowpass 1 Cutoff [Hz]"
     },
     "gyroLowpassFrequencyYaw": {
-        "message": " Yaw Gyro Lowpass 1 Cutoff Frequency [Hz]"
+        "message": " Yaw Gyro Lowpass 1 Cutoff [Hz]"
     },
     "gyroLowpass2FrequencyRoll": {
-        "message": " Roll Gyro Lowpass 2 Cutoff Frequency [Hz]"
+        "message": " Roll Gyro Lowpass 2 Cutoff [Hz]"
     },
     "gyroLowpass2FrequencyPitch": {
-        "message": " Pitch Gyro Lowpass 2 Cutoff Frequency [Hz]"
+        "message": " Pitch Gyro Lowpass 2 Cutoff [Hz]"
     },
     "gyroLowpass2FrequencyYaw": {
-        "message": " Yaw Gyro Lowpass 2 Cutoff Frequency [Hz]"
+        "message": " Yaw Gyro Lowpass 2 Cutoff [Hz]"
     },
     "pidTuningGyroNotchFiltersGroup": {
         "message": "Gyro Notch Filters"
     },
-    "pidTuningMatrixFilterGroup": {
-        "message": "MATRIX Filter"
+    "pidTuningDynGyroNotchFilterGroup": {
+        "message": "Dynamic Gyro Notch Filter"
     },
     "pidTuningGyroDynLpfGroup": {
         "message": "Gyro Dyn Filter"
     },
     "pidTuningGyroNotch1Frequency": {
-        "message": "Gyro Notch Filter 1 Center Frequency [Hz]"
+        "message": "Gyro Notch Filter 1 Center [Hz]"
     },
     "pidTuningGyroDynLpf": {
         "message": "Gyro Dynamic Filter"
     },
     "pidTuningGyroNotch2Frequency": {
-        "message": "Gyro Notch Filter 2 Center Frequency [Hz]"
+        "message": "Gyro Notch Filter 2 Center [Hz]"
     },
     "pidTuningGyroNotch1Cutoff": {
-        "message": "Gyro Notch Filter 1 Cutoff Frequency [Hz]"
+        "message": "Gyro Notch Filter 1 Cutoff [Hz]"
     },
     "pidTuningGyroNotch2Cutoff": {
-        "message": "Gyro Notch Filter 2 Cutoff Frequency [Hz]"
+        "message": "Gyro Notch Filter 2 Cutoff [Hz]"
     },
     "pidTuningNotchFilterHelp": {
         "message": "The Notch Filter has a Center and a Cutoff. The filter is symmetrical. The Center Frequency is the center of the filter and the Cutoff Frequency is where Notch filter starts. For example with Notch Cutoff of 160 and Notch Center of 260 it means the range is 160-360Hz with most attenuation around center"
     },
-    "pidTuningMatrixFilterHelp": {
-        "message": "The Matrix filter is a dynamic notch filter. It puts a notch on each axis where it finds the max noise. the min hz is the lowest value that the matrix filter will reach. The q is the width of the notch filter. ex: higher q is a more narrow notch filter "
-    },
-    "pidTuningMatrixNotchQ": {
-        "message": "Matrix filter notch Q"
-    },
-    "pidTuningMatrixNotchQMin": {
-        "message": "Matrix filter notch min"
-    },
+    "COMMENT": {"message": "some changes to 'pidTuningDynamicNotchFilter*' were made for MSP 1.51"},
     "pidTuningDynamicNotchFilterGroup": {
-        "message": "Dynamic Notch Filter"
+        "message": "Dynamic Filter (Gyro Notch Filters)"
     },
-    "pidTuningDynamicNotchFilterHelp": {
-        "message": "Dynamic Notch Filter tracks peak motors noise frequency and places one or two notch filters with their center at that frequency."
+    "pidTuningDynamicNotchFilterGroupHelp": {
+        "message": "This Dynamic Gyro Notch Filter tracks peak motors noise frequency and places notch filters with their center at that frequency. Q is the notch width, where higher values are narrower."
     },
     "pidTuningDynamicNotchFilterDisabledWarning": {
         "message": "<strong>Notice:</strong> The dynamic notch filter is disabled. In order to configure and use it, please enable the 'DYNAMIC_FILTER' feature in the '$t(configurationFeatures.message)' section of the '$t(tabConfiguration.message)' tab."
@@ -3298,11 +3380,17 @@
     "pidTuningDynamicNotchWidthPercent": {
         "message": "Dynamic Notch Width Percent"
     },
+    "pidTuningDynamicNotchCount": {
+        "message": "Dynamic Notch Count"
+    },
     "pidTuningDynamicNotchQ": {
         "message": "Dynamic Notch Q"
     },
     "pidTuningDynamicNotchMinHz": {
         "message": "Dynamic Notch Min Hz"
+    },
+    "pidTuningDynamicNotchMaxHz": {
+        "message": "Dynamic Notch Max Hz"
     },
     "pidTuningDynamicNotchRangeHelp": {
         "message": "The dynamic notch has three frequency ranges in which it can operate: LOW(80-330hz) for lower revving quads like 6+ inches, MEDIUM(140-550hz) for a normal 5 inch quad, HIGH(230-800hz) for very high revving 2.5-3 inch quads. AUTO option selects the range depending on the value of the Gyro Dynamic Lowpass 1 Filter's max cutoff frequency."
@@ -3316,6 +3404,46 @@
     "pidTuningDynamicNotchMinHzHelp": {
         "message": "Defines the lowest dynamic notch center frequency below which the dynamic notch will not go."
     },
+    "COMMENT": {"message": "MSP 1.51"},
+    "pidTuningDynamicDNotchFilterGroup": {
+        "message": "Dynamic Filter (D Term Notch Filters)"
+    },
+    "pidTuningDynamicDNotchFilterGroupHelp": {
+        "message": "This Dynamic D-Term Notch Filter tracks peak motors noise frequency and places notch filters with their center at that frequency. Q is the notch width, where higher values are narrower. Default 400. Available only when `feature dynamic_filter' (Dynamic Gyro Filter) is enabled. Uses Min and Max and Count values from Dynamic Gyro Filter."
+    },
+    "pidTuningDynamicDNotchFilterQ": {
+        "message": "Dynamic D Term Notch Q"
+    },
+    "pidTuningGyroABGFilterGroup": {
+        "message": "Gyro ABG (α-β-γ) Filter"
+    },
+    "pidTuningDTermABGFilterGroup": {
+        "message": "D Term ABG (α-β-γ) Filter"
+    },
+        "pidTuningABGFilterGroupHelp": {
+        "message": "Alpha Beta Gamma (α-β-γ) Filter -- Values are typically adjusted experimentally. In general, larger Alpha and Boost values tend to produce faster response for tracking transient changes, while smaller values reduce the level of noise in the state estimates.  Enabling ABG may require re-tuning of PIDS (lower) and/or LPF Filters (higher). Configure Alpha (α), Boost, and HalfLife. Beta (β) and gamma (γ) are computed internally."
+    },
+    "pidTuningABGalpha": {
+        "message": "ABG Filter's Alpha"
+    },
+        "pidTuningABGalphaHelp": {
+        "message": "The Alpha (α) is the gain of the ABG filter. Higher is less filtering; Lower is more filtering. Range is 0 to 1000. Default is 0 off.)"
+    },
+    "pidTuningABGboost": {
+        "message": "ABG Filter's Boost"
+    },
+        "pidTuningABGboostHelp": {
+        "message": "Boost adds to the error calculated within the ABG filter. It gives the ABG filter an extra kick to react faster. Range is 0 to 2000. Default is 275."
+    },
+    "pidTuningABGhalflife": {
+        "message": "ABG Filter's HalfLife"
+    },
+        "pidTuningABGhalflifeHelp": {
+        "message": "HalfLife is the timespan in centiseconds (milliseconds*10) that the sample-data's importance decays. Range is 0 to 250. Default is 50 (half-second)."
+    },
+    "COMMENT": {"message": "end MSP 1.51"},
+
+
     "pidTuningLowpassFilterHelp": {
         "message": "The Lowpass Filters can have two variants: static and dynamic. The static lowpass filter cutoff remains constant.  The noise above the cutoff is attenuated.  The dynamic lowpass cutoff is a minimum that will move higher based on error and gyro. If both static and dynamic are enabled concurrently, it will double filter."
     },
@@ -3329,37 +3457,37 @@
         "message": "Filter Type"
     },
     "pidTuningDTermLowpassFrequency": {
-        "message": "D Term Lowpass 1 Cutoff Frequency [Hz]"
+        "message": "D Term Lowpass 1 Cutoff [Hz]"
     },
     "pidTuningDTermLowpass2Frequency": {
-        "message": "D Term Lowpass 2 Cutoff Frequency [Hz]"
+        "message": "D Term Lowpass 2 Cutoff [Hz]"
     },
     "pidTuningDTermLowpass2Type": {
         "message": "D Term Lowpass 2 Filter Type"
     },
     "dtermLowpassFrequencyRoll": {
-        "message": " Roll D-Term Lowpass 1 Cutoff Frequency [Hz]"
+        "message": " Roll D-Term Lowpass 1 Cutoff [Hz]"
     },
     "dtermLowpassFrequencyPitch": {
-        "message": " Pitch D-Term Lowpass 1 Cutoff Frequency [Hz]"
+        "message": " Pitch D-Term Lowpass 1 Cutoff [Hz]"
     },
     "dtermLowpassFrequencyYaw": {
-        "message": " Yaw D-Term Lowpass 1 Cutoff Frequency [Hz]"
+        "message": " Yaw D-Term Lowpass 1 Cutoff [Hz]"
     },
     "dtermLowpass2FrequencyRoll": {
-        "message": " Roll D-Term Lowpass 2 Cutoff Frequency [Hz]"
+        "message": " Roll D-Term Lowpass 2 Cutoff [Hz]"
     },
     "dtermLowpass2FrequencyPitch": {
-        "message": " Pitch D-Term Lowpass 2 Cutoff Frequency [Hz]"
+        "message": " Pitch D-Term Lowpass 2 Cutoff [Hz]"
     },
     "dtermLowpass2FrequencyYaw": {
-        "message": " Yaw D-Term Lowpass 2 Cutoff Frequency [Hz]"
+        "message": " Yaw D-Term Lowpass 2 Cutoff [Hz]"
     },
     "pidTuningDTermLowpassDynMinFrequency": {
-        "message": "D Term Lowpass 1 Dynamic Min Cutoff Frequency [Hz]"
+        "message": "D Term Lowpass 1 Dynamic Min Cutoff [Hz]"
     },
     "pidTuningDTermLowpassDynMaxFrequency": {
-        "message": "D Term Lowpass 1 Dynamic Max Cutoff Frequency [Hz]"
+        "message": "D Term Lowpass 1 Dynamic Max Cutoff [Hz]"
     },
     "pidTuningDTermLowpassDynType": {
         "message": "D Term Lowpass 1 Dynamic Filter Type"
@@ -3371,19 +3499,19 @@
         "message": "D Term Dyn Filter"
     },
     "pidTuningDTermNotchFrequency": {
-        "message": "D Term Notch Filter Center Frequency [Hz]"
+        "message": "D Term Notch Filter Center [Hz]"
     },
     "pidTuningDTermDynLpf": {
         "message": "D Term Dynamc filter"
     },
     "pidTuningDTermNotchCutoff": {
-        "message": "D Term Notch Filter Cutoff Frequency [Hz]"
+        "message": "D Term Notch Filter Cutoff [Hz]"
     },
     "pidTuningYawLospassFiltersGroup": {
         "message": "Yaw Lowpass Filters"
     },
     "pidTuningYawLowpassFrequency": {
-        "message": "Yaw Lowpass Cutoff Frequency [Hz]"
+        "message": "Yaw Lowpass Cutoff [Hz]"
     },
     "pidTuningSmartDTermSmoothing":{
         "message": "Smart dTerm Smoothing"
@@ -3541,6 +3669,98 @@
     "pidTuningIntegratedYawHelp": {
         "message": "Integrated Yaw is a feature which corrects a fundamental issue with quad control: while the pitch and roll axis are controlled by the thrust differentials the props generate yaw is different. Integrated Yaw fixes this by integrating the output of the yaw pid before applying them to the mixer. This normalizes the way the pids work. You can now tune as any other axis. It requires use of absolute control since no I is needed with Integrated Yaw."
     },
+    "COMMENT": {"message": "MSP 1.51"},
+    "pidTuningEmuGravity": {
+        "message": "EmuGravity"
+    },
+        "pidTuningEmuGravityHelp": {
+        "message": "EmuGravity is an AntiGravity implementation that simply boosts the error upon throttle-up. Increase as needed for nose dips. Increasing too much may introduce oscillation.  'emu_gravity' range 0 to 255.  Zero is off.  Default = 50.  100 is easily acceptable; However, Smith-predictor may prefer lower values."
+    },
+    "pidTuningSmithPredictorEnabledSwitch": {
+        "message": "Smith Predictor"
+    },
+        "pidTuningSmithPredictorEnabledSwitchHelp": {
+        "message": "Smith predictor compensates for inherit 'deadtime', or delay, of control processing. i.e. PID and Filter processing.  Smith predictor prefers clean gyro. Noisy gyro may cause amplifications. Default is ON. Further fine tuning of Smith Prediction can be performed in the CLI. `get smith_predict`; However, defaults are good for most aircraft. Note that this is a Global filter setting, not PID-Profile."
+    },
+    "DirectFeedForward": {
+        "message":"Direct Feed"
+    },
+    "DirectFeedForwardHelp": {
+        "message": "A different type of feed forward implementation. Allows to act faster based on setpoint and have less i-Term windup. Range 0 to 200. Zero is off. Default = 15."
+    },
+    "pidTuningDFyaw": {
+        "message": "Direct Feed Yaw"
+    },
+        "pidTuningDFyawHelp": {
+        "message": "A different type of feed forward implementation for yaw. Allows yaw to act faster based on setpoint and have less i-Term windup. Range 0 to 200. Zero is off. Default = 15."
+    },
+    "AxisLock": {
+        "message":"Axis Lock"
+    },
+    "pidTuningAxisLockMultiplier": {
+        "message": "Axis Lock Multiplier"
+    },
+        "pidTuningAxisLockMultiplierHelp": {
+        "message": "Axis-Lock significantly reduces pidsum for opposing axes. Multiplier range is 0 to 10. Default 'axis_lock_multiplier = 0' (Axis-Lock OFF)."
+    },
+        "pidTuningAxisLockHz": {
+        "message": "Axis Lock Cutoff Hz"
+    },
+        "pidTuningAxisLockHzHelp": {
+        "message": "Axis-Lock significantly reduces pidsum for opposing axes. Cutoff-Hz range is 1 to 50. Default 'axis_lock_hz = 2', but has no effect when Axis-Lock is off."
+    },
+    "COMMENT": {"message": "end MSP 1.51"},
+    "COMMENT": {"message": "MSP 1.51"},
+    "pidTuningPIDProfileSettings": {
+        "message": "PID Profile Dependent Settings"
+    },
+    "pidTuningMotorMixer": {
+        "message": "Motor Output Mixer Smoothing"
+    },
+
+    "pidTuningMixerImplementation": {
+        "message": "Mixer Implementation"
+    },
+    "pidTuningMixerImplementationHelp": {
+        "message": "EmuFlight introduces SMOOTH and 2PASS variants for the motor output mixer.  SMOOTH is a simple variant that avoids clipping.  2PASS is a smooth variant that treats Roll and Pitch separately from Yaw in order to guarantee thrust linearity. Default 'mixer_impl = 2PASS'."
+    },
+    "pidTuningMixerLaziness": {
+        "message": "Mixer Laziness"
+    },
+    "pidTuningMixerLazinessHelp": {
+        "message": "A smarter, minimal clipping-prevention strategy. When ON, requires Thrust-Linearization to be enabled/configured. Default 'mixer_laziness = OFF'."
+    },
+    "pidTuningMixerThrottleComp":{
+        "message":"Mixer 2Pass Yaw Throttle Compensation"
+    },
+    "pidTuningMixerThrottleCompHelp": {
+        "message": "Quick yaw movements induce throttle increase in the smoothing mixer variants.  This option compensates throttle setpoint in 2PASS variant only.  Default 'mixer_yaw_throttle_comp = ON'."
+    },
+    "pidTuningThrustLinearization": {
+        "message": "Thrust Linearization"
+    },
+    "pidTuningTLLowOuput": {
+        "message": "Low Output Compensation "
+    },
+        "pidTuningTLLowOuputHelp": {
+        "message": "Value in Percentage for RPM output compensation at low end. Default 'linear_thrust_low_output = 65'. Tuning this is usually motor/prop size specific; please reference EmuFlight Wiki."
+    },
+    "pidTuningTLHighOuput": {
+        "message": "High Output Compensation"
+    },
+        "pidTuningTLHighOuputHelp": {
+        "message": "Value in Percentage for RPM output compensation at high end. Default 'linear_thrust_high_output = 0' (OFF). Note that TPA is automatically disabled when Thrust-Linearization is enabled because it already solves high throttle issues.  Tuning this is usually motor/prop size specific; please reference EmuFlight Wiki."
+    },
+    "pidTuningThrottleLinearization": {
+        "message": "Throttle Linearization"
+    },
+    "pidTuningLinearThrottle": {
+        "message": "Linear Throttle"
+    },
+        "pidTuningLinearThrottleHelp": {
+        "message": "Linearizes the throttle response. Enabling this may drop the hover-point but increase high-end range. Default 'linear_throttle' = OFF."
+    },
+    "COMMENT": {"message": "end MSP 1.51"},
 
     "configHelp2": {
         "message": "Arbitrary board rotation in degrees, to allow mounting it sideways / upside down / rotated etc. When running external sensors, use the sensor alignments (Gyro, Acc, Mag) to define sensor position independent from board orientation. "
@@ -4277,6 +4497,15 @@
     "osdDescElementGPSLat": {
         "message": "GPS latitude coordinate"
     },
+    "COMMENT": {"message": "MSP 1.51"},
+    "osdTextElementGPSPlusCode": {
+        "message": "GPS Plus Code",
+        "description": "One of the elements of the OSD"
+    },
+    "osdDescElementGPSPlusCode": {
+        "message": "GPS Plus Code"
+    },
+    "COMMENT": {"message": "end MSP 1.51"},
     "osdTextElementDebug": {
         "message": "Debug",
         "description": "One of the elements of the OSD"
@@ -5142,8 +5371,13 @@
         "message": "<b>Gyro Soft Filter:</b> Lowpass filter for gyro. Use lower value for more filtering.<br><b>D Term Filter:</b> Lowpass filter for Dterm. Can affect D tuning. Use lower value for more filtering. <br><b>Yaw Filter:</b> Filters yaw output. It can help on setups with noisy yaw axis."
     },
     "pidTuningPidTuningTipFeedforward": {
-        "message": "<b>Proportional:</b> You will notice a very strong resistant force to any attempts to move the MultiRotor<br><b>Integral:</b> Increase the ability to hold overall initial position and reduce drift, but also increase the delay in returning to initial position.<br><b>Derivative:</b> Improves the speed at which deviations are recovered, but increases noise<br><b>Feedforward:</b> Usually the PID controller reacts to the error. The Feedforward anticipates the error based on the stick input, giving responsiveness to the quad.<br>"
+        "message": "<b>Proportional:</b> You will notice a very strong resistant force to any attempts to move the MultiRotor<br><b>Integral:</b> Increase the ability to hold overall initial position and reduce drift, but also increase the delay in returning to initial position.<br><b>Derivative:</b> Improves the speed at which deviations are recovered, but increases noise<br>"
     },
+    "COMMENT": {"message": "MSP 1.51"},
+    "COMMENT": {
+        "message":"MOVED from pidTuningPidTuningTipFeedforward:<b>Feedforward:</b> Usually the PID controller reacts to the error. The Feedforward anticipates the error based on the stick input, giving responsiveness to the quad.<br>"
+    },
+    "COMMENT": {"message": "end MSP 1.51"},
     "pidTuningRatesTuningHelp":{
          "message":"<b>Rates and Expo</b>: Determine your stick feel based on these parameters. Use the graph and live 3D model to find your favourite rate setting"
     },
@@ -5253,6 +5487,14 @@
       "pidTuningImufSharpness": {
           "message": "IMU-F Sharpness"
       },
+      "COMMENT": {"message": "MSP 1.51"},
+      "pidTuningImufPTNOrder": {
+          "message": "IMU-F PT(n) order"
+      },
+      "pidTuningImufPTNOrderHelp": {
+          "message": "Helio IMU-F PT(n) order requires IMUF_256."
+      },
+      "COMMENT": {"message": "end MSP 1.51"},
       "pidTuningKalmanFilterSharpnessHelp": {
           "message": "'imuf_sharpness' is the aggressiveness of the dynamic reduction of IMUF overfiltering. Higher values dynamically relax IMUF filtering more, but only when needed. Default is 2500. Range is 1 to 16000. 0 is OFF for versions that allow such."
       },
@@ -5262,23 +5504,17 @@
       "pidTuningImuflpf": {
         "message": "IMU-F LPF cutoff [Hz]"
       },
-      "pidTuningImuflpfRoll": {
-        "message": "IMU-F ROLL LPF cutoff Hz"
-      },
-        "pidTuningImuflpfRollHelp": {
+        "pidTuningImuflpfHelp": {
         "message": "Helio/Strix Hardware cutoff"
+      },
+      "pidTuningImuflpfRoll": {
+        "message": "IMU-F roll LPF cutoff Hz"
       },
       "pidTuningImuflpfPitch": {
-        "message": "IMU-F PITCH LPF cutoff Hz"
-      },
-        "pidTuningImuflpfPitchHelp": {
-        "message": "Helio/Strix Hardware cutoff"
+        "message": "IMU-F pitch LPF cutoff Hz"
       },
       "pidTuningImuflpfYaw": {
-        "message": "IMU-F YAW LPF cutoff Hz"
-      },
-        "pidTuningImuflpfYawHelp": {
-        "message": "Helio/Strix Hardware cutoff"
+        "message": "IMU-F yaw LPF cutoff Hz"
       },
       "pidTuningImuflpfAcc": {
         "message": "IMU-F accelerometer LPF cutoff [Hz]"

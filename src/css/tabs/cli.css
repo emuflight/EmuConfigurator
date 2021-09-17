@@ -20,13 +20,26 @@
     background-color: rgba(0, 0, 0, 0.75);
     margin-top: 0px;
     height: calc(100% - 90px); /* - (p, textarea) */
-    background-image: url("../../images/light-wide-1.svg");
-    background-repeat: no-repeat;
-    background-position: 50% 80%;
-    background-size: 600px;
     border-radius: 5px;
     box-shadow: inset 0px 0px 20px rgba(0, 0, 0, 0.80);
     width: 100%;
+    position: relative;
+}
+
+.tab-cli .backdrop::before {
+    content: "";
+    background-image: url("../../images/emu_logo_transparent.svg");
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 600px;
+    /*background-size: cover;*/
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.50;   /*surprisingly little effect after z-index applied*/
+    z-index: -1;     /*required for scroll-wheel*/
 }
 
 .tab-cli .window {

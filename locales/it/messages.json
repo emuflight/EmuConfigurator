@@ -462,16 +462,13 @@
         "message": "Benvenuto in<strong> Emuflight - Configurator<\/strong> <br> utility disegnata per aggiornare, configurare e regolare il tuo flight controller in maniera semplice."
     },
     "defaultWelcomeHead": {
-        "message": "Hardware"
+        "message": "NOTIZIA "
+    },
+    "defaultWelcomeText": {
+        "message": "Lo sviluppo di EmuFlight è in forte mutamento. Alcune funzionalità dell'interfaccia utente potrebbero non essere completate o alcune funzionalità del firmware sono accessibili solo tramite CLI.<br><br>Il codice sorgente e le versioni di EmuFlight risiedono su <a href=\"https://github.com/emuflight/EmuFlight\" title=\"github.com/emuflight/EmuFlight\" target=\"_blank\">GitHub</a>.<br /><br /> Helio/Strix IMUF può essere flashato tramite <a href=\"https://github.com/emuflight/Nemesis/releases/tag/imuf-flasher-0.1.0\" target=\"_blank\">IMUF Flasher Tool</a> o scaricato da <a href=\"https://github.com/emuflight/imu-f/releases\" target=\"_blank\">rilasci IMUF</a> repository. <br /><br />I log di EmuFlight BlackBox possono essere letti con un fork di BBE disponibile da questo <a href=\"https://github.com/emuflight/EmuFlight-Blackbox-Explorer/releases\" target=\"_blank\">EmuFlight-BlackBox-Explorer</a> repository.<br /><br />Ultimo <a href=\"https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers\" title=\"http://www.silabs.com\" target=\"_blank\">Driver CP210x</a>.<br />Ultimi <a href=\"https://www.st.com/en/development-tools/stsw-stm32102.html\" title=\"http://www.st.com\" target=\"_blank\">Driver VCP USB STM</a >.<br />Ultimo <a href=\"http://zadig.akeo.ie/\" title=\"http://zadig.akeo.ie\" target=\"_blank\">Zadig</a>.<br />"
     },
     "defaultContributingHead": {
         "message": "Contribuisci"
-    },
-    "defaultContributingText": {
-        "message": "Se vuoi contribuire a rendere Emuflight ancora migliore puoi aiutare in molti modi, quali:<br \/><ul><li>Rispondere alle domande degli altri utenti sui forum e IRC.<\/li><li>Contribuire a scrivere codice per il firmware ed il configuratore - nuove funzioni, correzioni, miglioramenti<\/li><li>Testare le <a href=\"https:\/\/github.com\/Emuflight\/EmuFlight\/pulls\" target=\"_blank\">nuove funzioni\/correzzioni<\/a> e fornendo feedback.<\/li><li>Aiutare a risolvere<a href=\"https:\/\/github.com\/emuflight\/EmuFlight\/issues\" target=\"_blank\"> problemi e commentare le funzioni richieste<\/a><\/li><li>Collaborare alla <a href=\"https:\/\/discordapp.com\/channels\/547211754845765635/596913667447062547\" target=\"_blank\">traduzione del configuratore<\/a> nella tua lingua<\/li><\/ul>"
-    },
-    "defaultFacebookText": {
-        "message": "Abbiamo anche un <a href=\"https:\/\/www.facebook.com\/groups\/betaflightgroup\/\" target=\"_blank\">gruppo Facebook<\/a>.<br \/>. Unisciti a noi per discutere di Emuflight, fare domande riguardo la configurazione, o semplicemente ritrovarti con altri piloti."
     },
     "defaultChangelogAction": {
         "message": "Modifiche"
