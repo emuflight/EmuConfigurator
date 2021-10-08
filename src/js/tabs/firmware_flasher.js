@@ -194,6 +194,14 @@ TABS.firmware_flasher.initialize = function (callback) {
                             "date"      : formattedDate,
                             "notes"     : release.body
                         };
+
+                        // DO NOT LIST FIRMWARE >= 1.0.0
+                        if (version > '0.9.9') {
+                            console.log("Firmware release is > 0.9.9: [" + version + "]. Do not list it.");
+                            return; //exit loop
+                        }
+                        // END DO NOT LIST FIRMWARE >= 1.0.0
+
                         releases[target].push(descriptor);
                     });
                 });
