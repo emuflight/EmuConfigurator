@@ -481,6 +481,11 @@ TABS.pid_tuning.initialize = function(callback) {
                  $('.pid_filter input[name="imuf_sharpness"]').attr("min", "0");
             }
 
+            //imuf_w allows off in 0.3.3+ (msp 1.50+)
+            if (semver.gte(CONFIG.apiVersion, "1.50.0")) {
+                 $('.pid_filter input[name="imuf_w"]').attr("min", "0");
+            }
+
             if (CONFIG.boardIdentifier !== "HESP" && CONFIG.boardIdentifier !== "SX10" && CONFIG.boardIdentifier !== "FLUX" && semver.lt(CONFIG.apiVersion, "1.42.0")) {
                 $('.kalmanFilterSettingsPanel').show();
                 $('.pid_filter input[name="kalmanQCoefficient"]').val(KALMAN_FILTER_CONFIG.gyro_filter_q);
