@@ -5526,7 +5526,7 @@
           "message": "IMU-F W Coefficient"
       },
       "pidTuningKalmanFilterWHelp": {
-          "message": "W is the amount of gyro readings which the IMUF filter looks at to determine its filter. Lower W gives a sharper stick feel. Larger craft prefer a higher W value."
+          "message": "W is the amount of gyro readings which the IMUF filter looks at to determine its filter. Lower W gives a sharper stick feel. Larger craft prefer a higher W value. 3 or greater is ON (Recommended). Default is 32."
       },
     "pidTuningKalmanFilterSettings": {
         "message": "IMU-F Filter Settings"
