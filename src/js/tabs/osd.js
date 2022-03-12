@@ -1736,7 +1736,7 @@ OSD.msp = {
                 display_item.positionable = positionable;
                 if (semver.gte(CONFIG.apiVersion, "1.21.0")) {
                     // size * y + x
-                    display_item.position = FONT.constants.SIZES.LINE * ((bits >> 6) & 0x003F) + (bits & 0x003F);
+                    display_item.position = positionable ? FONT.constants.SIZES.LINE * ((bits >> 6) & 0x003F) + (bits & 0x003F) : default_position;
 
                     display_item.isVisible = [];
                     for (let osd_profile = 0; osd_profile < OSD.getNumberOfProfiles(); osd_profile++) {
@@ -1768,7 +1768,6 @@ OSD.msp = {
                     for (let osd_profile = 0; osd_profile < OSD.getNumberOfProfiles(); osd_profile++) {
                         packed_visible |= isVisible[osd_profile] ? OSD.constants.VISIBLE << osd_profile : 0;
                     }
-                    //return packed_visible | (((position / FONT.constants.SIZES.LINE) & 0x001F) << 5) | (position % FONT.constants.SIZES.LINE);
                     return packed_visible | (((position / FONT.constants.SIZES.LINE) & 0x003F) << 6) | (position % FONT.constants.SIZES.LINE);
                 } else {
                     return isVisible[0] ? (position == -1 ? 0 : position) : -1;
