@@ -452,7 +452,7 @@ button {
 
 .tab-osd .third_right {
     float: right;
-	width: calc(50% - 197px);	
+	/* width: calc(50% - 197px);	 */
 }
 
 .tab-osd .preview {
@@ -469,17 +469,17 @@ button {
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
 
-  left: calc(50% - 197px);
+  /* left: calc(50% - 197px); */
 
 }
 
 .tab-osd .preview_hd {
   width: 600px !important;
-  left: calc(50% - 317px) !important;
+  /* left: calc(50% - 317px) !important; */
 }
 
 .tab-osd .preview_hd_side {
-width: calc(50% - 317px) !important;	
+/* width: calc(50% - 317px) !important;	 */
 }
 
 .tab-osd .alarms label {
