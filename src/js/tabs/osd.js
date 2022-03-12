@@ -99,7 +99,7 @@ FONT.constants = {
         MAX_NVM_FONT_CHAR_FIELD_SIZE: 64,
         CHAR_HEIGHT: 18,
         CHAR_WIDTH: 12,
-        LINE: 30
+        LINE: 50
     },
     COLORS: {
         // black
@@ -1153,19 +1153,27 @@ OSD.loadDisplayFields = function() {
 };
 
 OSD.constants = {
-    VISIBLE: 0x0800,
+    VISIBLE: 0x2000,
     VIDEO_TYPES: [
         'AUTO',
         'PAL',
-        'NTSC'
+        'NTSC',
+        'HD'
     ],
     VIDEO_LINES: {
         PAL: 16,
-        NTSC: 13
+        NTSC: 13,
+        HD: 18
+    },
+    VIDEO_COLS: {
+        PAL: 30,
+        NTSC: 30,
+        HD: 50
     },
     VIDEO_BUFFER_CHARS: {
         PAL: 480,
-        NTSC: 390
+        NTSC: 390,
+        HD: 900
     },
     UNIT_TYPES: [
         'IMPERIAL',
@@ -1672,9 +1680,17 @@ OSD.updateDisplaySize = function () {
     if (video_type == 'AUTO') {
         video_type = 'PAL';
     }
+
+    $('.third_left').toggleClass('preview_hd_side', (video_type == 'HD'))
+    $('.preview').toggleClass('preview_hd', (video_type == 'HD'))
+    $('.third_right').toggleClass('preview_hd_side', (video_type == 'HD'))
+
+	// Not sure I can do this! This will mess with the calculation of the y position of the widget
+	//FONT.constants.SIZES.LINE = OSD.constants.VIDEO_COLS[video_type];
+
     // compute the size
     OSD.data.display_size = {
-        x: FONT.constants.SIZES.LINE,
+        x: OSD.constants.VIDEO_COLS[video_type],
         y: OSD.constants.VIDEO_LINES[video_type],
         total: null
     };
@@ -1707,7 +1723,7 @@ OSD.msp = {
     * b: blink flag
     * y: y coordinate
     * x: x coordinate
-    * 0000 vbyy yyyx xxxx
+    * 00vb yyyy yyxx xxxx
     */
     helpers: {
         unpack: {
@@ -1720,7 +1736,7 @@ OSD.msp = {
                 display_item.positionable = positionable;
                 if (semver.gte(CONFIG.apiVersion, "1.21.0")) {
                     // size * y + x
-                    display_item.position = positionable ? FONT.constants.SIZES.LINE * ((bits >> 5) & 0x001F) + (bits & 0x001F) : default_position;
+                    display_item.position = FONT.constants.SIZES.LINE * ((bits >> 6) & 0x003F) + (bits & 0x003F);
 
                     display_item.isVisible = [];
                     for (let osd_profile = 0; osd_profile < OSD.getNumberOfProfiles(); osd_profile++) {
@@ -1752,7 +1768,8 @@ OSD.msp = {
                     for (let osd_profile = 0; osd_profile < OSD.getNumberOfProfiles(); osd_profile++) {
                         packed_visible |= isVisible[osd_profile] ? OSD.constants.VISIBLE << osd_profile : 0;
                     }
-                    return packed_visible | (((position / FONT.constants.SIZES.LINE) & 0x001F) << 5) | (position % FONT.constants.SIZES.LINE);
+                    //return packed_visible | (((position / FONT.constants.SIZES.LINE) & 0x001F) << 5) | (position % FONT.constants.SIZES.LINE);
+                    return packed_visible | (((position / FONT.constants.SIZES.LINE) & 0x003F) << 6) | (position % FONT.constants.SIZES.LINE);
                 } else {
                     return isVisible[0] ? (position == -1 ? 0 : position) : -1;
                 }
