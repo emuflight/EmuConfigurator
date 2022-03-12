@@ -24,7 +24,8 @@ function MspHelper () {
     'TELEMETRY_IBUS': 12,
     'IRC_TRAMP': 13,
     'RUNCAM_DEVICE_CONTROL': 14, // support communitate with RunCam Device
-    'LIDAR_TF': 15
+    'LIDAR_TF': 15,
+    'SHARKBYTE_OSD': 16, // matches: FUNCTION_HDZERO_OSD          = (1 << 16), // 65536 in saidinesh5/Emuflight: src/main/io/serial.h
   };
 
     self.REBOOT_TYPES = {
