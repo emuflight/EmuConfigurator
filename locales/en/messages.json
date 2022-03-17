@@ -1427,11 +1427,11 @@
     "portsFunction_RUNCAM_DEVICE_CONTROL": {
         "message": "Camera (RunCam Protocol)"
     },
-    "portsFunction_SHARKBYTE_OSD": {
-        "message": "Shark Byte OSD"
+    "portsFunction_HDZERO_OSD": {
+        "message": "HDZero OSD"
     },
     "osdSetupVideoFormatOptionHd": {
-        "message": "HD (Shark Byte)"
+        "message": "HD (HDZero)"
     },
     "pidTuningProfileOption": {
         "message": "Profile $1"
