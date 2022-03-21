@@ -819,7 +819,7 @@ MspHelper.prototype.process_data = function(dataHandler) {
                     SERIAL_CONFIG.cliBaudRate = data.readU32();
                     SERIAL_CONFIG.gpsBaudRate = data.readU32();
                     SERIAL_CONFIG.gpsPassthroughBaudRate = data.readU32();
-                } else {
+                } else if (semver.lt(CONFIG.apiVersion, "1.52.0")) {
                     SERIAL_CONFIG.ports = [];
                     var bytesPerPort = 1 + 2 + (1 * 4);
                     var serialPortCount = data.byteLength / bytesPerPort;
@@ -827,6 +827,21 @@ MspHelper.prototype.process_data = function(dataHandler) {
                         var serialPort = {
                             identifier: data.readU8(),
                             functions: self.serialPortFunctionMaskToFunctions(data.readU16()),
+                            msp_baudrate: self.BAUD_RATES[data.readU8()],
+                            gps_baudrate: self.BAUD_RATES[data.readU8()],
+                            telemetry_baudrate: self.BAUD_RATES[data.readU8()],
+                            blackbox_baudrate: self.BAUD_RATES[data.readU8()]
+                        }
+                        SERIAL_CONFIG.ports.push(serialPort);
+                    }
+                } else {
+                    SERIAL_CONFIG.ports = [];
+                    var bytesPerPort = 1 + 4 + (1 * 4);
+                    var serialPortCount = data.byteLength / bytesPerPort;
+                    for (var i = 0; i < serialPortCount; i++) {
+                        var serialPort = {
+                            identifier: data.readU8(),
+                            functions: self.serialPortFunctionMaskToFunctions(data.readU32()),
                             msp_baudrate: self.BAUD_RATES[data.readU8()],
                             gps_baudrate: self.BAUD_RATES[data.readU8()],
                             telemetry_baudrate: self.BAUD_RATES[data.readU8()],
@@ -1919,7 +1934,7 @@ MspHelper.prototype.crunch = function(code) {
                       .push32(SERIAL_CONFIG.cliBaudRate)
                       .push32(SERIAL_CONFIG.gpsBaudRate)
                       .push32(SERIAL_CONFIG.gpsPassthroughBaudRate);
-            } else {
+            } else if (semver.lt(CONFIG.apiVersion, "1.52.0")) {
                 for (var i = 0; i < SERIAL_CONFIG.ports.length; i++) {
                     var serialPort = SERIAL_CONFIG.ports[i];
                     buffer.push8(serialPort.identifier);
@@ -1929,6 +1944,17 @@ MspHelper.prototype.crunch = function(code) {
                           .push8(self.BAUD_RATES.indexOf(serialPort.gps_baudrate))
                           .push8(self.BAUD_RATES.indexOf(serialPort.telemetry_baudrate))
                           .push8(self.BAUD_RATES.indexOf(serialPort.blackbox_baudrate));
+                }
+            } else {
+                for (var i = 0; i < SERIAL_CONFIG.ports.length; i++) {
+                    var serialPort = SERIAL_CONFIG.ports[i];
+                    buffer.push8(serialPort.identifier);
+                    var functionMask = self.serialPortFunctionsToMask(serialPort.functions);
+                    buffer.push32(functionMask)
+                            .push8(self.BAUD_RATES.indexOf(serialPort.msp_baudrate))
+                            .push8(self.BAUD_RATES.indexOf(serialPort.gps_baudrate))
+                            .push8(self.BAUD_RATES.indexOf(serialPort.telemetry_baudrate))
+                            .push8(self.BAUD_RATES.indexOf(serialPort.blackbox_baudrate));
                 }
             }
             break;
