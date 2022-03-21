@@ -2230,6 +2230,9 @@ TABS.osd.initialize = function (callback) {
                     // video mode
                     var $videoTypes = $('.video-types').empty();
                     for (var i = 0; i < OSD.constants.VIDEO_TYPES.length; i++) {
+                        if (semver.lt(CONFIG.apiVersion, "1.52.0") && i == 3) { // skip fourth option HDZero if below required MSP version
+                            continue;
+                        }
                         var type = OSD.constants.VIDEO_TYPES[i];
                         var $checkbox = $('<label/>').append($('<input name="video_system" type="radio"/>' + i18n.getMessage('osdSetupVideoFormatOption' + inflection.camelize(type.toLowerCase())) + '</label>')
                             .prop('checked', i === OSD.data.video_system)
