@@ -458,7 +458,7 @@ button {
 .tab-osd .preview {
   width: 360px;
   float: left; 
-  position: sticky;
+  /* position: sticky; */
   top: 0px;
 
   /* please don't copy the generic background image from another project
