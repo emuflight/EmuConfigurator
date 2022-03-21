@@ -46,6 +46,9 @@ TABS.ports.initialize = function (callback, scrollPosition) {
 
     if (semver.gte(CONFIG.apiVersion, "1.37.0")) {
         functionRules.push({ name: 'LIDAR_TF', groups: ['peripherals'], maxPorts: 1 });
+    }
+
+    if (semver.gte(CONFIG.apiVersion, "1.52.0")) {
         functionRules.push({ name: 'HDZERO_OSD', groups: ['peripherals'], maxPorts: 1 });
     }
 
