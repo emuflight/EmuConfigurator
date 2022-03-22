@@ -447,12 +447,26 @@ button {
 
 .tab-osd .third_left {
 	float: left;
-	width: calc(50% - 197px);	
+  /* width: calc(50% - 197px);	*/
+  width: 32%;
+  max-width: 300px;
+  margin-right: 5px;
+
+}
+
+.tab-osd .third_center {
+  float: left;
+  width: 32%;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .tab-osd .third_right {
-    float: right;
+    float: left;
 	/* width: calc(50% - 197px);	 */
+    width: 32%;
+    max-width: 350px;
+    margin-left: 20px;
 }
 
 .tab-osd .preview {
