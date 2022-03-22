@@ -1682,6 +1682,7 @@ OSD.updateDisplaySize = function () {
     }
 
     $('.third_left').toggleClass('preview_hd_side', (video_type == 'HD'))
+    $('.third_center').toggleClass('preview_hd', (video_type == 'HD'))
     $('.preview').toggleClass('preview_hd', (video_type == 'HD'))
     $('.third_right').toggleClass('preview_hd_side', (video_type == 'HD'))
 
