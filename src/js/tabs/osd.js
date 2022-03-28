@@ -99,7 +99,8 @@ FONT.constants = {
         MAX_NVM_FONT_CHAR_FIELD_SIZE: 64,
         CHAR_HEIGHT: 18,
         CHAR_WIDTH: 12,
-        LINE: 50
+        LINE: 50,
+        LINE_SD: 30
     },
     COLORS: {
         // black
@@ -478,8 +479,11 @@ OSD.loadDisplayFields = function() {
             desc: 'osdDescElementCrosshairs',
             default_position: function () {
                 var position = 193;
-                if (OSD.constants.VIDEO_TYPES[OSD.data.video_system] != 'NTSC') {
+                if (OSD.constants.VIDEO_TYPES[OSD.data.video_system] == 'HD') {
                     position += FONT.constants.SIZES.LINE;
+                }
+                else {
+                    position += FONT.constants.SIZES.LINE_SD;
                 }
                 return position;
             },
@@ -497,8 +501,11 @@ OSD.loadDisplayFields = function() {
             desc: 'osdDescElementArtificialHorizon',
             default_position: function () {
                 var position = 74;
-                if (OSD.constants.VIDEO_TYPES[OSD.data.video_system] != 'NTSC') {
+                if (OSD.constants.VIDEO_TYPES[OSD.data.video_system] == 'HD') {
                     position += FONT.constants.SIZES.LINE;
+                }
+                else {
+                    position += FONT.constants.SIZES.LINE_SD;
                 }
                 return position;
             },
@@ -1154,6 +1161,7 @@ OSD.loadDisplayFields = function() {
 
 OSD.constants = {
     VISIBLE: 0x2000,
+    VISIBLE_SD: 0x0800,
     VIDEO_TYPES: [
         'AUTO',
         'PAL',
@@ -1737,11 +1745,21 @@ OSD.msp = {
                 display_item.positionable = positionable;
                 if (semver.gte(CONFIG.apiVersion, "1.21.0")) {
                     // size * y + x
-                    display_item.position = positionable ? FONT.constants.SIZES.LINE * ((bits >> 6) & 0x003F) + (bits & 0x003F) : default_position;
+                    if (semver.gte(CONFIG.apiVersion, "1.52.0") && OSD.constants.VIDEO_TYPES[OSD.data.video_system] == 'HD') {
+                        display_item.position = positionable ? FONT.constants.SIZES.LINE * ((bits >> 6) & 0x003F) + (bits & 0x003F) : default_position;
+                    }
+                    else {
+                        display_item.position = positionable ? FONT.constants.SIZES.LINE_SD * ((bits >> 5) & 0x001F) + (bits & 0x001F) : default_position;
+                    }
 
                     display_item.isVisible = [];
                     for (let osd_profile = 0; osd_profile < OSD.getNumberOfProfiles(); osd_profile++) {
-                        display_item.isVisible[osd_profile] = (bits & (OSD.constants.VISIBLE << osd_profile)) != 0;
+                        if (semver.gte(CONFIG.apiVersion, "1.52.0") && OSD.constants.VIDEO_TYPES[OSD.data.video_system] == 'HD') {
+                            display_item.isVisible[osd_profile] = (bits & (OSD.constants.VISIBLE << osd_profile)) != 0;
+                        }
+                        else {
+                            display_item.isVisible[osd_profile] = (bits & (OSD.constants.VISIBLE_SD << osd_profile)) != 0;
+                        }
                     }
                 } else {
                     display_item.position = (bits === -1) ? default_position : bits;
@@ -1767,9 +1785,20 @@ OSD.msp = {
 
                     let packed_visible = 0;
                     for (let osd_profile = 0; osd_profile < OSD.getNumberOfProfiles(); osd_profile++) {
-                        packed_visible |= isVisible[osd_profile] ? OSD.constants.VISIBLE << osd_profile : 0;
+                        if (semver.gte(CONFIG.apiVersion, "1.52.0") && OSD.constants.VIDEO_TYPES[OSD.data.video_system] == 'HD') {
+                            packed_visible |= isVisible[osd_profile] ? OSD.constants.VISIBLE << osd_profile : 0;
+                        }
+                        else {
+                            packed_visible |= isVisible[osd_profile] ? OSD.constants.VISIBLE_SD << osd_profile : 0;
+                        }
                     }
-                    return packed_visible | (((position / FONT.constants.SIZES.LINE) & 0x003F) << 6) | (position % FONT.constants.SIZES.LINE);
+                    if (semver.gte(CONFIG.apiVersion, "1.52.0") && OSD.constants.VIDEO_TYPES[OSD.data.video_system] == 'HD') {
+                        return packed_visible | (((position / FONT.constants.SIZES.LINE) & 0x003F) << 6) | (position % FONT.constants.SIZES.LINE);
+                    }
+                    else {
+                        return packed_visible | (((position / FONT.constants.SIZES.LINE_SD) & 0x001F) << 5) | (position % FONT.constants.SIZES.LINE_SD);
+                    }
+                        
                 } else {
                     return isVisible[0] ? (position == -1 ? 0 : position) : -1;
                 }
