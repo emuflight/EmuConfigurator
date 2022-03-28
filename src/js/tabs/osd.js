@@ -1689,10 +1689,10 @@ OSD.updateDisplaySize = function () {
         video_type = 'PAL';
     }
 
-    $('.third_left').toggleClass('preview_hd_side', (video_type == 'HD'))
-    $('.third_center').toggleClass('preview_hd', (video_type == 'HD'))
-    $('.preview').toggleClass('preview_hd', (video_type == 'HD'))
-    $('.third_right').toggleClass('preview_hd_side', (video_type == 'HD'))
+    $('.third_left').toggleClass('preview_hd_side', video_type == 'HD');
+    $('.third_center').toggleClass('preview_hd', video_type == 'HD');
+    $('.preview').toggleClass('preview_hd', video_type == 'HD');
+    $('.third_right').toggleClass('preview_hd_side', video_type == 'HD');
 
 	// Not sure I can do this! This will mess with the calculation of the y position of the widget
 	//FONT.constants.SIZES.LINE = OSD.constants.VIDEO_COLS[video_type];
@@ -2260,7 +2260,7 @@ TABS.osd.initialize = function (callback) {
                     // video mode
                     var $videoTypes = $('.video-types').empty();
                     for (var i = 0; i < OSD.constants.VIDEO_TYPES.length; i++) {
-                        if (semver.lt(CONFIG.apiVersion, "1.52.0") && i == 3) { // skip fourth option HDZero if below required MSP version
+                        if (semver.lt(CONFIG.apiVersion, "1.52.0") && i === 3) { // skip fourth option HDZero if below required MSP version
                             continue;
                         }
                         var type = OSD.constants.VIDEO_TYPES[i];
