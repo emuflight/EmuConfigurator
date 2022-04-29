@@ -316,6 +316,18 @@ TABS.ports.initialize = function (callback, scrollPosition) {
                 functions.push(telemetryFunction);
             }
 
+            //HDZero MSP 1.52
+            if (semver.gte(CONFIG.apiVersion, "1.52.0")) {
+                console.log('debug: peripheral checking');
+                // if peripheral = HDZero then set sensor/gps baud 115200
+                if ($(portConfiguration_e).find('select[name=function-peripherals]').val() === 'HDZERO_OSD') {
+                    console.log('debug: peripheral: '+$(portConfiguration_e).find('select[name=function-peripherals]').val());
+                    //select sensor(gps baudrate) = 115200
+                    $(portConfiguration_e).find('.gps_baudrate').val('115200');
+                    console.log('debug: setting sensor/gps baud to: '+$(portConfiguration_e).find('.gps_baudrate').val());
+                }
+            }
+
             var sensorFunction = $(portConfiguration_e).find('select[name=function-sensors]').val();
             if (sensorFunction) {
                 functions.push(sensorFunction);
