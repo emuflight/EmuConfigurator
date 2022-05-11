@@ -1,0 +1,105 @@
+<html>
+
+<head>
+    <title>Multi-rotor motor mixing calculator</title>
+    <meta http-equiv="content-type" content="application/xhtml; charset=UTF-8" />
+    <!-- <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script> -->
+    <!-- <script type="text/javascript" src="js/tabs//jquery-3.6.0.min.js"></script> -->
+    <script type="text/javascript" src="js/tabs/mixercalc.js"></script>
+    <!--<link type="text/css" rel="stylesheet" href="css/tabs//mixercalc.css" />-->
+</head>
+
+<body>
+    <h2>Motor Mix Calculator</h2>
+    Original code by iforce2d.net. Code used and modified with permission. <br>
+    <br>
+    <div style="width:950px; "> This tool lets you calculate mixer settings by simply measuring the distances between motors. It is intended for "flat" motor layouts. i.e. this will not work for X8, Y6, Z, Lynchpin, etc. True-X do not need calculation. Stretch-X, Squish-X, DeadCat, H, etc. should benefit from calculations.<br>
+        <br> For keyboard input, first click the graphical canvas to give it focus. Then you can use these keys: <ul style="margin-left:32px">
+            <li><b>left arrow</b> -- add a CCW motor at the mouse position</li>
+            <li><b>right arrow</b> -- add a CW motor at the mouse position</li>
+            <li><b>r</b> or <b>up-arrow</b> -- reverse the rotation of the highlighted motor</li>
+            <li><b>d</b> or <b>delete</b> -- delete the highlighted motor</li>
+        </ul> After adding the necessary motors on the canvas, enter constraints for pairs of motors, and let the simulation run for a few seconds until the output values at the bottom of the page have settled.<br>
+        <br> Ideally each motor should have <b><i>three constraints</i></b>. When three or more constraints are present the inner circle for that motor will turn green. Make sure to have at least one horizontal or vertical constraint to define the overall direction of the layout.<br>
+        <br> For a demonstration of usage, see: <a href="https://www.youtube.com/watch?v=9FvpT9jH0NA" target="_blank">this YouTube video</a>. </div>
+    <br>
+    <div>
+        <table cols="2" style="table-layout: fixed;">
+            <tr>
+                <td>
+                    <canvas id="mixerviz" tabindex="1" width="600" height="600"></canvas><br>
+                    <button id="reverseAllMotorsButton" class="button" onclick="reverseAllMotors()">Reverse All Motors</button>
+
+                </td>
+                <td style="text-align: left;">
+                    <div id="mixervals">
+                        <div> Constraints<br>
+                            <div>
+                                <textarea id="inputs" ></textarea>
+                                <div style="display:inline-block;margin-left:15px"> Examples <br> 4 motors:<br>
+                                    <ul style="margin-left:32px">
+                                        <li><a href="index.html#" class="preset" id="quadx">Quad X</a></li>
+                                        <li><a href="index.html#" class="preset" id="quad+">Quad +</a></li>
+                                        <!--<li><a href="index.html#" class="preset" id="apex5">Apex 5"</a></li>-->
+                                        <li><a href="index.html#" class="preset" id="clone6">Squish X 6"</a></li>
+                                        <li><a href="index.html#" class="preset" id="deadcat7">DeadCat 7"</a></li>
+                                    </ul> 6 motors:<br>
+                                    <ul style="margin-left:32px">
+                                        <li><a href="index.html#" class="preset" id="hexx">Hex X</a></li>
+                                    </ul> 8 motors:<br>
+                                    <ul style="margin-left:32px">
+                                        <li><a href="index.html#" class="preset" id="octx">Octo X</a></li>
+                                        <li><a href="index.html#" class="preset" id="jure">Jure custom</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- </div>
+                            <div -style="float:left"> -->
+                             Enter lines in the format:<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>motor motor constraint</b><br>
+                            <br> A constraint can be one of:<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>number</b> - distance between locations (gray)<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>h</b> - align motors horizontally (blue)<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>v</b> - align motors vertically (blue)<br>
+                            <br> Examples:<br> Motors 1 and 2 are 195mm apart<br>
+                            <b>1 2 195</b> <br> Motors 3 and 4 are 220mm apart<br>
+                            <b>4 3 220</b> <br> Motors 2 and 4 are aligned horizontally<br>
+                            <b>2 4 h</b> <br> Motors 1 and 2 are aligned vertically<br>
+                            <b>2 1 v</b> <br>
+                            <br> Constraints will be automatically applied two seconds after the last change has been made. If the motors get into any strange positions you can move them manually by dragging with the mouse.
+                        </div>
+                    </div>
+                </td>
+            <tr>
+                <td colspan="2" style="text-align: left;">
+                    <br>
+                    <h4 style="width: 950px;">Mixer commands:</h4>
+                        <span style="color: red;">
+                            WARNINGS:<br>
+                            1) MMIX commands are potentially unsafe until all motors constrained to green status in graphical canvas above. Pilot is responsible for correct motor constraints.<br>
+                            2) MMIX commands are unsafe until all propeller directions are accurate. This tool does not alter propeller directions physically.  Do NOT enable the reversed-propellers toggle in Configuration tab when using these MMIX results.  Pilot is responsible for correct propeller directions.<br>
+                        </span>
+                        <br>
+                        <div style="width:600px;float:left">
+                        <!-- <select id="commandtype" onchange="onCommandTypeChanged()"> -->
+                        <!-- <option value="selectone">Select command type</option> -->
+                        <!-- <option value="cf1.10">Cleanflight from 1.10 onwards</option> -->
+                        <!-- </select><br><br> -->
+
+
+                        <pre><div id="commands" class="outputpanel"></div></pre>
+                        <!-- <textarea rows=12 id="commands" class="outputpanel"></textarea> -->
+
+
+
+                        <br> Moving the mouse over the area below will pause updates to let you copy the text.<br>
+                        <br>
+                        <!--<span id="cfextra" style="display:none;color:red">Remember to also execute 'save' to keep the mixer settings!</span>-->
+                        <!--<span id="arducopterextra" style="display:none">See AP_MotorsMatrix::setup_motors() in <a href="https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_Motors/AP_MotorsMatrix.cpp#L466">libraries/AP_Motors/AP_MotorsMatrix.cpp</a></span><br>-->
+                        <!-- </div>
+                        <div style="float: none;">  -->
+                         <button id="mixCommandCopyButton" class="button" onclick="mixCommandCopyClipboardFunc()" onmouseout="mixCommandCopyClipboardOutFunc()">Copy to Clipboard</button>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>

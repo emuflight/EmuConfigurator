@@ -19,7 +19,8 @@ var GUI_control = function () {
         'changelog',
         'firmware_flasher',
         'privacy_policy',
-        'help'
+        'help',
+        'mixercalc'
     ];
     this.defaultAllowedFCTabsWhenConnected = [
         'setup',

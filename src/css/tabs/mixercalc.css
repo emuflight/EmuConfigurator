@@ -1,0 +1,113 @@
+#tab-static {
+    background-color: inherit;
+    background-image: none;
+}
+
+/* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body
+{
+    height: 100%;
+    margin: 10px;
+}
+
+body,#page,caption,th,td,input,textarea,select,option,legend,fieldset
+{
+    font-family: Verdana, Arial, sans-serif;
+    font-size: 12px;
+    color: #333333;
+}
+*/
+
+a { color: #00A3E0 ; }
+
+.button {
+    /*all: unset;*/
+    background-color: #00A3E0;
+    color: black;
+}
+
+.outputpanel
+{
+    font-family: "Bitstream Vera Sans Mono","Courier New",monospace;
+    width: 700px;
+    padding: 10px;
+    background-color: #F0FFF0;   /* pale green */
+    color: #000;
+    border: 1px solid #BBB;
+}
+
+.initially-hidden {
+    display:none;
+}
+
+.ajax-loading
+{
+    line-height:16px;
+}
+
+table,th,td
+{
+    /*border:1px solid black;*/
+    border-collapse:collapse;
+}
+
+th
+{
+    background-color:#eee;
+    text-align:center;
+    padding:2px 6px 2px 6px;
+}
+
+td
+{
+    text-align:center;
+    padding:4px;
+}
+
+.center
+{
+    text-align:center;
+    margin:auto;
+}
+
+#mixerviz {
+    width: 600px;
+    float: left;
+    display: block;
+}
+
+#mixerviz:focus {
+    /*
+    .shadowBlur = 20;
+    .shadowColor = "rgb(0,162,244)";
+    */
+    box-shadow: 0 0 3pt 2pt #00A3E0;
+}
+
+#mixervals {
+    width:360px;
+    /*height: 600px;*/
+    padding: 6px;
+    display: inline-block;
+    /*background-color:#EEEEEE;*/
+
+    /*color: #000;*/
+
+}
+
+#inputs {
+    width: 100px;
+    height: 250px;
+    color: #000;
+    border: 1px solid #000;
+    float:left;
+      /* style="float:left; height: 250px; border: 1px; border-color: black;"  */
+}
+
+#inputs:focus {
+    box-shadow: 0 0 2pt 2pt #00A3E0;
+}
