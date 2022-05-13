@@ -10,7 +10,7 @@
 /*eslint-disable no-ternary*/
 /*eslint-disable radix*/
 /*eslint no-unused-vars: ["error", { "vars": "local" }]*/
-/*eslint-env es2022*/
+/*eslint-env shared-node-browser*/
 
 /*
  *Todo:
