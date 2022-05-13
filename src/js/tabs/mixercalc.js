@@ -9,9 +9,8 @@
 /*eslint no-extend-native: ["error", { "exceptions": ["String"] }]*/
 /*eslint-disable no-ternary*/
 /*eslint-disable radix*/
-
 /*eslint no-unused-vars: ["error", { "vars": "local" }]*/
-/*eslint-env es6*/
+/*eslint-env es2022*/
 
 /*
  *Todo:
