@@ -456,7 +456,8 @@ button {
 
 .tab-osd .third_center {
   float: left;
-  width: 32%;
+  /* width: 32%; */
+  width: unset;
   min-width: 350px;
   margin-left: 5px;
   margin-right: 5px;
@@ -466,7 +467,7 @@ button {
     float: left;
 	/* width: calc(50% - 197px);	 */
     width: 32%;
-    max-width: 350px;
+    max-width: 300px;
     margin-left: 20px;
 }
 
