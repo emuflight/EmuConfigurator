@@ -307,6 +307,18 @@ TABS.ports.initialize = function (callback, scrollPosition) {
 
             var oldSerialPort = $(this).data('serialPort');
 
+            //HDZero MSP 1.52
+            if (semver.gte(CONFIG.apiVersion, "1.52.0")) {
+                console.log('debug: peripheral checking');
+                // if peripheral = HDZero then set sensor/gps baud 115200
+                if ($(portConfiguration_e).find('select[name=function-peripherals]').val() === 'HDZERO_OSD') {
+                    console.log('debug: peripheral: '+$(portConfiguration_e).find('select[name=function-peripherals]').val());
+                    //set MSP toggle off
+                    $(portConfiguration_e).find('input:checkbox:checked').val(false);
+                    console.log('debug: setting msp toggle off: '+$(portConfiguration_e).find('input:checkbox:checked').val());
+                }
+            }
+
             var functions = $(portConfiguration_e).find('input:checkbox:checked').map(function() {
                 return this.value;
             }).get();
