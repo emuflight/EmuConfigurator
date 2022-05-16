@@ -1816,9 +1816,9 @@ OSD.msp = {
                     display_item.isVisible = [];
                     for (let osd_profile = 0; osd_profile < OSD.getNumberOfProfiles(); osd_profile++) {
                         if (semver.gte(CONFIG.apiVersion, "1.52.0")) {
-                            display_item.isVisible[osd_profile] = (bits & (OSD.constants.VISIBLE << osd_profile)) != 0; //x2000 no matter SD/HD
+                            display_item.isVisible[osd_profile] = (bits & (OSD.constants.VISIBLE << osd_profile)) !== 0; //x2000 no matter SD/HD
                         } else {
-                            display_item.isVisible[osd_profile] = (bits & (OSD.constants.VISIBLE_SD << osd_profile)) != 0; //legacy 0x800
+                            display_item.isVisible[osd_profile] = (bits & (OSD.constants.VISIBLE_SD << osd_profile)) !== 0; //legacy 0x800
                         }
                     }
                 } else {
