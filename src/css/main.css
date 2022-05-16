@@ -1208,11 +1208,13 @@ dialog {
     float: left;
     width: 33%;
 }
+
 .third_left_osd {
     float: left;
-    width: calc(50% - 360px);
-    min-width: 23%;
+  width: calc(50% - 360px);
+  min-width: 23%;
 }
+
 .third_center {
     display: inline-block;
     width: 34%;
@@ -1224,7 +1226,7 @@ dialog {
 }
 
 .third_right_osd {
-    min-width: 68%;
+  min-width: 68%;
 }
 .fourth {
     float: left;
@@ -1248,7 +1250,7 @@ dialog {
 
 .twothird_osd {
     float: left;
-    width: 60%;
+  width: 60%;
 }
 
 /* Columns  END> */
