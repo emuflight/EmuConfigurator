@@ -910,7 +910,7 @@ function mixerCalcMain() {
         });
         $('.outputpanel').mouseenter(function() {
             run = false;
-            animate();
+            //animate();  //dont animate or else commandbox is wrong
         });
         $('.outputpanel').mouseleave(function() {
             run = true;
