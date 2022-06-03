@@ -908,14 +908,14 @@ function mixerCalcMain() {
             event.preventDefault();
             reverseAllMotors();
         });
-        $('.outputpanel').mouseenter(function() {
-            run = false;
-            //animate();  //dont animate or else commandbox is wrong
-        });
-        $('.outputpanel').mouseleave(function() {
-            run = true;
-            animate();
-        });
+        //$('.outputpanel').mouseenter(function() {
+        //    run = false;
+        //    //animate();  //dont animate or else commandbox is wrong
+        //});
+        //$('.outputpanel').mouseleave(function() {
+        //    run = true;
+        //    animate();
+        //});
         $('#inputs').keyup(function() {
             startReparseTimer();
         });
