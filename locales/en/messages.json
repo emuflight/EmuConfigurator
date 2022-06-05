@@ -306,6 +306,9 @@
     "tabOnboardLogging": {
         "message": "Blackbox"
     },
+    "tabVtx": {
+        "message": "VTX"
+    },
     "tabAdjustments": {
         "message": "Adjustments"
     },

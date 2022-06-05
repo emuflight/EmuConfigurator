@@ -61,6 +61,7 @@ var KALMAN_FILTER_CONFIG;
 var ADVANCED_TUNING;
 var SENSOR_CONFIG;
 var COPY_PROFILE;
+var VTX_CONFIG;
 var DEFAULT;
 
 var FC = {
@@ -520,6 +521,21 @@ var FC = {
         };
 
         RXFAIL_CONFIG = [];
+
+        VTX_CONFIG = {
+//   sbufWriteU8(dst, vtxCommonGetDeviceType(vtxDevice));
+//   sbufWriteU8(dst, vtxSettingsConfig()->band);
+//   sbufWriteU8(dst, vtxSettingsConfig()->channel);
+//   sbufWriteU8(dst, vtxSettingsConfig()->power);
+//   sbufWriteU8(dst, pitmode);  //0???
+//   sbufWriteU16(dst, vtxSettingsConfig()->freq);
+            vtxdevicetype:  0,
+            band:           0,
+            channel:        1,
+            power:          0,
+            pitmode:        0,
+            freq:           0,
+        }
 
         DEFAULT = {
             gyro_lowpass_hz:                100,

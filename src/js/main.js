@@ -348,6 +348,9 @@ function startProcess() {
                     case 'onboard_logging':
                         TABS.onboard_logging.initialize(content_ready);
                         break;
+                    case 'vtx':
+                        TABS.vtx.initialize(content_ready);
+                        break;
                     case 'cli':
                         TABS.cli.initialize(content_ready, GUI.nwGui);
                         break;

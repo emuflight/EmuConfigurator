@@ -1528,6 +1528,7 @@ MspHelper.prototype.process_data = function(dataHandler) {
                 break;
 
             case MSPCodes.MSP_VTX_CONFIG:
+                console.log('read vtx_config');
                 break;
 
             case MSPCodes.MSP_SET_VTX_CONFIG:

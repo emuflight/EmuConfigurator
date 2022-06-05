@@ -830,6 +830,14 @@ li.active .ic_data {
     background-image: url(../images/icons/cf_icon_data_white.svg);
 }
 
+.ic_vtx {
+    background-image: url(../images/icons/cf_icon_vtx_grey.svg);
+}
+
+.ic_vtx:hover {
+    background-image: url(../images/icons/cf_icon_vtx_white.svg);
+}
+
 .ic_cli {
     background-image: url(../images/icons/cf_icon_cli_grey.svg);
 }
