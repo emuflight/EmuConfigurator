@@ -39,16 +39,16 @@ const LINUX_INSTALL_DIR = '/opt/emuflight';
 var gitChangeSetId;
 
 // FIXME: hardcoded version number
+// 0.45.6 Win7 connects; 0.42.3 fixed OSX Flashing; 0.46.X broke Win7 connect. maybe serial/usb needs updating
+// reverted to 0.42.6 due to Windows increased CLI-tab buffer/autocomplete issues.
+// 0.50.3 is last version to open Links properly. also works on Win11.
 var NWversion;
 if (os.platform() === 'win32') {
     NWversion ='0.42.6'
 } else {
-    NWversion ='0.64.1'
+    NWversion ='0.50.3'
 }
 
-// 0.45.6 Win7 connects; 0.42.3 fixed OSX Flashing; 0.46.X breaks Win7 connect
-// maybe serial/usb needs updating
-// revert to 0.42.6 due to Windows® users increased CLI-tab buffer/autocomplete issues.
 var nwBuilderOptions = {
     version: NWversion,
     files: './dist/**/*',
