@@ -1,0 +1,80 @@
+#tab-static {
+  background-color: inherit;
+  background-image: none;
+}
+
+a {
+  color: #00a3e0;
+}
+
+.button {
+  background-color: #00a3e0;
+  color: black;
+}
+
+.outputpanel {
+  font-family: "Bitstream Vera Sans Mono", "Courier New", monospace;
+  width: 700px;
+  padding: 10px;
+  background-color: #f0fff0;
+  color: #000;
+  border: 1px solid #bbb;
+}
+
+.initially-hidden {
+  display: none;
+}
+
+.ajax-loading {
+  line-height: 16px;
+}
+
+table,
+th,
+td {
+  border-collapse: collapse;
+}
+
+th {
+  background-color: #eee;
+  text-align: center;
+  padding: 2px 6px 2px 6px;
+}
+
+td {
+  text-align: center;
+  padding: 4px;
+}
+
+.center {
+  text-align: center;
+  margin: auto;
+}
+
+#mixerviz {
+  width: 600px;
+  float: left;
+  display: block;
+}
+
+#mixerviz:focus {
+  box-shadow: 0 0 3pt 2pt #00a3e0;
+}
+
+#mixervals {
+  width: 360px;
+  padding: 6px;
+  display: inline-block;
+}
+
+#inputs {
+  width: 100px;
+  height: 250px;
+  color: #000;
+  border: 1px solid #000;
+  float: left;
+}
+
+#inputs:focus {
+  box-shadow: 0 0 2pt 2pt #00a3e0;
+}
