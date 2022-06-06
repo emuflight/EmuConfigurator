@@ -270,6 +270,11 @@ function startProcess() {
                 }
 
                 switch (tab) {
+
+                    case 'mixercalc':
+                        TABS.staticTab.initialize('mixercalc', content_ready);
+                        break;
+
                     case 'landing':
                         TABS.landing.initialize(content_ready);
                         break;

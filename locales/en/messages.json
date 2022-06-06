@@ -230,9 +230,11 @@
     "configMigrationSuccessful": {
         "message": "Configuration migration complete, migrations applied: $1"
     },
-
     "tabFirmwareFlasher": {
         "message": "Firmware Flasher"
+    },
+    "tabMixerCalc": {
+        "message": "Motor Mix Calc"
     },
     "tabLanding": {
         "message": "Welcome"
