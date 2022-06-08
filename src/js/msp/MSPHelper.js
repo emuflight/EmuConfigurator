@@ -1528,10 +1528,35 @@ MspHelper.prototype.process_data = function(dataHandler) {
                 break;
 
             case MSPCodes.MSP_VTX_CONFIG:
-                console.log('read vtx_config');
+                console.log('VTX_config read');
+                //VTX_CONFIG.vtx_type = data.readU8();
+                //VTX_CONFIG.vtx_band = data.readU8();
+                //VTX_CONFIG.vtx_channel = data.readU8();
+                //VTX_CONFIG.vtx_power = data.readU8();
+                //VTX_CONFIG.vtx_pit_mode = data.readU8() != 0;
+                //VTX_CONFIG.vtx_frequency = data.readU16();
+                //VTX_CONFIG.vtx_device_ready = data.readU8() != 0;
+                //VTX_CONFIG.vtx_low_power_disarm = data.readU8();
+
+                if (semver.gte(CONFIG.apiVersion, "1.40.0")) {
+                    //VTX_CONFIG.vtx_pit_mode_frequency = data.readU16();
+                    //VTX_CONFIG.vtx_table_available = data.readU8() != 0;
+                    //VTX_CONFIG.vtx_table_bands = data.readU8();
+                    //VTX_CONFIG.vtx_table_channels = data.readU8();
+                    //VTX_CONFIG.vtx_table_powerlevels = data.readU8();
+                    //VTX_CONFIG.vtx_table_clear = false;
+                    console.log('VTX_config read MSP > 1.40.0');
+//                    VTX_CONFIG.vtx_type = data.readU8();
+//                    VTX_CONFIG.vtx_band = data.readU8();
+//                    VTX_CONFIG.vtx_channel = data.readU8();
+//                    VTX_CONFIG.vtx_power = data.readU8();
+//                    VTX_CONFIG.vtx_pit_mode = data.readU8() != 0;
+//                    VTX_CONFIG.vtx_frequency = data.readU16();
+                }
                 break;
 
             case MSPCodes.MSP_SET_VTX_CONFIG:
+                console.log("VTX config set");
                 break;
 
             case MSPCodes.MSP_SET_NAME:

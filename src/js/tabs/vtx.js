@@ -903,7 +903,7 @@ TABS.vtx.initialize = function (callback) {
             VTX_CONFIG.vtx_band = parseInt($("#vtx_band").val());
             VTX_CONFIG.vtx_channel = parseInt($("#vtx_channel").val());
             VTX_CONFIG.vtx_frequency = 0;
-            if (semver.lt(FC.CONFIG.apiVersion, API_VERSION_1_42)) {
+            if (semver.lt(CONFIG.apiVersion, "1.40.0")) {
                 if (VTX_CONFIG.vtx_band > 0 || VTX_CONFIG.vtx_channel > 0) {
                     VTX_CONFIG.vtx_frequency = (band - 1) * 8 + (channel - 1);
                 }
