@@ -93,7 +93,7 @@ TABS.vtx.initialize = function (callback) {
 
         function vtxConfigReceived() {
             if (semver.gte(CONFIG.apiVersion, "1.40.0")) {
-                GUI.interval_add_condition(self._DEVICE_STATUS_UPDATE_INTERVAL_NAME,
+                GUI.interval_add(self._DEVICE_STATUS_UPDATE_INTERVAL_NAME,
                     TABS.vtx.updateVtxDeviceStatus,
                     1000, false,
                     TABS.vtx.isVtxDeviceStatusNotReady,
