@@ -15,15 +15,15 @@ TABS.vtx = {
     //get _DEVICE_STATUS_UPDATE_INTERVAL_NAME() {
     //    return "vtx_device_status_request";
     //},
-    activeSubtab: 'vtx'
+//    activeSubtab: 'vtx'
 };
 
-TABS.vtx.isVtxDeviceStatusNotReady = function()
-{
-    const isReady = (null !== VTX_DEVICE_STATUS) && (VTX_DEVICE_STATUS.deviceIsReady);
-    console.log('TABS.vtx.isVtxDeviceStatusNotReady()');
-    return !isReady;
-};
+//TABS.vtx.isVtxDeviceStatusNotReady = function()
+//{
+//    const isReady = (null !== VTX_DEVICE_STATUS) && (VTX_DEVICE_STATUS.deviceIsReady);
+//    console.log('TABS.vtx.isVtxDeviceStatusNotReady()');
+//    return !isReady;
+//};
 
 //TABS.vtx.updateVtxDeviceStatus = function()
 //{
@@ -37,20 +37,20 @@ TABS.vtx.isVtxDeviceStatusNotReady = function()
 //    console.log('exit TABS.vtx.updateVtxDeviceStatus()');
 //};
 //
-//TABS.vtx.getVtxTypeString = function()
-//{
-//    console.log('enter TABS.vtx.getVtxTypeString()');
-//    let result = i18n.getMessage(`vtxType_${VTX_CONFIG.vtx_type}`);
-//
-//    const isSmartAudio = VtxDeviceTypes.VTXDEV_SMARTAUDIO === VTX_CONFIG.vtx_type;
-//    const isVtxDeviceStatusReceived = null !== VTX_DEVICE_STATUS;
-//
-//    if (isSmartAudio && isVtxDeviceStatusReceived) {
-//        result += ` ${VTX_DEVICE_STATUS.smartAudioVersion}`;
-//    }
-//    console.log('exit TABS.vtx.getVtxTypeString()');
-//    return result;
-//};
+TABS.vtx.getVtxTypeString = function()
+{
+    console.log('enter TABS.vtx.getVtxTypeString()');
+    let result = i18n.getMessage(`vtxType_${VTX_CONFIG.vtx_type}`);
+
+    const isSmartAudio = VtxDeviceTypes.VTXDEV_SMARTAUDIO === VTX_CONFIG.vtx_type;
+    const isVtxDeviceStatusReceived = null !== VTX_DEVICE_STATUS;
+
+    if (isSmartAudio && isVtxDeviceStatusReceived) {
+        result += ` ${VTX_DEVICE_STATUS.smartAudioVersion}`;
+    }
+    console.log('exit TABS.vtx.getVtxTypeString()');
+    return result;
+};
 
 TABS.vtx.initialize = function (callback) {
     console.log('enter TABS.vtx.initialize()');
@@ -58,7 +58,7 @@ TABS.vtx.initialize = function (callback) {
 
     if (GUI.active_tab !== 'vtx') {
         GUI.active_tab = 'vtx';
-        self.activeSubtab = 'vtx';
+//        self.activeSubtab = 'vtx';
     }
 
 //    self.analyticsChanges = {};
@@ -234,7 +234,7 @@ TABS.vtx.initialize = function (callback) {
 //
 //        vtxcallback_after_read();
 //    }
-
+}
     // Prepares all the UI elements, the MSP command has been executed before
     function initDisplay() {
         console.log('enter initDisplay()');
@@ -247,8 +247,8 @@ TABS.vtx.initialize = function (callback) {
         $(".tab-vtx").addClass("supported");
 
         // Load all the dynamic elements
-        loadPowerLevelsTemplate();
-        loadBandsChannelsTemplate();
+        //loadPowerLevelsTemplate();
+        //loadBandsChannelsTemplate();
         populateBandSelect();
         populatePowerSelect();
 
@@ -627,7 +627,7 @@ TABS.vtx.initialize = function (callback) {
             }
         });
 
-    }
+    ////////////////////////////////////}
 
 //    function save_lua() {
 //        const suffix = 'lua';
