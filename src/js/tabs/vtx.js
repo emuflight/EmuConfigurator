@@ -28,7 +28,7 @@ TABS.vtx = {
 //TABS.vtx.updateVtxDeviceStatus = function()
 //{
 //    console.log('enter TABS.vtx.updateVtxDeviceStatus()');
-//    MSP.send_message(MSPCodes.MSP2_GET_VTX_DEVICE_STATUS, false, false, vtxDeviceStatusReceived);
+//    //MSP.send_message(MSPCodes.MSP2_GET_VTX_DEVICE_STATUS, false, false, vtxDeviceStatusReceived);
 //
 //    function vtxDeviceStatusReceived()
 //    {
@@ -36,17 +36,18 @@ TABS.vtx = {
 //    }
 //    console.log('exit TABS.vtx.updateVtxDeviceStatus()');
 //};
-//
+
 TABS.vtx.getVtxTypeString = function()
 {
     console.log('enter TABS.vtx.getVtxTypeString()');
     let result = i18n.getMessage(`vtxType_${VTX_CONFIG.vtx_type}`);
 
     const isSmartAudio = VtxDeviceTypes.VTXDEV_SMARTAUDIO === VTX_CONFIG.vtx_type;
-    const isVtxDeviceStatusReceived = null !== VTX_DEVICE_STATUS;
+    //const isVtxDeviceStatusReceived = null !== VTX_DEVICE_STATUS;
 
-    if (isSmartAudio && isVtxDeviceStatusReceived) {
-        result += ` ${VTX_DEVICE_STATUS.smartAudioVersion}`;
+    if (isSmartAudio){// && isVtxDeviceStatusReceived) {
+        //result += ` ${VTX_DEVICE_STATUS.smartAudioVersion}`;
+        result += `VTX_CONFIG.vtx_type`;
     }
     console.log('exit TABS.vtx.getVtxTypeString()');
     return result;
