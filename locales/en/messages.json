@@ -5565,17 +5565,9 @@
         "message": "<span class=\"message-negative\">Attention:</span> Your VTX is not configured or not supported. So you can't modify the VTX values from here. This will only be possible if the flight controller is attached to the VTX using some protocol like Tramp or SmartAudio and is correctly configured in the $t(tabPorts.message) tab if needed.",
         "description": "Message to show when the VTX is not supported in the VTX tab"
     },
-    "vtxMessageTableNotConfigured": {
-        "message": "<span class=\"message-negative\">Attention:</span> You need to configure and save FIRST the VTX Table at the bottom before you can make use of the $t(vtxSelectedMode.message) fields.",
-        "description": "Message to show when the VTX is not supported in the VTX tab"
-    },
     "vtxMessageFactoryBandsNotSupported": {
         "message": "<span class=\"message-negative\">Attention:</span> The selected VTX type does not support the 'factory' setting for bands, but some of your bands have this setting. Click '$t(vtxButtonSave.message)' to fix this.",
         "description": "Message to show when the configured VTX type does not support factory bands, but one or more of the configured bands are of this type"
-    },
-    "vtxMessageVerifyTable": {
-        "message": "<span class=\"message-negative\">Attention:</span> The values of the VTX Table have been loaded, but not yet stored on the flight controller. You must verify and modify the values to be sure that they are valid and legal in your country and then press the $t(vtxButtonSave.message) button to store them on the flight controller.",
-        "description": "Message to show when the VTX Table has been loaded from a external source"
     },
     "vtxFrequencyChannel": {
         "message": "Enter frequency directly",
@@ -5713,103 +5705,6 @@
         "message": "On until first arm",
         "description": "One of the options for the Low Power Disarm mode of the VTX"
     },
-    "vtxTable": {
-        "message": "VTX Table",
-        "description": "Text of the header of the VTX Table element in the VTX tab"
-    },
-    "vtxTablePowerLevels": {
-        "message": "Number of power levels",
-        "description": "Text of one of the fields of the VTX Table element in the VTX tab"
-    },
-    "vtxTablePowerLevelsHelp": {
-        "message": "This defines the number of power levels supported by your VTX",
-        "description": "Help for the number of power levels field of the VTX Table element in the VTX tab"
-    },
-    "vtxTablePowerLevelsTableHelp": {
-        "message": "This table represents the different values of power that can be used for the VTX. They are divided into two: <br><b>- $t(vtxTablePowerLevelsValue.message):</b> each power level requires a value that is defined by the hardware manufacturer. Ask your manufacturer for the correct value or consult the Betaflight wiki of VTX Tables to grab some samples. <br><b>- $t(vtxTablePowerLevelsLabel.message):</b> you can put here the label you want for each power level value. It can be numbers (25, 200, 600, 1.2), letters (OFF, MIN, MAX) or a mix of them. <br /><br />You must configure <b>only</b> the power levels that are legal at your country.",
-        "description": "Help for the table of power levels (value-label) that appears in the VTX tab"
-    },
-    "vtxTablePowerLevelsValue": {
-        "message": "Value",
-        "description": "Text of one of the fields of the VTX Table element in the VTX tab"
-    },
-    "vtxTablePowerLevelsLabel": {
-        "message": "Label",
-        "description": "Text of one of the fields of the VTX Table element in the VTX tab"
-    },
-    "vtxTableBands": {
-        "message": "Number of bands",
-        "description": "Text of one of the fields of the VTX Table element in the VTX tab"
-    },
-    "vtxTableChannels": {
-        "message": "Number of channels by band",
-        "description": "Text of one of the fields of the VTX Table element in the VTX tab"
-    },
-    "vtxTableBandsChannelsHelp": {
-        "message": "This defines the number of bands and the number of channels by band that you want for your VTX.",
-        "description": "Help for the number of bands and channels field of the VTX Table element in the VTX tab"
-    },
-    "vtxTableBandTitleName": {
-        "message": "Name",
-        "description": "Text of one of the titles of the VTX Table element in the VTX tab"
-    },
-    "vtxTableBandTitleLetter": {
-        "message": "Letter",
-        "description": "Text of one of the titles of the VTX Table element in the VTX tab"
-    },
-    "vtxTableBandTitleFactory": {
-        "message": "Factory",
-        "description": "Text of one of the titles of the VTX Table element in the VTX tab"
-    },
-    "vtxTableBandsChannelsTableHelp": {
-        "message": "This table represents all the frequencies that can be used for your VTX. You can have several bands and for each band you must configure:<br><b>- $t(vtxTableBandTitleName.message):</b> Name that you want to assign to this band, like BOSCAM_A, FATSHARK or RACEBAND.<br><b>- $t(vtxTableBandTitleLetter.message):</b> Short letter that references the band.<br><b>- $t(vtxTableBandTitleFactory.message):</b> This indicates if it is a factory band. If enabled Betaflight sends to the VTX a band and channel number. The VTX will then use its built-in frequency table and the frequencies configured here are only to show the value in the OSD and other places. If it is not enabled, then Betaflight will send to the VTX the real frequency configured here.<br><b>- Frequencies:</b> Frequencies for this band.<br /><br />Remember that not all frequencies are legal at your country. You must put a value of <b>zero</b> to each frequency index that you are not allowed to use to disable it.",
-        "description": "Help for the table of bands-channels that appears in the VTX tab"
-    },
-
-    "vtxSavedFileOk": {
-        "message": "VTX Config file <span class=\"message-positive\">saved</span>",
-        "description": "Message in the GUI log when the VTX Config file is saved"
-    },
-    "vtxSavedFileKo": {
-        "message": "<span class=\"message-negative\">Error</span> while saving the VTX Config file",
-        "description": "Message in the GUI log when the VTX Config file is saved"
-    },
-    "vtxLoadFileOk": {
-        "message": "VTX Config file <span class=\"message-positive\">loaded</span>",
-        "description": "Message in the GUI log when the VTX Config file is loaded"
-    },
-    "vtxLoadFileKo": {
-        "message": "<span class=\"message-negative\">Error</span> while loading the VTX Config file",
-        "description": "Message in the GUI log when the VTX Config file is loaded"
-    },
-    "vtxLoadClipboardOk": {
-        "message": "VTX Config info <span class=\"message-positive\">loaded</span> from clipboard",
-        "description": "Message in the GUI log when the VTX Config file is pasted from clipboard"
-    },
-    "vtxLoadClipboardKo": {
-        "message": "<span class=\"message-negative\">Error</span> while loading the VTX Config info from clipboard. Maybe the contents are not correct",
-        "description": "Message in the GUI log when the VTX Config file is pasted from clipboard"
-    },
-    "vtxButtonSaveFile": {
-        "message": "Save to file",
-        "description": "Save to file button in the VTX tab"
-    },
-    "vtxButtonSaveLua": {
-        "message": "Save Lua Script",
-        "description": "Save Lua script button in the VTX tab"
-    },
-    "vtxLuaFileHelp" :{
-        "message": "The '$t(vtxButtonSaveLua.message)' button will allow you to save a <i>mcuid</i>.lua file containing the VTX table configuration that can be used with the <a href=\"https://github.com/betaflight/betaflight-tx-lua-scripts/\" target=\"_blank\" rel=\"noopener noreferrer\">Betaflight TX Lua Scripts</a>.<br><br>Version 1.6.0 and above can use the file as is, but for older versions of the scripts it should be renamed to match the modelname on the TX.",
-        "description": "Tooltip message for the Save Lua script button in the VTX tab"
-    },
-    "vtxButtonLoadFile": {
-        "message": "Load from file",
-        "description": "Load to file button in the VTX tab"
-    },
-    "vtxButtonLoadClipboard": {
-        "message": "Load from clipboard",
-        "description": "Paste from clipboard button in the VTX tab"
-    },
     "vtxButtonSave": {
         "message": "Save",
         "description": "Save button in the VTX tab"
@@ -5822,9 +5717,6 @@
         "message": "{{version}} unlocked",
         "description": "Indicates if SA device is unlocked"
     }
-
-
-
 
 
 

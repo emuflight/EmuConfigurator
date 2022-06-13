@@ -529,12 +529,12 @@ var FC = {
 //   sbufWriteU8(dst, vtxSettingsConfig()->power);
 //   sbufWriteU8(dst, pitmode);  //0???
 //   sbufWriteU16(dst, vtxSettingsConfig()->freq);
-            vtx_type:  0,
+            vtx_type:           0,
             vtx_band:           0,
             vtx_channel:        1,
             vtx_power:          0,
-            vtx_pit_mode:        0,
-            vtx_frequency:           0,
+            vtx_pit_mode:       0,
+            vtx_frequency:      0,
         };
 
         DEFAULT = {

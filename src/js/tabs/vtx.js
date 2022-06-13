@@ -55,14 +55,11 @@ TABS.vtx.getVtxTypeString = function()
 
 TABS.vtx.initialize = function (callback) {
     console.log('enter TABS.vtx.initialize()');
-    const self = this;
+    var self = this;
 
-    if (GUI.active_tab !== 'vtx') {
+    if (GUI.active_tab != 'vtx') {
         GUI.active_tab = 'vtx';
-//        self.activeSubtab = 'vtx';
     }
-
-//    self.analyticsChanges = {};
 
     this.supported = semver.gte(CONFIG.apiVersion, "1.40.0");  //since 0.1.0
 
@@ -84,10 +81,6 @@ TABS.vtx.initialize = function (callback) {
 
         // translate to user-selected language
         i18n.localizePage();
-
-        //if (GUI.isCordova()) {
-        //    UI_PHONES.initToolbar();
-        //}
 
         self.updating = false;
         GUI.content_ready(callback);
@@ -119,122 +112,6 @@ TABS.vtx.initialize = function (callback) {
 //            //vtxtable_bands();
 //        }
 
-//        function vtxtable_bands() {
-//
-//            // Simulation of static variable
-//            if (typeof vtxtable_bands.counter === 'undefined') {
-//                TABS.vtx.VTXTABLE_BAND_LIST = [];
-//                vtxtable_bands.counter = 1;
-//            } else {
-//                TABS.vtx.VTXTABLE_BAND_LIST.push(Object.assign({}, VTXTABLE_BAND));
-//                vtxtable_bands.counter++;
-//            }
-//
-//            const buffer = [];
-//            buffer.push8(vtxtable_bands.counter);
-//
-//            if (vtxtable_bands.counter <= VTX_CONFIG.vtx_table_bands) {
-//                MSP.send_message(MSPCodes.MSP_VTXTABLE_BAND, buffer, false, vtxtable_bands);
-//            } else {
-//                vtxtable_bands.counter = undefined;
-//                vtxtable_powerlevels();
-//            }
-//
-//        }
-//
-//        function vtxtable_powerlevels() {
-//
-//            // Simulation of static variable
-//            if (typeof vtxtable_powerlevels.counter === 'undefined') {
-//                TABS.vtx.VTXTABLE_POWERLEVEL_LIST = [];
-//                vtxtable_powerlevels.counter = 1;
-//            } else {
-//                TABS.vtx.VTXTABLE_POWERLEVEL_LIST.push(Object.assign({}, VTXTABLE_POWERLEVEL));
-//                vtxtable_powerlevels.counter++;
-//            }
-//
-//            const buffer = [];
-//            buffer.push8(vtxtable_powerlevels.counter);
-//
-//            if (vtxtable_powerlevels.counter <= VTX_CONFIG.vtx_table_powerlevels) {
-//                MSP.send_message(MSPCodes.MSP_VTXTABLE_POWERLEVEL, buffer, false, vtxtable_powerlevels);
-//            } else {
-//                vtxtable_powerlevels.counter = undefined;
-//                callback_after_msp();
-//            }
-//        }
-//    }
-//
-//    // Validates the vtxConfig object against a JSON Schema
-//    function validateVtxJson(vtxConfig, callback_valid, callback_error) {
-//
-//        // At minimum the version must be defined
-//        if (!vtxConfig.version) {
-//            console.error("Validation against schema failed, version missing");
-//            callback_error();
-//        }
-//
-//        // Load schema
-//        const urlVtxSchema = chrome.runtime.getURL(`resources/jsonschema/vtxconfig_schema-${vtxConfig.version}.json`);
-//
-//        if (GUI.isCordova()) {
-//            // FIXME On android : Fetch API cannot load : URL scheme "file" is not supported
-//            callback_valid();
-//        } else {
-//            fetch(urlVtxSchema)
-//                .then(response => response.json())
-//                .catch(error => console.error('Error fetching VTX Schema:', error))
-//                .then(schemaJson => {
-//
-//                    let valid = false;
-//                    if (schemaJson !== undefined) {
-//                        // Validate
-//                        valid = (TABS.vtx.env.validate(schemaJson, vtxConfig) === undefined);
-//                    }
-//
-//                    console.log("Validation against schema result:", valid);
-//                    valid ? callback_valid() : callback_error();
-//                },
-//            );
-//        }
-//
-//    }
-
-    // Emulates the MSP read from a vtxConfig object (JSON)
-//    function read_vtx_config_json(vtxConfig, vtxcallback_after_read) {
-//
-//        // Bands and channels
-//        VTX_CONFIG.vtx_table_bands = vtxConfig.vtx_table.bands_list.length;
-//
-//
-//        let maxChannels = 0;
-//        TABS.vtx.VTXTABLE_BAND_LIST = [];
-//        for (let i = 1; i <= VTX_CONFIG.vtx_table_bands; i++) {
-//            TABS.vtx.VTXTABLE_BAND_LIST[i - 1] = {};
-//            TABS.vtx.VTXTABLE_BAND_LIST[i - 1].vtxtable_band_number = i;
-//            TABS.vtx.VTXTABLE_BAND_LIST[i - 1].vtxtable_band_name = vtxConfig.vtx_table.bands_list[i - 1].name;
-//            TABS.vtx.VTXTABLE_BAND_LIST[i - 1].vtxtable_band_letter = vtxConfig.vtx_table.bands_list[i - 1].letter;
-//            TABS.vtx.VTXTABLE_BAND_LIST[i - 1].vtxtable_band_is_factory_band = vtxConfig.vtx_table.bands_list[i - 1].is_factory_band;
-//            TABS.vtx.VTXTABLE_BAND_LIST[i - 1].vtxtable_band_frequencies = vtxConfig.vtx_table.bands_list[i - 1].frequencies;
-//
-//            maxChannels = Math.max(maxChannels, TABS.vtx.VTXTABLE_BAND_LIST[i - 1].vtxtable_band_frequencies.length);
-//        }
-//
-//        VTX_CONFIG.vtx_table_channels = maxChannels;
-//
-//        // Power levels
-//        VTX_CONFIG.vtx_table_powerlevels = vtxConfig.vtx_table.powerlevels_list.length;
-//
-//        TABS.vtx.VTXTABLE_POWERLEVEL_LIST = [];
-//        for (let i = 1; i <= VTX_CONFIG.vtx_table_powerlevels; i++) {
-//            TABS.vtx.VTXTABLE_POWERLEVEL_LIST[i - 1] = {};
-//            TABS.vtx.VTXTABLE_POWERLEVEL_LIST[i - 1].vtxtable_powerlevel_number = i;
-//            TABS.vtx.VTXTABLE_POWERLEVEL_LIST[i - 1].vtxtable_powerlevel_value = vtxConfig.vtx_table.powerlevels_list[i - 1].value;
-//            TABS.vtx.VTXTABLE_POWERLEVEL_LIST[i - 1].vtxtable_powerlevel_label = vtxConfig.vtx_table.powerlevels_list[i - 1].label;
-//        }
-//
-//        vtxcallback_after_read();
-//    }
 }
     // Prepares all the UI elements, the MSP command has been executed before
     function initDisplay() {
@@ -332,30 +209,7 @@ TABS.vtx.initialize = function (callback) {
             }
         }
 
-//        $("#vtx_table_powerlevels").val(VTX_CONFIG.vtx_table_powerlevels);
-
-        // Populate power levels
-//       for (let i = 1; i <= TABS.vtx.VTXTABLE_POWERLEVEL_LIST.length; i++) {
-//           $(`#vtx_table_powerlevels_${i}`).val(TABS.vtx.VTXTABLE_POWERLEVEL_LIST[i - 1].vtxtable_powerlevel_value);
-//           $(`#vtx_table_powerlabels_${i}`).val(TABS.vtx.VTXTABLE_POWERLEVEL_LIST[i - 1].vtxtable_powerlevel_label);
-//       }
-
-//       $("#vtx_table_bands").val(VTX_CONFIG.vtx_table_bands);
-//       $("#vtx_table_channels").val(VTX_CONFIG.vtx_table_channels);
-
-//       // Populate VTX Table
-//       let hasFactoryBands = false;
-//       for (let i = 1; i <= TABS.vtx.VTXTABLE_BAND_LIST.length; i++) {
-//           $(`#vtx_table_band_name_${i}`).val(TABS.vtx.VTXTABLE_BAND_LIST[i - 1].vtxtable_band_name);
-//           $(`#vtx_table_band_letter_${i}`).val(TABS.vtx.VTXTABLE_BAND_LIST[i - 1].vtxtable_band_letter);
-//           $(`#vtx_table_band_factory_${i}`).prop("checked", TABS.vtx.VTXTABLE_BAND_LIST[i - 1].vtxtable_band_is_factory_band);
-//           hasFactoryBands = hasFactoryBands || TABS.vtx.VTXTABLE_BAND_LIST[i - 1].vtxtable_band_is_factory_band;
-//           for (let j = 1; j <= TABS.vtx.VTXTABLE_BAND_LIST[i - 1].vtxtable_band_frequencies.length; j++) {
-//               $(`#vtx_table_band_channel_${i}_${j}`).val(TABS.vtx.VTXTABLE_BAND_LIST[i - 1].vtxtable_band_frequencies[j - 1]);
-//           }
-//       }
-
-//       $(".vtx_table_factory_bands_not_supported").toggle(!TABS.vtx.vtxTableFactoryBandsSupported && hasFactoryBands);
+//////////// cut vtx tables
 
         // Actions and other
         function frequencyOrBandChannel() {
@@ -391,111 +245,7 @@ TABS.vtx.initialize = function (callback) {
             $(".field.vtx_frequency").hide();
         }
 
-//        function showHidePowerlevels() {
-//            const powerlevelsValue = $(this).val();
-//
-//            for (let i = 1; i <= TABS.vtx.MAX_POWERLEVEL_VALUES; i++) {
-//                $(`.vtx_table_powerlevels_table td:nth-child(${i})`).toggle(i <= powerlevelsValue);
-//            }
-//        }
-//
-//        $("#vtx_table_powerlevels").on('input', showHidePowerlevels).trigger('input');
-//
-//        function showHideBands() {
-//            const bandsValue = $(this).val();
-//
-//            for (let i = 1; i <= TABS.vtx.MAX_BAND_VALUES; i++) {
-//                $(`.vtx_table_bands_table tr:nth-child(${(i + 1)})`).toggle(i <= bandsValue);
-//            }
-//        }
-//
-//        $("#vtx_table_bands").on('input', showHideBands).trigger('input');
-//
-//        function showHideBandChannels() {
-//            const channelsValue = $(this).val();
-//
-//            for (let i = 1; i <= TABS.vtx.MAX_BAND_CHANNELS_VALUES; i++) {
-//                $(`.vtx_table_bands_table td:nth-child(${(i + 3)})`).toggle(i <= channelsValue);
-//            }
-//        }
-//
-//        $("#vtx_table_channels").on('input', showHideBandChannels).trigger('input');
-//        $("#vtx_table").change(function() {
-//            let fromScratch = true;
-//            if (self.analyticsChanges['VtxTableLoadFromClipboard'] !== undefined || self.analyticsChanges['VtxTableLoadFromFile'] !== //undefined) {
-//                fromScratch = false;
-//            }
-//            self.analyticsChanges['VtxTableEdit'] = fromScratch ? 'modificationOnly' : 'fromTemplate';
-//        });
-//
-        /*** Helper functions */
-
-//        function loadPowerLevelsTemplate() {
-//
-//            // Power levels title
-//            const powerLevelsTitleEle = $(".vtx_table_powerlevels_table .vtx_table_powerlevels_title");
-//
-//            for (let i = 1; i <= TABS.vtx.MAX_POWERLEVEL_VALUES; i++) {
-//                powerLevelsTitleEle.append(`<td><span>${i}</span></td>`);
-//            }
-//
-//            // Power levels
-//            const powerLevelsRowEle = $(".vtx_table_powerlevels_table .vtx_table_powerlevels_values");
-//
-//            const powerValuesEle = $("#tab-vtx-templates #tab-vtx-powerlevel-values td");
-//            for (let i = 1; i <= TABS.vtx.MAX_POWERLEVEL_VALUES; i++) {
-//                const newPowerValuesEle = powerValuesEle.clone();
-//                $(newPowerValuesEle).find('input').attr('id', `vtx_table_powerlevels_${i}`);
-//                powerLevelsRowEle.append(newPowerValuesEle);
-//            }
-//            powerLevelsRowEle.append(`<td><span>${i18n.getMessage('vtxTablePowerLevelsValue')}</span></td>`);
-//
-//            // Power labels
-//            const powerLabelsRowEle = $(".vtx_table_powerlevels_table .vtx_table_powerlevels_labels");
-//
-//            const powerLabelsEle = $("#tab-vtx-templates #tab-vtx-powerlevel-labels td");
-//            for (let i = 1; i <= TABS.vtx.MAX_POWERLEVEL_VALUES; i++) {
-//                const newPowerLabelsEle = powerLabelsEle.clone();
-//                $(newPowerLabelsEle).find('input').attr('id', `vtx_table_powerlabels_${i}`);
-//                powerLabelsRowEle.append(newPowerLabelsEle);
-//            }
-//            powerLabelsRowEle.append(`<td><span>${i18n.getMessage('vtxTablePowerLevelsLabel')}</span></td>`);
-//        }
-//
-//        function loadBandsChannelsTemplate() {
-//            const bandsTableEle = $(".vtx_table_bands_table tbody");
-//
-//            // Title
-//            const titleEle = $("#tab-vtx-templates #tab-vtx-bands-title tr");
-//
-//            for (let i = 1; i <= TABS.vtx.MAX_BAND_VALUES; i++) {
-//                titleEle.append(`<td><span>${i}</span></td>`);
-//            }
-//            bandsTableEle.append(titleEle);
-//
-//            // Bands
-//            const bandEle = $("#tab-vtx-templates #tab-vtx-bands tr");
-//            const channelEle = $("#tab-vtx-templates #tab-vtx-channels td");
-//            for (let i = 1; i <= TABS.vtx.MAX_BAND_VALUES; i++) {
-//                const newBandEle = bandEle.clone();
-//                $(newBandEle).find('#vtx_table_band_name').attr('id', `vtx_table_band_name_${i}`);
-//                $(newBandEle).find('#vtx_table_band_letter').attr('id', `vtx_table_band_letter_${i}`);
-//                $(newBandEle).find('#vtx_table_band_factory').attr('id', `vtx_table_band_factory_${i}`);
-//
-//                // Channels
-//                for (let j = 1; j <= TABS.vtx.MAX_BAND_CHANNELS_VALUES; j++) {
-//                    const newChannelEle = channelEle.clone();
-//                    $(newChannelEle).find('input').attr('id', `vtx_table_band_channel_${i}_${j}`);
-//
-//                    newBandEle.append(newChannelEle);
-//                }
-//
-//                // Append to the end an index of the band
-//                newBandEle.append(`<td><span>${i18n.getMessage("vtxBand_X", {bandName: i})}</span></td>`);
-//
-//                bandsTableEle.append(newBandEle);
-//            }
-//        }
+//////////// cut vtx tables
 
         function populateBandSelect() {
             console.log('enter populateBandSelect()');
@@ -605,22 +355,6 @@ TABS.vtx.initialize = function (callback) {
             return powerMinMax;
         }
 
-        // Save and other button functions
-//        $('a.save_file').click(function () {
-//            save_json();
-//        });
-//
-//        $('a.save_lua').click(function () {
-//            save_lua();
-//        });
-//
-//        $('a.load_file').click(function () {
-//            load_json();
-//        });
-//
-//        $('a.load_clipboard').click(function () {
-//            load_clipboard_json();
-//        });
 
         $('a.save').click(function () {
             if (!self.updating) {
@@ -628,219 +362,7 @@ TABS.vtx.initialize = function (callback) {
             }
         });
 
-    ////////////////////////////////////}
 
-//    function save_lua() {
-//        const suffix = 'lua';
-//
-//        const uid0 = CONFIG.uid[0].toString(16).padStart(8, '0');
-//        const uid1 = CONFIG.uid[1].toString(16).padStart(8, '0');
-//        const uid2 = CONFIG.uid[2].toString(16).padStart(8, '0');
-//
-//        const filename = `${uid0}${uid1}${uid2}.${suffix}`;
-//
-//        const accepts = [{
-//            description: `${suffix.toUpperCase()} files`, extensions: [suffix],
-//        }];
-//
-//        chrome.fileSystem.chooseEntry({type: 'saveFile', suggestedName: filename, accepts}, function(entry) {
-//            if (checkChromeRuntimeError()) {
-//                return;
-//            }
-//
-//            entry.createWriter(function (writer) {
-//
-//                writer.onerror = function(){
-//                    console.error('Failed to write VTX table lua file');
-//                    GUI.log(i18n.getMessage('vtxSavedFileKo'));
-//                };
-//
-//                writer.onwriteend = function() {
-//                    dump_html_to_msp();
-//                    const vtxConfig = createVtxConfigInfo();
-//                    const text = createLuaTables(vtxConfig);
-//                    const data = new Blob([text], { type: "application/text" });
-//
-//                    // we get here at the end of the truncate method, change to the new end
-//                    writer.onwriteend = function() {
-//                        analytics.sendEvent(analytics.EVENT_CATEGORIES.FLIGHT_CONTROLLER, 'VtxTableLuaSave', text.length);
-//                        console.log('Write VTX table lua file end');
-//                        GUI.log(i18n.getMessage('vtxSavedFileOk'));
-//                    };
-//
-//                    writer.write(data);
-//                };
-//
-//                writer.truncate(0);
-//
-//            }, function (){
-//                console.error('Failed to get VTX table lua file writer');
-//                GUI.log(i18n.getMessage('vtxSavedFileKo'));
-//            });
-//        });
-//    }
-//    function save_json() {
-//        const suggestedName = 'vtxtable';
-//        const suffix = 'json';
-//
-//        const filename = generateFilename(suggestedName, suffix);
-//
-//        const accepts = [{
-//            description: `${suffix.toUpperCase()} files`, extensions: [suffix],
-//        }];
-//
-//        chrome.fileSystem.chooseEntry({type: 'saveFile', suggestedName: filename, accepts}, function(entry) {
-//            if (checkChromeRuntimeError()) {
-//                return;
-//            }
-//
-//            if (!entry) {
-//                console.log('No file selected');
-//                return;
-//            }
-//
-//            entry.createWriter(function (writer) {
-//
-//                writer.onerror = function(){
-//                    console.error('Failed to write VTX file');
-//                    GUI.log(i18n.getMessage('vtxSavedFileKo'));
-//                };
-//
-//                writer.onwriteend = function() {
-//                    dump_html_to_msp();
-//                    const vtxConfig = createVtxConfigInfo();
-//                    const text = JSON.stringify(vtxConfig, null, 4);
-//                    const data = new Blob([text], { type: "application/json" });
-//
-//                    // we get here at the end of the truncate method, change to the new end
-//                    writer.onwriteend = function() {
-//                        analytics.sendEvent(analytics.EVENT_CATEGORIES.FLIGHT_CONTROLLER, 'VtxTableSave', text.length);
-//                        console.log(vtxConfig);
-//                        console.log('Write VTX file end');
-//                        GUI.log(i18n.getMessage('vtxSavedFileOk'));
-//                    };
-//
-//                    writer.write(data);
-//                };
-//
-//                writer.truncate(0);
-//
-//            }, function (){
-//                console.error('Failed to get VTX file writer');
-//                GUI.log(i18n.getMessage('vtxSavedFileKo'));
-//            });
-//        });
-//    }
-//
-//    function load_json() {
-//
-//        const suffix = 'json';
-//
-//        const accepts = [{
-//            description: `${suffix.toUpperCase()} files`, extensions: [suffix],
-//        }];
-//
-//        chrome.fileSystem.chooseEntry({type: 'openFile', accepts}, function(entry) {
-//            if (checkChromeRuntimeError()) {
-//                return;
-//            }
-//
-//            entry.file(function(file) {
-//
-//                const reader = new FileReader();
-//
-//                reader.onload = function(e) {
-//
-//                    const text = e.target.result;
-//                    try {
-//
-//                        const vtxConfig = JSON.parse(text);
-//
-//                        validateVtxJson(
-//                            vtxConfig,
-//                            function() {
-//
-//                                // JSON is valid
-//                                read_vtx_config_json(vtxConfig, load_html);
-//
-//                                TABS.vtx.vtxTableSavePending = true;
-//
-//                                self.analyticsChanges['VtxTableLoadFromClipboard'] = undefined;
-//                                self.analyticsChanges['VtxTableLoadFromFile'] = file.name;
-//
-//                                console.log('Load VTX file end');
-//                                GUI.log(i18n.getMessage('vtxLoadFileOk'));
-//                            },
-//                            function() {
-//
-//                                // JSON is NOT valid
-//                                console.error('VTX Config from file failed validation against schema');
-//                                GUI.log(i18n.getMessage('vtxLoadFileKo'));
-//
-//                            },
-//                        );
-//
-//                    } catch (err) {
-//                        console.error('Failed loading VTX file config');
-//                        GUI.log(i18n.getMessage('vtxLoadFileKo'));
-//                    }
-//                };
-//
-//                reader.readAsText(file);
-//
-//            }, function() {
-//                console.error('Failed to get VTX file reader');
-//                GUI.log(i18n.getMessage('vtxLoadFileKo'));
-//            });
-//        });
-//    }
-//
-//    function load_clipboard_json() {
-//
-//        try {
-//
-//            Clipboard.readText(
-//                function(text) {
-//
-//                    console.log('Pasted content: ', text);
-//
-//                    const vtxConfig = JSON.parse(text);
-//
-//                    validateVtxJson(
-//                        vtxConfig,
-//                        function() {
-//
-//                            // JSON is valid
-//                            read_vtx_config_json(vtxConfig, load_html);
-//
-//                            TABS.vtx.vtxTableSavePending = true;
-//
-//                            self.analyticsChanges['VtxTableLoadFromFile'] = undefined;
-//                            self.analyticsChanges['VtxTableLoadFromClipboard'] = text.length;
-//
-//                            console.log('Load VTX clipboard end');
-//                            GUI.log(i18n.getMessage('vtxLoadClipboardOk'));
-//                        },
-//                        function() {
-//
-//                            // JSON is NOT valid
-//                            GUI.log(i18n.getMessage('vtxLoadClipboardKo'));
-//                            console.error('VTX Config from clipboard failed validation against schema');
-//                        },
-//                    );
-//
-//                }, function(err) {
-//                    GUI.log(i18n.getMessage('vtxLoadClipboardKo'));
-//                    console.error('Failed to read clipboard contents: ', err);
-//                },
-//            );
-//
-//        } catch (err) {
-//            console.error(`Failed loading VTX file config: ${err}`);
-//            GUI.log(i18n.getMessage('vtxLoadClipboardKo'));
-//        }
-//
-//    }
 
     // Save all the values from the tab to MSP
     function save_vtx() {
@@ -924,6 +446,8 @@ TABS.vtx.initialize = function (callback) {
         console.log('exit save_vtx()');
     }
 
+
+///////////// THIS NEEDS FIXING FOR EMUFLIGHT
     function dump_html_to_msp() {
         console.log('enter dump_html_to_msp()');
         // General config
@@ -936,7 +460,8 @@ TABS.vtx.initialize = function (callback) {
             VTX_CONFIG.vtx_band = parseInt($("#vtx_band").val());
             VTX_CONFIG.vtx_channel = parseInt($("#vtx_channel").val());
             VTX_CONFIG.vtx_frequency = 0;
-            if (semver.lt(CONFIG.apiVersion, "1.40.0")) {
+            //if (semver.lt(CONFIG.apiVersion, "1.40.0")) {
+            if (semver.gte(CONFIG.apiVersion, "1.40.0")) {
                 if (VTX_CONFIG.vtx_band > 0 || VTX_CONFIG.vtx_channel > 0) {
                     VTX_CONFIG.vtx_frequency = (band - 1) * 8 + (channel - 1);
                 }
@@ -945,109 +470,25 @@ TABS.vtx.initialize = function (callback) {
         VTX_CONFIG.vtx_power = parseInt($("#vtx_power").val());
         VTX_CONFIG.vtx_pit_mode = $("#vtx_pit_mode").prop('checked');
         VTX_CONFIG.vtx_low_power_disarm = parseInt($("#vtx_low_power_disarm").val());
-        VTX_CONFIG.vtx_table_clear = true;
+        //VTX_CONFIG.vtx_table_clear = true;
 
-        // Power levels
-//        VTX_CONFIG.vtx_table_powerlevels = parseInt($("#vtx_table_powerlevels").val());
-//
-//        TABS.vtx.VTXTABLE_POWERLEVEL_LIST = [];
-//        for (let i = 1; i <= VTX_CONFIG.vtx_table_powerlevels; i++) {
-//            TABS.vtx.VTXTABLE_POWERLEVEL_LIST[i - 1] = {};
-//            TABS.vtx.VTXTABLE_POWERLEVEL_LIST[i - 1].vtxtable_powerlevel_number = i;
-//            TABS.vtx.VTXTABLE_POWERLEVEL_LIST[i - 1].vtxtable_powerlevel_value = parseInt($(`#vtx_table_powerlevels_${i}`//).val());
-//            TABS.vtx.VTXTABLE_POWERLEVEL_LIST[i - 1].vtxtable_powerlevel_label = $(`#vtx_table_powerlabels_${i}`).val();
-//        }
-//
-//        // Bands and channels
-//        VTX_CONFIG.vtx_table_bands = parseInt($("#vtx_table_bands").val());
-//        VTX_CONFIG.vtx_table_channels = parseInt($("#vtx_table_channels").val());
-//        TABS.vtx.VTXTABLE_BAND_LIST = [];
-//        for (let i = 1; i <= VTX_CONFIG.vtx_table_bands; i++) {
-//            TABS.vtx.VTXTABLE_BAND_LIST[i - 1] = {};
-//            TABS.vtx.VTXTABLE_BAND_LIST[i - 1].vtxtable_band_number = i;
-//            TABS.vtx.VTXTABLE_BAND_LIST[i - 1].vtxtable_band_name = $(`#vtx_table_band_name_${i}`).val();
-//            TABS.vtx.VTXTABLE_BAND_LIST[i - 1].vtxtable_band_letter = $(`#vtx_table_band_letter_${i}`).val();
-//            TABS.vtx.VTXTABLE_BAND_LIST[i - 1].vtxtable_band_is_factory_band = TABS.vtx.vtxTableFactoryBandsSupported ? $//(`#vtx_table_band_factory_${i}`).prop('checked') : false;
-//
-//            TABS.vtx.VTXTABLE_BAND_LIST[i - 1].vtxtable_band_frequencies = [];
-//            for (let j = 1; j <= VTX_CONFIG.vtx_table_channels; j++) {
-//                TABS.vtx.VTXTABLE_BAND_LIST[i - 1].vtxtable_band_frequencies.push(parseInt($(`#vtx_table_band_channel_${i//}_${j}`).val()));
-//            }
-//        }
+
         console.log('exit dump_html_to_msp()');
     }
 
-    // Copies from the MSP data to the vtxInfo object (JSON)
-//   function createVtxConfigInfo() {
 
-//       const vtxConfig = {
-//           description: "Betaflight VTX Config file",
-//           version: "1.0",
-//       };
-
-//       vtxConfig.vtx_table = {};
-
-//       vtxConfig.vtx_table.bands_list = [];
-//       for (let i = 1; i <= VTX_CONFIG.vtx_table_bands; i++) {
-//           vtxConfig.vtx_table.bands_list[i - 1] = {};
-//           vtxConfig.vtx_table.bands_list[i - 1].name = TABS.vtx.VTXTABLE_BAND_LIST[i - 1].vtxtable_band_name;
-//           vtxConfig.vtx_table.bands_list[i - 1].letter = TABS.vtx.VTXTABLE_BAND_LIST[i - 1].vtxtable_band_letter;
-//           vtxConfig.vtx_table.bands_list[i - 1].is_factory_band = TABS.vtx.VTXTABLE_BAND_LIST[i - 1].vtxtable_band_is_factory_band;
-//           vtxConfig.vtx_table.bands_list[i - 1].frequencies = TABS.vtx.VTXTABLE_BAND_LIST[i - 1].vtxtable_band_frequencies;
-//       }
-
-//       vtxConfig.vtx_table.powerlevels_list = [];
-//       for (let i = 1; i <= VTX_CONFIG.vtx_table_powerlevels; i++) {
-//           vtxConfig.vtx_table.powerlevels_list[i - 1] = {};
-//           vtxConfig.vtx_table.powerlevels_list[i - 1].value = TABS.vtx.VTXTABLE_POWERLEVEL_LIST[i - 1].vtxtable_powerlevel_value;
-//           vtxConfig.vtx_table.powerlevels_list[i - 1].label = TABS.vtx.VTXTABLE_POWERLEVEL_LIST[i - 1].vtxtable_powerlevel_label;
-//       }
-
-//       return vtxConfig;
-//   }
-
-//    function createLuaTables(vtxConfig) {
-//
-//        let bandsString = "bandTable = { [0]=\"U\"";
-//        let frequenciesString = "frequencyTable = {\n";
-//
-//        const bandsList = vtxConfig.vtx_table.bands_list;
-//        for (let index = 0, len = bandsList.length; index < len; ++index) {
-//            bandsString += `, "${bandsList[index].letter}"`;
-//            frequenciesString += "        { ";
-//            for (let i = 0, l = bandsList[index].frequencies.length; i < l; ++i) {
-//                frequenciesString += `${bandsList[index].frequencies[i]}, `;
-//            }
-//            frequenciesString += "},\n";
-//        }
-//        bandsString += " },\n";
-//        frequenciesString += "    },\n";
-//
-//        const freqBandsString = `frequenciesPerBand = ${bandsList[1].frequencies.length},\n`;
-//
-//        const powerList = vtxConfig.vtx_table.powerlevels_list;
-//        let powersString = "powerTable = { ";
-//        for (let index = 0, len = powerList.length; index < len; ++index) {
-//            powersString += `[${(index + 1)}]="${powerList[index].label}", `;
-//        }
-//        powersString += "},\n";
-//
-//        return `return {\n    ${frequenciesString}    ${freqBandsString}    ${bandsString}    ${powersString}}`;
-//    }
-
-//};
 
 TABS.vtx.cleanup = function (callback) {
-    console.log('enter TABS.vtx.cleanup()');
+    //console.log('enter TABS.vtx.cleanup()');
     // Add here things that need to be cleaned or closed before leaving the tab
-    this.vtxTableSavePending = false;
-    this.VTXTABLE_BAND_LIST = [];
-    this.VTXTABLE_POWERLEVEL_LIST = [];
+    //this.vtxTableSavePending = false;
+    //this.VTXTABLE_BAND_LIST = [];
+    //this.VTXTABLE_POWERLEVEL_LIST = [];
 
-    GUI.interval_remove(this._DEVICE_STATUS_UPDATE_INTERVAL_NAME);
+    //GUI.interval_remove(this._DEVICE_STATUS_UPDATE_INTERVAL_NAME);
 
     if (callback) {
         callback();
     }
-    console.log('exit TABS.vtx.cleanup()');
+    //console.log('exit TABS.vtx.cleanup()');
 };

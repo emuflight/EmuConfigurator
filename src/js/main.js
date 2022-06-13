@@ -719,7 +719,7 @@ function updateTabList(features) {
         $('#tabs ul.mode-connected li.tab_power').hide();
     }
 
-    if (semver.gte(CONFIG.apiVersion, "1.42.0")) {
+    if (semver.gte(CONFIG.apiVersion, "1.40.0")) {
         $('#tabs ul.mode-connected li.tab_vtx').show();
     } else {
         $('#tabs ul.mode-connected li.tab_vtx').hide();
