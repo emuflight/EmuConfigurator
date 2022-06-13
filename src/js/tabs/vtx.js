@@ -12,9 +12,10 @@ TABS.vtx = {
     //analyticsChanges: {},
     updating: true,
     //env: new djv(),
-    get _DEVICE_STATUS_UPDATE_INTERVAL_NAME() {
-        return "vtx_device_status_request";
-    },
+    //get _DEVICE_STATUS_UPDATE_INTERVAL_NAME() {
+    //    return "vtx_device_status_request";
+    //},
+    activeSubtab: 'vtx'
 };
 
 TABS.vtx.isVtxDeviceStatusNotReady = function()
@@ -24,32 +25,32 @@ TABS.vtx.isVtxDeviceStatusNotReady = function()
     return !isReady;
 };
 
-TABS.vtx.updateVtxDeviceStatus = function()
-{
-    console.log('enter TABS.vtx.updateVtxDeviceStatus()');
-    MSP.send_message(MSPCodes.MSP2_GET_VTX_DEVICE_STATUS, false, false, vtxDeviceStatusReceived);
-
-    function vtxDeviceStatusReceived()
-    {
-        $("#vtx_type_description").text(TABS.vtx.getVtxTypeString());
-    }
-    console.log('exit TABS.vtx.updateVtxDeviceStatus()');
-};
-
-TABS.vtx.getVtxTypeString = function()
-{
-    console.log('enter TABS.vtx.getVtxTypeString()');
-    let result = i18n.getMessage(`vtxType_${VTX_CONFIG.vtx_type}`);
-
-    const isSmartAudio = VtxDeviceTypes.VTXDEV_SMARTAUDIO === VTX_CONFIG.vtx_type;
-    const isVtxDeviceStatusReceived = null !== VTX_DEVICE_STATUS;
-
-    if (isSmartAudio && isVtxDeviceStatusReceived) {
-        result += ` ${VTX_DEVICE_STATUS.smartAudioVersion}`;
-    }
-    console.log('exit TABS.vtx.getVtxTypeString()');
-    return result;
-};
+//TABS.vtx.updateVtxDeviceStatus = function()
+//{
+//    console.log('enter TABS.vtx.updateVtxDeviceStatus()');
+//    MSP.send_message(MSPCodes.MSP2_GET_VTX_DEVICE_STATUS, false, false, vtxDeviceStatusReceived);
+//
+//    function vtxDeviceStatusReceived()
+//    {
+//        $("#vtx_type_description").text(TABS.vtx.getVtxTypeString());
+//    }
+//    console.log('exit TABS.vtx.updateVtxDeviceStatus()');
+//};
+//
+//TABS.vtx.getVtxTypeString = function()
+//{
+//    console.log('enter TABS.vtx.getVtxTypeString()');
+//    let result = i18n.getMessage(`vtxType_${VTX_CONFIG.vtx_type}`);
+//
+//    const isSmartAudio = VtxDeviceTypes.VTXDEV_SMARTAUDIO === VTX_CONFIG.vtx_type;
+//    const isVtxDeviceStatusReceived = null !== VTX_DEVICE_STATUS;
+//
+//    if (isSmartAudio && isVtxDeviceStatusReceived) {
+//        result += ` ${VTX_DEVICE_STATUS.smartAudioVersion}`;
+//    }
+//    console.log('exit TABS.vtx.getVtxTypeString()');
+//    return result;
+//};
 
 TABS.vtx.initialize = function (callback) {
     console.log('enter TABS.vtx.initialize()');
@@ -57,6 +58,7 @@ TABS.vtx.initialize = function (callback) {
 
     if (GUI.active_tab !== 'vtx') {
         GUI.active_tab = 'vtx';
+        self.activeSubtab = 'vtx';
     }
 
 //    self.analyticsChanges = {};
@@ -82,9 +84,9 @@ TABS.vtx.initialize = function (callback) {
         // translate to user-selected language
         i18n.localizePage();
 
-        if (GUI.isCordova()) {
-            UI_PHONES.initToolbar();
-        }
+        //if (GUI.isCordova()) {
+        //    UI_PHONES.initToolbar();
+        //}
 
         self.updating = false;
         GUI.content_ready(callback);
@@ -98,22 +100,23 @@ TABS.vtx.initialize = function (callback) {
 
         function vtx_config() {
             console.log('enter vtx_config() [MSP.send_message]');
-            MSP.send_message(MSPCodes.MSP_VTX_CONFIG, false, false, vtxConfigReceived);
+            //MSP.send_message(MSPCodes.MSP_VTX_CONFIG, false, false, vtxConfigReceived);
+            MSP.send_message(MSPCodes.MSP_VTX_CONFIG, false, false, load_html);
             console.log('exit vtx_config()');
         }
 
-        function vtxConfigReceived() {
-            console.log('enter read_vtx_config().vtxConfigReceived()');
-            if (semver.gte(CONFIG.apiVersion, "1.40.0")) {
-                GUI.interval_add('vtx_pull',//self._DEVICE_STATUS_UPDATE_INTERVAL_NAME,
-                    TABS.vtx.updateVtxDeviceStatus,
-                    1000, false,
-                    TABS.vtx.isVtxDeviceStatusNotReady,
-                );
-            }
-            console.log('exit read_vtx_config().vtxConfigReceived()');
-            //vtxtable_bands();
-        }
+//        function vtxConfigReceived() {
+//            console.log('enter read_vtx_config().vtxConfigReceived()');
+//            if (semver.gte(CONFIG.apiVersion, "1.40.0")) {
+//                GUI.interval_add('vtx_pull',//self._DEVICE_STATUS_UPDATE_INTERVAL_NAME,
+//                    TABS.vtx.updateVtxDeviceStatus,
+//                    1000, false,
+//                    TABS.vtx.isVtxDeviceStatusNotReady,
+//                );
+//            }
+//            console.log('exit read_vtx_config().vtxConfigReceived()');
+//            //vtxtable_bands();
+//        }
 
 //        function vtxtable_bands() {
 //
