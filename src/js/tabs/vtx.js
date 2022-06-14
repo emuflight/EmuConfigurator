@@ -47,7 +47,7 @@ TABS.vtx.getVtxTypeString = function()
 
     if (isSmartAudio){// && isVtxDeviceStatusReceived) {
         //result += ` ${VTX_DEVICE_STATUS.smartAudioVersion}`;
-        result += `VTX_CONFIG.vtx_type`;
+        //result += `VTX_CONFIG.vtx_type`;
     }
     console.log('exit TABS.vtx.getVtxTypeString()');
     return result;
@@ -173,7 +173,7 @@ TABS.vtx.initialize = function (callback) {
         const noMessage =  i18n.getMessage("no");
 
         $("#vtx_device_ready_description").text(VTX_CONFIG.vtx_device_ready ? yesMessage : noMessage);
-        $("#vtx_type_description").text(self.getVtxTypeString());
+        $("#vtx_type_description").text(self.getVtxTypeString()); //keep this one if nothing else
         $("#vtx_channel_description").text(VTX_CONFIG.vtx_channel);
         $("#vtx_frequency_description").text(VTX_CONFIG.vtx_frequency);
         $("#vtx_pit_mode_description").text(VTX_CONFIG.vtx_pit_mode ? yesMessage : noMessage);
