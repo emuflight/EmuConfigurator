@@ -30,6 +30,7 @@
 
               <div class="spacer_box">
 
+<!-- confusing and not necessary
                   <div class="field checkbox vtx_frequency_channel">
                       <span class="checkboxspacer">
                           <input type="checkbox" id="vtx_frequency_channel" class="toggle" />
@@ -39,6 +40,7 @@
                           <div class="helpicon cf_tip" i18n_title="vtxFrequencyChannelHelp"></div>
                       </label>
                   </div>
+-->
 
                   <div class="field number vtx_band">
                       <span class="numberspacer">
@@ -92,6 +94,7 @@
                       <div class="helpicon cf_tip" i18n_title="vtxPitModeHelp"></div>
                   </div>
 
+<!-- not supported by MSP
                   <div class="field number vtx_pit_mode_frequency">
                       <span class="numberspacer">
                           <input class="frequency_input" type="number" id="vtx_pit_mode_frequency" min="0" max="5999">
@@ -99,6 +102,7 @@
                       <span i18n="vtxPitModeFrequency"></span>
                       <div class="helpicon cf_tip" i18n_title="vtxPitModeFrequencyHelp"></div>
                   </div>
+-->
 
                   <div class="field select vtx_low_power_disarm">
                       <span class="selectspacer">
@@ -114,79 +118,19 @@
               </div>
 
           </div>
-
-          <div class="gui_box grey vtx_supported rightColumn">
-
-              <div class="gui_box_titlebar">
-                  <div class="spacer_box_title" i18n="vtxActualState"></div>
-              </div>
-
-              <div class="spacer_box">
-
-              <table class="cf_table">
-                <tbody>
-                    <tr class="description vtx_type">
-                        <td class="description_text" i18n="vtxType"></td>
-                        <td class="description_value" id="vtx_type_description"></td>
-                    </tr>
-                      <tr class="description vtx_device_ready">
-                          <td class="description_text" i18n="vtxDeviceReady"></td>
-                          <td class="description_value" id="vtx_device_ready_description"></td>
-                      </tr>
-                      <tr class="description vtx_band">
-                          <td class="description_text" i18n="vtxBand"></td>
-                          <td class="description_value" id="vtx_band_description"></td>
-                      </tr>
-                      <tr class="description vtx_channel">
-                          <td class="description_text" i18n="vtxChannel"></td>
-                          <td class="description_value" id="vtx_channel_description"></td>
-                      </tr>
-                    <tr class="description vtx_frequency">
-                          <td class="description_text" i18n="vtxFrequency"></td>
-                          <td class="description_value" id="vtx_frequency_description"></td>
-                      </tr>
-                      <tr class="description vtx_power">
-                          <td class="description_text" i18n="vtxPower"></td>
-                          <td class="description_value" id="vtx_power_description"></td>
-                      </tr>
-                      <tr class="description pit_mode">
-                          <td class="description_text" i18n="vtxPitMode"></td>
-                          <td class="description_value" id="vtx_pit_mode_description"></td>
-                      </tr>
-                      <tr class="description vtx_pit_mode">
-                          <td class="description_text" i18n="vtxPitModeFrequency"></td>
-                          <td class="description_value" id="vtx_pit_mode_frequency_description"></td>
-                      </tr>
-                      <tr class="description vtx_low_power_disarm">
-                          <td class="description_text" i18n="vtxLowPowerDisarm"></td>
-                          <td class="description_value" id="vtx_low_power_disarm_description"></td>
-                      </tr>
-
-                </tbody>
-            </table>
-
-              </div>
-          </div>
         </div>
-
-
-
     </div>
 
     <div class="content_toolbar xs-compressed">
-
         <div class="btn refresh_btn">
             <a class="refresh" id="refresh_button" href="#" i18n="vtxButtonRefresh"></a>
         </div>
         <div class="btn save_btn">
             <a class="save" id="save_button" href="#" i18n="vtxButtonSave"></a>
         </div>
-
     </div>
-
     <div class="toolbar_expand_btn" nbrow="2">
         <em class="fas fa-ellipsis-h"></em>
     </div>
-
 </div>
 
