@@ -126,8 +126,6 @@ TABS.vtx.initialize = function (callback) {
         $(".tab-vtx").addClass("supported");
 
         // Load all the dynamic elements
-        //loadPowerLevelsTemplate();
-        //loadBandsChannelsTemplate();
         populateBandSelect();
         populatePowerSelect();
 
@@ -140,10 +138,6 @@ TABS.vtx.initialize = function (callback) {
 
         $(".vtx_supported").toggle(vtxSupported);
         $(".vtx_not_supported").toggle(!vtxSupported);
-
-
-        // Buttons
-        $('.clipboard_available').toggle(Clipboard.available && Clipboard.readAvailable);
 
         // Insert actual values in the fields
         // Values of the selected mode
@@ -161,29 +155,11 @@ TABS.vtx.initialize = function (callback) {
         $("#vtx_low_power_disarm").val(VTX_CONFIG.vtx_low_power_disarm);
 
         // Values of the current values
-        const yesMessage =  i18n.getMessage("yes");
-        const noMessage =  i18n.getMessage("no");
+        //const yesMessage =  i18n.getMessage("yes");
+        //const noMessage =  i18n.getMessage("no");
 
         //$("#vtx_device_ready_description").text(VTX_CONFIG.vtx_device_ready ? yesMessage : noMessage);
         $("#vtx_type_description").text(self.getVtxTypeString()); //keep this one if nothing else
-        //$("#vtx_channel_description").text(VTX_CONFIG.vtx_channel);
-        //$("#vtx_frequency_description").text(VTX_CONFIG.vtx_frequency);
-        //$("#vtx_pit_mode_description").text(VTX_CONFIG.vtx_pit_mode ? yesMessage : noMessage);
-        //$("#vtx_pit_mode_frequency_description").text(VTX_CONFIG.vtx_pit_mode_frequency);
-        //$("#vtx_low_power_disarm_description").text(i18n.getMessage(`vtxLowPowerDisarmOption_${VTX_CONFIG.vtx_low_power_disarm}`));
-
-        if (VTX_CONFIG.vtx_band === 0) {
-            $("#vtx_band_description").text(i18n.getMessage("vtxBand_0"));
-        } else {
-                $("#vtx_band_description").text(VTX_CONFIG.vtx_band);
-            }
-
-        if (VTX_CONFIG.vtx_power === 0) {
-            $("#vtx_power_description").text(i18n.getMessage("vtxPower_0"));
-        } else {
-                const levelText = i18n.getMessage('vtxPower_X', {powerLevel: VTX_CONFIG.vtx_power});
-                $("#vtx_power_description").text(levelText);
-            }
 } //initDisplay
 
 //////////// cut vtx tables
