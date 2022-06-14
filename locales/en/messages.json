@@ -5572,8 +5572,11 @@
     "vtxMessageRequiresHAM": {
         "message": "<span class=\"message-negative\">Attention:</span> Operating most Analog VTx above 25mW requires pilots to hold a HAM radio License. In the US, only FCC Part 18 Certified products are the exception."
     },
-    "vtxHardwareModes": {
+    "vtxMessageHardwareModes": {
         "message": "Other things to consider: Locked, Unlocked, Race-Mode, Free-Mode should all be set by the VTX hardware. EmuFlight does not have access to this."
+    },
+    "vtxMessageAnalogFunny": {
+        "message": "Set up however you want, you're not gonna see anything but lines and static anyways"
     },
     "vtxMessageNonMSP": {
         "message": "CLI-only settings include 'vtx_pit_mode_freq' and 'vtx_halfduplex'. Configure them as needed in CLI."
