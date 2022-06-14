@@ -335,15 +335,15 @@ TABS.vtx.initialize = function (callback) {
                     break;
 
                 case VtxDeviceTypes.VTXDEV_RTC6705:
-                    powerMinMax = {min: 1, max: 3};
+                    powerMinMax = {min: 0, max: 3};
                     break;
 
                 case VtxDeviceTypes.VTXDEV_SMARTAUDIO:
-                    powerMinMax = {min: 1, max: 4};
+                    powerMinMax = {min: 0, max: 4};
                     break;
 
                 case VtxDeviceTypes.VTXDEV_TRAMP:
-                    powerMinMax = {min: 1, max: 5};
+                    powerMinMax = {min: 0, max: 5};
                     break;
 
                 case VtxDeviceTypes.VTXDEV_UNKNOWN:
