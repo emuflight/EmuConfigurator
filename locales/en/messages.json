@@ -306,9 +306,6 @@
     "tabOnboardLogging": {
         "message": "Blackbox"
     },
-    "tabVtx": {
-        "message": "VTX"
-    },
     "tabAdjustments": {
         "message": "Adjustments"
     },
@@ -5553,6 +5550,9 @@
 
 
 
+    "tabVtx": {
+        "message": "Analog VTX"
+    },
 
 
     "COMMENT": {"message": "most these need purge"},
@@ -5562,12 +5562,15 @@
         "description": "Introduction message in the VTX tab"
     },
     "vtxMessageNotSupported": {
-        "message": "<span class=\"message-negative\">Attention:</span> Your VTX is not configured or not supported. So you can't modify the VTX values from here. This will only be possible if the flight controller is attached to the VTX using some protocol like Tramp or SmartAudio and is correctly configured in the $t(tabPorts.message) tab if needed.",
+        "message": "<span class=\"message-negative\">Attention:</span> Your VTX is not configured or not supported. Configuration will only be possible if the VTx is properly soldered to the flight-controller and setup correctly with a protocol like Tramp or SmartAudio in the $t(tabPorts.message) tab.",
         "description": "Message to show when the VTX is not supported in the VTX tab"
     },
     "vtxMessageFactoryBandsNotSupported": {
         "message": "<span class=\"message-negative\">Attention:</span> The selected VTX type does not support the 'factory' setting for bands, but some of your bands have this setting. Click '$t(vtxButtonSave.message)' to fix this.",
         "description": "Message to show when the configured VTX type does not support factory bands, but one or more of the configured bands are of this type"
+    },
+    "vtxMessageRequiresHAM": {
+        "message": "<span class=\"message-negative\">Attention:</span> Operating most Analog VTx above 25mW requires pilots to hold a HAM radio License. In the US, only FCC Part 18 Certified products are the exception."
     },
     "vtxFrequencyChannel": {
         "message": "Enter frequency directly",
@@ -5712,6 +5715,10 @@
     "vtxButtonSaved": {
         "message": "Saved",
         "description": "Saved action button in the VTX tab"
+    },
+    "vtxButtonRefresh": {
+        "message": "Refresh",
+        "description": "Refresh button in the VTX tab"
     },
     "vtxSmartAudioUnlocked": {
         "message": "{{version}} unlocked",
