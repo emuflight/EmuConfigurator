@@ -5572,6 +5572,9 @@
     "vtxMessageRequiresHAM": {
         "message": "<span class=\"message-negative\">Attention:</span> Operating most Analog VTx above 25mW requires pilots to hold a HAM radio License. In the US, only FCC Part 18 Certified products are the exception."
     },
+    "vtxMessageNonMSP": {
+        "message": "CLI-only settings include 'vtx_pit_mode_freq' and 'vtx_halfduplex'. Configure them as needed in CLI."
+    },
     "vtxFrequencyChannel": {
         "message": "Enter frequency directly",
         "description": "Text of one of the fields of the VTX tab"
