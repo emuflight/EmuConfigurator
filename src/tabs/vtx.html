@@ -49,7 +49,7 @@
             </div>
 
               <div class="spacer_box">
-<!-- confusing and not necessary
+
                   <div class="field checkbox vtx_frequency_channel">
                       <span class="checkboxspacer">
                           <input type="checkbox" id="vtx_frequency_channel" class="toggle" />
@@ -59,7 +59,6 @@
                           <div class="helpicon cf_tip" i18n_title="vtxFrequencyChannelHelp"></div>
                       </label>
                   </div>
--->
 
                   <div class="field number vtx_band">
                       <span class="numberspacer">
@@ -105,14 +104,6 @@
                       <div class="helpicon cf_tip" i18n_title="vtxPowerHelp"></div>
                   </div>
 
-                  <div class="field checkbox vtx_pit_mode">
-                      <span class="checkboxspacer">
-                          <input type="checkbox" id="vtx_pit_mode" class="toggle" />
-                      </span>
-                      <span class="freelabel" i18n="vtxPitMode"></span>
-                      <div class="helpicon cf_tip" i18n_title="vtxPitModeHelp"></div>
-                  </div>
-
 <!-- not supported by MSP
                   <div class="field number vtx_pit_mode_frequency">
                       <span class="numberspacer">
@@ -134,6 +125,15 @@
                       <span class="freelabel" i18n="vtxLowPowerDisarm"></span>
                       <div class="helpicon cf_tip" i18n_title="vtxLowPowerDisarmHelp"></div>
                   </div>
+
+                  <div class="field checkbox vtx_pit_mode">
+                      <span class="checkboxspacer">
+                          <input type="checkbox" id="vtx_pit_mode" class="toggle" />
+                      </span>
+                      <span class="freelabel" i18n="vtxPitMode"></span>
+                      <div class="helpicon cf_tip" i18n_title="vtxPitModeHelp"></div>
+                  </div>
+
               </div>
 
           </div>
@@ -236,6 +236,13 @@
         <div class="btn save_btn">
             <a class="save" id="save_button" href="#" i18n="vtxButtonSave"></a>
         </div>
+
+<!-- delete this -->
+<div class="btn save_btn">
+<a class="update save" id="save_button" href="#" >Update</a>
+</div>
+<!-- --->
+
     </div>
     <div class="toolbar_expand_btn" nbrow="2">
         <em class="fas fa-ellipsis-h"></em>

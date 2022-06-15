@@ -115,6 +115,13 @@
     width: 48px;
 }
 
+/* not great but good enough */
+.tab-vtx input.frequency_input:disabled {
+    color: inherit; /* #545454; */
+    background-color: inherit; /* #F1F1F1; */
+    /* border-color: inherit; */
+}
+
 .tab-vtx .vtx_table_box {
     min-width: 750px
 }

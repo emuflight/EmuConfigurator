@@ -1,5 +1,4 @@
 'use strict';
-
 TABS.vtx = {
     supported: false,
     //vtxTableSavePending: false,
@@ -15,7 +14,7 @@ TABS.vtx = {
     //get _DEVICE_STATUS_UPDATE_INTERVAL_NAME() {
     //    return "vtx_device_status_request";
     //},
-//    activeSubtab: 'vtx'
+    //    activeSubtab: 'vtx'
 };
 
 //TABS.vtx.isVtxDeviceStatusNotReady = function()
@@ -30,6 +29,7 @@ TABS.vtx = {
 //    console.log('enter TABS.vtx.updateVtxDeviceStatus()');
 //    //MSP.send_message(MSPCodes.MSP2_GET_VTX_DEVICE_STATUS, false, false, vtxDeviceStatusReceived);
 //
+
 //    function vtxDeviceStatusReceived()
 //    {
 //        $("#vtx_type_description").text(TABS.vtx.getVtxTypeString());
@@ -37,16 +37,12 @@ TABS.vtx = {
 //    console.log('exit TABS.vtx.updateVtxDeviceStatus()');
 //};
 
-
-TABS.vtx.getVtxTypeString = function()
-{
+TABS.vtx.getVtxTypeString = function() {
     console.log('enter TABS.vtx.getVtxTypeString()');
     let result = i18n.getMessage(`vtxType_${VTX_CONFIG.vtx_type}`);
-
     const isSmartAudio = VtxDeviceTypes.VTXDEV_SMARTAUDIO === VTX_CONFIG.vtx_type;
     //const isVtxDeviceStatusReceived = null !== VTX_DEVICE_STATUS;
-
-    if (isSmartAudio){// && isVtxDeviceStatusReceived) {
+    if (isSmartAudio) { // && isVtxDeviceStatusReceived) {
         //result += ` ${VTX_DEVICE_STATUS.smartAudioVersion}`;
         //result += `VTX_CONFIG.vtx_type`;
     }
@@ -54,16 +50,13 @@ TABS.vtx.getVtxTypeString = function()
     return result;
 };
 
-TABS.vtx.initialize = function (callback) {
+TABS.vtx.initialize = function(callback) {
     console.log('enter TABS.vtx.initialize()');
     var self = this;
-
     if (GUI.active_tab != 'vtx') {
         GUI.active_tab = 'vtx';
     }
-
-    this.supported = semver.gte(CONFIG.apiVersion, "1.40.0");  //since 0.1.0
-
+    this.supported = semver.gte(CONFIG.apiVersion, "1.40.0"); //since 0.1.0
     if (!this.supported) {
         console.log('!this.supported');
         load_html();
@@ -77,20 +70,18 @@ TABS.vtx.initialize = function (callback) {
     }
 
     function process_html() {
-        console.log('process_html()');
+        console.log('enter process_html()');
         initDisplay();
-
         // translate to user-selected language
         i18n.localizePage();
-
         self.updating = false;
         GUI.content_ready(callback);
+        console.log('exit process_html()');
     }
-
     // Read all the MSP data needed by the tab
+
     function read_vtx_config(callback_after_msp) {
         console.log('read_vtx_config()');
-
         vtx_config();
 
         function vtx_config() {
@@ -100,21 +91,21 @@ TABS.vtx.initialize = function (callback) {
             console.log('exit vtx_config()');
         }
 
-//        function vtxConfigReceived() {
-//            console.log('enter read_vtx_config().vtxConfigReceived()');
-//            if (semver.gte(CONFIG.apiVersion, "1.40.0")) {
-//                GUI.interval_add('vtx_pull',//self._DEVICE_STATUS_UPDATE_INTERVAL_NAME,
-//                    TABS.vtx.updateVtxDeviceStatus,
-//                    1000, false,
-//                    TABS.vtx.isVtxDeviceStatusNotReady,
-//                );
-//            }
-//            console.log('exit read_vtx_config().vtxConfigReceived()');
-//            //vtxtable_bands();
-//        }
-
-}
+        //        function vtxConfigReceived() {
+        //            console.log('enter read_vtx_config().vtxConfigReceived()');
+        //            if (semver.gte(CONFIG.apiVersion, "1.40.0")) {
+        //                GUI.interval_add('vtx_pull',//self._DEVICE_STATUS_UPDATE_INTERVAL_NAME,
+        //                    TABS.vtx.updateVtxDeviceStatus,
+        //                    1000, false,
+        //                    TABS.vtx.isVtxDeviceStatusNotReady,
+        //                );
+        //            }
+        //            console.log('exit read_vtx_config().vtxConfigReceived()');
+        //            //vtxtable_bands();
+        //        }
+    }
     // Prepares all the UI elements, the MSP command has been executed before
+
     function initDisplay() {
         console.log('enter initDisplay()');
         if (!TABS.vtx.supported) {
@@ -122,171 +113,177 @@ TABS.vtx.initialize = function (callback) {
             console.log('!TABS.vtx.supported');
             return;
         }
-
         $(".tab-vtx").addClass("supported");
-
         // Load all the dynamic elements
         populateBandSelect();
         populatePowerSelect();
 
-        $(".uppercase").keyup(function(){
+        $(".uppercase").keyup(function() {
             this.value = this.value.toUpperCase().trim();
         });
-
         // Supported?
         const vtxSupported = VTX_CONFIG.vtx_type !== VtxDeviceTypes.VTXDEV_UNSUPPORTED && VTX_CONFIG.vtx_type !== VtxDeviceTypes.VTXDEV_UNKNOWN;
-
         $(".vtx_supported").toggle(vtxSupported);
         $(".vtx_not_supported").toggle(!vtxSupported);
-
         // Insert actual values in the fields
         // Values of the selected mode
         $("#vtx_frequency").val(VTX_CONFIG.vtx_frequency);
         $("#vtx_band").val(VTX_CONFIG.vtx_band);
-
         $("#vtx_band").change(populateChannelSelect).change();
-
         $("#vtx_channel").val(VTX_CONFIG.vtx_channel);
-
-
         $("#vtx_power").val(VTX_CONFIG.vtx_power);
         $("#vtx_pit_mode").prop('checked', VTX_CONFIG.vtx_pit_mode);
         $("#vtx_pit_mode_frequency").val(VTX_CONFIG.vtx_pit_mode_frequency);
         $("#vtx_low_power_disarm").val(VTX_CONFIG.vtx_low_power_disarm);
-
         // Values of the current values
         //const yesMessage =  i18n.getMessage("yes");
         //const noMessage =  i18n.getMessage("no");
-
         //$("#vtx_device_ready_description").text(VTX_CONFIG.vtx_device_ready ? yesMessage : noMessage);
         $("#vtx_type_description").text(self.getVtxTypeString()); //keep this one if nothing else
-} //initDisplay
 
-//////////// cut vtx tables
+        $('input[id="vtx_frequency_channel"]').change(frequencyOrBandChannel);
+        frequencyOrBandChannel($('input[id="vtx_frequency_channel"]'));
 
-        // Actions and other
-        function frequencyOrBandChannel() {
-            console.log('enter frequencyOrBandChannel()');
-            const frequencyEnabled = $(this).prop('checked');
+        console.log('exit initDisplay()');
+    } //initDisplay
 
-            if (frequencyEnabled) {
-                $(".field.vtx_channel").slideUp(100, function() {
-                    $(".field.vtx_band").slideUp(100, function() {
-                        $(".field.vtx_frequency").slideDown(100);
-                    });
+    //////////// cut vtx tables
+
+    // Actions and other
+    function frequencyOrBandChannel() {
+        console.log('enter frequencyOrBandChannel()');
+        const frequencyEnabled = $(this).prop('checked');
+        if (frequencyEnabled) {
+            $(".field.vtx_channel").slideUp(100, function() {
+
+                $(".field.vtx_band").slideUp(100, function() {
+                    $(".field.vtx_frequency").slideDown(100);
                 });
-
-            } else {
-                $(".field.vtx_frequency").slideUp(100, function() {
-                    $(".field.vtx_band").slideDown(100,function() {
-                        $(".field.vtx_channel").slideDown(100);
-                    });
-                });
-            }
-            console.log('exit frequencyOrBandChannel()');
-        }
-
-        $("#vtx_frequency_channel").prop('checked', VTX_CONFIG.vtx_band === 0 && VTX_CONFIG.vtx_frequency > 0).change(frequencyOrBandChannel);
-
-        if ($("#vtx_frequency_channel").prop('checked')) {
-            $(".field.vtx_channel").hide();
-            $(".field.vtx_band").hide();
-            $(".field.vtx_frequency").show();
+            });
         } else {
-            $(".field.vtx_channel").show();
-            $(".field.vtx_band").show();
-            $(".field.vtx_frequency").hide();
+            $(".field.vtx_frequency").slideUp(100, function() {
+
+                $(".field.vtx_band").slideDown(100, function() {
+                    $(".field.vtx_channel").slideDown(100);
+                });
+            });
         }
+        console.log('exit frequencyOrBandChannel()');
+    }
+    $("#vtx_frequency_channel").prop('checked', VTX_CONFIG.vtx_band === 0 && VTX_CONFIG.vtx_frequency > 0).change(frequencyOrBandChannel);
+    if ($("#vtx_frequency_channel").prop('checked')) {
+        $(".field.vtx_channel").hide();
+        $(".field.vtx_band").hide();
+        $(".field.vtx_frequency").show();
+    } else {
+        $(".field.vtx_channel").show();
+        $(".field.vtx_band").show();
+        $(".field.vtx_frequency").hide();
+    }
+    //////////// cut vtx tables
 
-//////////// cut vtx tables
-
-        function populateBandSelect() {
-            console.log('enter populateBandSelect()');
-            const selectBand = $(".field #vtx_band");
-
-            selectBand.append(new Option(i18n.getMessage('vtxBand_0'), 0));
-                for (let i = 1; i <= TABS.vtx.MAX_BAND_VALUES; i++) {
-                    selectBand.append(new Option(i18n.getMessage('vtxBand_X', {bandName: i}), i));
-                }
-            console.log('exit populateBandSelect()');
+    function populateBandSelect() {
+        console.log('enter populateBandSelect()');
+        const selectBand = $(".field #vtx_band");
+        selectBand.append(new Option(i18n.getMessage('vtxBand_0'), 0));
+        for (let i = 1; i <= TABS.vtx.MAX_BAND_VALUES; i++) {
+            selectBand.append(new Option(i18n.getMessage('vtxBand_X', {
+                bandName: i
+            }), i));
         }
+        console.log('exit populateBandSelect()');
+    }
 
-        function populateChannelSelect() {
-            console.log('enter populateChannelSelect()');
-            const selectChannel = $(".field #vtx_channel");
-            const selectedBand = $("#vtx_band").val();
-
-            selectChannel.empty();
-
-            selectChannel.append(new Option(i18n.getMessage('vtxChannel_0'), 0));
-                for (let i = 1; i <= TABS.vtx.MAX_BAND_CHANNELS_VALUES; i++) {
-                    selectChannel.append(new Option(i18n.getMessage('vtxChannel_X', {channelName: i}), i));
-                }
-            console.log('exit populateChannelSelect()');
+    function populateChannelSelect() {
+        console.log('enter populateChannelSelect()');
+        const selectChannel = $(".field #vtx_channel");
+        const selectedBand = $("#vtx_band").val();
+        selectChannel.empty();
+        selectChannel.append(new Option(i18n.getMessage('vtxChannel_0'), 0));
+        for (let i = 1; i <= TABS.vtx.MAX_BAND_CHANNELS_VALUES; i++) {
+            selectChannel.append(new Option(i18n.getMessage('vtxChannel_X', {
+                channelName: i
+            }), i));
         }
+        console.log('exit populateChannelSelect()');
+    }
 
-        function populatePowerSelect() {
-            console.log('enter populatePowerSelect()');
-            const selectPower = $(".field #vtx_power");
-
-                const powerMaxMinValues = getPowerValues(VTX_CONFIG.vtx_type);
-                for (let i = powerMaxMinValues.min; i <= powerMaxMinValues.max; i++) {
-                    if (i === 0) {
-                        selectPower.append(new Option(i18n.getMessage('vtxPower_0'), 0));
-                    } else {
-                        selectPower.append(new Option(i18n.getMessage('vtxPower_X', {powerLevel: i}), i));
-                    }
-                }
-            console.log('exit populatePowerSelect()');
-        }
-
-        // Returns the power values min and max depending on the VTX Type
-        function getPowerValues(vtxType) {
-            console.log('enter getPowerValues()');
-            let powerMinMax = {};
-
-                switch (vtxType) {
-
-                case VtxDeviceTypes.VTXDEV_UNSUPPORTED:
-                    powerMinMax = {};
-                    break;
-
-                case VtxDeviceTypes.VTXDEV_RTC6705:
-                    powerMinMax = {min: 0, max: 3};
-                    break;
-
-                case VtxDeviceTypes.VTXDEV_SMARTAUDIO:
-                    powerMinMax = {min: 0, max: 4};
-                    break;
-
-                case VtxDeviceTypes.VTXDEV_TRAMP:
-                    powerMinMax = {min: 0, max: 5};
-                    break;
-
-                case VtxDeviceTypes.VTXDEV_UNKNOWN:
-                default:
-                    powerMinMax = {min: 0, max: 7};
-                }
-            console.log('exit getPowerValues()');
-            return powerMinMax;
-        }
-
-
-        $('a.save').click(function () {
-            if (!self.updating) {
-                save_vtx();
+    function populatePowerSelect() {
+        console.log('enter populatePowerSelect()');
+        const selectPower = $(".field #vtx_power");
+        const powerMaxMinValues = getPowerValues(VTX_CONFIG.vtx_type);
+        for (let i = powerMaxMinValues.min; i <= powerMaxMinValues.max; i++) {
+            if (i === 0) {
+                selectPower.append(new Option(i18n.getMessage('vtxPower_0'), 0));
+            } else {
+                selectPower.append(new Option(i18n.getMessage('vtxPower_X', {
+                    powerLevel: i
+                }), i));
             }
-        });
+        }
+        console.log('exit populatePowerSelect()');
+    }
+    // Returns the power values min and max depending on the VTX Type
 
+    function getPowerValues(vtxType) {
+        console.log('enter getPowerValues()');
+        let powerMinMax = {};
+        switch (vtxType) {
+            case VtxDeviceTypes.VTXDEV_UNSUPPORTED:
+                powerMinMax = {};
+                break;
+            case VtxDeviceTypes.VTXDEV_RTC6705:
+                powerMinMax = {
+                    min: 0,
+                    max: 3
+                };
+                break;
+            case VtxDeviceTypes.VTXDEV_SMARTAUDIO:
+                powerMinMax = {
+                    min: 0,
+                    max: 4
+                };
+                break;
+            case VtxDeviceTypes.VTXDEV_TRAMP:
+                powerMinMax = {
+                    min: 0,
+                    max: 5
+                };
+                break;
+            case VtxDeviceTypes.VTXDEV_UNKNOWN:
+            default:
+                powerMinMax = {
+                    min: 0,
+                    max: 7
+                };
+        }
+        console.log('exit getPowerValues()');
+        return powerMinMax;
+    }
+    console.log('setup save clickable');
 
+    $('a.save').click(function() {
+        console.log('save clicked');
+        if (!self.updating) {
+            console.log('call save_vtx()');
+            save_vtx();
+        }
+    });
+    console.log('setup update clickable');
 
+    $('a.update').click(function() {
+        console.log('update clicked');
+        if (!self.updating) {
+            console.log('call save_vtx()');
+            save_vtx();
+        }
+    });
     // Save all the values from the tab to MSP
+
     function save_vtx() {
         console.log('enter save_vtx()');
         self.updating = true;
-
         dump_html_to_msp();
-
         // Start MSP saving
         save_vtx_config();
 
@@ -304,8 +301,7 @@ TABS.vtx.initialize = function (callback) {
             } else {
                 save_vtx_powerlevels.counter++;
             }
-
-                save_vtx_bands();
+            save_vtx_bands();
             console.log('exit save_vtx_powerlevels()');
         }
 
@@ -317,10 +313,8 @@ TABS.vtx.initialize = function (callback) {
             } else {
                 save_vtx_bands.counter++;
             }
-
-                save_vtx_bands.counter = undefined;
-                save_to_eeprom();
-
+            save_vtx_bands.counter = undefined;
+            save_to_eeprom();
             console.log('exit save_vtx_bands()');
         }
 
@@ -333,15 +327,13 @@ TABS.vtx.initialize = function (callback) {
         function save_completed() {
             console.log('enter save_completed()');
             GUI.log(i18n.getMessage('configurationEepromSaved'));
-
             //TABS.vtx.vtxTableSavePending = false;
-
             const oldText = $("#save_button").text();
             $("#save_button").html(i18n.getMessage('vtxButtonSaved'));
-            setTimeout(function () {
+
+            setTimeout(function() {
                 $("#save_button").html(oldText);
             }, 2000);
-
             TABS.vtx.initialize();
             console.log('exit save_completed()');
         }
@@ -349,41 +341,36 @@ TABS.vtx.initialize = function (callback) {
     }
 } //TABS.vtx.initialize
 
-
 ///////////// THIS NEEDS FIXING FOR EMUFLIGHT
-    function dump_html_to_msp() {
-        console.log('enter dump_html_to_msp()');
-        // General config
-        const frequencyEnabled = $("#vtx_frequency_channel").prop('checked');
-        if (frequencyEnabled) {
-            VTX_CONFIG.vtx_frequency = parseInt($("#vtx_frequency").val());
-            VTX_CONFIG.vtx_band = 0;
-            VTX_CONFIG.vtx_channel = 0;
-        } else {
-            VTX_CONFIG.vtx_band = parseInt($("#vtx_band").val());
-            VTX_CONFIG.vtx_channel = parseInt($("#vtx_channel").val());
-            VTX_CONFIG.vtx_frequency = 0;
-            //if (semver.lt(CONFIG.apiVersion, "1.40.0")) {
-            if (semver.gte(CONFIG.apiVersion, "1.40.0")) {
-                if (VTX_CONFIG.vtx_band > 0 || VTX_CONFIG.vtx_channel > 0) {
-                    VTX_CONFIG.vtx_frequency = (band - 1) * 8 + (channel - 1);
-                }
+function dump_html_to_msp() {
+    console.log('enter dump_html_to_msp()');
+    // General config
+    const frequencyEnabled = $("#vtx_frequency_channel").prop('checked');
+    if (frequencyEnabled) {
+        VTX_CONFIG.vtx_frequency = parseInt($("#vtx_frequency").val());
+        VTX_CONFIG.vtx_band = 0;
+        VTX_CONFIG.vtx_channel = 0;
+    } else {
+        VTX_CONFIG.vtx_band = parseInt($("#vtx_band").val());
+        VTX_CONFIG.vtx_channel = parseInt($("#vtx_channel").val());
+        VTX_CONFIG.vtx_frequency = 0;
+        //if (semver.lt(CONFIG.apiVersion, "1.40.0")) {
+        if (semver.gte(CONFIG.apiVersion, "1.40.0")) {
+            if (VTX_CONFIG.vtx_band > 0 || VTX_CONFIG.vtx_channel > 0) {
+                VTX_CONFIG.vtx_frequency = (band - 1) * 8 + (channel - 1);
             }
         }
-        VTX_CONFIG.vtx_power = parseInt($("#vtx_power").val());
-        VTX_CONFIG.vtx_pit_mode = $("#vtx_pit_mode").prop('checked');
-        VTX_CONFIG.vtx_low_power_disarm = parseInt($("#vtx_low_power_disarm").val());
-
-        console.log('exit dump_html_to_msp()');
     }
+    VTX_CONFIG.vtx_power = parseInt($("#vtx_power").val());
+    VTX_CONFIG.vtx_pit_mode = $("#vtx_pit_mode").prop('checked');
+    VTX_CONFIG.vtx_low_power_disarm = parseInt($("#vtx_low_power_disarm").val());
+    console.log('exit dump_html_to_msp()');
+}
 
-
-TABS.vtx.cleanup = function (callback) {
+TABS.vtx.cleanup = function(callback) {
     console.log('enter TABS.vtx.cleanup()');
     // Add here things that need to be cleaned or closed before leaving the tab
-
     //GUI.interval_remove(this._DEVICE_STATUS_UPDATE_INTERVAL_NAME);
-
     if (callback) {
         callback();
     }
