@@ -294,11 +294,14 @@ TABS.vtx.initialize = function(callback) {
         console.log('enter save_vtx()');
         self.updating = true;
         dump_html_to_msp();
+
+        console.log('save_vtx(): b'+VTX_CONFIG.vtx_band+'/c'+VTX_CONFIG.vtx_channel+'/f'+VTX_CONFIG.vtx_frequency+'/p'+VTX_CONFIG.vtx_power+'/m'+VTX_CONFIG.vtx_pit_mode);
         // Start MSP saving
         save_vtx_config();
 
         function save_vtx_config() {
             console.log('enter save_vtx_config()');
+            console.log('save_vtx_config(): b'+VTX_CONFIG.vtx_band+'/c'+VTX_CONFIG.vtx_channel+'/f'+VTX_CONFIG.vtx_frequency+'/p'+VTX_CONFIG.vtx_power+'/m'+VTX_CONFIG.vtx_pit_mode);
             //MSP.send_message(MSPCodes.MSP_SET_VTX_CONFIG, mspHelper.crunch(MSPCodes.MSP_SET_VTX_CONFIG), false, save_vtx_powerlevels);
             MSP.send_message(MSPCodes.MSP_SET_VTX_CONFIG, mspHelper.crunch(MSPCodes.MSP_SET_VTX_CONFIG), false, save_to_eeprom);//save_completed);
             //save_to_eeprom();
@@ -332,12 +335,14 @@ TABS.vtx.initialize = function(callback) {
 
        function save_to_eeprom() {
            console.log('enter save_to_eeprom()');
+           console.log('save_to_eeprom(): b'+VTX_CONFIG.vtx_band+'/c'+VTX_CONFIG.vtx_channel+'/f'+VTX_CONFIG.vtx_frequency+'/p'+VTX_CONFIG.vtx_power+'/m'+VTX_CONFIG.vtx_pit_mode);
            MSP.send_message(MSPCodes.MSP_EEPROM_WRITE, false, false, save_completed);
            console.log('exit save_to_eeprom()');
        };
 
         function save_completed() {
             console.log('enter save_completed()');
+            console.log('save_completed(): b'+VTX_CONFIG.vtx_band+'/c'+VTX_CONFIG.vtx_channel+'/f'+VTX_CONFIG.vtx_frequency+'/p'+VTX_CONFIG.vtx_power+'/m'+VTX_CONFIG.vtx_pit_mode);
             GUI.log(i18n.getMessage('configurationEepromSaved'));
             //TABS.vtx.vtxTableSavePending = false;
             const oldText = $("#save_button").text();
@@ -379,7 +384,7 @@ function dump_html_to_msp() {
     VTX_CONFIG.vtx_pit_mode = $("#vtx_pit_mode").prop('checked');
     // VTX_CONFIG.vtx_low_power_disarm = parseInt($("#vtx_low_power_disarm").val());  //no EMUF MSP
 
-    console.log('set VTX_CONFIG b'+VTX_CONFIG.vtx_band+'/c'+VTX_CONFIG.vtx_channel+'/f'+VTX_CONFIG.vtx_frequency+'/p'+VTX_CONFIG.vtx_power+'/m'+VTX_CONFIG.vtx_pit_mode);
+    console.log('dump_html_to_msp(): b'+VTX_CONFIG.vtx_band+'/c'+VTX_CONFIG.vtx_channel+'/f'+VTX_CONFIG.vtx_frequency+'/p'+VTX_CONFIG.vtx_power+'/m'+VTX_CONFIG.vtx_pit_mode);
     console.log('exit dump_html_to_msp()');
 };
 
