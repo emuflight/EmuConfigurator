@@ -5579,7 +5579,7 @@
         "message": "Set up however you want, you're not gonna see anything but lines and static anyways"
     },
     "vtxMessageNonMSP": {
-        "message": "CLI-only settings include 'vtx_pit_mode_freq' and 'vtx_halfduplex'. Configure them as needed in CLI."
+        "message": "CLI-only settings include 'vtx_low_power_disarm', 'vtx_pit_mode_freq' and 'vtx_halfduplex'. Configure them as needed in CLI."
     },
     "vtxFrequencyChannel": {
         "message": "Enter frequency directly",
