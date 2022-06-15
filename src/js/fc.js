@@ -523,12 +523,6 @@ var FC = {
         RXFAIL_CONFIG = [];
 
         VTX_CONFIG = {
-//   sbufWriteU8(dst, vtxCommonGetDeviceType(vtxDevice));
-//   sbufWriteU8(dst, vtxSettingsConfig()->band);
-//   sbufWriteU8(dst, vtxSettingsConfig()->channel);
-//   sbufWriteU8(dst, vtxSettingsConfig()->power);
-//   sbufWriteU8(dst, pitmode);  //0???
-//   sbufWriteU16(dst, vtxSettingsConfig()->freq);
             vtx_type:           0,
             vtx_band:           0,
             vtx_channel:        1,

@@ -2240,18 +2240,23 @@ MspHelper.prototype.crunch = function(code) {
 
         case MSPCodes.MSP_SET_VTX_CONFIG:
             console.log("MSPCodes.MSP_SET_VTX_CONFIG");
-                    // VTX_CONFIG.vtx_type = data.readU8();
-                    // VTX_CONFIG.vtx_band = data.readU8();
-                    // VTX_CONFIG.vtx_channel = data.readU8();
-                    // VTX_CONFIG.vtx_power = data.readU8();
-                    // VTX_CONFIG.vtx_pit_mode = data.readU8() != 0;
-                    // VTX_CONFIG.vtx_frequency = data.readU16();
-            buffer.push8(VTX_CONFIG.vtx_type)
-                  .push8(VTX_CONFIG.vtx_band)
-                  .push8(VTX_CONFIG.vtx_channel)
-                  .push8(VTX_CONFIG.vtx_power)
-                  .push8(VTX_CONFIG.vtx_pit_mode)
-                  .push16(VTX_CONFIG.vtx_frequency);
+            if (semver.gte(CONFIG.apiVersion, "1.40.0")) { //is this gte necessary?
+                console.log('VTX_config write MSP > 1.40.0');
+                console.log(" MSP push:"+
+                    VTX_CONFIG.vtx_type+' '+
+                    VTX_CONFIG.vtx_band+' '+
+                    VTX_CONFIG.vtx_channel+' '+
+                    VTX_CONFIG.vtx_power+' '+
+                    VTX_CONFIG.vtx_pit_mode+' '+
+                    VTX_CONFIG.vtx_frequency);
+
+           buffer.push8(VTX_CONFIG.vtx_type)
+                 .push8(VTX_CONFIG.vtx_band)
+                 .push8(VTX_CONFIG.vtx_channel)
+                 .push8(VTX_CONFIG.vtx_power)
+                 .push8(VTX_CONFIG.vtx_pit_mode)
+                 .push16(VTX_CONFIG.vtx_frequency);
+            }
             break;
 
         case MSPCodes.MSP_SET_NAME:

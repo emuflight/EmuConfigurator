@@ -148,6 +148,26 @@ TABS.vtx.initialize = function(callback) {
         $('input[id="vtx_frequency_channel"]').change(frequencyOrBandChannel);
         frequencyOrBandChannel($('input[id="vtx_frequency_channel"]'));
 
+        //REFRESH BUTTON
+        $('a.refresh').click(function() {   //this one clicked
+            console.log('a.refresh clicked');
+            self.refresh(function() {
+                GUI.log(i18n.getMessage('VTX tab refreshed'));
+            });
+            console.log('exit refresh clicked');
+        });
+
+
+        // SAVE BUTTOn
+        console.log('setup save clickable');
+        $('a.save').click(function() {
+            console.log('save clicked');
+            if (!self.updating) {
+                console.log('call save_vtx()');
+                save_vtx();
+            }
+        });
+
         console.log('exit initDisplay()');
     }; //initDisplay
 
@@ -174,6 +194,7 @@ TABS.vtx.initialize = function(callback) {
         }
         console.log('exit frequencyOrBandChannel()');
     };
+
     $("#vtx_frequency_channel").prop('checked', VTX_CONFIG.vtx_band === 0 && VTX_CONFIG.vtx_frequency > 0).change(frequencyOrBandChannel);
     if ($("#vtx_frequency_channel").prop('checked')) {
         $(".field.vtx_channel").hide();
@@ -184,6 +205,7 @@ TABS.vtx.initialize = function(callback) {
         $(".field.vtx_band").show();
         $(".field.vtx_frequency").hide();
     }
+
     //////////// cut vtx tables
 
     function populateBandSelect() {
@@ -265,66 +287,7 @@ TABS.vtx.initialize = function(callback) {
         return powerMinMax;
     };
 
-//    console.log('setup refresh clickable');
-//    $('a.refresh').click(function() {
-//        console.log('refresh clicked');
-//        if (!self.updating) {
-//            console.log('call init');
-//            inint();
-//        }
-//    });
 
-        $('.vtx-tab a.refresh').click(function() {
-            console.log('.vtx-tab a.refresh clicked');
-            self.refresh(function() {
-                GUI.log(i18n.getMessage('VTX tab refreshed'));
-            });
-            console.log('exit refresh clicked');
-        });
-
-        $('.vtx-tab .refresh').click(function() {
-            console.log('.vtx-tab .refresh clicked');
-            self.refresh(function() {
-                GUI.log(i18n.getMessage('VTX tab refreshed'));
-            });
-            console.log('exit refresh clicked');
-        });
-
-        $('a.refresh').click(function() {
-            console.log('a.refresh clicked');
-            self.refresh(function() {
-                GUI.log(i18n.getMessage('VTX tab refreshed'));
-            });
-            console.log('exit refresh clicked');
-        });
-
-        $('#refresh').click(function() {
-            console.log('#refresh clicked');
-            self.refresh(function() {
-                GUI.log(i18n.getMessage('VTX tab refreshed'));
-            });
-            console.log('exit refresh clicked');
-        });
-
-
-
-    console.log('setup save clickable');
-    $('a.save').click(function() {
-        console.log('save clicked');
-        if (!self.updating) {
-            console.log('call save_vtx()');
-            save_vtx();
-        }
-    });
-
-    console.log('setup update clickable');
-    $('a.update').click(function() {
-        console.log('update clicked');
-        if (!self.updating) {
-            console.log('call save_vtx()');
-            save_vtx();
-        }
-    });
 
     // Save all the values from the tab to MSP
     function save_vtx() {
@@ -336,40 +299,42 @@ TABS.vtx.initialize = function(callback) {
 
         function save_vtx_config() {
             console.log('enter save_vtx_config()');
-            MSP.send_message(MSPCodes.MSP_SET_VTX_CONFIG, mspHelper.crunch(MSPCodes.MSP_SET_VTX_CONFIG), false, save_vtx_powerlevels);
+            //MSP.send_message(MSPCodes.MSP_SET_VTX_CONFIG, mspHelper.crunch(MSPCodes.MSP_SET_VTX_CONFIG), false, save_vtx_powerlevels);
+            MSP.send_message(MSPCodes.MSP_SET_VTX_CONFIG, mspHelper.crunch(MSPCodes.MSP_SET_VTX_CONFIG), false, save_completed);
+            save_to_eeprom();
             console.log('exit save_vtx_config()');
         };
 
-        function save_vtx_powerlevels() {
-            console.log('enter save_vtx_powerlevels()');
-            // Simulation of static variable
-            if (typeof save_vtx_powerlevels.counter === 'undefined') {
-                save_vtx_powerlevels.counter = 0;
-            } else {
-                save_vtx_powerlevels.counter++;
-            }
-            save_vtx_bands();
-            console.log('exit save_vtx_powerlevels()');
-        };
+//      function save_vtx_powerlevels() {
+//          console.log('enter save_vtx_powerlevels()');
+//          // Simulation of static variable
+//          if (typeof save_vtx_powerlevels.counter === 'undefined') {
+//              save_vtx_powerlevels.counter = 0;
+//          } else {
+//              save_vtx_powerlevels.counter++;
+//          }
+//          save_vtx_bands();
+//          console.log('exit save_vtx_powerlevels()');
+//      };
 
-        function save_vtx_bands() {
-            console.log('enter save_vtx_bands()');
-            // Simulation of static variable
-            if (typeof save_vtx_bands.counter === 'undefined') {
-                save_vtx_bands.counter = 0;
-            } else {
-                save_vtx_bands.counter++;
-            }
-            save_vtx_bands.counter = undefined;
-            save_to_eeprom();
-            console.log('exit save_vtx_bands()');
-        };
+//      function save_vtx_bands() {
+//          console.log('enter save_vtx_bands()');
+//          // Simulation of static variable
+//          if (typeof save_vtx_bands.counter === 'undefined') {
+//              save_vtx_bands.counter = 0;
+//          } else {
+//              save_vtx_bands.counter++;
+//          }
+//          save_vtx_bands.counter = undefined;
+//          save_to_eeprom();
+//          console.log('exit save_vtx_bands()');
+//      };
 
-        function save_to_eeprom() {
-            console.log('enter save_to_eeprom()');
-            MSP.send_message(MSPCodes.MSP_EEPROM_WRITE, false, false, save_completed);
-            console.log('exit save_to_eeprom()');
-        };
+       function save_to_eeprom() {
+           console.log('enter save_to_eeprom()');
+           MSP.send_message(MSPCodes.MSP_EEPROM_WRITE, false, false, save_completed);
+           console.log('exit save_to_eeprom()');
+       };
 
         function save_completed() {
             console.log('enter save_completed()');
@@ -393,24 +358,28 @@ function dump_html_to_msp() {
     console.log('enter dump_html_to_msp()');
     // General config
     const frequencyEnabled = $("#vtx_frequency_channel").prop('checked');
+    console.log('manual freq toggle is: '+frequencyEnabled);
     if (frequencyEnabled) {
-        VTX_CONFIG.vtx_frequency = parseInt($("#vtx_frequency").val());
-        VTX_CONFIG.vtx_band = 0;
-        VTX_CONFIG.vtx_channel = 0;
+        VTX_CONFIG.vtx_frequency = parseInt( $("#vtx_frequency").val() );
+        VTX_CONFIG.vtx_band =      parseInt(  ( $("#vtx_frequency").val() / 8 ) + 1 );
+        VTX_CONFIG.vtx_channel =   parseInt(  ( $("#vtx_frequency").val() % 8 ) + 1 );
     } else {
-        VTX_CONFIG.vtx_band = parseInt($("#vtx_band").val());
-        VTX_CONFIG.vtx_channel = parseInt($("#vtx_channel").val());
+        VTX_CONFIG.vtx_band =      parseInt( $("#vtx_band").val() );
+        VTX_CONFIG.vtx_channel =   parseInt( $("#vtx_channel").val() );
         VTX_CONFIG.vtx_frequency = 0;
         //if (semver.lt(CONFIG.apiVersion, "1.40.0")) {
-        if (semver.gte(CONFIG.apiVersion, "1.40.0")) {
-            if (VTX_CONFIG.vtx_band > 0 || VTX_CONFIG.vtx_channel > 0) {
-                VTX_CONFIG.vtx_frequency = (band - 1) * 8 + (channel - 1);
-            }
-        }
+        //if (semver.gte(CONFIG.apiVersion, "1.40.0")) {
+        //    if (VTX_CONFIG.vtx_band > 0 || VTX_CONFIG.vtx_channel > 0) {
+        //        VTX_CONFIG.vtx_frequency = (band - 1) * 8 + (channel - 1);
+        //    }
+        //}
     }
+
     VTX_CONFIG.vtx_power = parseInt($("#vtx_power").val());
     VTX_CONFIG.vtx_pit_mode = $("#vtx_pit_mode").prop('checked');
     // VTX_CONFIG.vtx_low_power_disarm = parseInt($("#vtx_low_power_disarm").val());  //no EMUF MSP
+
+    console.log('set VTX_CONFIG b'+VTX_CONFIG.vtx_band+'/c'+VTX_CONFIG.vtx_channel+'/f'+VTX_CONFIG.vtx_frequency+'/p'+VTX_CONFIG.vtx_power+'/m'+VTX_CONFIG.vtx_pit_mode);
     console.log('exit dump_html_to_msp()');
 };
 
@@ -428,11 +397,9 @@ TABS.vtx.refresh = function(callback) {
     var self = this;
     GUI.tab_switch_cleanup(function() {
         self.initialize();
-        self.setDirty(false);
+        //self.setDirty(false);
         if (callback) {
             callback();
         }
     });
 };
-
-
