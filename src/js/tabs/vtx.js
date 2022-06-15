@@ -4,7 +4,7 @@ TABS.vtx = {
     //vtxTableSavePending: false,
     //vtxTableFactoryBandsSupported: false,
     MAX_POWERLEVEL_VALUES: 8,
-    MAX_BAND_VALUES: 8,
+    MAX_BAND_VALUES: 5,
     MAX_BAND_CHANNELS_VALUES: 8,
     //VTXTABLE_BAND_LIST: [],
     //VTXTABLE_POWERLEVEL_LIST: [],
@@ -117,6 +117,8 @@ TABS.vtx.initialize = function(callback) {
         // Load all the dynamic elements
         populateBandSelect();
         populatePowerSelect();
+        populateChannelSelect();  //EmuF moved this here
+
 
         $(".uppercase").keyup(function() {
             this.value = this.value.toUpperCase().trim();
@@ -128,9 +130,12 @@ TABS.vtx.initialize = function(callback) {
         // Insert actual values in the fields
         // Values of the selected mode
         $("#vtx_frequency").val(VTX_CONFIG.vtx_frequency);
+
         $("#vtx_band").val(VTX_CONFIG.vtx_band);
-        $("#vtx_band").change(populateChannelSelect).change();
+        //$("#vtx_band").change(populateChannelSelect).change();  // resets channel list / lets disable & move
+
         $("#vtx_channel").val(VTX_CONFIG.vtx_channel);
+
         $("#vtx_power").val(VTX_CONFIG.vtx_power);
         $("#vtx_pit_mode").prop('checked', VTX_CONFIG.vtx_pit_mode);
         $("#vtx_pit_mode_frequency").val(VTX_CONFIG.vtx_pit_mode_frequency);
@@ -197,9 +202,9 @@ TABS.vtx.initialize = function(callback) {
     function populateChannelSelect() {
         console.log('enter populateChannelSelect()');
         const selectChannel = $(".field #vtx_channel");
-        const selectedBand = $("#vtx_band").val();
+        // const selectedBand = $("#vtx_band").val(); //makes no sense for non-vtxTables
         selectChannel.empty();
-        selectChannel.append(new Option(i18n.getMessage('vtxChannel_0'), 0));
+        //selectChannel.append(new Option(i18n.getMessage('vtxChannel_0'), 0));  //in EmuF, 0 is not possible
         for (let i = 1; i <= TABS.vtx.MAX_BAND_CHANNELS_VALUES; i++) {
             selectChannel.append(new Option(i18n.getMessage('vtxChannel_X', {
                 channelName: i
@@ -223,8 +228,8 @@ TABS.vtx.initialize = function(callback) {
         }
         console.log('exit populatePowerSelect()');
     }
-    // Returns the power values min and max depending on the VTX Type
 
+    // Returns the power values min and max depending on the VTX Type
     function getPowerValues(vtxType) {
         console.log('enter getPowerValues()');
         let powerMinMax = {};
