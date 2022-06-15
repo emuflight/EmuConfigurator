@@ -2250,12 +2250,19 @@ MspHelper.prototype.crunch = function(code) {
                     VTX_CONFIG.vtx_pit_mode+' '+
                     VTX_CONFIG.vtx_frequency);
 
-           buffer.push8(VTX_CONFIG.vtx_type)
-                 .push8(VTX_CONFIG.vtx_band)
-                 .push8(VTX_CONFIG.vtx_channel)
-                 .push8(VTX_CONFIG.vtx_power)
-                 .push8(VTX_CONFIG.vtx_pit_mode)
-                 .push16(VTX_CONFIG.vtx_frequency);
+                   // VTX_CONFIG.vtx_type = data.readU8();
+                   // VTX_CONFIG.vtx_band = data.readU8();
+                   // VTX_CONFIG.vtx_channel = data.readU8();
+                   // VTX_CONFIG.vtx_power = data.readU8();
+                   // VTX_CONFIG.vtx_pit_mode = data.readU8() != 0;
+                   // VTX_CONFIG.vtx_frequency = data.readU16();
+
+                buffer.push8(VTX_CONFIG.vtx_type)
+                      .push8(VTX_CONFIG.vtx_band)
+                      .push8(VTX_CONFIG.vtx_channe)
+                      .push8(VTX_CONFIG.vtx_power)
+                      .push8(VTX_CONFIG.vtx_pit_mode)
+                      .push16(VTX_CONFIG.vtx_frequency);
             }
             break;
 

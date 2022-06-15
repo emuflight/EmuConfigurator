@@ -300,8 +300,8 @@ TABS.vtx.initialize = function(callback) {
         function save_vtx_config() {
             console.log('enter save_vtx_config()');
             //MSP.send_message(MSPCodes.MSP_SET_VTX_CONFIG, mspHelper.crunch(MSPCodes.MSP_SET_VTX_CONFIG), false, save_vtx_powerlevels);
-            MSP.send_message(MSPCodes.MSP_SET_VTX_CONFIG, mspHelper.crunch(MSPCodes.MSP_SET_VTX_CONFIG), false, save_completed);
-            save_to_eeprom();
+            MSP.send_message(MSPCodes.MSP_SET_VTX_CONFIG, mspHelper.crunch(MSPCodes.MSP_SET_VTX_CONFIG), false, save_to_eeprom);//save_completed);
+            //save_to_eeprom();
             console.log('exit save_vtx_config()');
         };
 
@@ -360,9 +360,9 @@ function dump_html_to_msp() {
     const frequencyEnabled = $("#vtx_frequency_channel").prop('checked');
     console.log('manual freq toggle is: '+frequencyEnabled);
     if (frequencyEnabled) {
+        VTX_CONFIG.vtx_band =      0;
+        VTX_CONFIG.vtx_channel =   1;
         VTX_CONFIG.vtx_frequency = parseInt( $("#vtx_frequency").val() );
-        VTX_CONFIG.vtx_band =      parseInt(  ( $("#vtx_frequency").val() / 8 ) + 1 );
-        VTX_CONFIG.vtx_channel =   parseInt(  ( $("#vtx_frequency").val() % 8 ) + 1 );
     } else {
         VTX_CONFIG.vtx_band =      parseInt( $("#vtx_band").val() );
         VTX_CONFIG.vtx_channel =   parseInt( $("#vtx_channel").val() );
