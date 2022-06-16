@@ -5630,7 +5630,7 @@
         "description": "Help text for the band field of the VTX tab"
     },
     "vtxBand_0": {
-        "message": "None",
+        "message": "User",
         "description": "Text of one of the options for the band field of the VTX tab"
     },
     "vtxBand_X": {

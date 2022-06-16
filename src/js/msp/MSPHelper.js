@@ -2242,27 +2242,31 @@ MspHelper.prototype.crunch = function(code) {
             console.log("MSPCodes.MSP_SET_VTX_CONFIG");
             if (semver.gte(CONFIG.apiVersion, "1.40.0")) { //is this gte necessary?
                 console.log('VTX_config write MSP > 1.40.0');
-                console.log(" MSP push: "+
-                    VTX_CONFIG.vtx_type+' '+
-                    VTX_CONFIG.vtx_band+' '+
-                    VTX_CONFIG.vtx_channel+' '+
-                    VTX_CONFIG.vtx_power+' '+
-                    VTX_CONFIG.vtx_pit_mode+' '+
-                    VTX_CONFIG.vtx_frequency);
+                console.log("%c MSP push: type:"+VTX_CONFIG.vtx_type
+                    +' band:'+VTX_CONFIG.vtx_band
+                    +' chan:'+VTX_CONFIG.vtx_channel
+                    +' pwr:'+VTX_CONFIG.vtx_power
+                    +' pit:'+VTX_CONFIG.vtx_pit_mode
+                    +' freq:'+VTX_CONFIG.vtx_frequency, "color: magenta");
 
-                   // VTX_CONFIG.vtx_type = data.readU8();
-                   // VTX_CONFIG.vtx_band = data.readU8();
-                   // VTX_CONFIG.vtx_channel = data.readU8();
-                   // VTX_CONFIG.vtx_power = data.readU8();
-                   // VTX_CONFIG.vtx_pit_mode = data.readU8() != 0;
-                   // VTX_CONFIG.vtx_frequency = data.readU16();
+                    //buffer.push8(VTX_CONFIG.vtx_type);
+                    //buffer.push8(VTX_CONFIG.vtx_band);
+                    //buffer.push8(VTX_CONFIG.vtx_channel);
+                    //buffer.push8(VTX_CONFIG.vtx_power);
+                    //buffer.push8(VTX_CONFIG.vtx_pit_mode ? 1 : 0);
+                    //buffer.push16(VTX_CONFIG.vtx_frequency);
 
-                buffer.push8(VTX_CONFIG.vtx_type)
-                      .push8(VTX_CONFIG.vtx_band)
-                      .push8(VTX_CONFIG.vtx_channel)
-                      .push8(VTX_CONFIG.vtx_power)
-                      .push8(VTX_CONFIG.vtx_pit_mode)
-                      .push16(VTX_CONFIG.vtx_frequency);
+                    //BF
+                    //  buffer.push16(FC.VTX_CONFIG.vtx_frequency)
+                    //        .push8(FC.VTX_CONFIG.vtx_power)
+                    //        .push8(FC.VTX_CONFIG.vtx_pit_mode ? 1 : 0)
+                    // ^^^not 1.42 (tables)^^^
+
+
+//i learned sumptin -- two options encoded BAND/CHANNEL --OR---  actual frequency ; see msp:1991
+                    buffer.push16(VTX_CONFIG.vtx_frequency);
+                    buffer.push8(VTX_CONFIG.vtx_power); //good
+                    buffer.push8(VTX_CONFIG.vtx_pit_mode ? 1 : 0);
             }
             break;
 
