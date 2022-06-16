@@ -167,8 +167,18 @@ TABS.vtx.initialize = function(callback) {
         //$("#vtx_device_ready_description").text(VTX_CONFIG.vtx_device_ready ? yesMessage : noMessage);
         $("#vtx_type_description").text(self.getVtxTypeString()); //keep this one if nothing else
 
-        //$('input[id="vtx_frequency_channel"]').change(frequencyOrBandChannel);
-        //frequencyOrBandChannel($('input[id="vtx_frequency_channel"]'));
+//        if (VTX_CONFIG.vtx_band === 0) {
+//            $('input[id="vtx_frequency_channel"]').prop('checked',true);
+//        }
+
+
+
+
+
+
+//////// this works, but there is another of the same below initDisplay
+  //      $('input[id="vtx_frequency_channel"]').change(frequencyOrBandChannel);
+   //     frequencyOrBandChannel($('input[id="vtx_frequency_channel"]'));
 
         //REFRESH BUTTON
         $('a.refresh').click(function() {   //this one clicked
@@ -178,7 +188,6 @@ TABS.vtx.initialize = function(callback) {
             });
             console.log('exit refresh clicked');
         });
-
 
         // SAVE BUTTOn
         console.log('setup save clickable');
@@ -191,7 +200,7 @@ TABS.vtx.initialize = function(callback) {
         });
 
         console.log('exit initDisplay()');
-    }; //initDisplay
+
 
     //////////// cut vtx tables
 
@@ -217,8 +226,9 @@ TABS.vtx.initialize = function(callback) {
         console.log('exit frequencyOrBandChannel()');
     };
 
-    $("#vtx_frequency_channel").prop('checked', VTX_CONFIG.vtx_band === 0 && VTX_CONFIG.vtx_frequency > 0).change(frequencyOrBandChannel);
-    if ($("#vtx_frequency_channel").prop('checked')) {
+    $('input[id="vtx_frequency_channel"]').prop('checked', VTX_CONFIG.vtx_band === 0 && VTX_CONFIG.vtx_frequency > 0).change(frequencyOrBandChannel);
+    if ($('input[id="vtx_frequency_channel"]').prop('checked')) {
+        console.log ()
         $(".field.vtx_channel").hide();
         $(".field.vtx_band").hide();
         $(".field.vtx_frequency").show();
@@ -241,6 +251,10 @@ TABS.vtx.initialize = function(callback) {
         }
         console.log('exit populateBandSelect()');
     };
+
+}; //initDisplay
+
+
 
     function populateChannelSelect() {
         console.log('enter populateChannelSelect()');
