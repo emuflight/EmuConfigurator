@@ -17,6 +17,7 @@ TABS.vtx = {
     //    activeSubtab: 'vtx'
 };
 
+// to do: could potentially  iterate this for dynamic HTML table, but moot
 const vtxTable = [
     [ 5865, 5845, 5825, 5805, 5785, 5765, 5745, 5725 ], // Boscam A
     [ 5733, 5752, 5771, 5790, 5809, 5828, 5847, 5866 ], // Boscam B
@@ -168,7 +169,16 @@ TABS.vtx.initialize = function(callback) {
             }
         });
 
-    //////////// cut vtx tables
+        //clickable VTX table presets
+        $('#vtxTable').on('click', 'a.freq', function () {
+            let freq = $(this).text();
+            let tupleBandChan = lookupTableFreq(freq)
+            let band = tupleBandChan[0];
+            let chan = tupleBandChan[1];
+            $("#vtx_frequency").val( freq );
+            $("#vtx_band").val( band );
+            $("#vtx_channel").val( chan );
+        });
 
     // Actions and other
     function frequencyOrBandChannel() {
@@ -189,8 +199,6 @@ TABS.vtx.initialize = function(callback) {
     // user freq toggle
     $('input[id="vtx_frequency_channel"]').prop('checked', VTX_CONFIG.vtx_band === 0 && VTX_CONFIG.vtx_frequency > 0).change(frequencyOrBandChannel); // trigger on toggles
     $('input[id="vtx_frequency_channel"]').prop('checked',frequencyOrBandChannel);  //current status on load
-
-    //////////// cut vtx tables
 
     console.log('exit initDisplay()');
 }; // initDisplay
