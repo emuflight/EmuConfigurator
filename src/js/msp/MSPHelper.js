@@ -2249,24 +2249,12 @@ MspHelper.prototype.crunch = function(code) {
                     +' pit:'+VTX_CONFIG.vtx_pit_mode
                     +' freq:'+VTX_CONFIG.vtx_frequency, "color: magenta");
 
-                    //buffer.push8(VTX_CONFIG.vtx_type);
-                    //buffer.push8(VTX_CONFIG.vtx_band);
-                    //buffer.push8(VTX_CONFIG.vtx_channel);
-                    //buffer.push8(VTX_CONFIG.vtx_power);
-                    //buffer.push8(VTX_CONFIG.vtx_pit_mode ? 1 : 0);
-                    //buffer.push16(VTX_CONFIG.vtx_frequency);
-
-                    //BF
-                    //  buffer.push16(FC.VTX_CONFIG.vtx_frequency)
-                    //        .push8(FC.VTX_CONFIG.vtx_power)
-                    //        .push8(FC.VTX_CONFIG.vtx_pit_mode ? 1 : 0)
-                    // ^^^not 1.42 (tables)^^^
-
-
-//i learned sumptin -- two options encoded BAND/CHANNEL --OR---  actual frequency ; see msp:1991
-                    buffer.push16(VTX_CONFIG.vtx_frequency);
-                    buffer.push8(VTX_CONFIG.vtx_power); //good
-                    buffer.push8(VTX_CONFIG.vtx_pit_mode ? 1 : 0);
+                // two options: encoded BAND/CHANNEL into freq variable -OR- actual frequency
+                // see firmware msp.c:MSP_SET_VTX_CONFIG (line ~1991)
+                // cannot send un-encoded band/channel
+                buffer.push16(VTX_CONFIG.vtx_frequency)
+                      .push8(VTX_CONFIG.vtx_power)
+                      .push8(VTX_CONFIG.vtx_pit_mode ? 1 : 0); //Tramp only?
             }
             break;
 

@@ -203,7 +203,7 @@
 
 }
 
-.tab-vtx td.band {
+.tab-vtx th.band {
  width: auto;
  vertical-align: middle;
  transform: rotate(-90deg);
@@ -214,13 +214,15 @@
  white-space: nowrap;
 }
 
-.tab-vtx th.band {
- width: auto;
- vertical-align: middle;
- transform: rotate(-90deg);
- -webkit-transform: rotate(-90deg); /* Safari/Chrome */
- -moz-transform: rotate(-90deg); /* Firefox */
- -o-transform: rotate(-90deg); /* Opera */
- -ms-transform: rotate(-90deg); /* IE 9 */
- white-space: nowrap;
+.tab-vtx  .freq {
+  background: inherit;
+  color: inherit;
+  padding: 3px;
+}
+
+.tab-vtx  .freq:hover {
+  background: #00A3E0;
+  color: white;
+  font-weight: bold;
+  padding: 3px;
 }

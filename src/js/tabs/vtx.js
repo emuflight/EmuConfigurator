@@ -78,7 +78,7 @@ TABS.vtx.initialize = function(callback) {
     if (GUI.active_tab != 'vtx') {
         GUI.active_tab = 'vtx';
     }
-    this.supported = semver.gte(CONFIG.apiVersion, "1.40.0"); //since 0.1.0
+    this.supported = semver.gte(CONFIG.apiVersion, "1.40.0"); //since EmuF 0.1.0 (BF 3.3.0)
     if (!this.supported) {
         console.log('!this.supported');
         load_html();
@@ -108,23 +108,9 @@ TABS.vtx.initialize = function(callback) {
 
         function vtx_config() {
             console.log('enter vtx_config() [MSP.send_message]');
-            //MSP.send_message(MSPCodes.MSP_VTX_CONFIG, false, false, vtxConfigReceived);
             MSP.send_message(MSPCodes.MSP_VTX_CONFIG, false, false, load_html);
             console.log('exit vtx_config()');
         };
-
-        //        function vtxConfigReceived() {
-        //            console.log('enter read_vtx_config().vtxConfigReceived()');
-        //            if (semver.gte(CONFIG.apiVersion, "1.40.0")) {
-        //                GUI.interval_add('vtx_pull',//self._DEVICE_STATUS_UPDATE_INTERVAL_NAME,
-        //                    TABS.vtx.updateVtxDeviceStatus,
-        //                    1000, false,
-        //                    TABS.vtx.isVtxDeviceStatusNotReady,
-        //                );
-        //            }
-        //            console.log('exit read_vtx_config().vtxConfigReceived()');
-        //            //vtxtable_bands();
-        //        }
     };
 
     // Prepares all the UI elements, the MSP command has been executed before
@@ -136,6 +122,7 @@ TABS.vtx.initialize = function(callback) {
             return;
         }
         $(".tab-vtx").addClass("supported");
+
         // Load all the dynamic elements
         populateBandSelect();
         populatePowerSelect();
@@ -144,41 +131,23 @@ TABS.vtx.initialize = function(callback) {
         $(".uppercase").keyup(function() {
             this.value = this.value.toUpperCase().trim();
         });
+
         // Supported?
         const vtxSupported = VTX_CONFIG.vtx_type !== VtxDeviceTypes.VTXDEV_UNSUPPORTED && VTX_CONFIG.vtx_type !== VtxDeviceTypes.VTXDEV_UNKNOWN;
         $(".vtx_supported").toggle(vtxSupported);
         $(".vtx_not_supported").toggle(!vtxSupported);
-        // Insert actual values in the fields
-        // Values of the selected mode
+
+        // assign fields from EEPROM
         $("#vtx_frequency").val(VTX_CONFIG.vtx_frequency);
-
         $("#vtx_band").val(VTX_CONFIG.vtx_band);
-        //$("#vtx_band").change(populateChannelSelect).change();  // resets channel list / lets disable & move
-
         $("#vtx_channel").val(VTX_CONFIG.vtx_channel);
-
         $("#vtx_power").val(VTX_CONFIG.vtx_power);
         $("#vtx_pit_mode").prop('checked', VTX_CONFIG.vtx_pit_mode);
         $("#vtx_pit_mode_frequency").val(VTX_CONFIG.vtx_pit_mode_frequency);
-        //$("#vtx_low_power_disarm").val(VTX_CONFIG.vtx_low_power_disarm);  //not EMUF MSP
-        // Values of the current values
         //const yesMessage =  i18n.getMessage("yes");
         //const noMessage =  i18n.getMessage("no");
         //$("#vtx_device_ready_description").text(VTX_CONFIG.vtx_device_ready ? yesMessage : noMessage);
         $("#vtx_type_description").text(self.getVtxTypeString()); //keep this one if nothing else
-
-//        if (VTX_CONFIG.vtx_band === 0) {
-//            $('input[id="vtx_frequency_channel"]').prop('checked',true);
-//        }
-
-
-
-
-
-
-//////// this works, but there is another of the same below initDisplay
-  //      $('input[id="vtx_frequency_channel"]').change(frequencyOrBandChannel);
-   //     frequencyOrBandChannel($('input[id="vtx_frequency_channel"]'));
 
         //REFRESH BUTTON
         $('a.refresh').click(function() {   //this one clicked
@@ -189,7 +158,7 @@ TABS.vtx.initialize = function(callback) {
             console.log('exit refresh clicked');
         });
 
-        // SAVE BUTTOn
+        // SAVE BUTTON
         console.log('setup save clickable');
         $('a.save').click(function() {
             console.log('save clicked');
@@ -199,9 +168,6 @@ TABS.vtx.initialize = function(callback) {
             }
         });
 
-        console.log('exit initDisplay()');
-
-
     //////////// cut vtx tables
 
     // Actions and other
@@ -209,36 +175,27 @@ TABS.vtx.initialize = function(callback) {
         console.log('enter frequencyOrBandChannel()');
         const frequencyEnabled = $(this).prop('checked');
         if (frequencyEnabled) {
-            $(".field.vtx_channel").slideUp(100, function() {
-
-                $(".field.vtx_band").slideUp(100, function() {
-                    $(".field.vtx_frequency").slideDown(100);
-                });
-            });
+            $(".field.vtx_channel").hide();
+            $(".field.vtx_band").hide();
+            $(".field.vtx_frequency").show();
         } else {
-            $(".field.vtx_frequency").slideUp(100, function() {
-
-                $(".field.vtx_band").slideDown(100, function() {
-                    $(".field.vtx_channel").slideDown(100);
-                });
-            });
+            $(".field.vtx_channel").show();
+            $(".field.vtx_band").show();
+            $(".field.vtx_frequency").hide();
         }
         console.log('exit frequencyOrBandChannel()');
     };
 
-    $('input[id="vtx_frequency_channel"]').prop('checked', VTX_CONFIG.vtx_band === 0 && VTX_CONFIG.vtx_frequency > 0).change(frequencyOrBandChannel);
-    if ($('input[id="vtx_frequency_channel"]').prop('checked')) {
-        console.log ()
-        $(".field.vtx_channel").hide();
-        $(".field.vtx_band").hide();
-        $(".field.vtx_frequency").show();
-    } else {
-        $(".field.vtx_channel").show();
-        $(".field.vtx_band").show();
-        $(".field.vtx_frequency").hide();
-    }
+    // user freq toggle
+    frequencyOrBandChannel($('input[id="vtx_frequency_channel"]').prop('checked')); //current status on load
+    $('input[id="vtx_frequency_channel"]').prop('checked', VTX_CONFIG.vtx_band === 0 && VTX_CONFIG.vtx_frequency > 0).change(frequencyOrBandChannel); // trigger on toggles
+
 
     //////////// cut vtx tables
+
+    console.log('exit initDisplay()');
+}; // initDisplay
+
 
     function populateBandSelect() {
         console.log('enter populateBandSelect()');
@@ -251,10 +208,6 @@ TABS.vtx.initialize = function(callback) {
         }
         console.log('exit populateBandSelect()');
     };
-
-}; //initDisplay
-
-
 
     function populateChannelSelect() {
         console.log('enter populateChannelSelect()');
@@ -323,9 +276,7 @@ TABS.vtx.initialize = function(callback) {
         return powerMinMax;
     };
 
-
-
-    // Save all the values from the tab to MSP
+    // Save all the values to MSP
     function save_vtx() {
         console.log('enter save_vtx()');
         self.updating = true;
@@ -348,39 +299,9 @@ TABS.vtx.initialize = function(callback) {
                     +' pwr:'+VTX_CONFIG.vtx_power
                     +' pit:'+VTX_CONFIG.vtx_pit_mode
                     +' freq:'+VTX_CONFIG.vtx_frequency);
-            //MSP.send_message(MSPCodes.MSP_SET_VTX_CONFIG, mspHelper.crunch(MSPCodes.MSP_SET_VTX_CONFIG), false, save_vtx_powerlevels);
-
-
             MSP.send_message(MSPCodes.MSP_SET_VTX_CONFIG, mspHelper.crunch(MSPCodes.MSP_SET_VTX_CONFIG), false, save_to_eeprom);
-//            MSP.send_message(MSPCodes.MSP_SET_VTX_CONFIG, mspHelper.crunch(MSPCodes.MSP_SET_VTX_CONFIG), false, save_completed);
-
             console.log('exit save_vtx_config()');
         };
-
-//      function save_vtx_powerlevels() {
-//          console.log('enter save_vtx_powerlevels()');
-//          // Simulation of static variable
-//          if (typeof save_vtx_powerlevels.counter === 'undefined') {
-//              save_vtx_powerlevels.counter = 0;
-//          } else {
-//              save_vtx_powerlevels.counter++;
-//          }
-//          save_vtx_bands();
-//          console.log('exit save_vtx_powerlevels()');
-//      };
-
-//      function save_vtx_bands() {
-//          console.log('enter save_vtx_bands()');
-//          // Simulation of static variable
-//          if (typeof save_vtx_bands.counter === 'undefined') {
-//              save_vtx_bands.counter = 0;
-//          } else {
-//              save_vtx_bands.counter++;
-//          }
-//          save_vtx_bands.counter = undefined;
-//          save_to_eeprom();
-//          console.log('exit save_vtx_bands()');
-//      };
 
        function save_to_eeprom() {
            console.log('enter save_to_eeprom()');
@@ -403,7 +324,6 @@ TABS.vtx.initialize = function(callback) {
                     +' pit:'+VTX_CONFIG.vtx_pit_mode
                     +' freq:'+VTX_CONFIG.vtx_frequency);
             GUI.log(i18n.getMessage('configurationEepromSaved'));
-            //TABS.vtx.vtxTableSavePending = false;
             const oldText = $("#save_button").text();
             $("#save_button").html(i18n.getMessage('vtxButtonSaved'));
 
@@ -424,30 +344,25 @@ function dump_html_to_msp() {
     const frequencyEnabled = $('input[id="vtx_frequency_channel"]').prop('checked');
     console.log('%c manual freq toggle is: '+frequencyEnabled, "color: magenta");
     if (frequencyEnabled) {  //user freq
-
-
-
         VTX_CONFIG.vtx_frequency = parseInt( $("#vtx_frequency").val() );
-//        var tupleBandChan = lookupTableFreq(VTX_CONFIG.vtx_frequency);
- //       console.log('%c lookupTableFreq('+VTX_CONFIG.vtx_frequency+'): '+tupleBandChan, "color: magenta");
-
-//        VTX_CONFIG.vtx_band =      tupleBandChan[0];
-  //      VTX_CONFIG.vtx_channel =   tupleBandChan[1];
-
+        //var tupleBandChan = lookupTableFreq(VTX_CONFIG.vtx_frequency);
+        //console.log('%c lookupTableFreq('+VTX_CONFIG.vtx_frequency+'): '+tupleBandChan, "color: magenta");
+        //VTX_CONFIG.vtx_band =      tupleBandChan[0];
+        //VTX_CONFIG.vtx_channel =   tupleBandChan[1];
+        VTX_CONFIG.vtx_band = 0; //user
+        VTX_CONFIG.vtx_channel = 1;
     } else {  //band/channel
         VTX_CONFIG.vtx_band =      parseInt( $("#vtx_band").val() );
         VTX_CONFIG.vtx_channel =   parseInt( $("#vtx_channel").val() );
-
         if (semver.gte(CONFIG.apiVersion, "1.40.0")) { //redundant
             if (VTX_CONFIG.vtx_band > 0 || VTX_CONFIG.vtx_channel > 0) {
-                    VTX_CONFIG.vtx_frequency = (VTX_CONFIG.vtx_band - 1) * 8 + (VTX_CONFIG.vtx_channel - 1);
-                    console.log('%c special old ass encoded freq: '+VTX_CONFIG.vtx_frequency, "color: magenta");
+                VTX_CONFIG.vtx_frequency = (VTX_CONFIG.vtx_band - 1) * 8 + (VTX_CONFIG.vtx_channel - 1);
+                console.log('%c special old ass encoded freq: '+VTX_CONFIG.vtx_frequency, "color: magenta");
             }
-        } // else all this TAB broken and useless
+        } // else some other semver option that does not yet exist
 
         //VTX_CONFIG.vtx_frequency = lookupTableBandChan(VTX_CONFIG.vtx_band-1,VTX_CONFIG.vtx_channel-1);
-
-        console.log(`%c lookup vtxTable[${VTX_CONFIG.vtx_band}][${VTX_CONFIG.vtx_channel}]: `+VTX_CONFIG.vtx_frequency, "color: magenta");
+        //console.log(`%c lookup vtxTable[${VTX_CONFIG.vtx_band}][${VTX_CONFIG.vtx_channel}]: `+VTX_CONFIG.vtx_frequency, "color: magenta");
     }
 
     VTX_CONFIG.vtx_power = parseInt($("#vtx_power").val());
