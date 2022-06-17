@@ -187,9 +187,8 @@ TABS.vtx.initialize = function(callback) {
     };
 
     // user freq toggle
-    frequencyOrBandChannel($('input[id="vtx_frequency_channel"]').prop('checked')); //current status on load
     $('input[id="vtx_frequency_channel"]').prop('checked', VTX_CONFIG.vtx_band === 0 && VTX_CONFIG.vtx_frequency > 0).change(frequencyOrBandChannel); // trigger on toggles
-
+    $('input[id="vtx_frequency_channel"]').prop('checked',frequencyOrBandChannel);  //current status on load
 
     //////////// cut vtx tables
 
