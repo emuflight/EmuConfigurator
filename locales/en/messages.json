@@ -5600,6 +5600,10 @@
         "message": "Tramp",
         "description": "Text for one of the types of the VTX type in VTX tab"
     },
+    "vtxType_5": {
+        "message": "BeeSign",
+        "description": "Text for one of the types of the VTX type in VTX tab"
+    },
     "vtxType_255": {
         "message": "Unknown",
         "description": "Text for one of the types of the VTX type in VTX tab"

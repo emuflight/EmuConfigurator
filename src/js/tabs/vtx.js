@@ -145,7 +145,7 @@ TABS.vtx.initialize = function(callback) {
         $("#vtx_power").val(VTX_CONFIG.vtx_power);
         $("#vtx_pit_mode").prop('checked', VTX_CONFIG.vtx_pit_mode);
 
-        if (VTX_CONFIG.vtx_type !== VtxDeviceTypes.VTXDEV_SMARTAUDIO) {
+        if (VTX_CONFIG.vtx_type === VtxDeviceTypes.VTXDEV_TRAMP) { //smart audio does not support. beesign seemingly neither
             //show pitmode
             $(".field.vtx_pit_mode").show();
         } else {
@@ -343,9 +343,10 @@ TABS.vtx.initialize = function(callback) {
             const oldText = $("#save_button").text();
             $("#save_button").html(i18n.getMessage('vtxButtonSaved'));
 
-            setTimeout(function() {
+            let saveTimeout = setTimeout(function() {
                 $("#save_button").html(oldText);
             }, 2000);
+            clearTimeout(saveTimeout);
             TABS.vtx.initialize();
             console.log('exit save_completed()');
         };
