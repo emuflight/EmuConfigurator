@@ -82,13 +82,26 @@
 .tab-vtx .spacer_box .field {
   margin-bottom: 5px;
   clear: left;
-  padding-bottom: 5px;
+  /*padding-bottom: 5px;*/ /* because swapped to top borders*/
+  padding-top: 5px;
   width: 100%;
   float: left;
 }
 
+/* because swapped to top borders*/
+.tab-vtx .helpicon {
+  margin-top: 2px;
+}
+
+/*swap this for top borders*/
+/*
 .tab-vtx .spacer_box .field:not(:last-child) {
   border-bottom: 1px solid var(--subtleAccent);
+}
+*/
+
+.tab-vtx .spacer_box .field:not(:first-child) {
+  border-top: 1px solid var(--subtleAccent);
 }
 
 .tab-vtx .select_mode .field > span {

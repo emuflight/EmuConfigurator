@@ -144,7 +144,16 @@ TABS.vtx.initialize = function(callback) {
         $("#vtx_channel").val(VTX_CONFIG.vtx_channel);
         $("#vtx_power").val(VTX_CONFIG.vtx_power);
         $("#vtx_pit_mode").prop('checked', VTX_CONFIG.vtx_pit_mode);
-        $("#vtx_pit_mode_frequency").val(VTX_CONFIG.vtx_pit_mode_frequency);
+
+        if (VTX_CONFIG.vtx_type !== VtxDeviceTypes.VTXDEV_SMARTAUDIO) {
+            //show pitmode
+            $(".field.vtx_pit_mode").show();
+        } else {
+            //hide pitmode
+            $(".field.vtx_pit_mode").hide();
+        }
+
+        //$("#vtx_pit_mode_frequency").val(VTX_CONFIG.vtx_pit_mode_frequency); //no EmuF MSP
         //const yesMessage =  i18n.getMessage("yes");
         //const noMessage =  i18n.getMessage("no");
         //$("#vtx_device_ready_description").text(VTX_CONFIG.vtx_device_ready ? yesMessage : noMessage);
@@ -344,7 +353,7 @@ TABS.vtx.initialize = function(callback) {
     }
 }; //TABS.vtx.initialize
 
-///////////// THIS NEEDS FIXING FOR EMUFLIGHT
+//modified for EmuF
 function dump_html_to_msp() {
     console.log('enter dump_html_to_msp()');
     // General config
@@ -352,10 +361,6 @@ function dump_html_to_msp() {
     console.log('%c manual freq toggle is: '+frequencyEnabled, "color: magenta");
     if (frequencyEnabled) {  //user freq
         VTX_CONFIG.vtx_frequency = parseInt( $("#vtx_frequency").val() );
-        //var tupleBandChan = lookupTableFreq(VTX_CONFIG.vtx_frequency);
-        //console.log('%c lookupTableFreq('+VTX_CONFIG.vtx_frequency+'): '+tupleBandChan, "color: magenta");
-        //VTX_CONFIG.vtx_band =      tupleBandChan[0];
-        //VTX_CONFIG.vtx_channel =   tupleBandChan[1];
         VTX_CONFIG.vtx_band = 0; //user
         VTX_CONFIG.vtx_channel = 1;
     } else {  //band/channel
@@ -367,14 +372,11 @@ function dump_html_to_msp() {
                 console.log('%c special old ass encoded freq: '+VTX_CONFIG.vtx_frequency, "color: magenta");
             }
         } // else some other semver option that does not yet exist
-
-        //VTX_CONFIG.vtx_frequency = lookupTableBandChan(VTX_CONFIG.vtx_band-1,VTX_CONFIG.vtx_channel-1);
-        //console.log(`%c lookup vtxTable[${VTX_CONFIG.vtx_band}][${VTX_CONFIG.vtx_channel}]: `+VTX_CONFIG.vtx_frequency, "color: magenta");
     }
 
     VTX_CONFIG.vtx_power = parseInt($("#vtx_power").val());
     VTX_CONFIG.vtx_pit_mode = $("#vtx_pit_mode").prop('checked');
-    // VTX_CONFIG.vtx_low_power_disarm = parseInt($("#vtx_low_power_disarm").val());  //no EMUF MSP
+    // VTX_CONFIG.vtx_low_power_disarm = parseInt($("#vtx_low_power_disarm").val());  //no EmuF MSP
 
     console.log('dump_html_to_msp(): bnd'+VTX_CONFIG.vtx_band+'/ch'+VTX_CONFIG.vtx_channel+'/frq'+VTX_CONFIG.vtx_frequency+'/lvl'+VTX_CONFIG.vtx_power+'/pm'+VTX_CONFIG.vtx_pit_mode);
     console.log('exit dump_html_to_msp()');
