@@ -1535,7 +1535,7 @@ MspHelper.prototype.process_data = function(dataHandler) {
                     VTX_CONFIG.vtx_band = data.readU8();
                     VTX_CONFIG.vtx_channel = data.readU8();
                     VTX_CONFIG.vtx_power = data.readU8();
-                    VTX_CONFIG.vtx_pit_mode = data.readU8() != 0;
+                    VTX_CONFIG.vtx_pit_mode = data.readU8() !== 0;
                     VTX_CONFIG.vtx_frequency = data.readU16();
                 }
                 //console.log('exit MSPCodes.MSP_VTX_CONFIG');

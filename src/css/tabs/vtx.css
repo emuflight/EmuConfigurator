@@ -23,15 +23,15 @@
 }
 
 .tab-vtx .columnsWrapper {
-   display: flex;
-   flex-direction: row;
-   flex-wrap: nowrap;
-   justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
 }
 
 .tab-vtx .columnsWrapper .leftColumn {
-   width: calc(30%);
-   min-width: 260px;
+  width: calc(30%);
+  min-width: 260px;
 }
 
 .tab-vtx .columnsWrapper .rightColumn {
@@ -44,7 +44,7 @@
 
 .tab-vtx .leftWrapper {
   float: left;
-  width:calc(60% - 20px)
+  width: calc(60% - 20px)
 }
 
 .tab-vtx .rightWrapper {
@@ -82,18 +82,18 @@
 .tab-vtx .spacer_box .field {
   margin-bottom: 5px;
   clear: left;
-  /*padding-bottom: 5px;*/ /* because swapped to top borders*/
+  /* padding-bottom: 5px; */ /* because swapped to top borders*/
   padding-top: 5px;
   width: 100%;
   float: left;
 }
 
-/* because swapped to top borders*/
+/* because swapped to top borders */
 .tab-vtx .helpicon {
   margin-top: 2px;
 }
 
-/*swap this for top borders*/
+/* swap this for top borders */
 /*
 .tab-vtx .spacer_box .field:not(:last-child) {
   border-bottom: 1px solid var(--subtleAccent);
@@ -124,10 +124,8 @@
   background-color: inherit;
 }
 
-
 .tab-vtx .field_powerlevel_value input, .tab-vtx .field_powerlevel_label input {
   width: 53px;
-
 }
 
 .tab-vtx .field_band_name input {
@@ -157,7 +155,7 @@
   text-align: center;
 }
 
-/* unused, but may use in the future*/
+/* unused, but may use in the future */
 .tab-vtx th.band {
   width: auto;
   vertical-align: middle;
@@ -169,14 +167,14 @@
   white-space: nowrap;
 }
 
-.tab-vtx  .freq {
+.tab-vtx .freq {
   background: inherit;
   color: inherit;
   padding: 3px;
 }
 
-.tab-vtx  .freq:hover {
-  background: #00A3E0;
+.tab-vtx .freq:hover {
+  background: #00a3e0;
   color: white;
   font-weight: bold;
   padding: 3px;
