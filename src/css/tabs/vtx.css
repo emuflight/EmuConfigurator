@@ -54,7 +54,7 @@
   margin: 0 0 10px 20px;
 }
 
-.tab-vtx input , .tab-vtx select {
+.tab-vtx input, .tab-vtx select {
   border: 1px solid var(--subtleAccent);
   max-width: 100px;
   background: var(--boxBackground);
@@ -82,7 +82,7 @@
 .tab-vtx .spacer_box .field {
   margin-bottom: 5px;
   clear: left;
-  /* padding-bottom: 5px; */ /* because swapped to top borders*/
+  /* padding-bottom: 5px; */ /* because swapped to top borders */
   padding-top: 5px;
   width: 100%;
   float: left;
@@ -130,7 +130,6 @@
 
 .tab-vtx .field_band_name input {
   width: 71px;
-
 }
 
 .tab-vtx .field_band_letter input {
@@ -140,12 +139,12 @@
 .tab-vtx table {
   border-width: 1px 1px 1px 1px;
   border-style: solid;
-  border-spacing: 0px;
+  border-collapse: collapse;
   width: 100%;
 }
 
 .tab-vtx th, tr, td {
-  border-spacing: 0px;
+  border-collapse: collapse;
   padding: 5px;
 }
 
