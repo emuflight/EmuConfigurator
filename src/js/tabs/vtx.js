@@ -345,9 +345,20 @@ TABS.vtx.initialize = function(callback) {
 
             let saveTimeout = setTimeout(function() {
                 $("#save_button").html(oldText);
+                clearTimeout(saveTimeout);
             }, 2000);
-            clearTimeout(saveTimeout);
+
             TABS.vtx.initialize();
+
+            // if pitmode, then wait and refresh again (is 3000ms enough?)
+            if (VTX_CONFIG.vtx_pit_mode) {
+                console.log('pitmode true, pause and refresh again due to slow VTX setting');
+                let refreshTimeout = setTimeout(function() {
+                    TABS.vtx.initialize();
+                    clearTimeout(refreshTimeout);
+                }, 3000);
+            }
+
             console.log('exit save_completed()');
         };
         console.log('exit save_vtx()');
