@@ -44,7 +44,7 @@
 
 .tab-vtx .leftWrapper {
   float: left;
-  width: calc(60% - 20px)
+  width: calc(60% - 20px);
 }
 
 .tab-vtx .rightWrapper {
