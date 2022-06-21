@@ -7,229 +7,195 @@
                 <a id="button-documentation" href="" target="_blank"></a>
             </div>
         </div>
-
         <div class="note vtx_supported">
             <p i18n="vtxHelp"></p>
         </div>
-
         <div class="note vtx_not_supported">
             <div i18n="vtxMessageNotSupported"></div>
         </div>
-
         <div class="note ">
             <div i18n="vtxMessageRequiresHAM"></div>
         </div>
-
         <div class="note ">
             <div i18n="vtxMessageNonMSP"></div>
         </div>
-
         <div class="note ">
             <div i18n="vtxMessageHardwareModes"></div>
         </div>
-
         <div class="note ">
             <div i18n="vtxMessageAnalogFunny"></div>
         </div>
-
         <div class="columnsWrapper">
-          <div class="gui_box grey select_mode vtx_supported leftColumn">
-
-              <div class="gui_box_titlebar">
-                  <div class="spacer_box_title" i18n="vtxSelectedMode"></div>
-              </div>
-
-              <div class="spacer_box">
-                  <div>
-                      <label>
-                        <span class="numberspacer" id="vtx_type_description"></span>
-                       &nbsp;VTX</label>
-                  </div>
-            </div>
-
-              <div class="spacer_box">
-
-                  <div class="field checkbox vtx_frequency_channel">
-                      <span class="checkboxspacer">
-                          <input type="checkbox" id="vtx_frequency_channel" class="toggle" />
-                      </span>
-                      <label>
-                          <span class="freelabel" i18n="vtxFrequencyChannel"></span>
-                          <div class="helpicon cf_tip" i18n_title="vtxFrequencyChannelHelp"></div>
-                      </label>
-                  </div>
-
-                  <div class="field number vtx_band">
-                      <span class="numberspacer">
-                          <select id="vtx_band">
-                              <!-- Band options generated here from the js -->
-                          </select>
-                      </span>
-                      <label>
-                          <span i18n="vtxBand"></span>
-                          <div class="helpicon cf_tip" i18n_title="vtxBandHelp"></div>
-                      </label>
-                  </div>
-
-                  <div class="field number vtx_channel">
-                      <span class="numberspacer">
-                          <select id="vtx_channel">
-                              <!-- Channel options generated here from the js -->
-                          </select>
-                      </span>
-                      <label>
-                          <span i18n="vtxChannel"></span>
-                          <div class="helpicon cf_tip" i18n_title="vtxChannelHelp"></div>
-                      </label>
-                  </div>
-
-                  <div class="field number vtx_frequency">
-                      <span class="numberspacer">
-                          <input class="frequency_input" type="number" id="vtx_frequency" min="64" max="5999" />
-                      </span>
-                      <label>
-                          <span i18n="vtxFrequency"></span>
-                          <div class="helpicon cf_tip" i18n_title="vtxFrequencyHelp"></div>
-                      </label>
-                  </div>
-
-                  <div class="field number vtx_power">
-                      <span class="numberspacer">
-                          <select id="vtx_power">
-                              <!-- Power options generated here from the js -->
-                          </select>
-                      </span>
-                      <span i18n="vtxPower"></span>
-                      <div class="helpicon cf_tip" i18n_title="vtxPowerHelp"></div>
-                  </div>
-
-<!-- not supported by EMUF MSP
-                  <div class="field number vtx_pit_mode_frequency">
-                      <span class="numberspacer">
+            <div class="gui_box grey select_mode vtx_supported leftColumn">
+                <div class="gui_box_titlebar">
+                    <div class="spacer_box_title" i18n="vtxSelectedMode"></div>
+                </div>
+                <div class="spacer_box">
+                    <div>
+                        <label>
+                            <span class="numberspacer" id="vtx_type_description"></span>
+                            &nbsp;VTX</label>
+                    </div>
+                </div>
+                <div class="spacer_box">
+                    <div class="field checkbox vtx_frequency_channel">
+                        <span class="checkboxspacer">
+                            <input type="checkbox" id="vtx_frequency_channel" class="toggle" />
+                        </span>
+                        <label>
+                            <span class="freelabel" i18n="vtxFrequencyChannel"></span>
+                            <div class="helpicon cf_tip" i18n_title="vtxFrequencyChannelHelp"></div>
+                        </label>
+                    </div>
+                    <div class="field number vtx_band">
+                        <span class="numberspacer">
+                            <select id="vtx_band">
+                                <!-- Band options generated here from the js -->
+                            </select>
+                        </span>
+                        <label>
+                            <span i18n="vtxBand"></span>
+                            <div class="helpicon cf_tip" i18n_title="vtxBandHelp"></div>
+                        </label>
+                    </div>
+                    <div class="field number vtx_channel">
+                        <span class="numberspacer">
+                            <select id="vtx_channel">
+                                <!-- Channel options generated here from the js -->
+                            </select>
+                        </span>
+                        <label>
+                            <span i18n="vtxChannel"></span>
+                            <div class="helpicon cf_tip" i18n_title="vtxChannelHelp"></div>
+                        </label>
+                    </div>
+                    <div class="field number vtx_frequency">
+                        <span class="numberspacer">
+                            <input class="frequency_input" type="number" id="vtx_frequency" min="64" max="5999" />
+                        </span>
+                        <label>
+                            <span i18n="vtxFrequency"></span>
+                            <div class="helpicon cf_tip" i18n_title="vtxFrequencyHelp"></div>
+                        </label>
+                    </div>
+                    <div class="field number vtx_power">
+                        <span class="numberspacer">
+                            <select id="vtx_power">
+                                <!-- Power options generated here from the js -->
+                            </select>
+                        </span>
+                        <span i18n="vtxPower"></span>
+                        <div class="helpicon cf_tip" i18n_title="vtxPowerHelp"></div>
+                    </div>
+                    <!-- not supported by EMUF MSP (yet)
+                    <div class="field number vtx_pit_mode_frequency">
+                        <span class="numberspacer">
                           <input class="frequency_input" type="number" id="vtx_pit_mode_frequency" min="0" max="5999">
-                      </span>
-                      <span i18n="vtxPitModeFrequency"></span>
-                      <div class="helpicon cf_tip" i18n_title="vtxPitModeFrequencyHelp"></div>
-                  </div>
--->
-
-<!-- not supported by EMUF MSP
-                  <div class="field select vtx_low_power_disarm">
-                      <span class="selectspacer">
-                          <select id="vtx_low_power_disarm">
-                              <option value="0" i18n="vtxLowPowerDisarmOption_0"></option>
-                              <option value="1" i18n="vtxLowPowerDisarmOption_1"></option>
-                              <option value="2" i18n="vtxLowPowerDisarmOption_2"></option>
-                          </select>
-                      </span>
-                      <span class="freelabel" i18n="vtxLowPowerDisarm"></span>
-                      <div class="helpicon cf_tip" i18n_title="vtxLowPowerDisarmHelp"></div>
-                  </div>
-
--->
-                  <div class="field checkbox vtx_pit_mode">
-                      <span class="checkboxspacer">
-                          <input type="checkbox" id="vtx_pit_mode" class="toggle" />
-                      </span>
-                      <span class="freelabel" i18n="vtxPitMode"></span>
-                      <div class="helpicon cf_tip" i18n_title="vtxPitModeHelp"></div>
-                  </div>
-
-              </div>
-
-          </div>
-
-
-<!-- emuflight right column vtx TABLEZ -->
-<div class="gui_box grey select_mode vtx_supported rightColumn">
-  <table id="vtxTable">
-  <!--<tr>
-    <th rowspan="7" class="band">Bands</th>
-    <th colspan="1">&nbsp;</th>
-    <th colspan="8">Channels</th>
-    <th colspan="1">&nbsp;</th>
-  </tr>-->
-  <tr>
-    <td colspan="1"></td>
-    <td>1</td>
-    <td>2</td>
-    <td>3</td>
-    <td>4</td>
-    <td>5</td>
-    <td>6</td>
-    <td>7</td>
-    <td>8</td>
-    <td colspan="1">Description</td>
-  </tr>
-  <tr>
-    <td>1</td>
-    <td><a class="freq " id="" href="#">5865</a></td>
-    <td><a class="freq " id="" href="#">5845</a></td>
-    <td><a class="freq " id="" href="#">5825</a></td>
-    <td><a class="freq " id="" href="#">5805</a></td>
-    <td><a class="freq " id="" href="#">5785</a></td>
-    <td><a class="freq " id="" href="#">5765</a></td>
-    <td><a class="freq " id="" href="#">5745</a></td>
-    <td><a class="freq " id="" href="#">5725</a></td>
-    <td>(A) Boscam A</td>
-  </tr>
-  <tr>
-    <td>2</td>
-    <td><a class="freq " id="" href="#">5733</a></td>
-    <td><a class="freq " id="" href="#">5752</a></td>
-    <td><a class="freq " id="" href="#">5771</a></td>
-    <td><a class="freq " id="" href="#">5790</a></td>
-    <td><a class="freq " id="" href="#">5809</a></td>
-    <td><a class="freq " id="" href="#">5828</a></td>
-    <td><a class="freq " id="" href="#">5847</a></td>
-    <td><a class="freq " id="" href="#">5866</a></td>
-    <td>(B) Boscam B</td>
-  </tr>
-  <tr>
-    <td>3</td>
-    <td><a class="freq " id="" href="#">5705</a></td>
-    <td><a class="freq " id="" href="#">5685</a></td>
-    <td><a class="freq " id="" href="#">5665</a></td>
-    <td><a class="freq " id="" href="#">5645</a></td>
-    <td><a class="freq " id="" href="#">5885</a></td>
-    <td><a class="freq " id="" href="#">5905</a></td>
-    <td><a class="freq " id="" href="#">5925</a></td>
-    <td><a class="freq " id="" href="#">5945</a></td>
-    <td>(E) Boscam E</td>
-  </tr>
-  <tr>
-    <td>4</td>
-    <td><a class="freq " id="" href="#">5740</a></td>
-    <td><a class="freq " id="" href="#">5760</a></td>
-    <td><a class="freq " id="" href="#">5780</a></td>
-    <td><a class="freq " id="" href="#">5800</a></td>
-    <td><a class="freq " id="" href="#">5820</a></td>
-    <td><a class="freq " id="" href="#">5840</a></td>
-    <td><a class="freq " id="" href="#">5860</a></td>
-    <td><a class="freq " id="" href="#">5880</a></td>
-    <td>(F) Fatshark</td>
-  </tr>
-  <tr>
-    <td>5</td>
-    <td><a class="freq " id="" href="#">5658</a></td>
-    <td><a class="freq " id="" href="#">5695</a></td>
-    <td><a class="freq " id="" href="#">5732</a></td>
-    <td><a class="freq " id="" href="#">5769</a></td>
-    <td><a class="freq " id="" href="#">5806</a></td>
-    <td><a class="freq " id="" href="#">5843</a></td>
-    <td><a class="freq " id="" href="#">5880</a></td>
-    <td><a class="freq " id="" href="#">5917</a></td>
-    <td>(R) Raceband</td>
-  </tr>
-</table>
-
-</div>
-
-
-
+                        </span>
+                        <span i18n="vtxPitModeFrequency"></span>
+                        <div class="helpicon cf_tip" i18n_title="vtxPitModeFrequencyHelp"></div>
+                    </div>
+                    -->
+                    <!-- not supported by EMUF MSP (yet)
+                    <div class="field select vtx_low_power_disarm">
+                        <span class="selectspacer">
+                            <select id="vtx_low_power_disarm">
+                                <option value="0" i18n="vtxLowPowerDisarmOption_0"></option>
+                                <option value="1" i18n="vtxLowPowerDisarmOption_1"></option>
+                            </select>
+                        </span>
+                        <span class="freelabel" i18n="vtxLowPowerDisarm"></span>
+                        <div class="helpicon cf_tip" i18n_title="vtxLowPowerDisarmHelp"></div>
+                    </div>
+                    -->
+                    <div class="field checkbox vtx_pit_mode">
+                        <span class="checkboxspacer">
+                            <input type="checkbox" id="vtx_pit_mode" class="toggle" />
+                        </span>
+                        <span class="freelabel" i18n="vtxPitMode"></span>
+                        <div class="helpicon cf_tip" i18n_title="vtxPitModeHelp"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- emuflight right column vtx TABLEZ -->
+            <div class="gui_box grey select_mode vtx_supported rightColumn">
+                <table id="vtxTable">
+                    <tr>
+                        <td colspan="1"></td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>7</td>
+                        <td>8</td>
+                        <td colspan="1">Description</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td><a class="freq " id="" href="#">5865</a></td>
+                        <td><a class="freq " id="" href="#">5845</a></td>
+                        <td><a class="freq " id="" href="#">5825</a></td>
+                        <td><a class="freq " id="" href="#">5805</a></td>
+                        <td><a class="freq " id="" href="#">5785</a></td>
+                        <td><a class="freq " id="" href="#">5765</a></td>
+                        <td><a class="freq " id="" href="#">5745</a></td>
+                        <td><a class="freq " id="" href="#">5725</a></td>
+                        <td>(A) Boscam A</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><a class="freq " id="" href="#">5733</a></td>
+                        <td><a class="freq " id="" href="#">5752</a></td>
+                        <td><a class="freq " id="" href="#">5771</a></td>
+                        <td><a class="freq " id="" href="#">5790</a></td>
+                        <td><a class="freq " id="" href="#">5809</a></td>
+                        <td><a class="freq " id="" href="#">5828</a></td>
+                        <td><a class="freq " id="" href="#">5847</a></td>
+                        <td><a class="freq " id="" href="#">5866</a></td>
+                        <td>(B) Boscam B</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td><a class="freq " id="" href="#">5705</a></td>
+                        <td><a class="freq " id="" href="#">5685</a></td>
+                        <td><a class="freq " id="" href="#">5665</a></td>
+                        <td><a class="freq " id="" href="#">5645</a></td>
+                        <td><a class="freq " id="" href="#">5885</a></td>
+                        <td><a class="freq " id="" href="#">5905</a></td>
+                        <td><a class="freq " id="" href="#">5925</a></td>
+                        <td><a class="freq " id="" href="#">5945</a></td>
+                        <td>(E) Boscam E</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td><a class="freq " id="" href="#">5740</a></td>
+                        <td><a class="freq " id="" href="#">5760</a></td>
+                        <td><a class="freq " id="" href="#">5780</a></td>
+                        <td><a class="freq " id="" href="#">5800</a></td>
+                        <td><a class="freq " id="" href="#">5820</a></td>
+                        <td><a class="freq " id="" href="#">5840</a></td>
+                        <td><a class="freq " id="" href="#">5860</a></td>
+                        <td><a class="freq " id="" href="#">5880</a></td>
+                        <td>(F) Fatshark</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td><a class="freq " id="" href="#">5658</a></td>
+                        <td><a class="freq " id="" href="#">5695</a></td>
+                        <td><a class="freq " id="" href="#">5732</a></td>
+                        <td><a class="freq " id="" href="#">5769</a></td>
+                        <td><a class="freq " id="" href="#">5806</a></td>
+                        <td><a class="freq " id="" href="#">5843</a></td>
+                        <td><a class="freq " id="" href="#">5880</a></td>
+                        <td><a class="freq " id="" href="#">5917</a></td>
+                        <td>(R) Raceband</td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
-
     <div class="content_toolbar xs-compressed">
         <div class="btn refresh_btn">
             <a class="refresh" id="refresh_button" href="#" i18n="vtxButtonRefresh"></a>
@@ -242,4 +208,3 @@
         <em class="fas fa-ellipsis-h"></em>
     </div>
 </div>
-

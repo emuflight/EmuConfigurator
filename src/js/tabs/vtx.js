@@ -1,20 +1,10 @@
 'use strict';
 TABS.vtx = {
     supported: false,
-    //vtxTableSavePending: false,
-    //vtxTableFactoryBandsSupported: false,
     MAX_POWERLEVEL_VALUES: 8,
     MAX_BAND_VALUES: 5,
     MAX_BAND_CHANNELS_VALUES: 8,
-    //VTXTABLE_BAND_LIST: [],
-    //VTXTABLE_POWERLEVEL_LIST: [],
-    //analyticsChanges: {},
     updating: true,
-    //env: new djv(),
-    //get _DEVICE_STATUS_UPDATE_INTERVAL_NAME() {
-    //    return "vtx_device_status_request";
-    //},
-    //    activeSubtab: 'vtx'
 };
 
 // to do: could potentially  iterate this for dynamic HTML table, but moot
@@ -40,51 +30,25 @@ function lookupTableFreq(freq) {
     }
 };
 
-//TABS.vtx.isVtxDeviceStatusNotReady = function()
-//{
-//    const isReady = (null !== VTX_DEVICE_STATUS) && (VTX_DEVICE_STATUS.deviceIsReady);
-//    console.log('TABS.vtx.isVtxDeviceStatusNotReady()');
-//    return !isReady;
-//};
-
-//TABS.vtx.updateVtxDeviceStatus = function()
-//{
-//    console.log('enter TABS.vtx.updateVtxDeviceStatus()');
-//    //MSP.send_message(MSPCodes.MSP2_GET_VTX_DEVICE_STATUS, false, false, vtxDeviceStatusReceived);
-//
-
-//    function vtxDeviceStatusReceived()
-//    {
-//        $("#vtx_type_description").text(TABS.vtx.getVtxTypeString());
-//    };
-//    console.log('exit TABS.vtx.updateVtxDeviceStatus()');
-//};
-
 TABS.vtx.getVtxTypeString = function() {
-    console.log('enter TABS.vtx.getVtxTypeString()');
+    //console.log('enter TABS.vtx.getVtxTypeString()');
     let result = i18n.getMessage(`vtxType_${VTX_CONFIG.vtx_type}`);
-    const isSmartAudio = VtxDeviceTypes.VTXDEV_SMARTAUDIO === VTX_CONFIG.vtx_type;
-    //const isVtxDeviceStatusReceived = null !== VTX_DEVICE_STATUS;
-    if (isSmartAudio) { // && isVtxDeviceStatusReceived) {
-        //result += ` ${VTX_DEVICE_STATUS.smartAudioVersion}`;
-        //result += `VTX_CONFIG.vtx_type`;
-    }
-    console.log('exit TABS.vtx.getVtxTypeString()');
+    //console.log('exit TABS.vtx.getVtxTypeString()');
     return result;
 };
 
 TABS.vtx.initialize = function(callback) {
-    console.log('enter TABS.vtx.initialize()');
+    //console.log('enter TABS.vtx.initialize()');
     var self = this;
     if (GUI.active_tab != 'vtx') {
         GUI.active_tab = 'vtx';
     }
     this.supported = semver.gte(CONFIG.apiVersion, "1.40.0"); //since EmuF 0.1.0 (BF 3.3.0)
     if (!this.supported) {
-        console.log('!this.supported');
+        //console.log('!this.supported');
         load_html();
     } else {
-        console.log('read_vtx_config(load_html)');
+        //console.log('read_vtx_config(load_html)');
         read_vtx_config(load_html);
     }
 
@@ -93,33 +57,33 @@ TABS.vtx.initialize = function(callback) {
     };
 
     function process_html() {
-        console.log('enter process_html()');
+        //console.log('enter process_html()');
         initDisplay();
         // translate to user-selected language
         i18n.localizePage();
         self.updating = false;
         GUI.content_ready(callback);
-        console.log('exit process_html()');
+        //console.log('exit process_html()');
     };
 
     // Read all the MSP data needed by the tab
     function read_vtx_config(callback_after_msp) {
-        console.log('read_vtx_config()');
+        //console.log('read_vtx_config()');
         vtx_config();
 
         function vtx_config() {
-            console.log('enter vtx_config() [MSP.send_message]');
+            //console.log('enter vtx_config() [MSP.send_message]');
             MSP.send_message(MSPCodes.MSP_VTX_CONFIG, false, false, load_html);
-            console.log('exit vtx_config()');
+            //console.log('exit vtx_config()');
         };
     };
 
     // Prepares all the UI elements, the MSP command has been executed before
     function initDisplay() {
-        console.log('enter initDisplay()');
+        //console.log('enter initDisplay()');
         if (!TABS.vtx.supported) {
             $(".tab-vtx").removeClass("supported");
-            console.log('!TABS.vtx.supported');
+            //console.log('!TABS.vtx.supported');
             return;
         }
         $(".tab-vtx").addClass("supported");
@@ -161,19 +125,19 @@ TABS.vtx.initialize = function(callback) {
 
         //REFRESH BUTTON
         $('a.refresh').click(function() {   //this one clicked
-            console.log('a.refresh clicked');
+            //console.log('a.refresh clicked');
             self.refresh(function() {
                 GUI.log(i18n.getMessage('VTX tab refreshed'));
             });
-            console.log('exit refresh clicked');
+            //console.log('exit refresh clicked');
         });
 
         // SAVE BUTTON
-        console.log('setup save clickable');
+        //console.log('setup save clickable');
         $('a.save').click(function() {
-            console.log('save clicked');
+            //console.log('save clicked');
             if (!self.updating) {
-                console.log('call save_vtx()');
+                //console.log('call save_vtx()');
                 save_vtx();
             }
         });
@@ -191,7 +155,7 @@ TABS.vtx.initialize = function(callback) {
 
     // Actions and other
     function frequencyOrBandChannel() {
-        console.log('enter frequencyOrBandChannel()');
+        //console.log('enter frequencyOrBandChannel()');
         const frequencyEnabled = $(this).prop('checked');
         if (frequencyEnabled) {
             $(".field.vtx_channel").hide();
@@ -202,19 +166,18 @@ TABS.vtx.initialize = function(callback) {
             $(".field.vtx_band").show();
             $(".field.vtx_frequency").hide();
         }
-        console.log('exit frequencyOrBandChannel()');
+        //console.log('exit frequencyOrBandChannel()');
     };
 
     // user freq toggle
     $('input[id="vtx_frequency_channel"]').prop('checked', VTX_CONFIG.vtx_band === 0 && VTX_CONFIG.vtx_frequency > 0).change(frequencyOrBandChannel); // trigger on toggles
     $('input[id="vtx_frequency_channel"]').prop('checked',frequencyOrBandChannel);  //current status on load
 
-    console.log('exit initDisplay()');
+    //console.log('exit initDisplay()');
 }; // initDisplay
 
-
     function populateBandSelect() {
-        console.log('enter populateBandSelect()');
+        //console.log('enter populateBandSelect()');
         const selectBand = $(".field #vtx_band");
         //selectBand.append(new Option(i18n.getMessage('vtxBand_0'), 0));  //user
         for (let i = 1; i <= TABS.vtx.MAX_BAND_VALUES; i++) {
@@ -222,11 +185,11 @@ TABS.vtx.initialize = function(callback) {
                 bandName: i
             }), i));
         }
-        console.log('exit populateBandSelect()');
+        //console.log('exit populateBandSelect()');
     };
 
     function populateChannelSelect() {
-        console.log('enter populateChannelSelect()');
+        //console.log('enter populateChannelSelect()');
         const selectChannel = $(".field #vtx_channel");
         // const selectedBand = $("#vtx_band").val(); //makes no sense for non-vtxTables
         selectChannel.empty();
@@ -236,11 +199,11 @@ TABS.vtx.initialize = function(callback) {
                 channelName: i
             }), i));
         }
-        console.log('exit populateChannelSelect()');
+        //console.log('exit populateChannelSelect()');
     };
 
     function populatePowerSelect() {
-        console.log('enter populatePowerSelect()');
+        //console.log('enter populatePowerSelect()');
         const selectPower = $(".field #vtx_power");
         const powerMaxMinValues = getPowerValues(VTX_CONFIG.vtx_type);
         for (let i = powerMaxMinValues.min; i <= powerMaxMinValues.max; i++) {
@@ -252,12 +215,12 @@ TABS.vtx.initialize = function(callback) {
                 }), i));
             }
         }
-        console.log('exit populatePowerSelect()');
+        //console.log('exit populatePowerSelect()');
     };
 
     // Returns the power values min and max depending on the VTX Type
     function getPowerValues(vtxType) {
-        console.log('enter getPowerValues()');
+        //console.log('enter getPowerValues()');
         let powerMinMax = {};
         switch (vtxType) {
             case VtxDeviceTypes.VTXDEV_UNSUPPORTED:
@@ -288,57 +251,39 @@ TABS.vtx.initialize = function(callback) {
                     max: 7
                 };
         }
-        console.log('exit getPowerValues()');
+        //console.log('exit getPowerValues()');
         return powerMinMax;
     };
 
     // Save all the values to MSP
     function save_vtx() {
-        console.log('enter save_vtx()');
+        //console.log('enter save_vtx()');
         self.updating = true;
         dump_html_to_msp();
 
-        console.log('save_vtx(): type:'+VTX_CONFIG.vtx_type
-                    +' band:'+VTX_CONFIG.vtx_band
-                    +' chan:'+VTX_CONFIG.vtx_channel
-                    +' pwr:'+VTX_CONFIG.vtx_power
-                    +' pit:'+VTX_CONFIG.vtx_pit_mode
-                    +' freq:'+VTX_CONFIG.vtx_frequency);
+        //console.log('save_vtx(): type:'+VTX_CONFIG.vtx_type
+        //            +' band:'+VTX_CONFIG.vtx_band
+        //            +' chan:'+VTX_CONFIG.vtx_channel
+        //            +' pwr:'+VTX_CONFIG.vtx_power
+        //            +' pit:'+VTX_CONFIG.vtx_pit_mode
+        //            +' freq:'+VTX_CONFIG.vtx_frequency);
         // Start MSP saving
         save_vtx_config();
 
         function save_vtx_config() {
-            console.log('enter save_vtx_config()');
-            console.log('save_vtx_config(): type:'+VTX_CONFIG.vtx_type
-                    +' band:'+VTX_CONFIG.vtx_band
-                    +' chan:'+VTX_CONFIG.vtx_channel
-                    +' pwr:'+VTX_CONFIG.vtx_power
-                    +' pit:'+VTX_CONFIG.vtx_pit_mode
-                    +' freq:'+VTX_CONFIG.vtx_frequency);
+            //console.log('enter save_vtx_config()');
             MSP.send_message(MSPCodes.MSP_SET_VTX_CONFIG, mspHelper.crunch(MSPCodes.MSP_SET_VTX_CONFIG), false, save_to_eeprom);
-            console.log('exit save_vtx_config()');
+            //console.log('exit save_vtx_config()');
         };
 
        function save_to_eeprom() {
-           console.log('enter save_to_eeprom()');
-           console.log('save_to_eeprom(): type:'+VTX_CONFIG.vtx_type
-                    +' band:'+VTX_CONFIG.vtx_band
-                    +' chan:'+VTX_CONFIG.vtx_channel
-                    +' pwr:'+VTX_CONFIG.vtx_power
-                    +' pit:'+VTX_CONFIG.vtx_pit_mode
-                    +' freq:'+VTX_CONFIG.vtx_frequency);
-           MSP.send_message(MSPCodes.MSP_EEPROM_WRITE, false, false, save_completed);  //required to save
-           console.log('exit save_to_eeprom()');
+            //console.log('enter save_to_eeprom()');
+            MSP.send_message(MSPCodes.MSP_EEPROM_WRITE, false, false, save_completed);  //required to save
+            //console.log('exit save_to_eeprom()');
        };
 
         function save_completed() {
-            console.log('enter save_completed()');
-            console.log('save_completed(): type:'+VTX_CONFIG.vtx_type
-                    +' band:'+VTX_CONFIG.vtx_band
-                    +' chan:'+VTX_CONFIG.vtx_channel
-                    +' pwr:'+VTX_CONFIG.vtx_power
-                    +' pit:'+VTX_CONFIG.vtx_pit_mode
-                    +' freq:'+VTX_CONFIG.vtx_frequency);
+            //console.log('enter save_completed()');
             GUI.log(i18n.getMessage('configurationEepromSaved'));
             const oldText = $("#save_button").text();
             $("#save_button").html(i18n.getMessage('vtxButtonSaved'));
@@ -352,36 +297,36 @@ TABS.vtx.initialize = function(callback) {
 
             // if pitmode, then wait and refresh again (is 3000ms enough?)
             if (VTX_CONFIG.vtx_pit_mode) {
-                console.log('pitmode true, pause and refresh again due to slow VTX setting');
+                //console.log('pitmode true, pause and refresh again due to slow VTX setting');
                 let refreshTimeout = setTimeout(function() {
                     TABS.vtx.initialize();
                     clearTimeout(refreshTimeout);
                 }, 3000);
             }
 
-            console.log('exit save_completed()');
+            //console.log('exit save_completed()');
         };
-        console.log('exit save_vtx()');
+        //console.log('exit save_vtx()');
     }
 }; //TABS.vtx.initialize
 
 //modified for EmuF
 function dump_html_to_msp() {
-    console.log('enter dump_html_to_msp()');
+    //console.log('enter dump_html_to_msp()');
     // General config
     const frequencyEnabled = $('input[id="vtx_frequency_channel"]').prop('checked');
-    console.log('%c manual freq toggle is: '+frequencyEnabled, "color: magenta");
+    //console.log('%c manual freq toggle is: '+frequencyEnabled, "color: magenta");
     if (frequencyEnabled) {  //user freq
         VTX_CONFIG.vtx_frequency = parseInt( $("#vtx_frequency").val() );
         VTX_CONFIG.vtx_band = 0; //user
-        VTX_CONFIG.vtx_channel = 1;
+        VTX_CONFIG.vtx_channel = 1; //setting this doesn't really do anything, MSP will retain last saved channel
     } else {  //band/channel
         VTX_CONFIG.vtx_band =      parseInt( $("#vtx_band").val() );
         VTX_CONFIG.vtx_channel =   parseInt( $("#vtx_channel").val() );
         if (semver.gte(CONFIG.apiVersion, "1.40.0")) { //redundant
             if (VTX_CONFIG.vtx_band > 0 || VTX_CONFIG.vtx_channel > 0) {
                 VTX_CONFIG.vtx_frequency = (VTX_CONFIG.vtx_band - 1) * 8 + (VTX_CONFIG.vtx_channel - 1);
-                console.log('%c special old ass encoded freq: '+VTX_CONFIG.vtx_frequency, "color: magenta");
+                //console.log('%c special old ass encoded freq: '+VTX_CONFIG.vtx_frequency, "color: magenta");
             }
         } // else some other semver option that does not yet exist
     }
@@ -390,25 +335,23 @@ function dump_html_to_msp() {
     VTX_CONFIG.vtx_pit_mode = $("#vtx_pit_mode").prop('checked');
     // VTX_CONFIG.vtx_low_power_disarm = parseInt($("#vtx_low_power_disarm").val());  //no EmuF MSP
 
-    console.log('dump_html_to_msp(): bnd'+VTX_CONFIG.vtx_band+'/ch'+VTX_CONFIG.vtx_channel+'/frq'+VTX_CONFIG.vtx_frequency+'/lvl'+VTX_CONFIG.vtx_power+'/pm'+VTX_CONFIG.vtx_pit_mode);
-    console.log('exit dump_html_to_msp()');
+    //console.log('dump_html_to_msp(): bnd'+VTX_CONFIG.vtx_band+'/ch'+VTX_CONFIG.vtx_channel+'/frq'+VTX_CONFIG.vtx_frequency+'/lvl'+VTX_CONFIG.vtx_power+'/pm'+VTX_CONFIG.vtx_pit_mode);
+    //console.log('exit dump_html_to_msp()');
 };
 
 TABS.vtx.cleanup = function(callback) {
-    console.log('enter TABS.vtx.cleanup()');
+    //console.log('enter TABS.vtx.cleanup()');
     // Add here things that need to be cleaned or closed before leaving the tab
-    //GUI.interval_remove(this._DEVICE_STATUS_UPDATE_INTERVAL_NAME);
     if (callback) {
         callback();
     }
-    console.log('exit TABS.vtx.cleanup()');
+    //console.log('exit TABS.vtx.cleanup()');
 };
 
 TABS.vtx.refresh = function(callback) {
     var self = this;
     GUI.tab_switch_cleanup(function() {
         self.initialize();
-        //self.setDirty(false);
         if (callback) {
             callback();
         }

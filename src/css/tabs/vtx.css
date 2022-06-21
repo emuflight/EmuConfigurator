@@ -157,6 +157,7 @@
   text-align: center;
 }
 
+/* unused, but may use in the future*/
 .tab-vtx th.band {
   width: auto;
   vertical-align: middle;
