@@ -31,7 +31,7 @@
 
 .tab-vtx .columnsWrapper .leftColumn {
   width: calc(30%);
-  min-width: 260px;
+  min-width: 266px; /* anything smaller will word-wrap mode-descriptions */
 }
 
 .tab-vtx .columnsWrapper .rightColumn {
@@ -39,7 +39,7 @@
   flex-grow: 0;
   flex-basis: 60%;
   width: calc(60%);
-  min-width: 550px;
+  min-width: 540px; /* anything smaller will word-wrap Band Names */
 }
 
 .tab-vtx .leftWrapper {
@@ -136,26 +136,7 @@
   width: 13px;
 }
 
-.tab-vtx table {
-  border-width: 1px 1px 1px 1px;
-  border-style: solid;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-.tab-vtx th, tr, td {
-  border-collapse: collapse;
-  padding: 5px;
-}
-
-.tab-vtx td {
-  border-width: 1px 1px 1px 1px;
-  border-style: solid;
-  text-align: center;
-}
-
-/* unused, but may use in the future */
-.tab-vtx th.band {
+.tab-vtx table.outer td.band {
   width: auto;
   vertical-align: middle;
   transform: rotate(-90deg);
@@ -164,6 +145,35 @@
   -o-transform: rotate(-90deg); /* Opera */
   -ms-transform: rotate(-90deg); /* IE 9 */
   white-space: nowrap;
+}
+
+.tab-vtx table.outer {
+  border-style: none !important;
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+  padding: 5px;
+}
+
+.tab-vtx table.outer td {
+  padding-top: 10px;
+  padding-bottom: 0px; /* this could be anything small */
+  padding-left: 5px;
+  padding-right: 15px; /* need "some" white-space on right-side */
+}
+
+.tab-vtx table.inner {
+  border-width: 1px 1px 1px 1px !important;
+  border-style: solid;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.tab-vtx table.inner td { /* tr may work, but don't do th { */
+  border-width: 1px 1px 1px 1px !important;
+  border-style: solid !important;
+  border-collapse: collapse;
+  padding: 5px;
 }
 
 .tab-vtx .freq {

@@ -119,80 +119,91 @@
             </div>
             <!-- emuflight right column vtx TABLEZ -->
             <div class="gui_box grey select_mode vtx_supported rightColumn">
-                <table id="vtxTable">
+                <table class="outer">
                     <tr>
-                        <td colspan="1"></td>
-                        <td>1</td>
-                        <td>2</td>
-                        <td>3</td>
-                        <td>4</td>
-                        <td>5</td>
-                        <td>6</td>
-                        <td>7</td>
-                        <td>8</td>
-                        <td colspan="1">Description</td>
+                        <td></td>
+                        <td i18n="vtxTableChannelRow"></td>
                     </tr>
                     <tr>
-                        <td>1</td>
-                        <td><a class="freq " id="" href="#">5865</a></td>
-                        <td><a class="freq " id="" href="#">5845</a></td>
-                        <td><a class="freq " id="" href="#">5825</a></td>
-                        <td><a class="freq " id="" href="#">5805</a></td>
-                        <td><a class="freq " id="" href="#">5785</a></td>
-                        <td><a class="freq " id="" href="#">5765</a></td>
-                        <td><a class="freq " id="" href="#">5745</a></td>
-                        <td><a class="freq " id="" href="#">5725</a></td>
-                        <td>(A) Boscam A</td>
+                        <td class="band" id="band" i18n="vtxTableBandCol"></td>
+                        <td>
+                            <table class="inner" id="vtxTable">
+                                <tr>
+                                    <td colspan="1"></td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>7</td>
+                                    <td>8</td>
+                                    <td colspan="1" i18n="vtxTableNameCol"></td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td><a class="freq" id="" href="#">5865</a></td>
+                                    <td><a class="freq" id="" href="#">5845</a></td>
+                                    <td><a class="freq" id="" href="#">5825</a></td>
+                                    <td><a class="freq" id="" href="#">5805</a></td>
+                                    <td><a class="freq" id="" href="#">5785</a></td>
+                                    <td><a class="freq" id="" href="#">5765</a></td>
+                                    <td><a class="freq" id="" href="#">5745</a></td>
+                                    <td><a class="freq" id="" href="#">5725</a></td>
+                                    <td>(A) Boscam A</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td><a class="freq" id="" href="#">5733</a></td>
+                                    <td><a class="freq" id="" href="#">5752</a></td>
+                                    <td><a class="freq" id="" href="#">5771</a></td>
+                                    <td><a class="freq" id="" href="#">5790</a></td>
+                                    <td><a class="freq" id="" href="#">5809</a></td>
+                                    <td><a class="freq" id="" href="#">5828</a></td>
+                                    <td><a class="freq" id="" href="#">5847</a></td>
+                                    <td><a class="freq" id="" href="#">5866</a></td>
+                                    <td>(B) Boscam B</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td><a class="freq" id="" href="#">5705</a></td>
+                                    <td><a class="freq" id="" href="#">5685</a></td>
+                                    <td><a class="freq" id="" href="#">5665</a></td>
+                                    <td><a class="freq" id="" href="#">5645</a></td>
+                                    <td><a class="freq" id="" href="#">5885</a></td>
+                                    <td><a class="freq" id="" href="#">5905</a></td>
+                                    <td><a class="freq" id="" href="#">5925</a></td>
+                                    <td><a class="freq" id="" href="#">5945</a></td>
+                                    <td>(E) Boscam E</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td><a class="freq" id="" href="#">5740</a></td>
+                                    <td><a class="freq" id="" href="#">5760</a></td>
+                                    <td><a class="freq" id="" href="#">5780</a></td>
+                                    <td><a class="freq" id="" href="#">5800</a></td>
+                                    <td><a class="freq" id="" href="#">5820</a></td>
+                                    <td><a class="freq" id="" href="#">5840</a></td>
+                                    <td><a class="freq" id="" href="#">5860</a></td>
+                                    <td><a class="freq" id="" href="#">5880</a></td>
+                                    <td>(F) Fatshark</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td><a class="freq" id="" href="#">5658</a></td>
+                                    <td><a class="freq" id="" href="#">5695</a></td>
+                                    <td><a class="freq" id="" href="#">5732</a></td>
+                                    <td><a class="freq" id="" href="#">5769</a></td>
+                                    <td><a class="freq" id="" href="#">5806</a></td>
+                                    <td><a class="freq" id="" href="#">5843</a></td>
+                                    <td><a class="freq" id="" href="#">5880</a></td>
+                                    <td><a class="freq" id="" href="#">5917</a></td>
+                                    <td>(R) Raceband</td>
+                                </tr>
+                            </table> <!-- inner -->
+                        </td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td><a class="freq " id="" href="#">5733</a></td>
-                        <td><a class="freq " id="" href="#">5752</a></td>
-                        <td><a class="freq " id="" href="#">5771</a></td>
-                        <td><a class="freq " id="" href="#">5790</a></td>
-                        <td><a class="freq " id="" href="#">5809</a></td>
-                        <td><a class="freq " id="" href="#">5828</a></td>
-                        <td><a class="freq " id="" href="#">5847</a></td>
-                        <td><a class="freq " id="" href="#">5866</a></td>
-                        <td>(B) Boscam B</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td><a class="freq " id="" href="#">5705</a></td>
-                        <td><a class="freq " id="" href="#">5685</a></td>
-                        <td><a class="freq " id="" href="#">5665</a></td>
-                        <td><a class="freq " id="" href="#">5645</a></td>
-                        <td><a class="freq " id="" href="#">5885</a></td>
-                        <td><a class="freq " id="" href="#">5905</a></td>
-                        <td><a class="freq " id="" href="#">5925</a></td>
-                        <td><a class="freq " id="" href="#">5945</a></td>
-                        <td>(E) Boscam E</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td><a class="freq " id="" href="#">5740</a></td>
-                        <td><a class="freq " id="" href="#">5760</a></td>
-                        <td><a class="freq " id="" href="#">5780</a></td>
-                        <td><a class="freq " id="" href="#">5800</a></td>
-                        <td><a class="freq " id="" href="#">5820</a></td>
-                        <td><a class="freq " id="" href="#">5840</a></td>
-                        <td><a class="freq " id="" href="#">5860</a></td>
-                        <td><a class="freq " id="" href="#">5880</a></td>
-                        <td>(F) Fatshark</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td><a class="freq " id="" href="#">5658</a></td>
-                        <td><a class="freq " id="" href="#">5695</a></td>
-                        <td><a class="freq " id="" href="#">5732</a></td>
-                        <td><a class="freq " id="" href="#">5769</a></td>
-                        <td><a class="freq " id="" href="#">5806</a></td>
-                        <td><a class="freq " id="" href="#">5843</a></td>
-                        <td><a class="freq " id="" href="#">5880</a></td>
-                        <td><a class="freq " id="" href="#">5917</a></td>
-                        <td>(R) Raceband</td>
-                    </tr>
-                </table>
+                </table> <!-- outer -->
             </div>
         </div>
     </div>

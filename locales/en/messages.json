@@ -5719,5 +5719,14 @@
     "vtxSmartAudioUnlocked": {
         "message": "{{version}} unlocked",
         "description": "Indicates if SA device is unlocked"
+    },
+    "vtxTableNameCol": {
+        "message": "Name"
+    },
+    "vtxTableChannelRow": {
+        "message": "Channels"
+    },
+    "vtxTableBandCol": {
+        "message": "Bands"
     }
 }
