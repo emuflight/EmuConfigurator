@@ -136,7 +136,7 @@
   width: 13px;
 }
 
-.tab-vtx table.outer td.band {
+.tab-vtx table.outer div.band {
   width: auto;
   vertical-align: middle;
   transform: rotate(-90deg);
@@ -156,10 +156,7 @@
 }
 
 .tab-vtx table.outer td {
-  padding-top: 10px;
-  padding-bottom: 0px; /* this could be anything small */
-  padding-left: 5px;
-  padding-right: 15px; /* need "some" white-space on right-side */
+  padding: 10px 15px 1px 5px; /* top right bottom left */
 }
 
 .tab-vtx table.inner {
@@ -187,4 +184,12 @@
   color: white;
   font-weight: bold;
   padding: 3px;
+}
+
+.tab-vtx .freq.us_moob:hover {
+  color: orange;
+}
+
+.tab-vtx .freq.us_oob:hover {
+  color: red;
 }

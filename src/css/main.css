@@ -831,11 +831,11 @@ li.active .ic_data {
 }
 
 .ic_vtx {
-    background-image: url(../images/icons/cf_icon_vtx_grey.svg);
+  background-image: url(../images/icons/cf_icon_vtx_grey.svg);
 }
 
 .ic_vtx:hover {
-    background-image: url(../images/icons/cf_icon_vtx_white.svg);
+  background-image: url(../images/icons/cf_icon_vtx_white.svg);
 }
 
 .ic_cli {
