@@ -5553,7 +5553,7 @@
         "description": "Message to show when the configured VTX type does not support factory bands, but one or more of the configured bands are of this type"
     },
     "vtxMessageRequiresHAM": {
-        "message": "<span class=\"message-negative\">Attention:</span> Operating most Analog VTx above 25mW requires pilots to hold a HAM radio License. In the US, only FCC Part 18 Certified products are the exception."
+        "message": "<span class=\"message-negative\">Attention:</span> Pilots operating an analog VTx must comply with the governmental regulations. An amateur radio license may be required."
     },
     "vtxMessageHardwareModes": {
         "message": "Other things to consider: Locked, Unlocked, Race-Mode, Free-Mode should all be set by the VTX hardware. EmuFlight does not have access to this."
