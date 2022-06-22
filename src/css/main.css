@@ -1718,7 +1718,7 @@ dialog {
 
 /* fixing padding for all Tabs*/
 .tab-setup, .tab-landing, .tab-adjustments, .tab-auxiliary, .tab-cli, .tab-configuration, .tab-failsafe, .tab-firmware_flasher,
-    .tab-gps, .tab-help, .tab-led-strip, .tab-logging, .tab-modes, .tab-motors, .tab-pid_tuning, .tab-ports, .tab-receiver, .tab-vtx,
+.tab-gps, .tab-help, .tab-led-strip, .tab-logging, .tab-modes, .tab-motors, .tab-pid_tuning, .tab-ports, .tab-receiver, .tab-vtx,
     .tab-sensors, .tab-servos, .tab-osd, .tab-power {
     height: 100%;
     position: relative;
