@@ -579,8 +579,9 @@ function startProcess() {
         DarkTheme.setConfig(typeof result.darkTheme == 'undefined' || result.darkTheme);
     });
 
-    $('.connect_b a.connect').removeClass('disabled');
-    $('.firmware_b a.flash').removeClass('disabled');
+    //moved to port_handler.js -- allows disabled until ports list is populated
+    //$('.connect_b a.connect').removeClass('disabled');
+    //$('.firmware_b a.flash').removeClass('disabled');
 };
 
 function checkForConfiguratorUpdates() {

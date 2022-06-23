@@ -142,6 +142,11 @@ PortHandler.check = function () {
         self.check_usb_devices();
 
         GUI.updateManualPortVisibility();
+
+        //moved from main.js
+        $('.connect_b a.connect').removeClass('disabled');
+        $('.firmware_b a.flash').removeClass('disabled');
+
         setTimeout(function () {
             self.check();
         }, TIMEOUT_CHECK);
