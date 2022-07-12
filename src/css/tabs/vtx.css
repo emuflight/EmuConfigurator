@@ -1,0 +1,195 @@
+.tab-vtx {
+  height: 100%;
+}
+
+.tab-vtx .cf_table {
+  -webkit-border-horizontal-spacing: 1px;
+}
+
+.tab-vtx .require-support {
+  display: none;
+}
+
+.tab-vtx.supported .require-support {
+  display: block;
+}
+
+.tab-vtx .require-upgrade {
+  display: block;
+}
+
+.tab-vtx.supported .require-upgrade {
+  display: none;
+}
+
+.tab-vtx .columnsWrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.tab-vtx .columnsWrapper .leftColumn {
+  width: calc(30%);
+  min-width: 266px; /* anything smaller will word-wrap mode-descriptions */
+}
+
+.tab-vtx .columnsWrapper .rightColumn {
+  flex-shrink: 0;
+  flex-grow: 0;
+  flex-basis: 60%;
+  width: calc(60%);
+  min-width: 540px; /* anything smaller will word-wrap Band Names */
+}
+
+.tab-vtx .leftWrapper {
+  float: left;
+  width: calc(60% - 20px);
+}
+
+.tab-vtx .rightWrapper {
+  float: left;
+  width: calc(60%);
+  max-width: 300px;
+  margin: 0 0 10px 20px;
+}
+
+.tab-vtx input, .tab-vtx select {
+  border: 1px solid var(--subtleAccent);
+  max-width: 100px;
+  background: var(--boxBackground);
+  color: var(--defaultText);
+}
+
+.tab-vtx .number input {
+  width: 55px;
+  padding-left: 3px;
+  height: 20px;
+  line-height: 20px;
+  text-align: left;
+  margin-right: 11px;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.tab-vtx .gui_box span {
+  font-style: normal;
+  line-height: 19px;
+  color: var(--mutedtext);
+  font-size: 11px;
+}
+
+.tab-vtx .spacer_box .field {
+  margin-bottom: 5px;
+  clear: left;
+  /* padding-bottom: 5px; */ /* because swapped to top borders */
+  padding-top: 5px;
+  width: 100%;
+  float: left;
+}
+
+/* because swapped to top borders */
+.tab-vtx .helpicon {
+  margin-top: 2px;
+}
+
+/* swap this for top borders */
+/*
+.tab-vtx .spacer_box .field:not(:last-child) {
+  border-bottom: 1px solid var(--subtleAccent);
+}
+*/
+
+.tab-vtx .spacer_box .field:not(:first-child) {
+  border-top: 1px solid var(--subtleAccent);
+}
+
+.tab-vtx .select_mode .field > span {
+  margin-right: 10px;
+  display: inline-block;
+  min-width: 100px;
+}
+
+.tab-vtx input.one_digit_input {
+  width: 28px;
+}
+
+.tab-vtx input.frequency_input {
+  width: 48px;
+}
+
+/* not great but good enough - actually overridden by show/hide */
+.tab-vtx input.frequency_input:disabled {
+  color: inherit;
+  background-color: inherit;
+}
+
+.tab-vtx .field_powerlevel_value input, .tab-vtx .field_powerlevel_label input {
+  width: 53px;
+}
+
+.tab-vtx .field_band_name input {
+  width: 71px;
+}
+
+.tab-vtx .field_band_letter input {
+  width: 13px;
+}
+
+.tab-vtx table.outer div.band {
+  width: auto;
+  vertical-align: middle;
+  transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg); /* Safari/Chrome */
+  -moz-transform: rotate(-90deg); /* Firefox */
+  -o-transform: rotate(-90deg); /* Opera */
+  -ms-transform: rotate(-90deg); /* IE 9 */
+  white-space: nowrap;
+}
+
+.tab-vtx table.outer {
+  border-style: none !important;
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+  padding: 5px;
+}
+
+.tab-vtx table.outer td {
+  padding: 10px 15px 1px 5px; /* top right bottom left */
+}
+
+.tab-vtx table.inner {
+  border-width: 1px 1px 1px 1px !important;
+  border-style: solid;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.tab-vtx table.inner td { /* tr may work, but don't do th { */
+  border-width: 1px 1px 1px 1px !important;
+  border-style: solid !important;
+  border-collapse: collapse;
+  padding: 5px;
+}
+
+.tab-vtx .freq {
+  background: inherit;
+  color: inherit;
+  padding: 3px;
+}
+
+.tab-vtx .freq:hover {
+  background: #00a3e0;
+  color: white;
+  font-weight: bold;
+  padding: 3px;
+}
+
+.tab-vtx .freq.us_moob:hover {
+  color: orange;
+}
+
+.tab-vtx .freq.us_oob:hover {
+  color: red;
+}

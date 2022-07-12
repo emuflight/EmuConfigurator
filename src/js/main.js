@@ -348,6 +348,9 @@ function startProcess() {
                     case 'onboard_logging':
                         TABS.onboard_logging.initialize(content_ready);
                         break;
+                    case 'vtx':
+                        TABS.vtx.initialize(content_ready);
+                        break;
                     case 'cli':
                         TABS.cli.initialize(content_ready, GUI.nwGui);
                         break;
@@ -717,7 +720,7 @@ function updateTabList(features) {
         $('#tabs ul.mode-connected li.tab_power').hide();
     }
 
-    if (semver.gte(CONFIG.apiVersion, "1.42.0")) {
+    if (semver.gte(CONFIG.apiVersion, "1.40.0")) {
         $('#tabs ul.mode-connected li.tab_vtx').show();
     } else {
         $('#tabs ul.mode-connected li.tab_vtx').hide();

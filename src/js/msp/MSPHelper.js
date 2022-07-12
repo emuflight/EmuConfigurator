@@ -1528,9 +1528,21 @@ MspHelper.prototype.process_data = function(dataHandler) {
                 break;
 
             case MSPCodes.MSP_VTX_CONFIG:
+                console.log('MSPCodes.MSP_VTX_CONFIG');
+                if (semver.gte(CONFIG.apiVersion, "1.40.0")) { //is this gte necessary?
+                    console.log('VTX_config read MSP > 1.40.0');
+                    VTX_CONFIG.vtx_type = data.readU8();
+                    VTX_CONFIG.vtx_band = data.readU8();
+                    VTX_CONFIG.vtx_channel = data.readU8();
+                    VTX_CONFIG.vtx_power = data.readU8();
+                    VTX_CONFIG.vtx_pit_mode = data.readU8() !== 0;
+                    VTX_CONFIG.vtx_frequency = data.readU16();
+                }
+                //console.log('exit MSPCodes.MSP_VTX_CONFIG');
                 break;
 
-            case MSPCodes.MSP_SET_VTX_CONFIG:
+            case MSPCodes.MSP_SET_VTX_CONFIG: //will never set in process_data
+                console.log("VTX config set");
                 break;
 
             case MSPCodes.MSP_SET_NAME:
@@ -2224,6 +2236,25 @@ MspHelper.prototype.crunch = function(code) {
             buffer.push8(SENSOR_CONFIG.acc_hardware)
                   .push8(SENSOR_CONFIG.baro_hardware)
                   .push8(SENSOR_CONFIG.mag_hardware);
+            break;
+
+        case MSPCodes.MSP_SET_VTX_CONFIG:
+            console.log("MSPCodes.MSP_SET_VTX_CONFIG");
+            if (semver.gte(CONFIG.apiVersion, "1.40.0")) { //is this gte necessary?
+                //console.log("%c MSP push: type:"+VTX_CONFIG.vtx_type
+                //    +' band:'+VTX_CONFIG.vtx_band
+                //    +' chan:'+VTX_CONFIG.vtx_channel
+                //    +' pwr:'+VTX_CONFIG.vtx_power
+                //    +' pit:'+VTX_CONFIG.vtx_pit_mode
+                //    +' freq:'+VTX_CONFIG.vtx_frequency, "color: magenta");
+
+                // two options: encoded BAND/CHANNEL into freq variable -OR- actual frequency
+                // see firmware msp.c:MSP_SET_VTX_CONFIG (line ~1991)
+                // cannot send un-encoded band/channel
+                buffer.push16(VTX_CONFIG.vtx_frequency)
+                      .push8(VTX_CONFIG.vtx_power)
+                      .push8(VTX_CONFIG.vtx_pit_mode ? 1 : 0);
+            }
             break;
 
         case MSPCodes.MSP_SET_NAME:

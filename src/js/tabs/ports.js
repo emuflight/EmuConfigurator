@@ -106,7 +106,16 @@ TABS.ports.initialize = function (callback, scrollPosition) {
     load_configuration_from_fc();
 
     function load_configuration_from_fc() {
-        MSP.send_message(MSPCodes.MSP_CF_SERIAL_CONFIG, false, false, on_configuration_loaded_handler);
+
+        let promise;
+        if(semver.gte(CONFIG.apiVersion, "1.40.0")) {
+            promise = MSP.promise(MSPCodes.MSP_VTX_CONFIG);
+        } else {
+            promise = Promise.resolve();
+        }
+        promise.then(function() {
+            MSP.send_message(MSPCodes.MSP_CF_SERIAL_CONFIG, false, false, on_configuration_loaded_handler);
+        });
 
         function on_configuration_loaded_handler() {
             $('#content').load("./tabs/ports.html", on_tab_loaded_handler);
