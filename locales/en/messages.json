@@ -5535,5 +5535,198 @@
     },
     "pidTuningIMUFFilterSettings": {
         "message": "Profile independent IMU-F Filter Settings"
+    },
+    "tabVtx": {
+        "message": "Analog VTX"
+    },
+    "COMMENT": {"message": "most these need purge"},
+    "vtxHelp": {
+        "message": "Here you can configure the values for your Video Transmitter if the flight controller and the VTX support it.  Set the values manually, or click the chart frequencies then save.",
+        "description": "Introduction message in the VTX tab"
+    },
+    "vtxMessageNotSupported": {
+        "message": "<span class=\"message-negative\">Attention:</span> Your VTX is not configured or not supported. Configuration will only be possible if the VTx is properly soldered to the flight-controller and setup correctly with a protocol like Tramp or SmartAudio in the $t(tabPorts.message) tab.",
+        "description": "Message to show when the VTX is not supported in the VTX tab"
+    },
+    "vtxMessageFactoryBandsNotSupported": {
+        "message": "<span class=\"message-negative\">Attention:</span> The selected VTX type does not support the 'factory' setting for bands, but some of your bands have this setting. Click '$t(vtxButtonSave.message)' to fix this.",
+        "description": "Message to show when the configured VTX type does not support factory bands, but one or more of the configured bands are of this type"
+    },
+    "vtxMessageRequiresHAM": {
+        "message": "<span class=\"message-negative\">Attention:</span> Pilots operating an analog VTX must comply with the governmental regulations. An amateur radio license may be required."
+    },
+    "vtxMessageHardwareModes": {
+        "message": "Other things to consider: Locked, Unlocked, Race-Mode, Free-Mode should all be set by the VTX hardware. EmuFlight does not have access to this."
+    },
+    "vtxMessageAnalogFunny": {
+        "message": "Set up however you want, you're not gonna see anything but lines and static anyways"
+    },
+    "vtxMessageNonMSP": {
+        "message": "CLI-only settings include 'vtx_low_power_disarm', 'vtx_pit_mode_freq',  'vtx_halfduplex' and VTX-Power-on-a-Switch. Configure them as needed in CLI."
+    },
+    "vtxFrequencyChannel": {
+        "message": "Frequency Mode",
+        "description": "Text of one of the fields of the VTX tab"
+    },
+    "vtxFrequencyChannelHelp": {
+        "message": "If you enable this, the Configurator will let you select a frequency in place of the habitual band/channel. For this to work your VTX must support this feature.",
+        "description": "Help text for the frequency or channel select field of the VTX tab"
+    },
+    "vtxSelectedMode": {
+        "message": "Selected Mode",
+        "description": "Title for the actual mode header of the VTX"
+    },
+    "vtxActualState": {
+        "message": "Current Values",
+        "description": "Title for the actual values header of the VTX"
+    },
+    "vtxType": {
+        "message": "VTX Type",
+        "description": "Text of one of the fields of the VTX tab"
+    },
+    "vtxType_0": {
+        "message": "Unsupported",
+        "description": "Text for one of the types of the VTX type in VTX tab"
+    },
+    "vtxType_1": {
+        "message": "RTC607",
+        "description": "Text for one of the types of the VTX type in VTX tab"
+    },
+    "vtxType_3": {
+        "message": "SmartAudio",
+        "description": "Text for one of the types of the VTX type in VTX tab"
+    },
+    "vtxType_4": {
+        "message": "Tramp",
+        "description": "Text for one of the types of the VTX type in VTX tab"
+    },
+    "vtxType_5": {
+        "message": "BeeSign",
+        "description": "Text for one of the types of the VTX type in VTX tab"
+    },
+    "vtxType_255": {
+        "message": "Unknown",
+        "description": "Text for one of the types of the VTX type in VTX tab"
+    },
+    "vtxBand": {
+        "message": "Band",
+        "description": "Text of one of the fields of the VTX tab"
+    },
+    "vtxBandHelp": {
+        "message": "Here, set the band for your VTX",
+        "description": "Help text for the band field of the VTX tab"
+    },
+    "vtxBand_0": {
+        "message": "User",
+        "description": "Text of one of the options for the band field of the VTX tab"
+    },
+    "vtxBand_X": {
+        "message": "Band {{bandName}}",
+        "description": "Text of one of the options for the band field of the VTX tab"
+    },
+    "vtxChannel_0": {
+        "message": "None",
+        "description": "Text of one of the options for the channel field of the VTX tab"
+    },
+    "vtxChannel_X": {
+        "message": "Channel {{channelName}}",
+        "description": "Text of one of the options for the channel field of the VTX tab"
+    },
+    "vtxPower_0": {
+        "message": "None",
+        "description": "Text of one of the options for the power field of the VTX tab"
+    },
+    "vtxPower_X": {
+        "message": "Level {{powerLevel}}",
+        "description": "Text of one of the options for the power field of the VTX tab"
+    },
+    "vtxChannel": {
+        "message": "Channel",
+        "description": "Text of one of the fields of the VTX tab"
+    },
+    "vtxChannelHelp": {
+        "message": "Here, set the channel for your VTX",
+        "description": "Help text for the channel field of the VTX tab"
+    },
+    "vtxFrequency": {
+        "message": "Frequency",
+        "description": "Text of one of the fields of the VTX tab"
+    },
+    "vtxFrequencyHelp": {
+        "message": "Here, set the frequency for your VTX if it is supported",
+        "description": "Help text for the frequency field of the VTX tab"
+    },
+    "vtxDeviceReady": {
+        "message": "Device ready",
+        "description": "Text of one of the fields of the VTX tab"
+    },
+    "vtxPower": {
+        "message": "Power",
+        "description": "Text of one of the fields of the VTX tab"
+    },
+    "vtxPowerHelp": {
+        "message": "Here, set the operational power level for the VTX. It can be modified if the $t(vtxPitMode.message) or the $t(vtxLowPowerDisarm.message) is enabled",
+        "description": "Help text for the power field of the VTX tab"
+    },
+    "vtxPitMode": {
+        "message": "Pit Mode",
+        "description": "Text of one of the fields of the VTX tab"
+    },
+    "vtxPitModeHelp": {
+        "message": "When enabled, the VTX enters in a very low power mode to let the quad be on at the bench without disturbing other pilots. Usually the range of this mode is less than 5m.<br /><br />NOTE: Some protocols, like SmartAudio, can't enable Pit Mode via software after power-up.",
+        "description": "Help text for the pit mode field of the VTX tab"
+    },
+    "vtxPitModeFrequency": {
+        "message": "Pit Mode frequency",
+        "description": "Text of one of the fields of the VTX tab"
+    },
+    "vtxPitModeFrequencyHelp": {
+        "message": "Frequency at which the Pit Mode changes when enabled.",
+        "description": "Help text for the pit mode field of the VTX tab"
+    },
+    "vtxLowPowerDisarm": {
+        "message": "Low Power Disarm",
+        "description": "Text of one of the fields of the VTX tab"
+    },
+    "vtxLowPowerDisarmHelp": {
+        "message": "When enabled, the VTX uses the lowest available power when disarmed (except if a failsafe has occurred).",
+        "description": "Help text for the low power disarm field of the VTX tab"
+    },
+    "vtxLowPowerDisarmOption_0": {
+        "message": "Off",
+        "description": "One of the options for the Low Power Disarm mode of the VTX"
+    },
+    "vtxLowPowerDisarmOption_1": {
+        "message": "On",
+        "description": "One of the options for the Low Power Disarm mode of the VTX"
+    },
+    "vtxLowPowerDisarmOption_2": {
+        "message": "On until first arm",
+        "description": "One of the options for the Low Power Disarm mode of the VTX"
+    },
+    "vtxButtonSave": {
+        "message": "Save",
+        "description": "Save button in the VTX tab"
+    },
+    "vtxButtonSaved": {
+        "message": "Saved",
+        "description": "Saved action button in the VTX tab"
+    },
+    "vtxButtonRefresh": {
+        "message": "Refresh",
+        "description": "Refresh button in the VTX tab"
+    },
+    "vtxSmartAudioUnlocked": {
+        "message": "{{version}} unlocked",
+        "description": "Indicates if SA device is unlocked"
+    },
+    "vtxTableNameCol": {
+        "message": "Name"
+    },
+    "vtxTableChannelRow": {
+        "message": "Channels"
+    },
+    "vtxTableBandCol": {
+        "message": "Bands"
     }
 }

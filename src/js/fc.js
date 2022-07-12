@@ -61,6 +61,7 @@ var KALMAN_FILTER_CONFIG;
 var ADVANCED_TUNING;
 var SENSOR_CONFIG;
 var COPY_PROFILE;
+var VTX_CONFIG;
 var DEFAULT;
 
 var FC = {
@@ -520,6 +521,15 @@ var FC = {
         };
 
         RXFAIL_CONFIG = [];
+
+        VTX_CONFIG = {
+            vtx_type:           0,
+            vtx_band:           0,
+            vtx_channel:        1,
+            vtx_power:          0,
+            vtx_pit_mode:       0,
+            vtx_frequency:      0,
+        };
 
         DEFAULT = {
             gyro_lowpass_hz:                100,

@@ -43,6 +43,7 @@ var GUI_control = function () {
         'receiver',
         'sensors',
         'servos',
+        'vtx'
     ];
     this.defaultAllowedOSDTabsWhenConnected = [
         'setup_osd',
