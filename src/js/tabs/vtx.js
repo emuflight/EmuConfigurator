@@ -106,7 +106,7 @@ TABS.vtx.initialize = function(callback) {
         $("#vtx_frequency").val(VTX_CONFIG.vtx_frequency);
         $("#vtx_band").val(VTX_CONFIG.vtx_band);
         $("#vtx_channel").val(VTX_CONFIG.vtx_channel);
-        $("#vtx_power").val(VTX_CONFIG.vtx_power+1);
+        $("#vtx_power").val(VTX_CONFIG.vtx_power);
         $("#vtx_pit_mode").prop('checked', VTX_CONFIG.vtx_pit_mode);
 
         if (VTX_CONFIG.vtx_type === VtxDeviceTypes.VTXDEV_TRAMP) { //smart audio does not support. beesign seemingly neither
@@ -207,13 +207,13 @@ TABS.vtx.initialize = function(callback) {
         const selectPower = $(".field #vtx_power");
         const powerMaxMinValues = getPowerValues(VTX_CONFIG.vtx_type);
         for (let i = powerMaxMinValues.min; i <= powerMaxMinValues.max; i++) {
-            if (i === 0) {
-                selectPower.append(new Option(i18n.getMessage('vtxPower_0'), 0));
-            } else {
+            //if (i === 0) {
+            //    selectPower.append(new Option(i18n.getMessage('vtxPower_0'), 0));
+            //} else {
                 selectPower.append(new Option(i18n.getMessage('vtxPower_X', {
                     powerLevel: i
                 }), i));
-            }
+            //}
         }
         //console.log('exit populatePowerSelect()');
     };
@@ -228,20 +228,26 @@ TABS.vtx.initialize = function(callback) {
                 break;
             case VtxDeviceTypes.VTXDEV_RTC6705:
                 powerMinMax = {
-                    min: 1,
-                    max: 3
+                    min: 0,
+                    max: 2
                 };
                 break;
             case VtxDeviceTypes.VTXDEV_SMARTAUDIO:
                 powerMinMax = {
-                    min: 1,
+                    min: 0,
                     max: 4
                 };
                 break;
             case VtxDeviceTypes.VTXDEV_TRAMP:
                 powerMinMax = {
-                    min: 1,
-                    max: 5
+                    min: 0,
+                    max: 4
+                };
+                break;
+            case VtxDeviceTypes.VTXDEV_BEESIGN:
+                powerMinMax = {
+                    min: 0,
+                    max: 4
                 };
                 break;
             case VtxDeviceTypes.VTXDEV_UNKNOWN:
@@ -331,7 +337,7 @@ function dump_html_to_msp() {
         } // else some other semver option that does not yet exist
     }
 
-    VTX_CONFIG.vtx_power = parseInt($("#vtx_power").val()-1);
+    VTX_CONFIG.vtx_power = parseInt($("#vtx_power").val());
     VTX_CONFIG.vtx_pit_mode = $("#vtx_pit_mode").prop('checked');
     // VTX_CONFIG.vtx_low_power_disarm = parseInt($("#vtx_low_power_disarm").val());  //no EmuF MSP
 
