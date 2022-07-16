@@ -244,6 +244,12 @@ TABS.vtx.initialize = function(callback) {
                     max: 4
                 };
                 break;
+            case VtxDeviceTypes.VTXDEV_BEESIGN:
+                powerMinMax = {
+                    min: 0,
+                    max: 4
+                };
+                break;
             case VtxDeviceTypes.VTXDEV_UNKNOWN:
             default:
                 powerMinMax = {
