@@ -389,8 +389,8 @@ OSD.drawStickOverlayPreview = function () {
 
 //moved OSD.constants
 OSD.constants = {
-    VISIBLE: 0x2000,
-    VISIBLE_SD: 0x0800,  //SD is a misnomer, it's technically "Legacy" as SD in MSP 1.52 will be x2000 as well
+    VISIBLE_52: 0x2000, //msp 1.52 only // only for in-the-wild dev-builds
+    VISIBLE: 0x0800,  //msp <> 1.52
     VIDEO_TYPES: [
         'AUTO',
         'PAL',
@@ -1000,7 +1000,7 @@ OSD.loadDisplayFields = function() {
             desc: 'osdDescElementPIDRoll',
             default_position: function () {
                 var position = 194;
-                if (semver.gte(CONFIG.apiVersion, "1.52.0")) {
+                if (semver.eq(CONFIG.apiVersion, "1.52.0")) {
                     return 0x2000 | (10 << 6) | 2; // 0x2000 | (y << 6) | x;
                 } else {
                     return 0x800 | (10 << 5) | 2; // 0x0800 | (y << 5) | x
@@ -1018,7 +1018,7 @@ OSD.loadDisplayFields = function() {
             desc: 'osdDescElementPIDPitch',
             default_position: function () {
                 var position = 194;
-                if (semver.gte(CONFIG.apiVersion, "1.52.0")) {
+                if (semver.eq(CONFIG.apiVersion, "1.52.0")) {
                     return 0x2000 | (11 << 6) | 2; // 0x2000 | (y << 6) | x;
                 } else {
                     return 0x800 | (11 << 5) | 2; // 0x0800 | (y << 5) | x
@@ -1036,7 +1036,7 @@ OSD.loadDisplayFields = function() {
             desc: 'osdDescElementPIDYaw',
             default_position: function () {
                 var position = 194;
-                if (semver.gte(CONFIG.apiVersion, "1.52.0")) {
+                if (semver.eq(CONFIG.apiVersion, "1.52.0")) {
                     return 0x2000 | (12 << 6) | 2; // 0x2000 | (y << 6) | x;
                 } else {
                     return 0x800 | (12 << 5) | 2; // 0x0800 | (y << 5) | x
@@ -1054,7 +1054,7 @@ OSD.loadDisplayFields = function() {
             desc: 'osdDescElementPower',
             default_position: function () {
                 var position = 194;
-                if (semver.gte(CONFIG.apiVersion, "1.52.0")) {
+                if (semver.eq(CONFIG.apiVersion, "1.52.0")) {
                     return (15 << 6) | 2;
                 } else {
                     return (15 << 5) | 2;
@@ -1074,7 +1074,7 @@ OSD.loadDisplayFields = function() {
             desc: 'osdDescElementPIDRateProfile',
             default_position: function () {
                 var position = 194;
-                if (semver.gte(CONFIG.apiVersion, "1.52.0")) {
+                if (semver.eq(CONFIG.apiVersion, "1.52.0")) {
                     return 0x2000 | (13 << 6) | 2; // 0x2000 | (y << 6) | x;
                 } else {
                     return 0x800 | (13 << 5) | 2; // 0x0800 | (y << 5) | x
@@ -1099,7 +1099,7 @@ OSD.loadDisplayFields = function() {
             desc: 'osdDescElementAvgCellVoltage',
             default_position: function () {
                 var position = 194;
-                if (semver.gte(CONFIG.apiVersion, "1.52.0")) {
+                if (semver.eq(CONFIG.apiVersion, "1.52.0")) {
                     return 12 << 6;
                 } else {
                     return 12 << 5;
@@ -1807,18 +1807,31 @@ OSD.msp = {
                             OSDlineWidth = OSD.constants.VIDEO_COLS['PAL']; // PAL and NTSC = same column width
                     }
 
-                    if (semver.gte(CONFIG.apiVersion, "1.52.0")) {
-                        display_item.position = positionable ? OSDlineWidth * ((bits >> 6) & 0x003F) + (bits & 0x003F) : default_position;
-                    } else { //lt MSP 1.52
-                        display_item.position = positionable ? OSDlineWidth * ((bits >> 5) & 0x001F) + (bits & 0x001F) : default_position; //legacy
+                    let xpos = 0;
+                    let ypos = 0;
+                    if (semver.lt(CONFIG.apiVersion, "1.52.0")) { //legacy
+                        //display_item.position = positionable ? OSDlineWidth * ((bits >> 5) & 0x001F) + (bits & 0x001F) : default_position; //legacy
+                        xpos = ((bits & 0x001F));
+                        ypos = (bits >> 5) & 0x001F;
+                    } else if (semver.eq(CONFIG.apiVersion, "1.52.0")) { //in-the-wild-dev 1.52 only
+                        //display_item.position = positionable ? OSDlineWidth * ((bits >> 6) & 0x003F) + (bits & 0x003F) : default_position; //dev
+                        xpos = (bits & 0x003F);
+                        ypos = ((bits >> 6) & 0x003F);
+                    } else { //new - gt 1.52
+                        //display_item.position = positionable ? OSDlineWidth * ((bits >> 5) & 0x001F) + (bits & 0x001F) : default_position; //new
+                        //xpos = ((bits >> 5) & 0x0020) | (bits & 0x001F); //unsure the x0020
+                        xpos = ((bits & 0x001F));
+                        ypos = (bits >> 5) & 0x001F;
                     }
+
+                    display_item.position = positionable ? OSDlineWidth * ypos + xpos : default_position;
 
                     display_item.isVisible = [];
                     for (let osd_profile = 0; osd_profile < OSD.getNumberOfProfiles(); osd_profile++) {
-                        if (semver.gte(CONFIG.apiVersion, "1.52.0")) {
-                            display_item.isVisible[osd_profile] = (bits & (OSD.constants.VISIBLE << osd_profile)) !== 0; //x2000 no matter SD/HD
-                        } else {
-                            display_item.isVisible[osd_profile] = (bits & (OSD.constants.VISIBLE_SD << osd_profile)) !== 0; //legacy 0x800
+                        if (semver.eq(CONFIG.apiVersion, "1.52.0")) {
+                            display_item.isVisible[osd_profile] = (bits & (OSD.constants.VISIBLE_52 << osd_profile)) !== 0; //x2000 no matter SD/HD
+                        } else { //<> 1.52
+                            display_item.isVisible[osd_profile] = (bits & (OSD.constants.VISIBLE << osd_profile)) !== 0; //legacy & new 0x800
                         }
                     }
                 } else {
@@ -1845,11 +1858,11 @@ OSD.msp = {
 
                     let packed_visible = 0;
                     for (let osd_profile = 0; osd_profile < OSD.getNumberOfProfiles(); osd_profile++) {
-                        if (semver.gte(CONFIG.apiVersion, "1.52.0")) {
-                            packed_visible |= isVisible[osd_profile] ? OSD.constants.VISIBLE << osd_profile : 0;
+                        if (semver.eq(CONFIG.apiVersion, "1.52.0")) {
+                            packed_visible |= isVisible[osd_profile] ? OSD.constants.VISIBLE_52 << osd_profile : 0;
                         }
                         else {
-                            packed_visible |= isVisible[osd_profile] ? OSD.constants.VISIBLE_SD << osd_profile : 0;
+                            packed_visible |= isVisible[osd_profile] ? OSD.constants.VISIBLE << osd_profile : 0;
                         }
                     }
 
@@ -1862,10 +1875,10 @@ OSD.msp = {
                             OSDlineWidth = OSD.constants.VIDEO_COLS['PAL']; // PAL and NTSC = same column width
                     }
 
-                    if (semver.gte(CONFIG.apiVersion, "1.52.0")) {
-                        return packed_visible | (((position / OSDlineWidth) & 0x003F) << 6) | (position % OSDlineWidth);
+                    if (semver.eq(CONFIG.apiVersion, "1.52.0")) {
+                        return packed_visible | (((position / OSDlineWidth) & 0x003F) << 6) | (position % OSDlineWidth); //1.52 only
                     } else {
-                        return packed_visible | (((position / OSDlineWidth) & 0x001F) << 5) | (position % OSDlineWidth); //legacy
+                        return packed_visible | (((position / OSDlineWidth) & 0x001F) << 5) | (position % OSDlineWidth); //legacy & new
                     }
 
                 } else {

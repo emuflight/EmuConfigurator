@@ -1430,10 +1430,10 @@
         "message": "Camera (RunCam Protocol)"
     },
     "portsFunction_HDZERO_OSD": {
-        "message": "HDZero OSD"
+        "message": "MSP Display Port"
     },
     "osdSetupVideoFormatOptionHd": {
-        "message": "HD (HDZero)"
+        "message": "HD"
     },
     "pidTuningProfileOption": {
         "message": "Profile $1"
