@@ -285,6 +285,7 @@ function dist_resources() {
 function apps(done) {
     var platforms = getPlatforms();
     removeItem(platforms, 'chromeos');
+    removeItem(platforms, 'android');
 
     buildNWAppsWrapper(platforms, 'normal', APPS_DIR, done);
 }
@@ -702,7 +703,7 @@ function release_osx64() {
 
                 ],
                 background: path.join(__dirname, 'assets/osx/dmg-background.png'),
-                format: 'UDBZ',
+                format: 'UDZO',
                 window: {
                     size: {
                         width: 755,

@@ -48,7 +48,7 @@ jobs:
       - name: setup node
         uses: actions/setup-node@v4
         with:
-          node-version: '16.17'
+          node-version: '16'
         continue-on-error: false
 
       # for debugging
@@ -67,7 +67,7 @@ jobs:
 
       # build stuff
       - name: yarn install
-        run: yarn install
+        run: yarn install --immutable --immutable-cache --check-cache
 
       - name: yarn gulp clean-release
         run: yarn gulp clean-release
