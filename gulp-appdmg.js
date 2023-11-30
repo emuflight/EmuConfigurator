@@ -1,4 +1,4 @@
-require('module-alias/register');
+var alias = require('macos-alias');
 
 const appdmg = require('appdmg');
 const through = require('through2');
