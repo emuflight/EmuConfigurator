@@ -94,6 +94,6 @@
   },
   "optionalDependencies": {
     "appdmg": "^0.6.4",
-    "macos-alias": 
+    "macos-alias": "^0.2.11"
   }
 }
