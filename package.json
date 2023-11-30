@@ -93,6 +93,6 @@
     "yarn": "^1.22.15"
   },
   "optionalDependencies": {
-    "gulp-appdmg": "^1.0.3"
+     "appdmg": "^0.6.4"
   }
 }
