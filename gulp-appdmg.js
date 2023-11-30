@@ -1,3 +1,4 @@
+require('module-alias/register');
 
 const appdmg = require('appdmg');
 const through = require('through2');

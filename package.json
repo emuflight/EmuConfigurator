@@ -93,6 +93,7 @@
     "yarn": "^1.22.15"
   },
   "optionalDependencies": {
-     "appdmg": "^0.6.4"
+    "appdmg": "^0.6.4",
+    "module-alias": "^2.2.3"
   }
 }
