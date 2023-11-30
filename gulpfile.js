@@ -678,11 +678,7 @@ function release_osx64() {
     }
 
     //var appdmg = require('gulp-appdmg');
-    //const pkg = require('./package.json');
-    // remove gulp-appdmg from the package.json we're going to write
-    //delete pkg.optionalDependencies['gulp-appdmg'];
-
-    const appdmg = require('./gulp-appdmg');
+    var appdmg = require('./gulp-appdmg');
 
     // The appdmg does not generate the folder correctly, manually
     createDirIfNotExists(RELEASE_DIR);
