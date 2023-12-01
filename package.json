@@ -93,6 +93,7 @@
     "yarn": "^1.22.15"
   },
   "optionalDependencies": {
-    "gulp-appdmg": "^1.0.3"
+    "appdmg": "^0.6.4",
+    "macos-alias": "^0.2.11"
   }
 }

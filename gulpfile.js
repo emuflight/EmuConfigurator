@@ -285,6 +285,7 @@ function dist_resources() {
 function apps(done) {
     var platforms = getPlatforms();
     removeItem(platforms, 'chromeos');
+    removeItem(platforms, 'android');
 
     buildNWAppsWrapper(platforms, 'normal', APPS_DIR, done);
 }
@@ -676,7 +677,7 @@ function release_osx64() {
         console.log('running locally - skipping signing of app');
     }
 
-    var appdmg = require('gulp-appdmg');
+    const appdmg = require('./gulp-appdmg');
 
     // The appdmg does not generate the folder correctly, manually
     createDirIfNotExists(RELEASE_DIR);
@@ -697,14 +698,15 @@ function release_osx64() {
 
                 ],
                 background: path.join(__dirname, 'assets/osx/dmg-background.png'),
-                format: 'UDBZ',
+                format: 'UDZO',
                 window: {
                     size: {
                         width: 755,
                         height: 755
                     }
                 },
-                'code-sign': { 'signing-identity': process.env.APP_IDENTITY }
+                // code-signing requirement is failing, we no longer code-sign anyway so remove it.
+                //'code-sign': { 'signing-identity': process.env.APP_IDENTITY }
             },
         })
     );
