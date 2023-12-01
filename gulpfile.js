@@ -669,6 +669,7 @@ function getLinuxPackageArch(type, arch) {
 // TODO: add code-signing https://github.com/LinusU/node-appdmg
 // Create distribution package for macOS platform
 function release_osx64() {
+    const appdmg = require('./gulp-appdmg');
 
     if (process.env.TRAVIS_OS_NAME == 'osx') {
         const { execSync } = require('child_process');
@@ -676,8 +677,6 @@ function release_osx64() {
     } else {
         console.log('running locally - skipping signing of app');
     }
-
-    var appdmg = require('./gulp-appdmg');
 
     // The appdmg does not generate the folder correctly, manually
     createDirIfNotExists(RELEASE_DIR);
