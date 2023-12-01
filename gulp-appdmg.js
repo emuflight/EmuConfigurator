@@ -1,4 +1,4 @@
-const alias = require('macos-alias');
+var alias = require('macos-alias');
 
 const appdmg = require('appdmg');
 const through = require('through2');
