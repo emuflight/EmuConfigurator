@@ -95,7 +95,7 @@
   "optionalDependencies": {
     "fsevents": "^2.3.3",
     "appdmg": "^0.6.4",
-    "macos-alias": "^0.2.11",
+    "macos-alias": "@0.2.5",
     "gulp-cli": "^2.3.0"
   }
 }
