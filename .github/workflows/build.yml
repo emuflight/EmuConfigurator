@@ -89,7 +89,7 @@ jobs:
       - name: yarn gulp release --osx64
         if: ${{ startsWith(matrix.os, 'macos') }}
         run: |
-          yarn add macos-alias node-gyp
+          yarn add node-gyp
           yarn gulp release --osx64
         continue-on-error: false
 
