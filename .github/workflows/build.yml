@@ -66,9 +66,15 @@ jobs:
           echo "ShortSha: ${{ steps.ids.outputs.shortsha }}"
         continue-on-error: true
 
+      - name: osx purge node_modules64
+        if: ${{ startsWith(matrix.os, 'macos') }}
+        run: |
+          rm -rf node_modules
+
       # build stuff
       - name: yarn install
-        run: yarn install --immutable --check-cache
+        run: |
+          yarn install --immutable --check-cache
 
       - name: yarn gulp clean-release
         run: yarn gulp clean-release
@@ -83,7 +89,7 @@ jobs:
       - name: yarn gulp release --osx64
         if: ${{ startsWith(matrix.os, 'macos') }}
         run: |
-          yarn add macos-alias appdmg gulp-appdmg
+          yarn add fsevents macos-alias appdmg gulp-cli
           yarn gulp release --osx64
         continue-on-error: false
 
