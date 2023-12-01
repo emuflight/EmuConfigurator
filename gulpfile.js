@@ -705,7 +705,6 @@ function release_osx64() {
                         height: 755
                     }
                 },
-                // code-signing requirement is failing, we no longer code-sign anyway so remove it.
                 //'code-sign': { 'signing-identity': process.env.APP_IDENTITY }
             },
         })
