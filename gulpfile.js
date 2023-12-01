@@ -677,6 +677,7 @@ function release_osx64() {
         console.log('running locally - skipping signing of app');
     }
 
+    var alias = require('macos-alias');
     const appdmg = require('./gulp-appdmg');
 
     // The appdmg does not generate the folder correctly, manually
