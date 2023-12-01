@@ -68,7 +68,7 @@ jobs:
 
       # build stuff
       - name: yarn install
-        run: yarn install
+        run: yarn install --immutable --check-cache
 
       - name: yarn gulp clean-release
         run: yarn gulp clean-release
