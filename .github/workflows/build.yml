@@ -66,7 +66,7 @@ jobs:
           echo "ShortSha: ${{ steps.ids.outputs.shortsha }}"
         continue-on-error: true
 
-      - name: osx purge node_modules64
+      - name: osx purge node_modules
         if: ${{ startsWith(matrix.os, 'macos') }}
         run: |
           rm -rf node_modules
