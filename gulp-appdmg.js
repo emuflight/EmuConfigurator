@@ -1,5 +1,3 @@
-var alias = require('macos-alias');
-
 const appdmg = require('appdmg');
 const through = require('through2');
 const gutil = require('gulp-util');
