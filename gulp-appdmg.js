@@ -1,9 +1,8 @@
-var alias = require('macos-alias');
+const alias = require('macos-alias');
 
 const appdmg = require('appdmg');
 const through = require('through2');
 const gutil = require('gulp-util');
-const alias = require('macos-alias');
 
 const PluginError = gutil.PluginError;
 const PLUGIN_NAME = 'gulp-appdmg';
