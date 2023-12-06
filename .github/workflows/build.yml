@@ -10,6 +10,7 @@ on:
   # repository_dispatch is a newer github-actions feature that will allow building from triggers other than code merge/PR
   repository_dispatch:
     types: [build]
+  workflow_dispatch:
 
 name: Build EmuConfigurator
 jobs:
@@ -24,7 +25,8 @@ jobs:
       fail-fast: false
       max-parallel: 3
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
+        #https://github.com/actions/runner-images
+        os: [ubuntu-22.04, macos-11, windows-2022]
     outputs:
       buildtag: ${{ steps.ids.outputs.buildtag }}
       shortsha: ${{ steps.ids.outputs.shortsha }}
@@ -66,12 +68,28 @@ jobs:
           echo "ShortSha: ${{ steps.ids.outputs.shortsha }}"
         continue-on-error: true
 
+      - name: which python
+        run: |
+          echo "python version:"
+          python --version
+          which python
+
       # build stuff
       - name: yarn install
-        run: yarn install --immutable --immutable-cache --check-cache
+        run: |
+          npm config set fetch-retry-maxtimeout 600000 -g
+          yarn install --immutable --immutable-cache --check-cache
+
+      # this forces appdmg install even though package.json optionalDependencies has/needs it.
+      - name: setup macos
+        if: ${{ startsWith(matrix.os, 'macos') }}
+        run: |
+          npm install appdmg@0.6.6 --python=python2.7
+        continue-on-error: true
 
       - name: yarn gulp clean-release
         run: yarn gulp clean-release
+        continue-on-error: true
 
       - name: yarn gulp release --linux64
         if: ${{ startsWith(matrix.os, 'ubuntu') }}

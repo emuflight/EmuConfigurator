@@ -678,7 +678,7 @@ function release_osx64() {
     }
 
     //var appdmg = require('gulp-appdmg');
-    const appdmg = require('./gulp-appdmg');
+    const appdmg = require('./gulp-macdmg');
 
 
     // The appdmg does not generate the folder correctly, manually
