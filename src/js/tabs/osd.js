@@ -1811,19 +1811,18 @@ OSD.msp = {
                     let ypos = 0;
                     if (semver.lt(CONFIG.apiVersion, "1.52.0")) { //legacy
                         //display_item.position = positionable ? OSDlineWidth * ((bits >> 5) & 0x001F) + (bits & 0x001F) : default_position; //legacy
-                        xpos = ((bits & 0x001F));
-                        ypos = (bits >> 5) & 0x001F;
+                        xpos = (bits & 0x001F);
+                        ypos = ((bits >> 5) & 0x001F);
                     } else if (semver.eq(CONFIG.apiVersion, "1.52.0")) { //in-the-wild-dev 1.52 only
                         //display_item.position = positionable ? OSDlineWidth * ((bits >> 6) & 0x003F) + (bits & 0x003F) : default_position; //dev
                         xpos = (bits & 0x003F);
                         ypos = ((bits >> 6) & 0x003F);
                     } else { //new - gt 1.52
-                        //display_item.position = positionable ? OSDlineWidth * ((bits >> 5) & 0x001F) + (bits & 0x001F) : default_position; //new
-                        //xpos = ((bits >> 5) & 0x0020) | (bits & 0x001F); //unsure the x0020
-                        xpos = ((bits & 0x001F));
-                        ypos = (bits >> 5) & 0x001F;
+                        //display_item.position = positionable ? OSDlineWidth * ((bits >> 5) & 0x001F) + (bits & 0x001F) : default_position;  //new
+                        xpos = ((bits >> 5) & 0x0020) | (bits & 0x001F); //unsure the x0020
+                        //xpos = (bits & 0x001F);
+                        ypos = ((bits >> 5) & 0x001F);
                     }
-
                     display_item.position = positionable ? OSDlineWidth * ypos + xpos : default_position;
 
                     display_item.isVisible = [];
@@ -1875,10 +1874,16 @@ OSD.msp = {
                             OSDlineWidth = OSD.constants.VIDEO_COLS['PAL']; // PAL and NTSC = same column width
                     }
 
+                    const xpos = (position % OSDlineWidth);
+                    const ypos = (position / OSDlineWidth);
+
                     if (semver.eq(CONFIG.apiVersion, "1.52.0")) {
-                        return packed_visible | (((position / OSDlineWidth) & 0x003F) << 6) | (position % OSDlineWidth); //1.52 only
+                        //return packed_visible | (((position / OSDlineWidth) & 0x003F) << 6) | (position % OSDlineWidth); //1.52 only
+                        return packed_visible | ((ypos & 0x003F) << 6) | xpos ; //1.52 only
                     } else {
-                        return packed_visible | (((position / OSDlineWidth) & 0x001F) << 5) | (position % OSDlineWidth); //legacy & new
+                        //return packed_visible | (((position / OSDlineWidth) & 0x001F) << 5) | (position % OSDlineWidth); //legacy & new
+                        //return packed_visible | ((ypos & 0x001F) << 5) | xpos ; //legacy & new
+                        return packed_visible |  ((ypos & 0x001F) << 5) | ((xpos & 0x0020) << 5) | (xpos & 0x001F) ; //legacy & new
                     }
 
                 } else {
