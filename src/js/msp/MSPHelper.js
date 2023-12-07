@@ -833,12 +833,10 @@ MspHelper.prototype.process_data = function(dataHandler) {
                     for (var i = 0; i < serialPortCount; i++) {
                         var serialPort = { identifier: data.readU8() };
 
-                        // only 1.52 is uint32 else uint16
-                        if (semver.eq(CONFIG.apiVersion, "1.52.0")) {
-                            serialPort = Object.assign(serialPort, {functions: self.serialPortFunctionMaskToFunctions(data.readU32())});
-                        } else { //MSP <> 1.52
+                        if (semver.lt(CONFIG.apiVersion, "1.52.0")) {
                             serialPort = Object.assign(serialPort, {functions: self.serialPortFunctionMaskToFunctions(data.readU16())});
-
+                        } else { //MSP gte 1.52
+                            serialPort = Object.assign(serialPort, {functions: self.serialPortFunctionMaskToFunctions(data.readU32())});
                         }
 
                         serialPort = Object.assign(serialPort, {
@@ -1939,11 +1937,10 @@ MspHelper.prototype.crunch = function(code) {
                     var serialPort = SERIAL_CONFIG.ports[i];
                     buffer.push8(serialPort.identifier);
                     var functionMask = self.serialPortFunctionsToMask(serialPort.functions);
-                    // only 1.52 is uint32 else uint16
-                    if (semver.eq(CONFIG.apiVersion, "1.52.0")) {
-                        buffer.push32(functionMask);
-                    } else { //MSP <> 1.52
+                    if (semver.lt(CONFIG.apiVersion, "1.52.0")) {
                         buffer.push16(functionMask);
+                    } else { //MSP gte 1.52
+                        buffer.push32(functionMask);
                     }
                     buffer.push8(self.BAUD_RATES.indexOf(serialPort.msp_baudrate))
                           .push8(self.BAUD_RATES.indexOf(serialPort.gps_baudrate))
