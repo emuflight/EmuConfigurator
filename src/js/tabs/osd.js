@@ -390,7 +390,7 @@ OSD.drawStickOverlayPreview = function () {
 //moved OSD.constants
 OSD.constants = {
     VISIBLE_52: 0x2000, //msp 1.52 only // only for in-the-wild dev-builds
-    VISIBLE: 0x0800,  //msp <> 1.52
+    VISIBLE: 0x0800,    //msp <> 1.52
     VIDEO_TYPES: [
         'AUTO',
         'PAL',
@@ -1809,18 +1809,13 @@ OSD.msp = {
 
                     let xpos = 0;
                     let ypos = 0;
-                    if (semver.lt(CONFIG.apiVersion, "1.52.0")) { //legacy
-                        //display_item.position = positionable ? OSDlineWidth * ((bits >> 5) & 0x001F) + (bits & 0x001F) : default_position; //legacy
-                        xpos = (bits & 0x001F);
-                        ypos = ((bits >> 5) & 0x001F);
-                    } else if (semver.eq(CONFIG.apiVersion, "1.52.0")) { //in-the-wild-dev 1.52 only
-                        //display_item.position = positionable ? OSDlineWidth * ((bits >> 6) & 0x003F) + (bits & 0x003F) : default_position; //dev
+
+                    if (semver.eq(CONFIG.apiVersion, "1.52.0")) { //in-the-wild-dev 1.52 only
                         xpos = (bits & 0x003F);
                         ypos = ((bits >> 6) & 0x003F);
-                    } else { //new - gt 1.52
-                        //display_item.position = positionable ? OSDlineWidth * ((bits >> 5) & 0x001F) + (bits & 0x001F) : default_position;  //new
-                        xpos = ((bits >> 5) & 0x0020) | (bits & 0x001F); //unsure the x0020
-                        //xpos = (bits & 0x001F);
+                    } else { //legacy and new
+                        //OSD element position has a 5 bit number for each of X and Y allowing for max row/column of 31. The 0x0020 masking provides an extra bit to allow a max column of 63.
+                        xpos = ((bits >> 5) & 0x0020) | (bits & 0x001F);
                         ypos = ((bits >> 5) & 0x001F);
                     }
                     display_item.position = positionable ? OSDlineWidth * ypos + xpos : default_position;
@@ -1828,9 +1823,9 @@ OSD.msp = {
                     display_item.isVisible = [];
                     for (let osd_profile = 0; osd_profile < OSD.getNumberOfProfiles(); osd_profile++) {
                         if (semver.eq(CONFIG.apiVersion, "1.52.0")) {
-                            display_item.isVisible[osd_profile] = (bits & (OSD.constants.VISIBLE_52 << osd_profile)) !== 0; //x2000 no matter SD/HD
+                            display_item.isVisible[osd_profile] = (bits & (OSD.constants.VISIBLE_52 << osd_profile)) !== 0; //x2000
                         } else { //<> 1.52
-                            display_item.isVisible[osd_profile] = (bits & (OSD.constants.VISIBLE << osd_profile)) !== 0; //legacy & new 0x800
+                            display_item.isVisible[osd_profile] = (bits & (OSD.constants.VISIBLE << osd_profile)) !== 0; //0x800 legacy & new
                         }
                     }
                 } else {
@@ -1878,11 +1873,9 @@ OSD.msp = {
                     const ypos = (position / OSDlineWidth);
 
                     if (semver.eq(CONFIG.apiVersion, "1.52.0")) {
-                        //return packed_visible | (((position / OSDlineWidth) & 0x003F) << 6) | (position % OSDlineWidth); //1.52 only
                         return packed_visible | ((ypos & 0x003F) << 6) | xpos ; //1.52 only
                     } else {
-                        //return packed_visible | (((position / OSDlineWidth) & 0x001F) << 5) | (position % OSDlineWidth); //legacy & new
-                        //return packed_visible | ((ypos & 0x001F) << 5) | xpos ; //legacy & new
+                        // refer to 0x0020 comment in above unpack
                         return packed_visible |  ((ypos & 0x001F) << 5) | ((xpos & 0x0020) << 5) | (xpos & 0x001F) ; //legacy & new
                     }
 
@@ -2056,7 +2049,6 @@ OSD.msp = {
                 } else {
                     var warningNumber = i - OSD.constants.WARNINGS.length + 1;
                     d.warnings.push({name: 'UNKNOWN', text: ['osdWarningTextUnknown', warningNumber], desc: 'osdWarningUnknown', enabled: (warningFlags & (1 << i)) != 0 });
-
                 }
             }
         }
