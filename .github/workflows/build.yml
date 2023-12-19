@@ -111,7 +111,7 @@ jobs:
 
       - name: Upload Artifacts
         if: ${{ startsWith(matrix.os, 'ubuntu') }}
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v4
         with:
           name: EmuConfigurator-${{ github.ACTOR }}-${{ github.RUN_NUMBER }}-Linux
           path: |
@@ -120,13 +120,13 @@ jobs:
             release/*.zip
       - name: Upload Artifacts
         if: ${{ startsWith(matrix.os, 'macos') }}
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v4
         with:
           name: EmuConfigurator-${{ github.ACTOR }}-${{ github.RUN_NUMBER }}-OSX
           path: release/*.dmg
       - name: Upload Artifacts
         if: ${{ startsWith(matrix.os, 'windows') }}
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: EmuConfigurator-${{ github.ACTOR }}-${{ github.RUN_NUMBER }}-Windows
           path: |
@@ -155,7 +155,7 @@ jobs:
         continue-on-error: true
 
       - name: download artifacts
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4
         with:
           path: ./Artifacts
         continue-on-error: false

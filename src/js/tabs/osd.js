@@ -2588,6 +2588,14 @@ TABS.osd.initialize = function (callback) {
                         }
                     }
 
+                    if ( numberOfProfiles === 1) {
+                        osdProfileSelector_e.hide();
+                        $('.osdprofile-selected-container').hide();
+                    } else {
+                        osdProfileSelector_e.show();
+                        $('.osdprofile-selected-container').show();
+                    }
+
                     // Select the current OSD profile
                     osdProfileActive_e.val(OSD.data.osd_profiles.selected);
 
