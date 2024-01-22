@@ -1784,7 +1784,8 @@ OSD.msp = {
     * b: blink flag
     * y: y coordinate
     * x: x coordinate
-    * 00vb yyyy yyxx xxxx
+    * 0000 vbyy yyyx xxxx
+    * 00vb yyyy yyxx xxxx MSP 1.52 only?
     */
     helpers: {
         unpack: {
