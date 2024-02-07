@@ -13,7 +13,6 @@
   line-height: 24px;
   color: white;
   font-weight: bold;
-
   /* text-shadow: 1px 0px 2px rgba(0, 0, 0, 0.9);*/
 }
 
@@ -256,20 +255,20 @@
 }
 
 .tab-osd .preview .gui_box_titlebar label {
-    max-width: 100px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: inline-block;
-    white-space: nowrap;
-    vertical-align: text-bottom;
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  white-space: nowrap;
+  vertical-align: text-bottom;
 }
 
 .tab-osd .preview .gui_box_titlebar select {
-    max-width: 100px;
-    border-radius: 2px;
-    font-size: 11px;
-    font-weight: normal;
-    font-family: 'open_sansregular', 'Segoe UI', Tahoma, sans-serif;
+  max-width: 100px;
+  border-radius: 2px;
+  font-size: 11px;
+  font-weight: normal;
+  font-family: 'open_sansregular', 'Segoe UI', Tahoma, sans-serif;
 }
 
 .tab-osd .preview .gui_box_bottombar {
@@ -445,12 +444,36 @@ button {
   border: 1px solid var(--subtleAccent);
 }
 
+.tab-osd .third_left {
+  float: left;
+  /* width: calc(50% - 197px); */
+  width: 32%;
+  max-width: 300px;
+  margin-right: 5px;
+}
+
+.tab-osd .third_center {
+  float: left;
+  /* width: 32%; */
+  width: unset;
+  min-width: 350px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.tab-osd .third_right {
+  float: left;
+  /* width: calc(50% - 197px);  */
+  width: 32%;
+  max-width: 300px;
+  margin-left: 20px;
+}
+
 .tab-osd .preview {
   width: 360px;
   float: left; 
-  position: sticky;
+  /* position: sticky; */
   top: 0px;
-
   /* please don't copy the generic background image from another project
    * and replace the one that @nathantsoi took :)
    */
@@ -458,6 +481,16 @@ button {
   background-size: cover;
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
+  /* left: calc(50% - 197px); */
+}
+
+.tab-osd .preview_hd {
+  width: 600px !important;
+  /* left: calc(50% - 317px) !important; */
+}
+
+.tab-osd .preview_hd_side {
+  /* width: calc(50% - 317px) !important;  */
 }
 
 .tab-osd .alarms label {

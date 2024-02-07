@@ -24,7 +24,8 @@ function MspHelper () {
     'TELEMETRY_IBUS': 12,
     'IRC_TRAMP': 13,
     'RUNCAM_DEVICE_CONTROL': 14, // support communitate with RunCam Device
-    'LIDAR_TF': 15
+    'LIDAR_TF': 15,
+    'HDZERO_OSD': 16, // matches: FUNCTION_HDZERO_OSD          = (1 << 16), // 65536 in saidinesh5/Emuflight: src/main/io/serial.h
   };
 
     self.REBOOT_TYPES = {
@@ -818,19 +819,32 @@ MspHelper.prototype.process_data = function(dataHandler) {
                     SERIAL_CONFIG.cliBaudRate = data.readU32();
                     SERIAL_CONFIG.gpsBaudRate = data.readU32();
                     SERIAL_CONFIG.gpsPassthroughBaudRate = data.readU32();
-                } else {
+                } else  {
                     SERIAL_CONFIG.ports = [];
-                    var bytesPerPort = 1 + 2 + (1 * 4);
+
+                    var bytesPerPort;
+                    if (semver.lt(CONFIG.apiVersion, "1.52.0")) {
+                        bytesPerPort = 1 + 2 + (1 * 4);
+                    } else { //MSP gte 1.52
+                        bytesPerPort = 1 + 4 + (1 * 4);
+                    }
+
                     var serialPortCount = data.byteLength / bytesPerPort;
                     for (var i = 0; i < serialPortCount; i++) {
-                        var serialPort = {
-                            identifier: data.readU8(),
-                            functions: self.serialPortFunctionMaskToFunctions(data.readU16()),
+                        var serialPort = { identifier: data.readU8() };
+
+                        if (semver.lt(CONFIG.apiVersion, "1.52.0")) {
+                            serialPort = Object.assign(serialPort, {functions: self.serialPortFunctionMaskToFunctions(data.readU16())});
+                        } else { //MSP gte 1.52
+                            serialPort = Object.assign(serialPort, {functions: self.serialPortFunctionMaskToFunctions(data.readU32())});
+                        }
+
+                        serialPort = Object.assign(serialPort, {
                             msp_baudrate: self.BAUD_RATES[data.readU8()],
                             gps_baudrate: self.BAUD_RATES[data.readU8()],
                             telemetry_baudrate: self.BAUD_RATES[data.readU8()],
                             blackbox_baudrate: self.BAUD_RATES[data.readU8()]
-                        }
+                        });
                         SERIAL_CONFIG.ports.push(serialPort);
                     }
                 }
@@ -1923,8 +1937,12 @@ MspHelper.prototype.crunch = function(code) {
                     var serialPort = SERIAL_CONFIG.ports[i];
                     buffer.push8(serialPort.identifier);
                     var functionMask = self.serialPortFunctionsToMask(serialPort.functions);
-                    buffer.push16(functionMask)
-                          .push8(self.BAUD_RATES.indexOf(serialPort.msp_baudrate))
+                    if (semver.lt(CONFIG.apiVersion, "1.52.0")) {
+                        buffer.push16(functionMask);
+                    } else { //MSP gte 1.52
+                        buffer.push32(functionMask);
+                    }
+                    buffer.push8(self.BAUD_RATES.indexOf(serialPort.msp_baudrate))
                           .push8(self.BAUD_RATES.indexOf(serialPort.gps_baudrate))
                           .push8(self.BAUD_RATES.indexOf(serialPort.telemetry_baudrate))
                           .push8(self.BAUD_RATES.indexOf(serialPort.blackbox_baudrate));

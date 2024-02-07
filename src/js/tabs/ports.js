@@ -48,6 +48,10 @@ TABS.ports.initialize = function (callback, scrollPosition) {
         functionRules.push({ name: 'LIDAR_TF', groups: ['peripherals'], maxPorts: 1 });
     }
 
+    if (semver.gte(CONFIG.apiVersion, "1.52.0")) {
+        functionRules.push({ name: 'HDZERO_OSD', groups: ['peripherals'], maxPorts: 1 });
+    }
+
     for (var i = 0; i < functionRules.length; i++) {
         functionRules[i].displayName = i18n.getMessage('portsFunction_' + functionRules[i].name);
     }
@@ -303,6 +307,18 @@ TABS.ports.initialize = function (callback, scrollPosition) {
 
             var oldSerialPort = $(this).data('serialPort');
 
+            //HDZero MSP 1.52
+            if (semver.gte(CONFIG.apiVersion, "1.52.0")) {
+                console.log('debug: peripheral checking');
+                // if peripheral = HDZero then set sensor/gps baud 115200
+                if ($(portConfiguration_e).find('select[name=function-peripherals]').val() === 'HDZERO_OSD') {
+                    console.log('debug: peripheral: '+$(portConfiguration_e).find('select[name=function-peripherals]').val());
+                    //set MSP toggle off
+                    $(portConfiguration_e).find('input:checkbox:checked').val(false);
+                    console.log('debug: setting msp toggle off: '+$(portConfiguration_e).find('input:checkbox:checked').val());
+                }
+            }
+
             var functions = $(portConfiguration_e).find('input:checkbox:checked').map(function() {
                 return this.value;
             }).get();
@@ -310,6 +326,18 @@ TABS.ports.initialize = function (callback, scrollPosition) {
             var telemetryFunction = $(portConfiguration_e).find('select[name=function-telemetry]').val();
             if (telemetryFunction) {
                 functions.push(telemetryFunction);
+            }
+
+            //HDZero MSP 1.52
+            if (semver.gte(CONFIG.apiVersion, "1.52.0")) {
+                console.log('debug: peripheral checking');
+                // if peripheral = HDZero then set sensor/gps baud 115200
+                if ($(portConfiguration_e).find('select[name=function-peripherals]').val() === 'HDZERO_OSD') {
+                    console.log('debug: peripheral: '+$(portConfiguration_e).find('select[name=function-peripherals]').val());
+                    //select sensor(gps baudrate) = 115200
+                    $(portConfiguration_e).find('.gps_baudrate').val('115200');
+                    console.log('debug: setting sensor/gps baud to: '+$(portConfiguration_e).find('.gps_baudrate').val());
+                }
             }
 
             var sensorFunction = $(portConfiguration_e).find('select[name=function-sensors]').val();

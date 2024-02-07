@@ -98,8 +98,7 @@ FONT.constants = {
         /** NVM ram field size for one font char, last 10 bytes dont matter **/
         MAX_NVM_FONT_CHAR_FIELD_SIZE: 64,
         CHAR_HEIGHT: 18,
-        CHAR_WIDTH: 12,
-        LINE: 30
+        CHAR_WIDTH: 12
     },
     COLORS: {
         // black
@@ -388,8 +387,283 @@ OSD.drawStickOverlayPreview = function () {
     return stickOverlay;
 }
 
-OSD.loadDisplayFields = function() {
+//moved OSD.constants
+OSD.constants = {
+    VISIBLE: 0x2000,
+    VISIBLE_SD: 0x0800,  //SD is a misnomer, it's technically "Legacy" as SD in MSP 1.52 will be x2000 as well
+    VIDEO_TYPES: [
+        'AUTO',
+        'PAL',
+        'NTSC',
+        'HD'
+    ],
+    VIDEO_LINES: {
+        PAL: 16,
+        NTSC: 13,
+        HD: 18
+    },
+    VIDEO_COLS: {
+        PAL: 30,
+        NTSC: 30,
+        HD: 50
+    },
+    VIDEO_BUFFER_CHARS: {
+        PAL: 480,
+        NTSC: 390,
+        HD: 900
+    },
+    UNIT_TYPES: [
+        'IMPERIAL',
+        'METRIC'
+    ],
+    TIMER_PRECISION: [
+        'SECOND',
+        'HUNDREDTH',
+        'TENTH'
+    ],
+    AHISIDEBARWIDTHPOSITION: 7,
+    AHISIDEBARHEIGHTPOSITION: 3,
 
+    UNKNOWN_DISPLAY_FIELD: {
+        name: 'UNKNOWN',
+        text: 'osdTextElementUnknown',
+        desc: 'osdDescElementUnknown',
+        default_position: -1,
+        positionable: true,
+        preview: 'UNKNOWN '
+    },
+    ALL_STATISTIC_FIELDS: {
+        MAX_SPEED: {
+            name: 'MAX_SPEED',
+            text: 'osdTextStatMaxSpeed',
+            desc: 'osdDescStatMaxSpeed'
+        },
+        MIN_BATTERY: {
+            name: 'MIN_BATTERY',
+            text: 'osdTextStatMinBattery',
+            desc: 'osdDescStatMinBattery'
+        },
+        MIN_RSSI: {
+            name: 'MIN_RSSI',
+            text: 'osdTextStatMinRssi',
+            desc: 'osdDescStatMinRssi'
+        },
+        MAX_CURRENT: {
+            name: 'MAX_CURRENT',
+            text: 'osdTextStatMaxCurrent',
+            desc: 'osdDescStatMaxCurrent'
+        },
+        USED_MAH: {
+            name: 'USED_MAH',
+            text: 'osdTextStatUsedMah',
+            desc: 'osdDescStatUsedMah'
+        },
+        MAX_ALTITUDE: {
+            name: 'MAX_ALTITUDE',
+            text: 'osdTextStatMaxAltitude',
+            desc: 'osdDescStatMaxAltitude'
+        },
+        BLACKBOX: {
+            name: 'BLACKBOX',
+            text: 'osdTextStatBlackbox',
+            desc: 'osdDescStatBlackbox'
+        },
+        END_BATTERY: {
+            name: 'END_BATTERY',
+            text: 'osdTextStatEndBattery',
+            desc: 'osdDescStatEndBattery'
+        },
+        FLYTIME: {
+            name: 'FLY_TIME',
+            text: 'osdTextStatFlyTime',
+            desc: 'osdDescStatFlyTime'
+        },
+        ARMEDTIME: {
+            name: 'ARMED_TIME',
+            text: 'osdTextStatArmedTime',
+            desc: 'osdDescStatArmedTime'
+        },
+        MAX_DISTANCE: {
+            name: 'MAX_DISTANCE',
+            text: 'osdTextStatMaxDistance',
+            desc: 'osdDescStatMaxDistance'
+        },
+        BLACKBOX_LOG_NUMBER: {
+            name: 'BLACKBOX_LOG_NUMBER',
+            text: 'osdTextStatBlackboxLogNumber',
+            desc: 'osdDescStatBlackboxLogNumber'
+        },
+        TIMER_1: {
+            name: 'TIMER_1',
+            text: 'osdTextStatTimer1',
+            desc: 'osdDescStatTimer1'
+        },
+        TIMER_2: {
+            name: 'TIMER_2',
+            text: 'osdTextStatTimer2',
+            desc: 'osdDescStatTimer2'
+        },
+        RTC_DATE_TIME: {
+            name: 'RTC_DATE_TIME',
+            text: 'osdTextStatRtcDateTime',
+            desc: 'osdDescStatRtcDateTime'
+        },
+        STAT_BATTERY: {
+            name: 'BATTERY_VOLTAGE',
+            text: 'osdTextStatBattery',
+            desc: 'osdDescStatBattery'
+        },
+        MAX_G_FORCE: {
+            name: 'MAX_G_FORCE',
+            text: 'osdTextStatGForce',
+            desc: 'osdDescStatGForce'
+        },
+        MAX_ESC_TEMP: {
+            name: 'MAX_ESC_TEMP',
+            text: 'osdTextStatEscTemperature',
+            desc: 'osdDescStatEscTemperature'
+        },
+        MAX_ESC_RPM: {
+            name: 'MAX_ESC_RPM',
+            text: 'osdTextStatEscRpm',
+            desc: 'osdDescStatEscRpm'
+        },
+        MIN_LINK_QUALITY: {
+            name: 'MIN_LINK_QUALITY',
+            text: 'osdTextStatMinLinkQuality',
+            desc: 'osdDescStatMinLinkQuality'
+        },
+        FLIGHT_DISTANCE: {
+            name: 'FLIGHT_DISTANCE',
+            text: 'osdTextStatFlightDistance',
+            desc: 'osdTextStatFlightDistance'
+        },
+        MAX_FFT: {
+            name: 'MAX_FFT',
+            text: 'osdTextStatMaxFFT',
+            desc: 'osdDescStatMaxFFT'
+        },
+        TOTAL_FLIGHTS: {
+            name: 'TOTAL_FLIGHTS',
+            text: 'osdTextStatTotalFlights',
+            desc: 'osdDescStatTotalFlights'
+        },
+        TOTAL_FLIGHT_TIME: {
+            name: 'TOTAL_FLIGHT_TIME',
+            text: 'osdTextStatTotalFlightTime',
+            desc: 'osdDescStatTotalFlightTime'
+        },
+        TOTAL_FLIGHT_DIST: {
+            name: 'TOTAL_FLIGHT_DIST',
+            text: 'osdTextStatTotalFlightDistance',
+            desc: 'osdDescStatTotalFlightDistance'
+        },
+        MIN_RSSI_DBM: {
+            name: 'MIN_RSSI_DBM',
+            text: 'osdTextStatMinRssiDbm',
+            desc: 'osdDescStatMinRssiDbm'
+        },
+    },
+    ALL_WARNINGS: {
+        ARMING_DISABLED: {
+            name: 'ARMING_DISABLED',
+            text: 'osdWarningTextArmingDisabled',
+            desc: 'osdWarningArmingDisabled'
+        },
+        BATTERY_NOT_FULL: {
+            name: 'BATTERY_NOT_FULL',
+            text: 'osdWarningTextBatteryNotFull',
+            desc: 'osdWarningBatteryNotFull'
+        },
+        BATTERY_WARNING: {
+            name: 'BATTERY_WARNING',
+            text: 'osdWarningTextBatteryWarning',
+            desc: 'osdWarningBatteryWarning'
+        },
+        BATTERY_CRITICAL: {
+            name: 'BATTERY_CRITICAL',
+            text: 'osdWarningTextBatteryCritical',
+            desc: 'osdWarningBatteryCritical'
+        },
+        VISUAL_BEEPER: {
+            name: 'VISUAL_BEEPER',
+            text: 'osdWarningTextVisualBeeper',
+            desc: 'osdWarningVisualBeeper'
+        },
+        CRASH_FLIP_MODE: {
+            name: 'CRASH_FLIP_MODE',
+            text: 'osdWarningTextCrashFlipMode',
+            desc: 'osdWarningCrashFlipMode'
+        },
+        ESC_FAIL: {
+            name: 'ESC_FAIL',
+            text: 'osdWarningTextEscFail',
+            desc: 'osdWarningEscFail'
+        },
+        CORE_TEMPERATURE: {
+            name: 'CORE_TEMPERATURE',
+            text: 'osdWarningTextCoreTemperature',
+            desc: 'osdWarningCoreTemperature'
+        },
+        RC_SMOOTHING_FAILURE: {
+            name: 'RC_SMOOTHING_FAILURE',
+            text: 'osdWarningTextRcSmoothingFailure',
+            desc: 'osdWarningRcSmoothingFailure'
+        },
+        FAILSAFE: {
+            name: 'FAILSAFE',
+            text: 'osdWarningTextFailsafe',
+            desc: 'osdWarningFailsafe'
+        },
+        LAUNCH_CONTROL: {
+            name: 'LAUNCH_CONTROL',
+            text: 'osdWarningTextLaunchControl',
+            desc: 'osdWarningLaunchControl'
+        },
+        GPS_RESCUE_UNAVAILABLE: {
+            name: 'GPS_RESCUE_UNAVAILABLE',
+            text: 'osdWarningTextGpsRescueUnavailable',
+            desc: 'osdWarningGpsRescueUnavailable'
+        },
+        GPS_RESCUE_DISABLED: {
+            name: 'GPS_RESCUE_DISABLED',
+            text: 'osdWarningTextGpsRescueDisabled',
+            desc: 'osdWarningGpsRescueDisabled'
+        },
+        RSSI: {
+            name: 'RSSI',
+            text: 'osdWarningTextRSSI',
+            desc: 'osdWarningRSSI'
+        },
+        LINK_QUALITY: {
+            name: 'LINK_QUALITY',
+            text: 'osdWarningTextLinkQuality',
+            desc: 'osdWarningLinkQuality'
+        },
+        RSSI_DBM: {
+            name: 'RSSI_DBM',
+            text: 'osdWarningTextRssiDbm',
+            desc: 'osdWarningRssiDbm'
+        },
+
+    },
+    FONT_TYPES: [
+        { file: "default", name: "Default" },
+        { file: "bold", name: "Bold" },
+        { file: "large", name: "Large" },
+        { file: "extra_large", name: "Extra Large" },
+        { file: "emuflight", name: "Emuflight" },
+        { file: "digital", name: "Digital" },
+        { file: "clarity", name: "Clarity" },
+        { file: "vision", name: "Vision" },
+        { file: "impact", name: "Impact" },
+        { file: "impact_mini", name: "Impact Mini" },
+        { file: "kaio", name: "Kaio" },
+    ]
+};
+
+
+OSD.loadDisplayFields = function() {
  // All display fields, from every version, do not remove elements, only add!
     OSD.ALL_DISPLAY_FIELDS = {
         MAIN_BATT_VOLTAGE: {
@@ -478,8 +752,12 @@ OSD.loadDisplayFields = function() {
             desc: 'osdDescElementCrosshairs',
             default_position: function () {
                 var position = 193;
-                if (OSD.constants.VIDEO_TYPES[OSD.data.video_system] != 'NTSC') {
-                    position += FONT.constants.SIZES.LINE;
+                switch (OSD.constants.VIDEO_TYPES[OSD.data.video_system]) {
+                    case 'HD':
+                        position += OSD.constants.VIDEO_COLS['HD'];
+                        break;
+                    default:
+                        position += OSD.constants.VIDEO_COLS['PAL'];  // PAL and NTSC = same column width
                 }
                 return position;
             },
@@ -497,8 +775,12 @@ OSD.loadDisplayFields = function() {
             desc: 'osdDescElementArtificialHorizon',
             default_position: function () {
                 var position = 74;
-                if (OSD.constants.VIDEO_TYPES[OSD.data.video_system] != 'NTSC') {
-                    position += FONT.constants.SIZES.LINE;
+                switch (OSD.constants.VIDEO_TYPES[OSD.data.video_system]) {
+                    case 'HD':
+                        position += OSD.constants.VIDEO_COLS['HD'];
+                        break;
+                    default:
+                        position += OSD.constants.VIDEO_COLS['PAL'];  // PAL and NTSC = same column width
                 }
                 return position;
             },
@@ -535,8 +817,12 @@ OSD.loadDisplayFields = function() {
             desc: 'osdDescElementHorizonSidebars',
             default_position: function () {
                 var position = 194;
-                if (OSD.constants.VIDEO_TYPES[OSD.data.video_system] != 'NTSC') {
-                    position += FONT.constants.SIZES.LINE;
+                switch (OSD.constants.VIDEO_TYPES[OSD.data.video_system]) {
+                    case 'HD':
+                        position += OSD.constants.VIDEO_COLS['HD'];
+                        break;
+                    default:
+                        position += OSD.constants.VIDEO_COLS['PAL'];  // PAL and NTSC = same column width
                 }
                 return position;
             },
@@ -712,7 +998,15 @@ OSD.loadDisplayFields = function() {
             name: 'PID_ROLL',
             text: 'osdTextElementPIDRoll',
             desc: 'osdDescElementPIDRoll',
-            default_position: 0x800 | (10 << 5) | 2, // 0x0800 | (y << 5) | x
+            default_position: function () {
+                var position = 194;
+                if (semver.gte(CONFIG.apiVersion, "1.52.0")) {
+                    return 0x2000 | (10 << 6) | 2; // 0x2000 | (y << 6) | x;
+                } else {
+                    return 0x800 | (10 << 5) | 2; // 0x0800 | (y << 5) | x
+                }
+            },
+            //0x800 | (10 << 5) | 2, // 0x0800 | (y << 5) | x
             draw_order: 170,
             positionable: true,
             preview: 'ROL  43  40  20',
@@ -722,7 +1016,15 @@ OSD.loadDisplayFields = function() {
             name: 'PID_PITCH',
             text: 'osdTextElementPIDPitch',
             desc: 'osdDescElementPIDPitch',
-            default_position: 0x800 | (11 << 5) | 2, // 0x0800 | (y << 5) | x
+            default_position: function () {
+                var position = 194;
+                if (semver.gte(CONFIG.apiVersion, "1.52.0")) {
+                    return 0x2000 | (11 << 6) | 2; // 0x2000 | (y << 6) | x;
+                } else {
+                    return 0x800 | (11 << 5) | 2; // 0x0800 | (y << 5) | x
+                }
+            },
+            //0x800 | (11 << 5) | 2, // 0x0800 | (y << 5) | x
             draw_order: 180,
             positionable: true,
             preview: 'PIT  58  50  22',
@@ -732,7 +1034,15 @@ OSD.loadDisplayFields = function() {
             name: 'PID_YAW',
             text: 'osdTextElementPIDYaw',
             desc: 'osdDescElementPIDYaw',
-            default_position: 0x800 | (12 << 5) | 2, // 0x0800 | (y << 5) | x
+            default_position: function () {
+                var position = 194;
+                if (semver.gte(CONFIG.apiVersion, "1.52.0")) {
+                    return 0x2000 | (12 << 6) | 2; // 0x2000 | (y << 6) | x;
+                } else {
+                    return 0x800 | (12 << 5) | 2; // 0x0800 | (y << 5) | x
+                }
+            },
+            //0x800 | (12 << 5) | 2, // 0x0800 | (y << 5) | x
             draw_order: 190,
             positionable: true,
             preview: 'YAW  70  45  20',
@@ -742,7 +1052,15 @@ OSD.loadDisplayFields = function() {
             name: 'POWER',
             text: 'osdTextElementPower',
             desc: 'osdDescElementPower',
-            default_position: (15 << 5) | 2,
+            default_position: function () {
+                var position = 194;
+                if (semver.gte(CONFIG.apiVersion, "1.52.0")) {
+                    return (15 << 6) | 2;
+                } else {
+                    return (15 << 5) | 2;
+                }
+            },
+            //(15 << 5) | 2,
             draw_order: 200,
             positionable: true,
             preview: function () {
@@ -754,7 +1072,15 @@ OSD.loadDisplayFields = function() {
             name: 'PID_RATE_PROFILE',
             text: 'osdTextElementPIDRateProfile',
             desc: 'osdDescElementPIDRateProfile',
-            default_position: 0x800 | (13 << 5) | 2, // 0x0800 | (y << 5) | x
+            default_position: function () {
+                var position = 194;
+                if (semver.gte(CONFIG.apiVersion, "1.52.0")) {
+                    return 0x2000 | (13 << 6) | 2; // 0x2000 | (y << 6) | x;
+                } else {
+                    return 0x800 | (13 << 5) | 2; // 0x0800 | (y << 5) | x
+                }
+            },
+            //0x800 | (13 << 5) | 2, // 0x0800 | (y << 5) | x
             draw_order: 210,
             positionable: true,
             preview: '1-2'
@@ -771,7 +1097,15 @@ OSD.loadDisplayFields = function() {
             name: 'AVG_CELL_VOLTAGE',
             text: 'osdTextElementAvgCellVoltage',
             desc: 'osdDescElementAvgCellVoltage',
-            default_position: 12 << 5,
+            default_position: function () {
+                var position = 194;
+                if (semver.gte(CONFIG.apiVersion, "1.52.0")) {
+                    return 12 << 6;
+                } else {
+                    return 12 << 5;
+                }
+            },
+            //12 << 5,
             draw_order: 230,
             positionable: true,
             preview: FONT.symbol(SYM.BATTERY) + '3.98' + FONT.symbol(SYM.VOLT)
@@ -1152,270 +1486,7 @@ OSD.loadDisplayFields = function() {
     };
 };
 
-OSD.constants = {
-    VISIBLE: 0x0800,
-    VIDEO_TYPES: [
-        'AUTO',
-        'PAL',
-        'NTSC'
-    ],
-    VIDEO_LINES: {
-        PAL: 16,
-        NTSC: 13
-    },
-    VIDEO_BUFFER_CHARS: {
-        PAL: 480,
-        NTSC: 390
-    },
-    UNIT_TYPES: [
-        'IMPERIAL',
-        'METRIC'
-    ],
-    TIMER_PRECISION: [
-        'SECOND',
-        'HUNDREDTH',
-        'TENTH'
-    ],
-    AHISIDEBARWIDTHPOSITION: 7,
-    AHISIDEBARHEIGHTPOSITION: 3,
-
-    UNKNOWN_DISPLAY_FIELD: {
-        name: 'UNKNOWN',
-        text: 'osdTextElementUnknown',
-        desc: 'osdDescElementUnknown',
-        default_position: -1,
-        positionable: true,
-        preview: 'UNKNOWN '
-    },
-    ALL_STATISTIC_FIELDS: {
-        MAX_SPEED: {
-            name: 'MAX_SPEED',
-            text: 'osdTextStatMaxSpeed',
-            desc: 'osdDescStatMaxSpeed'
-        },
-        MIN_BATTERY: {
-            name: 'MIN_BATTERY',
-            text: 'osdTextStatMinBattery',
-            desc: 'osdDescStatMinBattery'
-        },
-        MIN_RSSI: {
-            name: 'MIN_RSSI',
-            text: 'osdTextStatMinRssi',
-            desc: 'osdDescStatMinRssi'
-        },
-        MAX_CURRENT: {
-            name: 'MAX_CURRENT',
-            text: 'osdTextStatMaxCurrent',
-            desc: 'osdDescStatMaxCurrent'
-        },
-        USED_MAH: {
-            name: 'USED_MAH',
-            text: 'osdTextStatUsedMah',
-            desc: 'osdDescStatUsedMah'
-        },
-        MAX_ALTITUDE: {
-            name: 'MAX_ALTITUDE',
-            text: 'osdTextStatMaxAltitude',
-            desc: 'osdDescStatMaxAltitude'
-        },
-        BLACKBOX: {
-            name: 'BLACKBOX',
-            text: 'osdTextStatBlackbox',
-            desc: 'osdDescStatBlackbox'
-        },
-        END_BATTERY: {
-            name: 'END_BATTERY',
-            text: 'osdTextStatEndBattery',
-            desc: 'osdDescStatEndBattery'
-        },
-        FLYTIME: {
-            name: 'FLY_TIME',
-            text: 'osdTextStatFlyTime',
-            desc: 'osdDescStatFlyTime'
-        },
-        ARMEDTIME: {
-            name: 'ARMED_TIME',
-            text: 'osdTextStatArmedTime',
-            desc: 'osdDescStatArmedTime'
-        },
-        MAX_DISTANCE: {
-            name: 'MAX_DISTANCE',
-            text: 'osdTextStatMaxDistance',
-            desc: 'osdDescStatMaxDistance'
-        },
-        BLACKBOX_LOG_NUMBER: {
-            name: 'BLACKBOX_LOG_NUMBER',
-            text: 'osdTextStatBlackboxLogNumber',
-            desc: 'osdDescStatBlackboxLogNumber'
-        },
-        TIMER_1: {
-            name: 'TIMER_1',
-            text: 'osdTextStatTimer1',
-            desc: 'osdDescStatTimer1'
-        },
-        TIMER_2: {
-            name: 'TIMER_2',
-            text: 'osdTextStatTimer2',
-            desc: 'osdDescStatTimer2'
-        },
-        RTC_DATE_TIME: {
-            name: 'RTC_DATE_TIME',
-            text: 'osdTextStatRtcDateTime',
-            desc: 'osdDescStatRtcDateTime'
-        },
-        STAT_BATTERY: {
-            name: 'BATTERY_VOLTAGE',
-            text: 'osdTextStatBattery',
-            desc: 'osdDescStatBattery'
-        },
-        MAX_G_FORCE: {
-            name: 'MAX_G_FORCE',
-            text: 'osdTextStatGForce',
-            desc: 'osdDescStatGForce'
-        },
-        MAX_ESC_TEMP: {
-            name: 'MAX_ESC_TEMP',
-            text: 'osdTextStatEscTemperature',
-            desc: 'osdDescStatEscTemperature'
-        },
-        MAX_ESC_RPM: {
-            name: 'MAX_ESC_RPM',
-            text: 'osdTextStatEscRpm',
-            desc: 'osdDescStatEscRpm'
-        },
-        MIN_LINK_QUALITY: {
-            name: 'MIN_LINK_QUALITY',
-            text: 'osdTextStatMinLinkQuality',
-            desc: 'osdDescStatMinLinkQuality'
-        },
-        FLIGHT_DISTANCE: {
-            name: 'FLIGHT_DISTANCE',
-            text: 'osdTextStatFlightDistance',
-            desc: 'osdTextStatFlightDistance'
-        },
-        MAX_FFT: {
-            name: 'MAX_FFT',
-            text: 'osdTextStatMaxFFT',
-            desc: 'osdDescStatMaxFFT'
-        },
-        TOTAL_FLIGHTS: {
-            name: 'TOTAL_FLIGHTS',
-            text: 'osdTextStatTotalFlights',
-            desc: 'osdDescStatTotalFlights'
-        },
-        TOTAL_FLIGHT_TIME: {
-            name: 'TOTAL_FLIGHT_TIME',
-            text: 'osdTextStatTotalFlightTime',
-            desc: 'osdDescStatTotalFlightTime'
-        },
-        TOTAL_FLIGHT_DIST: {
-            name: 'TOTAL_FLIGHT_DIST',
-            text: 'osdTextStatTotalFlightDistance',
-            desc: 'osdDescStatTotalFlightDistance'
-        },
-        MIN_RSSI_DBM: {
-            name: 'MIN_RSSI_DBM',
-            text: 'osdTextStatMinRssiDbm',
-            desc: 'osdDescStatMinRssiDbm'
-        },
-    },
-    ALL_WARNINGS: {
-        ARMING_DISABLED: {
-            name: 'ARMING_DISABLED',
-            text: 'osdWarningTextArmingDisabled',
-            desc: 'osdWarningArmingDisabled'
-        },
-        BATTERY_NOT_FULL: {
-            name: 'BATTERY_NOT_FULL',
-            text: 'osdWarningTextBatteryNotFull',
-            desc: 'osdWarningBatteryNotFull'
-        },
-        BATTERY_WARNING: {
-            name: 'BATTERY_WARNING',
-            text: 'osdWarningTextBatteryWarning',
-            desc: 'osdWarningBatteryWarning'
-        },
-        BATTERY_CRITICAL: {
-            name: 'BATTERY_CRITICAL',
-            text: 'osdWarningTextBatteryCritical',
-            desc: 'osdWarningBatteryCritical'
-        },
-        VISUAL_BEEPER: {
-            name: 'VISUAL_BEEPER',
-            text: 'osdWarningTextVisualBeeper',
-            desc: 'osdWarningVisualBeeper'
-        },
-        CRASH_FLIP_MODE: {
-            name: 'CRASH_FLIP_MODE',
-            text: 'osdWarningTextCrashFlipMode',
-            desc: 'osdWarningCrashFlipMode'
-        },
-        ESC_FAIL: {
-            name: 'ESC_FAIL',
-            text: 'osdWarningTextEscFail',
-            desc: 'osdWarningEscFail'
-        },
-        CORE_TEMPERATURE: {
-            name: 'CORE_TEMPERATURE',
-            text: 'osdWarningTextCoreTemperature',
-            desc: 'osdWarningCoreTemperature'
-        },
-        RC_SMOOTHING_FAILURE: {
-            name: 'RC_SMOOTHING_FAILURE',
-            text: 'osdWarningTextRcSmoothingFailure',
-            desc: 'osdWarningRcSmoothingFailure'
-        },
-        FAILSAFE: {
-            name: 'FAILSAFE',
-            text: 'osdWarningTextFailsafe',
-            desc: 'osdWarningFailsafe'
-        },
-        LAUNCH_CONTROL: {
-            name: 'LAUNCH_CONTROL',
-            text: 'osdWarningTextLaunchControl',
-            desc: 'osdWarningLaunchControl'
-        },
-        GPS_RESCUE_UNAVAILABLE: {
-            name: 'GPS_RESCUE_UNAVAILABLE',
-            text: 'osdWarningTextGpsRescueUnavailable',
-            desc: 'osdWarningGpsRescueUnavailable'
-        },
-        GPS_RESCUE_DISABLED: {
-            name: 'GPS_RESCUE_DISABLED',
-            text: 'osdWarningTextGpsRescueDisabled',
-            desc: 'osdWarningGpsRescueDisabled'
-        },
-        RSSI: {
-            name: 'RSSI',
-            text: 'osdWarningTextRSSI',
-            desc: 'osdWarningRSSI'
-        },
-        LINK_QUALITY: {
-            name: 'LINK_QUALITY',
-            text: 'osdWarningTextLinkQuality',
-            desc: 'osdWarningLinkQuality'
-        },
-        RSSI_DBM: {
-            name: 'RSSI_DBM',
-            text: 'osdWarningTextRssiDbm',
-            desc: 'osdWarningRssiDbm'
-        },
-
-    },
-    FONT_TYPES: [
-        { file: "default", name: "Default" },
-        { file: "bold", name: "Bold" },
-        { file: "large", name: "Large" },
-        { file: "extra_large", name: "Extra Large" },
-        { file: "emuflight", name: "Emuflight" },
-        { file: "digital", name: "Digital" },
-        { file: "clarity", name: "Clarity" },
-        { file: "vision", name: "Vision" },
-        { file: "impact", name: "Impact" },
-        { file: "impact_mini", name: "Impact Mini" },
-        { file: "kaio", name: "Kaio" },
-    ]
-};
+//moved OSD.constants
 
 OSD.searchLimitsElement = function (arrayElements) {
     // Search minimum and maximum
@@ -1672,9 +1743,15 @@ OSD.updateDisplaySize = function () {
     if (video_type == 'AUTO') {
         video_type = 'PAL';
     }
+
+    $('.third_left').toggleClass('preview_hd_side', video_type == 'HD');
+    $('.third_center').toggleClass('preview_hd', video_type == 'HD');
+    $('.preview').toggleClass('preview_hd', video_type == 'HD');
+    $('.third_right').toggleClass('preview_hd_side', video_type == 'HD');
+
     // compute the size
     OSD.data.display_size = {
-        x: FONT.constants.SIZES.LINE,
+        x: OSD.constants.VIDEO_COLS[video_type],
         y: OSD.constants.VIDEO_LINES[video_type],
         total: null
     };
@@ -1707,7 +1784,7 @@ OSD.msp = {
     * b: blink flag
     * y: y coordinate
     * x: x coordinate
-    * 0000 vbyy yyyx xxxx
+    * 00vb yyyy yyxx xxxx
     */
     helpers: {
         unpack: {
@@ -1720,11 +1797,29 @@ OSD.msp = {
                 display_item.positionable = positionable;
                 if (semver.gte(CONFIG.apiVersion, "1.21.0")) {
                     // size * y + x
-                    display_item.position = positionable ? FONT.constants.SIZES.LINE * ((bits >> 5) & 0x001F) + (bits & 0x001F) : default_position;
+
+                    var OSDlineWidth;
+                    switch (OSD.constants.VIDEO_TYPES[OSD.data.video_system]) {
+                        case 'HD':
+                            OSDlineWidth = OSD.constants.VIDEO_COLS['HD'];
+                            break;
+                        default:
+                            OSDlineWidth = OSD.constants.VIDEO_COLS['PAL']; // PAL and NTSC = same column width
+                    }
+
+                    if (semver.gte(CONFIG.apiVersion, "1.52.0")) {
+                        display_item.position = positionable ? OSDlineWidth * ((bits >> 6) & 0x003F) + (bits & 0x003F) : default_position;
+                    } else { //lt MSP 1.52
+                        display_item.position = positionable ? OSDlineWidth * ((bits >> 5) & 0x001F) + (bits & 0x001F) : default_position; //legacy
+                    }
 
                     display_item.isVisible = [];
                     for (let osd_profile = 0; osd_profile < OSD.getNumberOfProfiles(); osd_profile++) {
-                        display_item.isVisible[osd_profile] = (bits & (OSD.constants.VISIBLE << osd_profile)) != 0;
+                        if (semver.gte(CONFIG.apiVersion, "1.52.0")) {
+                            display_item.isVisible[osd_profile] = (bits & (OSD.constants.VISIBLE << osd_profile)) !== 0; //x2000 no matter SD/HD
+                        } else {
+                            display_item.isVisible[osd_profile] = (bits & (OSD.constants.VISIBLE_SD << osd_profile)) !== 0; //legacy 0x800
+                        }
                     }
                 } else {
                     display_item.position = (bits === -1) ? default_position : bits;
@@ -1750,9 +1845,29 @@ OSD.msp = {
 
                     let packed_visible = 0;
                     for (let osd_profile = 0; osd_profile < OSD.getNumberOfProfiles(); osd_profile++) {
-                        packed_visible |= isVisible[osd_profile] ? OSD.constants.VISIBLE << osd_profile : 0;
+                        if (semver.gte(CONFIG.apiVersion, "1.52.0")) {
+                            packed_visible |= isVisible[osd_profile] ? OSD.constants.VISIBLE << osd_profile : 0;
+                        }
+                        else {
+                            packed_visible |= isVisible[osd_profile] ? OSD.constants.VISIBLE_SD << osd_profile : 0;
+                        }
                     }
-                    return packed_visible | (((position / FONT.constants.SIZES.LINE) & 0x001F) << 5) | (position % FONT.constants.SIZES.LINE);
+
+                    var OSDlineWidth;
+                    switch (OSD.constants.VIDEO_TYPES[OSD.data.video_system]) {
+                        case 'HD':
+                            OSDlineWidth = OSD.constants.VIDEO_COLS['HD'];
+                            break;
+                        default:
+                            OSDlineWidth = OSD.constants.VIDEO_COLS['PAL']; // PAL and NTSC = same column width
+                    }
+
+                    if (semver.gte(CONFIG.apiVersion, "1.52.0")) {
+                        return packed_visible | (((position / OSDlineWidth) & 0x003F) << 6) | (position % OSDlineWidth);
+                    } else {
+                        return packed_visible | (((position / OSDlineWidth) & 0x001F) << 5) | (position % OSDlineWidth); //legacy
+                    }
+
                 } else {
                     return isVisible[0] ? (position == -1 ? 0 : position) : -1;
                 }
@@ -2019,7 +2134,17 @@ OSD.GUI.preview = {
         var display_item = OSD.data.display_items[field_id];
         var position = $(this).removeAttr('style').data('position');
         var cursor = position;
-        var cursorX = cursor % FONT.constants.SIZES.LINE;
+
+        var OSDlineWidth;
+        switch (OSD.constants.VIDEO_TYPES[OSD.data.video_system]) {
+          case 'HD':
+               OSDlineWidth = OSD.constants.VIDEO_COLS['HD'];
+              break;
+          default:
+               OSDlineWidth = OSD.constants.VIDEO_COLS['PAL']; // PAL and NTSC = same column width
+        }
+
+        var cursorX = cursor % OSDlineWidth;
 
         if (display_item.preview.constructor === Array) {
             console.log('Initial Drop Position: ' + position);
@@ -2027,14 +2152,16 @@ OSD.GUI.preview = {
             var y = parseInt(ev.dataTransfer.getData('y'))
             console.log('XY Co-ords:' + x + '-' + y);
             position -= x;
-            position -= (y * FONT.constants.SIZES.LINE)
+
+            position -= (y * OSDlineWidth)
+
             console.log('Calculated Position: ' + position);
         }
 
         if (!display_item.ignoreSize) {
             if (display_item.preview.constructor !== Array) {
                 // Standard preview, string type
-                var overflows_line = FONT.constants.SIZES.LINE - ((position % FONT.constants.SIZES.LINE) + display_item.preview.length);
+                var overflows_line = OSDlineWidth - ((position % OSDlineWidth) + display_item.preview.length);
                 if (overflows_line < 0) {
                     position += overflows_line;
                 }
@@ -2042,34 +2169,37 @@ OSD.GUI.preview = {
                 // Advanced preview, array type
                 var arrayElements = display_item.preview;
                 var limits = OSD.searchLimitsElement(arrayElements);
-                var selectedPositionX = position % FONT.constants.SIZES.LINE;
-                var selectedPositionY = Math.trunc(position / FONT.constants.SIZES.LINE);
+                var selectedPositionX = position % OSDlineWidth;
+
+                var selectedPositionY = Math.trunc(position / OSDlineWidth);
+
+
                 if (arrayElements[0].constructor === String) {
                     if (position < 0 ) {
                         return;
                     }
                     if (selectedPositionX > cursorX) { // TRUE -> Detected wrap around
-                        position += FONT.constants.SIZES.LINE - selectedPositionX;
+                        position += OSDlineWidth - selectedPositionX;
                         selectedPositionY++;
-                    } else if (selectedPositionX + limits.maxX > FONT.constants.SIZES.LINE) { // TRUE -> right border of the element went beyond left edge of screen.
-                        position -= selectedPositionX + limits.maxX - FONT.constants.SIZES.LINE;
+                    } else if (selectedPositionX + limits.maxX > OSDlineWidth) { // TRUE -> right border of the element went beyond left edge of screen.
+                        position -= selectedPositionX + limits.maxX - OSDlineWidth;
                     }
                     if (selectedPositionY < 0 ) {
-                        position += Math.abs(selectedPositionY) * FONT.constants.SIZES.LINE;
+                        position += Math.abs(selectedPositionY) * OSDlineWidth;
                     } else if ((selectedPositionY + limits.maxY ) > OSD.data.display_size.y) {
-                        position -= (selectedPositionY + limits.maxY  - OSD.data.display_size.y) * FONT.constants.SIZES.LINE;
+                        position -= (selectedPositionY + limits.maxY  - OSD.data.display_size.y) * OSDlineWidth;
                     }
 
                 } else {
                     if ((limits.minX < 0) && ((selectedPositionX + limits.minX) < 0)) {
                         position += Math.abs(selectedPositionX + limits.minX);
-                    } else if ((limits.maxX > 0) && ((selectedPositionX + limits.maxX) >= FONT.constants.SIZES.LINE)) {
-                        position -= (selectedPositionX + limits.maxX + 1) - FONT.constants.SIZES.LINE;
+                    } else if ((limits.maxX > 0) && ((selectedPositionX + limits.maxX) >= OSDlineWidth)) {
+                        position -= (selectedPositionX + limits.maxX + 1) - OSDlineWidth;
                     }
                     if ((limits.minY < 0) && ((selectedPositionY + limits.minY) < 0)) {
-                        position += Math.abs(selectedPositionY + limits.minY) * FONT.constants.SIZES.LINE;
+                        position += Math.abs(selectedPositionY + limits.minY) * OSDlineWidth;
                     } else if ((limits.maxY > 0) && ((selectedPositionY + limits.maxY) >= OSD.data.display_size.y)) {
-                        position -= (selectedPositionY + limits.maxY - OSD.data.display_size.y + 1) * FONT.constants.SIZES.LINE;
+                        position -= (selectedPositionY + limits.maxY - OSD.data.display_size.y + 1) * OSDlineWidth;
                     }
                 }
             }
@@ -2214,6 +2344,9 @@ TABS.osd.initialize = function (callback) {
                     // video mode
                     var $videoTypes = $('.video-types').empty();
                     for (var i = 0; i < OSD.constants.VIDEO_TYPES.length; i++) {
+                        if (semver.lt(CONFIG.apiVersion, "1.52.0") && i === 3) { // skip fourth option HDZero if below required MSP version
+                            continue;
+                        }
                         var type = OSD.constants.VIDEO_TYPES[i];
                         var $checkbox = $('<label/>').append($('<input name="video_system" type="radio"/>' + i18n.getMessage('osdSetupVideoFormatOption' + inflection.camelize(type.toLowerCase())) + '</label>')
                             .prop('checked', i === OSD.data.video_system)
@@ -2592,6 +2725,15 @@ TABS.osd.initialize = function (callback) {
                         OSD.data.preview.push([null, ' '.charCodeAt(0), null, null]);
                     }
 
+                    var OSDlineWidth;
+                    switch (OSD.constants.VIDEO_TYPES[OSD.data.video_system]) {
+                        case 'HD':
+                            OSDlineWidth = OSD.constants.VIDEO_COLS['HD'];
+                            break;
+                        default:
+                            OSDlineWidth = OSD.constants.VIDEO_COLS['PAL']; // PAL and NTSC = same column width
+                    }
+
                     // draw all the displayed items and the drag and drop preview images
                     for (let field of OSD.data.display_items) {
 
@@ -2639,7 +2781,7 @@ TABS.osd.initialize = function (callback) {
                                             ctx.drawImage(img, j * 12, i * 18);
                                         }
                                     }
-                                    selectedPosition = selectedPosition - element.length + FONT.constants.SIZES.LINE;
+                                    selectedPosition = selectedPosition - element.length + OSDlineWidth;
                                 } else {
                                     var limits = OSD.searchLimitsElement(arrayElements);
                                     var offsetX = 0;
@@ -2652,7 +2794,9 @@ TABS.osd.initialize = function (callback) {
                                         }
                                         // Add the character to the preview
                                         var charCode = element.sym;
-                                        OSD.drawByOrder(selectedPosition + element.x + element.y * FONT.constants.SIZES.LINE, field, charCode, element.x, element.y);
+
+                                        OSD.drawByOrder(selectedPosition + element.x + element.y * OSDlineWidth, field, charCode, element.x, element.y);
+
                                         // Image used when "dragging" the element
                                         if (field.positionable) {
                                             var img = new Image();
