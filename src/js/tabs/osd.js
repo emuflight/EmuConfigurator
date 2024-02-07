@@ -1879,7 +1879,6 @@ OSD.msp = {
                         // refer to 0x0020 comment in above unpack
                         return packed_visible |  ((ypos & 0x001F) << 5) | ((xpos & 0x0020) << 5) | (xpos & 0x001F) ; //legacy & new
                     }
-
                 } else {
                     return isVisible[0] ? (position == -1 ? 0 : position) : -1;
                 }
