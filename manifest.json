@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "minimum_chrome_version": "49",
     "version": "0.4.1",
-    "max_msp": "1.52.0",
+    "max_msp": "1.53.0",
     "COMMENT": "MAX_MSP required!!!!",
     "author": "Emuflight Team",
     "name": "Emuflight Configurator",
