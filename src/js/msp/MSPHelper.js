@@ -990,6 +990,12 @@ MspHelper.prototype.process_data = function(dataHandler) {
                         PID_ADVANCED_CONFIG.gyroUse32kHz = gyroUse32kHz;
                     }
                 }
+                //MSP 1.54 - insert here to avoid new unnecessary MSP code
+                if (semver.gte(CONFIG.apiVersion, "1.54.0")) {
+                    PID_ADVANCED_CONFIG.motorPoleCount = data.readU8();
+                    PID_ADVANCED_CONFIG.gyroSampleRateHz = data.readU16();
+                }
+                //End MSP 1.54
                 break;
 
             case MSPCodes.MSP_FILTER_CONFIG:
@@ -1994,6 +2000,12 @@ MspHelper.prototype.crunch = function(code) {
                     buffer.push8(gyroUse32kHz);
                 }
             }
+            //MSP 1.54 - insert here to avoid new unnecessary MSP code
+            if (semver.gte(CONFIG.apiVersion, "1.54.0")) {
+                buffer.push8(PID_ADVANCED_CONFIG.motorPoleCount)
+                      .push16(PID_ADVANCED_CONFIG.gyroSampleRateHz);
+            }
+            //End MSP 1.54
             break;
 
         case MSPCodes.MSP_SET_FILTER_CONFIG:

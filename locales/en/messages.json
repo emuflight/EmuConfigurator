@@ -2410,7 +2410,15 @@
     "motorsEnableControl": {
         "message": "<strong>I understand the risks</strong>, the propellers are removed - enable motor control and arming, and disable Runaway Takeoff Prevention."
     },
-
+    "motorConfigNotice": {
+        "message": "ESC/Motor Features are on the Configuration tab."
+    },
+    "motorPoleCount": {
+        "message": "Motor Poles"
+    },
+    "motorPoleCountHelp": {
+        "message": "The number of magnets on the motor bell."
+    },
     "sensorsInfo": {
         "message": "Keep in mind that using fast update periods and rendering multiple graphs at the same time is resource heavy and will burn your battery quicker if you use a laptop.<br />We recommend to only render graphs for sensors you are interested in while using reasonable update periods."
     },

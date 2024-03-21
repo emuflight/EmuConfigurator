@@ -431,6 +431,14 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
         $('input[name="unsyncedpwmfreq"]').val(PID_ADVANCED_CONFIG.motor_pwm_rate);
         $('input[name="digitalIdlePercent"]').val(PID_ADVANCED_CONFIG.digitalIdlePercent);
 
+        //MSP 1.54
+        if (semver.gte(CONFIG.apiVersion, "1.54.0")) {
+            $('input[name="motorPoleCount"]').val(PID_ADVANCED_CONFIG.motorPoleCount);
+            $('div.motorPoleCount').show();
+        } else {
+            $('div.motorPoleCount').hide();
+        }
+        //End MSP 1.54
 
         esc_protocol_e.val(PID_ADVANCED_CONFIG.fast_pwm_protocol + 1);
         esc_protocol_e.change(function () {
@@ -485,7 +493,6 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
             if (semver.gte(CONFIG.apiVersion, "1.25.0")) {
                 while (denom <= 32) {
                      addDenomOption(gyro_select_e, denom, gyroBaseFreq);
-
                      denom ++;
                 }
             }
@@ -503,7 +510,11 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
                 if ($(this).is(':checked')) {
                     gyroBaseFreq = 32;
                 } else {
-                    gyroBaseFreq = 8;
+                    if (semver.gte(CONFIG.apiVersion, "1.54.0")) {
+                        gyroBaseFreq = PID_ADVANCED_CONFIG.gyroSampleRateHz / 1000;
+                    } else {
+                        gyroBaseFreq = 8;
+                    }
                 }
 
                 updateGyroDenom(gyroBaseFreq);
@@ -521,7 +532,13 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
         gyro_select_e.change(function () {
             var originalPidDenom = pid_select_e.val();
 
-            var pidBaseFreq = 8;
+            let pidBaseFreq;
+            if (semver.gte(CONFIG.apiVersion, "1.54.0")) {
+                //pidBaseFreq = FC.CONFIG.sampleRateHz / 1000;
+                pidBaseFreq = PID_ADVANCED_CONFIG.gyroSampleRateHz / 1000;
+            } else {
+                pidBaseFreq = 8;
+            }
             if (semver.gte(CONFIG.apiVersion, "1.25.0") && gyroUse32kHz_e.is(':checked')) {
                 pidBaseFreq = 32;
             }
@@ -1113,6 +1130,12 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
                 RX_CONFIG.sbus_baud_fast = $('input[id="configurationSerialRXFastSBUS"]').is(':checked') ? 1 : 0;
             }
             //end MSP 1.51
+
+            //MSP 1.54
+            if (semver.gte(CONFIG.apiVersion, "1.54.0")) {
+                PID_ADVANCED_CONFIG.motorPoleCount = parseInt($('input[name="motorPoleCount"]').val());
+            }
+            //End MSP 1.54
 
             function save_serial_config() {
                 var next_callback = save_feature_config;
