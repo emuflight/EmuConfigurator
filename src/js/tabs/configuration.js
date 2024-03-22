@@ -510,7 +510,7 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
                 if ($(this).is(':checked')) {
                     gyroBaseFreq = 32;
                 } else {
-                    if (semver.gte(CONFIG.apiVersion, "1.54.0")) {
+                    if (semver.gte(CONFIG.apiVersion, "1.54.0") && CONFIG.gyroSampleRateHz) {
                         gyroBaseFreq = CONFIG.gyroSampleRateHz / 1000;
                     } else {
                         gyroBaseFreq = 8;
@@ -533,7 +533,7 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
             var originalPidDenom = pid_select_e.val();
 
             let pidBaseFreq;
-            if (semver.gte(CONFIG.apiVersion, "1.54.0")) {
+            if (semver.gte(CONFIG.apiVersion, "1.54.0") && CONFIG.gyroSampleRateHz) {
                 pidBaseFreq = CONFIG.gyroSampleRateHz / 1000;
             } else {
                 pidBaseFreq = 8;
