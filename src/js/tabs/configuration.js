@@ -534,7 +534,6 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
 
             let pidBaseFreq;
             if (semver.gte(CONFIG.apiVersion, "1.54.0")) {
-                //pidBaseFreq = FC.CONFIG.sampleRateHz / 1000;
                 pidBaseFreq = CONFIG.gyroSampleRateHz / 1000;
             } else {
                 pidBaseFreq = 8;
