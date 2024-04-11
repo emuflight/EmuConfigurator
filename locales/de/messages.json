@@ -483,15 +483,6 @@
     "defaultButtonFirmwareFlasher": {
         "message": "Firmware Flasher"
     },
-    "defaultDonateHead": {
-        "message": "Open Source \/ Spenden Hinweis"
-    },
-    "defaultDonateText": {
-        "message": "<p><strong>Emuflight<\/strong> ist eine <strong>open source<\/strong> Flugcontroller Software. Sie ist gratis und <strong>ohne Garantie<\/strong> für alle Nutzer verfügbar.<\/p><p>Wenn Sie Emuflight oder den Emuflight Konfigurator nützlich finden, überlegen Sie, ob Sie das Projekt und dessen Entwicklung via Spenden <strong>unterstützen<\/strong> wollen.<\/p>"
-    },
-    "defaultDonateBottom": {
-        "message": "<p>Wenn Sie uns finanziell unterstützen wollen, können Sie via <a href='https:\/\/www.patreon.com\/EmuFlight' target=\"_blank\">Patreon<\/a> auch regelmässig helfen.<\/p>"
-    },
     "defaultDonate": {
         "message": "Spenden"
     },
