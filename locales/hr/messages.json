@@ -482,15 +482,6 @@
     "defaultButtonFirmwareFlasher": {
         "message": "Ažuriranje Firmwarea"
     },
-    "defaultDonateHead": {
-        "message": "Napomena za doniranje"
-    },
-    "defaultDonateText": {
-        "message": "<p><strong>Emuflight<\/strong> je software za kontrolere leta koji je <strong>open source<\/strong>, potpuno je besplatan i <strong>bez garancije<\/strong> za sve korisnike.<\/p><p>Ako su vam Emuflight ili Emuflight konfigurator poslužili svrsi, <strong>podržite<\/strong> daljnji razvoj donacijom.<\/p>"
-    },
-    "defaultDonateBottom": {
-        "message": "<p>Ako želite doprinjeti financiski na mjesečnoj bazi, razmislite o doniranju putem <a href='https:\/\/www.patreon.com\/EmuFlight' target=\"_blank\">Patreona<\/a>.<\/p>"
-    },
     "defaultDonate": {
         "message": "Donirajte"
     },

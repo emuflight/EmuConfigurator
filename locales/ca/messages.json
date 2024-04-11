@@ -452,9 +452,6 @@
     "defaultButtonFirmwareFlasher": {
         "message": "Flashejador de Firmware"
     },
-    "defaultDonateHead": {
-        "message": "Codi Lliure \/ Avís de Donació"
-    },
     "defaultDonate": {
         "message": "Fes una donació"
     },

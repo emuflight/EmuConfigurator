@@ -485,15 +485,6 @@
     "defaultButtonFirmwareFlasher": {
         "message": "Instalar Firmware"
     },
-    "defaultDonateHead": {
-        "message": "Código Abierto \/ Aviso de Donación"
-    },
-    "defaultDonateText": {
-        "message": "<p><strong>Emuflight<\/strong> es un software controlador de vuelo que es <strong>software libre<\/strong> y está disponible gratuitamente <strong>sin garantía<\/strong> para todos los usuarios.<\/p><p>Si encuentras Emuflight o Emuflight Configurator útil, por favor considera <strong>ayudar<\/strong> al desarrollo donando.<\/p>"
-    },
-    "defaultDonateBottom": {
-        "message": "<p>Si deseas contribuir financieramente de manera regular, deberías considerar convertirte en patrocinador nuestro en <a href='https:\/\/www.patreon.com\/EmuFlight' target=\"_blank\"> Patreon <\/a>. <\/p >"
-    },
     "defaultDonate": {
         "message": "Donar"
     },

@@ -479,15 +479,6 @@
     "defaultButtonFirmwareFlasher": {
         "message": "ファームフラッシャー"
     },
-    "defaultDonateHead": {
-        "message": "オープンソース \/ 寄付について"
-    },
-    "defaultDonateText": {
-        "message": "<p><strong>Emuflight<\/strong>は<strong>オープンソース<\/strong>であり、すべてのユーザに対し保証なしで<strong>無償<\/strong>にて提供されるフライトコントローラソフトウェアです。<\/p><p>もし、あなたがEmuflightやEmuflight Configuratorが役立つと感じたら、寄付による開発の<strong>サポート<\/strong>をご検討ください。<\/p>"
-    },
-    "defaultDonateBottom": {
-        "message": "<p>引き続き経済的に貢献したい場合は <a href='https:\/\/www.patreon.com\/EmuFlight' target=\"_blank\">Patreon<\/a> で私達の支援者になることをご検討ください。<\/p>"
-    },
     "defaultDonate": {
         "message": "寄付"
     },

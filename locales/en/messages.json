@@ -582,7 +582,7 @@
         "message": "NEWS"
     },
     "defaultWelcomeText": {
-        "message": "EmuFlight development is in heavy flux.  Some UI features may be unfinished or some firmware features only accessible via CLI.<br><br>EmuFlight source code and releases reside on <a href=\"https://github.com/emuflight/EmuFlight\" title=\"github.com/emuflight/EmuFlight\" target=\"_blank\">GitHub</a>.<br /><br /> Helio/Strix IMUF can be flashed via the <a href=\"https://github.com/emuflight/Nemesis/releases/tag/imuf-flasher-0.1.0\" target=\"_blank\">IMUF Flasher Tool</a> or Downloaded from the <a href=\"https://github.com/emuflight/imu-f/releases\" target=\"_blank\">IMUF releases</a> repository. <br /><br />EmuFlight BlackBox Logs can be read with a fork of BBE available from this <a href=\"https://github.com/emuflight/EmuFlight-Blackbox-Explorer/releases\" target=\"_blank\">EmuFlight-BlackBox-Explorer</a> repository.<br /><br /><a href=\"https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers\" title=\"http://www.silabs.com\" target=\"_blank\">CP210x Drivers</a>.<br /><a href=\"https://www.st.com/en/development-tools/stsw-stm32102.html\" title=\"http://www.st.com\" target=\"_blank\">STM USB VCP Drivers</a>.<br /><a href=\"http://zadig.akeo.ie/\" title=\"http://zadig.akeo.ie\" target=\"_blank\">Zadig</a>.<br /><a href=\"https://impulserc.com/pages/downloads\" target=\"_blank\">ImpulseRC Driver Fixer</a>.<br />"
+        "message": "EmuFlight development is in heavy flux.  Some UI features may be unfinished or some firmware features only accessible via CLI.<br><br>EmuFlight source code and releases reside on <a href=\"https://github.com/emuflight/EmuFlight\" title=\"github.com/emuflight/EmuFlight\" target=\"_blank\">GitHub</a>.<br /><br /> Helio/Strix IMUF can be flashed via the <a href=\"https://github.com/emuflight/Nemesis/releases/tag/imuf-flasher-0.1.0\" target=\"_blank\">IMUF Flasher Tool</a> or Downloaded from the <a href=\"https://github.com/emuflight/imu-f/releases\" target=\"_blank\">IMUF releases</a> repository. <br /><br />EmuFlight BlackBox Logs can be read with a fork of BBE available from this <a href=\"https://github.com/emuflight/EmuFlight-Blackbox-Explorer/releases\" target=\"_blank\">EmuFlight-BlackBox-Explorer</a> repository.<br /><br /><a href=\"https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers\" title=\"http://www.silabs.com\" target=\"_blank\">CP210x Drivers</a> (obsolete).<br /><a href=\"https://www.st.com/en/development-tools/stsw-stm32102.html\" title=\"http://www.st.com\" target=\"_blank\">STM USB VCP Drivers</a> (obsolete).<br /><a href=\"http://zadig.akeo.ie/\" title=\"http://zadig.akeo.ie\" target=\"_blank\">Zadig</a>.<br /><a href=\"https://impulserc.com/pages/downloads\" target=\"_blank\">ImpulseRC Driver Fixer</a>.<br />"
     },
     "defaultContributingHead": {
         "message": "Contributing"
@@ -605,17 +605,13 @@
         "message": "Firmware Flasher"
     },
     "defaultDonateHead": {
-        "message": "Open Source / Donation Notice"
+        "message": "<p>Open Source</p><br>"
     },
     "defaultDonateText": {
-        "message": "<p><strong>Emuflight</strong> is a flight controller software that is <strong>open source</strong> and is available free of charge <strong>without warranty</strong> to all users.</p><p>If you found the Emuflight firmware or Emuflight configurator useful, please consider <strong>supporting</strong> its development by donating.</p>"
+        "message": "<p><strong>Emuflight</strong> is a Free and Open-Source Software (FOSS) under General Public License (GPL) for flight-controllers that is provided <strong>without warranty</strong> of any kind.</p>"
     },
     "defaultDonateBottom": {
-        "message": "<p>If you want to contribute financially on an ongoing or one-time basis, please consider becoming a patron for us on $t(patreonLink.message).</p>"
-    },
-    "patreonLink": {
-        "message": "<a href=\"https://www.patreon.com/EmuFlight\" target=\"_blank\">Patreon</a>",
-        "description": "Patreon is name, and should not require translation"
+        "message": "<p>Please consider contributing to the project via <a href=\"https://github.com/emuflight\">GitHub</a>.</p>"
     },
     "defaultDonate": {
         "message": "Donate"
