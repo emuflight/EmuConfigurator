@@ -482,12 +482,6 @@
     "defaultButtonFirmwareFlasher": {
         "message": "Firmware Flasher"
     },
-    "defaultDonateHead": {
-        "message": "Open Source \/ donazione"
-    },
-    "defaultDonateBottom": {
-        "message": "<p>Se vuoi contribuire economicamente in modo continuativo, puoi diventare un nostro patron su <a href='https:\/\/www.patreon.com\/EmuFlight' target=\"_blank\">Patreon<\/a>.<\/p>"
-    },
     "defaultDonate": {
         "message": "Dona"
     },

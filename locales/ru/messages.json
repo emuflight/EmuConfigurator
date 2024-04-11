@@ -482,15 +482,6 @@
     "defaultButtonFirmwareFlasher": {
         "message": "Программатор"
     },
-    "defaultDonateHead": {
-        "message": "Открытый код \/ Пожертвование"
-    },
-    "defaultDonateText": {
-        "message": "<p><strong>Emuflight<\/strong> является прошивкой для полётных контроллеров <strong>с открытым исходным кодом<\/strong> и доступна абсолютно бесплатно <strong>без гарантии<\/strong> для всех пользователей.<\/p><p>Если вы нашли Emuflight или Emuflight конфигуратор полезными, пожалуйста<strong>поддержите<\/strong> разработку пожертвованием.<\/p>"
-    },
-    "defaultDonateBottom": {
-        "message": "<p>Если вы хотите финансово помогать на постоянной основе, вы можете стать нашим покровителем на <a href='https:\/\/www.patreon.com\/EmuFlight' target=\"_blank\">Patreon<\/a>.<\/p>"
-    },
     "defaultDonate": {
         "message": "Пожертвовать"
     },
