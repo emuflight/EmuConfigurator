@@ -462,12 +462,6 @@
     "defaultWelcomeIntro": {
         "message": "Willkommen im <strong> Emuflight - Konfigurator<\/strong>, eine Anwendung um Updates, Konfiguration und Tuning deines Flugcontrollers zu erleichtern."
     },
-    "defaultWelcomeHead": {
-        "message": "NACHRICHTEN"
-    },
-    "defaultWelcomeText": {
-        "message": "Die Entwicklung von EmuFlight ist in starkem Fluss. Einige Funktionen der Benutzeroberfläche sind möglicherweise noch nicht fertiggestellt oder einige Firmware-Funktionen sind nur über die CLI zugänglich.<br><br>EmuFlight-Quellcode und -Releases befinden sich auf <a href=\"https://github.com/emuflight/EmuFlight\" title=\"github.com/emuflight/EmuFlight\" target=\"_blank\">GitHub</a>.<br /><br /> Helio/Strix IMUF kann über das geflasht werden <a href=\"https://github.com/emuflight/Nemesis/releases/tag/imuf-flasher-0.1.0\" target=\"_blank\">IMUF Flasher Tool</a> oder heruntergeladen von <a href=\"https://github.com/emuflight/imu-f/releases\" target=\"_blank\">IMUF-Releases</a>-Repository. <br /><br />EmuFlight BlackBox-Protokolle können mit einem Fork von BBE gelesen werden, der von diesem <a href=\"https://github.com/emuflight/EmuFlight-Blackbox-Explorer/releases\" target=\"_blank\">EmuFlight-BlackBox-Explorer</a>-Repository.<br /><br />Neueste <a href=\"https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers\" title=\"http://www.silabs.com\" target=\"_blank\">CP210x-Treiber</a>.<br />Neueste <a href=\"https://www.st.com/en/development-tools/stsw-stm32102.html\" title=\"http://www.st.com\" target=\"_blank\">STM USB VCP-Treiber</a >.<br />Neueste <a href=\"http://zadig.akeo.ie/\" title=\"http://zadig.akeo.ie\" target=\"_blank\">Zadig</a>.<br /> "
-    },
     "defaultContributingHead": {
         "message": "Mitmachen"
     },

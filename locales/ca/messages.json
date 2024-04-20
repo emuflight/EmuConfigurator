@@ -434,12 +434,6 @@
     "defaultWelcomeIntro": {
         "message": "Benvingut a <strong>Emuflight - Configurator<\/strong>, una aplicació dissenyada per a simplificar l'actualització, configuració i posada a punt de la teva controladora de vol."
     },
-    "defaultWelcomeHead": {
-        "message": "NOTÍCIES "
-    },
-        "defaultWelcomeText": {
-        "message": "El desenvolupament d’EmuFlight està en forts fluxos. És possible que algunes funcions de la interfície d'usuari estiguin inacabades o que algunes funcions de microprogramari només siguin accessibles mitjançant CLI.<br><br>El codi font i les versions de EmuFlight resideixen a <a href=\"https://github.com/emuflight/EmuFlight\" title=\"github.com/emuflight/EmuFlight\" target=\"_ blank\">GitHub</a>.<br /><br />Helio/Strix IMUF es pot intermitir mitjançant <a href=\"https://github.com/emuflight/Nemesis/releases/tag/imuf-flasher-0.1.0\"target=\"_blank\">IMUF Flasher Tool</a> o descarregat de <a href=\"https://github.com/emuflight/imu-f/releases\"target=\"_blank\">Dipòsit de versions IMUF</a>.<br /><br />Els registres EmuFlight BlackBox es poden llegir amb una forquilla de BBE disponible des d’aquest <a href=\"https://github.com/emuflight/EmuFlight-Blackbox-Explorer/releases\" target=\"_blank\">EmuFlight-BlackBox-Explorer</a>.<br /><br />Últim <a href=\"https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers\" title=\"http: //www.silabs.com\"target=\"_blank\">Controladors CP210x</a>.<br />Últims <a href=\"https://www.st.com/en/development-tools/stsw-stm32102.html\" title=\"http: //www.st.com\"target=\"_blank\">Controladors STC USB VCP</a>.<br />Últimes <a href=\"http://zadig.akeo.ie/\" title=\"http://zadig.akeo.ie\" target=\"_blank\">Zadig</a>.<br />"
-    },
     "defaultContributingHead": {
         "message": "Contribuir"
     },

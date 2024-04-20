@@ -464,12 +464,6 @@
     "defaultWelcomeIntro": {
         "message": "Selamat Datang di <strong> Emuflight - Configurator <\/strong>, sebuah perangkat yang dirancang untuk memudahkan pembaruan, konfigurasi dan menyetel <em> flight controller<\/em> anda."
     },
-    "defaultWelcomeHead": {
-        "message": "BERITA"
-    },
-    "defaultWelcomeText": {
-        "message": "Pengembangan EmuFlight sedang berubah-ubah. Beberapa fitur UI mungkin belum selesai atau beberapa fitur firmware hanya dapat diakses melalui CLI.<br><br>Kode sumber dan rilis EmuFlight berada di <a href=\"https://github.com/emuflight/EmuFlight\" title=\"github.com/emuflight/EmuFlight\" target=\"_blank\">GitHub</a>.<br /><br /> Helio/Strix IMUF dapat di-flash melalui <a href=\"https://github.com/emuflight/Nemesis/releases/tag/imuf-flasher-0.1.0\" target=\"_blank\">Alat Flasher IMUF</a> atau Diunduh dari <a href=\"https://github.com/emuflight/imu-f/releases\" target=\"_blank\">IMUF merilis</a> repositori. <br /><br />EmuFlight BlackBox Logs dapat dibaca dengan garpu BBE yang tersedia dari <a href=\"https://github.com/emuflight/EmuFlight-Blackbox-Explorer/releases\" target=\"_blank\">EmuFlight-BlackBox-Explorer</a> Repositori.<br /><br />Terbaru <a href=\"https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers\" title=\"http://www.silabs.com\" target=\"_blank\">Driver CP210x</a>.<br /> Terbaru <a href=\"https://www.st.com/en/development-tools/stsw-stm32102.html\" title=\"http://www.st.com\" target=\"_blank\">Driver VCP USB STM</a >.<br />Baru <a href=\"http://zadig.akeo.ie/\" title=\"http://zadig.akeo.ie\" target=\"_blank\">Zadig< /a>.<br /> "
-    },
     "defaultContributingHead": {
         "message": "Berkontribusi"
     },

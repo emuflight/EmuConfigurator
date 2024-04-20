@@ -461,9 +461,6 @@
     "defaultWelcomeIntro": {
         "message": "<strong>Emuflight - Configurator<\/strong>へようこそ。<br \/>このユーティリティは、フライトコントローラの設定やチューニングを簡単に更新できるよう設計されています。"
     },
-    "defaultWelcomeHead": {
-        "message": "ニュース"
-    },
     "defaultContributingHead": {
         "message": "開発への協力・貢献"
     },

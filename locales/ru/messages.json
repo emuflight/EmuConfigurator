@@ -461,12 +461,6 @@
     "defaultWelcomeIntro": {
         "message": "Вас приветствует <strong>Emuflight конфигуратор<\/strong> - утилита разработанная для лёгкого обновления, конфигурации и настройки вашего полётного контроллера."
     },
-    "defaultWelcomeHead": {
-        "message": "НОВОСТИ"
-    },
-    "defaultWelcomeText": {
-        "message": "Разработка EmuFlight находится в тяжелом состоянии. Некоторые функции пользовательского интерфейса могут быть незавершенными, или некоторые функции встроенного ПО доступны только через интерфейс командной строки. <br> <br> Исходный код и выпуски EmuFlight находятся на <a href = \"https://github.com/emuflight/EmuFlight \" title = \"github.com/emuflight/EmuFlight \" target = \"_ blank \"> GitHub </a>. <br /> <br /> Helio / Strix IMUF можно прошить через <a href = \"https://github.com/emuflight/Nemesis/releases/tag/imuf-flasher-0.1.0 \"target = \" _ blank \"> IMUF Flasher Tool </a> или загружено с <a href = \" https://github.com/emuflight/imu-f/releases \"target = \" _ blank \"> Репозиторий выпусков IMUF </a>. <br /> <br /> Журналы EmuFlight BlackBox можно прочитать с помощью вилки BBE, доступной по адресу <a href = \"https://github.com/emuflight/EmuFlight-Blackbox-Explorer/releases \" target = \"_blank\"> Репозиторий EmuFlight-BlackBox-Explorer </a>. <br /> <br /> Последняя версия <a href = \"https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers \"title = \" http://www.silabs.com \"target = \" _ blank \"> Драйверы CP210x </a>. <br /> Последние <a href = \" https://www.st.com/en/development-tools/stsw-stm32102.html \"title = \" http://www.st.com \"target = \" _ blank \"> Драйверы STM USB VCP </ a >. <br /> Последний <a href=\"http://zadig.akeo.ie/\" title=\"http://zadig.akeo.ie\" target=\"_blank\"> Zadig </a>. <br /> "
-    },
     "defaultContributingHead": {
         "message": "Содействие"
     },
