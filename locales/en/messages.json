@@ -579,18 +579,21 @@
     },
 
     "defaultWelcomeHead": {
-        "message": "NEWS"
+        "message": "Software"
     },
     "defaultWelcomeText": {
-        "message": "EmuFlight development is in heavy flux.  Some UI features may be unfinished or some firmware features only accessible via CLI.<br><br>EmuFlight source code and releases reside on <a href=\"https://github.com/emuflight/EmuFlight\" title=\"github.com/emuflight/EmuFlight\" target=\"_blank\">GitHub</a>.<br /><br /> Helio/Strix IMUF can be flashed via the <a href=\"https://github.com/emuflight/Nemesis/releases/tag/imuf-flasher-0.1.0\" target=\"_blank\">IMUF Flasher Tool</a> or Downloaded from the <a href=\"https://github.com/emuflight/imu-f/releases\" target=\"_blank\">IMUF releases</a> repository. <br /><br />EmuFlight BlackBox Logs can be read with a fork of BBE available from this <a href=\"https://github.com/emuflight/EmuFlight-Blackbox-Explorer/releases\" target=\"_blank\">EmuFlight-BlackBox-Explorer</a> repository.<br /><br /><a href=\"https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers\" title=\"http://www.silabs.com\" target=\"_blank\">CP210x Drivers</a> (obsolete).<br /><a href=\"https://www.st.com/en/development-tools/stsw-stm32102.html\" title=\"http://www.st.com\" target=\"_blank\">STM USB VCP Drivers</a> (obsolete).<br /><a href=\"http://zadig.akeo.ie/\" title=\"http://zadig.akeo.ie\" target=\"_blank\">Zadig</a>.<br /><a href=\"https://impulserc.com/pages/downloads\" target=\"_blank\">ImpulseRC Driver Fixer</a>.<br />"
+        "message": "<a href=\"https://github.com/emuflight\">EmuFlight</a> is an experimental multi-rotor flight control software with focus on filtering and flight control. Source code and releases reside on <a href=\"https://github.com/emuflight/EmuFlight\" title=\"github.com/emuflight/EmuFlight\" target=\"_blank\">GitHub</a>.<br /><br /> Helio/Strix IMUF can be flashed via the <a href=\"https://github.com/emuflight/Nemesis/releases/tag/imuf-flasher-0.1.0\" target=\"_blank\">IMUF Flasher Tool</a> or Downloaded from the <a href=\"https://github.com/emuflight/imu-f/releases\" target=\"_blank\">IMUF releases</a> repository. <br /><br />EmuFlight BlackBox Logs can be read with <a href=\"https://github.com/emuflight/EmuFlight-Blackbox-Explorer/releases\" target=\"_blank\">EmuFlight-BlackBox-Explorer</a>.<br /><br /><a href=\"https://impulserc.com/pages/downloads\" target=\"_blank\">ImpulseRC Driver Fixer</a>.<br /><a href=\"http://zadig.akeo.ie/\" title=\"http://zadig.akeo.ie\" target=\"_blank\">Zadig</a>.<br /><a href=\"https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers\" title=\"http://www.silabs.com\" target=\"_blank\">CP210x Drivers</a> (obsolete).<br /><a href=\"https://www.st.com/en/development-tools/stsw-stm32102.html\" title=\"http://www.st.com\" target=\"_blank\">STM USB VCP Drivers</a> (obsolete).<br />"
     },
     "defaultContributingHead": {
         "message": "Contributing"
     },
     "defaultContributingText": {
         "message": "<i><b>EmuFlight needs developers and contributors!</b></i><br/>If you would like to help make Emuflight even better, you can help in many ways, including:<br /><ul><li>Answering user questions in <a href=\"https://discordapp.com/channels/547211754845765635\" target=\"_blank\">Discord</a>.</li><li>Contributing code to the <a href=\"https://github.com/emuflight/EmuFlight\" target=\"_blank\">firmware</a> and <a href=\"https://github.com/emuflight/EmuConfigurator\" target=\"_blank\">configurator</a>.</li><li>Testing new <a href=\"https://github.com/emuflight/EmuFlight/discussions/\" target=\"_blank\">features/fixes</a> and providing feedback.</li><li>Helping out with <a href=\"https://github.com/emuflight/EmuFlight/issues\" target=\"_blank\">firmware issues</a> and <a href=\"https://github.com/emuflight/EmuConfigurator/issues\" target=\"_blank\">configurator issues</a>.</li><li><a href=\"https://github.com/emuflight/EmuConfigurator/tree/master/locales\" target=\"_blank\">Translate</a> the configurator application into your language.</li> <li></li> <li></li> <li></li> </ul>"},
+    "defaultDiscordText": {
+        "message": "Join EmuFlight's <a href=\"https://discord.gg/BWqgBg3\">Discord Server</a> for support, discussions, and community."
+    },
     "defaultFacebookText": {
-        "message": "We also have a <a href=\"https://www.facebook.com/groups/2253802077988152/\" target=\"_blank\">Facebook Group</a>.<br />Join us to get a place to talk about Emuflight, ask configuration questions, or just hang out with fellow pilots."
+        "message": "We also have a <a href=\"https://www.facebook.com/groups/2253802077988152/\" target=\"_blank\">Facebook Group</a>.<br />"
     },
     "defaultChangelogAction": {
         "message": "Update Notes"
