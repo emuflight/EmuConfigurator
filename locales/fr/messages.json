@@ -461,15 +461,6 @@
     "defaultWelcomeIntro": {
         "message": "Bienvenue dans le <strong>Configurateur - Emuflight<\/strong>, un utilitaire pour simplifier la mise à jour, la configuration et les réglages de votre contrôleur de vol."
     },
-    "defaultWelcomeHead": {
-        "message": "INFORMATIONS"
-    },
-    "defaultWelcomeText": {
-        "message": "Le développement d'EmuFlight est en pleine évolution. Certaines fonctionnalités de l'interface utilisateur peuvent être inachevées ou certaines fonctionnalités du micrologiciel uniquement accessibles via la CLI.<br><br>Le code source et les versions d'EmuFlight résident sur <a href=\"https://github.com/emuflight/EmuFlight\" title=\"github.com/emuflight/EmuFlight\" target=\"_blank\">GitHub</a>.<br /><br /> Helio/Strix IMUF peut être flashé via le <a href=\"https://github.com/emuflight/Nemesis/releases/tag/imuf-flasher-0.1.0\" target=\"_blank\">IMUF Flasher Tool</a> ou téléchargé depuis <a href=\"https://github.com/emuflight/imu-f/releases\" target=\"_blank\">versions IMUF</a> référentiel. <br /><br />Les journaux EmuFlight BlackBox peuvent être lus avec un fork de BBE disponible à partir de ce <a href=\"https://github.com/emuflight/EmuFlight-Blackbox-Explorer/releases\" target=\"_blank\">Référentiel EmuFlight-BlackBox-Explorer</a>.<br /><br />Dernier <a href=\"https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers\" title=\"http://www.silabs.com\" target=\"_blank\">Pilotes CP210x</a>.<br />Dernier <a href=\"https://www.st.com/en/development-tools/stsw-stm32102.html\" title=\"http://www.st.com\" target=\"_blank\">Pilotes STM USB VCP</a >.<br />Dernières <a href=\"http://zadig.akeo.ie/\" title=\"http://zadig.akeo.ie\" target=\"_blank\">Zadig</a>.<br /> "
-    },
-    "defaultContributingHead": {
-        "message": "Contribuer"
-    },
     "defaultChangelogAction": {
         "message": "Notes de MAJ"
     },

@@ -461,17 +461,8 @@
     "defaultWelcomeIntro": {
         "message": "Bienvenido a <strong>Emuflight - Configurator<\/strong>, una utilidad diseñada para simplificar el actualizar, configurar y ajustar tu controlador de vuelo."
     },
-    "defaultWelcomeHead": {
-        "message": "Hardware"
-    },
-    "defaultWelcomeText": {
-        "message": "El desarrollo de EmuFlight cambia constantemente. Es posible que algunas funciones de la interfaz de usuario no estén completas o que solo se pueda acceder a algunas funciones del firmware a través de la CLI. <br><br>El código fuente y las versiones de EmuFlight residen en <a href=\"https://github.com/emuflight/EmuFlight\" title=\"github.com/emuflight/EmuFlight\" target=\"_blank\">GitHub</a>.<br /><br /> Helio / Strix IMUF se puede flashear a través del <a href=\"https://github.com/emuflight/Nemesis/releases/tag/imuf-flasher-0.1.0\" target=\"_blank\">Herramienta Flasher IMUF</a> o descargado de <a href=\"https://github.com/emuflight/imu-f/releases\" target=\"_blank\">IMUF releases</a> repositorio. <br /><br />Los registros de EmuFlight BlackBox se pueden leer con una bifurcación BBE disponible en este <a href=\"https://github.com/emuflight/EmuFlight-Blackbox-Explorer/releases\" target=\"_blank\">EmuFlight-BlackBox-Explorer</a> repositorio.<br /><br />Más reciente <a href=\"https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers\" title=\"http://www.silabs.com\" target=\"_blank\">CP210x Drivers</a>.<br />Más reciente <a href=\"https://www.st.com/en/development-tools/stsw-stm32102.html\" title=\"http://www.st.com\" target=\"_blank\">STM USB VCP Drivers</a>.<br />Más reciente <a href=\"http://zadig.akeo.ie/\" title=\"http://zadig.akeo.ie\" target=\"_blank\">Zadig</a>.<br />"
-    },
     "defaultContributingHead": {
         "message": "Contribuir"
-    },
-    "defaultContributingText": {
-        "message": "<i> <b> ¡EmuFlight necesita desarrolladores y colaboradores! </b> </i> <br/> Si desea ayudar a que Emuflight sea aún mejor, puede ayudar de muchas formas, entre ellas: <br /> <ul > <li> Responder las preguntas de los usuarios en <a href=\"https://discordapp.com/channels/547211754845765635\" target=\"_blank\"> Discord </a>. </li> <li> Código de contribución al <a href=\"https://github.com/emuflight/EmuFlight\" target=\"_blank\"> firmware </a> y <a href=\"https://github.com/emuflight / EmuConfigurator \"target = \"_blank\"> configurator </a>. </li> <li> Probando el nuevo <a href = \" https: //github.com/emuflight/EmuFlight/discussions/\"target=\"_blank\"> características / correcciones </a> y brindando comentarios. </li> <li> Ayudando con <a href = \"https://github.com/emuflight/EmuFlight/issues\" target = \"_blank\"> problemas de firmware </a> y <a href=\"https://github.com/emuflight/EmuConfigurator/issues\" target=\"_blank\"> problemas de configuración </a>. </li> <li> <a href=\"https://github.com/emuflight/EmuConfigurator/tree/master/locales\" target=\"_blank\"> Traducir </a> el aplicación de configuración en su idioma."
     },
     "defaultChangelogAction": {
         "message": "Novedades"
