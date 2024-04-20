@@ -461,9 +461,6 @@
     "defaultWelcomeIntro": {
         "message": "비행 컨트롤러의 쉬운 업데이트, 환경설정 및 튜닝을 위한 도구인 <strong>베타플라이트 - 컨피규레이터<\/strong>에 오신 것을 환영합니다."
     },
-    "defaultWelcomeHead": {
-        "message": "소식 "
-    },
     "defaultContributingHead": {
         "message": "기여하기"
     },

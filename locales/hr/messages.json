@@ -461,9 +461,6 @@
     "defaultWelcomeIntro": {
         "message": "Dobrodošli u <strong>Emuflight - Konfigurator<\/strong>, alat dizajniran pojednostavljenju ažuriranja, konfiguriranja i ugađanja postavki vašeg kontrolera leta."
     },
-    "defaultWelcomeHead": {
-        "message": "VIJESTI"
-    },
     "defaultWelcomeText": {
         "message": "Razvoj EmuFlight -a je u velikom toku. Neke funkcije korisničkog sučelja mogu biti nedovršene ili je nekim funkcijama firmvera moguće pristupiti samo putem CLI -ja. <br> <br> Izvorni kod i izdanja EmuFlight -a nalaze se na <a href=\"https://github.com/emuflight/EmuFlight \" title=\"github.com/emuflight/EmuFlight \" target=\"_blank\"> GitHub </a>. <br/> <br/> Helio/Strix IMUF može se prebaciti putem <a href=\"https://github.com/emuflight/Nemesis/releases/tag/imuf-flasher-0.1.0\" target=\"_blank\"> IMUF Flasher Tool </a> ili preuzeto sa <a href = \" https://github.com/emuflight/imu-f/releases\" target=\"_blank\"> IMUF izdanja </a> spremište. <br/> <br/> EmuFlight BlackBox dnevnici mogu se čitati pomoću vilice BBE dostupne sa ovog <a href=\"https://github.com/emuflight/EmuFlight-Blackbox-Explorer/releases \" target=\"_blank \"> Spremište EmuFlight-BlackBox-Explorer </a>. <br/> <br/> Najnovije <a href=\"https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers\" title=\"http://www.silabs.com\" target=\"_blank\"> Upravljački programi CP210x</a>. <br/> Najnovije <a href=\" https://www.st.com/en/development-tools/stsw-stm32102.html\" title=\"http://www.st.com\" target=\"_blank\"> STM USB VCP upravljački programi</a >. <br/> Najnovije <a href=\"http://zadig.akeo.ie/\" title=\"http://zadig.akeo.ie\"target=\"_blank\">Zadig</a>. <br/> "
     },

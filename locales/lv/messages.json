@@ -461,12 +461,6 @@
     "defaultWelcomeIntro": {
         "message": "Laipni lūgti <strong>Emuflight - Configurator<\/strong>, utilītā, kas paredzēta, lai vienkāršotu lidojuma kontroliera atjaunināšanu, konfigurēšanu un noregulēšanu."
     },
-    "defaultWelcomeHead": {
-        "message": "JAUNUMI "
-    },
-    "defaultWelcomeText": {
-        "message": "EmuFlight izstrāde notiek lielā plūsmā. Dažas lietotāja saskarnes funkcijas var būt nepabeigtas vai dažas programmaparatūras funkcijas pieejamas tikai, izmantojot CLI. <br> <br> EmuFlight avota kods un laidieni atrodas vietnē <a href=\"https://github.com/emuflight/EmuFlight \" title=\"github.com/emuflight/EmuFlight \"target=\"_blank\"> GitHub </a>. <br /> <br /> Helio/Strix IMUF var mirgot, izmantojot <a href=\"https://github.com/emuflight/Nemesis/releases/tag/imuf-flasher-0.1.0\" target=\"_blank\"> IMUF mirgošanas rīks </a> vai lejupielādēts no <a href=\"https://github.com/emuflight/imu-f/releases\" target=\"_blank\"> IMUF laidienu </a> krātuve. <br /> <br /> EmuFlight BlackBox žurnālus var nolasīt ar BBE dakšiņu, kas pieejama šajā <a href=\"https://github.com/emuflight/EmuFlight-Blackbox-Explorer/releases\" target=\"_blank\"> EmuFlight-BlackBox-Explorer </a> krātuve. <br /> <br /> Jaunākās <a href=\"https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers\" title=\"http://www.silabs.com \"target=\"_blank\"> CP210x draiveri </a>. <br /> Jaunākie <a href=\"https://www.st.com/en/development-tools/stsw-stm32102.html\" title=\"http://www.st.com \"target=\"_blank\"> STM USB VCP draiveri </a >. <br /> Jaunākās <a href=\"http://zadig.akeo.ie/\" title=\"http://zadig.akeo.ie\" target=\"_blank\"> Zadig </a>. <br /> "
-    },
     "defaultContributingHead": {
         "message": "Atbalstīt"
     },

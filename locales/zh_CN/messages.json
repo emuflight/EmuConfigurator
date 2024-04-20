@@ -461,12 +461,6 @@
     "defaultWelcomeIntro": {
         "message": "欢迎使用<strong>Emuflight - 配置程序<\/strong>，为简化固件升级，设置和调校飞控而生的工具。"
     },
-    "defaultWelcomeHead": {
-        "message": "消息"
-    },
-    "defaultWelcomeText": {
-        "message": "EmuFlight 的开发正在不断变化。某些 UI 功能可能未完成或某些固件功能只能通过 CLI 访问。<br><br>EmuFlight 源代码和版本位于 <a href=\"https://github.com/emuflight/EmuFlight\" title=\"github.com/emuflight/EmuFlight\" target=\"_blank\">GitHub</a>.<br /><br /> Helio/Strix IMUF 可以通过 <a href=\"https://github.com/emuflight/Nemesis/releases/tag/imuf-flasher-0.1.0\" target=\"_blank\">IMUF Flasher Tool</a> 或从  下载 <a href=\"https://github.com/emuflight/imu-f/releases\" target=\"_blank\">IMUF 版本</a> 存储库。 <br /><br />EmuFlight BlackBox 日志可以通过这个 <a href=\"https://github.com/emuflight/EmuFlight-Blackbox-Explorer/releases\" target=\"_blank\">EmuFlight-BlackBox-Explorer</a> 存储库。<br /><br />最新<a href=\"https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers\" title=\"http://www.silabs.com\" target=\"_blank\">CP210x 驱动程序</a>。<br />最新<a href=\"https://www.st.com/en/development-tools/stsw-stm32102.html\" title=\"http://www.st.com\" target=\"_blank\">STM USB VCP 驱动程序</a >.<br />最新<a href=\"http://zadig.akeo.ie/\" title=\"http://zadig.akeo.ie\" target=\"_blank\">Zadig</a>.<br /> "
-    },
     "defaultContributingHead": {
         "message": "参与开发"
     },
