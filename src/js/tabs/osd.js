@@ -1225,7 +1225,7 @@ OSD.loadDisplayFields = function() {
             preview: function (osd_data) {
                 return "E" + OSD.generateTemperaturePreview(osd_data, 45);
             },
-            isexpertmode: true  //experimental
+            isexpertmode: false  //experimental
         },
         ESC_RPM: {
             name: 'ESC_RPM',
@@ -1299,7 +1299,7 @@ OSD.loadDisplayFields = function() {
             preview: function (osd_data) {
                 return "C" + OSD.generateTemperaturePreview(osd_data, 33);
             },
-            isexpertmode: true  //experimental
+            isexpertmode: false  //experimental
         },
         ANTI_GRAVITY: {
             name: 'ANTI_GRAVITY',
