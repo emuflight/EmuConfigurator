@@ -51,7 +51,7 @@ jobs:
       - name: setup node
         uses: actions/setup-node@v4
         with:
-          node-version: '20.7'
+          node-version: '20'
         continue-on-error: false
 
       # for debugging
