@@ -46,7 +46,8 @@ var NWversion;
 if (os.platform() === 'win32') {
     NWversion ='0.42.6'
 } else {
-    NWversion ='0.50.3'
+    //NWversion ='0.57.1' Node v16
+    NWversion ='0.82.0' // 83+=v21.1; 76+=v20.1+
 }
 
 var nwBuilderOptions = {
