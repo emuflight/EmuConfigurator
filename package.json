@@ -1,7 +1,7 @@
 {
   "name": "emuflight-configurator",
   "description": "Crossplatform configuration tool for Emuflight flight control system.",
-  "version": "0.4.1",
+  "version": "0.4.3",
   "max_msp": "1.54.0",
   "COMMENT": "MAX_MSP required!!!!",
   "main": "main.html",
