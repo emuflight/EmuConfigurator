@@ -790,6 +790,11 @@ MspHelper.prototype.process_data = function(dataHandler) {
                     }
                 }
                 CONFIG.mcuTypeId = 255;
+                //MSP 1.54
+                if (semver.gte(CONFIG.apiVersion, "1.54.0")) {
+                    CONFIG.gyroSampleRateHz = data.readU16();
+                }
+                //End MSP 1.54
                 break;
 
             case MSPCodes.MSP_NAME:
@@ -990,6 +995,11 @@ MspHelper.prototype.process_data = function(dataHandler) {
                         PID_ADVANCED_CONFIG.gyroUse32kHz = gyroUse32kHz;
                     }
                 }
+                //MSP 1.54 - insert here to avoid new unnecessary MSP code
+                if (semver.gte(CONFIG.apiVersion, "1.54.0")) {
+                    PID_ADVANCED_CONFIG.motorPoleCount = data.readU8();
+                }
+                //End MSP 1.54
                 break;
 
             case MSPCodes.MSP_FILTER_CONFIG:
@@ -1551,6 +1561,11 @@ MspHelper.prototype.process_data = function(dataHandler) {
                     VTX_CONFIG.vtx_power = data.readU8();
                     VTX_CONFIG.vtx_pit_mode = data.readU8() !== 0;
                     VTX_CONFIG.vtx_frequency = data.readU16();
+                    //MSP 1.54
+                    if (semver.gte(CONFIG.apiVersion, "1.54.0")) {
+                        VTX_CONFIG.vtx_low_power_disarm = data.readU8();
+                    }
+                    // End MSP 1.54
                 }
                 //console.log('exit MSPCodes.MSP_VTX_CONFIG');
                 break;
@@ -1994,6 +2009,11 @@ MspHelper.prototype.crunch = function(code) {
                     buffer.push8(gyroUse32kHz);
                 }
             }
+            //MSP 1.54 - insert here to avoid new unnecessary MSP code
+            if (semver.gte(CONFIG.apiVersion, "1.54.0")) {
+                buffer.push8(PID_ADVANCED_CONFIG.motorPoleCount);
+            }
+            //End MSP 1.54
             break;
 
         case MSPCodes.MSP_SET_FILTER_CONFIG:
@@ -2272,6 +2292,12 @@ MspHelper.prototype.crunch = function(code) {
                 buffer.push16(VTX_CONFIG.vtx_frequency)
                       .push8(VTX_CONFIG.vtx_power)
                       .push8(VTX_CONFIG.vtx_pit_mode ? 1 : 0);
+                //MSP 1.54
+                if (semver.gte(CONFIG.apiVersion, "1.40.0")) {
+                     //buffer.push16(VTX_CONFIG.vtx_pit_mode_freq);
+                     buffer.push8(VTX_CONFIG.vtx_low_power_disarm);
+                }
+                //End MSP 1.54
             }
             break;
 

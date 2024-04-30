@@ -117,7 +117,15 @@ TABS.vtx.initialize = function(callback) {
             $(".field.vtx_pit_mode").hide();
         }
 
-        //$("#vtx_pit_mode_frequency").val(VTX_CONFIG.vtx_pit_mode_frequency); //no EmuF MSP
+        // MSP 1.54
+        if (semver.gte(CONFIG.apiVersion, "1.54.0")) {
+            $("#vtx_low_power_disarm").prop('checked', VTX_CONFIG.vtx_low_power_disarm);
+            $(".field.vtx_low_power_disarm").show();
+        } else {
+            $(".field.vtx_low_power_disarm").hide();
+        }
+        // End MSP 1.54
+
         //const yesMessage =  i18n.getMessage("yes");
         //const noMessage =  i18n.getMessage("no");
         //$("#vtx_device_ready_description").text(VTX_CONFIG.vtx_device_ready ? yesMessage : noMessage);
@@ -339,7 +347,12 @@ function dump_html_to_msp() {
 
     VTX_CONFIG.vtx_power = parseInt($("#vtx_power").val());
     VTX_CONFIG.vtx_pit_mode = $("#vtx_pit_mode").prop('checked');
-    // VTX_CONFIG.vtx_low_power_disarm = parseInt($("#vtx_low_power_disarm").val());  //no EmuF MSP
+
+    // MSP 1.54
+    if (semver.gte(CONFIG.apiVersion, "1.54.0")) {
+        VTX_CONFIG.vtx_low_power_disarm = $("#vtx_low_power_disarm").prop('checked');
+    }
+    // End MSP 1.54
 
     //console.log('dump_html_to_msp(): bnd'+VTX_CONFIG.vtx_band+'/ch'+VTX_CONFIG.vtx_channel+'/frq'+VTX_CONFIG.vtx_frequency+'/lvl'+VTX_CONFIG.vtx_power+'/pm'+VTX_CONFIG.vtx_pit_mode);
     //console.log('exit dump_html_to_msp()');
