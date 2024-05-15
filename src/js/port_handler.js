@@ -4,7 +4,8 @@ const TIMEOUT_CHECK = 500; // With 250 it seems that it produces a memory leak a
 
 var usbDevices = { filters: [
     {'vendorId': 1155, 'productId': 57105},
-    {'vendorId': 10473, 'productId': 393}
+    {'vendorId': 10473, 'productId': 393},
+    {'vendorId': 12619, 'productId': 262}// APM32 DFU Bootloader
 ] };
 
 var PortHandler = new function () {
