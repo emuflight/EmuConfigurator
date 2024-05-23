@@ -1,6 +1,8 @@
 'use strict';
 
 var pkg = require('./package.json');
+// remove gulp-appdmg from the package.json we're going to write
+delete pkg.optionalDependencies['gulp-appdmg'];
 
 const child_process = require('child_process');
 const fs = require('fs');
@@ -675,7 +677,7 @@ function release_osx64() {
         console.log('running locally - skipping signing of app');
     }
 
-    const appdmg = require('./gulp-macdmg');
+    const appdmg = require('./gulp-appdmg');
 
     // The appdmg does not generate the folder correctly, manually
     createDirIfNotExists(RELEASE_DIR);
@@ -684,16 +686,12 @@ function release_osx64() {
     return gulp.src(['.'])
         .pipe(appdmg({
             target: path.join(RELEASE_DIR, getReleaseFilename('macOS', 'dmg')),
-            basepath: path.join(APPS_DIR, pkg.name, 'osx64'),
+            basepath: path.join(appDirectory, metadata.name, 'osx64'),
             specification: {
-                'title': 'Emuflight Configurator',
-                //'icon': 'assets/osx/app-icon.icns', // FIXME
-                'icon-size': 128,
-                'background': path.join(__dirname, 'assets/osx/dmg-background.png'),
-                'contents': [
+                title: 'Emuflight Configurator',
+                contents: [
                     { 'x': 180, 'y': 590, 'type': 'file', 'path': pkg.name + '.app', 'name': 'Emuflight Configurator.app' },
                     { 'x': 570, 'y': 590, 'type': 'link', 'path': '/Applications' }
-
                 ],
                 background: path.join(__dirname, 'assets/osx/dmg-background.png'),
                 format: 'UDZO',
@@ -703,7 +701,6 @@ function release_osx64() {
                         height: 755
                     }
                 },
-                //'code-sign': { 'signing-identity': process.env.APP_IDENTITY }
             },
         })
     );
