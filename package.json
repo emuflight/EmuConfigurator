@@ -92,7 +92,5 @@
     "vinyl-source-stream": "^2.0.0",
     "yarn": "1.22"
   },
-  "optionalDependencies": {
-    "appdmg": "^0.6.6"
-  }
+  "optionalDependencies": {}
 }
