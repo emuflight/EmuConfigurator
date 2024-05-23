@@ -85,7 +85,7 @@ jobs:
         if: ${{ startsWith(matrix.os, 'macos') }}
         run: |
           sudo -H pip install setuptools packaging
-          sudo npm install -g yarn@1.22.0 node-gyp@9.4 macos-alias
+          sudo npm install -g yarn@1.22.0 node-gyp@8.4 macos-alias
           yarn --network-timeout 1000000
         continue-on-error: true
 
