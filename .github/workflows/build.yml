@@ -26,7 +26,7 @@ jobs:
       max-parallel: 3
       matrix:
         #https://github.com/actions/runner-images
-        os: [ubuntu-22.04, macos-11, windows-2022]
+        os: [ubuntu-22.04, macos-12, windows-2022]
     outputs:
       buildtag: ${{ steps.ids.outputs.buildtag }}
       shortsha: ${{ steps.ids.outputs.shortsha }}
