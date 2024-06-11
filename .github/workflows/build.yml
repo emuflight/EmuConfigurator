@@ -51,7 +51,7 @@ jobs:
       - name: setup node
         uses: actions/setup-node@v4
         with:
-          node-version: '12'
+          node-version: '20'
         continue-on-error: false
 
       # for debugging
@@ -86,6 +86,13 @@ jobs:
         run: |
           npm install appdmg@0.6.6 --python=python2.7
         continue-on-error: true
+
+      - name: Install macos dependencies
+        run: |
+          sudo -H pip install setuptools packaging
+          sudo npm install -g yarn@1.22.0 node-gyp@10 macos-alias
+          yarn --network-timeout 1000000
+        if: ${{ startsWith(matrix.os, 'macos') }}
 
       - name: yarn gulp clean-release
         run: yarn gulp clean-release
