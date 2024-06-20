@@ -467,7 +467,7 @@ async@^1.4.2:
   resolved "https://registry.yarnpkg.com/async/-/async-1.5.2.tgz#ec6a61ae56480c0c3cb241c95618e20892f9672a"
   integrity sha1-7GphrlZIDAw8skHJVhjiCJL5Zyo=
 
-async@^2.0.0, async@^2.5.0:
+async@^2.0.0:
   version "2.6.3"
   resolved "https://registry.yarnpkg.com/async/-/async-2.6.3.tgz#d72625e2344a3656e3a3ad4fa749fa83299d82ff"
   integrity sha512-zflvls11DCy+dQWzTW2dzuilv8Z5X/pjfmZOWba6TNIVDm+2UDaJmXSOXlasHKfNBs8oo3M0aT50fDEWfKZjXg==
@@ -937,7 +937,7 @@ clone@^1.0.0:
   resolved "https://registry.yarnpkg.com/clone/-/clone-1.0.4.tgz#da309cc263df15994c688ca902179ca3c7cd7c7e"
   integrity sha1-2jCcwmPfFZlMaIypAheco8fNfH4=
 
-clone@^2.1.1, clone@^2.1.2:
+clone@^2.1.1:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/clone/-/clone-2.1.2.tgz#1b7f4b9f591f1e8f83670401600345a02887435f"
   integrity sha1-G39Ln1kfHo+DZwQBYANFoCiHQ18=
@@ -2434,15 +2434,12 @@ gulp-util@^3.0.8:
     through2 "^2.0.0"
     vinyl "^0.5.0"
 
-gulp-yarn@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/gulp-yarn/-/gulp-yarn-3.0.0.tgz#bd040a0569215b355f0d5d0ad10d3f8fd435f598"
-  integrity sha512-zJIohDYq+wc7mr3HpVZqnHPEkQqqMZ2jvpaGpOmfAL6Tc6L6exWZMvLw9ZHZfCJhGnkkYlF7FP14LbozH7y/VA==
+gulp-yarn@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/gulp-yarn/-/gulp-yarn-4.0.1.tgz#14b4d5047be8836498b7d8c2b88f01c59e9cb044"
+  integrity sha512-DN4ga77086g+yUvmzt1BcVDpeK9t/CsT7FPyavONsKk11BZCPZw8Xb+7BRQrcrCXf2Hu4UhPH/XTR9YjQClfaA==
   dependencies:
-    async "^2.5.0"
-    clone "^2.1.2"
-    plugin-error "^1.0.1"
-    through2 "^2.0.3"
+    plugin-error "^2.0.0"
     which "^2.0.2"
 
 gulp-zip@^5.1.0:
@@ -4330,6 +4327,13 @@ plugin-error@^1.0.1:
     arr-diff "^4.0.0"
     arr-union "^3.1.0"
     extend-shallow "^3.0.2"
+
+plugin-error@^2.0.0:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/plugin-error/-/plugin-error-2.0.1.tgz#f2ac92bac8c85e3e23492d76d0c3ca12f30eb00b"
+  integrity sha512-zMakqvIDyY40xHOvzXka0kUvf40nYIuwRE8dWhti2WtjQZ31xAgBZBhxsK7vK3QbRXS1Xms/LO7B5cuAsfB2Gg==
+  dependencies:
+    ansi-colors "^1.0.1"
 
 posix-character-classes@^0.1.0:
   version "0.1.1"
