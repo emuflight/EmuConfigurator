@@ -26,7 +26,7 @@ jobs:
       max-parallel: 3
       matrix:
         #https://github.com/actions/runner-images
-        os: [ubuntu-22.04, macos-11, windows-2022]
+        os: [ubuntu-22.04, macos-12, windows-2022]
     outputs:
       buildtag: ${{ steps.ids.outputs.buildtag }}
       shortsha: ${{ steps.ids.outputs.shortsha }}
@@ -84,7 +84,9 @@ jobs:
       - name: setup macos
         if: ${{ startsWith(matrix.os, 'macos') }}
         run: |
-          npm install appdmg@0.6.6 --python=python2.7
+          sudo -H pip install setuptools packaging
+          sudo npm install -g yarn@1.22.0 node-gyp@5.1.1 macos-alias
+          yarn --network-timeout 1000000
         continue-on-error: true
 
       - name: yarn gulp clean-release
