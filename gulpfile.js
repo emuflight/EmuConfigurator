@@ -680,6 +680,7 @@ function release_osx64(appDirectory) {
             basepath: path.join(appDirectory, pkg.name, 'osx64'),
             specification: {
                 title: 'EmuFlight Configurator',
+                icon: path.join(__dirname, 'assets/osx/app-icon.icns'),
                 background: path.join(__dirname, 'assets/osx/dmg-background.png'),
                 contents: [
                     { 'x': 180, 'y': 590, 'type': 'file', 'path': pkg.name + '.app', 'name': 'Emuflight Configurator.app' },
