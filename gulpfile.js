@@ -38,6 +38,10 @@ const LINUX_INSTALL_DIR = '/opt/emuflight';
 // Global variable to hold the change hash from when we get it, to when we use it.
 var gitChangeSetId;
 
+// FIXME: hardcoded version number
+// 0.45.6 Win7 connects; 0.42.3 fixed OSX Flashing; 0.46.X broke Win7 connect. maybe serial/usb needs updating
+// reverted to 0.42.6 due to Windows increased CLI-tab buffer/autocomplete issues.
+// 0.50.3 is last version to open Links properly. also works on Win11.
 var NWversion;
 if (os.platform() === 'win32') {
     NWversion ='0.42.6'
@@ -48,12 +52,13 @@ if (os.platform() === 'win32') {
 var nwBuilderOptions = {
     version: NWversion,
     files: './dist/**/*',
-    macIcns: '/assets/osx/app-icon.icns',
-    macPlist: { 'CFBundleDisplayName': 'EmuFlight Configurator'},
+    macIcns: './assets/osx/app-icon.icns',
+    macPlist: { 'CFBundleDisplayName': 'Emuflight Configurator'},
     winIco: './src/images/emu_icon.ico',
     zip: false
 };
 
+// FIXME: hardcoded version number
 var nwArmVersion = '0.28.4';
 
 //-----------------
@@ -111,7 +116,7 @@ gulp.task('default', debugBuild);
 // # gulp <task> [<platform>]+        Run only for platform(s) (with <platform> one of --linux64, --linux32, --armv7, --osx64, --win32, --win64, or --chromeos)
 // #
 function getInputPlatforms() {
-    var supportedPlatforms = ['linux64', 'linux32', 'armv7', 'osx64', 'win32','win64', 'chromeos'];
+    var supportedPlatforms = ['linux64', 'linux32', 'armv7', 'osx64', 'win32', 'win64', 'chromeos'];
     var platforms = [];
     var regEx = /--(\w+)/;
     console.log(process.argv);
@@ -154,20 +159,18 @@ function getDefaultPlatform() {
     switch (os.platform()) {
     case 'darwin':
         defaultPlatform = 'osx64';
-
         break;
     case 'linux':
         defaultPlatform = 'linux64';
-
         break;
     case 'win32':
         defaultPlatform = 'win32';
-
         break;
-
+    case 'win64':
+        defaultPlatform = 'win64';
+        break;
     default:
         defaultPlatform = '';
-
         break;
     }
     return defaultPlatform;
@@ -189,25 +192,18 @@ function getRunDebugAppCommand(arch) {
     switch (arch) {
     case 'osx64':
         return 'open ' + path.join(DEBUG_DIR, pkg.name, arch, pkg.name + '.app');
-
         break;
-
     case 'linux64':
     case 'linux32':
     case 'armv7':
         return path.join(DEBUG_DIR, pkg.name, arch, pkg.name);
-
         break;
-
     case 'win32':
     case 'win64':
         return path.join(DEBUG_DIR, pkg.name, arch, pkg.name + '.exe');
-
         break;
-
     default:
         return '';
-
         break;
     }
 }
@@ -289,6 +285,7 @@ function dist_resources() {
 function apps(done) {
     var platforms = getPlatforms();
     removeItem(platforms, 'chromeos');
+    removeItem(platforms, 'android');
 
     buildNWAppsWrapper(platforms, 'normal', APPS_DIR, done);
 }
@@ -491,7 +488,8 @@ function writeChangesetId() {
     var versionJson = new stream.Readable;
     versionJson.push(JSON.stringify({
         gitChangesetId: gitChangeSetId,
-        version: pkg.version
+        version: pkg.version,
+        max_msp: pkg.max_msp
         }, undefined, 2));
     versionJson.push(null);
     return versionJson
@@ -682,16 +680,16 @@ function release_osx64(appDirectory) {
             basepath: path.join(appDirectory, pkg.name, 'osx64'),
             specification: {
                 title: 'EmuFlight Configurator',
-                contents: [
-                    { 'x': 448, 'y': 342, 'type': 'link', 'path': '/Applications' },
-                    { 'x': 192, 'y': 344, 'type': 'file', 'path': pkg.name + '.app', 'name': 'EmuFlight Configurator.app' }
-                ],
                 background: path.join(__dirname, 'assets/osx/dmg-background.png'),
+                contents: [
+                    { 'x': 180, 'y': 590, 'type': 'file', 'path': pkg.name + '.app', 'name': 'Emuflight Configurator.app' },
+                    { 'x': 570, 'y': 590, 'type': 'link', 'path': '/Applications' },
+                ],
                 format: 'UDZO',
                 window: {
                     size: {
-                        width: 638,
-                        height: 479
+                        width: 755,
+                        height: 755
                     }
                 }
             },
