@@ -67,7 +67,7 @@
     "electron-installer-dmg": "^3.0.0",
     "follow-redirects": "^1.15.6",
     "fs-extra": "^9.1.0",
-    "gulp": "^4.0.2",
+    "gulp": "^5.0.0",
     "gulp-concat": "~2.6.1",
     "gulp-debian": "~0.1.9",
     "gulp-git": "^2.10.1",

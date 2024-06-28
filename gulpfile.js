@@ -87,21 +87,23 @@ const getChangesetId = gulp.series(getHash, writeChangesetId);
 gulp.task('get-changeset-id', getChangesetId);
 
 // dist_yarn MUST be done after dist_src
-var distBuild = gulp.series(dist_src, dist_changelog, dist_yarn, dist_locale, dist_libraries, dist_resources, getChangesetId);
-var distRebuild = gulp.series(clean_dist, distBuild);
+const distBuild = gulp.series(dist_src, dist_changelog, dist_yarn, dist_locale, dist_libraries, dist_resources, getChangesetId);
+const distRebuild = gulp.series(clean_dist, distBuild);
 gulp.task('dist', distRebuild);
 
-var appsBuild = gulp.series(gulp.parallel(clean_apps, distRebuild), apps, gulp.parallel(listPostBuildTasks(APPS_DIR)));
+const appsBuild = gulp.series(gulp.parallel(clean_apps, distRebuild), apps, gulp.parallel(listPostBuildTasks(APPS_DIR)));
 gulp.task('apps', appsBuild);
 
-var debugBuild = gulp.series(distBuild, debug, gulp.parallel(listPostBuildTasks(DEBUG_DIR)), start_debug)
+const debugAppsBuild = gulp.series(gulp.parallel(clean_debug, distRebuild), debug, gulp.parallel(listPostBuildTasks(DEBUG_DIR)));
+
+const debugBuild = gulp.series(distBuild, debug, gulp.parallel(listPostBuildTasks(DEBUG_DIR)), start_debug);
 gulp.task('debug', debugBuild);
 
-var releaseBuild = gulp.series(gulp.parallel(clean_release, appsBuild), gulp.parallel(listReleaseTasks()));
+const releaseBuild = gulp.series(gulp.parallel(clean_release, appsBuild), gulp.parallel(listReleaseTasks(APPS_DIR)));
 gulp.task('release', releaseBuild);
 
-var multiReleaseBuild = gulp.series(gulp.parallel(appsBuild), gulp.parallel(listReleaseTasks()));
-gulp.task('mrelease', multiReleaseBuild);
+const debugReleaseBuild = gulp.series(gulp.parallel(clean_release, debugAppsBuild), gulp.parallel(listReleaseTasks(DEBUG_DIR)));
+gulp.task('debug-release', debugReleaseBuild);
 
 gulp.task('default', debugBuild);
 
@@ -236,8 +238,6 @@ function dist_src() {
     var distSources = [
         './src/**/*',
         '!./src/css/dropdown-lists/LICENSE',
-        '!./src/css/font-awesome/css/font-awesome.css',
-        '!./src/css/opensans_webfontkit/*.{txt,html}',
         '!./src/support/**'
     ];
     var packageJson = new stream.Readable;
@@ -513,12 +513,12 @@ function start_debug(done) {
 }
 
 // Create installer package for windows platforms
-function release_win(arch, done) {
+function release_win(arch, appDirectory, done) {
 
     // Check if makensis exists
     if (!commandExistsSync('makensis')) {
-        console.warn('makensis command not found, not generating package for: ' + arch);
-        return done();
+        console.warn('makensis command not found, not generating win package for ' + arch);
+        done();
     }
 
     // The makensis does not generate the folder correctly, manually
@@ -526,32 +526,31 @@ function release_win(arch, done) {
 
     // Parameters passed to the installer script
     const options = {
-            verbose: 3,
+            verbose: 2,
             define: {
                 'VERSION': pkg.version,
                 'PLATFORM': arch,
-                'DEST_FOLDER': RELEASE_DIR
+                'DEST_FOLDER': RELEASE_DIR,
+                'SOURCE_FOLDER': appDirectory,
             }
         }
 
     var output = makensis.compileSync('./assets/windows/installer.nsi', options);
 
-    if (output.status === 0) {
-        console.log(`Standard output:\n${output.stdout}`);
-    } else {
-        console.error(`Exit Code ${output.status}: ${output.stderr}`);
+    if (output.status !== 0) {
+        console.error('Installer for platform ' + arch + ' finished with error ' + output.status + ': ' + output.stderr);
     }
 
     done();
 }
 
 // Create distribution package (zip) for windows and linux platforms
-function release_zip(arch) {
-    var src = path.join(APPS_DIR, pkg.name, arch, '**');
-    var output = getReleaseFilename(arch, 'zip');
-    var base = path.join(APPS_DIR, pkg.name, arch);
+function release_zip(arch, appDirectory) {
+    const src = path.join(appDirectory, pkg.name, arch, '**');
+    const output = getReleaseFilename(arch, 'zip');
+    const base = path.join(appDirectory, pkg.name, arch);
 
-    return compressFiles(src, base, output, 'Emuflight Configurator');
+    return compressFiles(src, base, output, 'EmuFlight Configurator');
 }
 
 // Create distribution package for chromeos platform
@@ -573,15 +572,15 @@ function compressFiles(srcPath, basePath, outputFile, zipFolder) {
                .pipe(gulp.dest(RELEASE_DIR));
 }
 
-function release_deb(arch, done) {
+function release_deb(arch, appDirectory, done) {
 
     // Check if dpkg-deb exists
     if (!commandExistsSync('dpkg-deb')) {
         console.warn('dpkg-deb command not found, not generating deb package for ' + arch);
-        return done();
+        done();
     }
 
-    return gulp.src([path.join(APPS_DIR, pkg.name, arch, '*')])
+    return gulp.src([path.join(appDirectory, pkg.name, arch, '*')])
         .pipe(deb({
              package: pkg.name,
              version: pkg.version,
@@ -602,20 +601,22 @@ function release_deb(arch, done) {
     }));
 }
 
-function release_rpm(arch, done) {
+function release_rpm(arch, appDirectory, done) {
 
     // Check if dpkg-deb exists
     if (!commandExistsSync('rpmbuild')) {
         console.warn('rpmbuild command not found, not generating rpm package for ' + arch);
-        return done();
+        done();
     }
 
     // The buildRpm does not generate the folder correctly, manually
     createDirIfNotExists(RELEASE_DIR);
 
+    var regex = /-/g;
+
     var options = {
              name: pkg.name,
-             version: pkg.version,
+             version: pkg.version.replace(regex, '_'), // RPM does not like release candidate versions
              buildArch: getLinuxPackageArch('rpm', arch),
              vendor: pkg.author,
              summary: pkg.description,
@@ -623,7 +624,7 @@ function release_rpm(arch, done) {
              requires: 'libgconf-2-4',
              prefix: '/opt',
              files:
-                 [ { cwd: path.join(APPS_DIR, pkg.name, arch),
+                 [ { cwd: path.join(appDirectory, pkg.name, arch),
                      src: '*',
                      dest: `${LINUX_INSTALL_DIR}/${pkg.name}` } ],
              postInstallScript: [`xdg-desktop-menu install ${LINUX_INSTALL_DIR}/${pkg.name}/${pkg.name}.desktop`],
@@ -665,21 +666,9 @@ function getLinuxPackageArch(type, arch) {
 
     return packArch;
 }
-
-// TODO: add code-signing https://github.com/LinusU/node-appdmg
 // Create distribution package for macOS platform
-function release_osx64() {
-
-    if (process.env.TRAVIS_OS_NAME == 'osx') {
-        const { execSync } = require('child_process');
-        let stdout = execSync('./codesign_osxapp.sh');
-    } else {
-        console.log('running locally - skipping signing of app');
-    }
-
-    //var appdmg = require('gulp-appdmg');
-    const appdmg = require('./gulp-macdmg');
-
+function release_osx64(appDirectory) {
+    var appdmg = require('gulp-appdmg');
 
     // The appdmg does not generate the folder correctly, manually
     createDirIfNotExists(RELEASE_DIR);
@@ -688,26 +677,22 @@ function release_osx64() {
     return gulp.src(['.'])
         .pipe(appdmg({
             target: path.join(RELEASE_DIR, getReleaseFilename('macOS', 'dmg')),
-            basepath: path.join(APPS_DIR, pkg.name, 'osx64'),
+            basepath: path.join(appDirectory, pkg.name, 'osx64'),
             specification: {
-                'title': 'Emuflight Configurator',
-                //'icon': 'assets/osx/app-icon.icns', // FIXME
-                'icon-size': 128,
-                'background': path.join(__dirname, 'assets/osx/dmg-background.png'),
-                'contents': [
-                    { 'x': 180, 'y': 590, 'type': 'file', 'path': pkg.name + '.app', 'name': 'Emuflight Configurator.app' },
-                    { 'x': 570, 'y': 590, 'type': 'link', 'path': '/Applications' }
-
-                ],
+                title: 'EmuFlight Configurator',
+                icon: path.join(__dirname, 'assets/osx/app-icon.icns'),
                 background: path.join(__dirname, 'assets/osx/dmg-background.png'),
+                contents: [
+                    { 'x': 180, 'y': 590, 'type': 'file', 'path': pkg.name + '.app', 'name': 'Emuflight Configurator.app' },
+                    { 'x': 570, 'y': 590, 'type': 'link', 'path': '/Applications' },
+                ],
                 format: 'UDZO',
                 window: {
                     size: {
                         width: 755,
                         height: 755
                     }
-                },
-                //'code-sign': { 'signing-identity': process.env.APP_IDENTITY }
+                }
             },
         })
     );
@@ -725,7 +710,7 @@ function createDirIfNotExists(dir) {
 }
 
 // Create a list of the gulp tasks to execute for release
-function listReleaseTasks(done) {
+function listReleaseTasks(appDirectory) {
 
     var platforms = getPlatforms();
 
@@ -737,53 +722,49 @@ function listReleaseTasks(done) {
 
     if (platforms.indexOf('linux64') !== -1) {
         releaseTasks.push(function release_linux64_zip() {
-            return release_zip('linux64');
+            return release_zip('linux64', appDirectory);
         });
         releaseTasks.push(function release_linux64_deb(done) {
-            return release_deb('linux64', done);
+            return release_deb('linux64', appDirectory, done);
         });
         releaseTasks.push(function release_linux64_rpm(done) {
-            return release_rpm('linux64', done);
+            return release_rpm('linux64', appDirectory, done);
         });
     }
 
     if (platforms.indexOf('linux32') !== -1) {
         releaseTasks.push(function release_linux32_zip() {
-            return release_zip('linux32');
+            return release_zip('linux32', appDirectory);
         });
         releaseTasks.push(function release_linux32_deb(done) {
-            return release_deb('linux32', done);
+            return release_deb('linux32', appDirectory, done);
         });
         releaseTasks.push(function release_linux32_rpm(done) {
-            return release_rpm('linux32', done);
+            return release_rpm('linux32', appDirectory, done);
         });
     }
 
     if (platforms.indexOf('armv7') !== -1) {
         releaseTasks.push(function release_armv7_zip() {
-            return release_zip('armv7');
+            return release_zip('armv7', appDirectory);
         });
     }
 
     if (platforms.indexOf('osx64') !== -1) {
-        releaseTasks.push(release_osx64);
+        releaseTasks.push(function () {
+            return release_osx64(appDirectory);
+        });
     }
 
     if (platforms.indexOf('win32') !== -1) {
-        releaseTasks.push(function release_win32_zip() {
-            return release_zip('win32');
-        });
         releaseTasks.push(function release_win32(done) {
-            return release_win('win32', done);
+            return release_win('win32', appDirectory, done);
         });
     }
 
     if (platforms.indexOf('win64') !== -1) {
-        releaseTasks.push(function release_win64_zip() {
-            return release_zip('win64');
-        });
         releaseTasks.push(function release_win64(done) {
-            return release_win('win64', done);
+            return release_win('win64', appDirectory, done);
         });
     }
 
