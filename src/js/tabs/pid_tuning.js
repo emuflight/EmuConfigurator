@@ -1709,9 +1709,8 @@ TABS.pid_tuning.initialize = function(callback) {
 
         function loadProfilesList() {
             var numberOfProfiles = 3;
-            if (semver.gte(CONFIG.apiVersion, "1.20.0") &&
-                CONFIG.numProfiles === 2) {
-                numberOfProfiles = 2;
+            if (semver.gte(CONFIG.apiVersion, "1.20.0")) {
+                numberOfProfiles = CONFIG.numProfiles;
             }
 
             var profileElements = [];
