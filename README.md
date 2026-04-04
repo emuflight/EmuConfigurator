@@ -4,137 +4,93 @@
 
 ![Emuflight](.github/screenshot.png)
 
-**Various types** of aircraft are supported by the tool and by Emuflight
-
- * quadcopters
- * hexacopters
- * octocopters
- * fixed-wing aircraft.
-
-The application allows you to configure the Emuflight software running on any [supported Emuflight target](https://github.com/emuflight/EmuFlight/tree/master/src/main/target).
+Supports quadcopters, hexacopters, octocopters, and fixed-wing aircraft. Configure any [supported Emuflight target](https://github.com/emuflight/EmuFlight/tree/master/src/main/target).
 
 ## Downloads
 
 Please [download our releases](https://github.com/emuflight/EmuConfigurator/releases) at GitHub.
 
-[![Build Status](https://travis-ci.org/emuflight/EmuConfigurator.svg?branch=master)](https://travis-ci.org/emuflight/EmuConfigurator)
-
-## Authors
-
-Emuflight Configurator is a [fork](#credits) of the Cleanflight Configurator with support for Emuflight instead of Cleanflight.
-
-This configurator is the only configurator with support for Emuflight specific features!
-
-If you are experiencing any problems please make sure you are running the [latest firmware version](https://github.com/emuflight/EmuFlight/releases).
-
 ## Installation
 
-### Standalone
+Download the installer for your platform from the [Releases](https://github.com/emuflight/EmuConfigurator/releases) page.
 
-This is the default installation method, and at some point in the future this will become the only way available for most platforms. Please use this method whenever possible.
-
-Please download the installer from the [Release](https://github.com/emuflight/EmuConfigurator/releases) page.
-
-### Apple OSX/Mac
-
-The application is signed and built on a secure environment but we are still working on notarization to get accepted on the Apple Store.
-
-In the meantime, please `right-click` the application and select `Open` to be able to override the strict security restrictions.
-
-### Experimental Test Builds
-
-[Automated Builds](https://dl.bintray.com/emuflight/dev_cfg/) available to try on **your own risk**!
-
-## Development
-
-### Setup
-
- 1. [Install Node.js](https://nodejs.org/en/download/package-manager/)
- 2. Install yarn: `npm install yarn -g`
- 3. Change to project folder and run: `yarn install`
- 4. Run `yarn start`
-
-### Run Tests
-
-```shell
-yarn test
-```
-
-### Build and Release
-
-The tasks are defined in `gulpfile.js` and can be run with through yarn:
-
-```shell
-yarn gulp <taskname> [[platform] [platform] ...]
-```
-
-#### Available Tasks
-
-List of possible values of `<task-name>`:
-
- * **dist** copies all the JS and CSS files in the `./dist` folder
- * **apps** builds the apps in the `./apps` folder [1]
- * **debug** builds debug version of the apps in the `./debug` folder [1]
- * **release** zips up the apps into individual archives in the `./release` folder [1]
-
-#### Build or release app for one specific platform
-
-To build or release only for one specific platform you can append the plaform after the `task-name`.
-If no platform is provided, all the platforms will be done in sequence.
-
- * **MacOS** use `yarn gulp <task-name> --osx64`
- * **Linux** use `yarn gulp <task-name> --linux64`
- * **Windows** use `yarn gulp <task-name> --win32`
- * **ChromeOS** use `yarn gulp <task-name> --chromeos`
-
-You can also use multiple platforms e.g. `yarn gulp <taskname> --osx64 --linux64`.
-
-## Languages
-
-Emuflight Configurator has been translated into [several languages](https://github.com/emuflight/EmuConfigurator/tree/master/locales).
-
-The application will try to detect and use your system language if a translation into this language is available.
-
-If you prefer to have the application in English or any other language, you can select your desired language in the options menu of the application.
-
-## Notes
-
-### WebGL
-
-Make sure Settings -> System -> `Use hardware acceleration when available` is checked to achieve the best performance
-
-### Linux users
-
-Please add your user into the `dialout` group for serial access:
-
-```shell
-sudo usermod -aG dialout $USER
-```
-
-### Linux / MacOSX users
-
-If you have 3D model animation problems, enable "Override software rendering list" in Chrome flags at
-
-`chrome://flags/#ignore-gpu-blacklist`
+**macOS:** Right-click the app and select **Open** to bypass Gatekeeper on first launch.
 
 ## Support
 
-If you need help __please__ reach out in [Emuflight support chat](https://discordapp.com/channels/547211754845765635/596913667447062547) on Discord before raising issues on Github.
+- [Emuflight Discord](https://discord.gg/gdP9CwE)
+- [Configurator issues](https://github.com/EmuFlight/EmuConfigurator/issues)
+- [Firmware issues](https://github.com/emuflight/EmuFlight/issues)
 
-Please register and [join via this link](https://discord.gg/gdP9CwE).
+---
 
-### Issue trackers
+## Development
 
- * For Emuflight configurator issues raise them at
-   https://github.com/emuflight/EmuConfigurator/issues
- * For Emuflight firmware issues raise them at
-   https://github.com/emuflight/EmuFlight/issues
+### Requirements
 
-Thank you!
+1. [Node.js](https://nodejs.org/en/) (LTS recommended)
+2. [nvm](https://www.nvmnode.com/) (Node version manager; optional but recommended for reproducible local Node versions)
+3. [Yarn](https://yarnpkg.com/) (`npm install -g yarn`)
 
-## Developers
+### Commands
 
-We accept clean and reasonable patches, please [submit them](https://github.com/emuflight/EmuConfigurator/pulls)!
+| Command | Description |
+|---------|-------------|
+| `yarn dev` | Start dev mode with devtools |
+| `yarn debug` | Alias for `yarn dev` |
+| `yarn build` | Build `dist/` only |
+| `yarn make` | Create release packages (all platforms) |
+| `yarn make:dev` | Alias for `yarn make:debug` |
+| `yarn make:debug` | Create debug packages with the DevTools menu enabled |
+| `yarn package` | Build an unpacked application package |
+| `yarn package:debug` | Build an unpacked debug package |
+| `yarn commands` | Show the available project commands |
+| `yarn lint` | Run ESLint |
+
+### Build Output
+
+- `dist/` — assembled app sources
+- `out/make/` — packaged applications and installers
+
+**Platform packages:**
+
+- **macOS**: ZIP always, DMG local only (requires `macos-alias`)
+- **Windows**: EXE installer
+- **Linux**: DEB + RPM
+
+### macOS DMG Building
+
+**CI (GitHub Actions):** Builds ZIP only (portable, suitable for distribution)
+
+**Local Dev:** To build DMG locally (macOS only):
+
+```bash
+brew install macos-alias   # One-time install
+yarn make                   # Builds both .zip and .dmg
+```
+
+DMG is skipped in CI because `macos-alias` (native module) doesn't 
+cross-compile reliably. ZIP is portable and sufficient for most use cases.
+
+### Platform Notes
+
+#### Linux: Serial Port Access
+
+```bash
+sudo usermod -aG dialout $USER
+# Log out and back in
+```
+
+#### Linux: USB DFU Flashing
+
+Create `/etc/udev/rules.d/49-stm32dfu.rules`:
+
+```
+SUBSYSTEM=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="df11", \
+MODE="0664", GROUP="plugdev"
+```
+
+Then: `sudo udevadm control --reload-rules && sudo udevadm trigger`
 
 ---
 
