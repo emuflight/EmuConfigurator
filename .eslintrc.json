@@ -1,0 +1,133 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "globals": {
+    "$": "readonly",
+    "jQuery": "readonly",
+    "i18next": "readonly",
+    "i18n": "readonly",
+    "chrome": "readonly",
+    "d3": "readonly",
+    "semver": "readonly",
+    "bit_check": "readonly",
+    "bit_set": "readonly",
+    "bit_clear": "readonly",
+    "Plotly": "readonly",
+    "THREE": "readonly",
+    "CONFIGURATOR": "readonly",
+    "GUI": "readonly",
+    "MSP": "readonly",
+    "MSPCodes": "readonly",
+    "TABS": "readonly",
+    "ConfigStorage": "readonly",
+    "FirmwareCache": "readonly",
+    "configuration_backup": "readonly",
+    "configuration_restore": "readonly",
+    "initializeSerialBackend": "readonly",
+    "CliAutoComplete": "readonly",
+    "DarkTheme": "readonly",
+    "FEATURE_CONFIG": "readonly",
+    "BF_CONFIG": "readonly",
+    "BEEPER_CONFIG": "readonly",
+    "MIXER_CONFIG": "readonly",
+    "BOARD_ALIGNMENT_CONFIG": "readonly",
+    "LED_STRIP": "readonly",
+    "LED_COLORS": "readonly",
+    "LED_MODE_COLORS": "readonly",
+    "PID": "readonly",
+    "PID_names": "readonly",
+    "PIDs": "readonly",
+    "RC_MAP": "readonly",
+    "RC": "readonly",
+    "RC_tuning": "readonly",
+    "EMUF_ADVANCED": "readonly",
+    "AUX_CONFIG": "readonly",
+    "AUX_CONFIG_IDS": "readonly",
+    "MODE_RANGES": "readonly",
+    "MODE_RANGES_EXTRA": "readonly",
+    "defaultHuffmanTree": "readonly",
+    "defaultHuffmanLenIndex": "readonly",
+    "ReleaseChecker": "readonly",
+    "CONFIG": "readonly",
+    "have_sensor": "readonly"
+  },
+  "rules": {
+    "no-debugger": "warn",
+    "no-unused-vars": ["warn", { "vars": "local", "argsIgnorePattern": "^_", "varsIgnorePattern": "^[A-Z_][A-Z0-9_]*$|^(isDev|checked)$" }],
+    "complexity": "warn"
+  },
+  "ignorePatterns": [
+    "dist/",
+    "out/",
+    "node_modules/",
+    "libraries/",
+    "presets/"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "test/**/*.js",
+        "test/**/*.ts"
+      ],
+      "env": {
+        "mocha": true
+      },
+      "rules": {
+        "no-unused-expressions": "off"
+      }
+    },
+    {
+      "files": [
+        "src/js/ConfigStorage.js",
+        "src/js/FirmwareCache.js",
+        "src/js/backup_restore.js",
+        "src/js/data_storage.js",
+        "src/js/default_huffman_tree.js"
+      ],
+      "parserOptions": {
+        "sourceType": "script"
+      },
+      "rules": {
+        "no-unused-vars": ["warn", { "argsIgnorePattern": "^_", "varsIgnorePattern": "^(ConfigStorage|FirmwareCache|configuration_backup|configuration_restore|CONFIGURATOR|defaultHuffmanTree|defaultHuffmanLenIndex)$" }]
+      }
+    },
+    {
+      "files": [
+        "src/js/fc.js"
+      ],
+      "parserOptions": {
+        "sourceType": "script"
+      },
+      "rules": {
+        "no-unused-vars": "off"
+      }
+    },
+    {
+      "files": [
+        "src/js/backup_restore.js"
+      ],
+      "rules": {
+        "complexity": "off"
+      }
+    },
+    {
+      "files": [
+        "src/js/**/*.js",
+        "src/support/**/*.js"
+      ],
+      "parserOptions": {
+        "sourceType": "script"
+      },
+      "rules": {
+        "no-unused-vars": "off"
+      }
+    }
+  ]
+}
