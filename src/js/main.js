@@ -1,8 +1,5 @@
 'use strict';
 
-/*global presetsFolders */
-/*eslint no-undef: "error"*/
-
 const fs = require('fs');
 const os = require('os');
 
@@ -10,6 +7,24 @@ const os = require('os');
 // TODO: migrate to non-global
 
 const presetsFolders = os.tmpdir();
+
+function writePresetFile(filePath, response) {
+    return new Promise((resolve, reject) => {
+        fs.writeFile(filePath, response, (err) => {
+            if (err) {
+                reject(err);
+                return;
+            }
+            resolve();
+        });
+    });
+}
+
+function writePresetFileWithLogging(filePath, response) {
+    writePresetFile(filePath, response).catch((err) => {
+        console.error(`Failed to write preset file ${filePath}:`, err);
+    });
+}
 
 var HttpClient = function() {
     this.get = function(aUrl, aCallback) {
@@ -42,66 +57,27 @@ var helioUrlv040 = "https://raw.githubusercontent.com/emuflight/emuflight-preset
 // TODO: migrate to a function to get rid of code duplication
 
 client.get(nonHelioUrlv020, function(response) {
-  fs.writeFile(presetsFolders + "/presets-nonHELIO-v0.2.0.json", response, (err) => {
-    if (err) {
-      // FIXME: add error handling
-      console.error(err);
-      return;
-    }
-    //file written successfully
-  })
+        writePresetFileWithLogging(presetsFolders + "/presets-nonHELIO-v0.2.0.json", response);
 });
 
 client.get(helioUrlv020, function(response) {
-    fs.writeFile(presetsFolders + "/presets-HELIO-v0.2.0.json", response, (err) => {
-        if (err) {
-        console.error(err);
-        return;
-        }
-        //file written successfully
-    })
+        writePresetFileWithLogging(presetsFolders + "/presets-HELIO-v0.2.0.json", response);
 });
 
 client.get(nonHelioUrlv030, function(response) {
-    fs.writeFile(presetsFolders + "/presets-nonHELIO-v0.3.0.json", response, (err) => {
-      if (err) {
-        // FIXME: add error handling
-        console.error(err);
-        return;
-      }
-      //file written successfully
-    })
+        writePresetFileWithLogging(presetsFolders + "/presets-nonHELIO-v0.3.0.json", response);
   });
 
   client.get(helioUrlv030, function(response) {
-      fs.writeFile(presetsFolders + "/presets-HELIO-v0.3.0.json", response, (err) => {
-          if (err) {
-          console.error(err);
-          return;
-          }
-          //file written successfully
-      })
+            writePresetFileWithLogging(presetsFolders + "/presets-HELIO-v0.3.0.json", response);
   });
 
 client.get(nonHelioUrlv040, function(response) {
-    fs.writeFile(presetsFolders + "/presets-nonHELIO-v0.4.0.json", response, (err) => {
-      if (err) {
-        // FIXME: add error handling
-        console.error(err);
-        return;
-      }
-      //file written successfully
-    })
+        writePresetFileWithLogging(presetsFolders + "/presets-nonHELIO-v0.4.0.json", response);
   });
 
   client.get(helioUrlv040, function(response) {
-      fs.writeFile(presetsFolders + "/presets-HELIO-v0.4.0.json", response, (err) => {
-          if (err) {
-          console.error(err);
-          return;
-          }
-          //file written successfully
-      })
+            writePresetFileWithLogging(presetsFolders + "/presets-HELIO-v0.4.0.json", response);
   });
 
 
@@ -134,14 +110,8 @@ $(document).ready(function () {
     });
 });
 
-function getBuildType() {
-    return GUI.Mode;
-}
-
 //Process to execute to real start the app
 function startProcess() {
-    var debugMode = typeof process === "object" && process.versions['nw-flavor'] === 'sdk';
-
     if (GUI.isNWJS()) {
         console.log("GUI.isNWJS");
         let nwWindow = GUI.nwGui.Window.get();
@@ -196,11 +166,6 @@ function startProcess() {
     if (!GUI.isOther() && GUI.operating_system !== 'ChromeOS') {
         checkForConfiguratorUpdates();
     }
-
-    // log webgl capability
-    // it would seem the webgl "enabling" through advanced settings will be ignored in the future
-    // and webgl will be supported if gpu supports it by default (canary 40.0.2175.0), keep an eye on this one
-    var canvas = document.createElement('canvas');
 
     // log library versions in console to make version tracking easier
     console.log('Libraries: jQuery - ' + $.fn.jquery + ', d3 - ' + d3.version + ', three.js - ' + THREE.REVISION);
@@ -269,94 +234,40 @@ function startProcess() {
                     GUI.tab_switch_in_progress = false;
                 }
 
-                switch (tab) {
+                // Tab initialization map reduces cyclomatic complexity
+                const tabInitializers = {
+                    'mixercalc': () => TABS.staticTab.initialize('mixercalc', content_ready),
+                    'landing': () => TABS.landing.initialize(content_ready),
+                    'privacy_policy': () => TABS.staticTab.initialize('privacy_policy', content_ready),
+                    'firmware_flasher': () => TABS.firmware_flasher.initialize(content_ready),
+                    'help': () => TABS.help.initialize(content_ready),
+                    'auxiliary': () => TABS.auxiliary.initialize(content_ready),
+                    'adjustments': () => TABS.adjustments.initialize(content_ready),
+                    'ports': () => TABS.ports.initialize(content_ready),
+                    'led_strip': () => TABS.led_strip.initialize(content_ready),
+                    'failsafe': () => TABS.failsafe.initialize(content_ready),
+                    'transponder': () => TABS.transponder.initialize(content_ready),
+                    'osd': () => TABS.osd.initialize(content_ready),
+                    'power': () => TABS.power.initialize(content_ready),
+                    'setup': () => TABS.setup.initialize(content_ready),
+                    'setup_osd': () => TABS.setup_osd.initialize(content_ready),
+                    'configuration': () => TABS.configuration.initialize(content_ready),
+                    'pid_tuning': () => TABS.pid_tuning.initialize(content_ready),
+                    'receiver': () => TABS.receiver.initialize(content_ready),
+                    'servos': () => TABS.servos.initialize(content_ready),
+                    'gps': () => TABS.gps.initialize(content_ready),
+                    'motors': () => TABS.motors.initialize(content_ready),
+                    'sensors': () => TABS.sensors.initialize(content_ready),
+                    'logging': () => TABS.logging.initialize(content_ready),
+                    'onboard_logging': () => TABS.onboard_logging.initialize(content_ready),
+                    'vtx': () => TABS.vtx.initialize(content_ready),
+                    'cli': () => TABS.cli.initialize(content_ready, GUI.nwGui)
+                };
 
-                    case 'mixercalc':
-                        TABS.staticTab.initialize('mixercalc', content_ready);
-                        break;
-
-                    case 'landing':
-                        TABS.landing.initialize(content_ready);
-                        break;
-                    case 'changelog':
-                        TABS.staticTab.initialize('changelog', content_ready);
-                        break;
-                    case 'privacy_policy':
-                        TABS.staticTab.initialize('privacy_policy', content_ready);
-                        break;
-                    case 'firmware_flasher':
-                        TABS.firmware_flasher.initialize(content_ready);
-                        break;
-                    case 'help':
-                        TABS.help.initialize(content_ready);
-                        break;
-                    case 'auxiliary':
-                        TABS.auxiliary.initialize(content_ready);
-                        break;
-                    case 'adjustments':
-                        TABS.adjustments.initialize(content_ready);
-                        break;
-                    case 'ports':
-                        TABS.ports.initialize(content_ready);
-                        break;
-                    case 'led_strip':
-                        TABS.led_strip.initialize(content_ready);
-                        break;
-                    case 'failsafe':
-                        TABS.failsafe.initialize(content_ready);
-                        break;
-                    case 'transponder':
-                        TABS.transponder.initialize(content_ready);
-                        break;
-                    case 'osd':
-                        TABS.osd.initialize(content_ready);
-                        break;
-                    case 'power':
-                        TABS.power.initialize(content_ready);
-                        break;
-                    case 'setup':
-                        TABS.setup.initialize(content_ready);
-                        break;
-                    case 'setup_osd':
-                        TABS.setup_osd.initialize(content_ready);
-                        break;
-
-                    case 'configuration':
-                        TABS.configuration.initialize(content_ready);
-                        break;
-                    case 'pid_tuning':
-                        TABS.pid_tuning.initialize(content_ready);
-                        break;
-                    case 'receiver':
-                        TABS.receiver.initialize(content_ready);
-                        break;
-                    case 'servos':
-                        TABS.servos.initialize(content_ready);
-                        break;
-                    case 'gps':
-                        TABS.gps.initialize(content_ready);
-                        break;
-                    case 'motors':
-                        TABS.motors.initialize(content_ready);
-                        break;
-                    case 'sensors':
-                        TABS.sensors.initialize(content_ready);
-                        break;
-                    case 'logging':
-                        TABS.logging.initialize(content_ready);
-                        break;
-                    case 'onboard_logging':
-                        TABS.onboard_logging.initialize(content_ready);
-                        break;
-                    case 'vtx':
-                        TABS.vtx.initialize(content_ready);
-                        break;
-                    case 'cli':
-                        TABS.cli.initialize(content_ready, GUI.nwGui);
-                        break;
-
-                    default:
-                        console.log('Tab not found:' + tab);
+                if (tabInitializers[tab]) {
+                    tabInitializers[tab]();
+                } else {
+                    console.log('Tab not found:' + tab);
                 }
             });
         }

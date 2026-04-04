@@ -334,7 +334,7 @@ var MSP = {
 
         if (!requestExists) {
             obj.timer = setInterval(function () {
-                console.log('MSP data request timed-out: ${code}');
+                console.log(`MSP data request timed-out: ${code}`);
 
                 serial.send(bufferOut, false);
             }, 1000); // we should be able to define timeout in the future

@@ -1,4 +1,5 @@
 'use strict';
+/* exported configuration_backup, configuration_restore */
 
 // code below is highly experimental, although it runs fine on latest firmware
 // the data inside nested objects needs to be verified if deep copy works properly

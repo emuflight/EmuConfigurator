@@ -80,7 +80,7 @@ FONT.initData = function () {
     }
     FONT.data = {
         // default font file name
-        loaded_font_file: 'default',
+            loaded_font_file: 'clarity',
         // array of arry of image bytes ready to upload to fc
         characters_bytes: [],
         // array of array of image bits by character
@@ -2287,8 +2287,6 @@ TABS.osd.initialize = function (callback) {
 
         // Open modal window
         OSD.GUI.fontManager = new jBox('Modal', {
-            width: 750,
-            height: 455,
             closeButton: 'title',
             animation: false,
             attach: $('#fontmanager'),
@@ -2908,12 +2906,13 @@ TABS.osd.initialize = function (callback) {
 
         // init structs once, also clears current font
         FONT.initData();
+        fontPresetsElement.val(FONT.data.loaded_font_file);
 
         fontPresetsElement.change(function (e) {
             var $font = $('.fontpresets option:selected');
             //moved font versioning to TABS.osd.initialize
             $('.font-manager-version-info').text(i18n.getMessage('osdDescribeFontVersion' + fontver));
-            $.get('./resources/osd/' + fontver + '/' + $font.data('font-file') + '.mcm', function (data) {
+            $.get('../resources/osd/' + fontver + '/' + $font.data('font-file') + '.mcm', function (data) {
                 FONT.parseMCMFontFile(data);
                 FONT.preview(fontPreviewElement);
                 LogoManager.drawPreview();

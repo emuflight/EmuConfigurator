@@ -248,24 +248,19 @@ Features.prototype.updateData = function (featureElement) {
     if (featureElement.attr('type') === 'checkbox') {
         var bit = featureElement.data('bit');
 
-        var featureValue;
         if (featureElement.is(':checked')) {
             self._featureMask = bit_set(self._featureMask, bit);
-            featureValue = 'On';
         } else {
             self._featureMask = bit_clear(self._featureMask, bit);
-            featureValue = 'Off';
         }
     } else if (featureElement.prop('localName') === 'select') {
         var controlElements = featureElement.children();
         var selectedBit = featureElement.val();
         if (selectedBit !== -1) {
-            var selectedFeature;
             for (var i = 0; i < controlElements.length; i++) {
                 var bit = controlElements[i].value;
                 if (selectedBit === bit) {
                     self._featureMask = bit_set(self._featureMask, bit);
-                    selectedFeature = self.findFeatureByBit(bit);
                 } else {
                     self._featureMask = bit_clear(self._featureMask, bit);
                 }

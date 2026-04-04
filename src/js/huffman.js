@@ -2,6 +2,7 @@
 
 var HUFFMAN_EOF = -1;
 
+// eslint-disable-next-line no-unused-vars
 function huffmanDecodeBuf(inBuf, inBufCharacterCount, huffmanTree, huffmanLenIndex)
 {
     var code = 0;

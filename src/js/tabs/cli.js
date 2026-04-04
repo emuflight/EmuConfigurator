@@ -203,10 +203,7 @@ TABS.cli.initialize = function (callback, nwGui) {
         $('.tab-cli .load').click(function() {
             var accepts = [
                 {
-                    description: 'Config files', extensions: ["txt", "config"],
-                },
-                {
-                    description: 'All files',
+                    description: 'CLI Config files', extensions: ["txt", "TXT", "config"],
                 },
             ];
 

@@ -6,8 +6,6 @@
 'use strict';
 
 function startApplication() {
-    var applicationStartTime = new Date().getTime();
-
     chrome.app.window.create('main.html', {
         id: 'main-window',
         frame: 'chrome',
@@ -65,7 +63,7 @@ function startApplication() {
 
                     bufView[5 + 16] = checksum;
 
-                    chrome.serial.send(connectionId, bufferOut, function (sendInfo) {
+                    chrome.serial.send(connectionId, bufferOut, function (_sendInfo) {
                         chrome.serial.disconnect(connectionId, function (result) {
                             console.log('SERIAL: Connection closed - ' + result);
                         });

@@ -266,7 +266,7 @@ CliAutoComplete._initTextcomplete = function() {
             }
         }
     )
-    .on('textComplete:show', function(e) {
+    .on('textComplete:show', function() {
         /**
          * The purpose of this code is to disable initially the `mouseover` menu item handler.
          * Normally, when the menu pops up, if the mouse cursor is in the same area,
@@ -394,7 +394,7 @@ CliAutoComplete._initTextcomplete = function() {
 
         strategy({ // "resource"
             match: /^(\s*resource\s+)(\w*)$/i,
-            search:  function(term, callback, match) {
+            search:  function(term, callback, _match) {
                 sendOnEnter = false;
                 var arr = cache.resources;
                 if (semver.gte(CONFIG.flightControllerVersion, "0.0.1")) {
@@ -421,7 +421,7 @@ CliAutoComplete._initTextcomplete = function() {
                 this.savedTerm = term;
                 callback(['&lt;1-' + cache.resourcesCount[match[2].toUpperCase()] + '&gt;']);
             },
-            replace: function(value) {
+            replace: function(_value) {
                 if (this.savedTerm) {
                     self.openLater();
                     return '$1$3 ';
@@ -441,7 +441,7 @@ CliAutoComplete._initTextcomplete = function() {
 
         strategy({ // "resource pin"
             match: /^(\s*resource\s+\w+\s+(\d*\s+)?)(\w*)$/i,
-            search:  function(term, callback, match) {
+            search:  function(term, callback, _match) {
                 sendOnEnter = !!term;
                 if (term) {
                     if ('none'.startsWith(term)) {
@@ -502,7 +502,7 @@ CliAutoComplete._initTextcomplete = function() {
 
         strategy({ // "mixer"
             match: /^(\s*mixer\s+)(\w*)$/i,
-            search:  function(term, callback, match) {
+            search:  function(term, callback, _match) {
                 sendOnEnter = true;
                 searcher(term, callback, cache.mixers, 1);
             }
@@ -513,7 +513,7 @@ CliAutoComplete._initTextcomplete = function() {
         $textarea.textcomplete('register', [
             strategy({ // "resource show all", from BF 4.0.0 onwards
                 match: /^(\s*resource\s+show\s+)(\w*)$/i,
-                search:  function(term, callback, matches) {
+                search:  function(term, callback, _matches) {
                     sendOnEnter = true;
                     searcher(term, callback, ['all'], 1, true);
                 },

@@ -1,4 +1,12 @@
 'use strict';
+/* exported CONFIG, BF_CONFIG, FEATURE_CONFIG, BEEPER_CONFIG, MIXER_CONFIG,
+   BOARD_ALIGNMENT_CONFIG, LED_STRIP, LED_COLORS, LED_MODE_COLORS, PID, PID_names,
+   PIDs, RC_MAP, RC, RC_tuning, EMUF_ADVANCED, AUX_CONFIG, AUX_CONFIG_IDS,
+   MODE_RANGES, MODE_RANGES_EXTRA, ADJUSTMENT_RANGES, SERVO_CONFIG, SERVO_RULES,
+   SERIAL_CONFIG, SENSOR_DATA, MOTOR_DATA, SERVO_DATA, GPS_DATA, ANALOG,
+   VOLTAGE_METERS, VOLTAGE_METER_CONFIGS, CURRENT_METERS, CURRENT_METER_CONFIGS,
+   BATTERY_STATE, BATTERY_CONFIG, ARMING_CONFIG, FC_CONFIG, MISC, MOTOR_CONFIG,
+   GPS_CONFIG, COMPASS_CONFIG, RSSI_CONFIG */
 
 // define all the global variables that are uses to hold FC state
 var CONFIG;
@@ -602,10 +610,8 @@ var FC = {
         var hasVcp = false;
         if (semver.gte(CONFIG.apiVersion, "1.37.0")) {
             hasVcp = (CONFIG.commCapabilities & FC.COMM_CAPABILITIES_FLAGS.HAS_VCP) !== 0;
-        } else {
-            hasVcp = BOARD.find_board_definition(CONFIG.boardIdentifier).vcp;
         }
-
+        // For older API versions, default to false (legacy firmware without VCP capability flag)
         return hasVcp;
     },
 

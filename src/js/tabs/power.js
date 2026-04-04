@@ -296,8 +296,6 @@ TABS.power.initialize = function (callback) {
         //calibration manager
         var calibrationconfirmed = false;
         GUI.calibrationManager = new jBox('Modal', {
-            width: 400,
-            height: 230,
             closeButton: 'title',
             animation: false,
             attach: $('#calibrationmanager'),
@@ -311,8 +309,6 @@ TABS.power.initialize = function (callback) {
         });
 
         GUI.calibrationManagerConfirmation = new jBox('Modal', {
-            width: 400,
-            height: 230,
             closeButton: 'title',
             animation: false,
             attach: $('#calibrate'),

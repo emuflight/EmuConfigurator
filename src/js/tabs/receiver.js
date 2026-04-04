@@ -559,6 +559,19 @@ TABS.receiver.getReceiverData = function () {
 };
 
 TABS.receiver.initModelPreview = function () {
+    if (this.modelResizeHandler) {
+        $(window).off('resize', this.modelResizeHandler);
+    }
+
+    if (this.model) {
+        this.model.dispose();
+    }
+
+    if (this.renderFrameId) {
+        cancelAnimationFrame(this.renderFrameId);
+        this.renderFrameId = null;
+    }
+
     this.keepRendering = true;
     this.model = new Model($('.model_preview'), $('.model_preview canvas'));
 
@@ -575,11 +588,16 @@ TABS.receiver.initModelPreview = function () {
 
     this.rateCurve = new RateCurve(useOldRateCurve);
 
-    $(window).on('resize', $.proxy(this.model.resize, this.model));
+    this.modelResizeHandler = $.proxy(this.model.resize, this.model);
+    this.renderModelBound = this.renderModel.bind(this);
+
+    $(window).on('resize', this.modelResizeHandler);
 };
 
 TABS.receiver.renderModel = function () {
-    if (this.keepRendering) { requestAnimationFrame(this.renderModel.bind(this)); }
+    if (this.keepRendering) {
+        this.renderFrameId = requestAnimationFrame(this.renderModelBound);
+    }
 
     if (!this.clock) { this.clock = new THREE.Clock(); }
 
@@ -597,11 +615,24 @@ TABS.receiver.renderModel = function () {
 
 TABS.receiver.cleanup = function (callback) {
     $(window).off('resize', this.resize);
-    if (this.model) {
-        $(window).off('resize', $.proxy(this.model.resize, this.model));
+    if (this.modelResizeHandler) {
+        $(window).off('resize', this.modelResizeHandler);
+        this.modelResizeHandler = null;
     }
 
     this.keepRendering = false;
+
+    if (this.renderFrameId) {
+        cancelAnimationFrame(this.renderFrameId);
+        this.renderFrameId = null;
+    }
+
+    this.renderModelBound = null;
+
+    if (this.model) {
+        this.model.dispose();
+        this.model = null;
+    }
 
     if (callback) callback();
 };

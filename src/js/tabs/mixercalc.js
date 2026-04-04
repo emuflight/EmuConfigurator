@@ -5,7 +5,7 @@
 /*eslint no-console: ["error", { allow: ["warn", "error", "log"] }]*/
 /*eslint id-length: ["error", { "properties": "never" }]*/
 /*eslint id-length: ["error", { "min": 1 }]*/
-/*eslint complexity: ["error", 18]*/
+/*eslint complexity: ["error", 21]*/
 /*eslint no-extend-native: ["error", { "exceptions": ["String"] }]*/
 /*eslint-disable no-ternary*/
 /*eslint-disable radix*/
@@ -29,6 +29,7 @@ function mixerCalcMain() {
     let reparseTimer = null;
     let scale = 1;
     const limit = 200;
+    const MIXERCALC_ASSET_PATH = '../resources/mixercalc/';
     let cogImage = null;
     const commandType = 'cf1.10'; // Default cleanflight 1.10+ (mmix)
     let mousePos = {
@@ -184,10 +185,12 @@ function mixerCalcMain() {
         for (let i = 0; i < motors.length; i++) {
             const motor = motors[parseInt(i)];
             motor.direction = 1 - motor.direction;
-            if (motor.direction === 1) {
-                motor.image.src = 'resources/mixercalc/emu-prop-cw.png';
-            } else {
-                motor.image.src = 'resources/mixercalc/emu-prop-ccw.png';
+            if (motor.image) {
+                if (motor.direction === 1) {
+                    motor.image.src = MIXERCALC_ASSET_PATH + 'emu-prop-cw.png';
+                } else {
+                    motor.image.src = MIXERCALC_ASSET_PATH + 'emu-prop-ccw.png';
+                }
             }
         }
     }
@@ -346,12 +349,14 @@ function mixerCalcMain() {
              *ctx.arc(cg.x * limit, cg.y * limit, 9, 0, 2 * Math.PI, false);
              *ctx.fill();
              */
-            ctx.save();
-            ctx.translate(cg.x * limit, cg.y * limit);
-            ctx.scale(0.33, 0.33);
-            ctx.translate(-cogImage.width / 2, -cogImage.height / 2);
-            ctx.drawImage(cogImage, 0, 0);
-            ctx.restore();
+            if (cogImage && cogImage.loaded && !cogImage.broken) {
+                ctx.save();
+                ctx.translate(cg.x * limit, cg.y * limit);
+                ctx.scale(0.33, 0.33);
+                ctx.translate(-cogImage.width / 2, -cogImage.height / 2);
+                ctx.drawImage(cogImage, 0, 0);
+                ctx.restore();
+            }
         }
         // Direction relation lines
         for (let i = 0; i < relations.length; i++) {
@@ -396,7 +401,7 @@ function mixerCalcMain() {
             ctx.save();
             const motor = motors[parseInt(i)];
             const imageObj = motor.image;
-            if (imageObj) {
+            if (imageObj && imageObj.loaded && !imageObj.broken) {
                 ctx.translate(motor.mixvalue.x * limit, motor.mixvalue.y * limit);
                 ctx.rotate(imageObj.angle);
                 const s = i === 0 ? 0.5 : 0.75;
@@ -456,12 +461,16 @@ function mixerCalcMain() {
             const imageObj = new Image();
             imageObj.width = 150;
             imageObj.height = 150;
+            imageObj.loaded = false;
+            imageObj.broken = false;
+            imageObj.onload = function() { imageObj.loaded = true; };
+            imageObj.onerror = function() { imageObj.broken = true; };
             if (motor.number === 0) {
-                imageObj.src = 'resources/mixercalc/cog.png';
+                imageObj.src = MIXERCALC_ASSET_PATH + 'cog.png';
             } else if (motor.direction === 1) {
-                imageObj.src = 'resources/mixercalc/emu-prop-cw.png';
+                imageObj.src = MIXERCALC_ASSET_PATH + 'emu-prop-cw.png';
             } else {
-                imageObj.src = 'resources/mixercalc/emu-prop-ccw.png';
+                imageObj.src = MIXERCALC_ASSET_PATH + 'emu-prop-ccw.png';
             }
             imageObj.angle = motor.imageAngle ? motor.imageAngle : 0;
             motor.image = imageObj;
@@ -740,12 +749,12 @@ function mixerCalcMain() {
     //    highlightedMotor = null;
     //}
 
-    function onMouseDown(canvas, evt) {
+    function onMouseDown() {
         if (!highlightedMotor || draggingMotor) { return; }
         draggingMotor = true;
     }
 
-    function onMouseUp(canvas, evt) {
+    function onMouseUp() {
         draggingMotor = false;
         mousePos = null;
     }
@@ -953,7 +962,11 @@ function mixerCalcMain() {
          */
         motors.push(fc);
         cogImage = new Image();
-        cogImage.src = 'resources/mixercalc/cog.png';
+        cogImage.loaded = false;
+        cogImage.broken = false;
+        cogImage.onload = function() { cogImage.loaded = true; };
+        cogImage.onerror = function() { cogImage.broken = true; };
+        cogImage.src = MIXERCALC_ASSET_PATH + 'cog.png';
         addMotorsRadial(4);
         initMotorImages();
         updateMotorConstraintsSatisfied();
@@ -961,6 +974,17 @@ function mixerCalcMain() {
         canvas.focus(); // Fair spot here (problem is cannot 100% steal focus, else input caret lost)
         //console.log('debug: mixercalc: canvas.focus');
     }); //document.ready
+
+    // Provide cleanup for tab switch to stop animation loop and avoid memory/CPU leaks
+    if (!TABS.mixercalc) {
+        TABS.mixercalc = {};
+    }
+    TABS.mixercalc.cleanup = function (callback) {
+        run = false;
+        if (callback) {
+            callback();
+        }
+    };
 } // mixerCalcMain
 
 /* //moved this to a listener
@@ -986,4 +1010,6 @@ function mixCommandCopyClipboardOutFunc() {
     document.getElementById('mixCommandCopyButton').textContent = 'Copy to Clipboard';
 }
 
-mixerCalcMain();
+window.mixerCalcMain = mixerCalcMain;
+window.mixCommandCopyClipboardFunc = mixCommandCopyClipboardFunc;
+window.mixCommandCopyClipboardOutFunc = mixCommandCopyClipboardOutFunc;

@@ -16,7 +16,16 @@ var serial = {
     transmitting:   false,
     outputBuffer:  [],
 
+    serialApiChecked: false,
+    serialApiAvailable: false,
+
     logHead: 'SERIAL: ',
+
+    checkSerialApi: function () {
+        this.serialApiChecked = true;
+        this.serialApiAvailable = typeof navigator !== 'undefined' && !!navigator.serial;
+        return this.serialApiAvailable;
+    },
 
     connect: function (path, options, callback) {
         var self = this;
@@ -284,7 +293,6 @@ var serial = {
             devices_array.forEach(function (device) {
                 devices.push(device.path);
             });
-
             callback(devices);
         });
     },
@@ -427,3 +435,5 @@ var serial = {
         this.transmitting = false;
     }
 };
+
+serial.checkSerialApi();

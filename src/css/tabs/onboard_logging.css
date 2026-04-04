@@ -164,13 +164,12 @@
 }
 
 .tab-onboard_logging dialog {
-    width: 40em;
     border-radius: 5px;
 }
 
 .tab-onboard_logging dialog .buttons {
     position: static;
-    margin-top: 2em;
+    margin-top: 1rem;
 }
 
 .tab-onboard_logging dialog h3 {
@@ -178,9 +177,23 @@
 }
 
 .dataflash-confirm-erase .dataflash-erase-progress {
-    height: 125px;
+    min-height: 6rem;
     display: none;
     border-radius: 5px;
+}
+
+.dataflash-confirm-erase .dataflash-erase-progress .data-loading {
+    min-height: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-position: center 1rem;
+    background-size: 2.5rem 2.5rem;
+}
+
+.dataflash-confirm-erase .dataflash-erase-progress .data-loading p {
+    top: auto;
+    margin: 3.25rem 0 0;
 }
 
 .dataflash-buttons {

@@ -16,7 +16,6 @@ var GUI_control = function () {
 
     this.defaultAllowedTabsWhenDisconnected = [
         'landing',
-        'changelog',
         'firmware_flasher',
         'privacy_policy',
         'help',
@@ -68,7 +67,10 @@ var GUI_control = function () {
       this.nwGui = new nw.gui();
       this.Mode = GUI_Modes.NWJS;
     } catch (ex) {
-      if (window.chrome && chrome.storage && chrome.storage.local) {
+      // Detect Electron before checking chrome APIs (preload injects chrome stubs)
+            if (typeof process !== 'undefined' && process.versions && process.versions.electron) {
+        this.Mode = GUI_Modes.Electron;
+      } else if (window.chrome && chrome.storage && chrome.storage.local) {
         this.Mode = GUI_Modes.ChromeApp;
       } else {
         this.Mode = GUI_Modes.Other;
@@ -80,6 +82,7 @@ var GUI_control = function () {
 const GUI_Modes = {
   NWJS: "NW.js",
   ChromeApp: "Chrome",
+  Electron: "Electron",
   Other: "Other"
 }
 
@@ -289,7 +292,7 @@ GUI_control.prototype.switchery = function() {
               secondaryColor: '#c4c4c4'
             });
         }
-        $(elem).on("change", function (evt) {
+        $(elem).on("change", function (_evt) {
             switchery.setPosition();
         });
         $(elem).removeClass('togglesmall');
@@ -307,7 +310,7 @@ GUI_control.prototype.switchery = function() {
                 secondaryColor: '#c4c4c4'
             });
         }
-        $(elem).on("change", function (evt) {
+        $(elem).on("change", function (_evt) {
             switchery.setPosition();
         });
         $(elem).removeClass('toggle');
@@ -327,7 +330,7 @@ GUI_control.prototype.switchery = function() {
                 secondaryColor: '#c4c4c4'
              });
         }
-         $(elem).on("change", function (evt) {
+         $(elem).on("change", function (_evt) {
              switchery.setPosition();
          });
          $(elem).removeClass('togglemedium');
@@ -385,6 +388,9 @@ GUI_control.prototype.isChromeApp = function () {
 }
 GUI_control.prototype.isNWJS = function () {
   return this.Mode == GUI_Modes.NWJS;
+}
+GUI_control.prototype.isElectron = function () {
+  return this.Mode == GUI_Modes.Electron;
 }
 GUI_control.prototype.isOther = function () {
   return this.Mode == GUI_Modes.Other;

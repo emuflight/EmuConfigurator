@@ -3,7 +3,6 @@
 TABS.firmware_flasher = {
     releases: null,
     releaseChecker: new ReleaseChecker('firmware', 'https://api.github.com/repos/emuflight/EmuFlight/releases'),
-    jenkinsLoader: new JenkinsLoader(''),
     localFileLoaded: false,
 };
 
@@ -243,13 +242,8 @@ TABS.firmware_flasher.initialize = function (callback) {
             }
         ];
 
-        var ciBuildsTypes = self.jenkinsLoader._jobs.map(job => {
-            return {
-                title: job.title,
-                loader: () => self.jenkinsLoader.loadBuilds(job.name, buildJenkinsBoardOptions)
-            };
-        })
-        var buildTypesToShow;
+        // No Jenkins CI builds - only released firmware
+        var buildTypesToShow = buildTypes;
 
         var buildType_e = $('select[name="build_type"]');
         function buildBuildTypeOptionsList() {
@@ -278,7 +272,7 @@ TABS.firmware_flasher.initialize = function (callback) {
 
             globalExpertMode_e.prop('checked', expertModeChecked);
             if (expertModeChecked) {
-                buildTypesToShow = buildTypes.concat(ciBuildsTypes);
+                buildTypesToShow = buildTypes;
                 buildBuildTypeOptionsList();
             } else {
                 buildTypesToShow = buildTypes;
@@ -368,6 +362,14 @@ TABS.firmware_flasher.initialize = function (callback) {
                     return;
                 }
 
+                if (!fileEntry) {
+                    // Dialog was cancelled — re-enable controls and bail
+                    self.enableFlashing(false);
+                    self.localFileLoaded = false;
+
+                    return;
+                }
+
                 // hide github info (if it exists)
                 $('div.git_info').slideUp();
 
@@ -416,16 +418,16 @@ TABS.firmware_flasher.initialize = function (callback) {
 
             let release = $("option:selected", evt.target).data("summary");
             let isCached = FirmwareCache.has(release);
-            if (evt.target.value=="0" || isCached) {
-                if (isCached) {
-                    FirmwareCache.get(release, cached => {
-                        console.info("Release found in cache: " + release.file);
-                        onLoadSuccess(cached.hexdata, release);
-                    });
-                }
+            if (evt.target.value == "0") {
                 $("a.load_remote_file").addClass('disabled');
-            }
-            else {
+            } else if (isCached) {
+                FirmwareCache.get(release, cached => {
+                    console.info("Release found in cache: " + release.file);
+                    onLoadSuccess(cached.hexdata, release);
+                });
+                // keep button enabled so user can re-download if desired
+                $("a.load_remote_file").removeClass('disabled');
+            } else {
                 $("a.load_remote_file").removeClass('disabled');
             }
         });
@@ -468,6 +470,37 @@ TABS.firmware_flasher.initialize = function (callback) {
 
                             eraseAll = true
                         }
+
+                        // Disable controls for the duration of the flash operation
+                        self.enableFlashing(false);
+                        $('a.load_file').addClass('disabled');
+                        $('a.load_remote_file').addClass('disabled');
+                        $('input.erase_chip').prop('disabled', true);
+                        $('input.updating').prop('disabled', true);
+                        $('input.flash_manual_baud').prop('disabled', true);
+                        $('input.flash_on_connect').prop('disabled', true);
+                        $('select[name="firmware_version"]').prop('disabled', true);
+                        $('select[name="build_type"]').prop('disabled', true);
+                        $('select[name="board"]').prop('disabled', true);
+                        $('#flash_manual_baud_rate').prop('disabled', true);
+
+                        // Called by the protocol when flashing finishes (success or error)
+                        var flashComplete = function () {
+                            console.log('[flashComplete] called, re-enabling controls...');
+                            self.enableFlashing(true);
+                            $('a.load_file').removeClass('disabled');
+                            $('a.load_remote_file').removeClass('disabled');
+                            $('input.erase_chip').prop('disabled', false);
+                            $('input.updating').prop('disabled', false);
+                            $('input.flash_manual_baud').prop('disabled', false);
+                            $('input.flash_on_connect').prop('disabled', false);
+                            $('select[name="firmware_version"]').prop('disabled', false);
+                            $('select[name="build_type"]').prop('disabled', false);
+                            $('select[name="board"]').prop('disabled', false);
+                            $('#flash_manual_baud_rate').prop('disabled', false);
+                            console.log('[flashComplete] controls re-enabled');
+                        };
+
                         if (String($('div#port-picker #port').val()) != 'DFU') {
                             if (String($('div#port-picker #port').val()) != '0') {
                                 var port = String($('div#port-picker #port').val()), baud;
@@ -483,13 +516,14 @@ TABS.firmware_flasher.initialize = function (callback) {
                                     baud = parseInt($('#flash_manual_baud_rate').val());
                                 }
 
-                                STM32.connect(port, baud, parsed_hex, options);
+                                STM32.connect(port, baud, parsed_hex, options, flashComplete);
                             } else {
+                                flashComplete();
                                 console.log('Please select valid serial port');
                                 GUI.log(i18n.getMessage('firmwareFlasherNoValidPort'));
                             }
                         } else {
-                            STM32DFU.connect(usbDevices, parsed_hex, options);
+                            STM32DFU.connect(usbDevices, parsed_hex, options, flashComplete);
                         }
                     } else {
                         $('span.progressLabel').attr('i18n','firmwareFlasherFirmwareNotLoaded').removeClass('i18n-replaced');
@@ -603,7 +637,7 @@ TABS.firmware_flasher.initialize = function (callback) {
             $('input.flash_manual_baud_rate').change();
         });
 
-        $('input.flash_on_connect').change(function () {
+        $('input.flash_on_connect').prop('checked', false).change(function () {
             var status = $(this).is(':checked');
 
             if (status) {
@@ -667,9 +701,8 @@ TABS.firmware_flasher.initialize = function (callback) {
         GUI.content_ready(callback);
     }
 
-    self.jenkinsLoader.loadJobs('Firmware', () => {
-       $('#content').load("./tabs/firmware_flasher.html", onDocumentLoad);
-    });
+    // Load firmware flasher tab HTML
+    $('#content').load("./tabs/firmware_flasher.html", onDocumentLoad);
 };
 
 TABS.firmware_flasher.cleanup = function (callback) {
