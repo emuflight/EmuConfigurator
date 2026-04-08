@@ -5,6 +5,7 @@ on:
       - 'test-*'
     branches:
       - main
+      - master
       - develop
   pull_request:
     branches:
@@ -44,13 +45,14 @@ jobs:
       buildtag: ${{ steps.build-info.outputs.tag }}
       shortsha: ${{ steps.build-info.outputs.sha }}
     steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
       - name: Clean Output Directories
         shell: bash
         run: |
           rm -rf out dist
           echo "[OK] Cleaned out/ and dist/ directories"
-      - name: Checkout
-        uses: actions/checkout@v6
 
       - name: Build Info
         id: build-info
@@ -77,10 +79,6 @@ jobs:
 
       - name: Lint
         run: yarn lint
-        continue-on-error: true
-
-      - name: Build Distribution
-        run: yarn build
 
       - name: Make Packages
         env:
@@ -217,7 +215,8 @@ jobs:
 
           for zipfile in "${zipfiles[@]}"; do
             orig_name=$(basename "$zipfile")
-            version=$(echo "$orig_name" | grep -oP '\d+\.\d+\.\d+' || echo '0.0.0')
+            version=$(echo "$orig_name" | sed -nE 's/.*([0-9]+\.[0-9]+\.[0-9]+).*/\1/p' || echo '0.0.0')
+            [ -z "$version" ] && version='0.0.0'
             OUTPUT_ZIP="$ZIP_DIR/EmuConfigurator-darwin-${ARCH_NAME}-${version}.zip"
 
             echo "Processing: $zipfile -> $OUTPUT_ZIP"
@@ -276,7 +275,7 @@ jobs:
       - name: Flatten Artifacts for Upload
         shell: bash
         run: |
-          set -uo pipefail
+          set -euo pipefail
           # Move every artifact to the root of its maker output directory.
           # Electron Forge nests output at <maker>/[platform/][arch]/file — we want <maker>/file.
           # On non-Windows the zip restructure step already handled out/make/zip.
@@ -410,7 +409,6 @@ jobs:
           name: "EmuConfigurator ${{ github.ref_name }}"
           files: |
             ./Artifacts/**/EmuConfigurator-*.msi
-            ./Artifacts/**/EmuConfigurator-*.appx
             ./Artifacts/**/EmuConfigurator-*.zip
             ./Artifacts/**/EmuConfigurator-*.deb
             ./Artifacts/**/EmuConfigurator-*.rpm
