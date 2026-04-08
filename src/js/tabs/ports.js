@@ -121,22 +121,16 @@ TABS.ports.initialize = function (callback, scrollPosition) {
         }
         promise
             .then(function() {
-                return MSP.promise(MSPCodes.MSP_BOARD_INFO);
-            })
-            .then(function() {
                 MSP.send_message(MSPCodes.MSP_CF_SERIAL_CONFIG, false, false, on_configuration_loaded_handler);
             })
             .catch(function(e) {
                 console.error('Ports: Load chain error:', e);
-                // Fallback: still load serial config even if board info failed
+                // Fallback: still load serial config even if prior step failed
                 MSP.send_message(MSPCodes.MSP_CF_SERIAL_CONFIG, false, false, on_configuration_loaded_handler);
             });
 
         function on_configuration_loaded_handler() {
             $('#content').load("./tabs/ports.html", on_tab_loaded_handler);
-
-            if (CONFIG.boardIdentifier) {
-            }
         }
     }
 

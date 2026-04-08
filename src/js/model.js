@@ -32,6 +32,7 @@ var mixerList = [
 
 // 3D model
 var Model = function (wrapper, canvas) {
+    this.disposed = false;
     var useWebGLRenderer = this.canUseWebGLRenderer();
 
     this.wrapper = wrapper;
@@ -77,6 +78,10 @@ var Model = function (wrapper, canvas) {
 
     // Load model file, add to scene and render it
     this.loadJSON(model_file, (function (model) {
+        if (this.disposed || !this.scene || !this.modelWrapper || !this.renderer) {
+            return;
+        }
+
         this.model = model;
 
         this.modelWrapper.add(model);
@@ -136,6 +141,8 @@ Model.prototype.render = function () {
 };
 
 Model.prototype.dispose = function () {
+    this.disposed = true;
+
     if (this.model) {
         this.model.traverse(function (child) {
             if (child.geometry && typeof child.geometry.dispose === 'function') {

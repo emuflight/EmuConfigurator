@@ -172,6 +172,7 @@ PortHandler.check = function () {
 };
 
 PortHandler.check_usb_devices = function (callback) {
+    var self = this;
     // Guard for chrome.usb API (not available in Electron)
     if (typeof chrome !== 'undefined' && chrome.usb && chrome.usb.getDevices) {
         this.usb_api_available = true;
