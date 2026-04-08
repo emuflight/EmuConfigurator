@@ -363,9 +363,14 @@ TABS.firmware_flasher.initialize = function (callback) {
                 }
 
                 if (!fileEntry) {
-                    // Dialog was cancelled — re-enable controls and bail
-                    self.enableFlashing(false);
-                    self.localFileLoaded = false;
+                    // Dialog was cancelled — restore prior loaded image state
+                    // if a firmware was already parsed; only clear if there was nothing.
+                    if (parsed_hex) {
+                        self.enableFlashing(true);
+                    } else {
+                        self.localFileLoaded = false;
+                        self.enableFlashing(false);
+                    }
 
                     return;
                 }

@@ -2916,7 +2916,15 @@ TABS.pid_tuning.initialize = function(callback) {
                     GUI.log(i18n.getMessage('pidTuningEepromSaved'));
                     //MSP 1.51 Experimental - Preset Dynamic_Filter toggle
                     if (dynamicFilterWasModded) {
-                        $('a.refresh').click(); //refresh UI (show dynamic filter fields)
+                        // Defer outside the Bluebird promise handler to avoid
+                        // "promise created in handler but not returned" warning.
+                        // Call refresh() directly instead of triggering DOM click
+                        // to avoid tight coupling with UI elements.
+                        setTimeout(function() { 
+                            self.refresh(function() {
+                                GUI.log(i18n.getMessage('pidTuningDataRefreshed'));
+                            });
+                        }, 0);
                     }
                     //end MSP 1.51 Experimental - Preset Dynamic_Filter toggle
                 }).then(function() {
@@ -2978,6 +2986,9 @@ TABS.pid_tuning.initRatesPreview = function() {
     if (this.model) {
         this.model.dispose();
     }
+
+    // Reset the clock to prevent getDelta() from accumulating time spent off-tab
+    this.clock = null;
 
     this.keepRendering = true;
     this.model = new Model($('.rates_preview'), $('.rates_preview canvas'));

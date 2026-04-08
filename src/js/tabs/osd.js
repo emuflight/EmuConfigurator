@@ -2908,6 +2908,16 @@ TABS.osd.initialize = function (callback) {
         FONT.initData();
         fontPresetsElement.val(FONT.data.loaded_font_file);
 
+        // If loaded_font_file doesn't match any preset option (e.g. it was a
+        // custom .mcm filename from a previous session), fall back to 'clarity'
+        // so the mcm URL never contains undefined.
+        if (fontPresetsElement.val() === null) {
+            const clarityOption = fontPresetsElement.find('option[value="clarity"]');
+            const fallback = clarityOption.length ? 'clarity' : fontPresetsElement.find('option').first().val();
+            fontPresetsElement.val(fallback);
+            FONT.data.loaded_font_file = fallback || FONT.data.loaded_font_file;
+        }
+
         fontPresetsElement.change(function (e) {
             var $font = $('.fontpresets option:selected');
             //moved font versioning to TABS.osd.initialize

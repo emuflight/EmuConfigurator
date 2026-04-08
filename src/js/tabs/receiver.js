@@ -572,6 +572,10 @@ TABS.receiver.initModelPreview = function () {
         this.renderFrameId = null;
     }
 
+    // Reset clock so renderModel creates a fresh THREE.Clock and getDelta()
+    // doesn't span the inactive period, preventing a rotation jump on re-init.
+    this.clock = undefined;
+
     this.keepRendering = true;
     this.model = new Model($('.model_preview'), $('.model_preview canvas'));
 
