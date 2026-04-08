@@ -134,6 +134,17 @@ const chromeSockets = {
         },
 
         connect: function (socketId, host, port, callback) {
+            // Helper to remove all three IPC listeners and the socketHandlers entry.
+            function cleanupSocketHandlers(id) {
+                const h = chromeSockets.tcp._socketHandlers.get(id);
+                if (h) {
+                    ipcRenderer.removeListener('tcp-data', h.dataHandler);
+                    ipcRenderer.removeListener('tcp-error', h.errorHandler);
+                    ipcRenderer.removeListener('tcp-close', h.closeHandler);
+                    chromeSockets.tcp._socketHandlers.delete(id);
+                }
+            }
+
             // Define handlers for this specific socket
             const dataHandler = function (event, id, arrayBuffer) {
                 if (id !== socketId) return;
@@ -145,6 +156,9 @@ const chromeSockets = {
             };
             const closeHandler = function (event, id) {
                 if (id !== socketId) return;
+                // Clean up listeners and the handler entry before dispatching so
+                // retries with the same socketId do not accumulate handlers.
+                cleanupSocketHandlers(socketId);
                 chromeSockets.tcp.onReceiveError.dispatch({ socketId: id, resultCode: -100 });
             };
 
@@ -157,8 +171,16 @@ const chromeSockets = {
             ipcRenderer.on('tcp-close', closeHandler);
 
             ipcRenderer.invoke('tcp-connect', socketId, host, port).then(function (result) {
+                if (result !== 0) {
+                    // Connect failed (negative result code); remove listeners immediately
+                    // so the caller can retry without accumulating handlers.
+                    cleanupSocketHandlers(socketId);
+                }
                 callback(result); // 0 = success, negative = failure
-            }).catch(function () { callback(-1); });
+            }).catch(function () {
+                cleanupSocketHandlers(socketId);
+                callback(-1);
+            });
         },
 
         send: function (socketId, data, callback) {
@@ -351,6 +373,9 @@ const chromeUsb = {
                     } else if (typeof result.data === 'object' && result.data.type === 'Buffer') {
                         // Handle Node.js Buffer serialization
                         result.data = new Uint8Array(result.data.data).buffer;
+                    } else if (ArrayBuffer.isView(result.data)) {
+                        // Handle typed-array views (Uint8Array, DataView, etc.) from IPC
+                        result.data = result.data.buffer.slice(result.data.byteOffset, result.data.byteOffset + result.data.byteLength);
                     } else if (!(result.data instanceof ArrayBuffer)) {
                         result.data = new Uint8Array(0).buffer;
                     }
@@ -375,6 +400,9 @@ const chromeUsb = {
                         result.data = new Uint8Array(result.data).buffer;
                     } else if (typeof result.data === 'object' && result.data.type === 'Buffer') {
                         result.data = new Uint8Array(result.data.data).buffer;
+                    } else if (ArrayBuffer.isView(result.data)) {
+                        // Handle typed-array views (Uint8Array, DataView, etc.) from IPC
+                        result.data = result.data.buffer.slice(result.data.byteOffset, result.data.byteOffset + result.data.byteLength);
                     } else if (!(result.data instanceof ArrayBuffer)) {
                         result.data = new Uint8Array(0).buffer;
                     }
@@ -498,7 +526,11 @@ const chromeFileSystem = {
                             writer.readyState = 1; // WRITING
                             blob.arrayBuffer().then(arrayBuffer => {
                                 const isFirstWrite = writer.length === 0;
-                                ipcRenderer.invoke('dialog:write-binary-file', filePath, Array.from(new Uint8Array(arrayBuffer)), isFirstWrite).then(written => {
+                                // Pass writer.position so the IPC handler writes at the
+                                // correct offset; enables seek()-based overwrites rather
+                                // than always appending to the end of the file.
+                                const writePosition = isFirstWrite ? null : writer.position;
+                                ipcRenderer.invoke('dialog:write-binary-file', filePath, Array.from(new Uint8Array(arrayBuffer)), isFirstWrite, writePosition).then(written => {
                                     const safeWritten = Number.isFinite(Number(written)) ? Number(written) : 0;
                                     writer.length += safeWritten;
                                     writer.position = writer.length;
