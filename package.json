@@ -12,17 +12,17 @@
   "main": "main.js",
   "default_locale": "en",
   "scripts": {
-    "dev":           "node scripts/build.js && cross-env NODE_ENV=development NODE_NO_WARNINGS=1 electron-forge start",
-    "debug":         "yarn dev",
-    "dev:verbose":   "node scripts/build.js && cross-env NODE_ENV=development electron-forge start",
-    "make":          "node scripts/build.js && electron-forge make",
-    "make:dev":      "yarn make:debug",
-    "make:debug":    "node scripts/build.js && cross-env EMUCFG_BUILD_MODE=dev-release electron-forge make",
-    "package":       "node scripts/build.js && electron-forge package",
+    "dev": "node scripts/build.js && cross-env NODE_ENV=development NODE_NO_WARNINGS=1 electron-forge start",
+    "debug": "yarn dev",
+    "dev:verbose": "node scripts/build.js && cross-env NODE_ENV=development electron-forge start",
+    "make": "node scripts/build.js && electron-forge make",
+    "make:dev": "yarn make:debug",
+    "make:debug": "node scripts/build.js && cross-env EMUCFG_BUILD_MODE=dev-release electron-forge make",
+    "package": "node scripts/build.js && electron-forge package",
     "package:debug": "node scripts/build.js && cross-env EMUCFG_BUILD_MODE=dev-release electron-forge package",
-    "build":         "node scripts/build.js",
-    "lint":          "eslint .",
-    "commands":      "node .commands.js"
+    "build": "node scripts/build.js",
+    "lint": "eslint .",
+    "commands": "node .commands.js"
   },
   "repository": {
     "type": "git",

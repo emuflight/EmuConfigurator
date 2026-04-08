@@ -13,6 +13,9 @@ dist/
 debug/
 release/
 
+# Generated at build time — real changeset written to dist/version.json
+src/version.json
+
 # Backup files
 *.bak
 *.backup

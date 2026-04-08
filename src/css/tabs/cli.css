@@ -127,7 +127,8 @@
     left: 0;
     right: 0;
     bottom: 0;
-    height: 50px;
+    min-height: 50px;
+    overflow: visible;
     background: rgba(30, 30, 30, 0.9);
     border-top: 1px solid var(--subtleAccent);
     z-index: 999;
@@ -143,7 +144,8 @@
     flex-wrap: wrap;
     justify-content: flex-end;
     gap: 6px;
-    width: 100%;
+    width: auto;
+    max-width: 100%;
 }
 
 .tab-cli .content_toolbar .btn a {

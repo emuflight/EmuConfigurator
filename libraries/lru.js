@@ -83,10 +83,42 @@ LRUMap.prototype._markEntryAsUsed = function(entry) {
 
 LRUMap.prototype.assign = function(entries) {
   let entry, limit = this.limit || Number.MAX_VALUE;
+  // Fully reset list state so assign([]) leaves the cache consistent and
+  // stale oldest/newest/size pointers are never left behind.
   this._keymap.clear();
+  this.oldest = this.newest = undefined;
+  this.size = 0;
   let it = entries[Symbol.iterator]();
   for (let itv = it.next(); !itv.done; itv = it.next()) {
-    let e = new Entry(itv.value[0], itv.value[1]);
+    // Overflow check BEFORE creating/linking the Entry so partial nodes are
+    // never left in the list on throw.
+    if (limit-- == 0) {
+      throw new Error('overflow');
+    }
+    let key = itv.value[0];
+    // Update-in-place if the key already exists (duplicate in input iterable).
+    let existing = this._keymap.get(key);
+    if (existing) {
+      existing.value = itv.value[1];
+      // Move to newest position.
+      if (existing[NEWER]) {
+        existing[NEWER][OLDER] = existing[OLDER];
+      } else {
+        this.newest = existing[OLDER];
+      }
+      if (existing[OLDER]) {
+        existing[OLDER][NEWER] = existing[NEWER];
+      } else {
+        this.oldest = existing[NEWER];
+      }
+      existing[NEWER] = undefined;
+      existing[OLDER] = entry;
+      if (entry) { entry[NEWER] = existing; }
+      entry = existing;
+      if (!this.oldest) { this.oldest = entry; }
+      continue;
+    }
+    let e = new Entry(key, itv.value[1]);
     this._keymap.set(e.key, e);
     if (!entry) {
       this.oldest = e;
@@ -95,9 +127,6 @@ LRUMap.prototype.assign = function(entries) {
       e[OLDER] = entry;
     }
     entry = e;
-    if (limit-- == 0) {
-      throw new Error('overflow');
-    }
   }
   this.newest = entry;
   this.size = this._keymap.size;

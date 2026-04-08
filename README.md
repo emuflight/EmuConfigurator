@@ -69,7 +69,7 @@ brew install macos-alias   # One-time install
 yarn make                   # Builds both .zip and .dmg
 ```
 
-DMG is skipped in CI because `macos-alias` (native module) doesn't 
+DMG is skipped in CI because `macos-alias` (native module) doesn't
 cross-compile reliably. ZIP is portable and sufficient for most use cases.
 
 ### Platform Notes
@@ -85,7 +85,7 @@ sudo usermod -aG dialout $USER
 
 Create `/etc/udev/rules.d/49-stm32dfu.rules`:
 
-```
+```text
 SUBSYSTEM=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="df11", \
 MODE="0664", GROUP="plugdev"
 ```

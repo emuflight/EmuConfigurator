@@ -865,15 +865,15 @@ li.active .ic_motor {
 }
 
 .ic_welcome {
-    background-image: url(../images/icons/cf_icon_welcome_grey.png);
+    background-image: url("../images/icons/cf_icon_welcome_grey.png");
 }
 
 .ic_welcome:hover {
-    background-image: url(../images/icons/cf_icon_welcome_white.png);
+    background-image: url("../images/icons/cf_icon_welcome_white.png");
 }
 
 li.active .ic_welcome {
-    background-image: url(../images/icons/cf_icon_welcome_white.png);
+    background-image: url("../images/icons/cf_icon_welcome_white.png");
 }
 
 .ic_help {
