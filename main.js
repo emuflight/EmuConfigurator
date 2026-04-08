@@ -179,8 +179,8 @@ function setupMenu(buildMode) {
 }
 
 // Window size constraints
-const MIN_WINDOW_WIDTH = 980;
-const MIN_WINDOW_HEIGHT = 600;
+const MIN_WINDOW_WIDTH = 1024;
+const MIN_WINDOW_HEIGHT = 550;
 const PREFERRED_WINDOW_WIDTH = 1700;
 const PREFERRED_WINDOW_HEIGHT = 1080;
 
@@ -881,6 +881,10 @@ function createWindow() {
     if (width < MIN_WINDOW_WIDTH || height < MIN_WINDOW_HEIGHT) {
       win.setSize(Math.max(width, MIN_WINDOW_WIDTH), Math.max(height, MIN_WINDOW_HEIGHT));
     }
+    
+    // Match NWjs rendering scale for visual consistency with master
+    // Set zoom to 85% to match master's compact rendering
+    win.webContents.setZoomLevel(-0.33); // ~75% scaling to match master density
   });
 
   // Intercept new window requests (e.g., target="_blank" links) and open in system browser
@@ -896,6 +900,17 @@ function createWindow() {
   if (buildMode === 'dev') {
     win.webContents.openDevTools();
   }
+
+  // Re-apply zoom level when DevTools closes (Electron resets zoom on DevTools open/close)
+  win.webContents.on('before-input-event', (event, input) => {
+    // F12 or Ctrl+Shift+I opens/closes DevTools; re-apply zoom persistently
+    if ((input.key === 'F12') || 
+        (input.control && input.shift && input.key.toLowerCase() === 'i')) {
+      setTimeout(() => {
+        win.webContents.setZoomLevel(-0.33); // Reapply zoom after DevTools toggle
+      }, 100);
+    }
+  });
 
   // Setup context menu for right-click (cut/copy/paste/select all)
   win.webContents.on('context-menu', (_event, _params) => {
