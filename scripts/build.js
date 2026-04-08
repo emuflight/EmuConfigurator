@@ -128,9 +128,6 @@ function build() {
     process.exit(1);
   }
 
-  // manifest.json → dist/manifest.json
-  fse.copyFileSync(path.join(ROOT, 'manifest.json'), path.join(DIST, 'manifest.json'));
-
   // Write version.json
   const gitHash = getGitHash();
   const versionJson = JSON.stringify(

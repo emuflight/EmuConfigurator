@@ -75,21 +75,6 @@ function getWindowIconPath() {
   return undefined;
 }
 
-// IPC: Provide package.json manifest data to renderer (for getManifest shim)
-ipcMain.on('get-manifest', (event) => {
-  try {
-    const pkgPath = path.join(app.getAppPath(), 'package.json');
-    const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf8'));
-    event.returnValue = {
-      version: pkg.version || '0.0.0',
-      version_name: '',
-      max_msp: pkg.max_msp || '',
-    };
-  } catch (e) {
-    event.returnValue = { version: '0.0.0', version_name: '', max_msp: '' };
-  }
-});
-
 // Build modes (set by npm scripts in package.json):
 //   'dev'           - `yarn dev` sets NODE_ENV=development → devtools auto-open + menu item
 //   'dev-release'   - `yarn make:debug` sets EMUCFG_BUILD_MODE=dev-release → all menu items including toggle devtools

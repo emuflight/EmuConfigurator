@@ -89,20 +89,6 @@ $(document).ready(function () {
         CONFIGURATOR.max_msp = data.max_msp;
         console.log("doc ready CONFIGURATOR.max_msp "+CONFIGURATOR.max_msp);
 
-        // Version in the ChromeApp's manifest takes precedence.
-        if(chrome.runtime && chrome.runtime.getManifest) {
-            var manifest = chrome.runtime.getManifest();
-            CONFIGURATOR.version = manifest.version;
-            console.log("chrome runtime CONFIGURATOR.version "+CONFIGURATOR.version);
-            CONFIGURATOR.max_msp = manifest.max_msp;
-            console.log("chrome runtime CONFIGURATOR.max_msp "+CONFIGURATOR.max_msp);
-            // manifest.json for ChromeApp can't have a version
-            // with a prerelease tag eg 10.0.0-RC4
-            // Work around is to specify the prerelease version in version_name
-            if (manifest.version_name) {
-                CONFIGURATOR.version = manifest.version_name;
-            }
-        }
         i18n.init(function() {
             startProcess();
             initializeSerialBackend();
