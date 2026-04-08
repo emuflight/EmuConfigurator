@@ -1,18 +1,29 @@
-const { app, BrowserWindow, ipcMain, Menu, screen } = require('electron');
+const { app, BrowserWindow, ipcMain, Menu, screen, shell } = require('electron');
 const path = require('path');
 const fs = require('fs');
 
 // Register signal handlers at the very top to catch Ctrl+C/SIGTERM before anything else.
-// In dev mode (yarn dev), these ensure the process exits immediately without leaving
+// In dev mode (yarn dev), these ensure the process exits without leaving
 // zombie processes that hold stale single-instance lock files.
 process.on('SIGINT', () => {
-  console.log('SIGINT received, exiting immediately...');
-  process.exit(0);
+  console.log('SIGINT received, quitting...');
+  if (app) {
+    app.quit();
+    // Fallback: force-exit after 2s if app.quit() does not terminate the process
+    setTimeout(() => process.exit(0), 2000).unref();
+  } else {
+    process.exit(0);
+  }
 });
 
 process.on('SIGTERM', () => {
-  console.log('SIGTERM received, exiting immediately...');
-  process.exit(0);
+  console.log('SIGTERM received, quitting...');
+  if (app) {
+    app.quit();
+    setTimeout(() => process.exit(0), 2000).unref();
+  } else {
+    process.exit(0);
+  }
 });
 
 // Fallback: if the process is about to exit for any reason, log it
@@ -161,21 +172,18 @@ function setupMenu(buildMode) {
         {
           label: 'EmuFlight Documentation',
           click: async () => {
-            const { shell } = require('electron');
             await shell.openExternal('https://github.com/emuflight/EmuFlight/wiki');
           }
         },
         {
           label: 'EmuFlight GitHub',
           click: async () => {
-            const { shell } = require('electron');
             await shell.openExternal('https://github.com/emuflight');
           }
         },
         {
           label: 'EmuFlight Discord',
           click: async () => {
-            const { shell } = require('electron');
             await shell.openExternal('https://discord.gg/BWqgBg3');
           }
         }
@@ -303,23 +311,17 @@ ipcMain.handle('serial-send', async (event, bufferData) => {
     try {
       _serialPort.write(buf, (err) => {
         if (settled) return;
-        clearTimeout(timeoutId);
         if (err) {
           settled = true;
+          clearTimeout(timeoutId);
           console.error('main.js: serial-send write error:', err.message);
           resolve({ bytesSent: 0, error: err.message });
         } else {
-          _serialPort.drain((drainErr) => {
-            if (settled) return;
-            if (drainErr) {
-              settled = true;
-              console.error('main.js: serial-send drain error:', drainErr.message);
-              resolve({ bytesSent: 0, error: drainErr.message });
-            } else {
-              settled = true;
-              resolve({ bytesSent: buf.length });
-            }
-          });
+          // Resolve immediately after write() callback — matches Chrome serial API behavior.
+          // The OS kernel buffers and orders TX; drain() serializes writes and degrades MSP throughput.
+          settled = true;
+          clearTimeout(timeoutId);
+          resolve({ bytesSent: buf.length });
         }
       });
     } catch (e) {
@@ -371,6 +373,12 @@ ipcMain.handle('tcp-connect', async (event, socketId, host, port) => {
     const socket = new net.Socket();
     _tcpSockets.set(socketId, socket);
     socket.setNoDelay(true);
+
+    // Connection timeout: 10 seconds
+    const timeoutMs = 10000;
+    let timeoutId = null;
+    let resolved = false;
+
     socket.on('data', (data) => {
       safeSendToRenderer(event.sender, 'tcp-data', socketId, data.buffer.slice(data.byteOffset, data.byteOffset + data.byteLength));
     });
@@ -382,13 +390,36 @@ ipcMain.handle('tcp-connect', async (event, socketId, host, port) => {
       _tcpSockets.delete(socketId);
       safeSendToRenderer(event.sender, 'tcp-close', socketId);
     });
+
     const connectionErrorHandler = () => {
-      resolve(-102); // CONNECTION_REFUSED
+      if (!resolved) {
+        resolved = true;
+        if (timeoutId) clearTimeout(timeoutId);
+        resolve(-102); // CONNECTION_REFUSED
+      }
     };
+
+    const handleConnectionTimeout = () => {
+      if (!resolved) {
+        resolved = true;
+        socket.removeListener('error', connectionErrorHandler);
+        socket.destroy();
+        _tcpSockets.delete(socketId);
+        console.error(`main.js: tcp socket ${socketId} connection timeout (${host}:${port})`);
+        resolve(-103); // CONNECTION_TIMEOUT
+      }
+    };
+
     socket.once('error', connectionErrorHandler);
+    timeoutId = setTimeout(handleConnectionTimeout, timeoutMs);
+
     socket.connect(port, host, () => {
-      socket.removeListener('error', connectionErrorHandler);
-      resolve(0);
+      if (!resolved) {
+        resolved = true;
+        if (timeoutId) clearTimeout(timeoutId);
+        socket.removeListener('error', connectionErrorHandler);
+        resolve(0);
+      }
     });
   });
 });
@@ -726,7 +757,7 @@ const { dialog } = require('electron');
 // IPC: show save file dialog
 ipcMain.handle('dialog:choose-entry', async (event, options) => {
   const { type, suggestedName, accepts } = options;
-  
+
   if (type === 'saveFile') {
     const filters = accepts ? accepts.map(a => ({ name: a.description, extensions: a.extensions })) : [];
     return await dialog.showSaveDialog({
@@ -747,33 +778,32 @@ ipcMain.handle('dialog:choose-entry', async (event, options) => {
   return { canceled: true };
 });
 
-// IPC: write text content to file (single-shot, replaces truncate+write)
-ipcMain.handle('dialog:write-text-file', async (event, filePath, text) => {
-  const dir = path.dirname(filePath);
-  await fs.promises.mkdir(dir, { recursive: true });
-  await fs.promises.writeFile(filePath, text, 'utf8');
-  console.log(`Saved ${text.length} chars to ${filePath}`);
-  return text.length;
-});
-
 // IPC: write binary content to file (preserves binary data)
-ipcMain.handle('dialog:write-binary-file', async (event, filePath, byteArray, isFirstWrite = true) => {
+// position: byte offset to write at; null means append (legacy) or create (isFirstWrite)
+ipcMain.handle('dialog:write-binary-file', async (event, filePath, byteArray, isFirstWrite = true, position = null) => {
   const dir = path.dirname(filePath);
   await fs.promises.mkdir(dir, { recursive: true });
   const buffer = Buffer.from(byteArray);
-  // isFirstWrite=true: create/truncate the file; false: append chunk to existing file
-  await fs.promises.writeFile(filePath, buffer, { flag: isFirstWrite ? 'w' : 'a' });
+  if (isFirstWrite) {
+    // Create/truncate and write from the beginning
+    await fs.promises.writeFile(filePath, buffer, { flag: 'w' });
+  } else if (position !== null && Number.isFinite(position)) {
+    // Write at the specified position without truncating (seek-based write)
+    const fh = await fs.promises.open(filePath, 'r+');
+    try {
+      await fh.write(buffer, 0, buffer.length, position);
+    } finally {
+      await fh.close();
+    }
+  } else {
+    // Append chunk to existing file (legacy behaviour)
+    await fs.promises.writeFile(filePath, buffer, { flag: 'a' });
+  }
   // Log only on first write (start); suppress per-chunk logs
   if (isFirstWrite) {
     console.log(`[BBL] Downloading blackbox log to: ${filePath}`);
   }
   return buffer.length;
-});
-
-// IPC: read file as binary buffer
-ipcMain.handle('file-read-binary', async (event, filePath) => {
-  const data = await fs.promises.readFile(filePath);
-  return data;
 });
 
 // IPC: read file as UTF-8 text (used by fileEntry.file() in preload chromeFileSystem shim)
@@ -816,36 +846,6 @@ ipcMain.handle('dialog:truncate-file', async (event, filePath, size) => {
   }
 });
 
-// IPC: write to file (compatibility handler)
-ipcMain.handle('dialog:write-file', async (event, filePath, data) => {
-  try {
-    if (typeof filePath !== 'string' || filePath.length === 0) {
-      throw new Error('Invalid filePath');
-    }
-
-    if (data === undefined || data === null) {
-      throw new Error('No data provided');
-    }
-
-    const dir = path.dirname(filePath);
-    await fs.promises.mkdir(dir, { recursive: true });
-
-    const buffer = Array.isArray(data)
-      ? Buffer.from(data)
-      : Buffer.isBuffer(data)
-        ? data
-        : typeof data === 'string'
-          ? Buffer.from(data, 'utf8')
-          : Buffer.from(JSON.stringify(data), 'utf8');
-
-    await fs.promises.writeFile(filePath, buffer);
-    return buffer.length;
-  } catch (e) {
-    console.error(`dialog:write-file failed for ${filePath}:`, e.message);
-    throw e;
-  }
-});
-
 function createWindow() {
   const buildMode = getBuildMode();
   setupMenu(buildMode);
@@ -867,10 +867,10 @@ function createWindow() {
     },
     icon: windowIconPath,
   });
-  
+
   // Enforce minimum window size multiple ways for cross-platform compatibility
   win.setMinimumSize(MIN_WINDOW_WIDTH, MIN_WINDOW_HEIGHT);
-  
+
   // Active enforcement: if window size falls below minimum after any resize, restore it
   win.on('resize', () => {
     const [width, height] = win.getSize();
@@ -878,7 +878,7 @@ function createWindow() {
       win.setSize(Math.max(width, MIN_WINDOW_WIDTH), Math.max(height, MIN_WINDOW_HEIGHT));
     }
   });
-  
+
   // Also prevent moves that would resize
   win.on('moved', () => {
     const [width, height] = win.getSize();
@@ -886,9 +886,9 @@ function createWindow() {
       win.setSize(Math.max(width, MIN_WINDOW_WIDTH), Math.max(height, MIN_WINDOW_HEIGHT));
     }
   });
-  
+
   win.loadFile(path.join(__dirname, 'dist', 'main.html'));
-  
+
   // Reapply after window is fully loaded (some platforms need this)
   win.webContents.on('did-finish-load', () => {
     win.setMinimumSize(MIN_WINDOW_WIDTH, MIN_WINDOW_HEIGHT);
@@ -897,22 +897,21 @@ function createWindow() {
       win.setSize(Math.max(width, MIN_WINDOW_WIDTH), Math.max(height, MIN_WINDOW_HEIGHT));
     }
   });
-  
+
   // Intercept new window requests (e.g., target="_blank" links) and open in system browser
   win.webContents.setWindowOpenHandler(({ url }) => {
     // Open external links in the system default browser
     if (url.startsWith('http://') || url.startsWith('https://')) {
-      const { shell } = require('electron');
       shell.openExternal(url);
       return { action: 'deny' }; // Prevent Electron from opening its own window
     }
     return { action: 'allow' };
   });
-  
+
   if (buildMode === 'dev') {
     win.webContents.openDevTools();
   }
-  
+
   // Setup context menu for right-click (cut/copy/paste/select all)
   win.webContents.on('context-menu', (_event, _params) => {
     const contextMenu = Menu.buildFromTemplate([
@@ -924,28 +923,31 @@ function createWindow() {
     ]);
     contextMenu.popup(win);
   });
-  
+
   // Intercept navigation to external URLs and open them in system browser
   win.webContents.on('will-navigate', (event, url) => {
     const appPath = 'file://' + path.join(__dirname, 'dist');
     if (!url.startsWith(appPath) && (url.startsWith('http://') || url.startsWith('https://'))) {
       event.preventDefault();
-      const { shell } = require('electron');
       shell.openExternal(url);
     }
   });
-  
+
   // Capture renderer console output and kill app on error
-  // Levels: 0=verbose, 1=info, 2=warning, 3=error
+  // Electron 41+ uses string levels: 'verbose', 'info', 'warning', 'error'
   // Default (dev): show warnings+errors only. Set VERBOSE=1 to show all.
-  // Uses Event<WebContentsConsoleMessageEventParams> object (Electron v41+)
+  // Uses Event<WebContentsConsoleMessageEventParams> object
   win.webContents.on('console-message', (event) => {
-    const { level, message, line, sourceId } = event;
+    const { level, message, lineNumber, sourceId } = event;
     if (message) {
+      // Map string level to numeric priority for comparison
+      const levelMap = { 'verbose': 0, 'info': 1, 'warning': 2, 'error': 3 };
+      const numericLevel = levelMap[level] !== undefined ? levelMap[level] : (typeof level === 'number' ? level : 1);
+
       const verbose = process.env.VERBOSE === '1';
-      if (verbose || level >= 2) {
-        const tag = level >= 3 ? '[Renderer ERROR]' : level >= 2 ? '[Renderer WARN]' : '[Renderer]';
-        console.log(`${tag} ${message} (${sourceId || ''}:${line || ''})`);
+      if (verbose || numericLevel >= 2) {
+        const tag = numericLevel >= 3 ? '[Renderer ERROR]' : numericLevel >= 2 ? '[Renderer WARN]' : '[Renderer]';
+        console.log(`${tag} ${message} (${sourceId || ''}:${lineNumber || ''})`);
       }
       const trimmedMessage = message.trim();
       const undefinedRefPattern = /^[A-Za-z_$][\w$]* is not defined$/;
@@ -954,8 +956,8 @@ function createWindow() {
         sourceId.includes('/src/') ||
         sourceId.endsWith('main.html')
       );
-      if (level >= 3 && undefinedRefPattern.test(trimmedMessage) && isAppSource) {
-        console.error(`Renderer ReferenceError detected: ${trimmedMessage} (${sourceId || ''}:${line || ''})`);
+      if (numericLevel >= 3 && undefinedRefPattern.test(trimmedMessage) && isAppSource) {
+        console.error(`Renderer ReferenceError detected: ${trimmedMessage} (${sourceId || ''}:${lineNumber || ''})`);
       }
     }
   });
@@ -980,7 +982,7 @@ const isDev = process.env.NODE_ENV === 'development';
 
 function tryAcquireSingleInstanceLock() {
   const lockAcquired = app.requestSingleInstanceLock();
-  
+
   if (lockAcquired) {
     app.on('second-instance', () => {
       if (mainWindow) {
@@ -1001,7 +1003,7 @@ function tryAcquireSingleInstanceLock() {
   return false;
 }
 
-tryAcquireSingleInstanceLock();
+const hasSingleInstanceLock = tryAcquireSingleInstanceLock();
 
 // Best-effort cleanup of hardware connections before the process exits.
 // The OS will reclaim handles anyway, but explicit cleanup avoids libusb/serialport
@@ -1050,6 +1052,9 @@ async function cleanupConnectionsBeforeQuit() {
       };
 
       try {
+        // DFU_CLRSTATUS (USB class request): bmRequestType=0x21, bRequest=0x00,
+        // wValue=0, wIndex=0, wLength=0 — clears DFU status bits and returns
+        // the device to dfuIDLE so it can be safely closed.
         device.controlTransfer(0x21, 0x00, 0, 0, 0, () => {
           closeDevice();
         });
