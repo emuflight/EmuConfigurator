@@ -23,7 +23,9 @@ var serial = {
 
     checkSerialApi: function () {
         this.serialApiChecked = true;
-        this.serialApiAvailable = typeof navigator !== 'undefined' && !!navigator.serial;
+        this.serialApiAvailable =
+            (typeof chrome !== 'undefined' && !!chrome.serial) ||
+            (typeof navigator !== 'undefined' && !!navigator.serial);
         return this.serialApiAvailable;
     },
 
