@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain, Menu, screen, shell } = require('electron');
+const { app, BrowserWindow, ipcMain, Menu, screen, shell, globalShortcut } = require('electron');
 const path = require('path');
 const fs = require('fs');
 
@@ -855,6 +855,19 @@ function createWindow() {
 
   // Enforce minimum window size multiple ways for cross-platform compatibility
   win.setMinimumSize(MIN_WINDOW_WIDTH, MIN_WINDOW_HEIGHT);
+
+  // Register F12 as global shortcut to toggle DevTools and re-apply zoom
+  globalShortcut.register('F12', () => {
+    if (win.webContents.isDevToolsOpened()) {
+      win.webContents.closeDevTools();
+    } else {
+      win.webContents.openDevTools();
+    }
+    // Re-apply zoom after toggling DevTools
+    setTimeout(() => {
+      win.webContents.setZoomLevel(-0.33);
+    }, 150);
+  });
 
   // Active enforcement: if window size falls below minimum after any resize, restore it
   win.on('resize', () => {
