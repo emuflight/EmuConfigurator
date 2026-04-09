@@ -279,7 +279,10 @@ ipcMain.handle('serial-connect', async (event, portPath, options) => {
   try {
     const { SerialPort } = require('serialport');
     if (_serialPort && _serialPort.isOpen) {
-      await new Promise((resolve) => _serialPort.close(resolve));
+      await new Promise((resolve) => _serialPort.close((err) => {
+        if (err) console.warn('main.js: error closing previous port:', err.message);
+        resolve();
+      }));
     }
     _serialPort = new SerialPort({
       path: portPath,
@@ -299,8 +302,9 @@ ipcMain.handle('serial-connect', async (event, portPath, options) => {
       safeSendToRenderer(event.sender, 'serial-error', err.message);
       // Attempt graceful recovery
       if (_serialPort && _serialPort.isOpen) {
-        _serialPort.close(() => {
-          console.log('main.js: closed serial port after error');
+        _serialPort.close((err) => {
+          if (err) console.error('main.js: error closing serial port after error:', err.message);
+          else console.log('main.js: closed serial port after error');
         });
       }
     });
@@ -967,7 +971,8 @@ function createWindow() {
     if ((input.key === 'F12') || 
         (input.control && input.shift && input.key.toLowerCase() === 'i')) {
       setTimeout(() => {
-        win.webContents.setZoomLevel(-0.33); // Reapply zoom after DevTools toggle
+        const savedZoom = loadZoomLevel();
+        win.webContents.setZoomLevel(savedZoom); // Reapply zoom after DevTools toggle
       }, 100);
     }
   });
