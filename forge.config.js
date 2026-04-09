@@ -37,10 +37,6 @@ module.exports = {
     arch: process.env.EMUCFG_ARCH || undefined,
     // Ensure the binary is named as expected for Linux makers
     executableName: 'emuflight-configurator',
-    // Bake build mode into packaged package.json so main.js can read it at runtime
-    extraMetadata: {
-      buildMode: buildMode
-    },
     // macOS signing: ad-hoc by default (works without certs)
     // To use certificate: set APPLE_SIGNING_IDENTITY environment variable
     ...(process.platform === 'darwin' ? {
@@ -49,7 +45,6 @@ module.exports = {
         hardenedRuntime: true,
         entitlements: path.resolve(__dirname, 'sign/entitlements.plist'),
         entitlementsInherit: path.resolve(__dirname, 'sign/entitlements.plist'),
-        signingFlags: ['--deep', '--force'],
       },
     } : {}),
   },
