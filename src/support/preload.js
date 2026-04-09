@@ -16,9 +16,6 @@ let serialConnectInProgress = false;
 // ─── chrome.serial polyfill ────────────────────────────────────────────────
 
 const chromeSerial = {
-    _dataListeners: [],
-    _errorListeners: [],
-
     getDevices: function (callback) {
         ipcRenderer.invoke('serial-list-ports').then(function (paths) {
             callback(paths.map(function (p) { return { path: p }; }));
@@ -123,8 +120,6 @@ const chromeSerial = {
 
 const chromeSockets = {
     tcp: {
-        _receiveListeners: [],
-        _errorListeners: [],
         _socketHandlers: new Map(), // Map socketId → {dataHandler, errorHandler, closeHandler}
 
         create: function (props, callback) {
@@ -494,7 +489,7 @@ const chromeFileSystem = {
             _filePath: filePath,
             isFile: true,
             isDirectory: false,
-            name: filePath.split('/').pop(),
+            name: filePath.split(/[\/\\]/).pop(),
             createWriter: (onWriter, onError) => {
                 ipcRenderer.invoke('dialog:get-file-size', filePath).then(size => {
                     const writer = {
@@ -523,8 +518,11 @@ const chromeFileSystem = {
                                 const writePosition = isFirstWrite ? null : writer.position;
                                 ipcRenderer.invoke('dialog:write-binary-file', filePath, Array.from(new Uint8Array(arrayBuffer)), isFirstWrite, writePosition).then(written => {
                                     const safeWritten = Number.isFinite(Number(written)) ? Number(written) : 0;
-                                    writer.length += safeWritten;
-                                    writer.position = writer.length;
+                                    // Compute write end; for seek-based overwrites only extend
+                                    // length when writing past the current end of file.
+                                    const writeEnd = (writePosition !== null ? writePosition : writer.length) + safeWritten;
+                                    writer.length = Math.max(writer.length, writeEnd);
+                                    writer.position = writeEnd;
                                     writer.readyState = 2; // DONE
                                     if (writer.onwriteend) writer.onwriteend();
                                     writer.readyState = 0; // INIT — ready for next write
