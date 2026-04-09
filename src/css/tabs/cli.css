@@ -163,7 +163,7 @@
 @media only screen and (max-width: 1055px) , only screen and (max-device-width: 1055px) {
 
 .tab-cli .content_toolbar {
-    margin-top: 5px;
+    bottom: 5px; /* margin-top has no effect on position:absolute — use bottom offset */
 }
 
 }

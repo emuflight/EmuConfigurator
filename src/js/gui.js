@@ -68,7 +68,7 @@ var GUI_control = function () {
       this.Mode = GUI_Modes.NWJS;
     } catch (ex) {
       // Detect Electron before checking chrome APIs (preload injects chrome stubs)
-            if (typeof process !== 'undefined' && process.versions && process.versions.electron) {
+      if (typeof process !== 'undefined' && process.versions && process.versions.electron) {
         this.Mode = GUI_Modes.Electron;
       } else if (window.chrome && chrome.storage && chrome.storage.local) {
         this.Mode = GUI_Modes.ChromeApp;

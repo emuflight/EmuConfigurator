@@ -93,7 +93,7 @@ PortHandler.check = function () {
                 } else {
                     // Log warning only once when storage API is first detected as unavailable
                     if (!self.storage_api_checked) {
-                        console.warn('chrome.storage.local API not available in Electron. Last port selection will be unavailable.');
+                        console.warn('chrome.storage.local API not available. Last port selection will be unavailable.');
                         self.storage_api_checked = true;
                         self.storage_api_available = false;
                     }
@@ -185,18 +185,18 @@ PortHandler.check_usb_devices = function (callback) {
                 }
                 self.dfu_available = true;
             } else {
-            if ($("div#port-picker #port [value='DFU']").length) {
-               $("div#port-picker #port [value='DFU']").remove();
+                if ($("div#port-picker #port [value='DFU']").length) {
+                    $("div#port-picker #port [value='DFU']").remove();
+                }
+                self.dfu_available = false;
             }
-            self.dfu_available = false;
-        }
 
-        if(callback) callback(self.dfu_available);
+            if(callback) callback(self.dfu_available);
         });
     } else {
         // Log warning only once when USB API is first detected as unavailable
         if (!this.usb_api_checked) {
-            console.warn('chrome.usb API not available in Electron. DFU mode will be unavailable.');
+            console.warn('chrome.usb API not available. DFU mode will be unavailable.');
             this.usb_api_checked = true;
             this.usb_api_available = false;
         }

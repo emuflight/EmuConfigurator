@@ -182,6 +182,8 @@ Model.prototype.dispose = function () {
 
 // handle canvas resize
 Model.prototype.resize = function () {
+    if (this.disposed || !this.renderer || !this.camera) { return; }
+
     this.renderer.setSize(this.wrapper.width() * 2, this.wrapper.height() * 2);
 
     this.camera.aspect = this.wrapper.width() / this.wrapper.height();

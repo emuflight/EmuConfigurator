@@ -287,7 +287,8 @@ TABS.cli.initialize = function (callback, nwGui) {
                 event.preventDefault(); // prevent the adding of new line
 
                 if (CliAutoComplete.isBuilding()) {
-
+                    // Intentionally no-op: autocomplete table may be updating;
+                    // Enter is allowed through to execute the current input.
                 }
 
                 var out_string = textarea.val();

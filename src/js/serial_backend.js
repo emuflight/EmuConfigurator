@@ -451,11 +451,11 @@ function onClosed(result) {
     // through this disconnect so finishOpen() can consume it on the next connection.
     if (typeof GUI.pendingAfterReconnect !== 'function') {
         GUI.pendingAfterReconnect = null;
-    }
-    // Also clear the cli.cleanup watchdog timeout only if we're clearing the callback
-    if (typeof GUI.pendingAfterReconnect !== 'function' && typeof TABS !== 'undefined' && TABS.cli && TABS.cli._pendingAfterReconnectTimeout) {
-        clearTimeout(TABS.cli._pendingAfterReconnectTimeout);
-        TABS.cli._pendingAfterReconnectTimeout = null;
+        // Also clear the cli.cleanup watchdog timeout when clearing the callback
+        if (typeof TABS !== 'undefined' && TABS.cli && TABS.cli._pendingAfterReconnectTimeout) {
+            clearTimeout(TABS.cli._pendingAfterReconnectTimeout);
+            TABS.cli._pendingAfterReconnectTimeout = null;
+        }
     }
 
     // Clean up any active CLI state (e.g., if device was unplugged during CLI tab edit)

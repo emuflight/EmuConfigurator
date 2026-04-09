@@ -90,8 +90,7 @@
     "rpm-builder": "^1.2.1",
     "targz": "^1.0.1",
     "temp": "^0.9.4",
-    "vinyl-source-stream": "^2.0.0",
-    "yarn": "1.22"
+    "vinyl-source-stream": "^2.0.0"
   },
   "optionalDependencies": {
     "appdmg": "^0.6.6"

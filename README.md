@@ -19,7 +19,7 @@ Download the installer for your platform from the [Releases](https://github.com/
 ## Support
 
 - [Emuflight Discord](https://discord.gg/gdP9CwE)
-- [Configurator issues](https://github.com/EmuFlight/EmuConfigurator/issues)
+- [Configurator issues](https://github.com/emuflight/EmuConfigurator/issues)
 - [Firmware issues](https://github.com/emuflight/EmuFlight/issues)
 
 ---
@@ -29,7 +29,7 @@ Download the installer for your platform from the [Releases](https://github.com/
 ### Requirements
 
 1. [Node.js](https://nodejs.org/en/) (LTS recommended)
-2. [nvm](https://www.nvmnode.com/) (Node version manager; optional but recommended for reproducible local Node versions)
+2. [nvm](https://github.com/nvm-sh/nvm) (Node version manager; optional but recommended for reproducible local Node versions)
 3. [Yarn](https://yarnpkg.com/) (`npm install -g yarn`)
 
 ### Commands

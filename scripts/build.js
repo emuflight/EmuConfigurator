@@ -54,7 +54,8 @@ function osdFilter(src) {
 function getGitHash() {
   try {
     return execSync('git rev-parse --short HEAD', { cwd: ROOT, encoding: 'utf8' }).trim();
-  } catch {
+  } catch (e) {
+    console.warn('[build] Could not get git hash:', e.message);
     return 'unsupported';
   }
 }

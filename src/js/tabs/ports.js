@@ -122,11 +122,6 @@ TABS.ports.initialize = function (callback, scrollPosition) {
         promise
             .then(function() {
                 MSP.send_message(MSPCodes.MSP_CF_SERIAL_CONFIG, false, false, on_configuration_loaded_handler);
-            })
-            .catch(function(e) {
-                console.error('Ports: Load chain error:', e);
-                // Fallback: still load serial config even if prior step failed
-                MSP.send_message(MSPCodes.MSP_CF_SERIAL_CONFIG, false, false, on_configuration_loaded_handler);
             });
 
         function on_configuration_loaded_handler() {

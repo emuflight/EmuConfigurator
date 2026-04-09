@@ -253,7 +253,7 @@ function startProcess() {
                 if (tabInitializers[tab]) {
                     tabInitializers[tab]();
                 } else {
-                    console.log('Tab not found:' + tab);
+                    console.log('Tab not found: ' + tab);
                 }
             });
         }
