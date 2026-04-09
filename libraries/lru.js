@@ -99,23 +99,10 @@ LRUMap.prototype.assign = function(entries) {
     // Update-in-place if the key already exists (duplicate in input iterable).
     let existing = this._keymap.get(key);
     if (existing) {
+      // Update-in-place only — no relinking. assign() rebuilds the list in
+      // insertion order from scratch; relinking during iteration creates
+      // self-referential cycles when existing === entry (first occurrence).
       existing.value = itv.value[1];
-      // Move to newest position.
-      if (existing[NEWER]) {
-        existing[NEWER][OLDER] = existing[OLDER];
-      } else {
-        this.newest = existing[OLDER];
-      }
-      if (existing[OLDER]) {
-        existing[OLDER][NEWER] = existing[NEWER];
-      } else {
-        this.oldest = existing[NEWER];
-      }
-      existing[NEWER] = undefined;
-      existing[OLDER] = entry;
-      if (entry) { entry[NEWER] = existing; }
-      entry = existing;
-      if (!this.oldest) { this.oldest = entry; }
       continue;
     }
     let e = new Entry(key, itv.value[1]);
