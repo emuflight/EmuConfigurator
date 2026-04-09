@@ -184,6 +184,42 @@ const MIN_WINDOW_HEIGHT = 550;
 const PREFERRED_WINDOW_WIDTH = 1700;
 const PREFERRED_WINDOW_HEIGHT = 1080;
 
+// Zoom level persistence
+const CONFIG_DIR = path.join(app.getPath('userData'), 'config');
+const ZOOM_CONFIG_FILE = path.join(CONFIG_DIR, 'zoom.json');
+const DEFAULT_ZOOM_LEVEL = 0; // Ctrl+0 actual size
+
+// Ensure config directory exists
+function ensureConfigDir() {
+  if (!fs.existsSync(CONFIG_DIR)) {
+    fs.mkdirSync(CONFIG_DIR, { recursive: true });
+  }
+}
+
+// Load zoom level from config file
+function loadZoomLevel() {
+  try {
+    if (fs.existsSync(ZOOM_CONFIG_FILE)) {
+      const data = fs.readFileSync(ZOOM_CONFIG_FILE, 'utf8');
+      const config = JSON.parse(data);
+      return typeof config.zoomLevel === 'number' ? config.zoomLevel : DEFAULT_ZOOM_LEVEL;
+    }
+  } catch (e) {
+    console.error('Failed to load zoom config:', e);
+  }
+  return DEFAULT_ZOOM_LEVEL;
+}
+
+// Save zoom level to config file
+function saveZoomLevel(level) {
+  try {
+    ensureConfigDir();
+    fs.writeFileSync(ZOOM_CONFIG_FILE, JSON.stringify({ zoomLevel: level }, null, 2));
+  } catch (e) {
+    console.error('Failed to save zoom config:', e);
+  }
+}
+
 function getInitialWindowBounds() {
   const display = screen.getDisplayNearestPoint(screen.getCursorScreenPoint());
   const workArea = display.workArea;
@@ -856,16 +892,21 @@ function createWindow() {
   // Enforce minimum window size multiple ways for cross-platform compatibility
   win.setMinimumSize(MIN_WINDOW_WIDTH, MIN_WINDOW_HEIGHT);
 
-  // Register F12 as global shortcut to toggle DevTools and re-apply zoom
+  // Register F12 as global shortcut to toggle DevTools while preserving zoom
   globalShortcut.register('F12', () => {
+    // Store current zoom before toggling DevTools (DevTools toggle can reset zoom)
+    const currentZoom = win.webContents.getZoomLevel();
+    
     if (win.webContents.isDevToolsOpened()) {
       win.webContents.closeDevTools();
     } else {
       win.webContents.openDevTools();
     }
-    // Re-apply zoom after toggling DevTools
+    
+    // Restore zoom level after toggling DevTools
     setTimeout(() => {
-      win.webContents.setZoomLevel(-0.33);
+      win.webContents.setZoomLevel(currentZoom);
+      saveZoomLevel(currentZoom); // Persist the zoom level
     }, 150);
   });
 
@@ -895,9 +936,15 @@ function createWindow() {
       win.setSize(Math.max(width, MIN_WINDOW_WIDTH), Math.max(height, MIN_WINDOW_HEIGHT));
     }
     
-    // Match NWjs rendering scale for visual consistency with master
-    // Set zoom to 85% to match master's compact rendering
-    win.webContents.setZoomLevel(-0.33); // ~75% scaling to match master density
+    // Load saved zoom level or use default (Ctrl+0 actual size)
+    const savedZoom = loadZoomLevel();
+    win.webContents.setZoomLevel(savedZoom);
+  });
+  
+  // Save zoom level when it changes (e.g., Ctrl+Plus, Ctrl+Minus, Ctrl+0)
+  win.webContents.on('zoom-changed', (event, direction) => {
+    const newLevel = win.webContents.getZoomLevel();
+    saveZoomLevel(newLevel);
   });
 
   // Intercept new window requests (e.g., target="_blank" links) and open in system browser
