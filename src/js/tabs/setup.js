@@ -315,9 +315,18 @@ TABS.setup.initializeInstruments = function() {
 };
 
 TABS.setup.initModel = function () {
-    this.model = new Model($('.model-and-info #canvas_wrapper'), $('.model-and-info #canvas'));
+    if (this.modelResizeHandler) {
+        $(window).off('resize', this.modelResizeHandler);
+    }
 
-    $(window).on('resize', $.proxy(this.model.resize, this.model));
+    if (this.model) {
+        this.model.dispose();
+    }
+
+    this.model = new Model($('.model-and-info #canvas_wrapper'), $('.model-and-info #canvas'));
+    this.modelResizeHandler = $.proxy(this.model.resize, this.model);
+
+    $(window).on('resize', this.modelResizeHandler);
 };
 
 TABS.setup.renderModel = function () {
@@ -329,8 +338,14 @@ TABS.setup.renderModel = function () {
 };
 
 TABS.setup.cleanup = function (callback) {
+    if (this.modelResizeHandler) {
+        $(window).off('resize', this.modelResizeHandler);
+        this.modelResizeHandler = null;
+    }
+
     if (this.model) {
-        $(window).off('resize', $.proxy(this.model.resize, this.model));
+        this.model.dispose();
+        this.model = null;
     }
 
     if (callback) callback();

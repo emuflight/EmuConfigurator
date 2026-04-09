@@ -1,4 +1,5 @@
 'use strict';
+/* exported CONFIGURATOR */
 
 var CONFIGURATOR = {
     // all versions are specified and compared using semantic versioning http://semver.org/

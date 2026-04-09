@@ -197,7 +197,7 @@ TABS.motors.initialize = function (callback) {
             reverse = MIXER_CONFIG.reverseMotorDir ? "_reversed" : "";
         }
 
-        $('.mixerPreview img').attr('src', './resources/motor_order/' + mixerList[mixer - 1].image + reverse + '.svg');
+        $('.mixerPreview img').attr('src', '../resources/motor_order/' + mixerList[mixer - 1].image + reverse + '.svg');
     }
 
     function process_html() {

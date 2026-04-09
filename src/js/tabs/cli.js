@@ -8,6 +8,7 @@ TABS.cli = {
     GUI: {
         snippetPreviewWindow: null,
     },
+    _pendingAfterReconnectTimeout: null, // Watchdog timeout for pending CLI exit callback cleanup
 };
 
 function removePromptHash(promptText) {
@@ -92,7 +93,7 @@ TABS.cli.initialize = function (callback, nwGui) {
     if (GUI.active_tab != 'cli') {
         GUI.active_tab = 'cli';
     }
-    
+
     self.outputHistory = "";
     self.cliBuffer = "";
 
@@ -199,14 +200,11 @@ TABS.cli.initialize = function (callback, nwGui) {
         } else {
             $('.tab-cli .copy').hide();
         }
-        
+
         $('.tab-cli .load').click(function() {
             var accepts = [
                 {
-                    description: 'Config files', extensions: ["txt", "config"],
-                },
-                {
-                    description: 'All files',
+                    description: 'CLI Config files', extensions: ["txt", "TXT", "config"],
                 },
             ];
 
@@ -220,7 +218,7 @@ TABS.cli.initialize = function (callback, nwGui) {
                     console.log('No file selected');
                     return;
                 }
-                
+
                 let previewArea = $("#snippetpreviewcontent textarea#preview");
 
                 function executeSnippet() {
@@ -240,7 +238,7 @@ TABS.cli.initialize = function (callback, nwGui) {
                             isolateScroll: false,
                             title: i18n.getMessage("cliConfirmSnippetDialogTitle"),
                             content: $('#snippetpreviewcontent'),
-                            onCreated: () =>  
+                            onCreated: () =>
                                 $("#snippetpreviewcontent a.confirm").click(() => executeSnippet())
                             ,
                         });
@@ -251,7 +249,7 @@ TABS.cli.initialize = function (callback, nwGui) {
 
                 entry.file((file) => {
                     let reader = new FileReader();
-                    reader.onload = 
+                    reader.onload =
                         () => previewCommands(reader.result);
                     reader.onerror = () => console.error(reader.error);
                     reader.readAsText(file);
@@ -289,8 +287,8 @@ TABS.cli.initialize = function (callback, nwGui) {
                 event.preventDefault(); // prevent the adding of new line
 
                 if (CliAutoComplete.isBuilding()) {
-                    console.log('CliAutoComplete.isBuilding()=true ignoring input');
-                    return; // silently ignore commands if autocomplete is still building
+                    // Intentionally no-op: autocomplete table may be updating;
+                    // Enter is allowed through to execute the current input.
                 }
 
                 var out_string = textarea.val();
@@ -365,7 +363,6 @@ function writeToOutput(text) {
 function writeLineToOutput(text) {
     if (CliAutoComplete.isBuilding()) {
         CliAutoComplete.builderParseLine(text);
-        console.log('CliAutoComplete.isBuilding()=true suppressing output');
         return; // suppress output if in building state
     }
 
@@ -469,9 +466,7 @@ TABS.cli.read = function (readInfo) {
 
         if (CliAutoComplete.isEnabled() && !CliAutoComplete.isBuilding()) {
             // start building autoComplete
-            console.log('CliAutoComplete.builderStart() command calling...');
             CliAutoComplete.builderStart();
-            console.log('CliAutoComplete.builderStart() command finished');
         }
     }
 
@@ -504,26 +499,46 @@ TABS.cli.cleanup = function (callback) {
         TABS.cli.GUI.snippetPreviewWindow.destroy();
         TABS.cli.GUI.snippetPreviewWindow = null;
     }
-    if (!(CONFIGURATOR.connectionValid && CONFIGURATOR.cliValid && CONFIGURATOR.cliActive)) {
-        if (callback) {
-            callback();
-        }
 
-        return;
-    }
-    this.send(getCliCommand('exit\r', this.cliBuffer), function (writeInfo) {
-        // we could handle this "nicely", but this will do for now
-        // (another approach is however much more complicated):
-        // we can setup an interval asking for data lets say every 200ms, when data arrives, callback will be triggered and tab switched
-        // we could probably implement this someday
-        if (callback) {
-            callback();
-        }
-
-        CONFIGURATOR.cliActive = false;
-        CONFIGURATOR.cliValid = false;
-    });
-
+    // Always clear CLI state and detach autocomplete, regardless of
+    // connection status, so flags and listeners are never left dirty.
+    const shouldSendExit = CONFIGURATOR.connectionValid && CONFIGURATOR.cliValid && CONFIGURATOR.cliActive;
+    CONFIGURATOR.cliActive = false;
+    CONFIGURATOR.cliValid = false;
     CliAutoComplete.cleanup();
     $(CliAutoComplete).off();
+
+    if (!shouldSendExit) {
+        if (callback) { callback(); }
+        return;
+    }
+
+    // Flush stale MSP retransmit timers accumulated while in CLI mode.
+    MSP.callbacks_cleanup();
+
+    // 'exit' always triggers cliReboot() in firmware -> systemReset() -> USB
+    // disconnect + re-enumerate.  A fixed timeout races this window and causes
+    // MSP request timeouts on the next tab.  Instead we store the tab-switch
+    // callback so finishOpen() in serial_backend can fire it exactly once
+    // after the full MSP handshake of the new connection completes.  This also
+    // prevents a double tab-init that would occur if both our poll AND
+    // selectDefaultTabWhenConnected both tried to initialize the target tab.
+    GUI.pendingAfterReconnect = callback;
+
+    // Watchdog timeout: if FC crashes/fails to re-enumerate and finishOpen()
+    // never fires, clear the pending callback after 5 seconds to prevent it
+    // from persisting across an unrelated future connection
+    if (TABS.cli._pendingAfterReconnectTimeout) {
+        clearTimeout(TABS.cli._pendingAfterReconnectTimeout);
+    }
+    TABS.cli._pendingAfterReconnectTimeout = setTimeout(function () {
+        if (GUI.pendingAfterReconnect === callback) {
+            GUI.pendingAfterReconnect = null;
+            console.log('[cli.cleanup] watchdog cleared stale pendingAfterReconnect callback');
+        }
+        TABS.cli._pendingAfterReconnectTimeout = null;
+    }, 5000);
+
+    this.send(getCliCommand('exit\r', this.cliBuffer), function () {
+    });
 };

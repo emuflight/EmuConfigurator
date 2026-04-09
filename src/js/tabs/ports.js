@@ -3,7 +3,7 @@
 TABS.ports = {};
 TABS.ports.initialize = function (callback, scrollPosition) {
     var self = this;
-    var board_definition = {};
+
     var functionRules = [
          {name: 'MSP',                  groups: ['configuration', 'msp'], maxPorts: 2},
          {name: 'GPS',                  groups: ['sensors'], maxPorts: 1},
@@ -113,19 +113,19 @@ TABS.ports.initialize = function (callback, scrollPosition) {
 
         let promise;
         if(semver.gte(CONFIG.apiVersion, "1.40.0")) {
-            promise = MSP.promise(MSPCodes.MSP_VTX_CONFIG);
+            promise = MSP.promise(MSPCodes.MSP_VTX_CONFIG).catch(function(e) {
+                return Promise.resolve();
+            });
         } else {
             promise = Promise.resolve();
         }
-        promise.then(function() {
-            MSP.send_message(MSPCodes.MSP_CF_SERIAL_CONFIG, false, false, on_configuration_loaded_handler);
-        });
+        promise
+            .then(function() {
+                MSP.send_message(MSPCodes.MSP_CF_SERIAL_CONFIG, false, false, on_configuration_loaded_handler);
+            });
 
         function on_configuration_loaded_handler() {
             $('#content').load("./tabs/ports.html", on_tab_loaded_handler);
-
-            board_definition = BOARD.find_board_definition(CONFIG.boardIdentifier);
-            console.log('Using board definition', board_definition);
         }
     }
 

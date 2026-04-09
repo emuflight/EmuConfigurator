@@ -35,6 +35,8 @@ body {
     margin: 0px;
     padding: 0px;
     overflow: hidden;
+    -webkit-user-select: text;
+    user-select: text;
 }
 
 a {
@@ -863,15 +865,15 @@ li.active .ic_motor {
 }
 
 .ic_welcome {
-/*    background-image: url(../images/icons/cf_icon_welcome_grey.svg);*/
+    background-image: url("../images/icons/cf_icon_welcome_grey.png");
 }
 
 .ic_welcome:hover {
-  /*  background-image: url(../images/icons/cf_icon_welcome_white.svg); */
+    background-image: url("../images/icons/cf_icon_welcome_white.png");
 }
 
 li.active .ic_welcome {
-/*    background-image: url(../images/icons/cf_icon_welcome_white.svg);*/
+    background-image: url("../images/icons/cf_icon_welcome_white.png");
 }
 
 .ic_help {
@@ -1060,13 +1062,21 @@ li.active .ic_mission {
 
 dialog {
     background-color: white;
-    padding: 1em;
-    height: auto;
-    margin: auto auto;
-    position: absolute;
-    width: 50%;
+    padding: 10px;
+    height: fit-content;
+    max-height: 90vh;
+    margin: 0;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: fit-content;
+    max-width: 90vw;
+    box-sizing: border-box;
     border-radius: 3px;
     border: 1px solid silver;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 /* Border of the Tab */

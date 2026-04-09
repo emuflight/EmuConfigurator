@@ -12,6 +12,11 @@ var CliAutoComplete = {
 };
 
 CliAutoComplete.isEnabled = function() {
+    // True when autocomplete is active or ready to build.
+    // state='reset': ready to build (builderStart not yet called)
+    // state='done':  cache built, suggestions available
+    // state='fail':  gave up — disable entirely
+    // isBuilding():  currently fetching help/dump — suppress raw output
     return this.isBuilding() || (this.configEnabled && CONFIG.flightControllerIdentifier == "EMUF" && this.builder.state != 'fail');
 };
 
@@ -59,7 +64,13 @@ CliAutoComplete.initialize = function($textarea, sendLine, writeToOutput) {
 };
 
 CliAutoComplete.cleanup = function() {
-    this.$textarea.textcomplete('destroy');
+    // Stop the watchdog FIRST so it cannot fire after cleanup and call
+    // builderStart() again, which would send CLI sentinel bytes to the
+    // serial port after cliActive is false, poisoning the MSP stream.
+    this._builderWatchdogStop();
+    if (this.$textarea) {
+        this.$textarea.textcomplete('destroy');
+    }
     this.builder.state = 'reset';
     this.builder.numFails = 0;
 };
@@ -70,6 +81,14 @@ CliAutoComplete._builderWatchdogTouch = function() {
     this._builderWatchdogStop();
 
     GUI.timeout_add('autocomplete_builder_watchdog', function() {
+        // Do not retry if we are no longer in an active CLI session.
+        // Without this guard the watchdog sends CLI sentinel bytes to the
+        // serial port after the tab has been closed, corrupting the MSP stream.
+        if (!CONFIGURATOR.cliActive || !CONFIGURATOR.cliValid) {
+            self.builder.state = 'reset';
+            self.builder.numFails = 0;
+            return;
+        }
         if (self.builder.numFails++) {
             self.builder.state = 'fail';
             self.writeToOutput('Failed!<br># ');
@@ -87,8 +106,11 @@ CliAutoComplete._builderWatchdogStop = function() {
 };
 
 CliAutoComplete.builderStart = function() {
-    console.log('CliAutoComplete.builderStart called and running...');
-    GUI.log('CliAutoComplete.builderStart called and running...');
+    // Defensive guard: do not start if we are not in an active CLI session.
+    // The watchdog guard is the primary safeguard; this is a belt-and-braces check.
+    if (!CONFIGURATOR.cliActive || !CONFIGURATOR.cliValid) {
+        return;
+    }
     if (this.builder.state == 'reset') {
         this.cache = {
             commands: [],
@@ -266,7 +288,7 @@ CliAutoComplete._initTextcomplete = function() {
             }
         }
     )
-    .on('textComplete:show', function(e) {
+    .on('textComplete:show', function() {
         /**
          * The purpose of this code is to disable initially the `mouseover` menu item handler.
          * Normally, when the menu pops up, if the mouse cursor is in the same area,
@@ -394,7 +416,7 @@ CliAutoComplete._initTextcomplete = function() {
 
         strategy({ // "resource"
             match: /^(\s*resource\s+)(\w*)$/i,
-            search:  function(term, callback, match) {
+            search:  function(term, callback, _match) {
                 sendOnEnter = false;
                 var arr = cache.resources;
                 if (semver.gte(CONFIG.flightControllerVersion, "0.0.1")) {
@@ -421,7 +443,7 @@ CliAutoComplete._initTextcomplete = function() {
                 this.savedTerm = term;
                 callback(['&lt;1-' + cache.resourcesCount[match[2].toUpperCase()] + '&gt;']);
             },
-            replace: function(value) {
+            replace: function(_value) {
                 if (this.savedTerm) {
                     self.openLater();
                     return '$1$3 ';
@@ -441,7 +463,7 @@ CliAutoComplete._initTextcomplete = function() {
 
         strategy({ // "resource pin"
             match: /^(\s*resource\s+\w+\s+(\d*\s+)?)(\w*)$/i,
-            search:  function(term, callback, match) {
+            search:  function(term, callback, _match) {
                 sendOnEnter = !!term;
                 if (term) {
                     if ('none'.startsWith(term)) {
@@ -502,7 +524,7 @@ CliAutoComplete._initTextcomplete = function() {
 
         strategy({ // "mixer"
             match: /^(\s*mixer\s+)(\w*)$/i,
-            search:  function(term, callback, match) {
+            search:  function(term, callback, _match) {
                 sendOnEnter = true;
                 searcher(term, callback, cache.mixers, 1);
             }
@@ -513,7 +535,7 @@ CliAutoComplete._initTextcomplete = function() {
         $textarea.textcomplete('register', [
             strategy({ // "resource show all", from BF 4.0.0 onwards
                 match: /^(\s*resource\s+show\s+)(\w*)$/i,
-                search:  function(term, callback, matches) {
+                search:  function(term, callback, _matches) {
                     sendOnEnter = true;
                     searcher(term, callback, ['all'], 1, true);
                 },

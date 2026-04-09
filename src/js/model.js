@@ -32,6 +32,7 @@ var mixerList = [
 
 // 3D model
 var Model = function (wrapper, canvas) {
+    this.disposed = false;
     var useWebGLRenderer = this.canUseWebGLRenderer();
 
     this.wrapper = wrapper;
@@ -77,6 +78,10 @@ var Model = function (wrapper, canvas) {
 
     // Load model file, add to scene and render it
     this.loadJSON(model_file, (function (model) {
+        if (this.disposed || !this.scene || !this.modelWrapper || !this.renderer) {
+            return;
+        }
+
         this.model = model;
 
         this.modelWrapper.add(model);
@@ -89,7 +94,7 @@ var Model = function (wrapper, canvas) {
 Model.prototype.loadJSON = function (model_file, callback) {
     var loader = new THREE.JSONLoader();
 
-    loader.load('./resources/models/' + model_file + '.json', function (geometry, materials) {
+    loader.load('../resources/models/' + model_file + '.json', function (geometry, materials) {
         var modelMaterial = new THREE.MeshFaceMaterial(materials),
             model         = new THREE.Mesh(geometry, modelMaterial);
 
@@ -135,8 +140,50 @@ Model.prototype.render = function () {
     this.renderer.render(this.scene, this.camera);
 };
 
+Model.prototype.dispose = function () {
+    this.disposed = true;
+
+    if (this.model) {
+        this.model.traverse(function (child) {
+            if (child.geometry && typeof child.geometry.dispose === 'function') {
+                child.geometry.dispose();
+            }
+
+            if (child.material) {
+                if (Array.isArray(child.material)) {
+                    child.material.forEach(function (material) {
+                        if (material && typeof material.dispose === 'function') {
+                            material.dispose();
+                        }
+                    });
+                } else if (typeof child.material.dispose === 'function') {
+                    child.material.dispose();
+                }
+            }
+        });
+    }
+
+    if (this.renderer) {
+        if (typeof this.renderer.dispose === 'function') {
+            this.renderer.dispose();
+        }
+
+        if (typeof this.renderer.forceContextLoss === 'function') {
+            this.renderer.forceContextLoss();
+        }
+    }
+
+    this.model = null;
+    this.modelWrapper = null;
+    this.scene = null;
+    this.camera = null;
+    this.renderer = null;
+};
+
 // handle canvas resize
 Model.prototype.resize = function () {
+    if (this.disposed || !this.renderer || !this.camera) { return; }
+
     this.renderer.setSize(this.wrapper.width() * 2, this.wrapper.height() * 2);
 
     this.camera.aspect = this.wrapper.width() / this.wrapper.height();

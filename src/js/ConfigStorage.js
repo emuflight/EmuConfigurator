@@ -1,4 +1,5 @@
 'use strict';
+/* exported ConfigStorage */
 
 // idea here is to abstract around the use of chrome.storage.local as it functions differently from "localStorage" and IndexedDB
 // localStorage deals with strings, not objects, so the objects have been serialized.

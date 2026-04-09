@@ -3,10 +3,11 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="author" content="cTn"/>
-    <link type="text/css" rel="stylesheet" href="./node_modules/jbox/dist/jBox.min.css"/>
-    <link type="text/css" rel="stylesheet" href="./js/libraries/jquery.nouislider.min.css"/>
-    <link type="text/css" rel="stylesheet" href="./js/libraries/jquery.nouislider.pips.min.css"/>
-    <link type="text/css" rel="stylesheet" href="./js/libraries/flightindicators.css"/>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:;"/>
+    <link type="text/css" rel="stylesheet" href="./css/jBox.min.css"/>
+    <link type="text/css" rel="stylesheet" href="../libraries/jquery.nouislider.min.css"/>
+    <link type="text/css" rel="stylesheet" href="../libraries/jquery.nouislider.pips.min.css"/>
+    <link type="text/css" rel="stylesheet" href="../libraries/flightindicators.css"/>
     <link type="text/css" rel="stylesheet" href="./css/main.css" media="all"/>
     <link type="text/css" rel="stylesheet" href="./css/tabs/static_tab.css" media="all"/>
     <link type="text/css" rel="stylesheet" href="./css/tabs/landing.css" media="all"/>
@@ -35,7 +36,7 @@
     <link type="text/css" rel="stylesheet" href="./css/font-awesome/css/font-awesome.min.css" media="all">
     <link type="text/css" rel="stylesheet" href="./css/opensans_webfontkit/fonts.css" media="all"/>
     <link type="text/css" rel="stylesheet" href="./css/dropdown-lists/css/style_lists.css" media="all"/>
-    <link type="text/css" rel="stylesheet" href="./js/libraries/switchery/switchery.css" media="all"/>
+    <link type="text/css" rel="stylesheet" href="../libraries/switchery/switchery.css" media="all"/>
 
     <link type="text/css" rel="stylesheet" href="./css/main-dark.css" media="all" disabled/>
     <link type="text/css" rel="stylesheet" href="./css/tabs-dark/landing-dark.css" media="all" disabled/>
@@ -88,27 +89,89 @@
         @import url(./css/tabs-dark/transponder-dark.css) (prefers-color-scheme: dark);
     </style>
 
-    <script type="text/javascript" src="./node_modules/lru_map/lru.js"></script>
-    <script type="text/javascript" src="./node_modules/i18next/i18next.min.js"></script>
-    <script type="text/javascript" src="./node_modules/i18next-xhr-backend/i18nextXHRBackend.min.js"></script>
-    <script type="text/javascript" src="./node_modules/marked/marked.min.js"></script>
-    <script type="text/javascript" src="./node_modules/short-unique-id/dist/short-unique-id.min.js"></script>
-    <script type="text/javascript" src="./node_modules/object-hash/dist/object_hash.js"></script>
-    <script type="text/javascript" src="./js/libraries/q.js"></script>
-    <script type="text/javascript" src="./node_modules/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="./node_modules/jbox/dist/jBox.min.js"></script>
-    <script type="text/javascript" src="./node_modules/jquery-ui-npm/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="./js/libraries/d3.min.js"></script>
-    <script type="text/javascript" src="./js/libraries/jquery.nouislider.all.min.js"></script>
-    <script type="text/javascript" src="./js/libraries/three/three.min.js"></script>
-    <script type="text/javascript" src="./js/libraries/three/Projector.js"></script>
-    <script type="text/javascript" src="./js/libraries/three/CanvasRenderer.js"></script>
-    <script type="text/javascript" src="./js/libraries/jquery.flightindicators.js"></script>
-    <script type="text/javascript" src="./js/libraries/semver.js"></script>
-    <script type="text/javascript" src="./js/libraries/switchery/switchery.js"></script>
-    <script type="text/javascript" src="./node_modules/bluebird/js/browser/bluebird.min.js"></script>
-    <script type="text/javascript" src="./js/libraries/jquery.ba-throttle-debounce.min.js"></script>
-    <script type="text/javascript" src="./node_modules/inflection/inflection.min.js"></script>
+    <!-- jQuery & npm packages via Node.js require (since nodeIntegration: true in Electron) -->
+    <script type="text/javascript">
+        // Use Node.js require to load npm packages directly from node_modules
+        // Load each critical package individually so we know which one fails
+
+        try {
+            window.jQuery = window.$ = require('jquery');
+            console.log('[OK] jQuery loaded');
+        } catch(e) {
+            console.error('FATAL: Failed to load jQuery:', e.message);
+            console.error('jBox.min.js depends on jQuery and will fail to load');
+        }
+
+        try {
+            window.i18next = require('i18next');
+            console.log('[OK] i18next loaded');
+        } catch(e) {
+            console.error('ERROR: Failed to load i18next:', e.message);
+        }
+
+        try {
+            window.i18nextXHRBackend = require('i18next-xhr-backend');
+            console.log('[OK] i18next-xhr-backend loaded');
+        } catch(e) {
+            console.error('ERROR: Failed to load i18next-xhr-backend:', e.message);
+        }
+
+        try {
+            window.marked = require('marked');
+            console.log('[OK] marked loaded');
+        } catch(e) {
+            console.error('ERROR: Failed to load marked:', e.message);
+        }
+
+        try {
+            window.ShortUniqueId = require('short-unique-id');
+            console.log('[OK] short-unique-id loaded');
+        } catch(e) {
+            console.error('ERROR: Failed to load short-unique-id:', e.message);
+        }
+
+        try {
+            window.objectHash = require('object-hash');
+            console.log('[OK] object-hash loaded');
+        } catch(e) {
+            console.error('ERROR: Failed to load object-hash:', e.message);
+        }
+
+        try {
+            window.inflection = require('inflection');
+            console.log('[OK] inflection loaded');
+        } catch(e) {
+            console.error('ERROR: Failed to load inflection:', e.message);
+        }
+
+        try {
+            // Bluebird extends Promise with .reduce(), .map() etc. used by cli.js and others
+            window.Promise = require('bluebird');
+            console.log('[OK] bluebird Promise loaded');
+        } catch(e) {
+            // Bluebird is a hard dependency — its .reduce() and .map() APIs are
+            // used throughout (cli.js:108 and others). Falling back to native
+            // Promise causes silent runtime failures; fail fast instead.
+            throw e;
+        }
+
+        console.log('[OK] npm packages loaded via require()');
+    </script>
+    <script type="text/javascript" src="../node_modules/jbox/dist/jBox.min.js"></script>
+
+    <script type="text/javascript" src="../libraries/jquery.nouislider.all.min.js"></script>
+    <script type="text/javascript" src="../node_modules/jquery-flight-indicators/js/jquery.flightindicators.min.js"></script>
+    <script type="text/javascript" src="../node_modules/jquery-throttle-debounce/jquery.ba-throttle-debounce.min.js"></script>
+    <script type="text/javascript" src="../node_modules/jquery-ui-npm/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../node_modules/jquery-textcomplete/dist/jquery.textcomplete.min.js"></script>
+
+    <!-- Local/custom libraries only (not npm packages) -->
+    <script type="text/javascript" src="../libraries/lru.js"></script>
+    <script type="text/javascript" src="../libraries/d3.min.js"></script>
+    <script type="text/javascript" src="../libraries/q.js"></script>
+    <script type="text/javascript" src="../libraries/semver.js"></script>
+    <script type="text/javascript" src="../libraries/three/three.min.js"></script>
+    <script type="text/javascript" src="../libraries/switchery/switchery.js"></script>
     <script type="text/javascript" src="./js/injected_methods.js"></script>
     <script type="text/javascript" src="./js/ConfigStorage.js"></script>
     <script type="text/javascript" src="./js/data_storage.js"></script>
@@ -129,7 +192,6 @@
     <script type="text/javascript" src="./js/protocols/stm32.js"></script>
     <script type="text/javascript" src="./js/protocols/stm32usbdfu.js"></script>
     <script type="text/javascript" src="./js/localization.js"></script>
-    <script type="text/javascript" src="./js/boards.js"></script>
     <script type="text/javascript" src="./js/RateCurve.js"></script>
     <script type="text/javascript" src="./js/Features.js"></script>
     <script type="text/javascript" src="./js/Beepers.js"></script>
@@ -162,7 +224,6 @@
     <script type="text/javascript" src="./js/tabs/osd.js"></script>
     <script type="text/javascript" src="./js/tabs/power.js"></script>
     <script type="text/javascript" src="./js/tabs/transponder.js"></script>
-    <script type="text/javascript" src="./node_modules/jquery-textcomplete/dist/jquery.textcomplete.min.js"></script>
     <script type="text/javascript" src="./js/CliAutoComplete.js"></script>
     <script type="text/javascript" src="./js/DarkTheme.js"></script>
 
@@ -297,7 +358,6 @@
         <div id="tabs">
             <ul class="mode-disconnected">
                 <li class="tab_landing" id="tab_landing">           <a href="#" i18n="tabLanding" class="tabicon ic_welcome" i18n_title="tabLanding"></a></li>
-                <li class="tab_changelog">                          <a href="#" class="tabicon ic_help" i18n="tabChangelog"></a></li>
                 <li class="tab_privacy_policy">                     <a href="#" class="tabicon ic_help" i18n="tabPrivacyPolicy"></a></li>
                 <li class="tab_help" id="tab_help">                 <a href="#" i18n="tabHelp" class="tabicon ic_help" i18n_title="tabHelp"></a></li>
                 <li class="tab_firmware_flasher" id="tabFirmware">  <a href="#" i18n="tabFirmwareFlasher" class="tabicon ic_flasher" i18n_title="tabFirmwareFlasher"></a></li>
@@ -306,7 +366,7 @@
             <ul class="mode-connected">
                 <li class="tab_setup"><a href="#" i18n="tabSetup" class="tabicon ic_setup" i18n_title="tabSetup"></a></li>
                 <li class="tab_setup_osd"><a href="#" i18n="tabSetupOSD" class="tabicon ic_setup" i18n_title="tabSetupOSD"></a></li>
-                
+
                 <li class="tab_ports"><a href="#" i18n="tabPorts" class="tabicon ic_ports" i18n_title="tabPorts"></a></li>
                 <li class="tab_configuration"><a href="#" i18n="tabConfiguration" class="tabicon ic_config"
                                                  i18n_title="tabConfiguration"></a></li>

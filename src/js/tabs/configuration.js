@@ -212,7 +212,7 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
                 reverse = MIXER_CONFIG.reverseMotorDir ? "_reversed" : "";
             }
 
-            $('.mixerPreview img').attr('src', './resources/motor_order/' + mixerList[mixer - 1].image + reverse + '.svg');
+            $('.mixerPreview img').attr('src', '../resources/motor_order/' + mixerList[mixer - 1].image + reverse + '.svg');
         };
 
         var reverseMotorSwitch_e = $('#reverseMotorSwitch');

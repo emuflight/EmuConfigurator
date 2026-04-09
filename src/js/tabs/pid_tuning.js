@@ -2778,16 +2778,24 @@ TABS.pid_tuning.initialize = function(callback) {
             var selectProfile = $('.selectProfile');
             var selectRateProfile = $('.selectRateProfile');
 
-            $.each(selectProfileValues, function(key, value) {
-                if (key != CONFIG.profile)
-                    selectProfile.append(new Option(value, key));
-            });
-            $.each(selectRateProfileValues, function(key, value) {
-                if (key != CONFIG.rateProfile)
-                    selectRateProfile.append(new Option(value, key));
-            });
+            function refreshCopyProfileSelectors() {
+                selectProfile.empty();
+                $.each(selectProfileValues, function(key, value) {
+                    if (key !== self.currentProfile) {
+                        selectProfile.append(new Option(value, key));
+                    }
+                });
+
+                selectRateProfile.empty();
+                $.each(selectRateProfileValues, function(key, value) {
+                    if (key !== self.currentRateProfile) {
+                        selectRateProfile.append(new Option(value, key));
+                    }
+                });
+            }
 
             $('.copyprofilebtn').click(function() {
+                refreshCopyProfileSelectors();
                 $('.dialogCopyProfile').find('.contentProfile').show();
                 $('.dialogCopyProfile').find('.contentRateProfile').hide();
                 dialogCopyProfileMode = DIALOG_MODE_PROFILE;
@@ -2795,6 +2803,7 @@ TABS.pid_tuning.initialize = function(callback) {
             });
 
             $('.copyrateprofilebtn').click(function() {
+                refreshCopyProfileSelectors();
                 $('.dialogCopyProfile').find('.contentProfile').hide();
                 $('.dialogCopyProfile').find('.contentRateProfile').show();
                 dialogCopyProfileMode = DIALOG_MODE_RATEPROFILE;
@@ -2810,7 +2819,7 @@ TABS.pid_tuning.initialize = function(callback) {
                     case DIALOG_MODE_PROFILE:
                         COPY_PROFILE.type = DIALOG_MODE_PROFILE; // 0 = pid profile
                         COPY_PROFILE.dstProfile = parseInt(selectProfile.val());
-                        COPY_PROFILE.srcProfile = CONFIG.profile;
+                        COPY_PROFILE.srcProfile = self.currentProfile;
 
                         MSP.send_message(MSPCodes.MSP_COPY_PROFILE, mspHelper.crunch(MSPCodes.MSP_COPY_PROFILE), false, close_dialog);
 
@@ -2819,7 +2828,7 @@ TABS.pid_tuning.initialize = function(callback) {
                     case DIALOG_MODE_RATEPROFILE:
                         COPY_PROFILE.type = DIALOG_MODE_RATEPROFILE; // 1 = rate profile
                         COPY_PROFILE.dstProfile = parseInt(selectRateProfile.val());
-                        COPY_PROFILE.srcProfile = CONFIG.rateProfile;
+                        COPY_PROFILE.srcProfile = self.currentRateProfile;
 
                         MSP.send_message(MSPCodes.MSP_COPY_PROFILE, mspHelper.crunch(MSPCodes.MSP_COPY_PROFILE), false, close_dialog);
 
@@ -2907,7 +2916,15 @@ TABS.pid_tuning.initialize = function(callback) {
                     GUI.log(i18n.getMessage('pidTuningEepromSaved'));
                     //MSP 1.51 Experimental - Preset Dynamic_Filter toggle
                     if (dynamicFilterWasModded) {
-                        $('a.refresh').click(); //refresh UI (show dynamic filter fields)
+                        // Defer outside the Bluebird promise handler to avoid
+                        // "promise created in handler but not returned" warning.
+                        // Call refresh() directly instead of triggering DOM click
+                        // to avoid tight coupling with UI elements.
+                        setTimeout(function() { 
+                            self.refresh(function() {
+                                GUI.log(i18n.getMessage('pidTuningDataRefreshed'));
+                            });
+                        }, 0);
                     }
                     //end MSP 1.51 Experimental - Preset Dynamic_Filter toggle
                 }).then(function() {
@@ -2945,19 +2962,52 @@ TABS.pid_tuning.getReceiverData = function() {
 };
 
 TABS.pid_tuning.initRatesPreview = function() {
+    if (this.ratesClickResizeHandler) {
+        $('.tab-pid_tuning .tab_container .rates').off('click', this.ratesClickResizeHandler);
+    }
+
+    if (this.ratesClickLabelHandler) {
+        $('.tab-pid_tuning .tab_container .rates').off('click', this.ratesClickLabelHandler);
+    }
+
+    if (this.windowResizeHandler) {
+        $(window).off('resize', this.windowResizeHandler);
+    }
+
+    if (this.windowLabelResizeHandler) {
+        $(window).off('resize', this.windowLabelResizeHandler);
+    }
+
+    if (this.renderFrameId) {
+        cancelAnimationFrame(this.renderFrameId);
+        this.renderFrameId = null;
+    }
+
+    if (this.model) {
+        this.model.dispose();
+    }
+
+    // Reset the clock to prevent getDelta() from accumulating time spent off-tab
+    this.clock = null;
+
     this.keepRendering = true;
     this.model = new Model($('.rates_preview'), $('.rates_preview canvas'));
+    this.renderModelBound = this.renderModel.bind(this);
+    this.ratesClickResizeHandler = $.proxy(this.model.resize, this.model);
+    this.ratesClickLabelHandler = $.proxy(this.updateRatesLabels, this);
+    this.windowResizeHandler = $.proxy(this.model.resize, this.model);
+    this.windowLabelResizeHandler = $.proxy(this.updateRatesLabels, this);
 
-    $('.tab-pid_tuning .tab_container .rates').on('click', $.proxy(this.model.resize, this.model));
-    $('.tab-pid_tuning .tab_container .rates').on('click', $.proxy(this.updateRatesLabels, this));
+    $('.tab-pid_tuning .tab_container .rates').on('click', this.ratesClickResizeHandler);
+    $('.tab-pid_tuning .tab_container .rates').on('click', this.ratesClickLabelHandler);
 
-    $(window).on('resize', $.proxy(this.model.resize, this.model));
-    $(window).on('resize', $.proxy(this.updateRatesLabels, this));
+    $(window).on('resize', this.windowResizeHandler);
+    $(window).on('resize', this.windowLabelResizeHandler);
 };
 
 TABS.pid_tuning.renderModel = function() {
     if (this.keepRendering) {
-        requestAnimationFrame(this.renderModel.bind(this));
+        this.renderFrameId = requestAnimationFrame(this.renderModelBound);
     }
 
     if (!this.clock) {
@@ -2979,11 +3029,40 @@ TABS.pid_tuning.renderModel = function() {
 
 TABS.pid_tuning.cleanup = function(callback) {
     var self = this;
-    if (self.model) {
-        $(window).off('resize', $.proxy(self.model.resize, self.model));
+    if (self.ratesClickResizeHandler) {
+        $('.tab-pid_tuning .tab_container .rates').off('click', self.ratesClickResizeHandler);
+        self.ratesClickResizeHandler = null;
     }
-    $(window).off('resize', $.proxy(this.updateRatesLabels, this));
+
+    if (self.ratesClickLabelHandler) {
+        $('.tab-pid_tuning .tab_container .rates').off('click', self.ratesClickLabelHandler);
+        self.ratesClickLabelHandler = null;
+    }
+
+    if (self.windowResizeHandler) {
+        $(window).off('resize', self.windowResizeHandler);
+        self.windowResizeHandler = null;
+    }
+
+    if (self.windowLabelResizeHandler) {
+        $(window).off('resize', self.windowLabelResizeHandler);
+        self.windowLabelResizeHandler = null;
+    }
+
     self.keepRendering = false;
+
+    if (self.renderFrameId) {
+        cancelAnimationFrame(self.renderFrameId);
+        self.renderFrameId = null;
+    }
+
+    self.renderModelBound = null;
+
+    if (self.model) {
+        self.model.dispose();
+        self.model = null;
+    }
+
     if (callback) callback();
 };
 
@@ -3471,9 +3550,3 @@ TABS.pid_tuning.changeRatesSystem = function(sameType) {
     }
 };
 //end MSP 1.51
-
-
-TABS.pid_tuning.cleanup = function (callback) {
-    this.keepRendering = false;
-    if (callback) callback();
-};

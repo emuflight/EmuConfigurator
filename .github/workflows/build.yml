@@ -1,257 +1,422 @@
 on:
   push:
     tags:
-    - '*'
-    #branches:
-    #- '*'
+      - 'v*'
+      - 'test-*'
+    branches:
+      - main
+      - master
+      - develop
   pull_request:
     branches:
-    - '*'
-  # repository_dispatch is a newer github-actions feature that will allow building from triggers other than code merge/PR
-  repository_dispatch:
-    types: [build]
+      - '*'
   workflow_dispatch:
 
-name: Build EmuConfigurator
+name: Build EmuConfigurator (Electron)
 jobs:
   build:
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
-    timeout-minutes: 40
-    continue-on-error: false
+    timeout-minutes: 60
     runs-on: ${{ matrix.os }}
+    # Node.js 24.x "Krypton" - Active LTS (confirmed 2026-03-30)
+    # https://nodejs.org/en/about/previous-releases
+    # actions/checkout@v6, actions/setup-node@v6 (confirmed 2026-03-30)
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+      COREPACK_ENABLE_DOWNLOAD_PROMPT: 0
     strategy:
       fail-fast: false
-      max-parallel: 3
       matrix:
-        #https://github.com/actions/runner-images
-        os: [ubuntu-22.04, macos-11, windows-2022]
+        # Pure include-only matrix: each entry is an explicit standalone job.
+        # Avoids GitHub Actions ambiguity when two includes share the same os value.
+        include:
+          - os: ubuntu-latest
+            artifact-suffix: linux-x64
+          - os: macos-latest
+            artifact-suffix: macos-arm64
+          - os: macos-26-intel
+            artifact-suffix: macos-x86_64
+          - os: windows-latest
+            artifact-suffix: windows-x64
+            arch: x64
+          - os: windows-latest
+            artifact-suffix: windows-ia32
+            arch: ia32
     outputs:
-      buildtag: ${{ steps.ids.outputs.buildtag }}
-      shortsha: ${{ steps.ids.outputs.shortsha }}
+      buildtag: ${{ steps.build-info.outputs.tag }}
+      shortsha: ${{ steps.build-info.outputs.sha }}
     steps:
-      - name: git checkout
-        uses: actions/checkout@v4
-        continue-on-error: false
+      - name: Checkout
+        uses: actions/checkout@v6
 
-      - name: get tag & short-sha
+      - name: Clean Output Directories
+        shell: bash
         run: |
-          echo "REVISION_TAG=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
-          echo "SHORT_SHA=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
-        continue-on-error: true
+          rm -rf out dist
+          echo "[OK] Cleaned out/ and dist/ directories"
 
-      - id: ids
-        name : set outputs
+      - name: Build Info
+        id: build-info
+        shell: bash
         run: |
-          echo "::set-output name=buildtag::${{ env.REVISION_TAG }}"
-          echo "::set-output name=shortsha::${{ env.SHORT_SHA }}"
-        continue-on-error: true
+          TAG=${GITHUB_REF#refs/tags/}
+          if [ "$TAG" = "$GITHUB_REF" ]; then TAG="$GITHUB_RUN_NUMBER"; fi
+          SHA=$(git rev-parse --short HEAD)
+          echo "tag=$TAG" >> $GITHUB_OUTPUT
+          echo "sha=$SHA" >> $GITHUB_OUTPUT
 
-      - name: setup node
-        uses: actions/setup-node@v4
+      - name: Setup Node
+        uses: actions/setup-node@v6
         with:
-          node-version: '12'
-        continue-on-error: false
+          node-version: '24.x'
+          cache: 'yarn'
 
-      # for debugging
-      - name: show variables
+      - name: Setup Linux (rpm, build tools)
+        if: runner.os == 'Linux'
+        run: sudo apt update && sudo apt install -y rpm build-essential python3 libudev-dev
+
+      - name: Yarn Install
+        run: yarn install --frozen-lockfile
+
+      - name: Lint
+        run: yarn lint
+
+      - name: Make Packages
+        env:
+          APPLE_SIGNING_ENTITLEMENTS: ./sign/entitlements.plist
+          EMUCFG_ARCH: ${{ matrix.arch || '' }}
+          # For certificate-based signing, set these as GitHub secrets:
+          # APPLE_SIGNING_IDENTITY: "Apple Distribution: [Team Name]"
+          # APPLE_TEAM_ID: "XXXXXXXXXX"
+          # WINDOWS_CERT_FILE: path to EmuCert.p12
+          # WINDOWS_CERT_PASSWORD: certificate password
+        shell: bash
         run: |
-          echo "Build: ${{ github.RUN_NUMBER }}"
-          echo "Commit: ${{ github.SHA }}"
-          echo "ShortSHA: ${{ env.SHORT_SHA }}"
-          echo "Ref: ${{ GITHUB.REF }}"
-          echo "Rev Tag: ${{ env.REVISION_TAG }}"
-          echo "Actor: ${{ github.ACTOR }}"
-          echo "Repo: ${{ github.REPOSITORY }}"
-          echo "BuildTag: ${{ steps.ids.outputs.buildtag }}"
-          echo "ShortSha: ${{ steps.ids.outputs.shortsha }}"
-        continue-on-error: true
+          node scripts/build.js
+          if [ -n "${EMUCFG_ARCH:-}" ]; then
+            # Explicitly pass --arch: electron-forge make defaults to host arch (always x64)
+            # and ignores packagerConfig.arch unless --arch is given on the command line.
+            yarn run electron-forge make --arch "$EMUCFG_ARCH"
+          else
+            yarn run electron-forge make
+          fi
+        # Packages built on each platform (architecture-specific for Windows):
+        # macOS: .zip (portable, DMG skipped in CI - requires native macos-alias module)
+        # Windows: .msi (WiX installer → Program Files, proper Add/Remove, no auto-launch) + .zip (portable)
+        # Linux: .deb, .rpm (native package managers), plus .zip (portable)
 
-      - name: which python
+      - name: Restructure .zip Artifacts (flatten OS folders)
+        if: runner.os == 'Linux'
+        # macOS ZIPs are handled by the macOS-specific step below (preserves .app bundle).
+        # Windows ZIPs use backslash path separators which Git Bash unzip cannot handle.
+        # Windows portable ZIPs are uploaded as-is (app folder inside).
+        shell: bash
         run: |
-          echo "python version:"
-          python --version
-          which python
+          set -euo pipefail
+          ROOT_DIR=$(pwd)
+          ZIP_DIR="$ROOT_DIR/out/make/zip"
 
-      # build stuff
-      - name: yarn install
+          # Electron Forge places ZIPs at zip/platform/arch/file.zip (three levels).
+          # Use nullglob to safely handle no matches
+          shopt -s nullglob
+          zipfiles=( "$ZIP_DIR"/*/*/*.zip )
+          shopt -u nullglob
+
+          if [ ${#zipfiles[@]} -eq 0 ]; then
+            echo "[WARN] No .zip files found in $ZIP_DIR - skipping restructure"
+            exit 0
+          fi
+
+          for zipfile in "${zipfiles[@]}"; do
+            basename=$(basename "$zipfile")
+            tmpdir=$(mktemp -d) || { echo "[FAIL] mktemp failed"; exit 1; }
+            output_zip="$ZIP_DIR/$basename"
+
+            echo "Processing: $zipfile"
+
+            # Unzip with error handling
+            if ! unzip -q "$zipfile" -d "$tmpdir"; then
+              echo "[FAIL] unzip failed for $zipfile"
+              rm -rf "$tmpdir"
+              exit 1
+            fi
+
+            # Find the first directory safely
+            if ! cd "$tmpdir"; then
+              echo "[FAIL] cannot cd to tmpdir $tmpdir"
+              rm -rf "$tmpdir"
+              exit 1
+            fi
+
+            # Find first directory using a robust method
+            app_folder=$(find . -maxdepth 1 -type d ! -name '.' -print -quit)
+            if [ -z "$app_folder" ]; then
+              echo "[FAIL] no app folder found in $tmpdir for $zipfile"
+              cd "$ZIP_DIR"
+              rm -rf "$tmpdir"
+              exit 1
+            fi
+
+            app_folder="${app_folder#./}"  # Remove leading ./
+            if ! cd "$app_folder"; then
+              echo "[FAIL] cannot cd to app folder $app_folder in $tmpdir"
+              cd "$ZIP_DIR"
+              rm -rf "$tmpdir"
+              exit 1
+            fi
+
+            # Re-zip with error handling
+            if ! zip -r -q "$output_zip" .; then
+              echo "[FAIL] zip failed for $zipfile in app folder $app_folder"
+              cd "$ZIP_DIR"
+              rm -rf "$tmpdir"
+              exit 1
+            fi
+
+            # Return to zip directory
+            if ! cd "$ZIP_DIR"; then
+              echo "[FAIL] cannot return to $ZIP_DIR"
+              rm -rf "$tmpdir"
+              exit 1
+            fi
+
+            # Remove the original nested zip only after successful re-zip
+            if [ -f "$zipfile" ] && [ "$zipfile" != "$output_zip" ]; then
+              rm -f "$zipfile" || { echo "[WARN] failed to remove original zip $zipfile"; }
+            fi
+
+            # Cleanup
+            rm -rf "$tmpdir" || { echo "[WARN] failed to remove tmpdir $tmpdir"; }
+            echo "[OK] Restructured: $basename"
+          done
+
+          echo "[OK] All .zip files restructured (OS folders removed)"
+
+      - name: "Extract macOS .app from Forge zip"
+        if: startsWith(matrix.os, 'macos')
+        shell: bash
+        env:
+          APP_SUFFIX: ${{ matrix.artifact-suffix }}
         run: |
-          npm config set fetch-retry-maxtimeout 600000 -g
-          yarn install --immutable --immutable-cache --check-cache
+          set -euo pipefail
+          ROOT_DIR=$(pwd)
+          ZIP_DIR="$ROOT_DIR/out/make/zip"
+          ARCH_NAME="${APP_SUFFIX#macos-}"
+          APP_NAME="EmuConfigurator-${ARCH_NAME}.app"
 
-      # this forces appdmg install even though package.json optionalDependencies has/needs it.
-      - name: setup macos
-        if: ${{ startsWith(matrix.os, 'macos') }}
+          # Forge output: zip/darwin/{arch}/EmuConfigurator-darwin-{arch}-{ver}.zip
+          shopt -s nullglob
+          zipfiles=( "$ZIP_DIR"/*/*/*.zip )
+          shopt -u nullglob
+
+          if [ ${#zipfiles[@]} -eq 0 ]; then
+            echo "[WARN] No .zip files found in $ZIP_DIR - skipping macOS extract"
+            exit 0
+          fi
+
+          for zipfile in "${zipfiles[@]}"; do
+            orig_name=$(basename "$zipfile")
+            version=$(echo "$orig_name" | sed -nE 's/.*([0-9]+\.[0-9]+\.[0-9]+).*/\1/p' || echo '0.0.0')
+            [ -z "$version" ] && version='0.0.0'
+            OUTPUT_ZIP="$ZIP_DIR/EmuConfigurator-darwin-${ARCH_NAME}-${version}.zip"
+
+            echo "Processing: $zipfile -> $OUTPUT_ZIP"
+            tmpdir=$(mktemp -d) || { echo "[FAIL] mktemp failed"; exit 1; }
+
+            # Extract outer zip
+            unzip -q "$zipfile" -d "$tmpdir"
+
+            # Handle nested zip (Forge sometimes wraps in another zip)
+            nested_zip=$(find "$tmpdir" -type f -name '*.zip' | head -n1 || true)
+            if [ -n "$nested_zip" ]; then
+              nested_tmp=$(mktemp -d)
+              unzip -q "$nested_zip" -d "$nested_tmp"
+              rm -rf "$tmpdir"
+              tmpdir="$nested_tmp"
+            fi
+
+            # Find .app bundle
+            app_bundle=$(find "$tmpdir" -type d -name '*.app' | head -n1 || true)
+            if [ -z "$app_bundle" ]; then
+              contents_dir=$(find "$tmpdir" -type d -name 'Contents' | head -n1 || true)
+              if [ -n "$contents_dir" ]; then
+                app_bundle="$(dirname "$contents_dir")"
+              else
+                echo "[FAIL] no .app or Contents/ found in $zipfile"
+                rm -rf "$tmpdir"; exit 1
+              fi
+            fi
+
+            # Rename .app bundle to arch-specific name
+            app_parent="$(dirname "$app_bundle")"
+            mv "$app_bundle" "$app_parent/$APP_NAME"
+
+            # Re-zip the .app so upload-artifact gets a plain .zip file
+            # Result: EmuConfigurator-darwin-arm64-0.4.3.zip → EmuConfigurator-arm64.app/
+            (cd "$app_parent" && zip -r -q "$OUTPUT_ZIP" "$APP_NAME")
+
+            rm -rf "$tmpdir"
+            rm -f "$zipfile"
+            echo "[OK] Created $OUTPUT_ZIP containing $APP_NAME"
+          done
+
+          # Clean empty subdirs
+          find "$ZIP_DIR" -mindepth 1 -type d -empty -delete 2>/dev/null || true
+
+          # Verify
+          shopt -s nullglob
+          out_zips=( "$ZIP_DIR"/*.zip )
+          shopt -u nullglob
+          if [ ${#out_zips[@]} -eq 0 ]; then
+            echo "[FAIL] No output zip found after macOS extraction"
+            exit 1
+          fi
+          echo "[OK] macOS release zip ready: ${out_zips[*]}"
+
+      - name: Flatten Artifacts for Upload
+        shell: bash
         run: |
-          npm install appdmg@0.6.6 --python=python2.7
-        continue-on-error: true
+          set -euo pipefail
+          # Move every artifact to the root of its maker output directory.
+          # Electron Forge nests output at <maker>/[platform/][arch]/file — we want <maker>/file.
+          # On non-Windows the zip restructure step already handled out/make/zip.
+          for dir in out/make/zip out/make/wix out/make/deb out/make/rpm; do
+            [ -d "$dir" ] || continue
+            find "$dir" -mindepth 2 -type f | while IFS= read -r f; do
+              dest="$dir/$(basename "$f")"
+              [ "$f" = "$dest" ] && continue
+              mv -f "$f" "$dest" && echo "[OK] Flattened: $(basename "$f")"
+            done
+            find "$dir" -mindepth 1 -type d -empty -delete 2>/dev/null || true
+          done
 
-      - name: yarn gulp clean-release
-        run: yarn gulp clean-release
-        continue-on-error: true
-
-      - name: yarn gulp release --linux64
-        if: ${{ startsWith(matrix.os, 'ubuntu') }}
+      - name: Rename Windows MSI artifacts
+        if: matrix.os == 'windows-latest'
+        shell: bash
+        env:
+          EMUCFG_ARCH: ${{ matrix.arch }}
         run: |
-          sudo apt install -y rpm
-          yarn gulp release --linux64
-        continue-on-error: false
+          set -euo pipefail
+          PKG_VERSION=$(node -p "require('./package.json').version" 2>/dev/null || echo '0.0.0')
+          for src in out/make/wix/*.msi; do
+            [ -f "$src" ] || continue
+            filename=$(basename "$src")
+            if [[ "$filename" =~ win32-(x64|ia32)-(.+)\.msi$ ]]; then
+              arch="${BASH_REMATCH[1]}"
+              version="${BASH_REMATCH[2]}"
+            else
+              arch="$EMUCFG_ARCH"
+              version="$PKG_VERSION"
+            fi
+            dest="$(dirname "$src")/EmuConfigurator-${arch}-${version}.msi"
+            mv -f "$src" "$dest"
+            echo "[OK] Renamed $filename -> $(basename "$dest")"
+          done
 
-      - name: yarn gulp release --osx64
-        if: ${{ startsWith(matrix.os, 'macos') }}
+      - name: Validate Artifacts Exist
+        shell: bash
         run: |
-          yarn gulp release --osx64
-        continue-on-error: false
+          if [ ! -d "out/make" ] || [ -z "$(find out/make -type f 2>/dev/null | head -1)" ]; then
+            echo "[ERROR] No artifacts found in out/make/"
+            exit 1
+          fi
+          echo "[OK] Artifacts validated"
 
-      - name: yarn gulp release  --win32 --win64
-        if: ${{ startsWith(matrix.os, 'windows') }}
-        run: yarn gulp release  --win32 --win64
-        continue-on-error: false
-
-      - name: Upload Artifacts
-        if: ${{ startsWith(matrix.os, 'ubuntu') }}
+      # Upload Linux .deb
+      - name: Upload Artifact (linux .deb)
+        if: matrix.os == 'ubuntu-latest'
         uses: actions/upload-artifact@v4
         with:
-          name: EmuConfigurator-${{ github.ACTOR }}-${{ github.RUN_NUMBER }}-Linux
-          path: |
-            release/*.rpm
-            release/*.deb
-            release/*.zip
-      - name: Upload Artifacts
-        if: ${{ startsWith(matrix.os, 'macos') }}
-        uses: actions/upload-artifact@v4
-        with:
-          name: EmuConfigurator-${{ github.ACTOR }}-${{ github.RUN_NUMBER }}-OSX
-          path: release/*.dmg
-      - name: Upload Artifacts
-        if: ${{ startsWith(matrix.os, 'windows') }}
-        uses: actions/upload-artifact@v4
-        with:
-          name: EmuConfigurator-${{ github.ACTOR }}-${{ github.RUN_NUMBER }}-Windows
-          path: |
-            release/*win*.exe
-            release/*win*.zip
+          name: EmuConfigurator-linux-deb
+          path: out/make/deb/*.deb
+          retention-days: 20
 
-  releases:
-    if: startsWith(github.ref, 'refs/tags/')
+      # Upload Linux .rpm
+      - name: Upload Artifact (linux .rpm)
+        if: matrix.os == 'ubuntu-latest'
+        uses: actions/upload-artifact@v4
+        with:
+          name: EmuConfigurator-linux-rpm
+          path: out/make/rpm/*.rpm
+          retention-days: 20
+
+      # Upload Linux .zip
+      - name: Upload Artifact (linux .zip)
+        if: matrix.os == 'ubuntu-latest'
+        uses: actions/upload-artifact@v4
+        with:
+          name: EmuConfigurator-linux-zip
+          path: out/make/zip/*.zip
+          retention-days: 20
+
+      # Upload macOS ARM64 .zip (contains EmuConfigurator-arm64.app at root)
+      - name: Upload Artifact (macos arm64 .app)
+        if: matrix.os == 'macos-latest'
+        uses: actions/upload-artifact@v4
+        with:
+          name: EmuConfigurator-macos-arm64
+          path: out/make/zip/*.zip
+          retention-days: 20
+
+      # Upload macOS x86_64 .zip (contains EmuConfigurator-x86_64.app at root)
+      - name: Upload Artifact (macos x86_64 .app)
+        if: matrix.os == 'macos-26-intel'
+        uses: actions/upload-artifact@v4
+        with:
+          name: EmuConfigurator-macos-x86_64
+          path: out/make/zip/*.zip
+          retention-days: 20
+
+      # Upload Windows .msi (WiX installer)
+      - name: Upload Artifact (windows .msi)
+        if: matrix.os == 'windows-latest'
+        uses: actions/upload-artifact@v4
+        with:
+          name: EmuConfigurator-windows-msi-${{ matrix.arch }}
+          path: out/make/wix/*.msi
+          retention-days: 20
+
+      # Upload Windows .zip (portable)
+      - name: Upload Artifact (windows .zip)
+        if: matrix.os == 'windows-latest'
+        uses: actions/upload-artifact@v4
+        with:
+          name: EmuConfigurator-windows-zip-${{ matrix.arch }}
+          path: out/make/zip/*.zip
+          retention-days: 20
+
+  release:
     needs: build
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    timeout-minutes: 10
     runs-on: ubuntu-latest
-    continue-on-error: false
+    if: startsWith(github.ref, 'refs/tags/v')
     steps:
-      # for debugging
-      - name: show variables
-        run: |
-          echo "Build: ${{ github.RUN_NUMBER }}"
-          echo "Commit: ${{ github.SHA }}"
-          echo "Ref: ${{ GITHUB.REF }}"
-          echo "Actor: ${{ github.ACTOR }}"
-          echo "Repo: ${{ github.REPOSITORY }}"
-          echo "outputs.buildtag: ${{ needs.build.outputs.buildtag }}"
-          echo "outputs.shortsha: ${{ needs.build.outputs.shortsha }}"
-          echo "NOW=$(date +'%Y%m%d.%H%M%S')" >> $GITHUB_ENV
-        continue-on-error: true
-
-      - name: download artifacts
+      - name: Download All Artifacts
         uses: actions/download-artifact@v4
+        # v4 is current latest for download-artifact
         with:
           path: ./Artifacts
-        continue-on-error: false
 
-      - name: list artifacts
+      - name: List Release Artifacts
         run: |
-          echo "######## debug find emuflight* ########"
-          find ./ -iname "emuflight-configurator*.*"
-        continue-on-error: true
+          echo "### Release Artifacts ###"
+          find ./Artifacts -type f \( -name "*.msi" -o -name "*.deb" -o -name "*.rpm" -o -name "*.zip" \) -exec ls -lh {} \;
 
-      # Draft Dev-Unstable releases via ncipollo/release-action
-      # softprops/action-gh-release fails to release on separate repo
-      - name: dev-unstable draft
-        if: contains(github.ref, 'test') || contains(github.ref, 'unstab')
-        uses: ncipollo/release-action@v1
+      - name: Upload Release Assets
+        uses: softprops/action-gh-release@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          repo: dev-unstable
-          owner: emuflight
-          token: ${{ secrets.NC_PAT_EMUF }}
-          tag: "${{ env.NOW }}-cfg"
+          tag_name: ${{ github.ref_name }}
+          name: "EmuConfigurator ${{ github.ref_name }}"
+          files: |
+            ./Artifacts/**/EmuConfigurator-*.msi
+            ./Artifacts/**/EmuConfigurator-*.zip
+            ./Artifacts/**/EmuConfigurator-*.deb
+            ./Artifacts/**/EmuConfigurator-*.rpm
           draft: true
-          prerelease: true
-          allowUpdates: true
-          artifacts: ./Artifacts/EmuConfigurator-*/emuflight-configurator*.*
-          artifactContentType: raw
-          name:  "DEV-UNSTABLE EmuConfig / Build ${{ github.run_number }}"
-          body: |
-            ## EmuConfigurator BUILD for TESTING
-            ### Build ${{ github.run_number }}
-            ### Commit SHA: ${{ needs.build.outputs.shortsha }} (${{ github.sha }})
-            ### BuildTag: ${{ needs.build.outputs.buildtag }}
-            ### What to Test/Feedback: (Feedback in EmuFlight's Discord or GitHub Discussions)
-            <details><summary>Changes in this Build:</summary>
-            <!-- require single blank line below -->
+          prerelease: ${{ contains(github.ref, 'rc') }}
 
-            ```
-            [insert commit history here]
-            ```
-            </details>
-        continue-on-error: true
-
-      # Draft Dev-master releases via ncipollo/release-action
-      # softprops/action-gh-release fails to release on separate repo
-      - name: dev-master draft
-        if: contains(github.ref, 'master')
-        uses: ncipollo/release-action@v1
-        with:
-          repo: dev-master
-          owner: emuflight
-          token: ${{ secrets.NC_PAT_EMUF }}
-          tag: "${{ env.NOW }}-cfg"
-          draft: true
-          prerelease: true
-          allowUpdates: true
-          artifacts: ./Artifacts/EmuConfigurator-*/emuflight-configurator*.*
-          artifactContentType: raw
-          name:  "DEV-MASTER EmuConfig / Build ${{ github.run_number }}"
-          body: |
-            ## EmuConfigurator BUILD of MASTER
-            ### Build ${{ github.run_number }}
-            ### Commit SHA: ${{ needs.build.outputs.shortsha }} (${{ github.sha }})
-            ### BuildTag: ${{ needs.build.outputs.buildtag }}
-            ### Feedback Welcome in EmuFlight's Discord or GitHub Discussions.
-            <details><summary>Changes in this Build:</summary>
-            <!-- require single blank line below -->
-
-            ```
-            [insert commit history here]
-            ```
-            </details>
-        continue-on-error: true
-
-      - name: main-repo draft release
-        if: contains(github.ref, 'releas')
-        uses: ncipollo/release-action@v1
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          draft: true
-          prerelease: true
-          allowUpdates: true
-          # tag: use the build Number, but we MUST manually change to version so that it creates a version-tag on release
-          tag: "${{ github.RUN_NUMBER }}"
-          artifacts: ./Artifacts/EmuConfigurator-*/emuflight-configurator*.*
-          artifactContentType: raw
-          name:  "DRAFT / EmuConfigurator / GitHub Build ${{ github.RUN_NUMBER }}"
-          body: |
-            ## EmuConfigurator
-            ### Build: ${{ github.RUN_NUMBER }}
-            ### Commit SHA: ${{ needs.build.outputs.shortsha }} (${{ github.sha }})
-            ### BuildTag: ${{ needs.build.outputs.buildtag }}
-            <details><summary>Changes in this Release:</summary>
-            <!-- require single blank line below -->
-
-            ```
-            [insert commit history here]
-            ```
-            </details>
-        continue-on-error: false
+      - name: Release Failed Notification
+        if: failure()
+        run: |
+          echo "[ERROR] Release upload failed for ${{ github.ref_name }}"
+          exit 1

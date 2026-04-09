@@ -324,7 +324,24 @@ function finishOpen() {
 
     onConnect();
 
-    GUI.selectDefaultTabWhenConnected();
+    // If cli.cleanup stored a pending tab-switch callback (because the CLI
+    // 'exit' command causes an FC reboot and USB re-enumerate), invoke it here
+    // exactly once now that the full MSP handshake is verified complete.
+    // Skipping selectDefaultTabWhenConnected avoids a double tab-initialization
+    // that would occur if both code paths tried to initialize the target tab.
+    if (GUI.pendingAfterReconnect) {
+        var pending = GUI.pendingAfterReconnect;
+        GUI.pendingAfterReconnect = null;
+        // Clear the cli.cleanup watchdog timeout since the callback is being invoked
+        if (typeof TABS !== 'undefined' && TABS.cli && TABS.cli._pendingAfterReconnectTimeout) {
+            clearTimeout(TABS.cli._pendingAfterReconnectTimeout);
+            TABS.cli._pendingAfterReconnectTimeout = null;
+        }
+        console.log('[finishOpen] invoking pending CLI exit tab-switch callback');
+        GUI.timeout_add('cli_exit_tab_switch', pending, 200);
+    } else {
+        GUI.selectDefaultTabWhenConnected();
+    }
 }
 
 function connectCli() {
@@ -428,6 +445,25 @@ function onClosed(result) {
     CONFIGURATOR.connectionValid = false;
     CONFIGURATOR.cliValid = false;
     CONFIGURATOR.cliActive = false;
+
+    // Clear any pending callback from CLI exit ONLY if it's not a callable pending callback.
+    // If it IS a function, it's likely from a CLI reboot cycle and should be preserved
+    // through this disconnect so finishOpen() can consume it on the next connection.
+    if (typeof GUI.pendingAfterReconnect !== 'function') {
+        GUI.pendingAfterReconnect = null;
+        // Also clear the cli.cleanup watchdog timeout when clearing the callback
+        if (typeof TABS !== 'undefined' && TABS.cli && TABS.cli._pendingAfterReconnectTimeout) {
+            clearTimeout(TABS.cli._pendingAfterReconnectTimeout);
+            TABS.cli._pendingAfterReconnectTimeout = null;
+        }
+    }
+
+    // Clean up any active CLI state (e.g., if device was unplugged during CLI tab edit)
+    // Without this, CliAutoComplete.builder.state remains in building state and
+    // isBuilding() returns true even after disconnect.
+    if (typeof CliAutoComplete !== 'undefined') {
+        CliAutoComplete.cleanup();
+    }
 }
 
 function read_serial(info) {
@@ -524,35 +560,6 @@ function have_sensor(sensors_detected, sensor_code) {
             }
     }
     return false;
-}
-
-function update_dataflash_global() {
-    var supportsDataflash = DATAFLASH.totalSize > 0;
-    if (supportsDataflash){
-
-         $(".noflash_global").css({
-             display: 'none'
-         });
-
-         $(".dataflash-contents_global").css({
-             display: 'block'
-         });
-
-         $(".dataflash-free_global").css({
-             width: (100-(DATAFLASH.totalSize - DATAFLASH.usedSize) / DATAFLASH.totalSize * 100) + "%",
-             display: 'block'
-         });
-         $(".dataflash-free_global div").text('Dataflash: free ' + formatFilesize(DATAFLASH.totalSize - DATAFLASH.usedSize));
-    } else {
-         $(".noflash_global").css({
-             display: 'block'
-         });
-
-         $(".dataflash-contents_global").css({
-             display: 'none'
-         });
-    }
-
 }
 
 function startLiveDataRefreshTimer() {
@@ -701,18 +708,30 @@ function update_dataflash_global() {
 function reinitialiseConnection(originatorTab, callback) {
     GUI.log(i18n.getMessage('deviceRebooting'));
 
-    if (FC.boardHasVcp()) { // VCP-based flight controls may crash old drivers, we catch and reconnect
-        GUI.timeout_add('waiting_for_disconnect', function waiting_for_bootup() {
-            if (callback) {
-                callback();
+    if (FC.boardHasVcp()) {
+        // VCP boards (virtually all modern USB FCs): the port disappears and
+        // reappears after systemReset().  GUI.timeout_add timers are cleared on
+        // disconnect so we must use a raw setInterval that survives the port
+        // drop.  Poll until a NEW connection has completed its full MSP
+        // handshake (connectionTimestamp is updated in finishOpen).
+        var prevTs = connectionTimestamp;
+        var attempts = 0;
+        var poll = setInterval(function () {
+            if (connectionTimestamp !== prevTs && CONFIGURATOR.connectionValid) {
+                clearInterval(poll);
+                // Successful reconnect: callback(true)
+                if (callback) { callback(true); }
+            } else if (++attempts > 100) { // 10 s hard timeout
+                clearInterval(poll);
+                // Timeout: callback(false)
+                if (callback) { callback(false); }
             }
         }, 100);
-        //TODO: Need to work out how to do a proper reconnect here.
-        // caveat: Timeouts set with `GUI.timeout_add()` are removed on disconnect.
     } else {
         GUI.timeout_add('waiting_for_bootup', function waiting_for_bootup() {
+            // Non-VCP board: assume success after delay
             if (callback) {
-                callback();
+                callback(true);
             }
 
             MSP.send_message(MSPCodes.MSP_STATUS, false, false, function() {

@@ -283,7 +283,6 @@
 
 /*motor sliders*/
 .tab-motors .motor_testing .sliders input {
-    /*-webkit-appearance: slider-vertical;*/
     -webkit-appearance: none;
     width: calc((100% / 9) - 5px);
     height: 2px;

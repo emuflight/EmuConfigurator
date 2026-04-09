@@ -40,7 +40,7 @@ describe('TABS.cli', () => {
             TABS.cli.cliBuffer = 'se';
 
             TABS.cli.read({
-                data: toArrayBuffer('\r\033[Kserialpassthrough\tservo\r\n# ser')
+                data: toArrayBuffer('\r\x1B[Kserialpassthrough\tservo\r\n# ser')
             });
 
             // Ambigous auto-complete from firmware is preceded with an \r carriage return
@@ -72,9 +72,9 @@ describe('TABS.cli', () => {
             expect(cliPrompt.val()).to.equal('serialpassthrough');
         });
 
-        it("escape characters (i.e. \033[K) are skipped", () => {
+        it("escape characters (i.e. \\x1B[K) are skipped", () => {
             TABS.cli.read({
-                data: toArrayBuffer('\033[K')
+                data: toArrayBuffer('\x1B[K')
             });
 
             expect(cliOutput.html()).to.equal('');
@@ -114,7 +114,7 @@ describe('TABS.cli', () => {
                 callback();
             });
             sinon.stub(TABS.cli, 'send');
-            sinon.stub(Promise, 'reduce').callsFake((items, cb, initialValue) => {
+            sinon.stub(Promise, 'reduce').callsFake((items, cb, _initialValue) => {
                 items.forEach((line, idx) => cb(0, line, idx));
             });
             sinon.stub(window, 'Promise').callsFake(resolve => resolve(0));

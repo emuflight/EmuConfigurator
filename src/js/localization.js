@@ -23,15 +23,15 @@ i18n.init = function(cb) {
                 ns: ['messages'],
                 defaultNS:['messages'],
                 fallbackLng: 'en',
-                backend: { loadPath: '/_locales/{{lng}}/{{ns}}.json' }
-                }, function(err, t) {
+                backend: { loadPath: '../locales/{{lng}}/{{ns}}.json' }
+                }, function(err, _t) {
                     if (err !== undefined) {
                         console.error('Error loading i18n ' + err);
                     } else {
                         console.log('i18n system loaded');
                         var detectedLanguage = i18n.getMessage('language_' + getValidLocale("DEFAULT"));
                         i18n.addResources({"detectedLanguage": detectedLanguage });
-                        i18next.on('languageChanged', function (newLang) {
+                        i18next.on('languageChanged', function (_newLang) {
                             i18n.localizePage(true);
                             updateStatusBarVersion();
                         });

@@ -72,6 +72,8 @@ STM32DFU_protocol.prototype.connect = function (device, hex, options, callback) 
     self.hex = hex;
     self.callback = callback;
 
+    GUI.connect_lock = true;
+
     self.options = {
         erase_chip:     false
     };
@@ -90,6 +92,12 @@ STM32DFU_protocol.prototype.connect = function (device, hex, options, callback) 
 
 
     chrome.usb.getDevices(device, function (result) {
+        if (self.checkChromeError() || !result) {
+            console.log('USB DFU: getDevices error or no result');
+            GUI.connect_lock = false;
+            if (self.callback) self.callback();
+            return;
+        }
         if (result.length) {
             console.log('USB DFU detected with ID: ' + result[0].device);
 
@@ -97,6 +105,8 @@ STM32DFU_protocol.prototype.connect = function (device, hex, options, callback) 
         } else {
             console.log('USB DFU not found');
             GUI.log(i18n.getMessage('stm32UsbDfuNotFound'));
+            GUI.connect_lock = false;
+            if (self.callback) self.callback();
         }
     });
 };
@@ -124,6 +134,8 @@ STM32DFU_protocol.prototype.openDevice = function (device) {
             if(GUI.operating_system === 'Linux') {
                 GUI.log(i18n.getMessage('usbDeviceUdevNotice'));
             }
+            GUI.connect_lock = false;
+            if (self.callback) self.callback();
             return;
         }
 
@@ -135,7 +147,7 @@ STM32DFU_protocol.prototype.openDevice = function (device) {
     });
 };
 
-STM32DFU_protocol.prototype.closeDevice = function () {
+STM32DFU_protocol.prototype.closeDevice = function (callback) {
     var self = this;
 
     chrome.usb.closeDevice(this.handle, function closed() {
@@ -148,6 +160,8 @@ STM32DFU_protocol.prototype.closeDevice = function () {
         console.log('Device closed with Handle ID: ' + self.handle.handle);
 
         self.handle = null;
+
+        if (callback) callback();
     });
 };
 
@@ -169,13 +183,13 @@ STM32DFU_protocol.prototype.claimInterface = function (interfaceNumber) {
     });
 };
 
-STM32DFU_protocol.prototype.releaseInterface = function (interfaceNumber) {
+STM32DFU_protocol.prototype.releaseInterface = function (interfaceNumber, callback) {
     var self = this;
 
     chrome.usb.releaseInterface(this.handle, interfaceNumber, function released() {
         console.log('Released interface: ' + interfaceNumber);
 
-        self.closeDevice();
+        self.closeDevice(callback);
     });
 };
 
@@ -633,6 +647,7 @@ STM32DFU_protocol.prototype.upload_procedure = function (step) {
 		if (typeof self.chipInfo.option_bytes === "undefined") {
 			console.log('Failed to detect option bytes');
 			self.upload_procedure(99);
+			break; // prevent fall-through into clearStatus which would crash on option_bytes.start_address
 		}
 
 		var unprotect = function() {
@@ -891,7 +906,9 @@ STM32DFU_protocol.prototype.upload_procedure = function (step) {
                                     self.controlTransfer('in', self.request.GETSTATUS, 0, 0, 6, 0, function (data) {
                                         if (data[4] == self.state.dfuDNLOAD_IDLE) {
                                             // update progress bar
-                                            TABS.firmware_flasher.flashProgress(bytes_flashed_total / (self.hex.bytes_total * 2) * 100);
+                                            var pct = Math.round(bytes_flashed_total / (self.hex.bytes_total * 2) * 100);
+                                            TABS.firmware_flasher.flashProgress(pct)
+                                                .flashingMessage(i18n.getMessage('stm32Flashing') + ' ' + pct + '%', TABS.firmware_flasher.FLASH_MESSAGE_TYPES.NEUTRAL);
 
                                             // flash another page
                                             write();
@@ -970,7 +987,9 @@ STM32DFU_protocol.prototype.upload_procedure = function (step) {
                         bytes_verified_total += bytes_to_read;
 
                         // update progress bar
-                        TABS.firmware_flasher.flashProgress((self.hex.bytes_total + bytes_verified_total) / (self.hex.bytes_total * 2) * 100);
+                        var pct = Math.round((self.hex.bytes_total + bytes_verified_total) / (self.hex.bytes_total * 2) * 100);
+                        TABS.firmware_flasher.flashProgress(pct)
+                            .flashingMessage(i18n.getMessage('stm32Verifying') + ' ' + pct + '%', TABS.firmware_flasher.FLASH_MESSAGE_TYPES.NEUTRAL);
 
                         // verify another page
                         read();
@@ -1036,16 +1055,20 @@ STM32DFU_protocol.prototype.upload_procedure = function (step) {
 
             break;
         case 99:
-            // cleanup
-            self.releaseInterface(0);
+            // cleanup — pass callback through the async chain
+            self.releaseInterface(0, function () {
+                GUI.connect_lock = false;
 
-            GUI.connect_lock = false;
+                var timeSpent = new Date().getTime() - self.upload_time_start;
 
-            var timeSpent = new Date().getTime() - self.upload_time_start;
+                console.log('Script finished after: ' + (timeSpent / 1000) + ' seconds');
 
-            console.log('Script finished after: ' + (timeSpent / 1000) + ' seconds');
-
-            if (self.callback) self.callback();
+                if (self.callback) {
+                    self.callback();
+                } else {
+                    console.error('[DFU] cleanup: self.callback is not defined!');
+                }
+            });
             break;
     }
 };

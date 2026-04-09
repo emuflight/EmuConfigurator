@@ -1,4 +1,5 @@
 'use strict';
+/* exported defaultHuffmanTree, defaultHuffmanLenIndex */
 
 var defaultHuffmanTree = [
     { value: 0x00, codeLen: 2, code: 0x0003 },  //  11
