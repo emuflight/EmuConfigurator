@@ -92,6 +92,12 @@ STM32DFU_protocol.prototype.connect = function (device, hex, options, callback) 
 
 
     chrome.usb.getDevices(device, function (result) {
+        if (self.checkChromeError() || !result) {
+            console.log('USB DFU: getDevices error or no result');
+            GUI.connect_lock = false;
+            if (self.callback) self.callback();
+            return;
+        }
         if (result.length) {
             console.log('USB DFU detected with ID: ' + result[0].device);
 
@@ -1051,19 +1057,16 @@ STM32DFU_protocol.prototype.upload_procedure = function (step) {
         case 99:
             // cleanup — pass callback through the async chain
             self.releaseInterface(0, function () {
-                console.log('[DFU case 99] cleanup callback invoked');
                 GUI.connect_lock = false;
 
                 var timeSpent = new Date().getTime() - self.upload_time_start;
 
                 console.log('Script finished after: ' + (timeSpent / 1000) + ' seconds');
-                console.log('[DFU case 99] self.callback is:', typeof self.callback);
 
                 if (self.callback) {
-                    console.log('[DFU case 99] calling self.callback()');
                     self.callback();
                 } else {
-                    console.error('[DFU case 99] ERROR: self.callback is not defined!');
+                    console.error('[DFU] cleanup: self.callback is not defined!');
                 }
             });
             break;
