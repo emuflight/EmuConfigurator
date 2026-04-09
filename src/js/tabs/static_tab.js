@@ -17,6 +17,7 @@ TABS.staticTab.initialize = function (staticTabName, callback) {
             if (textStatus === 'error') {
                 console.error('staticTab: Failed to load', tabFile, '— status:', xhr.status, xhr.statusText);
                 $('#tab-static-contents').html('<p style="color:red;">Error: could not load tab file (' + tabFile + ')</p>');
+                GUI.content_ready(callback);
                 return;
             }
 
