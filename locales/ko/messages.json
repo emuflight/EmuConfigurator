@@ -1634,7 +1634,7 @@
         "message": "최대값"
     },
     "servosDirectionAndRate": {
-        "message": "방항 및 레이트"
+        "message": "방향 및 레이트"
     },
     "servosLiveMode": {
         "message": "실시간 모드 사용"

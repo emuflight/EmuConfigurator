@@ -1,6 +1,6 @@
 {
     "error": {
-        "message": "Error: {{errorMessage}}"
+        "message": "Erreur : {{errorMessage}}"
     },
     "errorTitle": {
         "message": "Erreur"
@@ -1646,7 +1646,7 @@
         "message": "Copié !"
     },
     "cliLoadFromFileBtn": {
-        "message": "Charger d\"un fichier"
+        "message": "Charger d'un fichier"
     },
     "loggingNote": {
         "message": "Les données sont enregistrées dans cet onglet <span class=\"message-negative\">uniquement</span>, quitter l'onglet  <span class=\"message-negative\">arrête</span> l'enregistrement et l'application retourne en <strong>\"configurateur\"</strong>.<br /> Peu importe la période de rafraîchissement, les données sont écrites <strong>chaque</strong> seconde afin de préserver les performances."
@@ -2274,7 +2274,7 @@
         "message": "Délai Failsafe"
     },
     "failsafeDelayHelp": {
-        "message": "Temps d\"attente avant d\"activer le Failsafe après la perte du signal."
+        "message": "Temps d'attente avant d'activer le Failsafe après la perte du signal."
     },
     "failsafeThrottleLowItem": {
         "message": "Période d'attente avant de passer les gaz à zéro [1 = 0.1 sec.]"
@@ -2289,7 +2289,7 @@
         "message": "Délais avant extinction des moteurs pendant le Failsafe [1 = 0.1 sec.]"
     },
     "failsafeOffDelayHelp": {
-        "message": "Temps pendant lequel les moteurs tournent encore avant la coupure d\"urgence."
+        "message": "Temps pendant lequel les moteurs tournent encore avant la coupure d'urgence."
     },
     "failsafeSubTitle1": {
         "message": "Stage 2 - Procédure Failsafe"
@@ -2337,7 +2337,7 @@
         "message": "Renseigner cette option pour utiliser le switch Failsafe comme un coupe circuit direct sans passer par la procédure de Failsafe. <strong>Note: </strong> l'armement est bloqué avec ce switch sur ON"
     },
     "failsafeSwitchTitle": {
-        "message": "Mode Failsafe d\"interrupteur"
+        "message": "Mode Failsafe d'interrupteur"
     },
     "failsafeSwitchModeItem": {
         "message": "Action du switch Failsafe"
@@ -2391,7 +2391,7 @@
         "message": "Tension Maximale par Cellule"
     },
     "powerBatteryWarning": {
-        "message": "Tension d\"Alerte par Cellule"
+        "message": "Tension d'Alerte par Cellule"
     },
     "powerVoltageHead": {
         "message": "Tension de la Batterie"
@@ -2523,7 +2523,7 @@
         "message": "Batterie"
     },
     "powerStateHead": {
-        "message": "État de l\"énergie"
+        "message": "État de l'énergie"
     },
     "powerBatteryConnected": {
         "message": "Batterie Connectée"

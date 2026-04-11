@@ -1,6 +1,6 @@
 {
     "error": {
-        "message": "Error: {{errorMessage}}"
+        "message": "Errore: {{errorMessage}}"
     },
     "errorTitle": {
         "message": "Errore"

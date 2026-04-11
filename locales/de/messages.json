@@ -4,7 +4,7 @@
         "description": "Title of the application window, usually not translated"
     },
     "error": {
-        "message": "Error: {{errorMessage}}"
+        "message": "Fehler: {{errorMessage}}"
     },
     "errorTitle": {
         "message": "Fehler"
@@ -258,7 +258,7 @@
         "message": "Keine Konfiguration innerhalb <span class=\"message-negative\">10 Sekunden</span> erhalten, Kommunikation <span class=\"message-negative\">fehlgeschlagen</span>"
     },
     "firmwareVersionNotSupported": {
-        "message": "Die Firmware Version wird  <span class=\"message-negative\">nicht unterstützt</span>. Bitte auf eine Firmware updaten die API Version <strong>$1</strong> oder höher untersützt. Bitte die CLI vor dem Flashen für ein Backup nutzen. <br />Alternativ bitte eine alte Version des Konfigurators downloaden"
+        "message": "Die Firmware Version wird <span class=\"message-negative\">nicht unterstützt</span>. Bitte auf eine Firmware updaten die API Version <strong>$1</strong> oder höher unterstützt. Bitte die CLI vor dem Flashen für ein Backup nutzen. <br />Alternativ bitte eine alte Version des Konfigurators downloaden"
     },
     "firmwareTypeNotSupported": {
         "message": "Nicht Emuflight/Cleanfight Firmware wird <span class=\"message-negative\">nicht unterstützt</span> mit Ausnahme vom CLI Modus."
@@ -418,7 +418,7 @@
         "message": "Boot-Loader/DFU aktivieren"
     },
     "initialSetupBackupRestoreText": {
-        "message": "<strong>Sichere</strong> deine Einstellungen für den Fall der Fälle. <strong>CLIn-Einstellungen</strong> sind <span class=\"message-negative\">nicht</span> enthalten. Siehe den \"diff\" CLInbefehl."
+        "message": "<strong>Sichere</strong> deine Einstellungen für den Fall der Fälle. <strong>CLI-Einstellungen</strong> sind <span class=\"message-negative\">nicht</span> enthalten. Siehe den \"diff\" CLI-Befehl."
     },
     "initialSetupRebootBootloaderText": {
         "message": "Starte im <strong>Boot-Loader/DFU Modus</strong>."

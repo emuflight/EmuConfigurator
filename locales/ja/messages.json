@@ -1,6 +1,6 @@
 {
     "error": {
-        "message": "Error: {{errorMessage}}"
+        "message": "エラー: {{errorMessage}}"
     },
     "errorTitle": {
         "message": "エラー"
@@ -54,7 +54,7 @@
         "message": "高度な設定項目を有効にします。"
     },
     "permanentExpertMode": {
-        "message": "Expertモード 常時有効"
+        "message": "エキスパートモード 常時有効"
     },
     "rememberLastTab": {
         "message": "接続時に前回のタブを開く"

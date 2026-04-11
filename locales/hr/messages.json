@@ -402,7 +402,7 @@
         "message": "Emuflight dokumentacija je dostupna u napomenama izdanja i na Emuflight wikiju.<br /><br />"
     },
     "defaultDocumentation1": {
-        "message": "EmuFlight wiki je odličan izvor informacija, može se pronaći <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">ovdje</a>.<br />Napomene o izdanju firmvera mogu se pročitati na stranici GitHub izdanja, <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\">ovdje</a>.<br />"
+        "message": "EmuFlight wiki je odličan izvor informacija, može se pronaći <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">ovdje</a>.<br />Napomene o izdanju firmvera mogu se pročitati na stranici GitHub izdanja, <a href=\"https://github.com/emuflight/EmuFlight/releases\" target=\"_blank\">ovdje</a>.<br />"
     },
     "defaultDocumentation2": {
         "message": "EmuConfigurator wiki može se pronaći <a href=\"https://github.com/emuflight/EmuConfigurator/wiki\" target=\"_blank\">ovdje</a>.<br />Napomene o izdanju Konfiguratora mogu se pročitati na stranici GitHub izdanja, <a href=\"https://github.com/emuflight/EmuConfigurator/releases\" target=\"_blank\">ovdje</a>.<br />"

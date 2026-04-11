@@ -408,7 +408,7 @@
         "message": "A documentación de Emuflight está dispoñible nas notas da versión e na wiki.<br /><br />"
     },
     "defaultDocumentation1": {
-        "message": "O Wiki de EmuFlight é un gran recurso de información, pódese atopar <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">aquí</a>.<br />As notas de versión do firmware pódense ler na páxina de lanzamentos de GitHub, <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\">aquí</a>.<br />"
+        "message": "O Wiki de EmuFlight é un gran recurso de información, pódese atopar <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">aquí</a>.<br />As notas de versión do firmware pódense ler na páxina de lanzamentos de GitHub, <a href=\"https://github.com/emuflight/EmuFlight/releases\" target=\"_blank\">aquí</a>.<br />"
     },
     "defaultDocumentation2": {
         "message": "O Wiki de EmuConfigurator pódese atopar <a href=\"https://github.com/emuflight/EmuConfigurator/wiki\" target=\"_blank\">aquí</a>.<br />As notas de versión do Configurador pódense ler na páxina de lanzamentos de GitHub, <a href=\"https://github.com/emuflight/EmuConfigurator/releases\" target=\"_blank\">aquí</a>.<br />"

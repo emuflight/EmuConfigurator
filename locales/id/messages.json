@@ -456,13 +456,13 @@
         "message": "Kalibrasi accelerometer dimulai"
     },
     "initialSetupAccelCalibEnded": {
-        "message": "Accelerometer calibration <span class=\"message-positive\">finished</span>"
+        "message": "Kalibrasi accelerometer <span class=\"message-positive\">selesai</span>"
     },
     "initialSetupMagCalibStarted": {
         "message": "Kalibrasi magnetometer dimulai"
     },
     "initialSetupMagCalibEnded": {
-        "message": "Magnetometer calibration <span class=\"message-positive\">finished</span>"
+        "message": "Kalibrasi magnetometer <span class=\"message-positive\">selesai</span>"
     },
     "initialSetupSettingsRestored": {
         "message": "Pengaturan di kembalikan ke <strong>awal</strong>"
@@ -1053,7 +1053,7 @@
         "message": "Flight controller mengatur Rateprofile: <strong class=\"message-positive\">$1</strong>"
     },
     "pidTuningLoadedProfile": {
-        "message": "Loaded Profile: <strong class=\"message-positive\">$1</strong>"
+        "message": "Profil Dimuat: <strong class=\"message-positive\">$1</strong>"
     },
     "pidTuningLoadedRateProfile": {
         "message": "ProfilRate Dimuat: <strong class=\"message-positive\">$1</strong>"
@@ -1155,7 +1155,7 @@
         "message": "Simpan"
     },
     "auxiliaryEepromSaved": {
-        "message": "EEPROM <span class=\"message-positive\">saved</span>"
+        "message": "EEPROM <span class=\"message-positive\">disimpan</span>"
     },
     "adjustmentsHelp": {
         "message": "Mengkonfigurasi switch penyesuaian. Lihat manual bagian 'in-flight adjustments' untuk detilnya. Perubahan yang dilakukan fungsi penyesuaian tidak disimpan secara otomatis. Ada 4 slot. Setiap switch yang digunakan untuk secara bersamaan melakukan penyesuaian menggunakan sebuah slot."
@@ -1287,7 +1287,7 @@
         "message": "Simpan"
     },
     "adjustmentsEepromSaved": {
-        "message": "EEPROM <span class=\"message-positive\">saved</span>"
+        "message": "EEPROM <span class=\"message-positive\">disimpan</span>"
     },
     "transponderNotSupported": {
         "message": "Firmware flight controller anda tidak mendukung fungsi transponder."
@@ -1756,7 +1756,7 @@
         "description": "In the LED STRIP, clear all leds"
     },
     "ledStripEepromSaved": {
-        "message": "EEPROM <span class=\"message-positive\">saved</span>"
+        "message": "EEPROM <span class=\"message-positive\">disimpan</span>"
     },
     "ledStripVtxOverlay": {
         "message": "VTX (menggunakan frekuensi vtx untuk menetapkan warna)"

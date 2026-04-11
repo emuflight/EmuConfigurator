@@ -683,7 +683,7 @@
         "message": "Configuració de Beacon Dshot"
     },
     "configurationDshotBeaconTone": {
-        "message": "Tò del senyal acústic DShot"
+        "message": "To del senyal acústic DShot"
     },
     "configurationBeeper": {
         "message": "Configuració del Beeper"
@@ -728,7 +728,7 @@
         "message": "Sons d'inicialització quan arrenca la controladora"
     },
     "beeperUSB": {
-        "message": "Beuratge USB"
+        "message": "Brunzidor USB"
     },
     "beeperBLACKBOX_ERASE": {
         "message": "Sona quan l'esborrat de blackbox s'hagi completat"
@@ -833,7 +833,7 @@
         "message": "Llindar Anti Gravity"
     },
     "pidTuningAntiGravityHelp": {
-        "message": "Augmenta temporalment el I-Term durant canvis ràpids en el Throttle per millorar l\"estabilitat del drone."
+        "message": "Augmenta temporalment el I-Term durant canvis ràpids en el Throttle per millorar l'estabilitat del drone."
     },
     "pidTuningPidSettings": {
         "message": "Ajustament del Controlador de PIDs"
@@ -1043,7 +1043,7 @@
         "message": "Quan el Canal"
     },
     "adjustmentsColumnIsInRange": {
-        "message": "Està en l\"Interval"
+        "message": "Està en l'Interval"
     },
     "adjustmentsColumnThenApplyFunction": {
         "message": "Llavors Aplica la Funció"
@@ -1861,7 +1861,7 @@
         "message": "Retard de Failsafe"
     },
     "failsafeDelayHelp": {
-        "message": "Temps d\"espera abans d\"activar el Failsafe després de perdre el senyal."
+        "message": "Temps d'espera abans d'activar el Failsafe després de perdre el senyal."
     },
     "failsafeThrottleLowItem": {
         "message": "Retard de Failsafe Throttle Low [1 = 0.1 seg.]"
@@ -1876,7 +1876,7 @@
         "message": "Retard per aturar els motors en un failsafe [1 = 0.1 sec.]"
     },
     "failsafeOffDelayHelp": {
-        "message": "Temps que els motors segueixen girant abans de tallar d\"emergència."
+        "message": "Temps que els motors segueixen girant abans de tallar d'emergència."
     },
     "failsafeSubTitle1": {
         "message": "Stage 2 - Procediment de Failsafe"
@@ -1894,7 +1894,7 @@
         "message": "Configura aquesta opció per a fer el failsafe switch com a mesura de seguretat. <strong>Nota:</strong> L'armat està bloquejat si el switch està a la posició ON"
     },
     "failsafeSwitchTitle": {
-        "message": "Mode Failsafe d\"Interruptor"
+        "message": "Mode Failsafe d'Interruptor"
     },
     "failsafeSwitchModeItem": {
         "message": "Acció de l'interruptor de Failsafe"
@@ -1936,7 +1936,7 @@
         "message": "Voltatge Màxim de la Cel·la"
     },
     "powerBatteryWarning": {
-        "message": "Voltatge d\"Avís de la Cel·la"
+        "message": "Voltatge d'Avís de la Cel·la"
     },
     "powerVoltageHead": {
         "message": "Voltatge de la Bateria"
@@ -1993,7 +1993,7 @@
         "message": "Bateria"
     },
     "powerStateHead": {
-        "message": "Estat de l\"energia"
+        "message": "Estat de l'energia"
     },
     "powerBatteryConnected": {
         "message": "Bateria Connectada"
@@ -2023,10 +2023,10 @@
         "message": "Algunes controladores tenen <a href=\"https://www.youtube.com/watch?v=ikKH_6SQ-Tk\" target=\"_blank\">MinimOSD</a> que pot ser flashejat i configurat amb <a href=\"https://github.com/ShikOfTheRa/scarab-osd/releases/latest\" target='_blank'>scarab-osd</a>, malgrat això MinimOSD no pot ser configurat a aquesta interfície."
     },
     "osdSetupProfilesTitle": {
-        "message": "Perfils de l\"OSD"
+        "message": "Perfils de l'OSD"
     },
     "osdSetupElementsTitle": {
-        "message": "Elements de l\"OSD"
+        "message": "Elements de l'OSD"
     },
     "osdSetupVideoFormatTitle": {
         "message": "Format de vídeo"
@@ -2038,7 +2038,7 @@
         "message": "Temporitzadors"
     },
     "osdSetupAlarmsTitle": {
-        "message": "Alarmes de l\"OSD"
+        "message": "Alarmes de l'OSD"
     },
     "osdSetupStatsTitle": {
         "message": "Estadístiques"

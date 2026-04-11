@@ -1,6 +1,6 @@
 {
     "error": {
-        "message": "Error: {{errorMessage}}"
+        "message": "Ошибка: {{errorMessage}}"
     },
     "errorTitle": {
         "message": "Ошибка"
@@ -116,7 +116,7 @@
         "message": "Миграция конфигурации завершена, применено миграций: $1"
     },
     "tabFirmwareFlasher": {
-        "message": "Прошивка Firmware"
+        "message": "Прошивка"
     },
     "tabLanding": {
         "message": "Приветствие"
