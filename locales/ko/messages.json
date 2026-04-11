@@ -48,10 +48,10 @@
         "message": "자동-연결: 비활성화됨 - 올바른 시리얼 포트를 선택하고 \"연결\" 버튼을 클릭하십시오."
     },
     "expertMode": {
-        "message": "전문가 모드 활성화"
+        "message": "전문가 모드"
     },
     "expertModeDescription": {
-        "message": "출시되지 않은 불안정한 빌드 표시"
+        "message": "고급 설정 옵션을 활성화합니다."
     },
     "permanentExpertMode": {
         "message": "전문가 모드 영구 활성"
@@ -2120,10 +2120,10 @@
         "message": "전송 속도"
     },
     "firmwareFlasherShowDevelopmentReleases": {
-        "message": "불안정 릴리즈 보기"
+        "message": "개발 버전 표시"
     },
     "firmwareFlasherShowDevelopmentReleasesDescription": {
-        "message": "안정된 릴리즈 외에 릴리즈 후보 보기"
+        "message": "불안정할 수 있는 개발 중인 버전을 표시합니다."
     },
     "firmwareFlasherOptionLoading": {
         "message": "로딩중 ..."

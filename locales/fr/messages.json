@@ -45,10 +45,10 @@
         "message": "Connexion automatique: Désactivée - L'utilisateur doit sélectionner manuellement le port série et cliquer sur \"Connexion\"."
     },
     "expertMode": {
-        "message": "Activer le Mode Expert"
+        "message": "Mode Expert"
     },
     "expertModeDescription": {
-        "message": "Affiche les versions en développement et potentiellement instables"
+        "message": "Active les paramètres avancés."
     },
     "permanentExpertMode": {
         "message": "Activer le mode expert de façon permanente"
@@ -1913,10 +1913,10 @@
         "message": "Baud rate"
     },
     "firmwareFlasherShowDevelopmentReleases": {
-        "message": "Montrer les versions non finalisées"
+        "message": "Afficher les versions de développement"
     },
     "firmwareFlasherShowDevelopmentReleasesDescription": {
-        "message": "Montrer les releases candidates en plus des versions stables"
+        "message": "Affiche les versions en développement et potentiellement instables."
     },
     "firmwareFlasherOptionLoading": {
         "message": "Chargement..."

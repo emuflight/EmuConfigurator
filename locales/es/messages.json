@@ -42,10 +42,10 @@
         "message": "Auto-Conectar: Desactivado - El usuario debe elegir el puerto serie correcto y pulsar \"Conectar\" por si mismo"
     },
     "expertMode": {
-        "message": "Activar el Modo Experto"
+        "message": "Modo Experto"
     },
     "expertModeDescription": {
-        "message": "Muestra versiones en desarrollo y potencialmente inestables"
+        "message": "Habilita ajustes avanzados."
     },
     "permanentExpertMode": {
         "message": "Activar permanentemente el Modo Experto"
@@ -2024,10 +2024,10 @@
         "message": "Velocidad de Transmisión"
     },
     "firmwareFlasherShowDevelopmentReleases": {
-        "message": "Mostrar versiones inestables"
+        "message": "Mostrar versiones de desarrollo"
     },
     "firmwareFlasherShowDevelopmentReleasesDescription": {
-        "message": "Mostrar versiones candidatas además de versiones estables"
+        "message": "Muestra versiones en desarrollo y potencialmente inestables."
     },
     "firmwareFlasherOptionLoading": {
         "message": "Cargando ..."

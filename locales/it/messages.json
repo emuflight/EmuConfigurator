@@ -48,10 +48,10 @@
         "message": "Connessione automatica: Disabilitata - E' necessario selezionare la porta seriale e fare click su \"Connetti\""
     },
     "expertMode": {
-        "message": "Attiva Modalità Esperto"
+        "message": "Modalità Esperto"
     },
     "expertModeDescription": {
-        "message": "Mostra versioni in sviluppo e potenzialmente instabili"
+        "message": "Abilita impostazioni avanzate."
     },
     "permanentExpertMode": {
         "message": "Modalità esperto sempre abilitata"
@@ -1868,10 +1868,10 @@
         "message": "velocità di trasmissione"
     },
     "firmwareFlasherShowDevelopmentReleases": {
-        "message": "Mostra versioni non stabili"
+        "message": "Mostra versioni di sviluppo"
     },
     "firmwareFlasherShowDevelopmentReleasesDescription": {
-        "message": "Mostra i candidati al rilascio oltre alle versioni stabili"
+        "message": "Mostra versioni in sviluppo e potenzialmente instabili."
     },
     "firmwareFlasherOptionLoading": {
         "message": "Caricamento in corso"

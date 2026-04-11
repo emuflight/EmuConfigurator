@@ -48,10 +48,10 @@
         "message": "Подключаться автоматически: если выключен, то вручную выбираем нужный порт и кликаем \"Подключить\""
     },
     "expertMode": {
-        "message": "Включить режим эксперта"
+        "message": "Экспертный режим"
     },
     "expertModeDescription": {
-        "message": "Показывать релиз-кандидаты и нестабильные сборки"
+        "message": "Включить расширенные настройки."
     },
     "permanentExpertMode": {
         "message": "Всегда включать режим эксперта"
@@ -2036,10 +2036,10 @@
         "message": "Скорость передачи"
     },
     "firmwareFlasherShowDevelopmentReleases": {
-        "message": "Показать нестабильные релизы"
+        "message": "Показывать версии в разработке"
     },
     "firmwareFlasherShowDevelopmentReleasesDescription": {
-        "message": "Показать предварительные релизы в дополнение к стабильным релизам"
+        "message": "Показывать версии в разработке, которые могут быть нестабильными."
     },
     "firmwareFlasherOptionLoading": {
         "message": "Загрузка..."

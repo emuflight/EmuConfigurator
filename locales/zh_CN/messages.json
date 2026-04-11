@@ -48,10 +48,10 @@
         "message": "自动连接: 禁用-用户需要选择正确的串行端口, 然后单击 \"连接\" 按钮。"
     },
     "expertMode": {
-        "message": "开启专家模式"
+        "message": "专家模式 (Expert Mode)"
     },
     "expertModeDescription": {
-        "message": "显示未发布且可能不稳定的版本"
+        "message": "启用高级调整选项。"
     },
     "permanentExpertMode": {
         "message": "默认启用专家模式"
@@ -2111,10 +2111,10 @@
         "message": "波特率"
     },
     "firmwareFlasherShowDevelopmentReleases": {
-        "message": "显示非稳定版本"
+        "message": "显示开发版/测试版"
     },
     "firmwareFlasherShowDevelopmentReleasesDescription": {
-        "message": "除了稳定的版本外, 还显示候选版本"
+        "message": "显示正在开发中、可能不稳定的固件版本。"
     },
     "firmwareFlasherOptionLoading": {
         "message": "加载中……"

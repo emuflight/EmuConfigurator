@@ -48,10 +48,10 @@
         "message": "自動接続: 無効 - ユーザが正しいシリアル ポートを選択し、別途 [接続] ボタンをクリックする必要があります。"
     },
     "expertMode": {
-        "message": "エキスパートモードを有効にする"
+        "message": "エキスパートモード"
     },
     "expertModeDescription": {
-        "message": "未リリースの不安定なビルドを表示する"
+        "message": "高度な設定項目を有効にします。"
     },
     "permanentExpertMode": {
         "message": "Expertモード 常時有効"
@@ -2072,10 +2072,10 @@
         "message": "伝送速度"
     },
     "firmwareFlasherShowDevelopmentReleases": {
-        "message": "未検証版リリースを表示"
+        "message": "開発版を表示"
     },
     "firmwareFlasherShowDevelopmentReleasesDescription": {
-        "message": "安定版リリースに加えRC版リリースも表示"
+        "message": "不安定な可能性がある開発中のバージョンを表示します。"
     },
     "firmwareFlasherOptionLoading": {
         "message": "ロード中..."

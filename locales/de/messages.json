@@ -52,10 +52,10 @@
         "message": "automatisch Verbinden: nicht aktiv. Bitte manuell verbinden"
     },
     "expertMode": {
-        "message": "Expertenmodus aktivieren"
+        "message": "Expertenmodus"
     },
     "expertModeDescription": {
-        "message": "Unveröffentlichte und potenziell instabile Builds anzeigen"
+        "message": "Erweiterte Einstellungen aktivieren."
     },
     "permanentExpertMode": {
         "message": "Expertenmodus dauerhaft aktivieren"
@@ -1899,10 +1899,10 @@
         "message": "Baudrate"
     },
     "firmwareFlasherShowDevelopmentReleases": {
-        "message": "Instabile Versionen anzeigen"
+        "message": "Entwicklungsversionen anzeigen"
     },
     "firmwareFlasherShowDevelopmentReleasesDescription": {
-        "message": "Zeige Vorabversionen zusätzlich zu stabilen Versionen an"
+        "message": "Zeigt Entwicklungsversionen an, die potenziell instabil sind."
     },
     "firmwareFlasherOptionLoading": {
         "message": "Lade...."

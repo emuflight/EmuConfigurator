@@ -33,10 +33,10 @@
         "message": "Auto-Connectar: Deshabilitat - L'usuari ha de seleccionar el port sèrie correcte i clicar el botó \"Connectar\""
     },
     "expertMode": {
-        "message": "Activa el Mode Expert"
+        "message": "Mode Expert"
     },
     "expertModeDescription": {
-        "message": "Mostra versions en desenvolupament i potencialment inestables"
+        "message": "Habilita ajustos avançats."
     },
     "permanentExpertMode": {
         "message": "Habilita el mode expert permanentment"
@@ -1555,6 +1555,12 @@
     },
     "firmwareFlasherBaudRate": {
         "message": "Velocitat de bauds"
+    },
+    "firmwareFlasherShowDevelopmentReleases": {
+        "message": "Mostra versions de desenvolupament"
+    },
+    "firmwareFlasherShowDevelopmentReleasesDescription": {
+        "message": "Mostra versions en desenvolupament i potencialment inestables."
     },
     "firmwareFlasherOptionLoading": {
         "message": "Carregant ..."
