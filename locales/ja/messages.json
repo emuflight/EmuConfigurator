@@ -48,10 +48,10 @@
         "message": "自動接続: 無効 - ユーザが正しいシリアル ポートを選択し、別途 [接続] ボタンをクリックする必要があります。"
     },
     "expertMode": {
-        "message": "Expertモード 有効"
+        "message": "エキスパートモードを有効にする"
     },
     "expertModeDescription": {
-        "message": "未リリース、未検証ビルド版を表示"
+        "message": "未リリースの不安定なビルドを表示する"
     },
     "permanentExpertMode": {
         "message": "Expertモード 常時有効"
@@ -990,10 +990,10 @@
         "message": "<strong>注:</strong> GPSを使う場合、シリアルポート ([ポート] タブ) の設定を忘れずに行って下さい。"
     },
     "configurationSerialRX": {
-        "message": "シリアル受信プロトコル"
+        "message": "シリアル受信機"
     },
     "configurationSpiRX": {
-        "message": "SPIバス受信プロトコル"
+        "message": "SPI 受信機"
     },
     "configurationEepromSaved": {
         "message": "EEPROM <span class=\"message-positive\">保存しました</span>"
@@ -1232,10 +1232,10 @@
         "message": "PIDコントローラ"
     },
     "pidTuningCopyProfile": {
-        "message": "Profileをコピー"
+        "message": "プロファイルをコピー"
     },
     "pidTuningCopyRateProfile": {
-        "message": "Rateprofileをコピー"
+        "message": "レートプロファイルをコピー"
     },
     "dialogCopyProfileText": {
         "message": "現在のProfileをコピー"
@@ -1337,7 +1337,7 @@
         "message": "初期値"
     },
     "receiverChannelMapTitle": {
-        "message": "ボックスをクリックする事で、独自のチャンネルマップを定義できます"
+        "message": "チャンネルマップ"
     },
     "receiverRssiChannel": {
         "message": "RSSI チャンネル"
@@ -3355,8 +3355,14 @@
     "configurationBatteryMultiwiiCurrent": {
         "message": "旧式 Multiwii MSP電流出力サポートを有効にする"
     },
+    "pidTuningProfile": {
+        "message": "プロファイル"
+    },
     "pidTuningProfileTip": {
         "message": "最大3つ (一部のコントローラでは2つ) の異なるPID Profileをフライトコントローラに保存できます。PID Profileには、このタブ内にあるPID、D値セットポイント、アングル / ホライゾンの設定が含まれます。飛行場等にいる場合、簡単なスティックコマンド (オンラインマニュアルを参照) を使用して、Profileを切り替えることができます。"
+    },
+    "pidTuningRateProfile": {
+        "message": "レートプロファイル"
     },
     "pidTuningRateProfileTip": {
         "message": "1つのProfileにつき最大3つの異なるRateprofileをフライトコントローラに保存することができます。Rateprofileには、RCレート、レート、RC Expo、スロットル、およびTPAの設定が含まれます。 [調整] タブの [Rateprofile選択] の3つのポジションスイッチを設定することで、Rateprofileの切り替えが可能です。"
@@ -3447,5 +3453,8 @@
     },
     "flashTab": {
         "message": "ファームウェアをアップデート"
+    },
+    "vtxFrequencyChannel": {
+        "message": "VTX チャンネル"
     }
 }

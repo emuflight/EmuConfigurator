@@ -36,6 +36,9 @@
     "portsSelectManual": {
         "message": "Manuelle Auswahl"
     },
+    "portOverrideText": {
+        "message": "Anschluss:"
+    },
     "autoConnect": {
         "message": "automatisch Verbinden"
     },
@@ -49,10 +52,10 @@
         "message": "automatisch Verbinden: nicht aktiv. Bitte manuell verbinden"
     },
     "expertMode": {
-        "message": "Expertenmodus einschalten"
+        "message": "Expertenmodus aktivieren"
     },
     "expertModeDescription": {
-        "message": "Zeige unveröffentlichte und potentiell instabile Versionen an"
+        "message": "Unveröffentlichte und potenziell instabile Builds anzeigen"
     },
     "permanentExpertMode": {
         "message": "Expertenmodus dauerhaft aktivieren"
@@ -934,7 +937,7 @@
         "message": "Serieller Empfänger"
     },
     "configurationSpiRX": {
-        "message": "SPI-Bus Empfänger"
+        "message": "SPI-Empfänger"
     },
     "configurationEepromSaved": {
         "message": "EEPROM <span class=\"message-positive\">gespeichert</span>"
@@ -1155,10 +1158,10 @@
         "message": "Neu laden"
     },
     "pidTuningCopyProfile": {
-        "message": "Kopiere Profileinstellungen"
+        "message": "Profil kopieren"
     },
     "pidTuningCopyRateProfile": {
-        "message": "Kopiere Rate-Profileinstellungen"
+        "message": "Ratenprofil kopieren"
     },
     "dialogCopyProfileText": {
         "message": "Kopiere aktuelle Profileinstellungen nach"
@@ -1254,16 +1257,16 @@
         "message": "Werte in µs. Um den neutralen Bereich zu erweitern, muss dieser Wert erhöht werden. <strong>Einstellung nur für 3D Gas</strong>"
     },
     "receiverChannelMap": {
-        "message": "Kanalzuordnung"
+        "message": "Kanalbelegung"
     },
     "receiverChannelDefaultOption": {
         "message": "Standard"
     },
     "receiverChannelMapTitle": {
-        "message": "Es kann eine eigene Kanalzuordnung erstellt werden, klicke dafür in das Feld"
+        "message": "Kanalbelegung"
     },
     "receiverRssiChannel": {
-        "message": "RSSI Kanal"
+        "message": "RSSI-Kanal"
     },
     "receiverRssiChannelDisabledOption": {
         "message": "deaktiviert"
@@ -3011,11 +3014,14 @@
     "configurationBatteryMultiwiiCurrent": {
         "message": "Aktieviere den nativen Support für die Messung des Stromflusses über Multiwii MSP"
     },
+    "pidTuningProfile": {
+        "message": "Profil"
+    },
     "pidTuningProfileTip": {
         "message": "Bis zu 3 (bei manchen FCs nur 2) verschiedene Profile für PID Einstellungen können gespeichert. Die Profile enthalten PID Einstellungen, Setpoint sowie Angle/Horzizon Einstellungen und können mit einfachen Stick-Kommandos (siehe Doku) oder per OSD umgestellt werden."
     },
     "pidTuningRateProfile": {
-        "message": "Rate Profile"
+        "message": "Ratenprofil (Rate Profile)"
     },
     "pidTuningRateProfileTip": {
         "message": "Bis zu 3 verschiedene Rate Profile können auf dem FC gespeichert werden. Diese enthalten Einstellungen zu RC Rate, Rate, Expo sowie TPA. Der Wechsel zwischen den Profilen kann mit Stick Kommandos oder per OSD vorgenommen werden."
@@ -3103,5 +3109,8 @@
     },
     "flashTab": {
         "message": "Firmware aktualisieren"
+    },
+    "vtxFrequencyChannel": {
+        "message": "VTX-Kanal"
     }
 }

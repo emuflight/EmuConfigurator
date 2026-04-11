@@ -48,10 +48,10 @@
         "message": "Auto-Conectar: Desativado - O usuário deve selecionar a porta serial correta e pressionar o botão \"Conectar\""
     },
     "expertMode": {
-        "message": "Modo avançado"
+        "message": "Ativar Modo Expert"
     },
     "expertModeDescription": {
-        "message": "Mostrar versões não liberadas e potencialmente instáveis"
+        "message": "Mostra versões em desenvolvimento e potencialmente instáveis"
     },
     "permanentExpertMode": {
         "message": "Sempre usar o modo avançado"
@@ -966,10 +966,10 @@
         "message": "<strong>Nota:</strong> Lembre-se de configurar uma porta serial (via aba de Portas) ao utilizar a funcionalidade de GPS."
     },
     "configurationSerialRX": {
-        "message": "Fornecedor do receptor Serial"
+        "message": "Receptor Serial"
     },
     "configurationSpiRX": {
-        "message": "Fornecedor do receptor SPI BUS"
+        "message": "Receptor SPI"
     },
     "configurationEepromSaved": {
         "message": "EEPROM <span class=\"message-positive\">salvo</span>"
@@ -1211,10 +1211,10 @@
         "message": "Controlador PID"
     },
     "pidTuningCopyProfile": {
-        "message": "Copiar perfil"
+        "message": "Cópia de Perfil"
     },
     "pidTuningCopyRateProfile": {
-        "message": "Copiar perfil de taxas"
+        "message": "Cópia de Perfil de Rates"
     },
     "dialogCopyProfileText": {
         "message": "Copiar perfil atual"
@@ -1316,7 +1316,7 @@
         "message": "Padrão"
     },
     "receiverChannelMapTitle": {
-        "message": "Você pode definir o seu próprio mapa de canais clicando dentro da caixa"
+        "message": "Mapa de Canais"
     },
     "receiverRssiChannel": {
         "message": "Canal RSSI"
@@ -3149,7 +3149,7 @@
         "message": "Até 3 perfis PID (2 para alguns controladores) podem ser armazenados no controlador de voo. os perfis incluem o PID, Ponto D, e configurações de angulo/horizonte desta aba. Quando estiver em campo, simples comandos no transmissor (veja as instruções online) podem ser utilizados para alternar entre os perfis."
     },
     "pidTuningRateProfile": {
-        "message": "Perfil de taxa"
+        "message": "Perfil de Rates"
     },
     "pidTuningRateProfileTip": {
         "message": "Até 3 diferentes perfis de taxa podem ser armazenados no controlador de voo. O perfil de taxa inclui configurações da 'Taxa do RC', 'Taxa', 'Expo do RC', 'Acelerador', e 'TPA'. É possível alternar entre os perfis de taxa durante o voo, basta configurar um switch de 3 posições para 'Seleção do Perfil de Taxa' na aba de Ajustes."
@@ -3240,5 +3240,8 @@
     },
     "flashTab": {
         "message": "Atualizar Firmware"
+    },
+    "vtxFrequencyChannel": {
+        "message": "Canal VTX"
     }
 }

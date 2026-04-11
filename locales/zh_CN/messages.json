@@ -33,7 +33,7 @@
         "message": "手动选择"
     },
     "portOverrideText": {
-        "message": "端口："
+        "message": "端口:"
     },
     "autoConnect": {
         "message": "自动连接"
@@ -48,10 +48,10 @@
         "message": "自动连接: 禁用-用户需要选择正确的串行端口, 然后单击 \"连接\" 按钮。"
     },
     "expertMode": {
-        "message": "启用专家模式"
+        "message": "开启专家模式"
     },
     "expertModeDescription": {
-        "message": "显示未发布和潜在不稳定的生成"
+        "message": "显示未发布且可能不稳定的版本"
     },
     "permanentExpertMode": {
         "message": "默认启用专家模式"
@@ -1005,10 +1005,10 @@
         "message": "<strong>注意:</strong>使用 GPS 之前需要先在串口页面设置一个串口。"
     },
     "configurationSerialRX": {
-        "message": "串行数字接收机协议"
+        "message": "串口接收机"
     },
     "configurationSpiRX": {
-        "message": "SPI 总线接口接收机提供者"
+        "message": "SPI 接收机"
     },
     "configurationEepromSaved": {
         "message": "EEPROM <span class=\"message-positive\">已保存</span>"
@@ -1262,10 +1262,10 @@
         "message": "PID 控制器"
     },
     "pidTuningCopyProfile": {
-        "message": "复制 PID 配置文件"
+        "message": "复制配置档案"
     },
     "pidTuningCopyRateProfile": {
-        "message": "复制 Rate 配置文件"
+        "message": "复制速率配置档案"
     },
     "dialogCopyProfileText": {
         "message": "将当前设置值复制到"
@@ -1367,7 +1367,7 @@
         "message": "默认"
     },
     "receiverChannelMapTitle": {
-        "message": "你可以通过选择这个选项来自定义通道映射"
+        "message": "通道映射"
     },
     "receiverRssiChannel": {
         "message": "RSSI 通道"
@@ -3435,13 +3435,13 @@
         "message": "启用对传统 Multiwii MSP 电流计输出的支持"
     },
     "pidTuningProfile": {
-        "message": "配置文件"
+        "message": "配置档案"
     },
     "pidTuningProfileTip": {
         "message": "飞控可以保存最多3个（有的只能2个）PID配置文件。PID 配置文件包括：PID值， D 设置点，angle/horizon 模式选择设置。配置文件可以通过遥控摇杆命令来回切换(具体操作参阅网上教程)。"
     },
     "pidTuningRateProfile": {
-        "message": "Rate配置文件"
+        "message": "速率配置档案"
     },
     "pidTuningRateProfileTip": {
         "message": "飞控可以保存3个不同的Rate配置文件。 Rate配置文件包括：RC rate， Rate，RC expo，油门和TPA。 配置文件可以通过遥控摇杆命令来回切换（具体操作参阅网上教程）。也可以通过一个3段的开关来选择不同的配置文件。"
@@ -3532,5 +3532,8 @@
     },
     "flashTab": {
         "message": "更新固件"
+    },
+    "vtxFrequencyChannel": {
+        "message": "VTX 通道"
     }
 }

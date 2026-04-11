@@ -48,10 +48,10 @@
         "message": "자동-연결: 비활성화됨 - 올바른 시리얼 포트를 선택하고 \"연결\" 버튼을 클릭하십시오."
     },
     "expertMode": {
-        "message": "전문가 모드 활성"
+        "message": "전문가 모드 활성화"
     },
     "expertModeDescription": {
-        "message": "출시되지 않은 잠재적으로 불안정한 빌드 보기"
+        "message": "출시되지 않은 불안정한 빌드 표시"
     },
     "permanentExpertMode": {
         "message": "전문가 모드 영구 활성"
@@ -996,10 +996,10 @@
         "message": "<strong>노트:</strong> GPS 기능을 사용할 때는 시리얼 포트(포트 탭을 통해)를 설정하는 것을 잊지 마십시오."
     },
     "configurationSerialRX": {
-        "message": "시리얼 수신기 공급자"
+        "message": "시리얼 수신기"
     },
     "configurationSpiRX": {
-        "message": "SPI 버스 수신기 공급자"
+        "message": "SPI 수신기"
     },
     "configurationEepromSaved": {
         "message": "EEPROM <span class=\"message-positive\">저장됨</span>"
@@ -1274,10 +1274,10 @@
         "message": "PID 컨트롤러"
     },
     "pidTuningCopyProfile": {
-        "message": "프로파일 값 복사"
+        "message": "프로필 복사"
     },
     "pidTuningCopyRateProfile": {
-        "message": "레이트 프로파일 값 복사"
+        "message": "레이트 프로필 복사"
     },
     "dialogCopyProfileText": {
         "message": "현재 프로파일에서 값을 복사"
@@ -1379,7 +1379,7 @@
         "message": "기본값"
     },
     "receiverChannelMapTitle": {
-        "message": "상자 안을 클릭하여 자신의 채널 맵을 정의 할 수 있습니다."
+        "message": "채널 맵"
     },
     "receiverRssiChannel": {
         "message": "RSSI 채널"
@@ -3435,13 +3435,13 @@
         "message": "레거시 Multiwii MSP 전류 출력 지원"
     },
     "pidTuningProfile": {
-        "message": "프로파일"
+        "message": "프로필"
     },
     "pidTuningProfileTip": {
         "message": "최대 3개(일부 컨트롤러의 경우 2개까지)의 다른 프로파일을 비행 컨트롤러에 저장할 수 있습니다. 프로파일에는이 탭의 모든 설정이 포함됩니다. 현장에서 간단한 스틱 명령(온라인 지침 참조)을 사용하여 프로파일을 전환 할 수 있습니다."
     },
     "pidTuningRateProfile": {
-        "message": "레이트 프로파일"
+        "message": "레이트 프로필"
     },
     "pidTuningRateProfileTip": {
         "message": "프로파일 당 최대 3개의 다른 레이트 프로파일을 비행 컨트롤러에 저장할 수 있습니다. 레이트 프로프일에는 'RC 레이트', '레이트', 'RC Expo', '스로틀'및 'TPA'에 대한 설정이 포함됩니다. '조정' 탭에서 '레이트 프로파일 선택'을 위한 3가지 위치 스위치를 설정하여 비행 중 레이트 프로파일 간을 전환 할 수 있습니다."
@@ -3532,5 +3532,8 @@
     },
     "flashTab": {
         "message": "펌웨어</br>업데이트"
+    },
+    "vtxFrequencyChannel": {
+        "message": "VTX 채널"
     }
 }

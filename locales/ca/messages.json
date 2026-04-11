@@ -1,4 +1,7 @@
 {
+    "errorTitle": {
+        "message": "Error"
+    },
     "warningTitle": {
         "message": "Advertència"
     },
@@ -20,6 +23,9 @@
     "portsSelectManual": {
         "message": "Selecció Manual"
     },
+    "portOverrideText": {
+        "message": "Port:"
+    },
     "autoConnect": {
         "message": "Auto-Connectar"
     },
@@ -33,7 +39,10 @@
         "message": "Auto-Connectar: Deshabilitat - L'usuari ha de seleccionar el port sèrie correcte i clicar el botó \"Connectar\""
     },
     "expertMode": {
-        "message": "Habilita el mode expert"
+        "message": "Activa el Mode Expert"
+    },
+    "expertModeDescription": {
+        "message": "Mostra versions en desenvolupament i potencialment inestables"
     },
     "permanentExpertMode": {
         "message": "Habilita el mode expert permanentment"
@@ -753,10 +762,10 @@
         "message": "<strong>Nota:</strong> Recorda configurar el Port Sèrie (pestanya Ports) per a fer servir la funció GPS."
     },
     "configurationSerialRX": {
-        "message": "Proveïdor del receptor sèrie"
+        "message": "Receptor Sèrie"
     },
     "configurationSpiRX": {
-        "message": "Proveïdor del Receptor SPI Bus"
+        "message": "Receptor SPI"
     },
     "configurationEepromSaved": {
         "message": "EEPROM <span class=\"message-positive\">desada</span>"
@@ -879,10 +888,10 @@
         "message": "Controlador de PIDs"
     },
     "pidTuningCopyProfile": {
-        "message": "Copia valors de perfil"
+        "message": "Còpia de Perfil"
     },
     "pidTuningCopyRateProfile": {
-        "message": "Copia valors de rates de perfil"
+        "message": "Còpia de Perfil de Rates"
     },
     "dialogCopyProfileText": {
         "message": "Copia els valors de perfil actual a"
@@ -966,7 +975,7 @@
         "message": "Per defecte"
     },
     "receiverChannelMapTitle": {
-        "message": "Pots definir el teu mapa de canals clicant dins la caixa"
+        "message": "Mapa de Canals"
     },
     "receiverRssiChannel": {
         "message": "Canal RSSI"
@@ -2357,7 +2366,7 @@
         "message": "Fins a 3 perfils de PIDs (2 en algunes controladores) es poden emmagatzemar a la controladora. Els perfils de PIDs inclouen els PIDs, setpoint i els ajustaments de angle/horizon d'aquesta pestanya. Un cop al camp comandes de sticks es poden utilitzar per a canviar els perfils (mira la documentació)."
     },
     "pidTuningRateProfile": {
-        "message": "Perfil de rates"
+        "message": "Perfil de Rates"
     },
     "pidTuningRateProfileTip": {
         "message": "Fins a 3 perfils de rate es poden desar a la controladora. Aquests inclouen ajustaments per a 'RC Rate', 'Rate', 'RC Expo', 'Throttle', i 'TPA'. Canviar en vol és possible configurant un switch de 3 posicions al \"Selector de perfils de rate\" a la pestanya d'ajustaments."
@@ -2427,5 +2436,8 @@
     },
     "modeCameraChangeMode": {
         "message": "MODE DE CANVI DE CÀMERA"
+    },
+    "vtxFrequencyChannel": {
+        "message": "Canal VTX"
     }
 }

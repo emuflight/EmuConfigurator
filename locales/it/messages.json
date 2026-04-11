@@ -48,10 +48,10 @@
         "message": "Connessione automatica: Disabilitata - E' necessario selezionare la porta seriale e fare click su \"Connetti\""
     },
     "expertMode": {
-        "message": "Abilita modalità esperto"
+        "message": "Attiva Modalità Esperto"
     },
     "expertModeDescription": {
-        "message": "Mostra build non rilasciate e potenzialmente instabili"
+        "message": "Mostra versioni in sviluppo e potenzialmente instabili"
     },
     "permanentExpertMode": {
         "message": "Modalità esperto sempre abilitata"
@@ -873,10 +873,10 @@
         "message": "<strong>Nota:</strong>  Ricorda di configurare una Porta Seriale (nella scheda Porte) quando usi un GPS."
     },
     "configurationSerialRX": {
-        "message": "Provider di ricevente seriale"
+        "message": "Ricevente Seriale"
     },
     "configurationSpiRX": {
-        "message": "Provider ricevitore bus SPI"
+        "message": "Ricevente SPI"
     },
     "configurationEepromSaved": {
         "message": "EEPROM <span class=\"message-positive\">salvata</span>"
@@ -1100,10 +1100,10 @@
         "message": "Controllore dei PID"
     },
     "pidTuningCopyProfile": {
-        "message": "Copia i valori del profilo"
+        "message": "Copia Profilo"
     },
     "pidTuningCopyRateProfile": {
-        "message": "Copia i valori del profilo velocità"
+        "message": "Copia Profilo Rate"
     },
     "dialogCopyProfileText": {
         "message": "Copia i valori dal profilo corrente"
@@ -1196,13 +1196,13 @@
         "message": "Questi sono valori (in us). Per allargare la zona neutra aumenta il valore. <strong>Questa impostazione è solo per Gas 3D.</strong>"
     },
     "receiverChannelMap": {
-        "message": "Mappatura Canali"
+        "message": "Mappa Canali"
     },
     "receiverChannelDefaultOption": {
         "message": "Predefinito"
     },
     "receiverChannelMapTitle": {
-        "message": "puoi definire la tua mappatura dei canali cliccando nel box"
+        "message": "Mappa Canali"
     },
     "receiverRssiChannel": {
         "message": "Canale RSSI"
@@ -3074,5 +3074,8 @@
     },
     "flashTab": {
         "message": "Aggiornamento Firmware"
+    },
+    "vtxFrequencyChannel": {
+        "message": "Canale VTX"
     }
 }

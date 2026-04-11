@@ -51,7 +51,7 @@
         "message": "Включить режим эксперта"
     },
     "expertModeDescription": {
-        "message": "Показать невыпущенные и потенциально нестабильные сборки"
+        "message": "Показывать релиз-кандидаты и нестабильные сборки"
     },
     "permanentExpertMode": {
         "message": "Всегда включать режим эксперта"
@@ -978,10 +978,10 @@
         "message": "<strong>Примечание:</strong> Не забудьте настроить GPS-порт (во вкладке \"Порты\") перед тем, как пользоваться настройками GPS."
     },
     "configurationSerialRX": {
-        "message": "Приемник с последовательным выходом"
+        "message": "Последовательный приемник"
     },
     "configurationSpiRX": {
-        "message": "Приемник с выходом шины SPI"
+        "message": "SPI приемник"
     },
     "configurationEepromSaved": {
         "message": "EEPROM <span class=\"message-positive\">сохранено</span>"
@@ -1208,10 +1208,10 @@
         "message": "PID Контроллер"
     },
     "pidTuningCopyProfile": {
-        "message": "Скопир. значения профиля"
+        "message": "Копировать профиль"
     },
     "pidTuningCopyRateProfile": {
-        "message": "Скопир. значения Rate-профиля"
+        "message": "Копировать профиль рейтов"
     },
     "dialogCopyProfileText": {
         "message": "Копировать значения из текущего профиля в"
@@ -1304,16 +1304,16 @@
         "message": "Значение (в микросекундах). Для расширения нейтральной зоны увеличьте это значение.<strong>Этот параметр только для газа в режиме 3D.</strong>"
     },
     "receiverChannelMap": {
-        "message": "Таблица каналов"
+        "message": "Раскладка каналов"
     },
     "receiverChannelDefaultOption": {
         "message": "По умолчанию"
     },
     "receiverChannelMapTitle": {
-        "message": "Вы можете определить Вашу собственную таблицу каналов кликнув снаружи окна"
+        "message": "Раскладка каналов"
     },
     "receiverRssiChannel": {
-        "message": "RSSI канал"
+        "message": "Канал RSSI"
     },
     "receiverRssiChannelDisabledOption": {
         "message": "Отключено"
@@ -3328,7 +3328,7 @@
         "message": "Максимум 3 (2 для некоторых контроллеров) профиля PID-ов могут храниться в памяти полётного контроллера. PID-профили хранят в себе параметры D setpoint и настройки angle/horizon (в этой вкладке). С помощью комбинаций стиков (см. инструкцию) можно переключаться между профилями."
     },
     "pidTuningRateProfile": {
-        "message": "Rate-профиль"
+        "message": "Профиль рейтов"
     },
     "pidTuningRateProfileTip": {
         "message": "Максимум 3 Rate-профиля могут храниться в памяти полётного контроллера. Rate-профили хранят в себе параметры: \"RC Rate\", \"Rate\", \"RC Expo\", \"Настройки экспоненты газа\" и \"TPA\". Переключаться между профилями можно \"в полёте\" с использованием трёх-позиционного переключателя, который привязан к параметру \"Rate Profile Selection\" во вкладке \"Корректирование в полёте\"."
@@ -3416,5 +3416,8 @@
     },
     "flashTab": {
         "message": "Обновить прошивку"
+    },
+    "vtxFrequencyChannel": {
+        "message": "Канал VTX"
     }
 }
