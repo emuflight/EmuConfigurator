@@ -1598,6 +1598,9 @@
     "sensorsSonarTitle": {
         "message": "Sonar - CM"
     },
+    "cliInfo": {
+        "message": "<strong>Hinweis:</strong> Das Verlassen des CLI-Tabs oder das Drücken von Trennen sendet <strong>automatisch</strong> \"<strong>exit</strong>\" an das Board. Bei der neuesten Firmware führt dies zu einem <strong>Neustart</strong> des Controllers und nicht gespeicherte Änderungen gehen <strong>verloren</strong>.<p><strong><span class=\"message-negative\">Warnung:</span></strong> Einige Befehle im CLI können dazu führen, dass willkürliche Signale an den Motorausgangspins gesendet werden. Dies kann dazu führen, dass Motoren anlaufen, wenn ein Akku angeschlossen ist. Daher wird dringend empfohlen, sicherzustellen, dass <strong>kein Akku angeschlossen ist, bevor Befehle im CLI eingegeben werden</strong>."
+    },
     "cliInputPlaceholder": {
         "message": "Befehl hier eingeben..."
     },

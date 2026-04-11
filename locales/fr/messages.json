@@ -1621,6 +1621,9 @@
     "sensorsBaroTitle": {
         "message": "Baromètre"
     },
+    "cliInfo": {
+        "message": "<strong>Note:</strong> Quitter l'onglet CLI ou appuyer sur Déconnecter enverra <strong>automatiquement</strong> \"<strong>exit</strong>\" à la carte. Avec le dernier firmware, cela fera <strong>redémarrer</strong> le contrôleur et les modifications non enregistrées seront <strong>perdues</strong>.<p><strong><span class=\"message-negative\">Attention:</span></strong> Certaines commandes dans le CLI peuvent entraîner l'envoi de signaux arbitraires sur les broches de sortie moteur. Cela peut provoquer la rotation des moteurs si une batterie est connectée. Il est donc fortement recommandé de s'assurer qu'<strong>aucune batterie n'est connectée avant d'entrer des commandes dans le CLI</strong>."
+    },
     "cliInputPlaceholder": {
         "message": "Entrez une commande ici..."
     },

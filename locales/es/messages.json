@@ -1726,6 +1726,9 @@
     "sensorsBaroTitle": {
         "message": "Barómetro"
     },
+    "cliInfo": {
+        "message": "<strong>Nota:</strong> Salir de la pestaña CLI o presionar Desconectar enviará <strong>automáticamente</strong> \"<strong>exit</strong>\" a la placa. Con el último firmware, esto hará que el controlador se <strong>reinicie</strong> y los cambios no guardados se <strong>perderán</strong>.<p><strong><span class=\"message-negative\">Aviso:</span></strong> Algunos comandos en el CLI pueden resultar en señales arbitrarias enviadas a los pines de salida de los motores. Esto puede causar que los motores giren si hay una batería conectada. Por lo tanto, se recomienda encarecidamente asegurarse de que <strong>no haya ninguna batería conectada antes de introducir comandos en el CLI</strong>."
+    },
     "cliInputPlaceholder": {
         "message": "Escriba un comando aquí..."
     },

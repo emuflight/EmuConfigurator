@@ -1822,6 +1822,9 @@
     "sensorsDebugTitle": {
         "message": "디버그 0"
     },
+    "cliInfo": {
+        "message": "<strong>참고:</strong> CLI 탭을 벗어나거나 연결 해제를 누르면 보드에 \"<strong>exit</strong>\"가 <strong>자동으로</strong> 전송됩니다. 최신 펌웨어에서는 이로 인해 컨트롤러가 <strong>재부팅</strong>되며 저장되지 않은 변경 사항은 <strong>손실</strong>됩니다.<p><strong><span class=\"message-negative\">경고:</span></strong> CLI의 일부 명령은 모터 출력 핀에 임의의 신호가 전송될 수 있습니다. 배터리가 연결되어 있으면 모터가 회전할 수 있습니다. 따라서 <strong>CLI에서 명령을 입력하기 전에 배터리가 연결되지 않았는지 확인하는 것</strong>이 강력히 권장됩니다."
+    },
     "cliInputPlaceholder": {
         "message": "여기에 명령어 입력..."
     },

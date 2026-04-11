@@ -1780,6 +1780,9 @@
     "sensorsDebugTitle": {
         "message": "デバッグ"
     },
+    "cliInfo": {
+        "message": "<strong>注意:</strong> CLIタブを離れるか、「切断」を押すと、<strong>自動的</strong>にボードに「<strong>exit</strong>」が送信されます。最新のファームウェアでは、これによりコントローラーが<strong>再起動</strong>し、保存されていない変更は<strong>失われます</strong>。<p><strong><span class=\"message-negative\">警告:</span></strong> CLIの一部のコマンドは、モーター出力ピンに任意の信号を送信する可能性があります。バッテリーが接続されている場合、モーターが回転する恐れがあります。そのため、<strong>CLIでコマンドを入力する前に、バッテリーが接続されていないことを確認すること</strong>を強くお勧めします。"
+    },
     "cliInputPlaceholder": {
         "message": "ここにコマンドを入力..."
     },

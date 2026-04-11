@@ -1289,6 +1289,9 @@
     "sensorsSonarTitle": {
         "message": "Sònar - cm"
     },
+    "cliInfo": {
+        "message": "<strong>Nota:</strong> Sortir de la pestanya CLI o prémer Desconnectar enviarà <strong>automàticament</strong> \"<strong>exit</strong>\" a la placa. Amb l'últim firmware, això farà que el controlador es <strong>reinicii</strong> i els canvis no desats es <strong>perdran</strong>.<p><strong><span class=\"message-negative\">Avís:</span></strong> Alguna comandes al CLI poden resultar en senyals arbitraris enviats als pins de sortida dels motors. Això pot fer que els motors girin si la bateria està connectada. Per tant, es recomana fermament assegurar-se que <strong>no hi hagi cap bateria connectada abans d'introduir comandes al CLI</strong>."
+    },
     "cliInputPlaceholder": {
         "message": "Escriu una ordre aquí..."
     },
