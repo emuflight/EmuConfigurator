@@ -1157,37 +1157,37 @@
         "message": "<b>Suggerimento per la messa a punto</b><br /><span class=\"message-negative\">IMPORTANTE:</span> E' importante verificare la temperatura del motore durante il primo volo. Più alto è il valore del filtro, più dovrebbe volare meglio, ma avrai anche più rumore nei motori. <br>Il valore predefinito di 100Hz è ottimale, ma per setup più rumorosi puoi provare ad abbassare il filtro Dterm a 50Hz e possibilmente anche il filtro del giroscopio."
     },
     "receiverThrottleMid": {
-        "message": "Gas Medio"
+        "message": "Throttle Mid"
     },
     "receiverThrottleExpo": {
-        "message": "Esponenziale Gas"
+        "message": "Throttle Expo"
     },
     "receiverStickMin": {
-        "message": "Soglia \"Stick Giù\""
+        "message": "Stick Minimo"
     },
     "receiverHelpStickMin": {
         "message": "Il valore massimo (in us) in cui lo stick verrà riconosceiuto come basso / sinistra per l'input di comando (MIN_CHECK)."
     },
     "receiverStickCenter": {
-        "message": "Centro dello stick"
+        "message": "Stick Centrale"
     },
     "receiverHelpStickCenter": {
         "message": "Il valore (in us) utilizzato per determinare se uno stick è centrato (MID_RC)."
     },
     "receiverStickMax": {
-        "message": "Soglia \"Stick Su\""
+        "message": "Stick Massimo"
     },
     "receiverHelpStickMax": {
         "message": "Il valore minimo (in us) in cui lo stick verrà riconosceiuto come alto/ destra per l'input di comando (MAX_CHECK)."
     },
     "receiverDeadband": {
-        "message": "Punto morto RC"
+        "message": "Deadband (Banda morta)"
     },
     "receiverHelpDeadband": {
         "message": "questi sono i valori (in us) entro cui l'ingresso RC può variare prima che sia considerato valido. Per trasmittenti che hanno valori leggermente altalenanti in uscita, questo valore può essere aumentato se l'ingresso RC si muove troppo quando il comando relativo è fermo."
     },
     "receiverYawDeadband": {
-        "message": "Punto morto Yaw"
+        "message": "Deadband Yaw"
     },
     "receiverHelpYawDeadband": {
         "message": "questi sono i valori (in us) entro cui l'ingresso RC può variare prima che sia considerato valido. Per trasmittenti che hanno valori leggermente altalenanti in uscita, questo valore può essere aumentato se l'ingresso RC si muove troppo quando il comando relativo è fermo. <strong>Questa impostazione è solo per il comando di coda.</strong>"
@@ -1199,7 +1199,7 @@
         "message": "Questi sono valori (in us). Per allargare la zona neutra aumenta il valore. <strong>Questa impostazione è solo per Gas 3D.</strong>"
     },
     "receiverChannelMap": {
-        "message": "Mappa Canali"
+        "message": "Mappa canali"
     },
     "receiverChannelDefaultOption": {
         "message": "Predefinito"
@@ -1217,7 +1217,7 @@
         "message": "Grafico Frequenza di aggiornamento"
     },
     "receiverButtonSave": {
-        "message": "salva"
+        "message": "Salva Ricevente"
     },
     "receiverButtonRefresh": {
         "message": "aggiorna"

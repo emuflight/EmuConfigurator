@@ -140,7 +140,7 @@
         "message": "PID 调校"
     },
     "tabReceiver": {
-        "message": "接收机"
+        "message": "接收机 (Receiver)"
     },
     "tabServos": {
         "message": "舵机"
@@ -1322,37 +1322,37 @@
         "message": "<span class=\"message-negative\"><b>警告：</b></span>你使用的滤波器数量非常少。这可能会导致飞机难以控制，并可能导致起飞暴走。强烈建议您<b>至少启用一个陀螺仪动态低通滤波器或者陀螺仪低通滤波器1和一个Dterm动态低通滤波器或Dterm低通滤波器1</b>"
     },
     "receiverThrottleMid": {
-        "message": "油门中点"
+        "message": "油门中间点"
     },
     "receiverThrottleExpo": {
-        "message": "油门 Expo"
+        "message": "油门指数 (Expo)"
     },
     "receiverStickMin": {
-        "message": "'摇杆低位' 阈值"
+        "message": "摇杆最低值"
     },
     "receiverHelpStickMin": {
         "message": "摇杆最小值（摇杆最低点和摇杆最左）的数值 （微秒）（大于这个值飞控认为遥控信号正常）"
     },
     "receiverStickCenter": {
-        "message": "摇杆中点"
+        "message": "摇杆中间值"
     },
     "receiverHelpStickCenter": {
         "message": "摇杆中位判定值（微秒）"
     },
     "receiverStickMax": {
-        "message": "'摇杆高位' 阈值"
+        "message": "摇杆最高值"
     },
     "receiverHelpStickMax": {
         "message": "摇杆最大值（摇杆最高和摇杆最右）的数值 （微秒）（小于这个值飞控认为遥控信号正常）"
     },
     "receiverDeadband": {
-        "message": "RC 死区区间"
+        "message": "死区 (Deadband)"
     },
     "receiverHelpDeadband": {
         "message": "遥控输入变化大于多少us飞控才认为是有效输入。对于静止状态下有抖动的遥控器，可以适当增加这个值。"
     },
     "receiverYawDeadband": {
-        "message": "Yaw 死区区间"
+        "message": "航向死区 (Yaw Deadband)"
     },
     "receiverHelpYawDeadband": {
         "message": "遥控方向通道输入多少才被飞控认为是有效值，对于输入有抖动的遥控器，可以增加这个值。<strong>这个数值只对方向摇杆有效</strong>"
@@ -1364,7 +1364,7 @@
         "message": "增加这个值（us）会增加3D 油门中位宽度。<strong>该设置只对 3D 油门有效</strong>"
     },
     "receiverChannelMap": {
-        "message": "通道映射"
+        "message": "通道映射 (Channel Map)"
     },
     "receiverChannelDefaultOption": {
         "message": "默认"
@@ -1382,7 +1382,7 @@
         "message": "图形显示刷新率"
     },
     "receiverButtonSave": {
-        "message": "保存"
+        "message": "保存接收机设置"
     },
     "receiverButtonRefresh": {
         "message": "刷新"

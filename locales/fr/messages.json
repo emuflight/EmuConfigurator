@@ -1216,32 +1216,44 @@
     "filterWarning": {
         "message": "<span class=\"message-negative\"><b>Avertissement:</b></span> Vous ne filtrez pas assez, la valeur est dangereusement basse. L'appareil pourrait devenir difficile à contrôler, et s'en aller seul . Il est vivement suggéré que vous <b>activiez au moins le Filtre Gyro Dynamique Passe-bas ou le filtre Gyro Passe-bas 1 et au moins le Filtre D Term Dynamique Passe-bas ou le filtre D Term Passe-bas 1</b>."
     },
+    "receiverThrottleMid": {
+        "message": "Throttle Mid"
+    },
+    "receiverThrottleExpo": {
+        "message": "Throttle Expo"
+    },
     "receiverStickMin": {
-        "message": "'Manche en bas'"
+        "message": "Stick Minimum"
     },
     "receiverHelpStickMin": {
         "message": "Valeur maxi (en us) d'un manche pour être détecté en valeur minimale (MIN_CHECK)."
     },
     "receiverStickCenter": {
-        "message": "Manche au neutre"
+        "message": "Stick Central"
     },
     "receiverHelpStickCenter": {
         "message": "Valeur utilisée (en us) d'un manche pour être détecté au centre (MID_RC)."
     },
     "receiverStickMax": {
-        "message": "'Manche en haut'"
+        "message": "Stick Maximum"
     },
     "receiverHelpStickMax": {
         "message": "Valeur mini (en us) d'un manche pour être détecté en valeur haute (MAX_CHECK)."
     },
+    "receiverDeadband": {
+        "message": "Deadband"
+    },
     "receiverHelpDeadband": {
         "message": "Ce sont les écarts maximum (en us) pour être validés. Pour des radios avec beaucoup de variations an neutre, augmentez ses valeurs."
+    },
+    "receiverYawDeadband": {
+        "message": "Deadband Yaw"
     },
     "receiverHelpYawDeadband": {
         "message": "Ce sont les écarts maximum (en us) pour être validés. Pour des radios avec beaucoup de variations an neutre, augmentez ses valeurs. <strong>Réglage uniquement pour le Yaw.</strong>"
     },
     "receiverChannelMap": {
-        "message": "Ordre des voies"
+        "message": "Mappage des voies"
     },
     "receiverChannelDefaultOption": {
         "message": "Défaut"
@@ -1259,7 +1271,7 @@
         "message": "Taux de rafraîchissement du graphique"
     },
     "receiverButtonSave": {
-        "message": "Enregistrer"
+        "message": "Sauvegarder Récepteur"
     },
     "receiverButtonRefresh": {
         "message": "Rafraîchir"

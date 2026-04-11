@@ -1331,37 +1331,37 @@
         "message": "<span class=\"message-negative\"><b>경고:</b></span> 당신이 사용하는 필터링 양은 위험할 정도로 낮습니다. 이는 기체를 제어하기 힘들게 하고, 분실을 초래할 수 있습니다. <b>최소한 하나의 자이로 다이나믹 저역통과 또는 자이로 저역통과 1과 최소한 하나의 D 텀 다이나믹 저역통과 또는 D 텀 저역통과 1을 활성화</b>할 것을 강력히 권장합니다."
     },
     "receiverThrottleMid": {
-        "message": "스로틀 중간값"
+        "message": "스로틀 Mid"
     },
     "receiverThrottleExpo": {
-        "message": "스로틀 EXPO"
+        "message": "스로틀 Expo"
     },
     "receiverStickMin": {
-        "message": "'스틱 낮음' 한계값"
+        "message": "스틱 최솟값"
     },
     "receiverHelpStickMin": {
         "message": "스틱이 명령 입력 (MIN_CHECK)에 대해 낮음 / 좌로 인식되는 최대 값 (미국 내)."
     },
     "receiverStickCenter": {
-        "message": "스틱 중립값"
+        "message": "스틱 중앙값"
     },
     "receiverHelpStickCenter": {
         "message": "이 값은 스틱이 중립 위치에 있는지를 결정하는 데 사용됩니다."
     },
     "receiverStickMax": {
-        "message": "'스틱 높음' 한계값"
+        "message": "스틱 최댓값"
     },
     "receiverHelpStickMax": {
         "message": "스틱이 명령 입력 (MAX_CHECK)에 대해 높음 / 우로 인식되는 최소 값 (미국 내)."
     },
     "receiverDeadband": {
-        "message": "RC 데드밴드"
+        "message": "데드밴드 (Deadband)"
     },
     "receiverHelpDeadband": {
         "message": "이것들은 유효한 것으로 간주되기 전에 얼마나 많은 RC 입력이 달라질 수 있는지에 따른 값입니다. 출력에 지터가 있는 송신기의 경우, 공회전 중일 때 rc 입력이 변하면 이 값을 증가시킬 수 있습니다."
     },
     "receiverYawDeadband": {
-        "message": "요 데드밴드"
+        "message": "Yaw 데드밴드"
     },
     "receiverHelpYawDeadband": {
         "message": "이것들은 유효한 것으로 간주되기 전에 얼마나 많은 RC 입력이 달라질 수 있는지에 따른 값입니다. 출력에 지터가 있는 송신기의 경우, 유휴 상태에서 rc 입력이 트위치되면이 값을 증가시킬 수 있습니다. <strong>이 설정은 요 에만 적용됩니다.</strong>"
@@ -1391,7 +1391,7 @@
         "message": "레이트 그래프 새로고침"
     },
     "receiverButtonSave": {
-        "message": "저장"
+        "message": "수신기 설정 저장"
     },
     "receiverButtonRefresh": {
         "message": "새로고침"

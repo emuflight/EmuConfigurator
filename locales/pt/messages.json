@@ -140,7 +140,7 @@
         "message": "Afinação de PID"
     },
     "tabReceiver": {
-        "message": "Receptor"
+        "message": "Recetor"
     },
     "tabTransponder": {
         "message": "Transponder de corridas"
@@ -1268,37 +1268,37 @@
         "message": "<span class=\"message-negative\"><b>Aviso:</b></span> A quantidade de filtros utilizados está perigosamente baixa. Isto provavelmente fará com que a aeronave perca o controle durante o voo. É altamente recomendado <b>ativar no mínimo um Filtro Gyro: Lowpass 1 Dinâmico ou Lowpass 1 e ao menos um dos filtros do Termo D: Lowpass 1 Dinâmico ou Lowpass 1</b>."
     },
     "receiverThrottleMid": {
-        "message": "MEIO do Acelerador"
+        "message": "Throttle Mid"
     },
     "receiverThrottleExpo": {
-        "message": "EXPO do Acelerador"
+        "message": "Throttle Expo"
     },
     "receiverStickMin": {
-        "message": "Limite 'Stick baixo'"
+        "message": "Stick Mínimo"
     },
     "receiverHelpStickMin": {
         "message": "O valor máximo (em us) para que o stick seja reconhecido como baixo / esquerda para entrada do comando (MIN_CHECK)."
     },
     "receiverStickCenter": {
-        "message": "Centro do Stick"
+        "message": "Stick Central"
     },
     "receiverHelpStickCenter": {
         "message": "O valor (em us) usado para determinar se o stick está centralizado (MID_RC)."
     },
     "receiverStickMax": {
-        "message": "Limite 'Stick Alto'"
+        "message": "Stick Máximo"
     },
     "receiverHelpStickMax": {
         "message": "O valor mínimo (em us) para que o stick seja reconhecido como alto / direita para entrada do comando (MAX_CHECK)."
     },
     "receiverDeadband": {
-        "message": "Ponto morto do RC"
+        "message": "Deadband"
     },
     "receiverHelpDeadband": {
         "message": "Estes valores (em us) indicam quanto a entrada do RC pode variar antes de ser considerada válida. Para transmissores com saídas instáveis, este valor pode ser aumentado se as entradas RC variam enquanto parado."
     },
     "receiverYawDeadband": {
-        "message": "Ponto morto do Yaw"
+        "message": "Deadband de Yaw"
     },
     "receiverHelpYawDeadband": {
         "message": "Estes valores (em us) indicam quanto a entrada do RC pode variar antes de ser considerada válida. Para transmissores com saídas instáveis, este valor pode ser aumentado se as entradas RC variam enquanto parado. <strong> Esta configuração afeta somente o Yaw.</strong>"
@@ -1310,7 +1310,7 @@
         "message": "Valores (em us). Aumente o valor para aumentar a zona neutra. <strong> Esta configuração é somente para o Acelerador 3D.</strong>"
     },
     "receiverChannelMap": {
-        "message": "Mapa de Canais"
+        "message": "Mapa de canais"
     },
     "receiverChannelDefaultOption": {
         "message": "Padrão"
@@ -1328,7 +1328,7 @@
         "message": "Taxa de atualização do gráfico"
     },
     "receiverButtonSave": {
-        "message": "Salvar"
+        "message": "Salvar Recetor"
     },
     "receiverButtonRefresh": {
         "message": "Atualizar"

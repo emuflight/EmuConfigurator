@@ -1289,31 +1289,31 @@
         "message": "<span class=\"message-negative\"><b>警告:</b></span> 現在適用されているフィルタリング量が非常に少ないです。これは機体制御が困難となる可能性があり、飛行中に大きく影響する可能性があります。<b>『ジャイロダイナミックローパス』または『ジャイロローパス 1』の少なくとも1つと『D値ダイナミックローパス』または『D値ローパス1』の少なくとも1つを有効とする</b>ことを強くお奨めします。"
     },
     "receiverThrottleMid": {
-        "message": "スロットルMID"
+        "message": "スロットル Mid"
     },
     "receiverThrottleExpo": {
-        "message": "スロットルEXPO"
+        "message": "スロットル Expo"
     },
     "receiverStickMin": {
-        "message": "スティック 低"
+        "message": "スティック最小値"
     },
     "receiverHelpStickMin": {
         "message": "スティックがコマンド入力の下 / 左として認識される (自身の) 最大値。(MIN_CHECK)"
     },
     "receiverStickCenter": {
-        "message": "スティック 中央"
+        "message": "スティック中央値"
     },
     "receiverHelpStickCenter": {
         "message": "スティックが中央にあるか否かを判断するための (自身の) 値。 (MID_RC)"
     },
     "receiverStickMax": {
-        "message": "スティック 高"
+        "message": "スティック最大値"
     },
     "receiverHelpStickMax": {
         "message": "スティックがコマンド入力の 上 / 右 として認識される (自身の) 最小値。(MAX_CHECK)"
     },
     "receiverDeadband": {
-        "message": "RC デッドバンド"
+        "message": "デッドバンド"
     },
     "receiverHelpDeadband": {
         "message": "この値は、設定値とRC入力がどのくらい差異を許容するかの (自身の) 値です。出力ジッタがある送信機の場合、RC入力がアイドル状態で揺らぎがある場合、この値を大きくしていきます。"
@@ -1349,7 +1349,7 @@
         "message": "グラフ更新頻度"
     },
     "receiverButtonSave": {
-        "message": "保存"
+        "message": "受信機設定を保存"
     },
     "receiverButtonRefresh": {
         "message": "更新"

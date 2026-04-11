@@ -1212,37 +1212,37 @@
         "message": "<span class=\"message-negative\"><b>Warnung:</b></span> Sie verwenden eine gefährlich niedrige Anzahl an Filtern. Wahrscheinlich wird das Fluggerät dadurch schwer kontrollierbar und kann zu \"Flayaways\" führen. Es wird dringend empfohlen, dass Sie <b>mindestens einen dynamischen Gyro Tiefpass oder Gyro Tiefpass 1 und mindestens einen dynamischen D-Term Tiefpass oder D-Term Lowpass 1</b> einschalten."
     },
     "receiverThrottleMid": {
-        "message": "Gas Mittelwert"
+        "message": "Throttle Mid"
     },
     "receiverThrottleExpo": {
-        "message": "Gas Expo"
+        "message": "Throttle Expo"
     },
     "receiverStickMin": {
-        "message": "\"Niedriger Stickwert\" Schwellwert"
+        "message": "Minimum Stick"
     },
     "receiverHelpStickMin": {
         "message": "Der Stick Maximalwert (in µs), um als niedrig erkannt zu werden (MIN_CHECK)."
     },
     "receiverStickCenter": {
-        "message": "Stick Mitte"
+        "message": "Mitte Stick"
     },
     "receiverHelpStickCenter": {
         "message": "Der Wert (in µs) um festzustellen, ob ein Stick in der Mitte ist (MID_RC)."
     },
     "receiverStickMax": {
-        "message": "\"Hoher Stickwert\" Schwellwert"
+        "message": "Maximum Stick"
     },
     "receiverHelpStickMax": {
         "message": "Der Minimal Wert (in µs) der Sticks, um zu festzustellen, dass der Wert \"maximal\" ist (MAX_CHECK)."
     },
     "receiverDeadband": {
-        "message": "RC Totzone"
+        "message": "Deadband"
     },
     "receiverHelpDeadband": {
         "message": "Das ist der Bereich (in µs) in dem das Kommando der Funke streuen kann, bevor es als \"echt\" erkannt wird. Der Wert kann vergrößert werden, wenn die übertragenen Werte im Ruhezustand zu sehr zittern."
     },
     "receiverYawDeadband": {
-        "message": "Yaw Totzone"
+        "message": "Yaw Deadband"
     },
     "receiverHelpYawDeadband": {
         "message": "Das ist der Bereich (in µs) in dem das Kommando der Funke streuen kann, bevor es als \"echt\" erkannt wird. Der Wert kann vergrößert werden, wenn die übertragenen Werte im Ruhezustand zu sehr zittern. <strong>Betrifft nur die YAW Achse.</strong>"
@@ -1254,7 +1254,7 @@
         "message": "Werte in µs. Um den neutralen Bereich zu erweitern, muss dieser Wert erhöht werden. <strong>Einstellung nur für 3D Gas</strong>"
     },
     "receiverChannelMap": {
-        "message": "Kanalbelegung"
+        "message": "Kanal-Mapping"
     },
     "receiverChannelDefaultOption": {
         "message": "Standard"
@@ -1272,7 +1272,7 @@
         "message": "Graph Update Rate"
     },
     "receiverButtonSave": {
-        "message": "Speichern"
+        "message": "Empfänger speichern"
     },
     "receiverButtonRefresh": {
         "message": "Neu laden"

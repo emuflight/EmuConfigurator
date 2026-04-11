@@ -941,26 +941,38 @@
     "tuningHelp": {
         "message": "<b>Consells d'ajustament</b><br /><span class=\"message-negative\">IMPORTANT:</span> És important verificar la temperatura del motor durant els primers vols. Com més gran sigui el valor del filtre, millor volarà, però també tindràs més soroll als motors.<br>El valor predeterminat de 100Hz és òptim, però per a les configuracions de sorolloses pots provar de baixar el filtre Dterm a 50Hz i possiblement també el filtre del giròscop."
     },
+    "receiverThrottleMid": {
+        "message": "Throttle Mid"
+    },
+    "receiverThrottleExpo": {
+        "message": "Throttle Expo"
+    },
     "receiverStickMin": {
-        "message": "Llindar 'Stick Low'"
+        "message": "Stick Mínim"
     },
     "receiverHelpStickMin": {
         "message": "El valor màxim (en ms) per un stick per a ser reconegut com a low/left (MIN_CHECK)."
     },
     "receiverStickCenter": {
-        "message": "Centre d'Stick"
+        "message": "Stick Central"
     },
     "receiverHelpStickCenter": {
         "message": "En valor (en ms) per a determinar si un stick està centrat (MID_RC)."
     },
     "receiverStickMax": {
-        "message": "Llindar 'Stick High'"
+        "message": "Stick Màxim"
     },
     "receiverHelpStickMax": {
         "message": "El valor mínim (en ms) per un stick per a ser reconegut com a high/right (MAX_CHECK)."
     },
+    "receiverDeadband": {
+        "message": "Deadband (Banda Morta)"
+    },
     "receiverHelpDeadband": {
         "message": "Aquests són valors (en ms) de quant pot canviar un input RC abans que sigui considerat vàlid. Pot ser incrementat per transmissors amb variacions  a les sortides quan no es toca."
+    },
+    "receiverYawDeadband": {
+        "message": "Deadband de Yaw"
     },
     "receiverHelpYawDeadband": {
         "message": "Aquests són valors (en ms) de quant pot canviar un input RC abans que sigui considerat vàlid. Pot ser incrementat per transmissors amb variacions  a les sortides quan no es toca. <strong>Només per el YAW.</strong>"
@@ -969,7 +981,7 @@
         "message": "Aquests valors (en ms) són per ampliar la zona neutral. <strong>Aquest ajustament és només per al throttle 3D.</strong>"
     },
     "receiverChannelMap": {
-        "message": "Mapa de Canals"
+        "message": "Mapa de canals"
     },
     "receiverChannelDefaultOption": {
         "message": "Per defecte"
@@ -987,7 +999,7 @@
         "message": "Velocitat de refresc del gràfic"
     },
     "receiverButtonSave": {
-        "message": "Desa"
+        "message": "Desa el Receptor"
     },
     "receiverButtonRefresh": {
         "message": "Refresca"
