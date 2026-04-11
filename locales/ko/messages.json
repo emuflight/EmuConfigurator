@@ -3534,7 +3534,7 @@
         "message": "카메라 변경 모드"
     },
     "flashTab": {
-        "message": "펌웨어</br>업데이트"
+        "message": "펌웨어<br/>업데이트"
     },
     "vtxFrequencyChannel": {
         "message": "VTX 채널"

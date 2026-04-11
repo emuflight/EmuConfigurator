@@ -406,7 +406,7 @@
         "message": "<span class=\"message-negative\">Backup and restore functionality disabled.</span> You have firmware with API version <span class=\"message-negative\">$1</span>, backup and restore requires <span class=\"message-positive\">$2</span>. Please backup your settings via the CLI, see Emuflight documentation for procedure."
     },
     "initialSetupButtonCalibrateAccel": {
-        "message": "Beschleunigungssensor (accel) kalibrieren"
+        "message": "Accelerometer (accel) kalibrieren"
     },
     "initialSetupCalibrateAccelText": {
         "message": "Bitte den Flightcontroller <strong>waagerecht</strong> ausrichten und sicherstellen, dass das Gerät während des Prozesses nicht bewegt wird."
@@ -769,7 +769,7 @@
         "message": "Standard"
     },
     "configurationAccelTrims": {
-        "message": "Beschleunigungssensor (accel) Trimmung"
+        "message": "Accelerometer (accel) Trimmung"
     },
     "configurationAccelTrimRoll": {
         "message": "Accelerometer (accel) Trimmung Roll"

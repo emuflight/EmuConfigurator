@@ -164,7 +164,7 @@
         "message": "Port Série Ouvert"
     },
     "serialPortOpenFail": {
-        "message": "Échec de l\"ouverture du port série"
+        "message": "Échec de l'ouverture du port série"
     },
     "serialPortClosedOk": {
         "message": "Port série <span class=\"message-positive\">fermé</span> avec succès."
@@ -771,7 +771,7 @@
         "message": "Défaut"
     },
     "configurationAccelTrims": {
-        "message": "Trims de l\"Accéléromètre"
+        "message": "Trims de l'Accéléromètre"
     },
     "configurationAccelTrimRoll": {
         "message": "Correction de l'accéléromètre sur le Roll"

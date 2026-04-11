@@ -1238,10 +1238,10 @@
         "message": "レートプロファイルをコピー"
     },
     "dialogCopyProfileText": {
-        "message": "現在のProfileをコピー"
+        "message": "現在のプロファイルをコピー"
     },
     "dialogCopyRateProfileText": {
-        "message": "現在のRateprofileをコピー"
+        "message": "現在のレートプロファイルをコピー"
     },
     "dialogCopyProfileTitle": {
         "message": "Profileをコピー"
@@ -1793,7 +1793,7 @@
         "message": "加速度計"
     },
     "sensorsMagTitle": {
-        "message": "磁力计"
+        "message": "磁力計"
     },
     "sensorsBaroTitle": {
         "message": "気圧計"

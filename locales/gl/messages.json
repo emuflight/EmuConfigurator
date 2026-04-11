@@ -2823,7 +2823,7 @@
         "message": "Temperatura reportada pola telemetría dos ESC"
     },
     "osdDescElementEscRpm": {
-        "message": "RPM reportadas por la telemetría dos ESC"
+        "message": "RPM reportadas pola telemetría dos ESC"
     },
     "osdDescElementRemaningTimeEstimate": {
         "message": "Tempo estimado restante de voo"
@@ -2877,7 +2877,7 @@
         "message": "Frecuencia RPM reportada pola telemetría dos ESC"
     },
     "osdDescElementUnknown": {
-        "message": "Elemento descoñecido (os detalles añadiranse nunha futura versión)"
+        "message": "Elemento descoñecido (os detalles engadiranse nunha futura versión)"
     },
     "osdDescStatMaxSpeed": {
         "message": "Máxima velocidade rexistrada"
@@ -3015,7 +3015,7 @@
         "message": "Avisa cando a Calidad do Enlace está por debaixo da alarma configurada"
     },
     "osdWarningUnknown": {
-        "message": "Aviso descoñecido (os detalles añadiranse nunha futura versión)"
+        "message": "Aviso descoñecido (os detalles engadiranse nunha futura versión)"
     },
     "osdSectionHelpElements": {
         "message": "Activar ou desactivar os elementos do OSD"

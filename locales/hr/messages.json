@@ -2809,7 +2809,7 @@
         "message": "Grafička traka kompasa koja prikazuje trenutačni smjer"
     },
     "osdDescElementWarnings": {
-        "message": "Obavijesti (npr. prazna baterija), upozorenja(npr. razlozi nemogućnosti arminga, kritična baterija) i visualni beeper (4 trepteće zvjezdice)."
+        "message": "Obavijesti (npr. prazna baterija), upozorenja (npr. razlozi nemogućnosti arminga, kritična baterija) i vizualni beeper (4 trepteće zvjezdice)."
     },
     "osdDescElementEscTemperature": {
         "message": "Temperatura koju prijavljuje ESC telemetrija"
@@ -3004,7 +3004,7 @@
         "message": "Upozori kad je kvaliteta veze ispod postavljene razine za alarm"
     },
     "osdWarningUnknown": {
-        "message": "Nepoznato upozorenje(detalji će biti dodani u budućim verzijama)"
+        "message": "Nepoznato upozorenje (detalji će biti dodani u budućim verzijama)"
     },
     "osdSectionHelpElements": {
         "message": "Omogućavanje ili onemogućavanje elemenata OSD-a."
