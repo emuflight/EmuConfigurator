@@ -3485,5 +3485,8 @@
     },
     "vtxButtonSave": {
         "message": "VTX 設定を保存"
+    },
+    "userLanguageSelect": {
+        "message": "言語を選択"
     }
 }
