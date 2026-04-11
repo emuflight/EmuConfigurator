@@ -154,9 +154,6 @@
     "tabPower": {
         "message": "전원 및 배터리"
     },
-    "tabGPS": {
-        "message": "GPS"
-    },
     "tabMotorTesting": {
         "message": "모터 테스트"
     },
@@ -165,9 +162,6 @@
     },
     "tabRawSensorData": {
         "message": "센서"
-    },
-    "tabCLI": {
-        "message": "CLI"
     },
     "tabLogging": {
         "message": "실시간 로그"

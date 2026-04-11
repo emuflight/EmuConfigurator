@@ -136,17 +136,11 @@
     "tabReceiver": {
         "message": "Receptor"
     },
-    "tabFailsafe": {
-        "message": "Failsafe"
-    },
     "tabTransponder": {
         "message": "Transpondedor de Carrera"
     },
     "tabPower": {
         "message": "Energía y Batería"
-    },
-    "tabGPS": {
-        "message": "GPS"
     },
     "tabMotorTesting": {
         "message": "Prueba de Motores"
@@ -157,14 +151,8 @@
     "tabRawSensorData": {
         "message": "Sensores"
     },
-    "tabCLI": {
-        "message": "CLI"
-    },
     "tabLogging": {
         "message": "Registro"
-    },
-    "tabOnboardLogging": {
-        "message": "Blackbox"
     },
     "tabAdjustments": {
         "message": "Ajustes"

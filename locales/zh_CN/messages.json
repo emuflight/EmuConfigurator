@@ -157,9 +157,6 @@
     "tabPower": {
         "message": "电源和电池"
     },
-    "tabGPS": {
-        "message": "GPS"
-    },
     "tabMotorTesting": {
         "message": "电机测试"
     },

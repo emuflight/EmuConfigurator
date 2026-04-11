@@ -32,9 +32,6 @@
     "portsSelectManual": {
         "message": "Choisir un port"
     },
-    "portOverrideText": {
-        "message": "Port:"
-    },
     "autoConnect": {
         "message": "Auto-connexion"
     },
@@ -69,9 +66,6 @@
     "sensorDataFlashFreeSpace": {
         "message": "Blackbox: espace libre",
         "description": "Text of the dataflash image in the header of the page."
-    },
-    "sensorStatusGyro": {
-        "message": "Gyroscope"
     },
     "sensorStatusAccel": {
         "message": "Accéléromètre"
@@ -130,26 +124,17 @@
     "tabSetupOSD": {
         "message": "Réglages OSD"
     },
-    "tabPorts": {
-        "message": "Ports"
-    },
     "tabPidTuning": {
         "message": "Réglages de PID"
     },
     "tabReceiver": {
         "message": "Récepteur"
     },
-    "tabFailsafe": {
-        "message": "Failsafe"
-    },
     "tabTransponder": {
         "message": "Transpondeur de course"
     },
     "tabPower": {
         "message": "Énergie et Batterie"
-    },
-    "tabGPS": {
-        "message": "GPS"
     },
     "tabMotorTesting": {
         "message": "Test des moteurs"
@@ -160,20 +145,11 @@
     "tabRawSensorData": {
         "message": "Capteurs"
     },
-    "tabCLI": {
-        "message": "CLI"
-    },
     "tabLogging": {
         "message": "Journalisation"
     },
-    "tabOnboardLogging": {
-        "message": "Blackbox"
-    },
     "tabAdjustments": {
         "message": "Ajustements"
-    },
-    "tabAuxiliary": {
-        "message": "Modes"
     },
     "logActionHide": {
         "message": "Masquer les logs"
@@ -980,9 +956,6 @@
     "portsIdentifier": {
         "message": "Identifiant"
     },
-    "portsConfiguration": {
-        "message": "Configuration/MSP"
-    },
     "portsSensorIn": {
         "message": "Entrée Capteur"
     },
@@ -1365,12 +1338,6 @@
     },
     "adjustmentsColumnViaChannel": {
         "message": "Via le canal"
-    },
-    "adjustmentsMin": {
-        "message": "Min"
-    },
-    "adjustmentsMax": {
-        "message": "Max"
     },
     "adjustmentsFunction0": {
         "message": "Aucun changement"

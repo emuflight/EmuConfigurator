@@ -145,17 +145,11 @@
     "tabServos": {
         "message": "Серво"
     },
-    "tabFailsafe": {
-        "message": "Failsafe"
-    },
     "tabTransponder": {
         "message": "Транспондер гонки"
     },
     "tabPower": {
         "message": "Питание и аккумулятор"
-    },
-    "tabGPS": {
-        "message": "GPS"
     },
     "tabMotorTesting": {
         "message": "Тестирование моторов"
@@ -166,14 +160,8 @@
     "tabRawSensorData": {
         "message": "Датчики"
     },
-    "tabCLI": {
-        "message": "CLI"
-    },
     "tabLogging": {
         "message": "Логирование"
-    },
-    "tabOnboardLogging": {
-        "message": "Blackbox"
     },
     "tabAdjustments": {
         "message": "Настройки"

@@ -1,7 +1,4 @@
 {
-    "errorTitle": {
-        "message": "Error"
-    },
     "warningTitle": {
         "message": "Advertència"
     },
@@ -22,9 +19,6 @@
     },
     "portsSelectManual": {
         "message": "Selecció Manual"
-    },
-    "portOverrideText": {
-        "message": "Port:"
     },
     "autoConnect": {
         "message": "Auto-connecta"
@@ -121,17 +115,11 @@
     "tabConfiguration": {
         "message": "Configuració"
     },
-    "tabPorts": {
-        "message": "Ports"
-    },
     "tabPidTuning": {
         "message": "Ajustament de PIDs"
     },
     "tabReceiver": {
         "message": "Receptor"
-    },
-    "tabFailsafe": {
-        "message": "Failsafe"
     },
     "tabTransponder": {
         "message": "Transponder de curses"
@@ -139,29 +127,17 @@
     "tabPower": {
         "message": "Energia i Bateria"
     },
-    "tabGPS": {
-        "message": "GPS"
-    },
     "tabMotorTesting": {
         "message": "Prova de Motors"
     },
     "tabLedStrip": {
         "message": "Tira LED"
     },
-    "tabCLI": {
-        "message": "CLI"
-    },
     "tabLogging": {
         "message": "Registrament"
     },
-    "tabOnboardLogging": {
-        "message": "Blackbox"
-    },
     "tabAdjustments": {
         "message": "Ajustos"
-    },
-    "tabAuxiliary": {
-        "message": "Modes"
     },
     "logActionHide": {
         "message": "Amagar Log"

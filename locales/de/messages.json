@@ -74,18 +74,6 @@
         "message": "Freier Speicherplatz",
         "description": "Text of the dataflash image in the header of the page."
     },
-    "sensorStatusGyro": {
-        "message": "Gyroscope"
-    },
-    "sensorStatusAccel": {
-        "message": "Accelerometer"
-    },
-    "sensorStatusMag": {
-        "message": "Magnetometer"
-    },
-    "sensorStatusBaro": {
-        "message": "Barometer"
-    },
     "sensorStatusSonar": {
         "message": "Sonar"
     },
@@ -140,17 +128,11 @@
     "tabReceiver": {
         "message": "Empfänger"
     },
-    "tabFailsafe": {
-        "message": "Failsafe"
-    },
     "tabTransponder": {
         "message": "Renntransponder"
     },
     "tabPower": {
         "message": "Strom & Akku"
-    },
-    "tabGPS": {
-        "message": "GPS"
     },
     "tabMotorTesting": {
         "message": "Motorentest"
@@ -161,14 +143,8 @@
     "tabRawSensorData": {
         "message": "Sensoren"
     },
-    "tabCLI": {
-        "message": "CLI"
-    },
     "tabLogging": {
         "message": "Protokollierung"
-    },
-    "tabOnboardLogging": {
-        "message": "Blackbox"
     },
     "tabAdjustments": {
         "message": "Anpassungen"
@@ -1378,12 +1354,6 @@
     },
     "adjustmentsSlot3": {
         "message": "Speicherplatz 4"
-    },
-    "adjustmentsMin": {
-        "message": "Min"
-    },
-    "adjustmentsMax": {
-        "message": "Max"
     },
     "adjustmentsFunction0": {
         "message": "Keine Änderungen"

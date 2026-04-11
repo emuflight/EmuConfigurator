@@ -142,14 +142,8 @@
     "tabServos": {
         "message": "Servi"
     },
-    "tabFailsafe": {
-        "message": "Failsafe"
-    },
     "tabPower": {
         "message": "Energia e Batteria"
-    },
-    "tabGPS": {
-        "message": "GPS"
     },
     "tabMotorTesting": {
         "message": "Test Motori"
@@ -160,14 +154,8 @@
     "tabRawSensorData": {
         "message": "Sensori"
     },
-    "tabCLI": {
-        "message": "CLI"
-    },
     "tabLogging": {
         "message": "Log"
-    },
-    "tabOnboardLogging": {
-        "message": "Blackbox"
     },
     "tabAdjustments": {
         "message": "Regolazioni"
@@ -1296,12 +1284,6 @@
     },
     "adjustmentsColumnViaChannel": {
         "message": "Via Canale"
-    },
-    "adjustmentsMin": {
-        "message": "Min"
-    },
-    "adjustmentsMax": {
-        "message": "Max"
     },
     "adjustmentsFunction0": {
         "message": "Nessun cambiamento"
