@@ -1670,7 +1670,7 @@
         "message": "Baromètre"
     },
     "cliInfo": {
-        "message": "Entrez des commandes ou utilisez l\"auto-complétion."
+        "message": "Vous pouvez saisir des commandes directement ici pour les configurations avancées."
     },
     "cliInputPlaceholder": {
         "message": "Entrez une commande ici..."
@@ -2322,7 +2322,7 @@
         "message": "Délai Failsafe"
     },
     "failsafeDelayHelp": {
-        "message": "Période d'attente de recovery pour le Stage 1"
+        "message": "Temps d\"attente avant d\"activer le Failsafe après la perte du signal."
     },
     "failsafeThrottleLowItem": {
         "message": "Période d'attente avant de passer les gaz à zéro [1 = 0.1 sec.]"
@@ -2337,7 +2337,7 @@
         "message": "Délais avant extinction des moteurs pendant le Failsafe [1 = 0.1 sec.]"
     },
     "failsafeOffDelayHelp": {
-        "message": "Durée du mode atterrissage avant extinction des moteurs et désarmement de la machine"
+        "message": "Temps pendant lequel les moteurs tournent encore avant la coupure d\"urgence."
     },
     "failsafeSubTitle1": {
         "message": "Stage 2 - Procédure Failsafe"

@@ -1874,7 +1874,7 @@
         "message": "디버그 0"
     },
     "cliInfo": {
-        "message": "명령어를 입력하거나 자동 완성을 사용하십시오."
+        "message": "고급 설정을 위해 여기에 직접 명령어를 입력할 수 있습니다."
     },
     "cliInputPlaceholder": {
         "message": "여기에 명령어 입력..."
@@ -2643,7 +2643,7 @@
         "message": "페일세이프 지연"
     },
     "failsafeDelayHelp": {
-        "message": "단계 1에서 복구 대기 시간"
+        "message": "신호 예기치 않은 단절 후 페일세이프가 발동될 때까지의 대기 시간입니다."
     },
     "failsafeThrottleLowItem": {
         "message": "페일세이프 스로틀 낮춤 딜레이 [1 = 0.1초]"
@@ -2658,7 +2658,7 @@
         "message": "페일세이프 동안 모터를 끄기 위한 지연 [1 = 0.1초]"
     },
     "failsafeOffDelayHelp": {
-        "message": "모터가 꺼지고 기체가 해제될 때까지 착륙 모드로 유지할 시간"
+        "message": "페일세이프 발동 후 모터가 완전히 정지하기 전까지의 대기 시간입니다."
     },
     "failsafeSubTitle1": {
         "message": "단계 2 - 페일세이프 절차"

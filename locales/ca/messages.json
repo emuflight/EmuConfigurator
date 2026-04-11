@@ -1332,7 +1332,7 @@
         "message": "Sònar - cm"
     },
     "cliInfo": {
-        "message": "Escriviu ordres o utilitzeu l\"autocompletar."
+        "message": "Pots escriure ordres directament aquí per a configuracions avançades."
     },
     "cliInputPlaceholder": {
         "message": "Escriu una ordre aquí..."
@@ -1898,7 +1898,7 @@
         "message": "Retard de Failsafe"
     },
     "failsafeDelayHelp": {
-        "message": "Temps d'espera de l'stage 1 per a recuperació"
+        "message": "Temps d\"espera abans d\"activar el Failsafe després de perdre el senyal."
     },
     "failsafeThrottleLowItem": {
         "message": "Retard de Failsafe Throttle Low [1 = 0.1 seg.]"
@@ -1913,7 +1913,7 @@
         "message": "Retard per aturar els motors en un failsafe [1 = 0.1 sec.]"
     },
     "failsafeOffDelayHelp": {
-        "message": "Temps de restar en landing mode fins que els motors són apagats i l'aeronau es desarma"
+        "message": "Temps que els motors segueixen girant abans de tallar d\"emergència."
     },
     "failsafeSubTitle1": {
         "message": "Stage 2 - Procediment de Failsafe"

@@ -1832,7 +1832,7 @@
         "message": "デバッグ"
     },
     "cliInfo": {
-        "message": "コマンドを入力するか、オートコンプリートを使用します。"
+        "message": "高度な設定のために、ここに直接コマンドを入力できます。"
     },
     "cliInputPlaceholder": {
         "message": "ここにコマンドを入力..."
@@ -2567,7 +2567,7 @@
         "message": "フェイルセーフ遅延"
     },
     "failsafeDelayHelp": {
-        "message": "ステージ1の回復を待つための時間"
+        "message": "信号喪失からフェイルセーフ発動までの待機時間です。"
     },
     "failsafeThrottleLowItem": {
         "message": "フェイルセーフ スロットル低遅延 [1 = 0.1 sec.]"
@@ -2582,7 +2582,7 @@
         "message": "フェイルセーフ時にモーターをオフするための遅延時間 [1 = 0.1秒]"
     },
     "failsafeOffDelayHelp": {
-        "message": "モーターがオフになり、機体がディスアームされるまで着陸モードに留まる時間"
+        "message": "フェイルセーフ発動からモーターが完全に停止するまでの時間です。"
     },
     "failsafeSubTitle1": {
         "message": "ステージ2 - フェイル セーフ手順"

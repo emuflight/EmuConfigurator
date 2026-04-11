@@ -1628,7 +1628,7 @@
         "message": "Barometro"
     },
     "cliInfo": {
-        "message": "Inserisci i comandi o usa l\"autocompletamento."
+        "message": "Puoi inserire comandi direttamente qui per configurazioni avanzate."
     },
     "cliInputPlaceholder": {
         "message": "Inserisci un comando qui..."
@@ -2308,7 +2308,7 @@
         "message": "Ritardo Failsafe"
     },
     "failsafeDelayHelp": {
-        "message": "Tempo per lo Stadio 1 di attendere il recupero"
+        "message": "Tempo di attesa prima di attivare il Failsafe dopo la perdita del segnale."
     },
     "failsafeThrottleLowItem": {
         "message": "Ritardo del Failsafe Gas basso [1 = 0,1 sec.]"
@@ -2323,7 +2323,7 @@
         "message": "Ritardo per lo spegnimento dei motori durante il Failsafe [1 = 0,1 sec.]"
     },
     "failsafeOffDelayHelp": {
-        "message": "Tempo in cui rimanere in modalità di atterraggio fino a quando i motori non vengono spenti e il modello viene disarmato"
+        "message": "Tempo in cui i motori ruotano ancora prima dell\"arresto di emergenza."
     },
     "failsafeSubTitle1": {
         "message": "Stadio 2 - Procedura di Failsafe"

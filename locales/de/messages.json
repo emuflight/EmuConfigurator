@@ -1653,7 +1653,7 @@
         "message": "Sonar - CM"
     },
     "cliInfo": {
-        "message": "Befehle eingeben oder Autovervollständigung nutzen."
+        "message": "Befehle für fortgeschrittene Konfigurationen direkt hier eingeben."
     },
     "cliInputPlaceholder": {
         "message": "Befehl hier eingeben..."
@@ -2316,7 +2316,7 @@
         "message": "Failsafe Verzögerung"
     },
     "failsafeDelayHelp": {
-        "message": "Stage 1 Wartezeit für Signalwiederherstellung"
+        "message": "Wartezeit bis zur Failsafe-Aktivierung nach Signalverlust."
     },
     "failsafeThrottleLowItem": {
         "message": "Failsafe Gas niedrig Verzögerung [1 = 0.1 Sek.]"
@@ -2331,7 +2331,7 @@
         "message": "Verzögerung im Falle eines Failsafes bevor die Motoren abgeschaltet werden [1 = 0.1 Sek. ]"
     },
     "failsafeOffDelayHelp": {
-        "message": "Zeitspanne in der im Landemodus verblieben wird, bis die Motoren abgeschaltet werden und das Flugerät disarmt wird."
+        "message": "Zeit, die die Motoren vor der Notabschaltung weiterdrehen."
     },
     "failsafeSubTitle1": {
         "message": "Stufe 2 - Failsafe Einstellungen"

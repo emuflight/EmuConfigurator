@@ -1868,7 +1868,7 @@
         "message": "调试"
     },
     "cliInfo": {
-        "message": "输入命令或使用自动补全。"
+        "message": "您可以在此输入命令行指令，以进行高级配置。"
     },
     "cliInputPlaceholder": {
         "message": "在此输入命令..."
@@ -2640,7 +2640,7 @@
         "message": "故障保护延迟"
     },
     "failsafeDelayHelp": {
-        "message": "一阶失控保护等待信号恢复时间"
+        "message": "丢信号后触发故障保护 (Failsafe) 的延迟时间。"
     },
     "failsafeThrottleLowItem": {
         "message": "低油门失控保护延迟 [1 = 0.1 秒]"
@@ -2655,7 +2655,7 @@
         "message": "失控保护过程中关闭电机延时 [1 = 0.1 秒]"
     },
     "failsafeOffDelayHelp": {
-        "message": "暂时保持在降落模式而不锁定电机的时间"
+        "message": "触发故障保护后，电机停止旋转前的持续时间。"
     },
     "failsafeSubTitle1": {
         "message": "二阶失控保护措施"

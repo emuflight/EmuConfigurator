@@ -1778,7 +1778,7 @@
         "message": "Barómetro"
     },
     "cliInfo": {
-        "message": "Escriba comandos o use el autocompletado."
+        "message": "Puedes escribir comandos directamente aquí para configuraciones avanzadas."
     },
     "cliInputPlaceholder": {
         "message": "Escriba un comando aquí..."
@@ -2500,7 +2500,7 @@
         "message": "Retraso de Failsafe"
     },
     "failsafeDelayHelp": {
-        "message": "Tiempo a esperar en etapa 1 para recuperación"
+        "message": "Tiempo de espera antes de activar el Failsafe tras perder la señal."
     },
     "failsafeThrottleLowItem": {
         "message": "Retardo Acelerador Bajo Modo de Seguridad [1 = 0.1 seg]"
@@ -2515,7 +2515,7 @@
         "message": "Retraso para apagar los motores en caso de fallo [1 = 0.1 seg.]"
     },
     "failsafeOffDelayHelp": {
-        "message": "Tiempo para permanecer en modo aterrizaje, hasta que los motores se apaguen y se desarmen"
+        "message": "Tiempo que los motores siguen girando antes del corte de emergencia."
     },
     "failsafeSubTitle1": {
         "message": "Etapa 2 - Procedimiento de seguridad"
