@@ -1040,7 +1040,7 @@
         "message": "Con questo parametro, D Setpoint Weight può essere ridotto vicino al centro degli stick, il che si traduce in una fine più fluida dei flip e roll. <br> Il valore rappresenta un punto di deviazione dello stick: 0 - stick centrato, 1 - deflessione completa. Quando lo stick è sopra quel punto, Setpoint Weight viene mantenuto costante al suo valore configurato. Quando lo stick è posizionata al di sotto di quel punto, Setpoint Weight viene ridotto proporzionalmente, raggiungendo 0 nella posizione centrale dello stick. <br> Il valore di 1 dà il massimo effetto ammorbidente, mentre il valore di 0 mantiene il Setpoint Weight fisso sul suo valore configurato sull'intero intervallo dello stick."
     },
     "pidTuningDtermSetpointHelp": {
-        "message": "Questo parametro determina l'effetto di accelerazione dello stick all'interno del componente derivato. <br> Il valore di 0 è uguale al vecchio metodo di misurazione dove D traccia solo il giroscopio, mentre il valore di 1 è uguale al vecchio metodo di errore con gyro e stick ratio uguali. <br>Un valore più basso equivale a una risposta dello stick più lenta / più morbida, mentre un valore più alto fornisce una maggiore risposta all'accelerazione dello stick. <br>Si noti che l'interpolazione RC è consigliata per essere abilitata con valori più alti per impedire che i calci di controllo producano rumore."
+        "message": "Controlla la quantità di D-Term applicata ai cambiamenti di Setpoint del pilota."
     },
     "pidTuningDtermSetpointTransitionWarning": {
         "message": "<span class=\"message-negative\"><strong>$t(warningTitle.message):</strong> L'utilizzo di un D Setpoint transition più grande di 0 e minore di 0.1 è fortemente sconsigliato. Se lo fai può portare instabilità e ridurre la risposta degli stick quando si trova in posizioni centrali.</span>"
@@ -1048,11 +1048,20 @@
     "pidTuningProportional": {
         "message": "Proporzionale"
     },
+    "pidTuningProportionalHelp": {
+        "message": "Induce un\"azione correttiva proporzionale all\"errore. Valori alti significano una risposta più veloce ma troppo può causare oscillazioni e surriscaldamento."
+    },
     "pidTuningIntegral": {
         "message": "Integrale"
     },
+    "pidTuningIntegralHelp": {
+        "message": "Accumula l\"errore nel tempo per correggere le derive costanti."
+    },
     "pidTuningDerivative": {
         "message": "Derivato"
+    },
+    "pidTuningDerivativeHelp": {
+        "message": "Previene l\"errore futuro riducendo la velocità della regolazione quando il drone si avvicina al valore desiderato."
     },
     "pidTuningRcRate": {
         "message": "Rate RC"

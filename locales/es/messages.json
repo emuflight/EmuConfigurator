@@ -1163,7 +1163,7 @@
         "message": "Con este parámetro, el Punto de Ajuste de Peso de D puede reducirse cuando las palancas están cerca del centro, lo cual provoca que el final de los flips y rolls sea más suave.<br>El valor representa un punto del movimiento de la palanca: 0 - palanca centrada, 1 - completamente desplazada. Cuando la palanca está por encima de ese punto, el Punto de Ajuste de Peso se mantiene constante en el valor configurado. Cuando la palanca se sitúa por debajo de ese punto, el Punto de Ajuste de Peso se reduce proporcionalmente, llegando a 0 en la posición central de la palanca. <br> El valor de 1 da el máximo efecto de suavizado, mientras que el valor de 0 mantiene el Punto de Ajuste de Peso fijo en su valor configurado sobre el rango completo de la palanca."
     },
     "pidTuningDtermSetpointHelp": {
-        "message": "Este parámetro determina el efecto de aceleración de la palanca dentro del componente derivativo.<br> Un valor de 0 es igual al antiguo método de Medición donde D sólo sigue al giro, mientras 1 es igual al antiguo método de Error con seguimiento igual a giro y a radio de la palanca.<br> Un valor más bajo es igual a una respuesta de palanca más lenta y suave, mientras que valores más altos proporcionan más aceleración en la respuesta a la palanca.<br> Ten en cuenta que se recomienda activar Interpolación de RC con valores altos para evitar el ruido por golpes en el control."
+        "message": "Controla la cantidad de D-Term aplicada ante cambios en el Setpoint del piloto."
     },
     "pidTuningDtermSetpointTransitionWarning": {
         "message": "<span class=\"message-negative\"><strong>$t(warningTitle.message):</strong> El uso de un Punto de Ajuste de Transición de D mayor que 0 y menor que 0.1 está altamente desaconsejado. Puede causar inestabilidad y reducir la respuesta de los controles al cruzar el punto central.</span>"
@@ -1171,11 +1171,20 @@
     "pidTuningProportional": {
         "message": "Proporcional (P)"
     },
+    "pidTuningProportionalHelp": {
+        "message": "Induce una acción correctiva proporcional al error. Valores altos suponen una respuesta más rápida pero demasiado puede producir oscilaciones y sobrecalentamiento."
+    },
     "pidTuningIntegral": {
         "message": "Integral (I)"
     },
+    "pidTuningIntegralHelp": {
+        "message": "Acumula el error en el tiempo para corregir desviaciones constantes."
+    },
     "pidTuningDerivative": {
         "message": "Derivativo (D)"
+    },
+    "pidTuningDerivativeHelp": {
+        "message": "Previene el error futuro reduciendo la velocidad del ajuste cuando el dron se acerca al valor solicitado."
     },
     "pidTuningFeedforward": {
         "message": "Prealimentación (F)"

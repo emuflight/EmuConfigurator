@@ -1199,7 +1199,7 @@
         "message": "이 파라미터를 사용하면, D 설정점 가중치가 스틱의 중립 근처에서 감소하여 플립과 롤이 부드럽게 끝납니다.<br> 값은 스틱의 편향을 나타냅니다: 0 - 스틱 중립, 1 - 전체 편향. 스틱이 그 지점보다 높을 때, 설정점 가중치는 설정된 값으로 일정하게 유지됩니다. 스틱이 그 지점 아래에 위치하면, 설정점 가중치는 스틱 중심점에서 0에 도달하는 것에 비례하여 감소합니다.<br> 값 1은 최대 스무딩 효과를 주며, 값 0은 설정점 가중치를 전체 스틱 범위에 걸쳐 설정된 값으로 고정합니다."
     },
     "pidTuningDtermSetpointHelp": {
-        "message": "이 파라미터는 미분 요소 내 스틱 가속 효과를 결정합니다. <br> 0은 D가 오직 자이로만을 추적하는 이전 측정 방법과 동일합니다. 반면에 1은 동일한 자이로와 스틱 추적 레이트를 갖는 이전 오류 방법과 같습니다. <br> 값이 낮을 수록 스틱 반응이 더욱 느리고/부드러워지며, 반면에 값이 높을 수록 스틱 가속 응답을 더 많이 제공합니다. <br> RC 신호보간은 컨트롤 킥이 노이즈를 발생시키지 않도록 더 높은 값으로 설정하는 것이 좋습니다."
+        "message": "조종기의 세트포인트가 바뀔 때 적용할 D-Term의 양을 조절합니다."
     },
     "pidTuningDtermSetpointTransitionWarning": {
         "message": "<span class=\"message-negative\"><strong>$t(warningTitle.message):</strong> 0 보다 크고 0.1 보다 작은 D 설정값 전환의 사용은 불안정을 유발시킬 수 있으며, 중립포인트에서 만나는 스틱의 반응성이 감소될 수 있습니다.</span>"
@@ -1207,11 +1207,20 @@
     "pidTuningProportional": {
         "message": "P(비례)"
     },
+    "pidTuningProportionalHelp": {
+        "message": "오차에 비례하여 보정 작업을 수행합니다. 높은 값은 빠른 반응을 의미하지만, 과도하면 진동과 발열이 발생할 수 있습니다."
+    },
     "pidTuningIntegral": {
         "message": "I(적분)"
     },
+    "pidTuningIntegralHelp": {
+        "message": "시간에 따른 오차를 누적하여 일정한 편차를 수정합니다."
+    },
     "pidTuningDerivative": {
         "message": "D(미분)"
+    },
+    "pidTuningDerivativeHelp": {
+        "message": "목표값에 도달하기 전에 조정 속도를 줄여 미래의 오차를 방지합니다."
     },
     "pidTuningFeedforward": {
         "message": "피드포워드"

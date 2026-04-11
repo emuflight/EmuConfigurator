@@ -864,13 +864,22 @@
         "message": "Amb aquest paràmetre, D Setpoint Weight pot ser reduït al centre dels sticks, que resulta en flips i rolls més suaus.<br> El valor representa la desciació de l'stick: 0 - stick centrat, 1 - totalment desviat. Quan l'stick està per sobre d'aquest punt, Setpoint Weight es manté constant al valor configurat. Quan l'stick està per sota d'aquest punt, Setpoint Weight és reduït proporcionalment, arribant a 0 a la posició central de l'stick.<br> El valor 1 dona el màxim valor suavitzant, mentre el valor 0 manté el Setpoint Weight fixat añ valor configurat durant tot el recorregut de l'sctick."
     },
     "pidTuningDtermSetpointHelp": {
-        "message": "Aquest paràmetre determina l'efecte d'acceleració de l'stick en el component derivat.<br> El valor de 0 és igual a l'anterior mètode de mesura on D només fa el seguiment del giròscop, mentre que el valor d'1 és igual al mètode antic d'error amb la ràtio de seguiment de gir i stick igual.<br> Valor inferior és igual a una resposta d'stick més lenta/més suau, mentre que un valor més alt proporciona més resposta d'acceleració d'stick.<br> es recomana que la interpolació RC estigui activada amb valors més alts, per evitar que els cops de control facin soroll."
+        "message": "Controla la quantitat de D-Term aplicada davant canvis en el Setpoint del pilot."
     },
     "pidTuningProportional": {
         "message": "Proporcional"
     },
+    "pidTuningProportionalHelp": {
+        "message": "Indueix una acció correctiva proporcional a l\"error. Valors alts suposen una resposta més ràpida però massa pot produir oscil·lacions i sobreescalfament."
+    },
+    "pidTuningIntegralHelp": {
+        "message": "Accumula l\"error en el temps per corregir desviacions constants."
+    },
     "pidTuningDerivative": {
         "message": "Derivativa"
+    },
+    "pidTuningDerivativeHelp": {
+        "message": "Prevé l\"error futur reduint la velocitat de l\"ajust quan el drone s\"apropa al valor demanat."
     },
     "pidTuningMaxVel": {
         "message": "Vel Màx [graus/s]"

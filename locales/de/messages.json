@@ -1113,10 +1113,19 @@
         "message": "Mit diesem Parameter kann man D Setpoint Weight an der Mittelstellung der Sticks reduzieren und damit weichere Enden von Flips und Rolls erreichen.<br> Der Wert bedeutet eine Auslenkung des Sticks von 0 - mittig bis 1 - voller Ausschlag. Wenn der Stick weiter ausgelenkt ist als dieser Wert, hat Setpoint Weight seinen eingestellten Wert. Wenn der Stick weniger ausgelenkt ist, wird Setpoint Weight proportional reduziert und erreicht 0 in der Nullstellung des Sticks.<br> Ein Wert von 1 ergibt den maximalen Glättungseffekt, ein Wert von 0 hält Setpoint Weight über den gesammten Steuerbereich auf seinem eingestellten Wert."
     },
     "pidTuningDtermSetpointHelp": {
-        "message": "Gibt an wie hart der PID Controller bei Eingaben der Sticks vom Zentrum weg reagieren soll. 0 bedeutet das es keinen Unterschied zwischen Stick Eingaben und Abweichungen durch die Umgebung (z.B. Wind gibt). Kleinere Werte führen zu einem sauberen und \"smootheren\" Quad, höhere Werte führen zu einem direkterem Fluggefühl. <br /> Bei hohen Werten wird der Einsatz der RC Interpolation empfohlen um ein Überreagieren zu verhindern."
+        "message": "Steuert den Betrag des D-Terms, der bei Änderungen des Pilot-Setpoints angewendet wird."
+    },
+    "pidTuningProportionalHelp": {
+        "message": "Leitet eine Korrekturmaßnahme ein, die proportional zum Fehler ist. Hohe Werte führen zu einer schnelleren Reaktion, zu hohe Werte jedoch zu Oszillationen und Überhitzung."
+    },
+    "pidTuningIntegralHelp": {
+        "message": "Sammelt Fehler über die Zeit, um konstante Abweichungen zu korrigieren."
     },
     "pidTuningDerivative": {
         "message": "Differential"
+    },
+    "pidTuningDerivativeHelp": {
+        "message": "Beugt zukünftigen Fehlern vor, indem die Einstellgeschwindigkeit verringert wird, wenn sich die Drohne dem Zielwert nähert."
     },
     "pidTuningFeedforward": {
         "message": "Feedforward Regelung"
