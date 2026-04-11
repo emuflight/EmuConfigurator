@@ -3653,7 +3653,7 @@
         "message": "Protocole ESC/moteur"
     },
     "configurationEscProtocolHelp": {
-        "message": "Sélectionnez votre protocole ESC. <br> Assurez-vous de vérifier que le protocole est pris en charge par votre ESC, cette information devrait être sur le site Web des fabricants. <br> <b> Soyez prudent en utilisant DSHOT900 et DSHOT1200 car peu d'ESC le supportent!</ b>"
+        "message": "Sélectionnez votre protocole ESC. <br>Assurez-vous de vérifier que le protocole est pris en charge par votre ESC, cette information devrait être sur le site Web des fabricants. <br><b>Soyez prudent en utilisant DSHOT900 et DSHOT1200 car peu d'ESC le supportent!</b>"
     },
     "configurationunsyndePwm": {
         "message": "Vitesse du moteur PWM séparée de la vitesse PID"
