@@ -1733,7 +1733,7 @@
         "message": "モーターの磁極数"
     },
     "sensorsInfo": {
-        "message": "Keep in mind that using fast update periods and rendering multiple graphs at the same time is resource heavy and will burn your battery quicker if you use a laptop.<br />We recommend to only render graphs for sensors you are interested in while using reasonable update periods."
+        "message": "高速な更新間隔と複数グラフの同時描画はリソースを多く消費し、ノートパソコン使用時にはバッテリーを早く消費します。<br />必要なセンサーのグラフのみを適切な更新間隔で描画することを推奨します。"
     },
     "sensorsRefresh": {
         "message": "更新:"
@@ -2078,7 +2078,7 @@
         "message": "<strong>リカバリー / 通信ロスト</strong>"
     },
     "firmwareFlasherRecoveryText": {
-        "message": "If you have lost communication with your board follow these steps to restore communication: <ul><li>Power off</li><li>Enable 'No reboot sequence', enable 'Full chip erase'.</li><li>Jumper the BOOT pins or hold BOOT button.</li><li>Power on (activity LED will NOT flash if done correctly).</li><li>Install all STM32 drivers and Zadig if required (see <a href=\"https://github.com/emuflight/EmuFlight/wiki/Installing-Emuflight\"target=\"_blank\">USB Flashing</a> section of Emuflight manual).</li><li>Close configurator, Close all running chrome instances, Close all Chrome apps, Restart Configurator.</li><li>Release BOOT button if your FC has one.</li><li>Flash with correct firmware (using manual baud rate if specified in your FC's manual).</li><li>Power off.</li><li>Remove BOOT jumper.</li><li>Power on (activity LED should flash).</li><li>Connect normally.</li></ul>"
+        "message": "フライトコントローラーとの通信を失った場合は、以下の手順で通信を回復してください: <ul><li>電源を切る。</li><li>'リブートシーケンスなし'を有効にし、'フルチップ消去'を有効にする。</li><li>BOOTピンをジャンパーするか、BOOTボタンを押し続ける。</li><li>電源を入れる（正しく行われた場合、アクティビティLEDは点滅しません）。</li><li>必要に応じてすべてのSTM32ドライバとZadigをインストールする（Emuflightマニュアルの<a href=\"https://github.com/emuflight/EmuFlight/wiki/Installing-Emuflight\"target=\"_blank\">USB Flashing</a>セクションを参照）。</li><li>コンフィギュレーターを閉じ、すべてのChromeインスタンスを閉じ、すべてのChromeアプリを閉じ、コンフィギュレーターを再起動する。</li><li>FCにBOOTボタンがある場合は放す。</li><li>正しいファームウェアでフラッシュする（FCのマニュアルにボーレートが指定されている場合はそれを使用）。</li><li>電源を切る。</li><li>BOOTジャンパーを外す。</li><li>電源を入れる（アクティビティLEDが点滅するはずです）。</li><li>通常通り接続する。</li></ul>"
     },
     "firmwareFlasherFirmwareNotLoaded": {
         "message": "ファームウェアが読込まれていません"
@@ -3230,7 +3230,7 @@
         "message": "OSD設定を保存しました"
     },
     "osdWritePermissions": {
-        "message": "You don't have <span class=\"message-negative\">write permissions</span> for this file"
+        "message": "このファイルへの<span class=\"message-negative\">書き込み権限</span>がありません"
     },
     "osdButtonSaved": {
         "message": "保存しました"

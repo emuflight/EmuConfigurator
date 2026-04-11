@@ -2126,7 +2126,7 @@
         "message": "<strong>통신 복구 / 손실</strong>"
     },
     "firmwareFlasherRecoveryText": {
-        "message": "If you have lost communication with your board follow these steps to restore communication: <ul><li>Power off</li><li>Enable 'No reboot sequence', enable 'Full chip erase'.</li><li>Jumper the BOOT pins or hold BOOT button.</li><li>Power on (activity LED will NOT flash if done correctly).</li><li>Install all STM32 drivers and Zadig if required (see <a href=\"https://github.com/emuflight/EmuFlight/wiki/Installing-Emuflight\"target=\"_blank\">USB Flashing</a> section of Emuflight manual).</li><li>Close configurator, Close all running chrome instances, Close all Chrome apps, Restart Configurator.</li><li>Release BOOT button if your FC has one.</li><li>Flash with correct firmware (using manual baud rate if specified in your FC's manual).</li><li>Power off.</li><li>Remove BOOT jumper.</li><li>Power on (activity LED should flash).</li><li>Connect normally.</li></ul>"
+        "message": "비행 컨트롤러와 통신을 잃은 경우 다음 단계에 따라 통신을 복구하세요: <ul><li>전원을 끄세요.</li><li>'리부팅 시퀀스 없음'을 활성화하고, '전체 칩 지우기'를 활성화하세요.</li><li>BOOT 핀을 점퍼하거나 BOOT 버튼을 누르고 있으세요.</li><li>전원을 켜세요 (올바르게 수행된 경우 활동 LED가 깜빡이지 않습니다).</li><li>필요한 경우 모든 STM32 드라이버와 Zadig를 설치하세요 (Emuflight 매뉴얼의 <a href=\"https://github.com/emuflight/EmuFlight/wiki/Installing-Emuflight\"target=\"_blank\">USB Flashing</a> 섹션 참조).</li><li>컨피규레이터를 닫고, 실행 중인 Chrome 인스턴스를 모두 닫고, Chrome 앱을 모두 닫은 다음 컨피규레이터를 재시작하세요.</li><li>FC에 BOOT 버튼이 있는 경우 BOOT 버튼을 놓으세요.</li><li>올바른 펌웨어로 플래시하세요 (FC 매뉴얼에 지정되어 있는 경우 수동 보드 속도를 사용).</li><li>전원을 끄세요.</li><li>BOOT 점퍼를 제거하세요.</li><li>전원을 켜세요 (활동 LED가 깜빡여야 합니다).</li><li>정상적으로 연결하세요.</li></ul>"
     },
     "firmwareFlasherFirmwareNotLoaded": {
         "message": "펌웨어가 로드되지 않았습니다."

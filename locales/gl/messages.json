@@ -408,10 +408,10 @@
         "message": "A documentación de Emuflight está dispoñible nas notas da versión e na wiki.<br /><br />"
     },
     "defaultDocumentation1": {
-        "message": "The Emuflight wiki is a great resource for information, it can be found <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">here</a>.<br />The release notes for the firmware can be read at GitHub releases page, <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\">here</a>.<br />"
+        "message": "O Wiki de EmuFlight é un gran recurso de información, pódese atopar <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">aquí</a>.<br />As notas de versión do firmware pódense ler na páxina de lanzamentos de GitHub, <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\">aquí</a>.<br />"
     },
     "defaultDocumentation2": {
-        "message": "The EmuConfigurator wiki can be found <a href=\"https://github.com/emuflight/EmuConfigurator/wiki\" target=\"_blank\">here</a>.<br />The Configurator release notes can be read at GitHub releases page, <a href=\"https://github.com/emuflight/EmuConfigurator/releases\" target=\"_blank\">here</a>.<br />"
+        "message": "O Wiki de EmuConfigurator pódese atopar <a href=\"https://github.com/emuflight/EmuConfigurator/wiki\" target=\"_blank\">aquí</a>.<br />As notas de versión do Configurador pódense ler na páxina de lanzamentos de GitHub, <a href=\"https://github.com/emuflight/EmuConfigurator/releases\" target=\"_blank\">aquí</a>.<br />"
     },
     "defaultSupportHead": {
         "message": "Soporte"
@@ -423,7 +423,7 @@
         "message": "Para soporte por favor busque nos foros e na wiki ou contacte co vendedor. <br /><br />"
     },
     "initialSetupBackupAndRestoreApiVersion": {
-        "message": "<span class=\"message-negative\">Backup and restore functionality disabled.</span> You have firmware with API version <span class=\"message-negative\">$1</span>, backup and restore requires <span class=\"message-positive\">$2</span>.  Please backup your settings via the CLI, see Emuflight documentation for procedure."
+        "message": "<span class=\"message-negative\">Funcionalidade de copia de seguridade e restauración desactivada.</span> Tes firmware con versión de API <span class=\"message-negative\">$1</span>, a copia de seguridade e restauración require <span class=\"message-positive\">$2</span>. Por favor, fai copia de seguridade dos axustes mediante o CLI; consulta a documentación de Emuflight para o procedemento."
     },
     "initialSetupButtonCalibrateAccel": {
         "message": "Calibrar Acelerómetro"
@@ -1244,10 +1244,10 @@
         "message": "EEPROM <span class=\"message-positive\">gardada</span>"
     },
     "receiverHelp": {
-        "message": "Please read receiver chapter of the documentation.  Configure serial port (if required), receiver mode (serial/ppm/pwm), provider (for serial receivers), bind receiver, set channel map, configure channel endpoints/range on TX so that all channels go from ~1000 to ~2000.  Set midpoint (default 1500), trim channels to 1500, configure stick deadband, verify behaviour when TX is off or out of range.<br /><span class=\"message-negative\">IMPORTANT:</span> Before flying read failsafe chapter of documentation and configure failsafe."
+        "message": "Le o capítulo do receptor na documentación. Configura o porto serie (se é necesario), o modo receptor (serie/ppm/pwm), o provedor (para receptores serie), vincula o receptor, establece o mapa de canais, configura os extremos/rango de canais no TX para que todos os canais vaian de ~1000 a ~2000. Establece o punto medio (por defecto 1500), axusta os canais a 1500, configura o deadband do mando, verifica o comportamento cando o TX está apagado ou fóra do rango.<br /><span class=\"message-negative\">IMPORTANTE:</span> Antes de voar le o capítulo de failsafe na documentación e configura o failsafe."
     },
     "tuningHelp": {
-        "message": "<b>Tuning tips</b><br /><span class=\"message-negative\">IMPORTANT:</span> It is important to verify motor temperatures during first flights. The higher the filter value gets the better it may fly, but you also will get more noise into the motors. <br>Default value of 100Hz is optimal, but for noiser setups you can try lowering Dterm filter to 50Hz and possibly also the gyro filter."
+        "message": "<b>Consellos de axuste</b><br /><span class=\"message-negative\">IMPORTANTE:</span> É importante verificar a temperatura dos motores durante os primeiros voos. Canto maior sexa o valor do filtro, mellor pode voar, pero tamén haberá máis ruído nos motores. <br>O valor predeterminado de 100Hz é óptimo, pero para configuracións con máis ruído podes tentar baixar o filtro Dterm a 50Hz e posiblemente tamén o filtro de xiroscopio."
     },
     "filterWarning": {
         "message": "<span class=\"message-negative\"><b>Aviso: </b></span> A cantidade de filtrado que está a usar é perigosamente baixa. É probable que sexa difícil de controlar. É altamente recomendable que <b> habilite polo menos un dos Gyro Dynamic Lowpass ou Gyro Lowpass 1 e polo menos un dos D Term Dynamic Lowpass ou D Term Lowpass 1</b>."
@@ -1325,7 +1325,7 @@
         "message": "Activar controis"
     },
     "auxiliaryHelp": {
-        "message": "Configure modes here using a combination of ranges and/or links to other modes (links supported on BF 4.0 and later). Use <strong>ranges</strong> to define the switches on your transmitter and corresponding mode assignments. A receiver channel that gives a reading between a range min/max will activate the mode. Use a <strong>link</strong> to activate a mode when another mode is activated. <strong>Exceptions:</strong> ARM cannot be linked to or from another mode, modes cannot be linked to other modes that are configured with a link (chained links). Multiple ranges/links can be used to activate any mode. If there is more than one range/link defined for a mode, each of them can be set to <strong>AND</strong> or <strong>OR</strong>. A mode will be activated when:<br />- ALL <strong>AND</strong> ranges/links are active; OR<br />- at least one <strong>OR</strong> range/link is active.<br /><br />Remember to save your settings using the Save button."
+        "message": "Configura os modos aquí usando combinacións de rangos e/ou ligazóns a outros modos (ligazóns compatibles con BF 4.0 e posteriores). Usa <strong>rangos</strong> para definir os interruptores no teu transmisor e as asignacións de modo correspondentes. Un canal receptor que dea unha lectura entre un mínimo/máximo de rango activará o modo. Usa unha <strong>ligazón</strong> para activar un modo cando se activa outro. <strong>Excepcións:</strong> ARM non pode estar vinculado a ou desde outro modo, os modos non poden estar vinculados a outros modos configurados cunha ligazón (ligazóns en cadea). Pódense usar múltiples rangos/ligazóns para activar calquera modo. Se hai máis dun rango/ligazón definido para un modo, cada un pode configurarse como <strong>E</strong> ou <strong>OU</strong>. Un modo activarase cando:<br />- TODOS os rangos/ligazóns <strong>E</strong> están activos; OU<br />- polo menos un rango/ligazón <strong>OU</strong> está activo.<br /><br />Lembra gardar a configuración co botón Gardar."
     },
     "auxiliaryToggleUnused": {
         "message": "Ocultar modos non empregados"
@@ -1613,7 +1613,7 @@
         "message": "Restablecer o tempo máximo"
     },
     "motorsNotice": {
-        "message": "<strong>Motor Test Mode / Arming Notice:</strong><br />Moving the sliders or arming your craft with the transmitter will cause the motors to <strong>spin up</strong>.<br />In order to prevent injury <strong class=\"message-negative\">remove ALL propellers</strong> before using this feature.<br />Enabling motor test mode will also temporarily disable Runaway Takeoff Prevention, to stop it from disarming the craft when bench testing without propellers.<br />"
+        "message": "<strong>Modo de proba de motores / Aviso de armado:</strong><br />Mover os controis deslizantes ou armar o aparello co transmisor provocará que os motores <strong>se poñan en marcha</strong>.<br />Para evitar lesións, <strong class=\"message-negative\">retira TODAS as hélices</strong> antes de usar esta función.<br />Activar o modo de proba de motores tamén desactivará temporalmente a Prevención de despegue descontrolado, para evitar que desarme o aparello durante as probas sen hélices.<br />"
     },
     "motorsEnableControl": {
         "message": "<strong> Comprendo os riscos </strong>, as hélices están retiradas: permítese o control e armado do motor, e desactívase a prevención do despegue de Runaway."
@@ -1685,7 +1685,7 @@
         "message": "Copiado!"
     },
     "loggingNote": {
-        "message": "Data will be logged in this tab <span class=\"message-negative\">only</span>, leaving the tab will <span class=\"message-negative\">cancel</span> logging and application will return to its normal <strong>\"configurator\"</strong> state.<br /> You are free to select the global update period, data will be written into the log file every <strong>1</strong> second for performance reasons."
+        "message": "Os datos rexistraranse <span class=\"message-negative\">só</span> nesta pestana; ao saír da pestana <span class=\"message-negative\">cancelarase</span> o rexistro e a aplicación volvará ao estado normal de <strong>\"configurador\"</strong>.<br /> Podes seleccionar libremente o período de actualización global; os datos escribiranse no ficheiro de rexistro cada <strong>1</strong> segundo por razóns de rendemento."
     },
     "loggingSamplesSaved": {
         "message": "Exemplos gardados:"
@@ -1961,7 +1961,7 @@
         "message": "<strong> Recuperación / comunicación perdida </strong>"
     },
     "firmwareFlasherRecoveryText": {
-        "message": "If you have lost communication with your board follow these steps to restore communication: <ul><li>Power off</li><li>Enable 'No reboot sequence', enable 'Full chip erase'.</li><li>Jumper the BOOT pins or hold BOOT button.</li><li>Power on (activity LED will NOT flash if done correctly).</li><li>Install all STM32 drivers and Zadig if required (see <a href=\"https://github.com/emuflight/EmuFlight/wiki/Installing-Emuflight\"target=\"_blank\">USB Flashing</a> section of Emuflight manual).</li><li>Close configurator, Close all running chrome instances, Close all Chrome apps, Restart Configurator.</li><li>Release BOOT button if your FC has one.</li><li>Flash with correct firmware (using manual baud rate if specified in your FC's manual).</li><li>Power off.</li><li>Remove BOOT jumper.</li><li>Power on (activity LED should flash).</li><li>Connect normally.</li></ul>"
+        "message": "Se perdeu a comunicación coa placa, siga estes pasos para restaurala: <ul><li>Apague.</li><li>Active 'Sen secuencia de reinicio', active 'Borrado completo do chip'.</li><li>Ponte os pines BOOT ou mantén premido o botón BOOT.</li><li>Acenda (o LED de actividade NON debe parpadear se se fai correctamente).</li><li>Instale todos os controladores STM32 e Zadig se é necesario (consulte a sección <a href=\"https://github.com/emuflight/EmuFlight/wiki/Installing-Emuflight\"target=\"_blank\">USB Flashing</a> do manual de Emuflight).</li><li>Peche o configurador, peche todas as instancias de Chrome, peche todas as aplicacións de Chrome, reinicie o Configurador.</li><li>Solte o botón BOOT se o seu FC o ten.</li><li>Grave co firmware correcto (usando a velocidade de baudios manual se se especifica no manual do seu FC).</li><li>Apague.</li><li>Retire a ponte BOOT.</li><li>Acenda (o LED de actividade debería parpadear).</li><li>Conecte normalmente.</li></ul>"
     },
     "firmwareFlasherFirmwareNotLoaded": {
         "message": "Firmware non cargado"

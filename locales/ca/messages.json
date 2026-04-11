@@ -146,7 +146,7 @@
         "message": "Port sèrie <span class=\"message-positive\">correctament</span> obert amb ID: $1"
     },
     "serialPortOpenFail": {
-        "message": "<span class=\"message-negative\">Failed</span> to open serial port"
+        "message": "<span class=\"message-negative\">Ha fallat</span> obrir el port sèrie"
     },
     "serialPortClosedOk": {
         "message": "Port sèrie <span class=\"message-positive\">correctament</span> tancat"
@@ -179,7 +179,7 @@
         "message": "STM32 - timeout, la programació: HA FALLAT"
     },
     "stm32WrongResponse": {
-        "message": "La comunicació STM32 ha fallat resposta errònia, s'esperava: $1 (0$ x2) rebut: $3 (0 x$ 4)"
+        "message": "Comunicació STM32 fallida, resposta errònia, esperada: $1 (0x$2) rebuda: $3 (0x$4)"
     },
     "stm32ContactingBootloader": {
         "message": "Contactant bootloader..."
@@ -257,8 +257,7 @@
         "message": "El firmware d'aquest dispositiu necessita ser actualitzat a una versió superior. Utilitza el CLI per fer una còpia de seguretat abans de flashejar. El procediment està explicat a la documentació.<br />D'altra banda pots descarregar i fer servir una versió antiga del configurador si no estàs preparat per actualitzar."
     },
     "infoVersions": {
-        "message": "Running - OS: <strong>{{operatingSystem}}</strong>, Chrome: <strong>{{chromeVersion}}</strong>, Configurator: <strong>{{configuratorVersion}}</strong>",
-        "description": "Message that appears in the GUI log panel indicating operating system, Chrome version and Configurator version"
+        "message": "En execució - OS: <strong>{{operatingSystem}}</strong>, Chrome: <strong>{{chromeVersion}}</strong>, Configurador: <strong>{{configuratorVersion}}</strong>"
     },
     "releaseCheckLoaded": {
         "message": "Informació de release carregada de $1 carregada de GitHub."
@@ -1569,7 +1568,7 @@
         "message": "<strong>Recuperació / Comunicació perduda</strong>"
     },
     "firmwareFlasherRecoveryText": {
-        "message": "If you have lost communication with your board follow these steps to restore communication: <ul><li>Power off</li><li>Enable 'No reboot sequence', enable 'Full chip erase'.</li><li>Jumper the BOOT pins or hold BOOT button.</li><li>Power on (activity LED will NOT flash if done correctly).</li><li>Install all STM32 drivers and Zadig if required (see <a href=\"https://github.com/emuflight/EmuFlight/wiki/Installing-Emuflight\"target=\"_blank\">USB Flashing</a> section of Emuflight manual).</li><li>Close configurator, Close all running chrome instances, Close all Chrome apps, Restart Configurator.</li><li>Release BOOT button if your FC has one.</li><li>Flash with correct firmware (using manual baud rate if specified in your FC's manual).</li><li>Power off.</li><li>Remove BOOT jumper.</li><li>Power on (activity LED should flash).</li><li>Connect normally.</li></ul>"
+        "message": "Si heu perdut la comunicació amb la placa, seguiu aquests passos per restaurar-la: <ul><li>Apagueu.</li><li>Activeu 'Sense seqüència de reinici', activeu 'Esborrat complet del xip'.</li><li>Poseu un pontet als pins BOOT o manteniu el botó BOOT premut.</li><li>Enceneu (el LED d'activitat NO ha de parpellejar si es fa correctament).</li><li>Instal·leu tots els controladors STM32 i Zadig si cal (vegeu la secció <a href=\"https://github.com/emuflight/EmuFlight/wiki/Installing-Emuflight\"target=\"_blank\">USB Flashing</a> del manual d'Emuflight).</li><li>Tanqueu el configurador, tanqueu totes les instàncies de Chrome, tanqueu totes les aplicacions de Chrome, reinicieu el Configurador.</li><li>Allibereu el botó BOOT si el vostre FC en té un.</li><li>Flashegeu amb el firmware correcte (useu la velocitat manual si s'especifica al manual del vostre FC).</li><li>Apagueu.</li><li>Retireu el pontet BOOT.</li><li>Enceneu (el LED d'activitat ha de parpellejar).</li><li>Connecteu normalment.</li></ul>"
     },
     "firmwareFlasherFirmwareNotLoaded": {
         "message": "Firmware no carregat"

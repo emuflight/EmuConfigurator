@@ -2042,7 +2042,7 @@
         "message": "<strong>Потеря связи / Восстановление связи</strong>"
     },
     "firmwareFlasherRecoveryText": {
-        "message": "If you have lost communication with your board follow these steps to restore communication: <ul><li>Power off</li><li>Enable 'No reboot sequence', enable 'Full chip erase'.</li><li>Jumper the BOOT pins or hold BOOT button.</li><li>Power on (activity LED will NOT flash if done correctly).</li><li>Install all STM32 drivers and Zadig if required (see <a href=\"https://github.com/emuflight/EmuFlight/wiki/Installing-Emuflight\"target=\"_blank\">USB Flashing</a> section of Emuflight manual).</li><li>Close configurator, Close all running chrome instances, Close all Chrome apps, Restart Configurator.</li><li>Release BOOT button if your FC has one.</li><li>Flash with correct firmware (using manual baud rate if specified in your FC's manual).</li><li>Power off.</li><li>Remove BOOT jumper.</li><li>Power on (activity LED should flash).</li><li>Connect normally.</li></ul>"
+        "message": "Если потеряна связь с платой, выполните следующие шаги для её восстановления: <ul><li>Обесточьте.</li><li>Включите 'Без последовательности перезагрузки', включите 'Полное стирание чипа'.</li><li>Замкните пины BOOT или удерживайте кнопку BOOT.</li><li>Включите питание (светодиод активности НЕ должен мигать при правильном выполнении).</li><li>Установите все драйверы STM32 и Zadig, если требуется (см. раздел <a href=\"https://github.com/emuflight/EmuFlight/wiki/Installing-Emuflight\"target=\"_blank\">USB Flashing</a> руководства Emuflight).</li><li>Закройте конфигуратор, закройте все экземпляры Chrome, закройте все приложения Chrome, перезапустите Конфигуратор.</li><li>Отпустите кнопку BOOT, если на вашем FC она есть.</li><li>Прошейте правильную прошивку (используя ручную скорость передачи, если указана в руководстве вашего FC).</li><li>Обесточьте.</li><li>Снимите перемычку BOOT.</li><li>Включите питание (светодиод активности должен мигать).</li><li>Подключитесь обычным образом.</li></ul>"
     },
     "firmwareFlasherFirmwareNotLoaded": {
         "message": "Прошивка не загружена"
@@ -3214,7 +3214,7 @@
         "message": "Протокол ESC / Мотора"
     },
     "configurationEscProtocolHelp": {
-        "message": "Select your motor protocol. <br>Make sure to verify the protocol is supported by your ESC, this information should be on the makers website. <br> <b>Be carefull using DSHOT900 and DSHOT1200 as not many ESC's support it!</b>"
+        "message": "Выберите протокол мотора. <br>Убедитесь, что протокол поддерживается вашим ESC — эта информация должна быть на сайте производителя. <br> <b>Будьте осторожны при использовании DSHOT900 и DSHOT1200 — не многие ESC их поддерживают!</b>"
     },
     "configurationunsyndePwm": {
         "message": "Скорость двигателя PWM отделенного от PID скорость"

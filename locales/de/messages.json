@@ -1194,7 +1194,7 @@
         "message": "EEPROM <span class=\"message-positive\">gespeichert</span>"
     },
     "receiverHelp": {
-        "message": "Please read receiver chapter of the documentation.  Configure serial port (if required), receiver mode (serial/ppm/pwm), provider (for serial receivers), bind receiver, set channel map, configure channel endpoints/range on TX so that all channels go from ~1000 to ~2000.  Set midpoint (default 1500), trim channels to 1500, configure stick deadband, verify behaviour when TX is off or out of range.<br /><span class=\"message-negative\">IMPORTANT:</span> Before flying read failsafe chapter of documentation and configure failsafe."
+        "message": "Bitte das Empfängerkapitel in der Dokumentation lesen. Seriellen Port konfigurieren (falls erforderlich), Empfängermodus (seriell/ppm/pwm), Anbieter (für serielle Empfänger), Empfänger binden, Kanalzuordnung einstellen, Kanalendpunkte/Bereich am TX so konfigurieren, dass alle Kanäle von ~1000 bis ~2000 gehen. Mittelpunkt einstellen (Standard 1500), Kanäle auf 1500 trimmen, Stick-Deadband konfigurieren, Verhalten prüfen wenn TX aus oder außer Reichweite ist.<br /><span class=\"message-negative\">WICHTIG:</span> Vor dem Fliegen das Failsafe-Kapitel der Dokumentation lesen und Failsafe konfigurieren."
     },
     "tuningHelp": {
         "message": "<b>Tuning tips</b><br /><span class=\"message-negative\">Hinweis:</span> Es ist wichtig, bei den ersten Flügen, die Motortemperatur im Auge zu behalten. Je höher die Filterwerte, desto besser könnte er fliegen, aber es wird auch mehr Rauschen in die Motoren geben.<br>Die Standarteinstellung 100Hz ist optimal, für problematische Setups könnte man jedoch richtung 50Hz Dterm Filter (und eventuell auch beim Gyro-Filter) gehen."
@@ -1569,7 +1569,7 @@
         "message": "Magnetpole des Motors"
     },
     "sensorsInfo": {
-        "message": "Keep in mind that using fast update periods and rendering multiple graphs at the same time is resource heavy and will burn your battery quicker if you use a laptop.<br />We recommend to only render graphs for sensors you are interested in while using reasonable update periods."
+        "message": "Bitte beachten, dass schnelle Aktualisierungsintervalle und mehrere gleichzeitig gerenderte Graphen ressourcenintensiv sind und bei Laptopbetrieb den Akku schneller entladen. <br />Es wird empfohlen, nur Graphen für die gewünschten Sensoren bei sinnvollen Aktualisierungsintervallen darzustellen."
     },
     "sensorsRefresh": {
         "message": "Abtasten:"
@@ -1626,7 +1626,7 @@
         "message": "Aus Datei laden"
     },
     "loggingNote": {
-        "message": "Data will be logged in this tab <span class=\"message-negative\">only</span>, leaving the tab will <span class=\"message-negative\">cancel</span> logging and application will return to its normal <strong>\"configurator\"</strong> state.<br /> You are free to select the global update period, data will be written into the log file every <strong>1</strong> second for performance reasons."
+        "message": "Daten werden <span class=\"message-negative\">nur</span> in diesem Tab aufgezeichnet. Das Verlassen des Tabs bricht <span class=\"message-negative\">die Aufzeichnung ab</span> und die Anwendung kehrt in den normalen <strong>\"Konfigurator\"</strong>-Zustand zurück.<br /> Das globale Aktualisierungsintervall kann frei gewählt werden, die Daten werden aus Performancegründen alle <strong>1</strong> Sekunde in die Protokolldatei geschrieben."
     },
     "loggingSamplesSaved": {
         "message": "Gespeicherte Logs:"
@@ -1896,7 +1896,7 @@
         "message": "<strong>Wiederherstellung / abgebrochene Kommunikation</strong>"
     },
     "firmwareFlasherRecoveryText": {
-        "message": "If you have lost communication with your board follow these steps to restore communication: <ul><li>Power off</li><li>Enable 'No reboot sequence', enable 'Full chip erase'.</li><li>Jumper the BOOT pins or hold BOOT button.</li><li>Power on (activity LED will NOT flash if done correctly).</li><li>Install all STM32 drivers and Zadig if required (see <a href=\"https://github.com/emuflight/EmuFlight/wiki/Installing-Emuflight\"target=\"_blank\">USB Flashing</a> section of Emuflight manual).</li><li>Close configurator, Close all running chrome instances, Close all Chrome apps, Restart Configurator.</li><li>Release BOOT button if your FC has one.</li><li>Flash with correct firmware (using manual baud rate if specified in your FC's manual).</li><li>Power off.</li><li>Remove BOOT jumper.</li><li>Power on (activity LED should flash).</li><li>Connect normally.</li></ul>"
+        "message": "Wenn die Verbindung zum Board verloren gegangen ist, diese Schritte zur Wiederherstellung befolgen: <ul><li>Ausschalten.</li><li>'Keine Reboot-Sequenz' aktivieren, 'Vollständiges Chip-Löschen' aktivieren.</li><li>BOOT-Pins überbrücken oder BOOT-Taste gedrückt halten.</li><li>Einschalten (Aktivitäts-LED darf bei korrekter Ausführung NICHT blinken).</li><li>Alle STM32-Treiber und Zadig installieren falls nötig (siehe Abschnitt <a href=\"https://github.com/emuflight/EmuFlight/wiki/Installing-Emuflight\"target=\"_blank\">USB Flashing</a> im Emuflight-Handbuch).</li><li>Konfigurator schließen, alle Chrome-Instanzen schließen, alle Chrome-Apps schließen, Konfigurator neu starten.</li><li>BOOT-Taste loslassen falls vorhanden.</li><li>Korrekte Firmware flashen (manuelle Baudrate verwenden falls im FC-Handbuch angegeben).</li><li>Ausschalten.</li><li>BOOT-Brücke entfernen.</li><li>Einschalten (Aktivitäts-LED sollte blinken).</li><li>Normal verbinden.</li></ul>"
     },
     "firmwareFlasherFirmwareNotLoaded": {
         "message": "Firmware nicht geladen"

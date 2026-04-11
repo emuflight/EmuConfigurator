@@ -1751,7 +1751,7 @@
         "message": "总控制 (Master)"
     },
     "motorsNotice": {
-        "message": "<strong>Motor Test Mode / Arming Notice:</strong><br />Moving the sliders or arming your craft with the transmitter will cause the motors to <strong>spin up</strong>.<br />In order to prevent injury <strong class=\"message-negative\">remove ALL propellers</strong> before using this feature.<br />Enabling motor test mode will also temporarily disable Runaway Takeoff Prevention, to stop it from disarming the craft when bench testing without propellers.<br />"
+        "message": "<strong>电机测试模式 / 解锁注意事项：</strong><br />移动滑块或使用发射机解锁将导致电机<strong>启动</strong>。<br />为防止受伤，使用此功能前<strong class=\"message-negative\">请取下所有螺旋桨</strong>。<br />启用电机测试模式还会暂时禁用跑道起飞防护，以防止在无螺旋桨的桌面测试时解除解锁状态。<br />"
     },
     "motorConfigNotice": {
         "message": "电机配置提示"
@@ -2108,13 +2108,13 @@
         "message": "<strong> 恢复/丢失通信 </strong>"
     },
     "firmwareFlasherRecoveryText": {
-        "message": "If you have lost communication with your board follow these steps to restore communication: <ul><li>Power off</li><li>Enable 'No reboot sequence', enable 'Full chip erase'.</li><li>Jumper the BOOT pins or hold BOOT button.</li><li>Power on (activity LED will NOT flash if done correctly).</li><li>Install all STM32 drivers and Zadig if required (see <a href=\"https://github.com/emuflight/EmuFlight/wiki/Installing-Emuflight\"target=\"_blank\">USB Flashing</a> section of Emuflight manual).</li><li>Close configurator, Close all running chrome instances, Close all Chrome apps, Restart Configurator.</li><li>Release BOOT button if your FC has one.</li><li>Flash with correct firmware (using manual baud rate if specified in your FC's manual).</li><li>Power off.</li><li>Remove BOOT jumper.</li><li>Power on (activity LED should flash).</li><li>Connect normally.</li></ul>"
+        "message": "如果您已与飞控板失去通信，请按照以下步骤恢复通信：<ul><li>断电。</li><li>启用'无重启序列'，启用'全片擦除'。</li><li>短接BOOT引脚或按住BOOT按钮。</li><li>上电（如果操作正确，活动LED将不会闪烁）。</li><li>如需要，安装所有STM32驱动程序和Zadig（参见Emuflight手册的<a href=\"https://github.com/emuflight/EmuFlight/wiki/Installing-Emuflight\"target=\"_blank\">USB Flashing</a>部分）。</li><li>关闭配置器，关闭所有正在运行的Chrome实例，关闭所有Chrome应用，重启配置器。</li><li>如果FC有BOOT按钮，松开BOOT按钮。</li><li>用正确的固件刷写（如FC手册中指定，使用手动波特率）。</li><li>断电。</li><li>取下BOOT跳线。</li><li>上电（活动LED应闪烁）。</li><li>正常连接。</li></ul>"
     },
     "firmwareFlasherFirmwareNotLoaded": {
         "message": "没有加载固件"
     },
     "firmwareFlasherFirmwareLocalLoaded": {
-        "message": "已加载本地固件: ($ 1 字节)"
+        "message": "已加载本地固件：（$1 字节）"
     },
     "firmwareFlasherHexCorrupted": {
         "message": "HEX文件似乎已损坏"

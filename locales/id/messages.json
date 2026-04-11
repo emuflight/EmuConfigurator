@@ -285,7 +285,7 @@
         "message": "Menggunakan informasi rilis dari cache untuk rilis $1."
     },
     "releaseCheckNoInfo": {
-        "message": "Tidak ada informasi rilis yang tersedia untuk $ 1."
+        "message": "Tidak ada informasi rilis yang tersedia untuk $1."
     },
     "tabSwitchConnectionRequired": {
         "message": "Anda perlu untuk <strong>menghubungkan</strong> sebelum anda dapat melihat isi tab."
@@ -375,10 +375,10 @@
         "message": "Dokumentasi Emuflight tersedia dalam catatan rilis dan wiki.<br /><br />"
     },
     "defaultDocumentation1": {
-        "message": "The Emuflight wiki is a great resource for information, it can be found <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">here</a>.<br />The release notes for the firmware can be read at GitHub releases page, <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\">here</a>.<br />"
+        "message": "Wiki EmuFlight adalah sumber informasi yang bagus, bisa ditemukan <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">di sini</a>.<br />Catatan rilis firmware bisa dibaca di halaman rilis GitHub, <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\">di sini</a>.<br />"
     },
     "defaultDocumentation2": {
-        "message": "The EmuConfigurator wiki can be found <a href=\"https://github.com/emuflight/EmuConfigurator/wiki\" target=\"_blank\">here</a>.<br />The Configurator release notes can be read at GitHub releases page, <a href=\"https://github.com/emuflight/EmuConfigurator/releases\" target=\"_blank\">here</a>.<br />"
+        "message": "Wiki EmuConfigurator bisa ditemukan <a href=\"https://github.com/emuflight/EmuConfigurator/wiki\" target=\"_blank\">di sini</a>.<br />Catatan rilis Configurator bisa dibaca di halaman rilis GitHub, <a href=\"https://github.com/emuflight/EmuConfigurator/releases\" target=\"_blank\">di sini</a>.<br />"
     },
     "defaultSupportHead": {
         "message": "Dukungan"
@@ -837,7 +837,7 @@
         "message": "<strong>Catatan:</strong> tidak semua kombinasi cocok. Bila firmware flight controller menemukan konfigurasi yg tidak cocok, pengaturan port serial ini akan kembali ke awal."
     },
     "portsMSPHelp": {
-        "message": "<strong>Note:</strong> Do <span class=\"message-negative\">NOT</span> disable MSP on the first serial port unless you know what you are doing.  You may have to reflash and erase your configuration if you do."
+        "message": "<strong>Catatan:</strong> <span class=\"message-negative\">JANGAN</span> nonaktifkan MSP pada port serial pertama kecuali Anda tahu apa yang Anda lakukan. Anda mungkin harus reflash dan menghapus konfigurasi Anda jika melakukannya."
     },
     "portsFirmwareUpgradeRequired": {
         "message": "Upgrade Firmware <span class=\"message-negative\">dibutuhkan</span>. konfigurasi port serial dari firmware &lt; 1.8.0 tidak didukung."
@@ -1047,10 +1047,10 @@
         "message": "Nilai profil bawaan dimuat."
     },
     "pidTuningReceivedProfile": {
-        "message": "Flight controller set Profile: <strong class=\"message-positive\">$1</strong>"
+        "message": "Flight controller mengatur Profil: <strong class=\"message-positive\">$1</strong>"
     },
     "pidTuningReceivedRateProfile": {
-        "message": "Flight controller set Rateprofile: <strong class=\"message-positive\">$1</strong>"
+        "message": "Flight controller mengatur Rateprofile: <strong class=\"message-positive\">$1</strong>"
     },
     "pidTuningLoadedProfile": {
         "message": "Loaded Profile: <strong class=\"message-positive\">$1</strong>"
@@ -1608,7 +1608,7 @@
         "message": "Unduh manual."
     },
     "firmwareFlasherTargetWarning": {
-        "message": "<span class=\"message-negative\">IMPORTANT</span>: Ensure you flash a file appropriate for your target.  Flashing a binary for the wrong target can cause <span class=\"message-negative\">bad</span> things to happen."
+        "message": "<span class=\"message-negative\">PENTING</span>: Pastikan Anda memflash file yang sesuai untuk target Anda. Memflash binary untuk target yang salah dapat menyebabkan hal-hal <span class=\"message-negative\">buruk</span> terjadi."
     },
     "firmwareFlasherLoadFirmwareFile": {
         "message": "Silahkan pilih berkas firmware"
@@ -1644,7 +1644,7 @@
         "message": "Baud rate manual"
     },
     "firmwareFlasherManualBaudDescription": {
-        "message": "Manual selection of baud rate for boards that don't support the default speed or for flashing via bluetooth.<br /><span class=\"message-negative\">Note:</span> Not used when flashing via USB DFU"
+        "message": "Pemilihan manual baud rate untuk board yang tidak mendukung kecepatan default atau untuk flashing via bluetooth.<br /><span class=\"message-negative\">Catatan:</span> Tidak digunakan saat flashing melalui USB DFU"
     },
     "firmwareFlasherShowDevelopmentReleases": {
         "message": "Tampilkan rilis yang belum stabil"
@@ -1698,13 +1698,13 @@
         "message": "Pesan:"
     },
     "firmwareFlasherWarningText": {
-        "message": "Please do <span class=\"message-negative\">not</span> try to flash <strong>non-Emuflight</strong> hardware with this firmware flasher.<br />Do <span class=\"message-negative\">not</span> <strong>disconnect</strong> the board or <strong>turn off</strong> your computer while flashing.<br /><br /><strong>Note: </strong>STM32 bootloader is stored in ROM, it cannot be bricked.<br /><strong>Note: </strong><span class=\"message-negative\">Auto-Connect</span> is always disabled while you are inside firmware flasher.<br /><strong>Note: </strong>Make sure you have a backup; some upgrades/downgrades will wipe your configuration.<br /><strong>Note:</strong> If you have problems flashing <strong>try disconnecting all cables from your FC</strong> first, try rebooting, upgrade chrome, upgrade drivers.<br /><strong>Note:</strong> When flashing boards that have directly connected USB sockets (most newer boards) ensure you have read the USB Flashing section of the Emuflight manual and have the correct software and drivers installed"
+        "message": "Harap <span class=\"message-negative\">jangan</span> mencoba memflash hardware <strong>non-Emuflight</strong> dengan firmware flasher ini.<br />Jangan <span class=\"message-negative\">cabut</span> board atau <strong>matikan</strong> komputer saat sedang memflash.<br /><br /><strong>Catatan: </strong>Bootloader STM32 tersimpan di ROM, tidak dapat di-brick.<br /><strong>Catatan: </strong><span class=\"message-negative\">Auto-Connect</span> selalu dinonaktifkan saat berada di firmware flasher.<br /><strong>Catatan: </strong>Pastikan Anda memiliki cadangan; beberapa pembaruan/penurunan versi akan menghapus konfigurasi Anda.<br /><strong>Catatan:</strong> Jika ada masalah memflash <strong>coba cabut semua kabel dari FC</strong> terlebih dahulu, coba reboot, perbarui Chrome, perbarui driver.<br /><strong>Catatan:</strong> Saat memflash board yang memiliki soket USB langsung (kebanyakan board yang lebih baru), pastikan Anda telah membaca bagian USB Flashing dari manual Emuflight dan memiliki perangkat lunak serta driver yang benar"
     },
     "firmwareFlasherRecoveryHead": {
         "message": "<strong>Pemulihan / Komunikasi terputus</strong>"
     },
     "firmwareFlasherRecoveryText": {
-        "message": "If you have lost communication with your board follow these steps to restore communication: <ul><li>Power off</li><li>Enable 'No reboot sequence', enable 'Full chip erase'.</li><li>Jumper the BOOT pins or hold BOOT button.</li><li>Power on (activity LED will NOT flash if done correctly).</li><li>Install all STM32 drivers and Zadig if required (see <a href=\"https://github.com/emuflight/EmuFlight/wiki/Installing-Emuflight\"target=\"_blank\">USB Flashing</a> section of Emuflight manual).</li><li>Close configurator, Close all running chrome instances, Close all Chrome apps, Restart Configurator.</li><li>Release BOOT button if your FC has one.</li><li>Flash with correct firmware (using manual baud rate if specified in your FC's manual).</li><li>Power off.</li><li>Remove BOOT jumper.</li><li>Power on (activity LED should flash).</li><li>Connect normally.</li></ul>"
+        "message": "Jika Anda telah kehilangan komunikasi dengan board, ikuti langkah-langkah berikut untuk memulihkan komunikasi: <ul><li>Matikan daya.</li><li>Aktifkan 'Tanpa urutan reboot', aktifkan 'Hapus chip penuh'.</li><li>Jumper pin BOOT atau tahan tombol BOOT.</li><li>Nyalakan daya (LED aktivitas TIDAK akan berkedip jika dilakukan dengan benar).</li><li>Instal semua driver STM32 dan Zadig jika diperlukan (lihat bagian <a href=\"https://github.com/emuflight/EmuFlight/wiki/Installing-Emuflight\"target=\"_blank\">USB Flashing</a> manual Emuflight).</li><li>Tutup configurator, tutup semua instance Chrome yang berjalan, tutup semua aplikasi Chrome, Restart Configurator.</li><li>Lepaskan tombol BOOT jika FC Anda memilikinya.</li><li>Flash dengan firmware yang benar (menggunakan baud rate manual jika ditentukan dalam manual FC Anda).</li><li>Matikan daya.</li><li>Lepaskan jumper BOOT.</li><li>Nyalakan daya (LED aktivitas seharusnya berkedip).</li><li>Hubungkan secara normal.</li></ul>"
     },
     "firmwareFlasherFirmwareNotLoaded": {
         "message": "Firmware tidak dimuat"
@@ -1722,10 +1722,10 @@
         "message": "<b>Belum ada firmware yang dipilih untuk dimuat</b>"
     },
     "firmwareFlasherNoValidPort": {
-        "message": "<span class=\"message-negative\">Please select valid serial port</span>"
+        "message": "<span class=\"message-negative\">Harap pilih port serial yang valid</span>"
     },
     "firmwareFlasherWritePermissions": {
-        "message": "You don't have <span class=\"message-negative\">write permissions</span> for this file"
+        "message": "Anda tidak memiliki <span class=\"message-negative\">izin tulis</span> untuk file ini"
     },
     "firmwareFlasherFlashTrigger": {
         "message": "Terdeteksi: <strong>$1</strong> - memulai flashing pada saat tersambung"
@@ -2165,7 +2165,7 @@
         "message": "Simpan"
     },
     "powerFirmwareUpgradeRequired": {
-        "message": "Firmware upgrade <span class=\"message-negative\">required</span>. Battery/Amperage/Voltage configurations using API &lt; 1.33.0 (Emuflight release &lt;= 3.17) is not supported."
+        "message": "Pembaruan firmware <span class=\"message-negative\">diperlukan</span>. Konfigurasi Baterai/Ampere/Voltase menggunakan API &lt; 1.33.0 (rilis Emuflight &lt;= 3.17) tidak didukung."
     },
     "powerBatteryVoltageMeterSource": {
         "message": "Sumber Meteran Tegangan"
@@ -2204,7 +2204,7 @@
         "message": "Meteran Tegangan"
     },
     "powerVoltageValue": {
-        "message": "$ 1 V"
+        "message": "$1 V"
     },
     "powerVoltageId10": {
         "message": "Baterai"
@@ -2285,7 +2285,7 @@
         "message": "Flight controller anda tidak menanggapi ke perintah OSD. Mungkin FC anda tidak memiliki OSD Emuflight."
     },
     "osdSetupUnsupportedNote2": {
-        "message": "Note that some flight controllers have an onboard <a href=\"https://www.youtube.com/watch?v=ikKH_6SQ-Tk\" target=\"_blank\">MinimOSD</a> that can be flashed and configured with <a href=\"https://github.com/ShikOfTheRa/scarab-osd/releases/latest\" target='_blank'>scarab-osd</a>, however the MinimOSD cannot be configured through this interface."
+        "message": "Perhatikan bahwa beberapa flight controller memiliki <a href=\"https://www.youtube.com/watch?v=ikKH_6SQ-Tk\" target=\"_blank\">MinimOSD</a> bawaan yang dapat diflash dan dikonfigurasi dengan <a href=\"https://github.com/ShikOfTheRa/scarab-osd/releases/latest\" target='_blank'>scarab-osd</a>, namun MinimOSD tidak dapat dikonfigurasi melalui antarmuka ini."
     },
     "osdSetupElementsTitle": {
         "message": "Elemen"
@@ -2657,7 +2657,7 @@
         "message": "Pengaturan OSD tersimpan"
     },
     "osdWritePermissions": {
-        "message": "You don't have <span class=\"message-negative\">write permissions</span> for this file"
+        "message": "Anda tidak memiliki <span class=\"message-negative\">izin tulis</span> untuk file ini"
     },
     "osdButtonSaved": {
         "message": "Disimpan"

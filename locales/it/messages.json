@@ -278,7 +278,7 @@
         "message": "Il configuratore <span class=\"message-negative\">non supporta</span> firmware diversi da Cleanflight o Emuflight. Solo la modalità CLI è supportata."
     },
     "firmwareUpgradeRequired": {
-        "message": "The firmware on this device needs upgrading to a newer version. Use CLI for backup before flashing. CLI backup/restore procedure is in the documention.<br />Alternatively download and use an old version of the configurator if you are not ready to upgrade."
+        "message": "Il firmware su questo dispositivo deve essere aggiornato a una versione più recente. Utilizzare il CLI per il backup prima del flashing. La procedura di backup/ripristino CLI è nella documentazione.<br />In alternativa, scaricare e utilizzare una vecchia versione del configuratore se non è ancora pronto per l'aggiornamento."
     },
     "infoVersions": {
         "message": "Sistema operativo: <strong>{{operatingSystem}}</strong>, Chrome: <strong>{{chromeVersion}}</strong>, Configurator: <strong>{{configuratorVersion}}</strong>",
@@ -1139,7 +1139,7 @@
         "message": "EEPROM <span class=\"message-positive\">salvata</span>"
     },
     "receiverHelp": {
-        "message": "Please read receiver chapter of the documentation.  Configure serial port (if required), receiver mode (serial/ppm/pwm), provider (for serial receivers), bind receiver, set channel map, configure channel endpoints/range on TX so that all channels go from ~1000 to ~2000.  Set midpoint (default 1500), trim channels to 1500, configure stick deadband, verify behaviour when TX is off or out of range.<br /><span class=\"message-negative\">IMPORTANT:</span> Before flying read failsafe chapter of documentation and configure failsafe."
+        "message": "Leggere il capitolo sul ricevitore nella documentazione. Configurare la porta seriale (se necessario), modalità ricevitore (seriale/ppm/pwm), provider (per ricevitori seriali), associare il ricevitore, impostare la mappa dei canali, configurare gli endpoint/range dei canali sul TX in modo che tutti i canali vadano da ~1000 a ~2000. Impostare il punto medio (default 1500), trimmare i canali a 1500, configurare il deadband degli stick, verificare il comportamento quando il TX è spento o fuori portata.<br /><span class=\"message-negative\">IMPORTANTE:</span> Prima di volare leggere il capitolo sul failsafe nella documentazione e configurare il failsafe."
     },
     "tuningHelp": {
         "message": "<b>Suggerimento per la messa a punto</b><br /><span class=\"message-negative\">IMPORTANTE:</span> E' importante verificare la temperatura del motore durante il primo volo. Più alto è il valore del filtro, più dovrebbe volare meglio, ma avrai anche più rumore nei motori. <br>Il valore predefinito di 100Hz è ottimale, ma per setup più rumorosi puoi provare ad abbassare il filtro Dterm a 50Hz e possibilmente anche il filtro del giroscopio."
@@ -1865,7 +1865,7 @@
         "message": "<strong> Recupero / comunicazione persa </strong>"
     },
     "firmwareFlasherRecoveryText": {
-        "message": "If you have lost communication with your board follow these steps to restore communication: <ul><li>Power off</li><li>Enable 'No reboot sequence', enable 'Full chip erase'.</li><li>Jumper the BOOT pins or hold BOOT button.</li><li>Power on (activity LED will NOT flash if done correctly).</li><li>Install all STM32 drivers and Zadig if required (see <a href=\"https://github.com/emuflight/EmuFlight/wiki/Installing-Emuflight\"target=\"_blank\">USB Flashing</a> section of Emuflight manual).</li><li>Close configurator, Close all running chrome instances, Close all Chrome apps, Restart Configurator.</li><li>Release BOOT button if your FC has one.</li><li>Flash with correct firmware (using manual baud rate if specified in your FC's manual).</li><li>Power off.</li><li>Remove BOOT jumper.</li><li>Power on (activity LED should flash).</li><li>Connect normally.</li></ul>"
+        "message": "Se hai perso la comunicazione con la tua scheda, segui questi passaggi per ripristinarla: <ul><li>Spegni.</li><li>Attiva 'Nessuna sequenza di riavvio', attiva 'Cancellazione completa del chip'.</li><li>Metti un jumper sui pin BOOT o tieni premuto il pulsante BOOT.</li><li>Accendi (il LED di attività NON deve lampeggiare se eseguito correttamente).</li><li>Installa tutti i driver STM32 e Zadig se necessario (vedi la sezione <a href=\"https://github.com/emuflight/EmuFlight/wiki/Installing-Emuflight\"target=\"_blank\">USB Flashing</a> del manuale Emuflight).</li><li>Chiudi il configuratore, chiudi tutte le istanze di Chrome, chiudi tutte le app Chrome, riavvia il Configuratore.</li><li>Rilascia il pulsante BOOT se il tuo FC ne ha uno.</li><li>Flash con il firmware corretto (usa il baud rate manuale se specificato nel manuale del tuo FC).</li><li>Spegni.</li><li>Rimuovi il jumper BOOT.</li><li>Accendi (il LED di attività deve lampeggiare).</li><li>Connetti normalmente.</li></ul>"
     },
     "firmwareFlasherFirmwareNotLoaded": {
         "message": "Firmware non caricato"
@@ -2224,7 +2224,7 @@
         "message": "Rotazione arbitraria del controllore di volo, per permettere di montarlo di lato, sottosopra, ruotato ecc.. Quando si utilizzano sensori esterni, usa l'allineamento del sensore (Gyro, Acc, Mag) per definire la posizione del sensore indipendente dall'orientamento del controllore di volo."
     },
     "failsafeFeaturesHelpNew": {
-        "message": "Failsafe has two stages. <strong>Stage 1</strong> is entered when a flightchannel has an invalid pulse length, the receiver reports failsafe mode or there is no signal from the receiver at all, the channel fallback settings are applied to <span class=\"message-negative\">all channels</span> and a short amount of time is provided to allow for recovery. <strong>Stage 2</strong> is entered when the error condition takes longer than the configured guard time while the craft is <span class=\"message-negative\">armed</span>, all channels will remain at the applied channel fallback setting unless overruled by the chosen procedure. <br /><strong>Note:</strong> Prior to entering stage 1, channel fallback settings are also applied to individual AUX channels that have invalid pulses."
+        "message": "Il Failsafe ha due fasi. La <strong>Fase 1</strong> si attiva quando un canale di volo ha una lunghezza di impulso non valida, il ricevitore segnala la modalità failsafe o non c'è alcun segnale dal ricevitore, le impostazioni di fallback dei canali vengono applicate a <span class=\"message-negative\">tutti i canali</span> e viene concesso un breve tempo di recupero. La <strong>Fase 2</strong> si attiva quando la condizione di errore dura più del tempo di guardia configurato mentre il velivolo è <span class=\"message-negative\">armato</span>; tutti i canali rimarranno all'impostazione di fallback a meno che non sia superata dalla procedura scelta. <br /><strong>Nota:</strong> Prima di entrare nella fase 1, le impostazioni di fallback vengono applicate anche ai singoli canali AUX con impulsi non validi."
     },
     "failsafePulsrangeTitle": {
         "message": "Impostazioni dell'intervallo di impulso valido"
@@ -2536,7 +2536,7 @@
         "message": "Il tuo controllore di volo non risponde ai comandi OSD. Questo probabilmente significa che non ha un OSD BetaFlight integrato."
     },
     "osdSetupUnsupportedNote2": {
-        "message": "Note that some flight controllers have an onboard <a href=\"https://www.youtube.com/watch?v=ikKH_6SQ-Tk\" target=\"_blank\">MinimOSD</a> that can be flashed and configured with <a href=\"https://github.com/ShikOfTheRa/scarab-osd/releases/latest\" target='_blank'>scarab-osd</a>, however the MinimOSD cannot be configured through this interface."
+        "message": "Nota che alcuni flight controller hanno un <a href=\"https://www.youtube.com/watch?v=ikKH_6SQ-Tk\" target=\"_blank\">MinimOSD</a> integrato che può essere programmato e configurato con <a href=\"https://github.com/ShikOfTheRa/scarab-osd/releases/latest\" target='_blank'>scarab-osd</a>, tuttavia il MinimOSD non può essere configurato tramite questa interfaccia."
     },
     "osdSetupProfilesTitle": {
         "message": "Profili OSD"

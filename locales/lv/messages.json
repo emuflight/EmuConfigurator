@@ -411,10 +411,10 @@
         "message": "Emuflight dokumentācija ir pieejama relīzes dokumentācijā un wiki.<br /><br />"
     },
     "defaultDocumentation1": {
-        "message": "The Emuflight wiki is a great resource for information, it can be found <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">here</a>.<br />The release notes for the firmware can be read at GitHub releases page, <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\">here</a>.<br />"
+        "message": "EmuFlight wiki ir lielisks informācijas avots, to var atrast <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">šeit</a>.<br />Programmatūras versijas piezīmes var lasīt GitHub izlaidumu lapā, <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\">šeit</a>.<br />"
     },
     "defaultDocumentation2": {
-        "message": "The EmuConfigurator wiki can be found <a href=\"https://github.com/emuflight/EmuConfigurator/wiki\" target=\"_blank\">here</a>.<br />The Configurator release notes can be read at GitHub releases page, <a href=\"https://github.com/emuflight/EmuConfigurator/releases\" target=\"_blank\">here</a>.<br />"
+        "message": "EmuConfigurator wiki var atrast <a href=\"https://github.com/emuflight/EmuConfigurator/wiki\" target=\"_blank\">šeit</a>.<br />Konfiguratora izlaidumu piezīmes var lasīt GitHub izlaidumu lapā, <a href=\"https://github.com/emuflight/EmuConfigurator/releases\" target=\"_blank\">šeit</a>.<br />"
     },
     "defaultSupportHead": {
         "message": "Atbalsts"
@@ -2042,7 +2042,7 @@
         "message": "<strong>Atkopšanas / Zaudēja komunikāciju</strong>"
     },
     "firmwareFlasherRecoveryText": {
-        "message": "If you have lost communication with your board follow these steps to restore communication: <ul><li>Power off</li><li>Enable 'No reboot sequence', enable 'Full chip erase'.</li><li>Jumper the BOOT pins or hold BOOT button.</li><li>Power on (activity LED will NOT flash if done correctly).</li><li>Install all STM32 drivers and Zadig if required (see <a href=\"https://github.com/emuflight/EmuFlight/wiki/Installing-Emuflight\"target=\"_blank\">USB Flashing</a> section of Emuflight manual).</li><li>Close configurator, Close all running chrome instances, Close all Chrome apps, Restart Configurator.</li><li>Release BOOT button if your FC has one.</li><li>Flash with correct firmware (using manual baud rate if specified in your FC's manual).</li><li>Power off.</li><li>Remove BOOT jumper.</li><li>Power on (activity LED should flash).</li><li>Connect normally.</li></ul>"
+        "message": "Ja zaudēta saziņa ar plati, izpildiet šīs darbības, lai atjaunotu saziņu: <ul><li>Izslēdziet barošanu.</li><li>Aktivizējiet 'Nav atsāknēšanas secības', aktivizējiet 'Pilna mikroshēmas dzēšana'.</li><li>Savienojiet BOOT kontaktus ar džemperi vai turiet nospiestu BOOT pogu.</li><li>Ieslēdziet barošanu (aktivitātes LED nedrīkst mirgot, ja viss izdarīts pareizi).</li><li>Instalējiet visus STM32 draiverus un Zadig, ja nepieciešams (skatiet Emuflight rokasgrāmatas sadaļu <a href=\"https://github.com/emuflight/EmuFlight/wiki/Installing-Emuflight\"target=\"_blank\">USB Flashing</a>).</li><li>Aizveriet konfiguratoru, aizveriet visus Chrome gadījumus, aizveriet visas Chrome aplikācijas, restartējiet konfiguratoru.</li><li>Atlaist BOOT pogu, ja plaitai tāda ir.</li><li>Ierakstiet pareizo programmatūru (izmantojiet manuālo pārraides ātrumu, ja norādīts FC rokasgrāmatā).</li><li>Izslēdziet barošanu.</li><li>Noņemiet BOOT džemperi.</li><li>Ieslēdziet barošanu (aktivitātes LED vajadzētu mirgot).</li><li>Savienojieties normāli.</li></ul>"
     },
     "firmwareFlasherFirmwareNotLoaded": {
         "message": "Programmatūra nav ielādēta"

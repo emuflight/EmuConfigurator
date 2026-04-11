@@ -200,7 +200,7 @@
         "message": "STM32 - time out, programmering: MISSLYCKADES"
     },
     "stm32WrongResponse": {
-        "message": "STM32 - Kommunikation misslyckades, fel svar, förväntat: $1 (0x$2) fick: 3$ (0x$4)"
+        "message": "STM32-kommunikation misslyckades, felaktigt svar, förväntat: $1 (0x$2) mottaget: $3 (0x$4)"
     },
     "stm32ContactingBootloader": {
         "message": "Kontaktar bootloader..."
@@ -396,10 +396,10 @@
         "message": "Emuflight-dokumentation finns i versionskommentarerna och wiki.<br /><br />"
     },
     "defaultDocumentation1": {
-        "message": "The Emuflight wiki is a great resource for information, it can be found <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">here</a>.<br />The release notes for the firmware can be read at GitHub releases page, <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\">here</a>.<br />"
+        "message": "EmuFlight wiki är en utmärkt informationskälla och kan hittas <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">här</a>.<br />Versionsnoteringar för firmware kan läsas på GitHubs releasesida, <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\">här</a>.<br />"
     },
     "defaultDocumentation2": {
-        "message": "The EmuConfigurator wiki can be found <a href=\"https://github.com/emuflight/EmuConfigurator/wiki\" target=\"_blank\">here</a>.<br />The Configurator release notes can be read at GitHub releases page, <a href=\"https://github.com/emuflight/EmuConfigurator/releases\" target=\"_blank\">here</a>.<br />"
+        "message": "EmuConfigurator wiki kan hittas <a href=\"https://github.com/emuflight/EmuConfigurator/wiki\" target=\"_blank\">här</a>.<br />Versionsnoteringar för Configuratorn kan läsas på GitHubs releasesida, <a href=\"https://github.com/emuflight/EmuConfigurator/releases\" target=\"_blank\">här</a>.<br />"
     },
     "defaultSupportSubline1": {
         "message": "Supportkällor"
@@ -1961,7 +1961,7 @@
         "message": "<strong>Återställning / tappad kommunikation</strong>"
     },
     "firmwareFlasherRecoveryText": {
-        "message": "If you have lost communication with your board follow these steps to restore communication: <ul><li>Power off</li><li>Enable 'No reboot sequence', enable 'Full chip erase'.</li><li>Jumper the BOOT pins or hold BOOT button.</li><li>Power on (activity LED will NOT flash if done correctly).</li><li>Install all STM32 drivers and Zadig if required (see <a href=\"https://github.com/emuflight/EmuFlight/wiki/Installing-Emuflight\"target=\"_blank\">USB Flashing</a> section of Emuflight manual).</li><li>Close configurator, Close all running chrome instances, Close all Chrome apps, Restart Configurator.</li><li>Release BOOT button if your FC has one.</li><li>Flash with correct firmware (using manual baud rate if specified in your FC's manual).</li><li>Power off.</li><li>Remove BOOT jumper.</li><li>Power on (activity LED should flash).</li><li>Connect normally.</li></ul>"
+        "message": "Om du har tappat kommunikationen med ditt kort, följ dessa steg för att återställa kommunikationen: <ul><li>Stäng av strömmen.</li><li>Aktivera 'Ingen omstartssekvens', aktivera 'Fullständig chip-radering'.</li><li>Bygla BOOT-pinnarna eller håll BOOT-knappen intryckt.</li><li>Slå på strömmen (aktivitets-LED ska INTE blinka om utfört korrekt).</li><li>Installera alla STM32-drivrutiner och Zadig om det krävs (se avsnittet <a href=\"https://github.com/emuflight/EmuFlight/wiki/Installing-Emuflight\"target=\"_blank\">USB Flashing</a> i Emuflight-manualen).</li><li>Stäng Configuratorn, stäng alla Chrome-instanser, stäng alla Chrome-appar, starta om Configuratorn.</li><li>Släpp BOOT-knappen om din FC har en.</li><li>Flasha med korrekt firmware (använd manuell baudhastighet om det anges i FC-manualen).</li><li>Stäng av strömmen.</li><li>Ta bort BOOT-bygeln.</li><li>Slå på strömmen (aktivitets-LED ska blinka).</li><li>Anslut normalt.</li></ul>"
     },
     "firmwareFlasherFirmwareNotLoaded": {
         "message": "Firmware ej laddad"
