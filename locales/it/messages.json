@@ -306,7 +306,7 @@
         "message": "Nessuna informazione disponibile per $1."
     },
     "tabSwitchConnectionRequired": {
-        "message": "Devi <strong>collegare il controller</strong>prima di poter vedere le sezioni."
+        "message": "Devi <strong>collegare il controller</strong> prima di poter vedere le sezioni."
     },
     "tabSwitchWaitForOperation": {
         "message": "<span class=\"message-negative\">Non puoi</span> eseguire questa operazione in questo momento, devi attendere il completamento dell'operazione in corso..."
@@ -381,7 +381,7 @@
         "message": "EEPROM <span class=\"message-positive\">salvata</span>"
     },
     "defaultWelcomeIntro": {
-        "message": "Benvenuto in<strong> Emuflight - Configurator</strong> <br> utility disegnata per aggiornare, configurare e regolare il tuo flight controller in maniera semplice."
+        "message": "Benvenuto in <strong>Emuflight - Configurator</strong> <br>utility disegnata per aggiornare, configurare e regolare il tuo flight controller in maniera semplice."
     },
     "defaultDonate": {
         "message": "Dona"
@@ -2230,7 +2230,7 @@
         "message": "Rotazione arbitraria del controllore di volo, per permettere di montarlo di lato, sottosopra, ruotato ecc.. Quando si utilizzano sensori esterni, usa l'allineamento del sensore (Gyro, Acc, Mag) per definire la posizione del sensore indipendente dall'orientamento del controllore di volo."
     },
     "failsafeFeaturesHelpNew": {
-        "message": "Failsafe ha due stadi. <strong> Stadio 1 </strong>viene inserito quando un canale di volo ha una durata dell'impulso non valida, il ricevitore segnala la modalità failsafe o non c'è alcun segnale dal ricevitore, le impostazioni di fallback del canale sono applicate a <span class = \"message- negativo \"> tutti i canali </span> e viene fornita una breve quantità di tempo per consentire il recupero. <strong> Stadio 2 </strong> viene immesso quando la condizione di errore impiega più tempo del tempo di guardia configurato mentre il drone è <span class = \"message-negative\"> armato </span>, tutti i canali rimarranno sulle impostazione di fallback a meno che non venga annullata dalla procedura scelta. <br/> <strong> Nota: </strong> prima di entrare nello Stadio 1, le impostazioni di fallback dei canali vengono applicate anche ai singoli canali AUX con impulsi non validi."
+        "message": "Failsafe ha due stadi. <strong>Stadio 1</strong> viene inserito quando un canale di volo ha una durata dell'impulso non valida, il ricevitore segnala la modalità failsafe o non c'è alcun segnale dal ricevitore, le impostazioni di fallback del canale sono applicate a <span class=\"message-negative\">tutti i canali</span> e viene fornita una breve quantità di tempo per consentire il recupero. <strong>Stadio 2</strong> viene immesso quando la condizione di errore impiega più tempo del tempo di guardia configurato mentre il drone è <span class=\"message-negative\">armato</span>, tutti i canali rimarranno sulle impostazione di fallback a meno che non venga annullata dalla procedura scelta. <br/> <strong>Nota:</strong> prima di entrare nello Stadio 1, le impostazioni di fallback dei canali vengono applicate anche ai singoli canali AUX con impulsi non validi."
     },
     "failsafePulsrangeTitle": {
         "message": "Impostazioni dell'intervallo di impulso valido"

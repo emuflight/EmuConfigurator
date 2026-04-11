@@ -546,7 +546,7 @@
         "message": "Contributing"
     },
     "defaultContributingText": {
-        "message": "<i><b>EmuFlight needs developers and contributors!</b></i><br/>If you would like to help make Emuflight even better, you can help in many ways, including:<br /><ul><li>Answering user questions in <a href=\"https://discordapp.com/channels/547211754845765635\" target=\"_blank\">Discord</a>.</li><li>Contributing code to the <a href=\"https://github.com/emuflight/EmuFlight\" target=\"_blank\">firmware</a> and <a href=\"https://github.com/emuflight/EmuConfigurator\" target=\"_blank\">configurator</a>.</li><li>Testing new <a href=\"https://github.com/emuflight/EmuFlight/discussions/\" target=\"_blank\">features/fixes</a> and providing feedback.</li><li>Helping out with <a href=\"https://github.com/emuflight/EmuFlight/issues\" target=\"_blank\">firmware issues</a> and <a href=\"https://github.com/emuflight/EmuConfigurator/issues\" target=\"_blank\">configurator issues</a>.</li><li><a href=\"https://github.com/emuflight/EmuConfigurator/tree/master/locales\" target=\"_blank\">Translate</a> the configurator application into your language.</li> <li></li> <li></li> <li></li> </ul>"
+        "message": "<i><b>EmuFlight needs developers and contributors!</b></i><br/>If you would like to help make Emuflight even better, you can help in many ways, including:<br /><ul><li>Answering user questions in <a href=\"https://discordapp.com/channels/547211754845765635\" target=\"_blank\">Discord</a>.</li><li>Contributing code to the <a href=\"https://github.com/emuflight/EmuFlight\" target=\"_blank\">firmware</a> and <a href=\"https://github.com/emuflight/EmuConfigurator\" target=\"_blank\">configurator</a>.</li><li>Testing new <a href=\"https://github.com/emuflight/EmuFlight/discussions/\" target=\"_blank\">features/fixes</a> and providing feedback.</li><li>Helping out with <a href=\"https://github.com/emuflight/EmuFlight/issues\" target=\"_blank\">firmware issues</a> and <a href=\"https://github.com/emuflight/EmuConfigurator/issues\" target=\"_blank\">configurator issues</a>.</li><li><a href=\"https://github.com/emuflight/EmuConfigurator/tree/master/locales\" target=\"_blank\">Translate</a> the configurator application into your language.</li></ul>"
     },
     "defaultDiscordText": {
         "message": "Join EmuFlight's <a href=\"https://discord.gg/BWqgBg3\" target=\"_blank\">Discord Server</a> for support, discussions, and community."
@@ -1469,10 +1469,10 @@
         "message": "With this parameter, D Setpoint Weight can be reduced near the center of the sticks, which results in smoother end of flips and rolls.<br> The value represents a point of stick deflection: 0 - stick centered, 1 - full deflection. When the stick is above that point, Setpoint Weight is kept constant at its configured value. When the stick is positioned below that point, Setpoint Weight is reduced proportionally, reaching 0 at the stick center position.<br> Value of 1 gives maximum smoothing effect, while value of 0 keeps the Setpoint Weight fixed at its configured value over the whole stick range."
     },
     "pidTuningDtermSetpointHelp": {
-        "message": "This parameter determines the stick accelerating effect within derivative component.<br> Value of 0 equals to old Measuemenent method where D only tracks gyro, while value of 1 equals to old Error method with equal gyro and stick tracking ratio.<br> Lower value equals to slower/smoother stick response, while higher value provides more stick acceleration response.<br> Note that RC interpolation is recommended to be enabled with higher values to prevent control kicks making noise."
+        "message": "This parameter determines the stick accelerating effect within derivative component.<br>Value of 0 equals to old Measurement method where D only tracks gyro, while value of 1 equals to old Error method with equal gyro and stick tracking ratio.<br>Lower value equals to slower/smoother stick response, while higher value provides more stick acceleration response.<br>Note that RC interpolation is recommended to be enabled with higher values to prevent control kicks making noise."
     },
     "pidTuningDtermSetpointTransitionWarning": {
-        "message": "<span class=\"message-negative\"><strong>$t(warningTitle.message):</strong> The use of a D Setpoint transition greater than 0 and less than 0.1 is highly discouraged. Doing so may lead instability and reduced stick responsiveness as the sticks cross the centre point.</span>"
+        "message": "<span class=\"message-negative\"><strong>$t(warningTitle.message):</strong> The use of a D Setpoint transition greater than 0 and less than 0.1 is highly discouraged. Doing so may lead to instability and reduced stick responsiveness as the sticks cross the centre point.</span>"
     },
     "pidTuningProportional": {
         "message": "Proportional"
@@ -4282,7 +4282,7 @@
         "description": "One of the elements of the OSD"
     },
     "osdDescElementRemaningTimeEstimate": {
-        "message": "Estimate of flight time remaning"
+        "message": "Estimate of flight time remaining"
     },
     "osdTextElementRtcDateTime": {
         "message": "RTC date and time",
@@ -4662,15 +4662,15 @@
     },
     "osdTimerSourceOptionOnTime": {
         "message": "On time",
-        "description": "One of the options for the source timer. This options shows the amount of time has passed since the battery was plugged"
+        "description": "One of the options for the source timer. This option shows the amount of time that has passed since the battery was plugged"
     },
     "osdTimerSourceOptionTotalArmedTime": {
         "message": "Total armed time",
-        "description": "One of the options for the source timer. This options shows the amount of time the craft was armed since the battery was plugged"
+        "description": "One of the options for the source timer. This option shows the amount of time the craft was armed since the battery was plugged"
     },
     "osdTimerSourceOptionLastArmedTime": {
         "message": "Last armed time",
-        "description": "One of the options for the source timer. This options shows the amount of time the craft was armed the latest time"
+        "description": "One of the options for the source timer. This option shows the amount of time the craft was armed the latest time"
     },
     "osdTimerSourceOptionOnArmTime": {
         "message": "On/Armed time",

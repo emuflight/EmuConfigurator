@@ -170,7 +170,7 @@
         "message": "<span class=\"message-negative\">Gagal</span> mengembalikan sambungan serial, memutuskan sambungan..."
     },
     "usbDeviceOpened": {
-        "message": "Perangkat USB<span class=\"message-positive\">sukses</span>dibuka dengan ID: $1"
+        "message": "Perangkat USB <span class=\"message-positive\">sukses</span> dibuka dengan ID: $1"
     },
     "usbDeviceOpenFail": {
         "message": "<span class=\"message-negative\">Gagal</span> untuk membuka perangkat USB!"
