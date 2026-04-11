@@ -141,7 +141,7 @@
         "message": "Strom & Batterie"
     },
     "tabMotorTesting": {
-        "message": "Motoren"
+        "message": "Motorentest"
     },
     "tabLedStrip": {
         "message": "LED-Streifen"
@@ -1563,7 +1563,7 @@
         "message": "Anzahl"
     },
     "motorsVoltage": {
-        "message": "Spannung:"
+        "message": "Spannung"
     },
     "motorsADrawing": {
         "message": "Strom:"
@@ -1575,7 +1575,7 @@
         "message": "Motoren"
     },
     "motorsResetMaximumButton": {
-        "message": "Zurücksetzen"
+        "message": "Maximalwerte zurücksetzen"
     },
     "motorsResetMaximum": {
         "message": "Max. Zeitüberschreitung zurücksetzen"
@@ -1590,7 +1590,10 @@
         "message": "<strong>Motor Testmodus - Hinweis:</strong><br />Bewegen der Regler oder Arming des Fluggerätes über die Fernsteuerung wird die Motoren <strong>anlaufen</strong> lassen.<br />Um Verletzungen zu vermeiden <strong class=\"message-negative\"> bitte ALLE Propeller entfernen</strong>.<br />Der Testmodus wird auch den Abhebeschutz deakvieren, so dass sich das Gerät ohne Propeller nicht selbst abschaltet.<br />"
     },
     "motorsEnableControl": {
-        "message": "<strong>Ich weiß was ich mache</strong>, Propeller sind entfernt - Motorkontrolle aktivieren und Abhebeschutz deaktivieren."
+        "message": "Motorsteuerung aktivieren"
+    },
+    "motorConfigNotice": {
+        "message": "Hinweis zur Motorkonfiguration"
     },
     "sensorsInfo": {
         "message": "Beachte, dass ein kurze Abtastperiode und das Darstellen mehrerer Graphen gleichzeitig resourcenhungrig ist und den Akkuverbrauch deines Notebooks steigert, wenn du eines benutzt.<br/>Wir empfehlen nur Graphen darzustellen, welche dich interessieren und mit sinnvollen Aktualisierungswerten."

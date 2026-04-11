@@ -140,7 +140,7 @@
         "message": "Alimentation et batterie"
     },
     "tabMotorTesting": {
-        "message": "Moteurs"
+        "message": "Test des moteurs"
     },
     "tabLedStrip": {
         "message": "Bandeau LED"
@@ -1541,7 +1541,7 @@
         "message": "Force du signal"
     },
     "motorsVoltage": {
-        "message": "Tension:"
+        "message": "Tension"
     },
     "motorsADrawing": {
         "message": "Intensité:"
@@ -1580,7 +1580,7 @@
         "message": "Servo -1"
     },
     "motorsResetMaximumButton": {
-        "message": "Remise à zéro"
+        "message": "Réinitialiser les valeurs maximales"
     },
     "motorsResetMaximum": {
         "message": "Réinitialiser le temps supplémentaire maximum"
@@ -1592,7 +1592,10 @@
         "message": "<strong>Mode test moteurs / Attention armement:</strong><br />Bouger les curseurs ou armer l'appareil avec la télécommande fait <<strong>tourner les moteurs</strong>.<br />Afin d'éviter de graves blessures <strong class=\"message-negative\">retirer TOUTES les hélices</strong> avant d'activer cette fonction.<br />Le mode test moteurs désactive temporairement la prévention de décollage intempestif, afin d’empêcher le désarmement pendant les essais sans hélices.<br />"
     },
     "motorsEnableControl": {
-        "message": "<strong>Je comprends les riques</strong>, les hélices sont retirées - autoriser l'armement et le contrôle des moteurs et désactiver le Runaway Takeoff Prevention."
+        "message": "Activer le contrôle moteur"
+    },
+    "motorConfigNotice": {
+        "message": "Note de configuration moteur"
     },
     "sensorsInfo": {
         "message": "Gardez à l'esprit que le rafraîchissement fréquent des données et la génération de plusieurs graphiques en même temps est exigeant en ressources et vide la batterie de votre ordinateur portable rapidement.<br /> Nous conseillons de ne générer les graphiques que pour les capteurs utiles avec des temps de rafraîchissements raisonnables."

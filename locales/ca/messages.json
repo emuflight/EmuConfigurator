@@ -133,6 +133,9 @@
     "tabPower": {
         "message": "Energia i bateria"
     },
+    "tabMotorTesting": {
+        "message": "Prova de Motors"
+    },
     "tabLedStrip": {
         "message": "Tira LED"
     },
@@ -1218,7 +1221,7 @@
         "message": "Potència Senyal"
     },
     "motorsVoltage": {
-        "message": "Voltatge:"
+        "message": "Voltatge"
     },
     "motorsADrawing": {
         "message": "Amperatge:"
@@ -1226,11 +1229,17 @@
     "motorsmAhDrawn": {
         "message": "Amp. consumits:"
     },
+    "motorsResetMaximumButton": {
+        "message": "Restableix valors màxims"
+    },
     "motorsNotice": {
         "message": "<strong>Mode test de Motors / Avís d'armat:</strong><br />Moure els sliders o armar l'aeronau amb l'emisor farà que els motors <strong>girin</strong>.<br />Per prevenir lesions <strong class=\"message-negative\">treu TOTES les pales</strong> abans de fer servir aquesta funció.<br />Habilitar el test de motors també deshabilitarà temporalment el Runaway Takeoff Prevention, per evitar que es desarmi quan s'està provant l'aeronau sense pales.<br />"
     },
     "motorsEnableControl": {
-        "message": "<strong>Entenc els riscos</strong>, les pales estan tretes - habilita el control dels motors i armat i deshabilita el Runaway Takeoff Prevention."
+        "message": "Habilitar el control del motor"
+    },
+    "motorConfigNotice": {
+        "message": "Nota de configuració del motor"
     },
     "sensorsInfo": {
         "message": "Tingues en compte que fent servir períodes d'actualització ràpids i renderitzant múltiples gràfics alhora pot gastar ràpidament la bateria del teu portàtil.<br />Et recomanem que només rederitzis gràfics dels sensors del teu interès en períodes raonables."

@@ -146,7 +146,7 @@
         "message": "Energía y Batería"
     },
     "tabMotorTesting": {
-        "message": "Motores"
+        "message": "Prueba de Motores"
     },
     "tabLedStrip": {
         "message": "Tira LED"
@@ -1688,7 +1688,7 @@
         "message": "Cantidad"
     },
     "motorsVoltage": {
-        "message": "Voltaje:"
+        "message": "Voltaje"
     },
     "motorsADrawing": {
         "message": "Amperaje:"
@@ -1700,7 +1700,7 @@
         "message": "Motores"
     },
     "motorsResetMaximumButton": {
-        "message": "Reinicio"
+        "message": "Restablecer valores máximos"
     },
     "motorsResetMaximum": {
         "message": "Reiniciar valor máximo en el tiempo"
@@ -1718,7 +1718,10 @@
         "message": "<strong>Aviso Modo Test de Motor / Armado:</strong><br />Mover los controles deslizantes o armar la aeronave con el transmisor provocará que los motores <strong>giren</strong>.<br />Para evitar lesiones <strong class=\"message-negative\">quita TODAS las hélices</strong> antes de utilizar esta funcionalidad.<br />Activar el modo test de motor también desactivará temporalmente la Protección de Despegue Incontrolado, para evitar que desarme la aeronave mientras está en el banco de pruebas sin hélices.<br />"
     },
     "motorsEnableControl": {
-        "message": "<strong>Entiendo los riesgos</strong>, las hélices están quitadas - activar control de motor y armado y desactivar la Protección de Despegue Incontrolado."
+        "message": "Habilitar el control del motor"
+    },
+    "motorConfigNotice": {
+        "message": "Nota de configuración del motor"
     },
     "sensorsInfo": {
         "message": "Ten en mente que usar períodos rápidos de actualización y dibujar múltiples gráficas al mismo tiempo consume muchos recursos y agotará tu batería más rápido si usas un portátil.<br />Te recomendamos dibujar sólo las gráficas de los sensores en los que estés interesado y usar tiempos de actualización razonables."

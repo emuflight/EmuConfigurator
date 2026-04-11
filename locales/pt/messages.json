@@ -149,7 +149,7 @@
         "message": "Energia & Bateria"
     },
     "tabMotorTesting": {
-        "message": "Motores"
+        "message": "Teste de Motores"
     },
     "tabLedStrip": {
         "message": "Faixa LED"
@@ -1619,7 +1619,7 @@
         "message": "Quantidade"
     },
     "motorsVoltage": {
-        "message": "Voltagem:"
+        "message": "Voltagem"
     },
     "motorsADrawing": {
         "message": "Corrente:"
@@ -1629,6 +1629,9 @@
     },
     "motorsText": {
         "message": "Motores"
+    },
+    "motorsResetMaximumButton": {
+        "message": "Limpar máximos"
     },
     "motorsResetMaximum": {
         "message": "Redefinir valores máximos do gráfico"
@@ -1646,7 +1649,10 @@
         "message": "<strong>Aviso sobre o modo de Teste de Motor / Armar:</strong><br />Mover os sliders ou armar a sua aeronave com o transmissor irá fazer com que os motores <strong>girem</strong>.<br />Para evitar ferimentos, <strong class=\"message-negative\">remova TODAS as hélices</strong> antes de usar esta função.<br />Habilitar o modo de Teste de Motor também irá temporariamente desabilitar a Prevenção contra voo acidental, afim de evitar o desarme da aeronave enquanto estiver testando na sua bancada, sem as hélices.<br />"
     },
     "motorsEnableControl": {
-        "message": "<strong>Eu entendo os riscos</strong>, as hélices foram removidas - habilitar o controle do motor, armar e desativar a Prevenção contra voo acidental."
+        "message": "Ativar controle do motor"
+    },
+    "motorConfigNotice": {
+        "message": "Nota de configuração do motor"
     },
     "sensorsInfo": {
         "message": "Tenha em mente que ao usar um período de atualização rápido e visualizar vários gráficos simultaneamente utiliza muitos recursos do computador e pode usar sua bateria rapidamente se estiver em um notebook. Recomendamos que somente exiba os gráficos dos sensores em que estiver interessado e que utilize períodos de atualização razoáveis."

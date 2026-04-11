@@ -146,7 +146,7 @@
         "message": "Sensori batteria"
     },
     "tabMotorTesting": {
-        "message": "Motori"
+        "message": "Test Motori"
     },
     "tabLedStrip": {
         "message": "Striscia LED"
@@ -1505,7 +1505,7 @@
         "message": "Quantità"
     },
     "motorsVoltage": {
-        "message": "Voltaggio:"
+        "message": "Voltaggio"
     },
     "motorsADrawing": {
         "message": "Amperaggio:"
@@ -1543,6 +1543,9 @@
     "servosText": {
         "message": "Servi"
     },
+    "motorsResetMaximumButton": {
+        "message": "Ripristina massimi"
+    },
     "motorsResetMaximum": {
         "message": "Reimposta il massimo tempo supplementare"
     },
@@ -1556,7 +1559,10 @@
         "message": "<strong>Avviso Modalità Test Motore / Armamento motore:</strong> <br /> spostare i cursori o armare il modello con il radiocomando farà sì che i motori <strong>girino</strong>. <br /> al fine di evitare lesioni <strong class=\"message-negative\"> rimuovere tutte le eliche </strong> prima di utilizzare questa funzionalità. <br /> Attivare la modalità di prova del motore disattiverà temporaneamente anche la prevenzione decollo fuori controllo, per impedirgli di disarmare il modello quando si sta eseguendo dei test senza eliche. <br />"
     },
     "motorsEnableControl": {
-        "message": "<strong>Ho compreso i rischi</strong>, le eliche sono state rimosse - abilita il controllo motori e armamento motori e disabilita prevenzione decollo fuori controllo."
+        "message": "Abilita controllo motore"
+    },
+    "motorConfigNotice": {
+        "message": "Nota configurazione motori"
     },
     "sensorsInfo": {
         "message": "Tieni in considerazione che usando una frequenza di aggiornamento veloce e renderizzando molti grafici allo stesso momento userai molte risorse e consumerai più velocemente la batteria se stai usando un computer portatile.<br />Raccomandiamo di renderizzare solo i grafici dei sensori che ti interessano e di usare una frequenza di aggiornamento appropriata."
