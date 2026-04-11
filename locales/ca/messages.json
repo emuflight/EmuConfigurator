@@ -1006,6 +1006,9 @@
     "receiverMspEnableButton": {
         "message": "Habilita els controls"
     },
+    "auxiliaryHelp": {
+        "message": "Configureu els modes aquí amb una combinació de rangs i/o enllaços a altres modes (enllaços disponibles a partir de BF 4.0). Useu <strong>rangs</strong> per definir els interruptors del vostre transmissor i les assignacions de modes corresponents. Un canal receptor que doni una lectura entre el mínim i el màxim del rang activarà el mode. Useu un <strong>enllaç</strong> per activar un mode quan s'activa un altre. <strong>Excepcions:</strong> ARM no pot estar enllaçat a cap altre mode, i els modes configurats amb enllaç no poden enllaçar-se entre ells (enllaços en cadena). Es poden usar múltiples rangs/enllaços per activar qualsevol mode. Si hi ha més d'un rang/enllaç definit per a un mode, cadascun es pot configurar com <strong>I</strong> o <strong>O</strong>. Un mode s'activarà quan:<br />- TOTS els rangs/enllaços <strong>I</strong> estiguin actius; O<br />- almenys un rang/enllaç <strong>O</strong> estigui actiu.<br /><br />Recordeu desar la configuració amb el botó Desa."
+    },
     "auxiliaryToggleUnused": {
         "message": "Amaga els modes no utilitzats"
     },

@@ -1274,6 +1274,9 @@
     "receiverMspEnableButton": {
         "message": "Kontrolle aktivieren"
     },
+    "auxiliaryHelp": {
+        "message": "Konfiguriere die Modi hier mit einer Kombination aus Bereichen und/oder Verknüpfungen zu anderen Modi (Verknüpfungen werden ab BF 4.0 unterstützt). Verwende <strong>Bereiche</strong>, um die Schalter auf deinem Sender und die entsprechenden Modusbelegungen zu definieren. Ein Receiverkanal, der zwischen Minimum und Maximum eines Bereichs liegt, aktiviert den Modus. Verwende eine <strong>Verknüpfung</strong>, um einen Modus zu aktivieren, wenn ein anderer Modus aktiviert wird. <strong>Ausnahmen:</strong> ARM kann nicht mit einem anderen Modus verknüpft werden, und Modi mit Verknüpfungen können nicht mit anderen verknüpften Modi verbunden werden (verkettete Links). Mehrere Bereiche/Verknüpfungen können für jeden Modus genutzt werden. Wenn mehr als ein Bereich/Verknüpfung definiert ist, kann jeder einzeln auf <strong>UND</strong> oder <strong>ODER</strong> gesetzt werden. Ein Modus wird aktiviert wenn:<br />- ALLE <strong>UND</strong> Bereiche/Verknüpfungen aktiv sind; ODER<br />- mindestens ein <strong>ODER</strong> Bereich/Verknüpfung aktiv ist.<br /><br />Vergiss nicht, deine Einstellungen mit dem Speichern-Button zu sichern."
+    },
     "auxiliaryToggleUnused": {
         "message": "Ungenutzte Modi ausblenden"
     },

@@ -1372,6 +1372,9 @@
     "receiverMspEnableButton": {
         "message": "启用控制"
     },
+    "auxiliaryHelp": {
+        "message": "在此处使用范围和/或到其他模式的链接的组合来配置模式（链接在 BF 4.0 及更高版本上支持）。使用<strong>范围</strong>定义发射机上的开关及相应的模式分配。在范围最小/最大值之间读取的接收机通道将激活该模式。使用<strong>链接</strong>在激活另一个模式时激活某个模式。<strong>例外情况：</strong>ARM 不能与其他模式链接，配置了链接的模式不能链接到其他同样配置了链接的模式（链式链接）。可以使用多个范围/链接来激活任何模式。如果为某个模式定义了多个范围/链接，每个都可以设置为<strong>与</strong>或<strong>或</strong>。模式将在以下情况下激活：<br />- 所有<strong>与</strong>范围/链接均处于激活状态；或<br />- 至少一个<strong>或</strong>范围/链接处于激活状态。<br /><br />请记住使用保存按钮保存您的设置。"
+    },
     "auxiliaryToggleUnused": {
         "message": "隐藏未使用的模式"
     },

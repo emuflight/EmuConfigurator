@@ -1330,6 +1330,9 @@
     "receiverMspEnableButton": {
         "message": "Habilitar controles"
     },
+    "auxiliaryHelp": {
+        "message": "Configure os modos aqui usando uma combinação de intervalos e/ou links para outros modos (links suportados no BF 4.0 e posterior). Use <strong>intervalos</strong> para definir os interruptores do seu transmissor e as atribuições de modo correspondentes. Um canal receptor que forneça uma leitura entre o mínimo e máximo do intervalo ativará o modo. Use um <strong>link</strong> para ativar um modo quando outro modo for ativado. <strong>Exceções:</strong> ARM não pode ser vinculado a ou de outro modo, modos não podem ser vinculados a outros modos configurados com um link (links encadeados). Múltiplos intervalos/links podem ser usados para ativar qualquer modo. Se houver mais de um intervalo/link definido para um modo, cada um pode ser definido como <strong>E</strong> ou <strong>OU</strong>. Um modo será ativado quando:<br />- TODOS os intervalos/links <strong>E</strong> estiverem ativos; OU<br />- pelo menos um intervalo/link <strong>OU</strong> estiver ativo.<br /><br />Lembre-se de salvar suas configurações usando o botão Salvar."
+    },
     "auxiliaryToggleUnused": {
         "message": "Ocultar modos não usados"
     },

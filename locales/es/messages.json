@@ -1357,6 +1357,9 @@
     "receiverMspEnableButton": {
         "message": "Activar controles"
     },
+    "auxiliaryHelp": {
+        "message": "Configura los modos aquí usando una combinación de rangos y/o enlaces a otros modos (enlaces disponibles a partir de BF 4.0). Usa <strong>rangos</strong> para definir los interruptores de tu transmisor y las asignaciones de modo correspondientes. Un canal del receptor que dé una lectura entre el mínimo y el máximo del rango activará el modo. Usa un <strong>enlace</strong> para activar un modo cuando se activa otro. <strong>Excepciones:</strong> ARM no puede estar enlazado a ni desde otro modo, los modos no pueden enlazarse a otros modos configurados con un enlace (enlaces encadenados). Se pueden usar múltiples rangos/enlaces para activar cualquier modo. Si hay más de un rango/enlace definido para un modo, cada uno se puede configurar como <strong>Y</strong> o <strong>O</strong>. Un modo se activará cuando:<br />- TODOS los rangos/enlaces <strong>Y</strong> estén activos; O<br />- al menos un rango/enlace <strong>O</strong> esté activo.<br /><br />Recuerda guardar tu configuración con el botón Guardar."
+    },
     "auxiliaryToggleUnused": {
         "message": "Ocultar modos no usados"
     },

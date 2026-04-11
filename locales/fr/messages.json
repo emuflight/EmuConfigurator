@@ -1270,6 +1270,9 @@
     "receiverMspEnableButton": {
         "message": "Autoriser le contrôle"
     },
+    "auxiliaryHelp": {
+        "message": "Configurez les modes ici à partir d'une combinaison de plages et/ou de liens avec d'autres modes (liens pris en charge sur BF 4.0 et ultérieur). Utilisez des <strong>plages</strong> pour définir les interrupteurs de votre émetteur et les assignations de modes correspondantes. Un canal récepteur donnant une valeur entre le min/max d'une plage activera le mode. Utilisez un <strong>lien</strong> pour activer un mode lorsqu'un autre mode est activé. <strong>Exceptions :</strong> ARM ne peut pas être lié à ou depuis un autre mode, les modes ne peuvent pas être liés à d'autres modes configurés avec un lien (liens chaînés). Plusieurs plages/liens peuvent être utilisés pour activer n'importe quel mode. Si plus d'une plage/lien est défini pour un mode, chacun peut être réglé sur <strong>ET</strong> ou <strong>OU</strong>. Un mode sera activé lorsque :<br />- TOUTES les plages/liens <strong>ET</strong> sont actifs ; OU<br />- au moins une plage/lien <strong>OU</strong> est actif.<br /><br />N'oubliez pas de sauvegarder vos paramètres avec le bouton Sauvegarder."
+    },
     "auxiliaryToggleUnused": {
         "message": "Cacher les modes inutilisés"
     },

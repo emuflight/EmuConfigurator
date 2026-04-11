@@ -1219,6 +1219,9 @@
     "receiverMspEnableButton": {
         "message": "Abilita i controlli"
     },
+    "auxiliaryHelp": {
+        "message": "Configura qui i modi usando una combinazione di intervalli e/o collegamenti ad altri modi (collegamenti supportati su BF 4.0 e successivi). Usa gli <strong>intervalli</strong> per definire gli interruttori del tuo trasmettitore e le relative assegnazioni di modo. Un canale del ricevitore che fornisce una lettura tra il minimo e il massimo dell'intervallo attiverà il modo. Usa un <strong>collegamento</strong> per attivare un modo quando si attiva un altro modo. <strong>Eccezioni:</strong> ARM non può essere collegato a o da un altro modo, i modi non possono essere collegati ad altri modi configurati con un collegamento (collegamenti a catena). Più intervalli/collegamenti possono essere usati per attivare qualsiasi modo. Se è definito più di un intervallo/collegamento per un modo, ognuno può essere impostato su <strong>E</strong> o <strong>O</strong>. Un modo sarà attivato quando:<br />- TUTTI i intervalli/collegamenti <strong>E</strong> sono attivi; O<br />- almeno un intervallo/collegamento <strong>O</strong> è attivo.<br /><br />Ricorda di salvare le impostazioni con il pulsante Salva."
+    },
     "auxiliaryToggleUnused": {
         "message": "Nascondi modalità inutilizzate"
     },

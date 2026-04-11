@@ -1142,6 +1142,9 @@
     "receiverMspEnableButton": {
         "message": "Aktifkan kontrol"
     },
+    "auxiliaryHelp": {
+        "message": "Konfigurasikan mode di sini menggunakan kombinasi rentang dan/atau tautan ke mode lain (tautan didukung pada BF 4.0 dan lebih baru). Gunakan <strong>rentang</strong> untuk mendefinisikan sakelar pada transmitter Anda dan penugasan mode yang sesuai. Saluran receiver yang membaca antara min/maks rentang akan mengaktifkan mode tersebut. Gunakan <strong>tautan</strong> untuk mengaktifkan mode ketika mode lain diaktifkan. <strong>Pengecualian:</strong> ARM tidak dapat ditautkan ke atau dari mode lain, mode tidak dapat ditautkan ke mode lain yang dikonfigurasi dengan tautan (tautan berantai). Beberapa rentang/tautan dapat digunakan untuk mengaktifkan mode apa pun. Jika lebih dari satu rentang/tautan didefinisikan untuk sebuah mode, masing-masing dapat diatur ke <strong>DAN</strong> atau <strong>ATAU</strong>. Sebuah mode akan diaktifkan ketika:<br />- SEMUA rentang/tautan <strong>DAN</strong> aktif; ATAU<br />- setidaknya satu rentang/tautan <strong>ATAU</strong> aktif.<br /><br />Ingat untuk menyimpan pengaturan Anda menggunakan tombol Simpan."
+    },
     "auxiliaryToggleUnused": {
         "message": "Sembunyikan mode yg tidak terpakai"
     },
