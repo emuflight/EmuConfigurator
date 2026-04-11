@@ -9,13 +9,13 @@
         "message": "Opcions de l'aplicació"
     },
     "connect": {
-        "message": "Connecta"
+        "message": "Connectar"
     },
     "connecting": {
         "message": "Connectant..."
     },
     "disconnect": {
-        "message": "Desconnecta"
+        "message": "Desconnectar"
     },
     "portsSelectManual": {
         "message": "Selecció Manual"
@@ -24,7 +24,7 @@
         "message": "Auto-connecta"
     },
     "close": {
-        "message": "Tanca"
+        "message": "Tancar"
     },
     "autoConnectEnabled": {
         "message": "Auto-Connectar: Habilitat - El configurador provarà de connectar-se automàticament quan el nou port sigui detectat"

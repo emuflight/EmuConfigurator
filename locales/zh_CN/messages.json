@@ -21,13 +21,13 @@
         "message": "选项"
     },
     "connect": {
-        "message": "连接"
+        "message": "连接 (Connect)"
     },
     "connecting": {
         "message": "正在连接..."
     },
     "disconnect": {
-        "message": "断开连接"
+        "message": "断开 (Disconnect)"
     },
     "portsSelectManual": {
         "message": "手动选择"
@@ -39,7 +39,7 @@
         "message": "自动连接"
     },
     "close": {
-        "message": "关闭"
+        "message": "关闭 (Close)"
     },
     "autoConnectEnabled": {
         "message": "自动连接：开启 - 地面站会自动连接新发现的端口"
