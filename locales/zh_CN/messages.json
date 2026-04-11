@@ -187,12 +187,6 @@
     "logActionShow": {
         "message": "显示日志"
     },
-    "serialPortOpened": {
-        "message": "串口已打开"
-    },
-    "serialPortOpenFail": {
-        "message": "打开串口失败"
-    },
     "serialPortClosedOk": {
         "message": "关闭串口 <span class=\"message-positive\">成功</span>"
     },
@@ -346,12 +340,6 @@
     },
     "craftNameReceived": {
         "message": "飞行器名称: <strong>$1</strong>"
-    },
-    "armingDisabled": {
-        "message": "解锁已禁用"
-    },
-    "armingEnabled": {
-        "message": "解锁已启用"
     },
     "runawayTakeoffPreventionDisabled": {
         "message": "<strong> 预防起飞失控 已被临时禁用</strong>"
@@ -1004,9 +992,6 @@
     "configurationGPSAutoConfig": {
         "message": "自动设置"
     },
-    "configurationGPSHelp": {
-        "message": "启用 GPS 以实现远程信息传输和救援功能。"
-    },
     "configurationSerialRX": {
         "message": "串口接收机"
     },
@@ -1219,23 +1204,8 @@
     "pidTuningDtermSetpointTransitionHelp": {
         "message": "通过这个参数， D 设定点权重可以被降低到接近摇杆中点，使翻滚动作的结束更平滑一些。<br> 该值表示摇杆偏移量：0代表摇杆居中，1代表摇杆打满。当摇杆实际位置大于该值时，设定点权重保持在用户设定的数字不变。当摇杆实际位置小于该值时，设定点权重会按比例下降，在摇杆居中时降低到0。<br> 设置为1可以获得最平滑的效果，而设置为0将保持设定点权重在全程都保持在用户设定的数字不变。"
     },
-    "pidTuningDtermSetpointHelp": {
-        "message": "控制在摇杆期望值 (Setpoint) 变化时应用多少 D-Term。"
-    },
     "pidTuningDtermSetpointTransitionWarning": {
         "message": "<span class=\"message-negative\"><strong>$t(warningTitle.message):</strong> 强烈不建议将D设定点转换设置为0到0.1之间的值。这样做可能会导致不稳定，以及降低摇杆在穿过中点时的响应速度。</span>"
-    },
-    "pidTuningProportionalHelp": {
-        "message": "根据误差进行成比例的纠正。较高的值意味着响应更快，但过高会导致振荡和发热。"
-    },
-    "pidTuningIntegralHelp": {
-        "message": "随时间积累误差，以纠正固有的位置偏差。"
-    },
-    "pidTuningDerivativeHelp": {
-        "message": "通过预测未来的误差来减缓调整速度，防止超过设定值。"
-    },
-    "pidTuningFeedforwardHelp": {
-        "message": "将部分 Setpoint 直接应用到电机输出中，以实现超快响应。"
     },
     "pidTuningMaxVel": {
         "message": "最大角速度 [度/秒]"
@@ -1422,9 +1392,6 @@
     },
     "receiverMspEnableButton": {
         "message": "启用控制"
-    },
-    "auxiliaryHelp": {
-        "message": "点击 \"添加区间\" 来通过 AUX 通道启用特定模式。"
     },
     "auxiliaryToggleUnused": {
         "message": "隐藏未使用的模式"
@@ -1813,9 +1780,6 @@
     "motorsNotice": {
         "message": "<strong> 电机测试模式/解除锁定提示：</strong> <br/> 移动滑块或用遥控器解锁飞机会导致电机 <strong> 旋转 </strong>！ <br/> 为了避免造成伤害，在使用此功能之前<strong class=\"message-negative\">卸下所有螺旋桨</strong>！ <br/> 启用电机测试模式还将暂时禁用[预防起飞失控]，以避免在工作台上无螺旋桨测试时自动锁定电机。 <br/>"
     },
-    "motorsEnableControl": {
-        "message": "我了解相关风险并要求启用电机控制"
-    },
     "motorConfigNotice": {
         "message": "电机配置提示"
     },
@@ -1866,9 +1830,6 @@
     },
     "sensorsDebugTitle": {
         "message": "调试"
-    },
-    "cliInfo": {
-        "message": "您可以在此输入命令行指令，以进行高级配置。"
     },
     "cliInputPlaceholder": {
         "message": "在此输入命令..."
@@ -3588,9 +3549,6 @@
     },
     "vtxPower": {
         "message": "功率"
-    },
-    "vtxPowerHelp": {
-        "message": "设置发射功率 (单位: mW)。"
     },
     "vtxPitMode": {
         "message": "维修模式 (Pit Mode)"

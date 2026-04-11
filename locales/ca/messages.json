@@ -143,10 +143,10 @@
         "message": "Mostrar Log"
     },
     "serialPortOpened": {
-        "message": "Port Sèrie Obert"
+        "message": "Port sèrie <span class=\"message-positive\">correctament</span> obert amb ID: $1"
     },
     "serialPortOpenFail": {
-        "message": "Error al obrir Port Sèrie"
+        "message": "<strong>Error</strong> al obrir el port sèrie"
     },
     "serialPortClosedOk": {
         "message": "Port sèrie <span class=\"message-positive\">correctament</span> tancat"
@@ -294,10 +294,10 @@
         "message": "Nom de l'aeromodel: <strong>$1</strong>"
     },
     "armingDisabled": {
-        "message": "Armament Deshabilitat"
+        "message": "<strong>Armament Deshabilitat</strong>"
     },
     "armingEnabled": {
-        "message": "Armament Habilitat"
+        "message": "<strong>Armament Habilitat</strong>"
     },
     "runawayTakeoffPreventionDisabled": {
         "message": "<strong>Runaway Takeoff Prevention temporalment Deshabilitat</strong>"
@@ -373,9 +373,6 @@
     },
     "defaultSupportSubline1": {
         "message": "Fonts de suport"
-    },
-    "defaultSupport": {
-        "message": "Per assistència cerqueu primer els fòrums i la wiki o poseu-vos en contacte amb el vostre proveïdor."
     },
     "initialSetupBackupAndRestoreApiVersion": {
         "message": "<span class=\"message-negative\">Funcionalitats de còpia de seguretat i restauració deshabilitades.</span> La teva versió de la API és <span class=\"message-negative\">$1</span>, la còpia i restauració requereix <span class=\"message-positive\">$2</span>. Si us plau, desa la teva configuració mitjançant el CLI, revisa la documentació de Emuflight per saber com procedir."
@@ -755,9 +752,6 @@
     "configurationGPSAutoBaud": {
         "message": "Velocitat de transmissió automàtica"
     },
-    "configurationGPSHelp": {
-        "message": "Habilita el GPS per a telemetria i rescat."
-    },
     "configurationSerialRX": {
         "message": "Receptor Sèrie"
     },
@@ -863,26 +857,11 @@
     "pidTuningDtermSetpointTransitionHelp": {
         "message": "Amb aquest paràmetre, D Setpoint Weight pot ser reduït al centre dels sticks, que resulta en flips i rolls més suaus.<br> El valor representa la desciació de l'stick: 0 - stick centrat, 1 - totalment desviat. Quan l'stick està per sobre d'aquest punt, Setpoint Weight es manté constant al valor configurat. Quan l'stick està per sota d'aquest punt, Setpoint Weight és reduït proporcionalment, arribant a 0 a la posició central de l'stick.<br> El valor 1 dona el màxim valor suavitzant, mentre el valor 0 manté el Setpoint Weight fixat añ valor configurat durant tot el recorregut de l'sctick."
     },
-    "pidTuningDtermSetpointHelp": {
-        "message": "Controla la quantitat de D-Term aplicada davant canvis en el Setpoint del pilot."
-    },
     "pidTuningProportional": {
         "message": "Proporcional"
     },
-    "pidTuningProportionalHelp": {
-        "message": "Indueix una acció correctiva proporcional a l\"error. Valors alts suposen una resposta més ràpida però massa pot produir oscil·lacions i sobreescalfament."
-    },
-    "pidTuningIntegralHelp": {
-        "message": "Accumula l\"error en el temps per corregir desviacions constants."
-    },
     "pidTuningDerivative": {
         "message": "Derivativa"
-    },
-    "pidTuningDerivativeHelp": {
-        "message": "Prevé l\"error futur reduint la velocitat de l\"ajust quan el drone s\"apropa al valor demanat."
-    },
-    "pidTuningFeedforwardHelp": {
-        "message": "Aplica una part del Setpoint directament al motor per una resposta més ràpida."
     },
     "pidTuningMaxVel": {
         "message": "Vel Màx [graus/s]"
@@ -1036,9 +1015,6 @@
     },
     "receiverMspEnableButton": {
         "message": "Habilita els controls"
-    },
-    "auxiliaryHelp": {
-        "message": "Premeu \"Afegeix Interval\" per habilitar un mode des d\"un canal AUX."
     },
     "auxiliaryToggleUnused": {
         "message": "Amaga els modes no utilitzats"
@@ -1277,9 +1253,6 @@
     "motorsNotice": {
         "message": "<strong>Mode test de Motors / Avís d'armat:</strong><br />Moure els sliders o armar l'aeronau amb l'emisor farà que els motors <strong>girin</strong>.<br />Per prevenir lesions <strong class=\"message-negative\">treu TOTES les pales</strong> abans de fer servir aquesta funció.<br />Habilitar el test de motors també deshabilitarà temporalment el Runaway Takeoff Prevention, per evitar que es desarmi quan s'està provant l'aeronau sense pales.<br />"
     },
-    "motorsEnableControl": {
-        "message": "Entenc els riscos i vull habilitar el control dels motors"
-    },
     "motorConfigNotice": {
         "message": "Nota de configuració del motor"
     },
@@ -1324,9 +1297,6 @@
     },
     "sensorsSonarTitle": {
         "message": "Sònar - cm"
-    },
-    "cliInfo": {
-        "message": "Pots escriure ordres directament aquí per a configuracions avançades."
     },
     "cliInputPlaceholder": {
         "message": "Escriu una ordre aquí..."
@@ -1860,9 +1830,6 @@
     },
     "pidTuningVbatPidCompensation": {
         "message": "Compensació d'Vbat per als PIDs"
-    },
-    "pidTuningVbatPidCompensationHelp": {
-        "message": "Incrementa el valors de PIDs per compensar la caiguda del voltatge de bateria. Aquest donarà característiques de vol constants durant el vol. La quantitat de compensació que s'aplica es calcula per el valor de voltatge màxim de ceŀla definit a la pestanya de configuració, assegura't que és correcte."
     },
     "configHelp2": {
         "message": "Rotació arbitrària de la controladora en graus, això ajuda a muntar-la de costat / al revès / etc. Quan fagis servirs sensors externs utilitza l'alineat (Gyro, Acc, Mag) per definir la posició del sensor independent de la controladora."
@@ -2545,9 +2512,6 @@
     "vtxPower": {
         "message": "Potència"
     },
-    "vtxPowerHelp": {
-        "message": "Ajusta la potència de transmissió en mW."
-    },
     "vtxPitMode": {
         "message": "Mode Pit"
     },
@@ -2556,8 +2520,5 @@
     },
     "vtxButtonSave": {
         "message": "Desa els ajustos VTX"
-    },
-    "userLanguageSelect": {
-        "message": "Triar Idioma"
     }
 }

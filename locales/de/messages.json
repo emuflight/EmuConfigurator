@@ -161,12 +161,6 @@
     "logActionShow": {
         "message": "Log zeigen"
     },
-    "serialPortOpened": {
-        "message": "Serieller Port geöffnet"
-    },
-    "serialPortOpenFail": {
-        "message": "Öffnen des seriellen Ports fehlgeschlagen"
-    },
     "serialPortClosedOk": {
         "message": "Serieller Port <span class=\"message-positive\">erfolgreich</span> geschlossen"
     },
@@ -311,12 +305,6 @@
     },
     "craftNameReceived": {
         "message": "Fluggerät Name: <strong>$1</strong>"
-    },
-    "armingDisabled": {
-        "message": "Arming deaktiviert"
-    },
-    "armingEnabled": {
-        "message": "Arming aktiviert"
     },
     "runawayTakeoffPreventionDisabled": {
         "message": "<strong>Runaway Abhebeschutz temporär deaktiviert</strong>"
@@ -927,9 +915,6 @@
     "configurationGPSAutoConfig": {
         "message": "Auto Konfig"
     },
-    "configurationGPSHelp": {
-        "message": "Aktiviert GPS für Telemetrie und Rettung."
-    },
     "configurationSerialRX": {
         "message": "Serieller Empfänger"
     },
@@ -1118,26 +1103,11 @@
     "pidTuningDtermSetpointTransitionHelp": {
         "message": "Mit diesem Parameter kann man D Setpoint Weight an der Mittelstellung der Sticks reduzieren und damit weichere Enden von Flips und Rolls erreichen.<br> Der Wert bedeutet eine Auslenkung des Sticks von 0 - mittig bis 1 - voller Ausschlag. Wenn der Stick weiter ausgelenkt ist als dieser Wert, hat Setpoint Weight seinen eingestellten Wert. Wenn der Stick weniger ausgelenkt ist, wird Setpoint Weight proportional reduziert und erreicht 0 in der Nullstellung des Sticks.<br> Ein Wert von 1 ergibt den maximalen Glättungseffekt, ein Wert von 0 hält Setpoint Weight über den gesammten Steuerbereich auf seinem eingestellten Wert."
     },
-    "pidTuningDtermSetpointHelp": {
-        "message": "Steuert den Betrag des D-Terms, der bei Änderungen des Pilot-Setpoints angewendet wird."
-    },
-    "pidTuningProportionalHelp": {
-        "message": "Leitet eine Korrekturmaßnahme ein, die proportional zum Fehler ist. Hohe Werte führen zu einer schnelleren Reaktion, zu hohe Werte jedoch zu Oszillationen und Überhitzung."
-    },
-    "pidTuningIntegralHelp": {
-        "message": "Sammelt Fehler über die Zeit, um konstante Abweichungen zu korrigieren."
-    },
     "pidTuningDerivative": {
         "message": "Differential"
     },
-    "pidTuningDerivativeHelp": {
-        "message": "Beugt zukünftigen Fehlern vor, indem die Einstellgeschwindigkeit verringert wird, wenn sich die Drohne dem Zielwert nähert."
-    },
     "pidTuningFeedforward": {
         "message": "Feedforward Regelung"
-    },
-    "pidTuningFeedforwardHelp": {
-        "message": "Wendet einen Teil des Setpoints direkt auf den Motor an, um eine schnellere Reaktion zu ermöglichen."
     },
     "pidTuningMaxVel": {
         "message": "Max. Beschleunigung [Grad/s]"
@@ -1312,9 +1282,6 @@
     },
     "receiverMspEnableButton": {
         "message": "Kontrolle aktivieren"
-    },
-    "auxiliaryHelp": {
-        "message": "Klicken Sie auf \"Bereich hinzufügen\", um einen Modus über einen AUX-Kanal zu aktivieren."
     },
     "auxiliaryToggleUnused": {
         "message": "Ungenutzte Modi ausblenden"
@@ -1610,9 +1577,6 @@
     "motorsNotice": {
         "message": "<strong>Motor Testmodus - Hinweis:</strong><br />Bewegen der Regler oder Arming des Fluggerätes über die Fernsteuerung wird die Motoren <strong>anlaufen</strong> lassen.<br />Um Verletzungen zu vermeiden <strong class=\"message-negative\"> bitte ALLE Propeller entfernen</strong>.<br />Der Testmodus wird auch den Abhebeschutz deakvieren, so dass sich das Gerät ohne Propeller nicht selbst abschaltet.<br />"
     },
-    "motorsEnableControl": {
-        "message": "Ich verstehe die Risiken und möchte die Motorsteuerung aktivieren"
-    },
     "motorConfigNotice": {
         "message": "Hinweis zur Motorkonfiguration"
     },
@@ -1648,9 +1612,6 @@
     },
     "sensorsSonarTitle": {
         "message": "Sonar - CM"
-    },
-    "cliInfo": {
-        "message": "Befehle für fortgeschrittene Konfigurationen direkt hier eingeben."
     },
     "cliInputPlaceholder": {
         "message": "Befehl hier eingeben..."
@@ -2224,9 +2185,6 @@
     },
     "pidTuningVbatPidCompensation": {
         "message": "PID Anpassung aufgrund Akkusspannung"
-    },
-    "pidTuningVbatPidCompensationHelp": {
-        "message": "Erhört die PID Werte, sobald die Batterie schwächer wird. Das sorgt dafür, dass das Fluggefühl gleich bleibt, während der Akku leerer wird. Die Stärke der Kompensation wird durch die Einstellung der maximalen Zellenspannung errechnet. Stelle sicher, dass in den Energieeinstellungen passende Werte sind."
     },
     "pidTuningItermRotation": {
         "message": "i-Term Drehung"
@@ -3168,9 +3126,6 @@
     },
     "vtxPower": {
         "message": "Leistung"
-    },
-    "vtxPowerHelp": {
-        "message": "Einstellen der Sendeleistung in mW."
     },
     "vtxPitMode": {
         "message": "Pit-Modus"

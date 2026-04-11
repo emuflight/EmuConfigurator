@@ -184,12 +184,6 @@
     "logActionShow": {
         "message": "로그 보기"
     },
-    "serialPortOpened": {
-        "message": "시리얼 포트 열림"
-    },
-    "serialPortOpenFail": {
-        "message": "시리얼 포트 열기 실패"
-    },
     "serialPortClosedOk": {
         "message": "시리얼 포트가 <span class=\"message-positive\">성공적으로</span> 닫힘"
     },
@@ -343,12 +337,6 @@
     },
     "craftNameReceived": {
         "message": "기체 이름: <strong>$1</strong>"
-    },
-    "armingDisabled": {
-        "message": "아밍 비활성화됨"
-    },
-    "armingEnabled": {
-        "message": "아밍 활성화됨"
     },
     "runawayTakeoffPreventionDisabled": {
         "message": "<strong>폭주 이륙 방지 일시적으로 비활성화됨</strong>"
@@ -995,9 +983,6 @@
     "configurationGPSAutoConfig": {
         "message": "자동 설정"
     },
-    "configurationGPSHelp": {
-        "message": "텔레메트리와 구조 기능을 위해 GPS를 활성화합니다."
-    },
     "configurationSerialRX": {
         "message": "시리얼 수신기"
     },
@@ -1207,35 +1192,20 @@
     "pidTuningDtermSetpointTransitionHelp": {
         "message": "이 파라미터를 사용하면, D 설정점 가중치가 스틱의 중립 근처에서 감소하여 플립과 롤이 부드럽게 끝납니다.<br> 값은 스틱의 편향을 나타냅니다: 0 - 스틱 중립, 1 - 전체 편향. 스틱이 그 지점보다 높을 때, 설정점 가중치는 설정된 값으로 일정하게 유지됩니다. 스틱이 그 지점 아래에 위치하면, 설정점 가중치는 스틱 중심점에서 0에 도달하는 것에 비례하여 감소합니다.<br> 값 1은 최대 스무딩 효과를 주며, 값 0은 설정점 가중치를 전체 스틱 범위에 걸쳐 설정된 값으로 고정합니다."
     },
-    "pidTuningDtermSetpointHelp": {
-        "message": "조종기의 세트포인트가 바뀔 때 적용할 D-Term의 양을 조절합니다."
-    },
     "pidTuningDtermSetpointTransitionWarning": {
         "message": "<span class=\"message-negative\"><strong>$t(warningTitle.message):</strong> 0 보다 크고 0.1 보다 작은 D 설정값 전환의 사용은 불안정을 유발시킬 수 있으며, 중립포인트에서 만나는 스틱의 반응성이 감소될 수 있습니다.</span>"
     },
     "pidTuningProportional": {
         "message": "P(비례)"
     },
-    "pidTuningProportionalHelp": {
-        "message": "오차에 비례하여 보정 작업을 수행합니다. 높은 값은 빠른 반응을 의미하지만, 과도하면 진동과 발열이 발생할 수 있습니다."
-    },
     "pidTuningIntegral": {
         "message": "I(적분)"
-    },
-    "pidTuningIntegralHelp": {
-        "message": "시간에 따른 오차를 누적하여 일정한 편차를 수정합니다."
     },
     "pidTuningDerivative": {
         "message": "D(미분)"
     },
-    "pidTuningDerivativeHelp": {
-        "message": "목표값에 도달하기 전에 조정 속도를 줄여 미래의 오차를 방지합니다."
-    },
     "pidTuningFeedforward": {
         "message": "피드포워드"
-    },
-    "pidTuningFeedforwardHelp": {
-        "message": "세트포인트의 일부를 모터 출력에 직접 반영하여 보다 빠르게 반응하도록 합니다."
     },
     "pidTuningRcRate": {
         "message": "RC 레이트"
@@ -1434,9 +1404,6 @@
     },
     "receiverMspEnableButton": {
         "message": "제어 활성화"
-    },
-    "auxiliaryHelp": {
-        "message": "AUX 채널에서 모드를 활성화하려면 \"범위 추가\"를 클릭하십시오."
     },
     "auxiliaryToggleUnused": {
         "message": "사용하지 않는 모드 숨기기"
@@ -1822,9 +1789,6 @@
     "motorsNotice": {
         "message": "<strong>모터 테스트 모드 / 아밍 알림:</strong><br />슬라이더를 움직이거나 당신의 기체를 조종기와 아밍하면 모터의 <strong>회전을 유발합니다</strong>.<br />부상을 방지하기 위해 이 기능을 사용하기 전에 <strong class=\"message-negative\">모든 프로펠러를 제거</strong>하십시오.<br />또한 모터 테스트 모드를 활성화하면 프로펠러 없이 벤치 테스트를 할 때 기체를 디스아밍하는 것을 중단하기 위해 일시적으로 폭주 이륙 방지가 비활성됩니다.<br />"
     },
-    "motorsEnableControl": {
-        "message": "위험을 이해하였으며 모터 제어를 활성화하겠습니다"
-    },
     "motorConfigNotice": {
         "message": "모터 설정 주의사항"
     },
@@ -1875,9 +1839,6 @@
     },
     "sensorsDebugTitle": {
         "message": "디버그 0"
-    },
-    "cliInfo": {
-        "message": "고급 설정을 위해 여기에 직접 명령어를 입력할 수 있습니다."
     },
     "cliInputPlaceholder": {
         "message": "여기에 명령어 입력..."
@@ -3591,9 +3552,6 @@
     },
     "vtxPower": {
         "message": "출력"
-    },
-    "vtxPowerHelp": {
-        "message": "출력을 mW 단위로 설정합니다."
     },
     "vtxPitMode": {
         "message": "핏 모드 (Pit Mode)"

@@ -178,12 +178,6 @@
     "logActionShow": {
         "message": "Показать недавние действия"
     },
-    "serialPortOpened": {
-        "message": "Последовательный порт открыт"
-    },
-    "serialPortOpenFail": {
-        "message": "Ошибка открытия порта"
-    },
     "serialPortClosedOk": {
         "message": "Сериний порт <span class=\"message-positive\">успешно</span> закрыт"
     },
@@ -334,12 +328,6 @@
     },
     "craftNameReceived": {
         "message": "Позывной пилота: <strong>$1</strong>"
-    },
-    "armingDisabled": {
-        "message": "Арминг отключен"
-    },
-    "armingEnabled": {
-        "message": "Арминг включен"
     },
     "runawayTakeoffPreventionDisabled": {
         "message": "<strong>Временное отключение функции Runaway Takeoff Prevention</strong>"
@@ -974,9 +962,6 @@
     "configurationGPSAutoConfig": {
         "message": "Автонастройка"
     },
-    "configurationGPSHelp": {
-        "message": "Включает GPS для телеметрии и спасения."
-    },
     "configurationSerialRX": {
         "message": "Последовательный приемник"
     },
@@ -1162,23 +1147,8 @@
     "pidTuningDtermSetpointTransitionHelp": {
         "message": "Этот параметр снижает значение D Setpoint Weight, когда стики находятся в районе центра, что делает завершение флипов и роллов более плавными.<br> Он означает отклонение стика: 0 - стик в центре, 1 - полное отклонение стика. Когда стик находится выше этого значения, то Setpoint Weight имеет установленное значение. Когда стик находится ниже этого значения, то Setpoint Weight уменьшается пропорционально, достигая 0, когда стик находятся в центре.<br> Значение 1 даёт максимальный сглаживающий эффект, а значение 0 сохраняет установленное значение Setpoint Weight при любом отклонении стика."
     },
-    "pidTuningDtermSetpointHelp": {
-        "message": "Управляет тем, сколько D-Term применяется при изменении стиков (Setpoint)."
-    },
     "pidTuningDtermSetpointTransitionWarning": {
         "message": "<span class=\"message-negative\"><strong>$t(warningTitle.message):</strong> использование D Setpoint больше 0 и меньше, чем 0.1 не рекомендуется. Это может привести к нестабильности и снижению оперативности стиков когда стик пересекает центральную точку.</span>"
-    },
-    "pidTuningProportionalHelp": {
-        "message": "Вызывает корректирующее действие, пропорциональное ошибке. Высокие значения ускоряют отклик, но чрезмерные могут вызвать осцилляции и перегрев."
-    },
-    "pidTuningIntegralHelp": {
-        "message": "Накапливает ошибку со временем для коррекции постоянных отклонений."
-    },
-    "pidTuningDerivativeHelp": {
-        "message": "Предотвращает будущую ошибку, замедляя скорость настройки при приближении к заданному значению."
-    },
-    "pidTuningFeedforwardHelp": {
-        "message": "Подает часть команды (Setpoint) напрямую на моторы для более быстрого отклика."
     },
     "pidTuningMaxVel": {
         "message": "Макс. скор. [град/сек]"
@@ -1362,9 +1332,6 @@
     },
     "receiverMspEnableButton": {
         "message": "Включить управление"
-    },
-    "auxiliaryHelp": {
-        "message": "Нажмите \"Добавить диапазон\" для активации режима через AUX канал."
     },
     "auxiliaryToggleUnused": {
         "message": "Скрыть неиспользуемые режимы"
@@ -1741,9 +1708,6 @@
     "motorsNotice": {
         "message": "<strong>Режим тестирования моторов / Предупреждение об арминге:</strong><br /> Перемещение ползунков или арминг вашего аппарата с помощью передающей аппаратуры может привести к <strong>вращению моторов</strong>.<br />Во избежание травм <strong class=\"message-negative\">снимите все пропеллеры</strong> перед использованием этого функционала.<br />Включение \"режима тестирования моторов\" также временно отключит режим \"Защиты От Неконтролируемого Полёта\" - всё это предотвратит дизарминг моторов во время стендового тестирования без пропеллеров.<br />"
     },
-    "motorsEnableControl": {
-        "message": "Я понимаю риски и подтверждаю включение управления моторами"
-    },
     "motorConfigNotice": {
         "message": "Примечание к настройке моторов"
     },
@@ -1794,9 +1758,6 @@
     },
     "sensorsDebugTitle": {
         "message": "Отладка"
-    },
-    "cliInfo": {
-        "message": "Вы можете вводить команды напрямую для расширенной настройки."
     },
     "cliInputPlaceholder": {
         "message": "Введите команду..."
@@ -3478,9 +3439,6 @@
     },
     "vtxPower": {
         "message": "Мощность"
-    },
-    "vtxPowerHelp": {
-        "message": "Настройка мощности передачи в mW."
     },
     "vtxPitMode": {
         "message": "Pit-mode"

@@ -169,12 +169,6 @@
     "logActionShow": {
         "message": "Mostrar registro"
     },
-    "serialPortOpened": {
-        "message": "Puerto Serie Abierto"
-    },
-    "serialPortOpenFail": {
-        "message": "Error al abrir el puerto serie"
-    },
     "serialPortClosedOk": {
         "message": "Puerto serie cerrado <span class=\"message-positive\">correctamente</span>"
     },
@@ -328,12 +322,6 @@
     },
     "craftNameReceived": {
         "message": "Nombre aeronave: <strong>$1</strong>"
-    },
-    "armingDisabled": {
-        "message": "Armado Deshabilitado"
-    },
-    "armingEnabled": {
-        "message": "Armado Habilitado"
     },
     "runawayTakeoffPreventionDisabled": {
         "message": "<strong>Protección de Despegue Incontrolado temporalmente Desactivada</strong>"
@@ -971,9 +959,6 @@
     "configurationGPSAutoConfig": {
         "message": "Configuración Auto"
     },
-    "configurationGPSHelp": {
-        "message": "Habilita el GPS para telemetría y rescate."
-    },
     "configurationSerialRX": {
         "message": "Receptor Serie"
     },
@@ -1168,35 +1153,20 @@
     "pidTuningDtermSetpointTransitionHelp": {
         "message": "Con este parámetro, el Punto de Ajuste de Peso de D puede reducirse cuando las palancas están cerca del centro, lo cual provoca que el final de los flips y rolls sea más suave.<br>El valor representa un punto del movimiento de la palanca: 0 - palanca centrada, 1 - completamente desplazada. Cuando la palanca está por encima de ese punto, el Punto de Ajuste de Peso se mantiene constante en el valor configurado. Cuando la palanca se sitúa por debajo de ese punto, el Punto de Ajuste de Peso se reduce proporcionalmente, llegando a 0 en la posición central de la palanca. <br> El valor de 1 da el máximo efecto de suavizado, mientras que el valor de 0 mantiene el Punto de Ajuste de Peso fijo en su valor configurado sobre el rango completo de la palanca."
     },
-    "pidTuningDtermSetpointHelp": {
-        "message": "Controla la cantidad de D-Term aplicada ante cambios en el Setpoint del piloto."
-    },
     "pidTuningDtermSetpointTransitionWarning": {
         "message": "<span class=\"message-negative\"><strong>$t(warningTitle.message):</strong> El uso de un Punto de Ajuste de Transición de D mayor que 0 y menor que 0.1 está altamente desaconsejado. Puede causar inestabilidad y reducir la respuesta de los controles al cruzar el punto central.</span>"
     },
     "pidTuningProportional": {
         "message": "Proporcional (P)"
     },
-    "pidTuningProportionalHelp": {
-        "message": "Induce una acción correctiva proporcional al error. Valores altos suponen una respuesta más rápida pero demasiado puede producir oscilaciones y sobrecalentamiento."
-    },
     "pidTuningIntegral": {
         "message": "Integral (I)"
-    },
-    "pidTuningIntegralHelp": {
-        "message": "Acumula el error en el tiempo para corregir desviaciones constantes."
     },
     "pidTuningDerivative": {
         "message": "Derivativo (D)"
     },
-    "pidTuningDerivativeHelp": {
-        "message": "Previene el error futuro reduciendo la velocidad del ajuste cuando el dron se acerca al valor solicitado."
-    },
     "pidTuningFeedforward": {
         "message": "Prealimentación (F)"
-    },
-    "pidTuningFeedforwardHelp": {
-        "message": "Aplica una parte del Setpoint directamente al motor para una respuesta más rápida."
     },
     "pidTuningRcRate": {
         "message": "Tasa RC"
@@ -1398,9 +1368,6 @@
     },
     "receiverMspEnableButton": {
         "message": "Activar controles"
-    },
-    "auxiliaryHelp": {
-        "message": "Pulse \"Añadir Rango\" para habilitar un modo desde un canal AUX."
     },
     "auxiliaryToggleUnused": {
         "message": "Ocultar modos no usados"
@@ -1735,9 +1702,6 @@
     "motorsNotice": {
         "message": "<strong>Aviso Modo Test de Motor / Armado:</strong><br />Mover los controles deslizantes o armar la aeronave con el transmisor provocará que los motores <strong>giren</strong>.<br />Para evitar lesiones <strong class=\"message-negative\">quita TODAS las hélices</strong> antes de utilizar esta funcionalidad.<br />Activar el modo test de motor también desactivará temporalmente la Protección de Despegue Incontrolado, para evitar que desarme la aeronave mientras está en el banco de pruebas sin hélices.<br />"
     },
-    "motorsEnableControl": {
-        "message": "Entiendo los riesgos e informo que deseo habilitar el control de motores"
-    },
     "motorConfigNotice": {
         "message": "Nota de configuración del motor"
     },
@@ -1776,9 +1740,6 @@
     },
     "sensorsBaroTitle": {
         "message": "Barómetro"
-    },
-    "cliInfo": {
-        "message": "Puedes escribir comandos directamente aquí para configuraciones avanzadas."
     },
     "cliInputPlaceholder": {
         "message": "Escriba un comando aquí..."
@@ -3358,9 +3319,6 @@
     },
     "vtxPower": {
         "message": "Potencia"
-    },
-    "vtxPowerHelp": {
-        "message": "Ajusta la potencia de transmisión en mW."
     },
     "vtxPitMode": {
         "message": "Modo Pit"
