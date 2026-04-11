@@ -1072,6 +1072,9 @@
     "pidTuningAntiGravityThres": {
         "message": "Umbral Anti Gravedad"
     },
+    "pidTuningAntiGravityHelp": {
+        "message": "Aumenta temporalmente el I-Term durante cambios rápidos en el Throttle para mejorar la estabilidad del dron."
+    },
     "pidTuningPidSettings": {
         "message": "Ajustes del Controlador PID"
     },
@@ -1188,6 +1191,9 @@
     },
     "pidTuningFeedforward": {
         "message": "Prealimentación (F)"
+    },
+    "pidTuningFeedforwardHelp": {
+        "message": "Aplica una parte del Setpoint directamente al motor para una respuesta más rápida."
     },
     "pidTuningRcRate": {
         "message": "Tasa RC"

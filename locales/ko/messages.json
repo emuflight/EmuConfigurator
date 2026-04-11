@@ -1096,6 +1096,9 @@
     "pidTuningAntiGravityThres": {
         "message": "안티 그래비티 임계값"
     },
+    "pidTuningAntiGravityHelp": {
+        "message": "스로틀이 급격하게 변할 때 일시적으로 I-term을 증가시켜 기체의 안정성을 향상시킵니다."
+    },
     "pidTuningPidSettings": {
         "message": "PID 컨트롤러 설정"
     },
@@ -1224,6 +1227,9 @@
     },
     "pidTuningFeedforward": {
         "message": "피드포워드"
+    },
+    "pidTuningFeedforwardHelp": {
+        "message": "세트포인트의 일부를 모터 출력에 직접 반영하여 보다 빠르게 반응하도록 합니다."
     },
     "pidTuningRcRate": {
         "message": "RC 레이트"

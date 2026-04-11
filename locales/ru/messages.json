@@ -1057,6 +1057,9 @@
     "pidTuningAntiGravityThres": {
         "message": "Порог Anti Gravity"
     },
+    "pidTuningAntiGravityHelp": {
+        "message": "Временно увеличивает I-Term при резком изменении газа (Throttle) для повышения стабильности дрона."
+    },
     "pidTuningPidSettings": {
         "message": "Настройки PID-контроллера"
     },
@@ -1167,6 +1170,9 @@
     },
     "pidTuningDerivativeHelp": {
         "message": "Предотвращает будущую ошибку, замедляя скорость настройки при приближении к заданному значению."
+    },
+    "pidTuningFeedforwardHelp": {
+        "message": "Подает часть команды (Setpoint) напрямую на моторы для более быстрого отклика."
     },
     "pidTuningMaxVel": {
         "message": "Макс. скор. [град/сек]"

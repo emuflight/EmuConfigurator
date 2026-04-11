@@ -1075,6 +1075,9 @@
     "pidTuningAntiGravityThres": {
         "message": "Anti Gravity 反重力 しきい値"
     },
+    "pidTuningAntiGravityHelp": {
+        "message": "スロットルの急激な変化時に一過的に I-Term を増加させ、機体の安定性を向上させます。"
+    },
     "pidTuningPidSettings": {
         "message": "PIDコントローラ設定"
     },
@@ -1191,6 +1194,9 @@
     },
     "pidTuningDerivativeHelp": {
         "message": "目標値に近づくにつれて調整速度を落とし、将来のオーバーシュートを防止します。"
+    },
+    "pidTuningFeedforwardHelp": {
+        "message": "セットポイントの一部を直接モーター出力に反映させ、より機敏な反応を実現します。"
     },
     "pidTuningMaxVel": {
         "message": "最大速度 [deg/s]"

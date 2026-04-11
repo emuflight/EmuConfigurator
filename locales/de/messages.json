@@ -1028,6 +1028,9 @@
     "pidTuningAntiGravityThres": {
         "message": "Anti Gravity Schwellwert"
     },
+    "pidTuningAntiGravityHelp": {
+        "message": "Erhöht vorübergehend den I-Term bei schnellen Gasänderungen (Throttle), um die Stabilität der Drohne zu verbessern."
+    },
     "pidTuningPidSettings": {
         "message": "PID Kontroller EInstellungen"
     },
@@ -1129,6 +1132,9 @@
     },
     "pidTuningFeedforward": {
         "message": "Feedforward Regelung"
+    },
+    "pidTuningFeedforwardHelp": {
+        "message": "Wendet einen Teil des Setpoints direkt auf den Motor an, um eine schnellere Reaktion zu ermöglichen."
     },
     "pidTuningMaxVel": {
         "message": "Max. Beschleunigung [Grad/s]"

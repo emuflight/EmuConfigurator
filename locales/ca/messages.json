@@ -845,6 +845,9 @@
     "pidTuningAntiGravityThres": {
         "message": "Llindar Anti Gravity"
     },
+    "pidTuningAntiGravityHelp": {
+        "message": "Augmenta temporalment el I-Term durant canvis ràpids en el Throttle per millorar l\"estabilitat del drone."
+    },
     "pidTuningPidSettings": {
         "message": "Ajustament del Controlador de PIDs"
     },
@@ -880,6 +883,9 @@
     },
     "pidTuningDerivativeHelp": {
         "message": "Prevé l\"error futur reduint la velocitat de l\"ajust quan el drone s\"apropa al valor demanat."
+    },
+    "pidTuningFeedforwardHelp": {
+        "message": "Aplica una part del Setpoint directament al motor per una resposta més ràpida."
     },
     "pidTuningMaxVel": {
         "message": "Vel Màx [graus/s]"

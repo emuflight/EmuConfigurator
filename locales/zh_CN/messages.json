@@ -1111,6 +1111,9 @@
     "pidTuningAntiGravityThres": {
         "message": "反重力阈值"
     },
+    "pidTuningAntiGravityHelp": {
+        "message": "在油门快变时临时增加 I-Term 以提高稳定性。"
+    },
     "pidTuningPidSettings": {
         "message": "PID 控制器设置"
     },
@@ -1227,6 +1230,9 @@
     },
     "pidTuningDerivativeHelp": {
         "message": "通过预测未来的误差来减缓调整速度，防止超过设定值。"
+    },
+    "pidTuningFeedforwardHelp": {
+        "message": "将部分 Setpoint 直接应用到电机输出中，以实现超快响应。"
     },
     "pidTuningMaxVel": {
         "message": "最大角速度 [度/秒]"

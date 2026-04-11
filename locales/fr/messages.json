@@ -1034,7 +1034,7 @@
         "message": "Seuil Anti Gravity"
     },
     "pidTuningAntiGravityHelp": {
-        "message": "L'Anti Gravity augmente le I term lors des poussées de gaz rapides. Une valeur élevée procure plus de stabilité et de tenue."
+        "message": "Augmente temporairement le I-Term lors de changements rapides de Throttle pour améliorer la stabilité du drone."
     },
     "pidTuningPidSettings": {
         "message": "Réglages du Contrôleur PID"
@@ -1137,6 +1137,9 @@
     },
     "pidTuningDerivativeHelp": {
         "message": "Prévient l\"erreur future en réduisant la vitesse de l\"ajustement lorsque le drone s\"approche de la valeur cible."
+    },
+    "pidTuningFeedforwardHelp": {
+        "message": "Applique une partie du Setpoint directement au moteur pour une réponse plus rapide."
     },
     "pidTuningRatesPreview": {
         "message": "Prévisualisation des Rates"

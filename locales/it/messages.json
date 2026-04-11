@@ -970,6 +970,9 @@
     "pidTuningAntiGravityThres": {
         "message": "Soglia Anti Gravità"
     },
+    "pidTuningAntiGravityHelp": {
+        "message": "Aumenta temporaneamente l\"I-Term durante i rapidi cambi di Throttle per migliorare la stabilità del drone."
+    },
     "pidTuningPidSettings": {
         "message": "Impostazioni del controller PID"
     },
@@ -1062,6 +1065,9 @@
     },
     "pidTuningDerivativeHelp": {
         "message": "Previene l\"errore futuro riducendo la velocità della regolazione quando il drone si avvicina al valore desiderato."
+    },
+    "pidTuningFeedforwardHelp": {
+        "message": "Applica una parte del Setpoint direttamente al motore per una risposta più rapida."
     },
     "pidTuningRcRate": {
         "message": "Rate RC"
