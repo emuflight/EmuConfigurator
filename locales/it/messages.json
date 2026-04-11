@@ -3004,13 +3004,13 @@
         "message": "OSD"
     },
     "osdSetupPreviewHelp": {
-        "message": "<strong> Nota: </ strong> l'anteprima OSD potrebbe non mostrare il carattere effettivo installato sul controller di volo."
+        "message": "<strong> Nota: </strong> l'anteprima OSD potrebbe non mostrare il carattere effettivo installato sul controller di volo."
     },
     "osdSetupUnsupportedNote1": {
         "message": "Il tuo controllore di volo non risponde ai comandi OSD. Questo probabilmente significa che non ha un OSD BetaFlight integrato."
     },
     "osdSetupUnsupportedNote2": {
-        "message": "Tieni presente che alcuni controllori di volo hanno un <a href=\"https://www.youtube.com/watch?v=ikKH_6SQ-Tk\" target=\"_blank\">MinimOSD</a> integrato che può essere visualizzato e configurato con <a href = \"https://github.com/ShikOfTheRa/scarab-osd/releases/latest\" target = '_ blank'> scarab-osd </a>, tuttavia il MinimOSD non può essere configurato tramite questa interfaccia."
+        "message": "Tieni presente che alcuni controllori di volo hanno un <a href=\"https://www.youtube.com/watch?v=ikKH_6SQ-Tk\" target=\"_blank\">MinimOSD</a> integrato che può essere visualizzato e configurato con <a href = \"https://github.com/ShikOfTheRa/scarab-osd/releases/latest\" target=\"_blank\"> scarab-osd </a>, tuttavia il MinimOSD non può essere configurato tramite questa interfaccia."
     },
     "osdSetupElementsTitle": {
         "message": "Elementi"
@@ -3484,7 +3484,7 @@
         "message": "Misurazione"
     },
     "pidTuningDeltaTip": {
-        "message": "<b> Derivata dall'errore </ b> fornisce una risposta diretta più diretta ed è per lo più preferibile per le corse. <br> <br> <b> La derivata dalla misurazione </ b> fornisce una risposta più semplice e più utile per il freestyle"
+        "message": "<b> Derivata dall'errore </b> fornisce una risposta diretta più diretta ed è per lo più preferibile per le corse. <br> <br> <b> La derivata dalla misurazione </b> fornisce una risposta più semplice e più utile per il freestyle"
     },
     "pidTuningPidControllerTip": {
         "message": "<b>Legacy vs Emuflight (float):</b> PID scaling e PID logic sono la stessa cosa. La calibrazione può non essere necessaria. Legacy è la riscrittura del vecchio Emuflight evoluto che è un semplice controller PID basato su numeri Interi. Il controller PID di Emuflight usa calcoli in virgola mobile ed ha molte nuove funzioni disegnate specificamente per i multirotori <br> <b>Float vs Integer:</b> PID scaling e PID logic sono la stessa cosa. Calibrazione non richiesta. Le schede F1 non hanno una FPU integrata, i calcoli in virgola mobile aumentato il carico della CPU. I calcoli in numeri Interi migliorano le performance ma i calcoli in virgola mobile possono far guadagnare un po' di precisione."

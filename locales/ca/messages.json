@@ -104,7 +104,7 @@
         "message": "Mostra la notificació de versions inestables del configurador"
     },
     "configuratorUpdateNotice": {
-        "message": "Estàs fent servir una versió desactualitzada del <b>Configurador Emuflight </b>.<br>La versió <b>$1</b> està disponible, siusplau visita la pàgina <a href=\"$2\" target=\"_blank\"></a> per a descarregar i instaŀlar la última versió amb correccions i millores.<br>Tanca la finestra del configurador abans d'actualitzar."
+        "message": "Estàs fent servir una versió desactualitzada del <b>Configurador Emuflight </b>.<br>La versió <b>$1</b> està disponible, siusplau visita la pàgina <a href=\"$2\" target=\"_blank\">descarrega aquí</a> per a descarregar i instaŀlar la última versió amb correccions i millores.<br>Tanca la finestra del configurador abans d'actualitzar."
     },
     "configuratorUpdateWebsite": {
         "message": "Ves a la pàgina de llançament"
@@ -113,7 +113,7 @@
         "message": "Dispositiu - <span class=\"message-negative\">Reiniciant</span>"
     },
     "deviceReady": {
-        "message": "Device - <span class=\"message-positive\">Preparat</span>"
+        "message": "Dispositiu - <span class=\"message-positive\">Preparat</span>"
     },
     "backupFileIncompatible": {
         "message": "La còpia de seguretat va ser generada amb versions antigues del configurador i és incompatible. Perdona"
@@ -1491,10 +1491,10 @@
         "message": "3D Fix:"
     },
     "gpsFixTrue": {
-        "message": "<span class=\"fixtrue\">True</span>"
+        "message": "<span class=\"fixtrue\">Sí</span>"
     },
     "gpsFixFalse": {
-        "message": "<span class=\"fixfalse\">False</span>"
+        "message": "<span class=\"fixfalse\">No</span>"
     },
     "gpsAltitude": {
         "message": "Altitud:"
@@ -1842,7 +1842,7 @@
         "message": "Descarrega manualment."
     },
     "firmwareFlasherTargetWarning": {
-        "message": "<span class=\"message-negative\">IMPORTANT</span>: assegureu-vos que flashejeu un fitxer adequat per al vostre objectiu. Fhashejar un binari per a una FC errònia pot causar que passin coses <span class=\"message-negative\">estranyes</span>."
+        "message": "<span class=\"message-negative\">IMPORTANT</span>: assegureu-vos que flashegeu un fitxer adequat per al vostre objectiu. Flashejar un binari per a una FC errònia pot causar que passin coses <span class=\"message-negative\">estranyes</span>."
     },
     "firmwareFlasherLoadFirmwareFile": {
         "message": "Si us plau carrega l'arxiu de firmware"

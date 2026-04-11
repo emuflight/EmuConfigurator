@@ -441,7 +441,7 @@
         "message": "检测到闪存空间为 $1 KiB 的芯片"
     },
     "dfu_error_image_size": {
-        "message": "<span class=\"message-negative\">错误/span>：固件文件大于飞控芯片的闪存。固件大小: $1 KiB，限制= $2 KiB"
+        "message": "<span class=\"message-negative\">错误</span>：固件文件大于飞控芯片的闪存。固件大小: $1 KiB，限制= $2 KiB"
     },
     "eeprom_saved_ok": {
         "message": "EEPROM <span class=\"message-positive\">已保存</span>"
@@ -2755,10 +2755,10 @@
         "message": "在边转向边翻滚以及做漏斗等特技时，将 I 向量正确旋转到其他轴向上。比较受到目视飞行的飞手欢迎。"
     },
     "pidTuningFeatheredPidsHelp": {
-        "message": "Feathered PIDs changes how Dterm is calculated. 0 is error based dterm and 100 is measurement based dterm. Measurement is smoother but less responsive than error. Any value between 0 and 100 is a scalar of partially measurement and error calculated dterm."
+        "message": "Feathered PIDs 改变了 D-Term 的计算方式。0 为基于误差的 D-Term，100 为基于测量值的 D-Term。基于测量值更平滑，但响应不如基于误差的方式灵敏。0 到 100 之间的任意值是误差和测量值混合计算 D-Term 的比例系数。"
     },
     "pidTuningiDecayHelp": {
-        "message": "Removes excessive iterm accumulation normally found at the end of quick stick movements. Running a higher decay allows you to run a higher iterm without experiencing bounce back or other common negatives associated with high iterm. Default is a value of 4, but the highest you can run it is 10."
+        "message": "消除快速打杆后常见的 I-Term 过度积累。调高衰减值可以使用更高的 I-Term 而不出现回弹或其他与高 I-Term 相关的负面效果。默认值为 4，最高可设置为 10。"
     },
     "pidTuningSmartFeedforward": {
         "message": "智能前馈"

@@ -1331,9 +1331,6 @@
     "pidTuningSubTabFilter": {
         "message": "Filter Settings"
     },
-    "COMMENT": {
-        "message": "most these need purge"
-    },
     "pidTuningSubTabFeel": {
         "message": "Feel Settings"
     },

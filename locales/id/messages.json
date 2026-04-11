@@ -221,7 +221,7 @@
         "message": "Tampilkan log"
     },
     "serialPortOpened": {
-        "message": "Port serial <span class=\"pesan positif\">berhasil</span> dibuka dengan ID: $1"
+        "message": "Port serial <span class=\"message-positive\">berhasil</span> dibuka dengan ID: $1"
     },
     "serialPortOpenFail": {
         "message": "<span class=\"message-negative\">Gagal</span> untuk membuka port serial"
@@ -3022,7 +3022,7 @@
         "message": "Flight controller anda tidak menanggapi ke perintah OSD. Mungkin FC anda tidak memiliki OSD Emuflight."
     },
     "osdSetupUnsupportedNote2": {
-        "message": "Perhatikan bahwa beberapa flight controller sudah terpasang <a href=\"https://www.youtube.com/watch?v=ikKH_6SQ-Tk\" target=\"_blank\">MinimOSD</a> yang dapat dinyalakan dan dikonfigurasi dengan <a href=\"https://github.com/ShikOfTheRa/scarab-osd/releases/latest\" target = '_ blank'>scarab-osd</a>, namun MinimOSD tidak dapat di konfigurasi melalui antarmuka ini."
+        "message": "Perhatikan bahwa beberapa flight controller sudah terpasang <a href=\"https://www.youtube.com/watch?v=ikKH_6SQ-Tk\" target=\"_blank\">MinimOSD</a> yang dapat dinyalakan dan dikonfigurasi dengan <a href=\"https://github.com/ShikOfTheRa/scarab-osd/releases/latest\" target=\"_blank\">scarab-osd</a>, namun MinimOSD tidak dapat di konfigurasi melalui antarmuka ini."
     },
     "osdSetupElementsTitle": {
         "message": "Elemen"
