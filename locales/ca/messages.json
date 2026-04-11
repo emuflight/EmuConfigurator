@@ -2556,5 +2556,8 @@
     },
     "vtxButtonSave": {
         "message": "Desa els ajustos VTX"
+    },
+    "userLanguageSelect": {
+        "message": "Triar Idioma"
     }
 }
