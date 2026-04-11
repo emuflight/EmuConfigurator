@@ -396,7 +396,7 @@
         "message": "Emuflight-dokumentation finns i versionskommentarerna och wiki.<br /><br />"
     },
     "defaultDocumentation1": {
-        "message": "EmuFlight wiki är en utmärkt informationskälla och kan hittas <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">här</a>.<br />Versionsnoteringar för firmware kan läsas på GitHubs releasesida, <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\">här</a>.<br />"
+        "message": "EmuFlight wiki är en utmärkt informationskälla och kan hittas <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">här</a>.<br />Versionsnoteringar för firmware kan läsas på GitHubs releasesida, <a href=\"https://github.com/emuflight/EmuFlight/releases\" target=\"_blank\">här</a>.<br />"
     },
     "defaultDocumentation2": {
         "message": "EmuConfigurator wiki kan hittas <a href=\"https://github.com/emuflight/EmuConfigurator/wiki\" target=\"_blank\">här</a>.<br />Versionsnoteringar för Configuratorn kan läsas på GitHubs releasesida, <a href=\"https://github.com/emuflight/EmuConfigurator/releases\" target=\"_blank\">här</a>.<br />"

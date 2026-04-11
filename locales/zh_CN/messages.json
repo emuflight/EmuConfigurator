@@ -146,7 +146,7 @@
         "message": "舵机 (Servos)"
     },
     "tabFailsafe": {
-        "message": "故障保护 (Failsafe)"
+        "message": "失控保护 (Failsafe)"
     },
     "tabTransponder": {
         "message": "比赛应答器"
@@ -597,10 +597,10 @@
         "message": "加速度计校准 <span class=\"message-positive\">完成</span>"
     },
     "initialSetupMagCalibStarted": {
-        "message": "磁场计校准"
+        "message": "磁力计校准"
     },
     "initialSetupMagCalibEnded": {
-        "message": "磁场计校准 <span class=\"message-positive\">完成</span>"
+        "message": "磁力计校准 <span class=\"message-positive\">完成</span>"
     },
     "initialSetupSettingsRestored": {
         "message": "恢复到<strong>默认</strong>设置"
@@ -804,7 +804,7 @@
         "message": "加速度计方向"
     },
     "configurationSensorAlignmentMag": {
-        "message": "磁场计方向"
+        "message": "磁力计方向"
     },
     "configurationSensorAlignmentDefaultOption": {
         "message": "默认"
@@ -1775,7 +1775,7 @@
         "message": "加速度计"
     },
     "sensorsMagSelect": {
-        "message": "磁场计"
+        "message": "磁力计"
     },
     "sensorsBaroSelect": {
         "message": "高度计"
@@ -2530,7 +2530,7 @@
         "message": "为正在学习飞行的飞行员增加一个新的角度限制模式。有效范围为 10-80，需要使用 $t(tabAuxiliary.message) 选项卡中的一个开关激活。"
     },
     "configHelp2": {
-        "message": "任意角度（直立，反转，旋转等）安装飞控板。当使用外部传感器时，请使用传感器校正设置(陀螺，加速度计，磁场计)来决定独立于飞控板的传感器位置。"
+        "message": "任意角度（直立，反转，旋转等）安装飞控板。当使用外部传感器时，请使用传感器校正设置(陀螺，加速度计，磁力计)来决定独立于飞控板的传感器位置。"
     },
     "failsafeFeaturesHelpNew": {
         "message": "失控保护有两个阶段。当飞控在任一接收通道收到无效的脉冲长度，或者接收机汇报已失控，或者彻底没有收到接收机信号，飞控将进入<strong>一阶失控保护</strong>状态。飞控将会在<span class=\"message-negative\">所有通道</span>使用预置通道设置，如果短时间内信号恢复将可退出失控保护状态。在飞机处于<span class=\"message-negative\">解锁</span>状态，并且一阶失控保护模式持续时间超过了预设的时间，飞控将进入<strong>二价失控保护</strong>状态，所有通道将会保持当前输出。<br /><strong>注意：</strong> 在飞控进入一阶失控保护之前，如果AUX 通道出现无效的脉冲，该通道一样会使用预置通道设置。"
@@ -2563,10 +2563,10 @@
         "message": "二阶失控保护 - 设置"
     },
     "failsafeDelayItem": {
-        "message": "故障保护延迟"
+        "message": "失控保护延迟"
     },
     "failsafeDelayHelp": {
-        "message": "丢信号后触发故障保护 (Failsafe) 的延迟时间。"
+        "message": "丢信号后触发失控保护 (Failsafe) 的延迟时间。"
     },
     "failsafeThrottleLowItem": {
         "message": "低油门失控保护延迟 [1 = 0.1 秒]"
@@ -2581,7 +2581,7 @@
         "message": "失控保护过程中关闭电机延时 [1 = 0.1 秒]"
     },
     "failsafeOffDelayHelp": {
-        "message": "触发故障保护后，电机停止旋转前的持续时间。"
+        "message": "触发失控保护后，电机停止旋转前的持续时间。"
     },
     "failsafeSubTitle1": {
         "message": "二阶失控保护措施"
@@ -2638,7 +2638,7 @@
         "message": "设置这个选项会使失控保护开关(模式页面设置)作为直接关闭开关，将会绕开所有的失控保护检测程序。<strong>注意:</strong> 当打开失控保护开关时，解锁开关无效"
     },
     "failsafeSwitchTitle": {
-        "message": "开关故障保护模式"
+        "message": "开关失控保护模式"
     },
     "failsafeSwitchModeItem": {
         "message": "失控保护开关行为"
@@ -3345,7 +3345,7 @@
         "message": "气压计 （如有）"
     },
     "configurationMagHardware": {
-        "message": "磁场计 （如有）"
+        "message": "磁力计 （如有）"
     },
     "configurationSmallAngle": {
         "message": "最大允许解锁角度 [degrees]"

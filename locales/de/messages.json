@@ -1584,7 +1584,7 @@
         "message": "Accelerometer (accel)"
     },
     "sensorsGyroTitle": {
-        "message": "Gyroscope"
+        "message": "Gyroskop"
     },
     "sensorsAccelTitle": {
         "message": "Accelerometer"
@@ -3116,7 +3116,7 @@
         "message": "Pit-Modus"
     },
     "vtxLowPowerDisarm": {
-        "message": "Niedrige Leistung beim Entschärfen"
+        "message": "Niedrige Leistung beim Disarmen"
     },
     "vtxButtonSave": {
         "message": "VTX-Einstellungen speichern"
