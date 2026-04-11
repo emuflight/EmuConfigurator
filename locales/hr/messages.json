@@ -387,7 +387,7 @@
         "message": "Dobrodošli u <strong>Emuflight - Konfigurator</strong>, alat dizajniran pojednostavljenju ažuriranja, konfiguriranja i ugađanja postavki vašeg kontrolera leta."
     },
     "defaultWelcomeText": {
-        "message": "Razvoj EmuFlight -a je u velikom toku. Neke funkcije korisničkog sučelja mogu biti nedovršene ili je nekim funkcijama firmvera moguće pristupiti samo putem CLI -ja. <br> <br> Izvorni kod i izdanja EmuFlight -a nalaze se na <a href=\"https://github.com/emuflight/EmuFlight \" title=\"github.com/emuflight/EmuFlight \" target=\"_blank\"> GitHub </a>. <br/> <br/> Helio/Strix IMUF može se prebaciti putem <a href=\"https://github.com/emuflight/Nemesis/releases/tag/imuf-flasher-0.1.0\" target=\"_blank\"> IMUF Flasher Tool </a> ili preuzeto sa <a href = \" https://github.com/emuflight/imu-f/releases\" target=\"_blank\"> IMUF izdanja </a> spremište. <br/> <br/> EmuFlight BlackBox dnevnici mogu se čitati pomoću vilice BBE dostupne sa ovog <a href=\"https://github.com/emuflight/EmuFlight-Blackbox-Explorer/releases \" target=\"_blank \"> Spremište EmuFlight-BlackBox-Explorer </a>. <br/> <br/> Najnovije <a href=\"https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers\" title=\"http://www.silabs.com\" target=\"_blank\"> Upravljački programi CP210x</a>. <br/> Najnovije <a href=\" https://www.st.com/en/development-tools/stsw-stm32102.html\" title=\"http://www.st.com\" target=\"_blank\"> STM USB VCP upravljački programi</a >. <br/> Najnovije <a href=\"http://zadig.akeo.ie/\" title=\"http://zadig.akeo.ie\"target=\"_blank\">Zadig</a>. <br/> "
+        "message": "<a href=\"https://github.com/emuflight\" target=\"_blank\">EmuFlight</a> is an experimental multi-rotor software with focus on filtering and flight control. Source code and releases reside on <a href=\"https://github.com/emuflight/EmuFlight\" title=\"github.com/emuflight/EmuFlight\" target=\"_blank\">GitHub</a>.<br /><br /> Helio/Strix IMUF can be flashed via the <a href=\"https://github.com/emuflight/Nemesis/releases/tag/imuf-flasher-0.1.0\" target=\"_blank\">IMUF Flasher Tool</a> or Downloaded from the <a href=\"https://github.com/emuflight/imu-f/releases\" target=\"_blank\">IMUF releases</a> repository. <br /><br />EmuFlight BlackBox Logs can be read with <a href=\"https://github.com/emuflight/EmuFlight-Blackbox-Explorer/releases\" target=\"_blank\">EmuFlight-BlackBox-Explorer</a>.<br /><br /><a href=\"https://github.com/ImpulseRC/ImpulseRC_Driver_Fixer\" target=\"_blank\">ImpulseRC Driver Fixer</a>.<br /><a href=\"http://zadig.akeo.ie/\" title=\"http://zadig.akeo.ie\" target=\"_blank\">Zadig</a>.<br /><a href=\"https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers\" title=\"http://www.silabs.com\" target=\"_blank\">CP210x Drivers</a> (obsolete).<br /><a href=\"https://www.st.com/en/development-tools/stsw-stm32102.html\" title=\"http://www.st.com\" target=\"_blank\">STM USB VCP Drivers</a> (obsolete).<br />"
     },
     "defaultContributingHead": {
         "message": "Pridonošenje"
@@ -402,10 +402,10 @@
         "message": "Emuflight dokumentacija je dostupna u napomenama izdanja i na Emuflight wikiju.<br /><br />"
     },
     "defaultDocumentation1": {
-        "message": "Emuflight wiki je odličan izvor informacija, može se naći <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">ovdje</a>."
+        "message": "The Emuflight wiki is a great resource for information, it can be found <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">here</a>.<br />The release notes for the firmware can be read at GitHub releases page, <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\">here</a>.<br />"
     },
     "defaultDocumentation2": {
-        "message": "Napomene izdanja za firmware možete pročitati na GitHubu <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\">ovdje</a>."
+        "message": "The EmuConfigurator wiki can be found <a href=\"https://github.com/emuflight/EmuConfigurator/wiki\" target=\"_blank\">here</a>.<br />The Configurator release notes can be read at GitHub releases page, <a href=\"https://github.com/emuflight/EmuConfigurator/releases\" target=\"_blank\">here</a>.<br />"
     },
     "defaultSupportHead": {
         "message": "Podrška"
@@ -993,7 +993,7 @@
         "message": "<strong>Napomena:</strong> Nisu sve kombinacije ispravne. Kada kontroler leta to prepozna, konfiguracija serijskih portova će biti resetirana."
     },
     "portsMSPHelp": {
-        "message": "<strong>Napomena:</strong > <span class=\"message-negative\">Nemojte</span> onemogućavati MSP na prvom serijskom portu ako niste sigurni što radite. U suprotnom, možda ćete morati u potpunosti obrisati konfiguraciju i ponovno instalirati firmware."
+        "message": "<strong>Note:</strong> Do <span class=\"message-negative\">NOT</span> disable MSP on the first serial port unless you know what you are doing.  You may have to reflash and erase your configuration if you do."
     },
     "portsFirmwareUpgradeRequired": {
         "message": "Ažuriranje firmwarea <span class=\"message-negative\">potrebno</span>. Konfiguracije serijskih portova firmwarea &lt; 1.8.0 nisu podržane."
@@ -1630,9 +1630,6 @@
     "motorsResetMaximum": {
         "message": "Resetiraj maksimume"
     },
-    "motorsSensorGyroSelect": {
-        "message": "žiro"
-    },
     "motorsNotice": {
         "message": "<strong>Napomena za test motora i arminga:</strong><br />Pomicanje klizača ili armiranje preko stanice će <strong>pokrenuti motore</strong>.<br />Kako bi se izbjegla ozljeda <strong class=\"message-negative\">uklonite SVE propelere</strong> prije korištenja ove mogućnosti.<br />Omogućavanje ovog načina rada za testiranje privremeno će onemogućiti zaštitu od nekontroliranog polijetanja.<br />"
     },
@@ -1976,7 +1973,7 @@
         "message": "<strong>Oporavljanje / Izgubljena komunikacija</strong>"
     },
     "firmwareFlasherRecoveryText": {
-        "message": "Ako ste izgubili komunikaciju s pločom, pratite ove korake kako biste ponovno uspostavili komunikaciju <ul><li>Isključite sve</li><li>Omogučite 'Bez sekvence ponovnog pokretanja</li><li>Prespojite BOOT pinove ili držite BOOT tipku</li><li>Uključite (LED lampica aktivnosti ne bi trebala treptati).</li><li>Instalirajte sve STM32 drivere i Zadig ako je potrebno (pogledajte <a href=\"https://github.com/EmuFlight/EmuFlight/wiki\"target=\"_blank\">'USB Flashing'</a> poglavlje u Emuflight uputstvima).</li><li>Zatvorite konfigurator, sve Chrome prozore, sve Chrome aplikacije i ponovno pokrenite konfigurator</li><li>Pustite BOOT tipku ako ju vaš FC ima.</li><li>Ažurirajte kontroler ispravnim firmwareom (koristeći ručno postavljen baud rate ako kontroler tako zahtjeva) </li><li>Isključite sve.</li><li>Uklonite BOOT prespojnicu</li><li>Uključite (LED lampica aktivnosti bi trebala treperiti).</li><li>Normalno se povežite.</li></ul>"
+        "message": "If you have lost communication with your board follow these steps to restore communication: <ul><li>Power off</li><li>Enable 'No reboot sequence', enable 'Full chip erase'.</li><li>Jumper the BOOT pins or hold BOOT button.</li><li>Power on (activity LED will NOT flash if done correctly).</li><li>Install all STM32 drivers and Zadig if required (see <a href=\"https://github.com/emuflight/EmuFlight/wiki/Installing-Emuflight\"target=\"_blank\">USB Flashing</a> section of Emuflight manual).</li><li>Close configurator, Close all running chrome instances, Close all Chrome apps, Restart Configurator.</li><li>Release BOOT button if your FC has one.</li><li>Flash with correct firmware (using manual baud rate if specified in your FC's manual).</li><li>Power off.</li><li>Remove BOOT jumper.</li><li>Power on (activity LED should flash).</li><li>Connect normally.</li></ul>"
     },
     "firmwareFlasherFirmwareNotLoaded": {
         "message": "Firmware nije učitan"
@@ -2303,9 +2300,6 @@
     },
     "pidTuningItermRelaxType": {
         "message": "Vrsta:"
-    },
-    "pidTuningItermRelaxTypeOptionGyro": {
-        "message": "Žiro"
     },
     "pidTuningAbsoluteControlGain": {
         "message": "Apsolutna kontrola"

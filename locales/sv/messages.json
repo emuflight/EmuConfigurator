@@ -396,10 +396,10 @@
         "message": "Emuflight-dokumentation finns i versionskommentarerna och wiki.<br /><br />"
     },
     "defaultDocumentation1": {
-        "message": "Emuflight wiki är en utmärkt informationskälla, den kan hittas <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">här</a>."
+        "message": "The Emuflight wiki is a great resource for information, it can be found <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">here</a>.<br />The release notes for the firmware can be read at GitHub releases page, <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\">here</a>.<br />"
     },
     "defaultDocumentation2": {
-        "message": "Utgåvenoteringarna för firmware kan läsas på GitHubs utgåvesida, <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\"> här</a>."
+        "message": "The EmuConfigurator wiki can be found <a href=\"https://github.com/emuflight/EmuConfigurator/wiki\" target=\"_blank\">here</a>.<br />The Configurator release notes can be read at GitHub releases page, <a href=\"https://github.com/emuflight/EmuConfigurator/releases\" target=\"_blank\">here</a>.<br />"
     },
     "defaultSupportSubline1": {
         "message": "Supportkällor"
@@ -1967,7 +1967,7 @@
         "message": "<strong>Återställning / tappad kommunikation</strong>"
     },
     "firmwareFlasherRecoveryText": {
-        "message": "Om du har tappat kommunikationen med ditt styrkort, följ dessa steg för att återställa kommunikationen: <ul><li>Stäng av strömmen</li><li>Aktivera 'Ingen omstartssekvens', aktivera 'Fullständing chip-radering'.</li><li>Bygla BOOT-pinnarna eller håll in BOOT-knappen.</li><li>Slå på strömmen (aktivitets-LED:en kommer INTE att blinka om utfört korrekt).</li><li>Installera alla STM32-drivrutiner och Zadig om det krävs (se <a href=\"https://github.com/EmuFlight/EmuFlight/wiki\"target=\"_blank\">USB Flashing</a>-sektionen i Emuflight-manualen).</li><li>Stäng Configurator, Stäng alla öppna instanser av Chrome, stäng alla Chrome-appar, starta om Configurator.</li><li>Släpp BOOT-knappen om din flygkontroller har en sådan.</li><li>Uppdatera med korrekt firmware (använd manuell baudhastighet om en sådan specificeras i flygkontrollerns manual).</li><li>Stäng av strömmen.</li><li>Ta bort BOOT-byglingen.</li><li>Slå på strömmen (aktivitets-LED:en ska blinka).</li><li>Anslut på vanligt sätt.</li></ul>"
+        "message": "If you have lost communication with your board follow these steps to restore communication: <ul><li>Power off</li><li>Enable 'No reboot sequence', enable 'Full chip erase'.</li><li>Jumper the BOOT pins or hold BOOT button.</li><li>Power on (activity LED will NOT flash if done correctly).</li><li>Install all STM32 drivers and Zadig if required (see <a href=\"https://github.com/emuflight/EmuFlight/wiki/Installing-Emuflight\"target=\"_blank\">USB Flashing</a> section of Emuflight manual).</li><li>Close configurator, Close all running chrome instances, Close all Chrome apps, Restart Configurator.</li><li>Release BOOT button if your FC has one.</li><li>Flash with correct firmware (using manual baud rate if specified in your FC's manual).</li><li>Power off.</li><li>Remove BOOT jumper.</li><li>Power on (activity LED should flash).</li><li>Connect normally.</li></ul>"
     },
     "firmwareFlasherFirmwareNotLoaded": {
         "message": "Firmware ej laddad"

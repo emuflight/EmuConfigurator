@@ -411,10 +411,10 @@
         "message": "Emuflight dokumentācija ir pieejama relīzes dokumentācijā un wiki.<br /><br />"
     },
     "defaultDocumentation1": {
-        "message": "Emuflight wiki ir lielisks informācijas avots, to var atrast <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">šeit</a>."
+        "message": "The Emuflight wiki is a great resource for information, it can be found <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">here</a>.<br />The release notes for the firmware can be read at GitHub releases page, <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\">here</a>.<br />"
     },
     "defaultDocumentation2": {
-        "message": "Programmatūras relīzes dokumentācija ir pieejama GitHub relīžu lapā <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\">šeit</a>."
+        "message": "The EmuConfigurator wiki can be found <a href=\"https://github.com/emuflight/EmuConfigurator/wiki\" target=\"_blank\">here</a>.<br />The Configurator release notes can be read at GitHub releases page, <a href=\"https://github.com/emuflight/EmuConfigurator/releases\" target=\"_blank\">here</a>.<br />"
     },
     "defaultSupportHead": {
         "message": "Atbalsts"
@@ -1699,12 +1699,6 @@
     "motorsResetMaximum": {
         "message": "Atiestatīt maksimālo laiku"
     },
-    "motorsSensorGyroSelect": {
-        "message": "žiro"
-    },
-    "motorsSensorAccelSelect": {
-        "message": "aksel"
-    },
     "motorsMaster": {
         "message": "Galvenais"
     },
@@ -2057,7 +2051,7 @@
         "message": "<strong>Atkopšanas / Zaudēja komunikāciju</strong>"
     },
     "firmwareFlasherRecoveryText": {
-        "message": "Ja jums pazuda savienojums ar plati veiciet šos soļus, lai atjaunotu savienojumu: <ul><li>Atvienojiet no barošanas avota</li><li>Ieslēdziet 'Nepielietot restartu', Ieslēdziet 'Pilnīga kontroliera dzēšana'.</li><li>Savienojiet ielādes kontaktus vai turiet ielādes pogu.</li><li>Pieslēdziet barošanas avotam (LED aktīvi NEmirgos, ja viss ir izdarīts pareizi).</li><li>Ieinstalējiet visus STM32 draiverus un Zadig ja nepieciešams (skatīt <a href=\"https://github.com/EmuFlight/EmuFlight/wiki\"target=\"_blank\">USB Programmēšana</a> Emuflight manuāla sadaļā).</li><li>Aizveriet konfiguratoru, aizveriet visas Chrome ejošās instances, aizveriet visas Chrome aplikācijas, Pārstartējiet konfiguratoru.</li><li>Atlaidiet ielādes pogu ja tāda platei ir.</li><li> Saprogrammējiet ar pareizo programmatūru (pielietojiet specifisku datu ātrumu ja tāds ir norādīts plates manuāli).</li><li>Atvienojiet no barošanas avota.</li><li>Noņemiet ielādes savienotāju.</li><li>Pieslēdziet barošanas avotam (LED vajadzētu aktīvi mirgot).</li><li>Savienojieties kā parasti.</li></ul>"
+        "message": "If you have lost communication with your board follow these steps to restore communication: <ul><li>Power off</li><li>Enable 'No reboot sequence', enable 'Full chip erase'.</li><li>Jumper the BOOT pins or hold BOOT button.</li><li>Power on (activity LED will NOT flash if done correctly).</li><li>Install all STM32 drivers and Zadig if required (see <a href=\"https://github.com/emuflight/EmuFlight/wiki/Installing-Emuflight\"target=\"_blank\">USB Flashing</a> section of Emuflight manual).</li><li>Close configurator, Close all running chrome instances, Close all Chrome apps, Restart Configurator.</li><li>Release BOOT button if your FC has one.</li><li>Flash with correct firmware (using manual baud rate if specified in your FC's manual).</li><li>Power off.</li><li>Remove BOOT jumper.</li><li>Power on (activity LED should flash).</li><li>Connect normally.</li></ul>"
     },
     "firmwareFlasherFirmwareNotLoaded": {
         "message": "Programmatūra nav ielādēta"
@@ -2425,9 +2419,6 @@
     },
     "pidTuningItermRelaxType": {
         "message": "Tips:"
-    },
-    "pidTuningItermRelaxTypeOptionGyro": {
-        "message": "Žiro"
     },
     "pidTuningItermRelaxTypeOptionSetpoint": {
         "message": "Iestatījums"
