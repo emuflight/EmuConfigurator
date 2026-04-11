@@ -888,10 +888,10 @@
         "message": "비퍼 설정"
     },
     "beeperGYRO_CALIBRATED": {
-        "message": "자이로가 교정되면 신호음을 울립니다."
+        "message": "자이로 교정 완료"
     },
     "beeperRX_LOST": {
-        "message": "TX가 꺼져있거나 신호를 상실한 경우 신호음을 울립니다. (TX가 정상일 때까지 반복됩니다.)"
+        "message": "조종기 신호 끊김"
     },
     "beeperRX_LOST_LANDING": {
         "message": "아밍된 상태에서 TX가 꺼져있거나 신호를 상실한 경우 SOS 신호음을 울립니다. (자동착륙/자동해제)"
@@ -906,10 +906,10 @@
         "message": "보드가 아밍 중이고 GPS가 고정되면 특별한 톤으로 신호음을 울립니다."
     },
     "beeperBAT_CRIT_LOW": {
-        "message": "배터리가 매우 부족할 때 긴 경고음을 울립니다. (반복)"
+        "message": "배터리 경고"
     },
     "beeperBAT_LOW": {
-        "message": "배터리가 부족할 때 경고음을 울립니다. (반복)"
+        "message": "배터리 부족"
     },
     "beeperGPS_STATUS": {
         "message": "신호음의 수를 사용하여 GPS위성이 몇개나 발견되었는지 지시합니다."
@@ -936,7 +936,7 @@
         "message": "보드 전원을 켜면 초기화 신호음을 울립니다."
     },
     "beeperUSB": {
-        "message": "USB를 통해 비행컨트롤러에 전원이 공급되면 신호음이 울립니다. 작업대 위에 있을 때 신호음이 켜지지 않도록 하려면 이 옵션을 해제하세요."
+        "message": "USB 비퍼"
     },
     "beeperBLACKBOX_ERASE": {
         "message": "블랙박스 삭제가 완료되면 신호음을 울립니다."
@@ -1412,7 +1412,7 @@
         "message": "제어 활성화"
     },
     "auxiliaryHelp": {
-        "message": "여기서 범위 그리고/또는 다른 모드의 조합을 사용하여 모드를 구성합니다(링크는 BF 4.0 이후부터 지원됩니다). <strong>범위</strong>를 사용하여 조종기에 스위치를 정의하고 해당 모드를 할당합니다. 수신기 채널이 범위의 최소/최대값 사이에 읽혀지면 모드가 활성화됩니다. <strong>링크</strong>를 사용하여 다른 모드가 활성화될 때 모드를 활성화합니다. <strong>예외:</strong>아밍은 다른 모드에 또는 부터 링크될 수 없습니다. 모드는 링크(연결된 링크) 로 구성된 다른 모드에 링크될 수 없습니다. 여러 범위/링크가 어느 모드를 활성하기 위해 사용될 수 있습니다. 하나의 모드에 대해 정의된 범위/링크가 하나 이상일 경우, 각각은 <strong>AND</strong> 또는 <strong>OR</strong>로 설정할 수 있습니다. 모드는 다음의 경우에 활성화됩니다:<br />- 모든 <strong>AND</strong> 범위/링크가 활성화일 때; 또는<br />- 최소 하나의 <strong>OR</strong> 범위/링크가 활성화일 때.<br /><br />저장 버튼을 이용해서 당신의 설정을 저장하는 것을 명심하세요."
+        "message": "AUX 채널에서 모드를 활성화하려면 \"범위 추가\"를 클릭하십시오."
     },
     "auxiliaryToggleUnused": {
         "message": "사용하지 않는 모드 숨기기"
@@ -1430,7 +1430,7 @@
         "message": "링크 추가"
     },
     "auxiliaryButtonSave": {
-        "message": "저장"
+        "message": "모드 저장"
     },
     "auxiliaryEepromSaved": {
         "message": "EEPROM <span class=\"message-positive\">저장됨</span>"

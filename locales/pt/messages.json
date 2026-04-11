@@ -861,10 +861,10 @@
         "message": "Configuração dos Sinais Sonoros"
     },
     "beeperGYRO_CALIBRATED": {
-        "message": "Emite um sinal sonoro quando o giroscópio for calibrado"
+        "message": "Giroscópio calibrado"
     },
     "beeperRX_LOST": {
-        "message": "Emite um sinal sonoro quando o rádio é desligado ou o sinal é perdido (repetir até que o rádio esteja 'OK')"
+        "message": "Sinal de rádio perdido"
     },
     "beeperRX_LOST_LANDING": {
         "message": "Emite sons de SOS quando armado e o rádio é desligado ou o sinal é perdido (pouso automático/desarme automático)"
@@ -879,10 +879,10 @@
         "message": "Emite um tom especial quando o GPS encontrar satélites e a placa estiver armada"
     },
     "beeperBAT_CRIT_LOW": {
-        "message": "Emite sinais sonoros mais longos quando a bateria está criticamente baixa (repete)"
+        "message": "Bateria crítica"
     },
     "beeperBAT_LOW": {
-        "message": "Emite sinais sonoros quando a bateria estiver ficando fraca (repete)"
+        "message": "Bateria fraca"
     },
     "beeperGPS_STATUS": {
         "message": "Use a quantidade de tons para indicar quantos satélites GPS foram encontrados"
@@ -909,7 +909,7 @@
         "message": "Sinais sonoros de inicialização quando a placa é ligada"
     },
     "beeperUSB": {
-        "message": "Emitir um sinal sonoro quando o controlador de voo recebe energia via USB. Desligue esta opção se não desejar sons enquanto estiver na bancada"
+        "message": "Bipe USB"
     },
     "beeperBLACKBOX_ERASE": {
         "message": "Emitir um sinal sonoro quando terminar de limpar o Blackbox"
@@ -1349,10 +1349,10 @@
         "message": "Habilitar controles"
     },
     "auxiliaryHelp": {
-        "message": "Configure modos aqui usando uma combinação de intervalos e/ou links para outros modos (links suportados no BF 4.0 e posterior). Use <strong>intervalos</strong> para definir os Switches no seu transmissor e as atribuições de modo correspondente. Um canal receptor que fornece uma leitura entre um intervalo mínimo/máximo ativará o modo. Use um <strong>link</strong> para ativar um modo quando outro modo for ativado. <strong>Exceções:</strong> ARMAR não pode ser vinculado para ou a partir de outro modo, os modos não podem ser vinculados a outros modos configurados com um link (links em cadeia). Vários intervalos/links podem ser usados ​​para ativar qualquer modo. Se houver mais de um intervalo/link definido para um modo, cada um deles pode ser definido como<strong> AND</strong> ou <strong>OR</strong>. Um modo será ativado quando: <br /><strong>AND</strong> - Todos os intervalos/links estiverem ativos; <br /> <strong>OR</strong> - Pelo menos um intervalo/link está ativo. <br /><br /> Lembre-se de salvar as configurações usando o botão Salvar."
+        "message": "Clique em \"Adicionar Faixa\" para ativar um modo a partir de um canal AUX."
     },
     "auxiliaryToggleUnused": {
-        "message": "Ocultar modos não utilizados"
+        "message": "Ocultar modos não usados"
     },
     "auxiliaryAddRange": {
         "message": "Adicionar Intervalo"
@@ -1361,7 +1361,7 @@
         "message": "Adicionar Link"
     },
     "auxiliaryButtonSave": {
-        "message": "Salvar"
+        "message": "Salvar Modos"
     },
     "auxiliaryEepromSaved": {
         "message": "EEPROM <span class=\"message-positive\">salvo</span>"

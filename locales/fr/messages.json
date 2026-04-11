@@ -157,6 +157,9 @@
     "tabAdjustments": {
         "message": "Ajustements"
     },
+    "tabAuxiliary": {
+        "message": "Modes"
+    },
     "logActionHide": {
         "message": "Masquer les logs"
     },
@@ -843,10 +846,10 @@
         "message": "Configuration du Beeper"
     },
     "beeperGYRO_CALIBRATED": {
-        "message": "Bips après calibrage du gyro"
+        "message": "Gyro calibré"
     },
     "beeperRX_LOST": {
-        "message": "Bips après perte de signal ou extinction radiocommande (bip jusqu'au retour du signal)"
+        "message": "Signal radio perdu"
     },
     "beeperRX_LOST_LANDING": {
         "message": "Bips SOS si machine armée et perte de signal (auto atterrissage / auto désarmement)"
@@ -861,10 +864,10 @@
         "message": "Bip une mélodie lors de l'armement de la carte avec acquisition GPS"
     },
     "beeperBAT_CRIT_LOW": {
-        "message": "Bip avertisseur insistant sur batterie très faible (de façon répétée)"
+        "message": "Batterie critique"
     },
     "beeperBAT_LOW": {
-        "message": "Bip avertisseur sur batterie faible (de façon répétée)"
+        "message": "Batterie faible"
     },
     "beeperGPS_STATUS": {
         "message": "Le nombre de bip indique combien de satellites GPS ont été trouvés"
@@ -891,7 +894,7 @@
         "message": "Bips d'initialisation lorsque la carte est mise sous tension"
     },
     "beeperUSB": {
-        "message": "Bip lorsque le contrôleur de vol est alimenté par USB. Désactiver si vous ne voulez pas de bip lorsque vous êtes sur le plan de travail"
+        "message": "Bipeur USB"
     },
     "beeperBLACKBOX_ERASE": {
         "message": "Bip lorsque le formatage du log est terminé"
@@ -1289,10 +1292,10 @@
         "message": "Autoriser le contrôle"
     },
     "auxiliaryHelp": {
-        "message": "Configurer les modes en utilisant une combinaison de plages et/ou des liens vers d’autres modes (les liens sont supportés sur BF 4.0 et versions ultérieures). Utiliser des <strong>plages</strong>pour assigner des interrupteurs aux modes sur votre émetteur. Utiliser un <strong>lien</strong> pour activer un mode lorsqu'un autre mode est activé. <strong>Exceptions :</strong> L'ARMEMENT ne peut PAS être lié à un autre mode (amont et avale), les modes ne peuvent pas être liés à d'autres modes configurés en liens (liens chaînés). Plusieurs plages/liens (cumulés) peuvent être utilisés pour activer un mode. Si plus d'un lien/plage sont attribués à un mode, chacun peut être défini <strong>ET</strong> ou <strong>OU</strong>. Un mode sera actif quand:\n<br />- TOUS les liens/plages <strong>ET</strong> seront actifs;\nOU<br />- au moins un <strong>OU</strong> des liens/plages seront actifs.\n<br /><br />Ne pas oublier de sauvegarder les réglages avec le bouton Sauvegarder."
+        "message": "Appuyez sur \"Ajouter plage\" pour activer un mode depuis un canal AUX."
     },
     "auxiliaryToggleUnused": {
-        "message": "Masquer les modes non utilisés"
+        "message": "Cacher les modes inutilisés"
     },
     "auxiliaryMin": {
         "message": "Minimum"
@@ -1307,7 +1310,7 @@
         "message": "Ajouter un lien"
     },
     "auxiliaryButtonSave": {
-        "message": "Enregistrer"
+        "message": "Sauvegarder les modes"
     },
     "auxiliaryEepromSaved": {
         "message": "EEPROM <span class=\"message-positive\">enregistrée</span>"

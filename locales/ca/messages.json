@@ -148,6 +148,9 @@
     "tabAdjustments": {
         "message": "Ajustos"
     },
+    "tabAuxiliary": {
+        "message": "Modes"
+    },
     "logActionHide": {
         "message": "Amagar Log"
     },
@@ -705,10 +708,10 @@
         "message": "Configuració del Beeper"
     },
     "beeperGYRO_CALIBRATED": {
-        "message": "Sona quan el gyro ha sigut calibrat"
+        "message": "Giroscopi calibrat"
     },
     "beeperRX_LOST": {
-        "message": "Sona quan el TX s'apaga o es perd la senyal (es repeteix fins que el TX està correcte)"
+        "message": "Senyal de ràdio perdut"
     },
     "beeperRX_LOST_LANDING": {
         "message": "Sona SOS quan està armat i s'apaga el TX o es perd la senyal (autoaterrament/autodesarmat)"
@@ -723,10 +726,10 @@
         "message": "Sona un to especial quan armes la controladora i el GPS te ubicació"
     },
     "beeperBAT_CRIT_LOW": {
-        "message": "Sonen avisos més llargs quan la bateria està críticament baixa (es repeteix)"
+        "message": "Bateria crítica"
     },
     "beeperBAT_LOW": {
-        "message": "Sona quan la bateria s'està exhaurint (es repeteix)"
+        "message": "Bateria baixa"
     },
     "beeperACC_CALIBRATION": {
         "message": "Confirmació de calibració de l'acceleròmetre completada"
@@ -742,6 +745,9 @@
     },
     "beeperSYSTEM_INIT": {
         "message": "Sons d'inicialització quan arrenca la controladora"
+    },
+    "beeperUSB": {
+        "message": "Beuratge USB"
     },
     "beeperBLACKBOX_ERASE": {
         "message": "Sona quan l'esborrat de blackbox s'hagi completat"
@@ -1013,6 +1019,12 @@
     "receiverMspEnableButton": {
         "message": "Habilita els controls"
     },
+    "auxiliaryHelp": {
+        "message": "Premeu \"Afegeix Interval\" per habilitar un mode des d\"un canal AUX."
+    },
+    "auxiliaryToggleUnused": {
+        "message": "Amaga els modes no utilitzats"
+    },
     "auxiliaryMax": {
         "message": "Màx"
     },
@@ -1020,7 +1032,7 @@
         "message": "Afegeix Rang"
     },
     "auxiliaryButtonSave": {
-        "message": "Desa"
+        "message": "Desa els Modes"
     },
     "auxiliaryEepromSaved": {
         "message": "EEPROM <span class=\"message-positive\">desada</span>"

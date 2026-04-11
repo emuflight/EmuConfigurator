@@ -835,10 +835,10 @@
         "message": "Piepser Konfiguration"
     },
     "beeperGYRO_CALIBRATED": {
-        "message": "Piept, wenn Gyro kalibriert wurde"
+        "message": "Gyro kalibriert"
     },
     "beeperRX_LOST": {
-        "message": "Piept, wenn die Verbindung zur Fernsteuerung abgerissen ist (bis zur Wiederherstellung der Verbindung)"
+        "message": "Funksignal verloren"
     },
     "beeperRX_LOST_LANDING": {
         "message": "Piept SOS, wenn gearmt ist aber das Signal zur Fernsteuerung fehlt ( automatisch Landen / automatisch disarmen)"
@@ -853,10 +853,10 @@
         "message": "Piepse einen besoderen Ton falls gearmt ist und eine GPS Verbindung besteht"
     },
     "beeperBAT_CRIT_LOW": {
-        "message": "Piepse länger falls die Batteriespannungen einen kritischen Wert erreicht"
+        "message": "Akku kritisch"
     },
     "beeperBAT_LOW": {
-        "message": "Piepse falls die Batteriespannung gering ist"
+        "message": "Akkustand niedrig"
     },
     "beeperGPS_STATUS": {
         "message": "Die Anzahle der Töne gibt an, wieviel GPS Satelliten gefunden wurden."
@@ -883,7 +883,7 @@
         "message": "Einschaltpiepen, wenn der FC hochgefahren wurde"
     },
     "beeperUSB": {
-        "message": "Piept, wenn der FC durch USB mit Strom versorgt wird. Deaktiviere es, wenn du kein Piepen am Arbeitsplatz wünschst"
+        "message": "USB-Beeper"
     },
     "beeperBLACKBOX_ERASE": {
         "message": "Piepst, wenn Blackbox Log erfolgreich gelöscht"
@@ -1299,10 +1299,10 @@
         "message": "Kontrolle aktivieren"
     },
     "auxiliaryHelp": {
-        "message": "Konfiguration von Modi als Kombination aus Bereichen und/oder Verknüpfungen zu anderen Modi (Verknüpfungen werden ab BF 4.0 oder später unterstützt). Verwendung von <strong>Bereichen</strong> zur Definition der Schalter an der Fernsteuerung und deren Zuordnungen. Ein Empfängerkanal mit einem Wert innerhalb des min/max-Bereiches aktiviert den Modus. Verwendung von <strong>Verknüpfungen</strong> zur Aktivierung eines Modus, während ein anderer Modus aktiv ist. <strong>Ausnahmen:</strong> ARM kann nicht zu bzw. mit einem anderen Modus verknüpft werden, Modi können nicht mit anderen Modi verknüpft werden, wenn diese ihrerseits als Verknüpfung definiert sind (Verketten von Verknüpfungen). Es können mehrere Bereiche / Verknüpfungen verwendet werden, um einen Modus zu aktivieren. Falls für einen Modus mehr als ein Bereich / Verknüpfung definiert ist, können diese als <strong>UND</strong> oder <strong>ODER</strong> definiert werden. Ein Modus wird dann aktiviert, wenn:<br/>- ALLE <strong>UND</strong> Bereiche / Verknüpfungen aktiv sind; ODER<br/>- mindestens ein <strong>ODER</strong> Bereich / Verknüpfung aktiv ist.<br/><br/>Unbedingt die Einstellung mittels 'Save' speichern."
+        "message": "Klicken Sie auf \"Bereich hinzufügen\", um einen Modus über einen AUX-Kanal zu aktivieren."
     },
     "auxiliaryToggleUnused": {
-        "message": "Nicht verwendete Modi ausblenden"
+        "message": "Ungenutzte Modi ausblenden"
     },
     "auxiliaryAddRange": {
         "message": "Bereich hinzufügen"
@@ -1311,7 +1311,7 @@
         "message": "Link hinzufügen"
     },
     "auxiliaryButtonSave": {
-        "message": "Speichern"
+        "message": "Modi speichern"
     },
     "auxiliaryEepromSaved": {
         "message": "EEPROM <span class=\"message-positive\">gespeichert</span>"

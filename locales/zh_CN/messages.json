@@ -897,10 +897,10 @@
         "message": "蜂鸣器设置"
     },
     "beeperGYRO_CALIBRATED": {
-        "message": "陀螺仪校准完成后鸣叫"
+        "message": "陀螺仪校准完毕"
     },
     "beeperRX_LOST": {
-        "message": "遥控器关闭或信号丢失时持续鸣叫直到信号恢复"
+        "message": "遥控信号丢失"
     },
     "beeperRX_LOST_LANDING": {
         "message": "在解锁状态里遥控器关闭或信号丢失（自动降落/自动锁定）时鸣叫 SOS 信号"
@@ -915,10 +915,10 @@
         "message": "GPS 锁定后解锁飞控时鸣叫特殊音调"
     },
     "beeperBAT_CRIT_LOW": {
-        "message": "当电池电压严重偏低时持续长鸣"
+        "message": "电池电压极低"
     },
     "beeperBAT_LOW": {
-        "message": "当电池电压偏低时重复鸣叫"
+        "message": "电池电压低"
     },
     "beeperGPS_STATUS": {
         "message": "使用蜂鸣音的次数来表示找到了多少个 GPS 卫星"
@@ -945,7 +945,7 @@
         "message": "飞控上电时鸣叫初始化音"
     },
     "beeperUSB": {
-        "message": "通过 USB 连接飞控时启用蜂鸣器。不想在调试时听到鸣叫可禁用这个选项。"
+        "message": "USB 蜂鸣器"
     },
     "beeperBLACKBOX_ERASE": {
         "message": "黑匣子擦除完成时鸣叫"
@@ -1400,7 +1400,7 @@
         "message": "启用控制"
     },
     "auxiliaryHelp": {
-        "message": "在此处通过使用范围和/或链接到其他模式的组合配置飞行模式(BF4.0及更高版本支持链接) 。使用 <strong>范围</strong> 来定义遥控器上的开关和分配相应的模式。当接收机给出的通道值在最小/最大范围内将激活该模式。当一个模式被激活时，使用<strong>链接</strong>来激活另一个模式。<strong>例外:</strong> 解锁不能链接或者被链接到其他的模式，当一个模式已被链接则无法被再次链接(多重链接) 。多个范围/链接可以用于激活任何模式。如果为一个模式定义了多个范围/链接，则可以将每个范围/连接设置为<strong>和</strong> 或是 <strong>或</strong>。模式将在以下情况下被激活：<br />- 全部的<strong>和</strong> 范围/链接都激活; 或者是<br />-至少有一个 <strong>或</strong> 范围/链接激活.<br /><br />记得使用保存按钮来保存你的设置。"
+        "message": "点击 \"添加区间\" 来通过 AUX 通道启用特定模式。"
     },
     "auxiliaryToggleUnused": {
         "message": "隐藏未使用的模式"
@@ -1418,7 +1418,7 @@
         "message": "添加链接"
     },
     "auxiliaryButtonSave": {
-        "message": "保存"
+        "message": "保存模式"
     },
     "auxiliaryEepromSaved": {
         "message": "EEPROM <span class=\"message-positive\">已保存</span>"

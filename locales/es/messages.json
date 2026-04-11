@@ -870,10 +870,10 @@
         "message": "Configuración de Avisos Acústicos"
     },
     "beeperGYRO_CALIBRATED": {
-        "message": "Pita cuando el giro ha sido calibrado"
+        "message": "Giroscopio calibrado"
     },
     "beeperRX_LOST": {
-        "message": "Pita cuando el TX está apagado o se ha perdido la señal (repite hasta que TX correcto)"
+        "message": "Señal de radio perdida"
     },
     "beeperRX_LOST_LANDING": {
         "message": "Pita SOS cuando está armado y el TX está apagado o se ha perdido la señal (aterrizaje/desarmado automáticos)"
@@ -888,10 +888,10 @@
         "message": "Pita con un tono especial al armar la placa y el GPS está fijado"
     },
     "beeperBAT_CRIT_LOW": {
-        "message": "Pitidos de aviso más largos cuando la batería está crítica (repite)"
+        "message": "Batería crítica"
     },
     "beeperBAT_LOW": {
-        "message": "Pitidos de aviso cuando la batería está baja (repite)"
+        "message": "Batería baja"
     },
     "beeperGPS_STATUS": {
         "message": "Usa el número de pitidos para indicar cuantos satélites se han encontrado"
@@ -918,7 +918,7 @@
         "message": "Pitidos de inicialización cuando la placa se enciende"
     },
     "beeperUSB": {
-        "message": "Pita cuando el controlador de vuelo se alimenta desde el USB. Desactiva esto si no quieres pitidos en tu banco de trabajo"
+        "message": "Pitido USB"
     },
     "beeperBLACKBOX_ERASE": {
         "message": "Pita cuando el borrado de la caja negra finaliza"
@@ -1382,7 +1382,7 @@
         "message": "Activar controles"
     },
     "auxiliaryHelp": {
-        "message": "Configura aquí los modos usando una combinación de rangos y/o enlaces con otros modos (enlaces sólo para Emuflight 4.0 y posterior). Usa <strong>rangos</strong> para definir los interruptores en tu emisora y la asignación al modo correspondiente. Un canal receptor que dé una lectura entre un rango mínimo/máximo activará el modo. Usa un <strong>enlace</strong> para activar un modo cuando otro modo está activado. <strong>Excepciones:</strong> modo ARMAR no puede ser enlazado hacia o desde otro modo, los modos no pueden ser enlazados con otros modos que tengan configurados enlaces (enlaces encadenados). Múltiples rangos/enlaces pueden ser utilizados para activar cualquier modo. Si hay más de un rango/enlace definido para un modo, cada uno de ellos puede ser configurado como <strong>Y</strong> o como <strong>O</strong>. Un modo será activado cuando:<br />-TODOS los rangos/enlaces <strong>Y</strong> están activos; O<br />- al menos uno de los rangos/enlaces <strong>O</strong> está activo.<br /><br />Recuerda guardar tus ajustes pulsando el botón Guardar."
+        "message": "Pulse \"Añadir Rango\" para habilitar un modo desde un canal AUX."
     },
     "auxiliaryToggleUnused": {
         "message": "Ocultar modos no usados"
@@ -1400,7 +1400,7 @@
         "message": "Añadir Enlace"
     },
     "auxiliaryButtonSave": {
-        "message": "Guardar"
+        "message": "Guardar Modos"
     },
     "auxiliaryEepromSaved": {
         "message": "EEPROM <span class=\"message-positive\">guardada</span>"

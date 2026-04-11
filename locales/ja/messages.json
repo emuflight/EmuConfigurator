@@ -882,10 +882,10 @@
         "message": "ビープ音 設定"
     },
     "beeperGYRO_CALIBRATED": {
-        "message": "Gyroキャリブレーションしたときのビープ音"
+        "message": "ジャイロ校正完了"
     },
     "beeperRX_LOST": {
-        "message": "送信機がオフ、または信号消失時のビープ音 (正常になるまでリピート)"
+        "message": "プロポ信号紛失"
     },
     "beeperRX_LOST_LANDING": {
         "message": "アーム時に送信機がオフ、または信号消失時のSOSビープ音 (自動着陸 / 自動ディスアーム)"
@@ -900,10 +900,10 @@
         "message": "FCボードを作動させGPSを修正したときの特別なビープ音"
     },
     "beeperBAT_CRIT_LOW": {
-        "message": "バッテリーが非常に少ないときの、より長い警告ビープ音 (リピート)"
+        "message": "バッテリー残量警告"
     },
     "beeperBAT_LOW": {
-        "message": "バッテリーが少ないときの警告ビープ音 (リピート)"
+        "message": "バッテリー残量少"
     },
     "beeperGPS_STATUS": {
         "message": "ビープ回数でGPS衛星の検出数を示す"
@@ -930,7 +930,7 @@
         "message": "FCボードに電源が入ったときの初期ビープ音"
     },
     "beeperUSB": {
-        "message": "フライトコントローラがUSBから給電されたときのビープ音 (機体作成時に鳴らしたくない場合はオフにする)"
+        "message": "USB ブザー"
     },
     "beeperBLACKBOX_ERASE": {
         "message": "ブラックボックスログ消去が完了したときのビープ音"
@@ -1370,10 +1370,10 @@
         "message": "コントロール有効"
     },
     "auxiliaryHelp": {
-        "message": "範囲の組み合わせや他のモードへのリンク (BF 4.0以降でサポートされているリンク) を用いて、ここでモードを設定します。送信機にあるスイッチと、対応するモード割り当てを定義するには、 <strong>範囲</strong> を使用します。受信機側チャンネルにて最小/最大範囲の間で反応を示す場合は、そのモードが有効となるでしょう。別のモードが有効になっているときに他のモードを有効にするには、 <strong>リンク</strong> を使用します。 <strong>例外:</strong> ARMは他モードとの間でリンクはできません。対象とするモードをリンクで設定されている他モード (チェーンリンク) にリンクすることはできません。複数の範囲/リンクを使用して任意のモードを有効にすることができます。もしモードに複数の範囲/リンクが定義されている場合は、それぞれを <strong>AND</strong> または <strong>OR</strong> に設定ができます。モードは次の場合に有効となります: <br />- ALL <strong>AND</strong> 範囲/リンクが有効です; OR<br /> -少なくとも1つの <strong>OR </strong> 範囲/リンクが有効です。<br /><br />保存ボタンを使用して、設定を保存してください。"
+        "message": "「範囲を追加」をクリックして AUX チャンネルからモードを有効にします。"
     },
     "auxiliaryToggleUnused": {
-        "message": "未使用なモードは非表示"
+        "message": "未使用のモードを非表示"
     },
     "auxiliaryMin": {
         "message": "最小"
@@ -1388,7 +1388,7 @@
         "message": "リンクを追加"
     },
     "auxiliaryButtonSave": {
-        "message": "保存"
+        "message": "モードを保存"
     },
     "auxiliaryEepromSaved": {
         "message": "EEPROM <span class=\"message-positive\">保存しました</span>"

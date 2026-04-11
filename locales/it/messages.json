@@ -158,7 +158,7 @@
         "message": "Regolazioni"
     },
     "tabAuxiliary": {
-        "message": "Modalità di volo"
+        "message": "Modalità"
     },
     "logActionHide": {
         "message": "Nascondi Log"
@@ -774,10 +774,10 @@
         "message": "Configurazione dei Beep"
     },
     "beeperGYRO_CALIBRATED": {
-        "message": "Beep quando il giroscopio viene calibrato"
+        "message": "Giroscopio calibrato"
     },
     "beeperRX_LOST": {
-        "message": "Beep quando la TX viene spenta o viene perso il segnale (ripetuto finchè non viene ristabilita la connessione con la TX)"
+        "message": "Segnale radio perso"
     },
     "beeperRX_LOST_LANDING": {
         "message": "Beep di SOS quando armata e TX viene spento o viene perso il segnale (autoatterraggio/autodisarma)"
@@ -792,10 +792,10 @@
         "message": "Beep con tono speciale quando si arma la scheda e il GPS ha acquisito il segnale"
     },
     "beeperBAT_CRIT_LOW": {
-        "message": "Beep più lungo quando la batteria raggiunge un valore di scarica critico (ripeti)"
+        "message": "Batteria critica"
     },
     "beeperBAT_LOW": {
-        "message": "Beep di avviso quando la batteria si sta scaricando (ripeti)"
+        "message": "Batteria scarica"
     },
     "beeperGPS_STATUS": {
         "message": "Utilizzare il numero di bip per indicare quanti satelliti GPS sono stati trovati"
@@ -822,7 +822,7 @@
         "message": "Beep di inizializzazone quando la scheda viene accesa"
     },
     "beeperUSB": {
-        "message": "Beep quando il controllore di volo è alimentato da USB. Disabilita questo se non desideri i beep durante le prove"
+        "message": "Buzzer USB"
     },
     "beeperBLACKBOX_ERASE": {
         "message": "Beep quando la cancellazione del blackbox è stata completata"
@@ -1234,14 +1234,17 @@
     "receiverMspEnableButton": {
         "message": "Abilita i controlli"
     },
+    "auxiliaryHelp": {
+        "message": "Clicca \"Aggiungi Intervallo\" per abilitare una modalità da un canale AUX."
+    },
     "auxiliaryToggleUnused": {
-        "message": "Nascondi le modalità inutilizzate"
+        "message": "Nascondi modalità inutilizzate"
     },
     "auxiliaryAddRange": {
         "message": "Attiva"
     },
     "auxiliaryButtonSave": {
-        "message": "Salva"
+        "message": "Salva Modalità"
     },
     "auxiliaryEepromSaved": {
         "message": "EEPROM <span class=\"message-positive\">salvata</span>"
