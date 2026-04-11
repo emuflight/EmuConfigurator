@@ -24,7 +24,7 @@
         "message": "Conectar"
     },
     "connecting": {
-        "message": "Conectando"
+        "message": "Conectando..."
     },
     "disconnect": {
         "message": "Desconectar"
@@ -36,7 +36,7 @@
         "message": "Porta:"
     },
     "autoConnect": {
-        "message": "Auto-Conectar"
+        "message": "Auto-conectar"
     },
     "close": {
         "message": "Fechar"
@@ -83,7 +83,7 @@
         "message": "Barômetro"
     },
     "sensorStatusSonar": {
-        "message": "Sonar / Medidor de distância"
+        "message": "Sonar"
     },
     "checkForConfiguratorUnstableVersions": {
         "message": "Mostrar notificações de atualizações para versões instáveis do configurador"
@@ -381,7 +381,7 @@
         "message": "Erros I2C:"
     },
     "statusbar_cycle_time": {
-        "message": "Tempo de ciclo:"
+        "message": "Tempo de ciclo: $1"
     },
     "statusbar_cpu_load": {
         "message": "Carga da CPU: $1%"

@@ -15,7 +15,7 @@
         "message": "Connecta"
     },
     "connecting": {
-        "message": "Connectant"
+        "message": "Connectant..."
     },
     "disconnect": {
         "message": "Desconnecta"
@@ -27,7 +27,7 @@
         "message": "Port:"
     },
     "autoConnect": {
-        "message": "Auto-Connectar"
+        "message": "Auto-connecta"
     },
     "close": {
         "message": "Tanca"
@@ -71,7 +71,7 @@
         "message": "Baròmetre"
     },
     "sensorStatusSonar": {
-        "message": "Sònar / Mesurador de distància"
+        "message": "Sónar"
     },
     "checkForConfiguratorUnstableVersions": {
         "message": "Mostra la notificació de versions inestables del configurador"
@@ -354,10 +354,10 @@
         "message": "Error I2C:"
     },
     "statusbar_cycle_time": {
-        "message": "Temps de cicle:"
+        "message": "Temps de cicle: $1"
     },
     "statusbar_cpu_load": {
-        "message": "Càrrega de CPU: $1%"
+        "message": "Càrrega de la CPU: $1%"
     },
     "dfu_connect_message": {
         "message": "Si us plau, utilitza el Flashejador de Firmware per accedir als dispositius DFU"

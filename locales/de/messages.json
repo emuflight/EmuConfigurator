@@ -40,7 +40,7 @@
         "message": "Anschluss:"
     },
     "autoConnect": {
-        "message": "automatisch Verbinden"
+        "message": "Auto-Verbinden"
     },
     "close": {
         "message": "Schließen"
@@ -75,13 +75,19 @@
         "description": "Text of the dataflash image in the header of the page."
     },
     "sensorStatusGyro": {
-        "message": "Gyro"
+        "message": "Gyroscope"
     },
     "sensorStatusAccel": {
-        "message": "Accelerometer (accel)"
+        "message": "Accelerometer"
+    },
+    "sensorStatusMag": {
+        "message": "Magnetometer"
+    },
+    "sensorStatusBaro": {
+        "message": "Barometer"
     },
     "sensorStatusSonar": {
-        "message": "Sonar / Entfernungsmesser"
+        "message": "Sonar"
     },
     "checkForConfiguratorUnstableVersions": {
         "message": "Zeige Updateinformationen für experimentelle Versionen des Konfigurators"
@@ -363,8 +369,11 @@
     "statusbar_i2c_error": {
         "message": "I2C Fehler:"
     },
+    "statusbar_cycle_time": {
+        "message": "Zykluszeit: $1"
+    },
     "statusbar_cpu_load": {
-        "message": "CPU Auslastung: $1%"
+        "message": "CPU-Last: $1%"
     },
     "dfu_connect_message": {
         "message": "Bitte den Firmware Flasher ausführen um auf DFU Geräte zu zugreifen"
@@ -1629,13 +1638,16 @@
         "message": "Accelerometer (accel)"
     },
     "sensorsGyroTitle": {
-        "message": "Gyro - Grad / Sekunde"
+        "message": "Gyroscope"
     },
     "sensorsAccelTitle": {
-        "message": "Beschleunigung - g"
+        "message": "Accelerometer"
+    },
+    "sensorsMagTitle": {
+        "message": "Magnetometer"
     },
     "sensorsBaroTitle": {
-        "message": "Barometer - Meter"
+        "message": "Barometer"
     },
     "sensorsSonarTitle": {
         "message": "Sonar - CM"

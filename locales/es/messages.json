@@ -18,7 +18,7 @@
         "message": "Conectar"
     },
     "connecting": {
-        "message": "Conectando"
+        "message": "Conectando..."
     },
     "disconnect": {
         "message": "Desconectar"
@@ -30,7 +30,7 @@
         "message": "Puerto:"
     },
     "autoConnect": {
-        "message": "Auto-Conectar"
+        "message": "Auto-conectar"
     },
     "close": {
         "message": "Cerrar"
@@ -77,7 +77,7 @@
         "message": "Barómetro"
     },
     "sensorStatusSonar": {
-        "message": "Sonar / Telémetro"
+        "message": "Sonar"
     },
     "checkForConfiguratorUnstableVersions": {
         "message": "Mostrar notificaciones de actualizaciones para versiones no estables del configurador"
@@ -375,7 +375,7 @@
         "message": "Paquetes con error:"
     },
     "statusbar_cycle_time": {
-        "message": "Tiempo de Ciclo:"
+        "message": "Tiempo de ciclo: $1"
     },
     "statusbar_cpu_load": {
         "message": "Carga de CPU: $1%"

@@ -24,10 +24,10 @@
         "message": "연결"
     },
     "connecting": {
-        "message": "연결중"
+        "message": "연결중..."
     },
     "disconnect": {
-        "message": "연결 끊기"
+        "message": "연결 해제"
     },
     "portsSelectManual": {
         "message": "수동 선택"
@@ -36,7 +36,7 @@
         "message": "포트:"
     },
     "autoConnect": {
-        "message": "자동-연결"
+        "message": "자동 연결"
     },
     "close": {
         "message": "닫기"
@@ -83,7 +83,7 @@
         "message": "기압계"
     },
     "sensorStatusSonar": {
-        "message": "초음파 / 레인지 파인더"
+        "message": "소나"
     },
     "checkForConfiguratorUnstableVersions": {
         "message": "컨피규레이터의 불안정 버전의 업데이트 정보 보기"
@@ -387,10 +387,10 @@
         "message": "I2C 오류:"
     },
     "statusbar_cycle_time": {
-        "message": "사이클 시간:"
+        "message": "사이클 타임: $1"
     },
     "statusbar_cpu_load": {
-        "message": "CPU 로드: $1%"
+        "message": "CPU 부하: $1%"
     },
     "dfu_connect_message": {
         "message": "DFU 기기에 접속하려면 펌웨어 플래시 도구를 이용하세요."

@@ -24,7 +24,7 @@
         "message": "接続"
     },
     "connecting": {
-        "message": "接続中"
+        "message": "接続中..."
     },
     "disconnect": {
         "message": "切断"
@@ -83,7 +83,7 @@
         "message": "気圧計"
     },
     "sensorStatusSonar": {
-        "message": "超音波距離センサー"
+        "message": "ソナー"
     },
     "checkForConfiguratorUnstableVersions": {
         "message": "未検証バージョンの更新通知を表示"
@@ -381,10 +381,10 @@
         "message": "I2C エラー:"
     },
     "statusbar_cycle_time": {
-        "message": "サイクル時間:"
+        "message": "サイクルタイム: $1"
     },
     "statusbar_cpu_load": {
-        "message": "CPU使用率: $1%"
+        "message": "CPU 負荷: $1%"
     },
     "dfu_connect_message": {
         "message": "DFUデバイスへのアクセスはファームフラッシャーを使用して下さい"

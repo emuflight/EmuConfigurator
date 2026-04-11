@@ -21,10 +21,10 @@
         "message": "Настройка приложения"
     },
     "connect": {
-        "message": "Подключится"
+        "message": "Подключить"
     },
     "connecting": {
-        "message": "Подключение"
+        "message": "Подключение..."
     },
     "disconnect": {
         "message": "Отключить"
@@ -36,7 +36,7 @@
         "message": "Порт:"
     },
     "autoConnect": {
-        "message": "Подключаться автоматически"
+        "message": "Автоподключение"
     },
     "close": {
         "message": "Закрыть"
@@ -83,7 +83,7 @@
         "message": "Барометр"
     },
     "sensorStatusSonar": {
-        "message": "Сонар/Дальномер"
+        "message": "Сонар"
     },
     "checkForConfiguratorUnstableVersions": {
         "message": "Показывать уведомления о появлении нестабильных версий конфигуратора"
@@ -381,7 +381,7 @@
         "message": "I2C ошибки:"
     },
     "statusbar_cycle_time": {
-        "message": "Время цикла:"
+        "message": "Время цикла: $1"
     },
     "statusbar_cpu_load": {
         "message": "Загрузка CPU: $1%"

@@ -24,7 +24,7 @@
         "message": "连接"
     },
     "connecting": {
-        "message": "正在连接"
+        "message": "连接中..."
     },
     "disconnect": {
         "message": "断开连接"
@@ -83,7 +83,7 @@
         "message": "气压计"
     },
     "sensorStatusSonar": {
-        "message": "声呐 / 测距计"
+        "message": "声呐"
     },
     "checkForConfiguratorUnstableVersions": {
         "message": "显示测试版本的配置程序更新提示"
@@ -396,7 +396,7 @@
         "message": "I2C 错误:"
     },
     "statusbar_cycle_time": {
-        "message": "循环时间:"
+        "message": "循环时间: $1"
     },
     "statusbar_cpu_load": {
         "message": "CPU 负载: $1%"

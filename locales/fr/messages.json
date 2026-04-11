@@ -24,7 +24,7 @@
         "message": "Connecter"
     },
     "connecting": {
-        "message": "Connexion en cours"
+        "message": "Connexion..."
     },
     "disconnect": {
         "message": "Déconnecter"
@@ -36,7 +36,7 @@
         "message": "Port:"
     },
     "autoConnect": {
-        "message": "Connexion Automatique"
+        "message": "Auto-connexion"
     },
     "close": {
         "message": "Fermer"
@@ -70,6 +70,9 @@
         "message": "Blackbox: espace libre",
         "description": "Text of the dataflash image in the header of the page."
     },
+    "sensorStatusGyro": {
+        "message": "Gyroscope"
+    },
     "sensorStatusAccel": {
         "message": "Accéléromètre"
     },
@@ -80,7 +83,7 @@
         "message": "Baromètre"
     },
     "sensorStatusSonar": {
-        "message": "Sonar / Télémètre "
+        "message": "Sonar"
     },
     "checkForConfiguratorUnstableVersions": {
         "message": "Montrer les notifications de mise à jour des versions instables du configurateur"
@@ -378,10 +381,10 @@
         "message": "Erreur I2C:"
     },
     "statusbar_cycle_time": {
-        "message": "Durée de cycle:"
+        "message": "Temps de cycle : $1"
     },
     "statusbar_cpu_load": {
-        "message": "Charge CPU: $1%"
+        "message": "Charge CPU : $1%"
     },
     "dfu_connect_message": {
         "message": "Veuillez utiliser le 'Firmware Flasheur' pour accéder aux dispositifs en DFU"
