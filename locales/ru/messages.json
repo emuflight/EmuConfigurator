@@ -148,9 +148,6 @@
     "tabTransponder": {
         "message": "Транспондер гонки"
     },
-    "tabOsd": {
-        "message": "Настройка OSD"
-    },
     "tabPower": {
         "message": "Питание и аккумулятор"
     },
@@ -396,10 +393,10 @@
         "message": "Emuflight документация доступна в release notes и на wiki (на сайте Github).<br /><br />"
     },
     "defaultDocumentation1": {
-        "message": "Emuflight wiki - это отличный источник информации, который можно найти <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">здесь</a>."
+        "message": "The Emuflight wiki is a great resource for information, it can be found <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">here</a>.<br />The release notes for the firmware can be read at GitHub releases page, <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\">here</a>.<br />"
     },
     "defaultDocumentation2": {
-        "message": "Информацию о новых прошивках можно почитать на Github в разделе releases <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\">здесь</a>."
+        "message": "The EmuConfigurator wiki can be found <a href=\"https://github.com/emuflight/EmuConfigurator/wiki\" target=\"_blank\">here</a>.<br />The Configurator release notes can be read at GitHub releases page, <a href=\"https://github.com/emuflight/EmuConfigurator/releases\" target=\"_blank\">here</a>.<br />"
     },
     "defaultSupportHead": {
         "message": "Нужна помощь?"
@@ -1000,9 +997,6 @@
     },
     "portsTelemetryDisabled": {
         "message": "Отключено"
-    },
-    "portsFunction_GPS": {
-        "message": "Включает связь с модулем GPS."
     },
     "portsFunction_BLACKBOX": {
         "message": "Запись в Blackbox"
@@ -1696,12 +1690,6 @@
     "motorsResetMaximum": {
         "message": "Сбросить сверхурочный максимум"
     },
-    "motorsSensorGyroSelect": {
-        "message": "гиро"
-    },
-    "motorsSensorAccelSelect": {
-        "message": "аксел"
-    },
     "motorsMaster": {
         "message": "Мастер (Все)"
     },
@@ -2060,7 +2048,7 @@
         "message": "<strong>Потеря связи / Восстановление связи</strong>"
     },
     "firmwareFlasherRecoveryText": {
-        "message": "Если возникла потеря связи с вашим устройством, то следуйте следующим шагам, чтобы восстановить связь:<ul><li>Отключите питание</li><li>Включите \"No reboot sequence\", включите \"Полное стирание чипа\".</li><li>Замкните контакты \"BOOT\" или удерживайте кнопку BOOT.</li><li>Включите питание (светодиод НЕ будет мигать, если всё сделано правильно).</li><li>Установите STM32 драйвера и Zadig, если это необходимо (см. раздел <a href=\"https://github.com/EmuFlight/EmuFlight/wiki\"target=\"_blank\">USB Flashing</a> в инструкции Emuflight).</li><li>Закройте конфигуратор, закройте все Chrome приложения и завершите все chrome процессы, перезапустите конфигуратор.</li><li>Отпустите кнопку \"BOOT\", если она есть.</li><li>Залейте нужную прошивку (укажите ручной битрейт, если он указан в инструкции вашего полётного контроллера).</li><li>Отключите питание</li><li>Разомкните контакты \"BOOT\".</li><li>Включите питание (светодиод должен мигать).</li><li>Пробуйте подключиться.</li></ul>"
+        "message": "If you have lost communication with your board follow these steps to restore communication: <ul><li>Power off</li><li>Enable 'No reboot sequence', enable 'Full chip erase'.</li><li>Jumper the BOOT pins or hold BOOT button.</li><li>Power on (activity LED will NOT flash if done correctly).</li><li>Install all STM32 drivers and Zadig if required (see <a href=\"https://github.com/emuflight/EmuFlight/wiki/Installing-Emuflight\"target=\"_blank\">USB Flashing</a> section of Emuflight manual).</li><li>Close configurator, Close all running chrome instances, Close all Chrome apps, Restart Configurator.</li><li>Release BOOT button if your FC has one.</li><li>Flash with correct firmware (using manual baud rate if specified in your FC's manual).</li><li>Power off.</li><li>Remove BOOT jumper.</li><li>Power on (activity LED should flash).</li><li>Connect normally.</li></ul>"
     },
     "firmwareFlasherFirmwareNotLoaded": {
         "message": "Прошивка не загружена"
@@ -2163,14 +2151,6 @@
     },
     "ledStripModeColorsModeAngle": {
         "message": "Угол",
-        "description": "One of the modes in Color Mode in Led Strip"
-    },
-    "ledStripModeColorsModeMag": {
-        "message": "Маг",
-        "description": "One of the modes in Color Mode in Led Strip"
-    },
-    "ledStripModeColorsModeBaro": {
-        "message": "Баро",
         "description": "One of the modes in Color Mode in Led Strip"
     },
     "ledStripDirN": {
@@ -2439,9 +2419,6 @@
     },
     "pidTuningItermRelaxType": {
         "message": "Тип:"
-    },
-    "pidTuningItermRelaxTypeOptionGyro": {
-        "message": "Гиро"
     },
     "pidTuningItermRelaxTypeOptionSetpoint": {
         "message": "Уставка"
@@ -2784,9 +2761,6 @@
     },
     "powerBatteryCapacity": {
         "message": "Емкость (мАч)"
-    },
-    "osdSetupTitle": {
-        "message": "Настройка OSD"
     },
     "osdSetupPreviewHelp": {
         "message": "<strong>Примечание:</strong> OSD предпросмотр может отображаться не тем шрифтом, который установлен в полётном контроллере."
@@ -3246,7 +3220,7 @@
         "message": "Протокол ESC / Мотора"
     },
     "configurationEscProtocolHelp": {
-        "message": "Выберите ESC-протокол.<br>Убедитесь, что выбранный протокол поддерживается вашим ESC, информация об этом указана на сайте производителя.<br><b>Обратите внимание, при выборе протоколов DSHOT900 и DSHOT1200, не так много ESC поддерживают эти протоколы"
+        "message": "Select your motor protocol. <br>Make sure to verify the protocol is supported by your ESC, this information should be on the makers website. <br> <b>Be carefull using DSHOT900 and DSHOT1200 as not many ESC's support it!</b>"
     },
     "configurationunsyndePwm": {
         "message": "Скорость двигателя PWM отделенного от PID скорость"
@@ -3448,8 +3422,5 @@
     },
     "vtxButtonSave": {
         "message": "Сохранить настройки VTX"
-    },
-    "userLanguageSelect": {
-        "message": "Выбрать язык"
     }
 }

@@ -278,7 +278,7 @@
         "message": "Il configuratore <span class=\"message-negative\">non supporta</span> firmware diversi da Cleanflight o Emuflight. Solo la modalità CLI è supportata."
     },
     "firmwareUpgradeRequired": {
-        "message": "La versione del firmware installata sul dispositivo necessita di un aggiornamento. Usa il CLI per effettuare un backup prima dell'aggiornamento. La procedura è disponibile nella documentazione. <br/>In alternativa puoi scaricare una versione precedente del configuratore."
+        "message": "The firmware on this device needs upgrading to a newer version. Use CLI for backup before flashing. CLI backup/restore procedure is in the documention.<br />Alternatively download and use an old version of the configurator if you are not ready to upgrade."
     },
     "infoVersions": {
         "message": "Sistema operativo: <strong>{{operatingSystem}}</strong>, Chrome: <strong>{{chromeVersion}}</strong>, Configurator: <strong>{{configuratorVersion}}</strong>",
@@ -387,10 +387,10 @@
         "message": "La documentazione Emuflight è disponibile nelle note di versione e wiki.<br /><br />"
     },
     "defaultDocumentation1": {
-        "message": "Emuflight wiki è una grande risorsa in cui trovare informazioni, la trovi <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">QUI</a>."
+        "message": "The Emuflight wiki is a great resource for information, it can be found <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">here</a>.<br />The release notes for the firmware can be read at GitHub releases page, <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\">here</a>.<br />"
     },
     "defaultDocumentation2": {
-        "message": "Le informazioni relative alla release del firmware possono essere trovate sulla pagina GitHub delle nuove versioni, <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\">QUI</a>."
+        "message": "The EmuConfigurator wiki can be found <a href=\"https://github.com/emuflight/EmuConfigurator/wiki\" target=\"_blank\">here</a>.<br />The Configurator release notes can be read at GitHub releases page, <a href=\"https://github.com/emuflight/EmuConfigurator/releases\" target=\"_blank\">here</a>.<br />"
     },
     "defaultSupportHead": {
         "message": "Supporto"
@@ -904,9 +904,6 @@
     },
     "portsTelemetryDisabled": {
         "message": "disabilitato"
-    },
-    "portsFunction_GPS": {
-        "message": "Abilita la comunicazione con il modulo GPS."
     },
     "portsFunction_TELEMETRY_CRSF": {
         "message": "crossfire"
@@ -1546,12 +1543,6 @@
     "motorsResetMaximum": {
         "message": "Reimposta il massimo tempo supplementare"
     },
-    "motorsSensorGyroSelect": {
-        "message": "Gyro"
-    },
-    "motorsSensorAccelSelect": {
-        "message": "Accel"
-    },
     "motorsMaster": {
         "message": "Master (Tutti)"
     },
@@ -1880,7 +1871,7 @@
         "message": "<strong> Recupero / comunicazione persa </strong>"
     },
     "firmwareFlasherRecoveryText": {
-        "message": "Se hai perso la comunicazione con la tua scheda segui questi passaggi per ripristinare la comunicazione: <ul> <li> Spegni </li> <li> Abilita 'Nessuna sequenza di riavvio', attiva 'Cancellazione completa del chip'. </li> <li > Ponticellare i pin BOOT o tenere premuto il pulsante BOOT. </li> <li> Accendere (il LED di attività NON lampeggia se eseguito correttamente) </li> <li> Installa tutti i driver STM32 e Zadig se necessario (vedere sezione <a href = \"https://github.com/EmuFlight/EmuFlight/wiki\" target = \"_blank\"> USB Flashing</a> del manuale di Emuflight). </li> <li> Chiudi Configurator, chiudi tutte le istanze di Chrome in esecuzione, chiudi tutte le app di Chrome, riavvia Configurator. </li> <li> Rilascia il pulsante BOOT se il tuo FC ne ha uno. </li> <li> Flasha con il firmware corretto (utilizzando Baud rate manuale se specificato nel manuale del controllore di volo). </li> <li> Spegni. </li> <li> Rimuovi il ponticello di BOOT. </li> <li>Accendi (il LED di attività dovrebbe lampeggiare). </li> <li> Connetti normalmente.</li></ul>"
+        "message": "If you have lost communication with your board follow these steps to restore communication: <ul><li>Power off</li><li>Enable 'No reboot sequence', enable 'Full chip erase'.</li><li>Jumper the BOOT pins or hold BOOT button.</li><li>Power on (activity LED will NOT flash if done correctly).</li><li>Install all STM32 drivers and Zadig if required (see <a href=\"https://github.com/emuflight/EmuFlight/wiki/Installing-Emuflight\"target=\"_blank\">USB Flashing</a> section of Emuflight manual).</li><li>Close configurator, Close all running chrome instances, Close all Chrome apps, Restart Configurator.</li><li>Release BOOT button if your FC has one.</li><li>Flash with correct firmware (using manual baud rate if specified in your FC's manual).</li><li>Power off.</li><li>Remove BOOT jumper.</li><li>Power on (activity LED should flash).</li><li>Connect normally.</li></ul>"
     },
     "firmwareFlasherFirmwareNotLoaded": {
         "message": "Firmware non caricato"
@@ -2239,7 +2230,7 @@
         "message": "Rotazione arbitraria del controllore di volo, per permettere di montarlo di lato, sottosopra, ruotato ecc.. Quando si utilizzano sensori esterni, usa l'allineamento del sensore (Gyro, Acc, Mag) per definire la posizione del sensore indipendente dall'orientamento del controllore di volo."
     },
     "failsafeFeaturesHelpNew": {
-        "message": "Failsafe ha due stadi. <strong>Stadio 1</strong> viene inserito quando un canale di volo ha una durata dell'impulso non valida, il ricevitore segnala la modalità failsafe o non c'è alcun segnale dal ricevitore, le impostazioni di fallback del canale sono applicate a <span class=\"message-negative\">tutti i canali</span> e viene fornita una breve quantità di tempo per consentire il recupero. <strong>Stadio 2</strong> viene immesso quando la condizione di errore impiega più tempo del tempo di guardia configurato mentre il drone è <span class=\"message-negative\">armato</span>, tutti i canali rimarranno sulle impostazione di fallback a meno che non venga annullata dalla procedura scelta. <br/> <strong>Nota:</strong> prima di entrare nello Stadio 1, le impostazioni di fallback dei canali vengono applicate anche ai singoli canali AUX con impulsi non validi."
+        "message": "Failsafe has two stages. <strong>Stage 1</strong> is entered when a flightchannel has an invalid pulse length, the receiver reports failsafe mode or there is no signal from the receiver at all, the channel fallback settings are applied to <span class=\"message-negative\">all channels</span> and a short amount of time is provided to allow for recovery. <strong>Stage 2</strong> is entered when the error condition takes longer than the configured guard time while the craft is <span class=\"message-negative\">armed</span>, all channels will remain at the applied channel fallback setting unless overruled by the chosen procedure. <br /><strong>Note:</strong> Prior to entering stage 1, channel fallback settings are also applied to individual AUX channels that have invalid pulses."
     },
     "failsafePulsrangeTitle": {
         "message": "Impostazioni dell'intervallo di impulso valido"
@@ -2544,9 +2535,6 @@
     "powerBatteryCapacity": {
         "message": "Capacità (mAh)"
     },
-    "osdSetupTitle": {
-        "message": "Configurazione OSD"
-    },
     "osdSetupPreviewHelp": {
         "message": "<strong> Nota: </strong> l'anteprima OSD potrebbe non mostrare il carattere effettivo installato sul controller di volo."
     },
@@ -2554,7 +2542,7 @@
         "message": "Il tuo controllore di volo non risponde ai comandi OSD. Questo probabilmente significa che non ha un OSD BetaFlight integrato."
     },
     "osdSetupUnsupportedNote2": {
-        "message": "Tieni presente che alcuni controllori di volo hanno un <a href=\"https://www.youtube.com/watch?v=ikKH_6SQ-Tk\" target=\"_blank\">MinimOSD</a> integrato che può essere visualizzato e configurato con <a href = \"https://github.com/ShikOfTheRa/scarab-osd/releases/latest\" target=\"_blank\"> scarab-osd </a>, tuttavia il MinimOSD non può essere configurato tramite questa interfaccia."
+        "message": "Note that some flight controllers have an onboard <a href=\"https://www.youtube.com/watch?v=ikKH_6SQ-Tk\" target=\"_blank\">MinimOSD</a> that can be flashed and configured with <a href=\"https://github.com/ShikOfTheRa/scarab-osd/releases/latest\" target='_blank'>scarab-osd</a>, however the MinimOSD cannot be configured through this interface."
     },
     "osdSetupProfilesTitle": {
         "message": "Profili OSD"
@@ -3122,8 +3110,5 @@
     },
     "vtxButtonSave": {
         "message": "Salva VTX"
-    },
-    "userLanguageSelect": {
-        "message": "Scegli lingua"
     }
 }

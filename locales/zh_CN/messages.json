@@ -151,9 +151,6 @@
     "tabTransponder": {
         "message": "比赛应答器"
     },
-    "tabOsd": {
-        "message": "OSD 设置"
-    },
     "tabPower": {
         "message": "电源和电池"
     },
@@ -165,9 +162,6 @@
     },
     "tabRawSensorData": {
         "message": "传感器"
-    },
-    "tabCLI": {
-        "message": "命令行 (CLI)"
     },
     "tabLogging": {
         "message": "实时日志 (Logging)"
@@ -417,10 +411,10 @@
         "message": "Emuflight的文档和发布说明可以在wiki里面找到。<br /><br />"
     },
     "defaultDocumentation1": {
-        "message": "学习Emuflight最好的资源是使用Emuflight wiki，它在 <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">这里</a> 。"
+        "message": "The Emuflight wiki is a great resource for information, it can be found <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">here</a>.<br />The release notes for the firmware can be read at GitHub releases page, <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\">here</a>.<br />"
     },
     "defaultDocumentation2": {
-        "message": "最新发布版本的信息可以在 <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\">这里</a> 找到。"
+        "message": "The EmuConfigurator wiki can be found <a href=\"https://github.com/emuflight/EmuConfigurator/wiki\" target=\"_blank\">here</a>.<br />The Configurator release notes can be read at GitHub releases page, <a href=\"https://github.com/emuflight/EmuConfigurator/releases\" target=\"_blank\">here</a>.<br />"
     },
     "defaultSupportHead": {
         "message": "支持"
@@ -1034,14 +1028,8 @@
     "portsTelemetryDisabled": {
         "message": "已禁用"
     },
-    "portsFunction_GPS": {
-        "message": "启用与 GPS 模块的通信。"
-    },
     "portsFunction_TELEMETRY_FRSKY": {
         "message": "Frsky"
-    },
-    "portsFunction_ESC_SENSOR": {
-        "message": "电调"
     },
     "portsFunction_RX_SERIAL": {
         "message": "串行接收机"
@@ -1768,17 +1756,11 @@
     "motorsResetMaximum": {
         "message": "重置最大时间"
     },
-    "motorsSensorGyroSelect": {
-        "message": "陀螺仪"
-    },
-    "motorsSensorAccelSelect": {
-        "message": "加速度计"
-    },
     "motorsMaster": {
         "message": "总控制 (Master)"
     },
     "motorsNotice": {
-        "message": "<strong> 电机测试模式/解除锁定提示：</strong> <br/> 移动滑块或用遥控器解锁飞机会导致电机 <strong> 旋转 </strong>！ <br/> 为了避免造成伤害，在使用此功能之前<strong class=\"message-negative\">卸下所有螺旋桨</strong>！ <br/> 启用电机测试模式还将暂时禁用[预防起飞失控]，以避免在工作台上无螺旋桨测试时自动锁定电机。 <br/>"
+        "message": "<strong>Motor Test Mode / Arming Notice:</strong><br />Moving the sliders or arming your craft with the transmitter will cause the motors to <strong>spin up</strong>.<br />In order to prevent injury <strong class=\"message-negative\">remove ALL propellers</strong> before using this feature.<br />Enabling motor test mode will also temporarily disable Runaway Takeoff Prevention, to stop it from disarming the craft when bench testing without propellers.<br />"
     },
     "motorConfigNotice": {
         "message": "电机配置提示"
@@ -2132,7 +2114,7 @@
         "message": "<strong> 恢复/丢失通信 </strong>"
     },
     "firmwareFlasherRecoveryText": {
-        "message": "如果飞控板失去通信，你可以按照以下的几个步骤来恢复：<ul><li>关闭电源</li><li>打开'无重启序列'，打开‘擦除整个芯片‘选项。</li><li>短接BOOT引脚，或者按住BOOT 按键。</li><li>上电(如果操作正确，飞控的“活动”灯不会闪烁)。</li><li>如果需要请安装STM32 驱动和Zadig(参阅Emuflight手册<a href=\"https://github.com/EmuFlight/EmuFlight/wiki\"target=\"_blank\">USB Flashing</a> 部分 ).</li><li>关闭Befaflight软件，关闭所有Chrome应用，然后重新启动Emuflight。</li><li>释放BOOT按键（如有）。</li><li>烧写正确的固件(参照飞控厂商制定的波特率)。</li><li>断电。</li><li>移除BOOT引脚的短接。</li><li>上电(飞控“活动”灯应该会闪烁).</li><li>正常连接。</li></ul>"
+        "message": "If you have lost communication with your board follow these steps to restore communication: <ul><li>Power off</li><li>Enable 'No reboot sequence', enable 'Full chip erase'.</li><li>Jumper the BOOT pins or hold BOOT button.</li><li>Power on (activity LED will NOT flash if done correctly).</li><li>Install all STM32 drivers and Zadig if required (see <a href=\"https://github.com/emuflight/EmuFlight/wiki/Installing-Emuflight\"target=\"_blank\">USB Flashing</a> section of Emuflight manual).</li><li>Close configurator, Close all running chrome instances, Close all Chrome apps, Restart Configurator.</li><li>Release BOOT button if your FC has one.</li><li>Flash with correct firmware (using manual baud rate if specified in your FC's manual).</li><li>Power off.</li><li>Remove BOOT jumper.</li><li>Power on (activity LED should flash).</li><li>Connect normally.</li></ul>"
     },
     "firmwareFlasherFirmwareNotLoaded": {
         "message": "没有加载固件"
@@ -2231,14 +2213,6 @@
     },
     "ledStripModeColorsModeHeadfree": {
         "message": "无头模式",
-        "description": "One of the modes in Color Mode in Led Strip"
-    },
-    "ledStripModeColorsModeMag": {
-        "message": "磁力仪",
-        "description": "One of the modes in Color Mode in Led Strip"
-    },
-    "ledStripModeColorsModeBaro": {
-        "message": "气压计",
         "description": "One of the modes in Color Mode in Led Strip"
     },
     "ledStripDirN": {
@@ -2539,9 +2513,6 @@
     },
     "pidTuningItermRelaxType": {
         "message": "类型："
-    },
-    "pidTuningItermRelaxTypeOptionGyro": {
-        "message": "陀螺仪"
     },
     "pidTuningItermRelaxTypeOptionSetpoint": {
         "message": "设定点"
@@ -2887,9 +2858,6 @@
     },
     "powerBatteryCapacity": {
         "message": "容量 (mAh)"
-    },
-    "osdSetupTitle": {
-        "message": "OSD 配置"
     },
     "osdSetupPreviewHelp": {
         "message": "<strong>注意：</strong> 预览界面的字体有可能和实际OSD显示的字体不一样。"
@@ -3558,8 +3526,5 @@
     },
     "vtxButtonSave": {
         "message": "保存 VTX 设置"
-    },
-    "userLanguageSelect": {
-        "message": "选择语言"
     }
 }

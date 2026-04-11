@@ -151,9 +151,6 @@
     "tabTransponder": {
         "message": "トランスポンダー"
     },
-    "tabOsd": {
-        "message": "OSD 設定"
-    },
     "tabPower": {
         "message": "電源とバッテリー"
     },
@@ -402,10 +399,10 @@
         "message": "Emuflightドキュメントは、リリースノートおよび wiki にてご利用いただけます。<br /><br />"
     },
     "defaultDocumentation1": {
-        "message": "Emuflight wiki はすばらしい情報リソースを<a href=\"https://github.com/betaflight/betafli<a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">ght/wiki\" target=\"_blank\">こちら</a>で検索・確認することができます。"
+        "message": "The Emuflight wiki is a great resource for information, it can be found <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">here</a>.<br />The release notes for the firmware can be read at GitHub releases page, <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\">here</a>.<br />"
     },
     "defaultDocumentation2": {
-        "message": "ファームウェア リリースノートは、GitHub リリースページの<a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\">こちら</a>で確認いただけます。"
+        "message": "The EmuConfigurator wiki can be found <a href=\"https://github.com/emuflight/EmuConfigurator/wiki\" target=\"_blank\">here</a>.<br />The Configurator release notes can be read at GitHub releases page, <a href=\"https://github.com/emuflight/EmuConfigurator/releases\" target=\"_blank\">here</a>.<br />"
     },
     "defaultSupportHead": {
         "message": "サポート"
@@ -1019,9 +1016,6 @@
     "portsTelemetryDisabled": {
         "message": "無効"
     },
-    "portsFunction_GPS": {
-        "message": "GPS モジュールとの通信を有効にします。"
-    },
     "portsFunction_RX_SERIAL": {
         "message": "シリアル受信"
     },
@@ -1631,10 +1625,10 @@
         "message": "3D Fix"
     },
     "gpsFixTrue": {
-        "message": "<span class=\"text\">True</span>"
+        "message": "<span class=\"fixtrue\">True</span>"
     },
     "gpsFixFalse": {
-        "message": "<span class=\"text\">False</span>"
+        "message": "<span class=\"fixfalse\">False</span>"
     },
     "gpsAltitude": {
         "message": "高度"
@@ -1735,12 +1729,6 @@
     "motorsResetMaximum": {
         "message": "オーバータイム最大値をリセット"
     },
-    "motorsSensorGyroSelect": {
-        "message": "ジャイロ"
-    },
-    "motorsSensorAccelSelect": {
-        "message": "加速度センサー"
-    },
     "motorsMaster": {
         "message": "マスター (一括)"
     },
@@ -1754,7 +1742,7 @@
         "message": "モーターの磁極数"
     },
     "sensorsInfo": {
-        "message": "更新周期を速く設定し、複数のグラフを同時にレンダリングすると、リソースが重くなりノートPC等を使用するとバッテリーを早く消費してしまう場合があるので注意して下さい。<br/>必要とするセンサーのグラフを、適正な更新周期でレンダリングすることをお勧めします。"
+        "message": "Keep in mind that using fast update periods and rendering multiple graphs at the same time is resource heavy and will burn your battery quicker if you use a laptop.<br />We recommend to only render graphs for sensors you are interested in while using reasonable update periods."
     },
     "sensorsRefresh": {
         "message": "更新:"
@@ -2096,7 +2084,7 @@
         "message": "<strong>リカバリー / 通信ロスト</strong>"
     },
     "firmwareFlasherRecoveryText": {
-        "message": "FCボードとの通信が切断された場合は、次の手順に従って通信を復元して下さい: <ul><li>電源をオフします。</li><li>[再起動シーケンスなし] を有効にし [チップメモリの完全消去] を有効にします。</li><li>BOOTピンをジャンパするか、またはBOOTボタンを押し続けます。</li><li>電源をオンします。 (正しく行われればアクティビティLEDは点滅しません) </li><li>必要に応じて、全てのSTM32ドライバとZadigをインストールします。 (Emuflightマニュアルの [<a href=\"https://github.com/EmuFlight/EmuFlight/wiki\"target=\"_blank\">USB Flashing</a>] 章を参照) </li><li>Configuratorを閉じ、全てのChromeアプリケーションを終了し、Configuratorを再起動します。</li><li>FCのBOOTボタン1つだけであれば、BOOTボタンを放して下さい。</li><li>正常なファームウェアをフラッシュして下さい。 (FCのマニュアルで指定されている場合は手動で伝送速度を調整して下さい) </li><li>電源をオフします。</li><li>BOOTピンのジャンパを取り外します。</li><li>電源をオンします。 (アクティビティLEDが点滅するはずです) </li><li>再度、通常通り接続して下さい。</li></ul>"
+        "message": "If you have lost communication with your board follow these steps to restore communication: <ul><li>Power off</li><li>Enable 'No reboot sequence', enable 'Full chip erase'.</li><li>Jumper the BOOT pins or hold BOOT button.</li><li>Power on (activity LED will NOT flash if done correctly).</li><li>Install all STM32 drivers and Zadig if required (see <a href=\"https://github.com/emuflight/EmuFlight/wiki/Installing-Emuflight\"target=\"_blank\">USB Flashing</a> section of Emuflight manual).</li><li>Close configurator, Close all running chrome instances, Close all Chrome apps, Restart Configurator.</li><li>Release BOOT button if your FC has one.</li><li>Flash with correct firmware (using manual baud rate if specified in your FC's manual).</li><li>Power off.</li><li>Remove BOOT jumper.</li><li>Power on (activity LED should flash).</li><li>Connect normally.</li></ul>"
     },
     "firmwareFlasherFirmwareNotLoaded": {
         "message": "ファームウェアが読込まれていません"
@@ -2203,14 +2191,6 @@
     },
     "ledStripModeColorsModeAngle": {
         "message": "アングル",
-        "description": "One of the modes in Color Mode in Led Strip"
-    },
-    "ledStripModeColorsModeMag": {
-        "message": "コンパス",
-        "description": "One of the modes in Color Mode in Led Strip"
-    },
-    "ledStripModeColorsModeBaro": {
-        "message": "気圧センサー",
         "description": "One of the modes in Color Mode in Led Strip"
     },
     "ledStripModesOrientationTitle": {
@@ -2469,9 +2449,6 @@
     },
     "pidTuningItermRelaxType": {
         "message": "タイプ:"
-    },
-    "pidTuningItermRelaxTypeOptionGyro": {
-        "message": "ジャイロ"
     },
     "pidTuningItermRelaxTypeOptionSetpoint": {
         "message": "セットポイント"
@@ -2817,9 +2794,6 @@
     },
     "powerBatteryCapacity": {
         "message": "容量 (mAh)"
-    },
-    "osdSetupTitle": {
-        "message": "OSD 設定"
     },
     "osdSetupPreviewHelp": {
         "message": "<strong>注:</strong> プレビュー画面のフォントは実際のフォントと異なる場合があります。"
@@ -3485,8 +3459,5 @@
     },
     "vtxButtonSave": {
         "message": "VTX 設定を保存"
-    },
-    "userLanguageSelect": {
-        "message": "言語を選択"
     }
 }

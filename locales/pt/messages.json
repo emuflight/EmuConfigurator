@@ -393,10 +393,10 @@
         "message": "A documentação do Emuflight está disponível nas notas de lançamento e no wiki.<br /><br />"
     },
     "defaultDocumentation1": {
-        "message": "O wiki do Emuflight é um grande recurso para obter informações, ele pode ser encontrado <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\"> aqui</a>."
+        "message": "The Emuflight wiki is a great resource for information, it can be found <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">here</a>.<br />The release notes for the firmware can be read at GitHub releases page, <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\">here</a>.<br />"
     },
     "defaultDocumentation2": {
-        "message": "As notas de lançamento para o firmware podem ser lidas na página de versões do Github, <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\">aqui</a>."
+        "message": "The EmuConfigurator wiki can be found <a href=\"https://github.com/emuflight/EmuConfigurator/wiki\" target=\"_blank\">here</a>.<br />The Configurator release notes can be read at GitHub releases page, <a href=\"https://github.com/emuflight/EmuConfigurator/releases\" target=\"_blank\">here</a>.<br />"
     },
     "defaultSupportHead": {
         "message": "Suporte"
@@ -1636,12 +1636,6 @@
     "motorsResetMaximum": {
         "message": "Redefinir valores máximos do gráfico"
     },
-    "motorsSensorGyroSelect": {
-        "message": "giroscópio"
-    },
-    "motorsSensorAccelSelect": {
-        "message": "acelerômetro"
-    },
     "motorsMaster": {
         "message": "Mestre (Todos)"
     },
@@ -1976,7 +1970,7 @@
         "message": "<strong>Recuperação / Comunicação perdida</strong>"
     },
     "firmwareFlasherRecoveryText": {
-        "message": "Se você perdeu a comunicação com sua placa, siga estas instruções para restaurar a comunicação: <ul><li>Desligue a placa</li><li>Ative a opção 'Sem sequencia de reinicialização' e 'Formatar chip'.</li><li> Faça 'curto-circuito' aos pinos BOOT ou segure o botão BOOT.</li><li>Ligue a placa (O LED de atividade NÃO irá piscar se realizado corretamente).</li><li>Instale todos os drivers STM32 e Zadig se necessário (veja a sessão <a href=\"https://github.com/EmuFlight/EmuFlight/wiki\"target=\"_blank\">USB Flashing</a> do manual do Emuflight).</li><li>Feche o Configurador. Feche todas as janelas no Chrome, Feche todos aplicativos do Chrome, Reinicie o Configurador.</li><li>Solte o botão BOOT se seu FC tem um.</li><li>Atualize o Firmware correto (usando o Baud rate manual se especificado no manual do seu FC).</li><li>Desligue a placa.</li><li>Remova o 'curto-circuito' do BOOT.</li><li>Ligue a placa (O LED de atividade deve piscar).</li><li>Conecte normalmente.</li></ul>"
+        "message": "If you have lost communication with your board follow these steps to restore communication: <ul><li>Power off</li><li>Enable 'No reboot sequence', enable 'Full chip erase'.</li><li>Jumper the BOOT pins or hold BOOT button.</li><li>Power on (activity LED will NOT flash if done correctly).</li><li>Install all STM32 drivers and Zadig if required (see <a href=\"https://github.com/emuflight/EmuFlight/wiki/Installing-Emuflight\"target=\"_blank\">USB Flashing</a> section of Emuflight manual).</li><li>Close configurator, Close all running chrome instances, Close all Chrome apps, Restart Configurator.</li><li>Release BOOT button if your FC has one.</li><li>Flash with correct firmware (using manual baud rate if specified in your FC's manual).</li><li>Power off.</li><li>Remove BOOT jumper.</li><li>Power on (activity LED should flash).</li><li>Connect normally.</li></ul>"
     },
     "firmwareFlasherFirmwareNotLoaded": {
         "message": "Firmware não carregado"
@@ -2607,9 +2601,6 @@
     },
     "powerBatteryCapacity": {
         "message": "Capacidade (mAh)"
-    },
-    "osdSetupTitle": {
-        "message": "Configuração OSD"
     },
     "osdSetupPreviewHelp": {
         "message": "<strong>Nota:</strong> Pode ser que a fonte da pré-visualização do OSD não seja a mesma da fonte instalada no controlador de voo."

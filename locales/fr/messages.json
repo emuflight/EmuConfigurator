@@ -378,10 +378,10 @@
         "message": "La documentation Emuflight est disponible en manuel et en wiki.<br /><br />"
     },
     "defaultDocumentation1": {
-        "message": "Le Wiki de Emuflight est une bonne source d'information, celle-ci est disponible <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">ici</a>."
+        "message": "The Emuflight wiki is a great resource for information, it can be found <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">here</a>.<br />The release notes for the firmware can be read at GitHub releases page, <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\">here</a>.<br />"
     },
     "defaultDocumentation2": {
-        "message": "Les notes de version de microprogramme peuvent être lues sur la page des versions GitHub, <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\">ici</a>."
+        "message": "The EmuConfigurator wiki can be found <a href=\"https://github.com/emuflight/EmuConfigurator/wiki\" target=\"_blank\">here</a>.<br />The Configurator release notes can be read at GitHub releases page, <a href=\"https://github.com/emuflight/EmuConfigurator/releases\" target=\"_blank\">here</a>.<br />"
     },
     "defaultSupportSubline1": {
         "message": "Sources"
@@ -961,9 +961,6 @@
     },
     "portsTelemetryDisabled": {
         "message": "Désactivé"
-    },
-    "portsFunction_GPS": {
-        "message": "Active la communication avec le module GPS."
     },
     "portsFunction_TELEMETRY_FRSKY": {
         "message": "Frsky"
@@ -1910,7 +1907,7 @@
         "message": "<strong>Récupération / Communication coupée</strong>"
     },
     "firmwareFlasherRecoveryText": {
-        "message": "Si vous avez perdu la communication avec votre carte essayez ces procédures: <ul><li>Débranchez</li><li> Activez 'Séquence sans redémarrage', Activez 'Effacement complet de la puce '.</li><li>shuntez les bornes BOOT ou maintenez le bouton BOOT.</li><li>Re branchez (La LED d'activités ne devrait pas s'allumer).</li><li>Installez les drivers STM32 drivers et Zadig si nécessaire (voir <a href=\"https://github.com/EmuFlight/EmuFlight/wiki\"target=\"_blank\">USB Flashing</a> section of Emuflight manual).</li><li>Fermez le configurateur, Fermez toutes les instances de Chrome, Fermez toutes les applications Chrome, Redémarrez le Configurateur.</li><li>Relachez le bouton BOOT.</li><li>Flashez avec le bon firmware (en utilisant le bon baudrate).</li><li>Déconnectez.</li><li>Supprimez le shunt sur le BOOT.</li><li>Re branchez (La LED d'activités devrait flasher).</li><li>Connectez normalement.</li></ul>"
+        "message": "If you have lost communication with your board follow these steps to restore communication: <ul><li>Power off</li><li>Enable 'No reboot sequence', enable 'Full chip erase'.</li><li>Jumper the BOOT pins or hold BOOT button.</li><li>Power on (activity LED will NOT flash if done correctly).</li><li>Install all STM32 drivers and Zadig if required (see <a href=\"https://github.com/emuflight/EmuFlight/wiki/Installing-Emuflight\"target=\"_blank\">USB Flashing</a> section of Emuflight manual).</li><li>Close configurator, Close all running chrome instances, Close all Chrome apps, Restart Configurator.</li><li>Release BOOT button if your FC has one.</li><li>Flash with correct firmware (using manual baud rate if specified in your FC's manual).</li><li>Power off.</li><li>Remove BOOT jumper.</li><li>Power on (activity LED should flash).</li><li>Connect normally.</li></ul>"
     },
     "firmwareFlasherFirmwareNotLoaded": {
         "message": "Microprogramme non chargé"
@@ -2551,9 +2548,6 @@
     },
     "powerBatteryCapacity": {
         "message": "Capacité (mAh)"
-    },
-    "osdSetupTitle": {
-        "message": "Paramètres OSD"
     },
     "osdSetupPreviewHelp": {
         "message": "<strong>Note: </strong> La police d'écriture sur l’aperçu OSD et celle installée dans le contrôleur de vol peuvent être différentes."
@@ -3247,8 +3241,5 @@
     },
     "vtxButtonSave": {
         "message": "Sauvegarder VTX"
-    },
-    "userLanguageSelect": {
-        "message": "Choisir la langue"
     }
 }

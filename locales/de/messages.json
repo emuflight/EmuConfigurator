@@ -373,10 +373,10 @@
         "message": "Emuflight Dokumentation gibt es in den Release Notes und im Wiki.<br /><br />"
     },
     "defaultDocumentation1": {
-        "message": "Das Emuflight Wiki ist eine großartige Quelle für Informationen. Es kann <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">hier</a> aufgerufen werden"
+        "message": "The Emuflight wiki is a great resource for information, it can be found <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">here</a>.<br />The release notes for the firmware can be read at GitHub releases page, <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\">here</a>.<br />"
     },
     "defaultDocumentation2": {
-        "message": "Die Release Notes für neue Firmware gibt es auf der  <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\">Github Release Seite</a>."
+        "message": "The EmuConfigurator wiki can be found <a href=\"https://github.com/emuflight/EmuConfigurator/wiki\" target=\"_blank\">here</a>.<br />The Configurator release notes can be read at GitHub releases page, <a href=\"https://github.com/emuflight/EmuConfigurator/releases\" target=\"_blank\">here</a>.<br />"
     },
     "defaultSupportHead": {
         "message": "Hilfe"
@@ -957,9 +957,6 @@
     "portsTelemetryDisabled": {
         "message": "Deaktiviert"
     },
-    "portsFunction_GPS": {
-        "message": "Aktiviert die Kommunikation mit dem GPS-Modul."
-    },
     "portsFunction_RX_SERIAL": {
         "message": "serieller Empfänger"
     },
@@ -1197,7 +1194,7 @@
         "message": "EEPROM <span class=\"message-positive\">gespeichert</span>"
     },
     "receiverHelp": {
-        "message": "Bitte das Kapitel über Empfänger in der Dokumentation lesen. Seriellen Empfänger (falls nötig) konfigurieren, Protokoll auswählen, Empfänger verbinden und Kanäle zuweisen. Endpunkte so wählen, dass alle Kanäle von ~ 1000 - ~2000 gehen. Mittelwert auf 1500 festelgen. <span class=\"message-negative\">WICHTIG:</span> Ebenso bitte Failsafe konfigurieren, bzw. das Kapital darüber in der Dokumentation lesen."
+        "message": "Please read receiver chapter of the documentation.  Configure serial port (if required), receiver mode (serial/ppm/pwm), provider (for serial receivers), bind receiver, set channel map, configure channel endpoints/range on TX so that all channels go from ~1000 to ~2000.  Set midpoint (default 1500), trim channels to 1500, configure stick deadband, verify behaviour when TX is off or out of range.<br /><span class=\"message-negative\">IMPORTANT:</span> Before flying read failsafe chapter of documentation and configure failsafe."
     },
     "tuningHelp": {
         "message": "<b>Tuning tips</b><br /><span class=\"message-negative\">Hinweis:</span> Es ist wichtig, bei den ersten Flügen, die Motortemperatur im Auge zu behalten. Je höher die Filterwerte, desto besser könnte er fliegen, aber es wird auch mehr Rauschen in die Motoren geben.<br>Die Standarteinstellung 100Hz ist optimal, für problematische Setups könnte man jedoch richtung 50Hz Dterm Filter (und eventuell auch beim Gyro-Filter) gehen."
@@ -1565,12 +1562,6 @@
     "motorsResetMaximum": {
         "message": "Max. Zeitüberschreitung zurücksetzen"
     },
-    "motorsSensorGyroSelect": {
-        "message": "Gyro"
-    },
-    "motorsSensorAccelSelect": {
-        "message": "Accelerometer (accel)"
-    },
     "motorsMaster": {
         "message": "Master (Alle)"
     },
@@ -1584,7 +1575,7 @@
         "message": "Magnetpole des Motors"
     },
     "sensorsInfo": {
-        "message": "Beachte, dass ein kurze Abtastperiode und das Darstellen mehrerer Graphen gleichzeitig resourcenhungrig ist und den Akkuverbrauch deines Notebooks steigert, wenn du eines benutzt.<br/>Wir empfehlen nur Graphen darzustellen, welche dich interessieren und mit sinnvollen Aktualisierungswerten."
+        "message": "Keep in mind that using fast update periods and rendering multiple graphs at the same time is resource heavy and will burn your battery quicker if you use a laptop.<br />We recommend to only render graphs for sensors you are interested in while using reasonable update periods."
     },
     "sensorsRefresh": {
         "message": "Abtasten:"
@@ -1908,7 +1899,7 @@
         "message": "<strong>Wiederherstellung / abgebrochene Kommunikation</strong>"
     },
     "firmwareFlasherRecoveryText": {
-        "message": "Wenn du die Verbindung zu deinem FC verloren hast:<ul><li>Abschalten</li><li> 'Nicht Rebooten' aktivieren, 'Speicher löschen' aktivieren.</li><li>BOOT-Pins überbrücken oder BOOT-Knopf drücken.</li><li>Einschalten (Aktivitäts-LED wird NICHT blinken, wenn alles klappt).</li><li>STM32-Treiber und Zadig installieren (falls benötigt, siehe <a href=\"https://github.com/EmuFlight/EmuFlight/wiki\"target=\"_blank\">USB Flashing</a> Abschnitt des Emuflight-Handbuches).</li><li>Konfigurator schliessen, alle Chrome-Instanzen schliessen, alle Chrome-Apps schliessen, Konfigurator neustarten</li><li>BOOT-Knopf loslassen, wenn dein FC einen hat.</li><li>Korrekte Firmware flashen (mit manueller Baudrate, falls das im Handbuch von deinem FC steht).</li><li>FC abschalten.</li><li>BOOT-Jumper entfernen (falls dein FC einen hat).</li><li>FC einschalten (Aktivitäts-LED sollte blinken).</li><li>Normal verbinden.</li></ul>"
+        "message": "If you have lost communication with your board follow these steps to restore communication: <ul><li>Power off</li><li>Enable 'No reboot sequence', enable 'Full chip erase'.</li><li>Jumper the BOOT pins or hold BOOT button.</li><li>Power on (activity LED will NOT flash if done correctly).</li><li>Install all STM32 drivers and Zadig if required (see <a href=\"https://github.com/emuflight/EmuFlight/wiki/Installing-Emuflight\"target=\"_blank\">USB Flashing</a> section of Emuflight manual).</li><li>Close configurator, Close all running chrome instances, Close all Chrome apps, Restart Configurator.</li><li>Release BOOT button if your FC has one.</li><li>Flash with correct firmware (using manual baud rate if specified in your FC's manual).</li><li>Power off.</li><li>Remove BOOT jumper.</li><li>Power on (activity LED should flash).</li><li>Connect normally.</li></ul>"
     },
     "firmwareFlasherFirmwareNotLoaded": {
         "message": "Firmware nicht geladen"
@@ -2479,9 +2470,6 @@
     },
     "powerBatteryCapacity": {
         "message": "Kapazität (mAh)"
-    },
-    "osdSetupTitle": {
-        "message": "OSD-Einstellungen"
     },
     "osdSetupPreviewHelp": {
         "message": "<strong>Hinweis:</strong> OSD-Vorschau eventuell nicht in der Schriftart, welche aktuell auf dem FC installiert ist."
@@ -3135,8 +3123,5 @@
     },
     "vtxButtonSave": {
         "message": "VTX-Einstellungen speichern"
-    },
-    "userLanguageSelect": {
-        "message": "Sprache wählen"
     }
 }
