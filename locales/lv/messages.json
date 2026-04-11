@@ -1291,12 +1291,6 @@
     "tuningHelp": {
         "message": "<b>Ieregulēšanas ieteikumi </b><br /><span class=\"message-negative\">SVARĪGI:</span> Ir svarīgi pārbaudīt motoru temperatūras pirmā lidojuma laikā. Jo lielākas filtru vērtības, jo labāk iespējams tas lidos, bet jūs iegūsiet lielāku trokšņu līmeni motoros. <br>Noklusētā vērtība 100Hz ir optimāla, bet pie trokšņainākām konstrukcijām, jūs varat mēģināt samazināt Dterm filtru uz 50Hz un iespējams arī žiroskopa filtru."
     },
-    "receiverThrottleMid": {
-        "message": "Droseles vidus"
-    },
-    "receiverThrottleExpo": {
-        "message": "Droseles EKSPO"
-    },
     "receiverStickMin": {
         "message": "'svira lejā' slieksnis"
     },

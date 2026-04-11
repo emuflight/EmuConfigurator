@@ -1285,12 +1285,6 @@
     "filterWarning": {
         "message": "<span class=\"message-negative\"><b>Atención:</b></span> La cantidad de filtrado que estás usando es peligrosamente baja. Esto puede hacer que la aeronave sea difícil de controlar, y puede que se vaya volando. Es altamente recomendable que <b>actives al menos uno de los Giro Paso Bajo Dinámico o el Giro Paso Bajo 1 y al menos uno de los D Term Paso Bajo 1 Dinámico o D Term Paso Bajo 1</b>."
     },
-    "receiverThrottleMid": {
-        "message": "Throttle Mid"
-    },
-    "receiverThrottleExpo": {
-        "message": "Throttle Expo"
-    },
     "receiverStickMin": {
         "message": "Stick Mínimo"
     },

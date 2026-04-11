@@ -1300,12 +1300,6 @@
     "filterWarning": {
         "message": "<span class=\"message-negative\"><b>警告：</b></span>你使用的滤波器数量非常少。这可能会导致飞机难以控制，并可能导致起飞暴走。强烈建议您<b>至少启用一个陀螺仪动态低通滤波器或者陀螺仪低通滤波器1和一个Dterm动态低通滤波器或Dterm低通滤波器1</b>"
     },
-    "receiverThrottleMid": {
-        "message": "油门中间点"
-    },
-    "receiverThrottleExpo": {
-        "message": "油门指数 (Expo)"
-    },
     "receiverStickMin": {
         "message": "摇杆最低值"
     },

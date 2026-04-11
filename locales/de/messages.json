@@ -1202,12 +1202,6 @@
     "filterWarning": {
         "message": "<span class=\"message-negative\"><b>Warnung:</b></span> Sie verwenden eine gefährlich niedrige Anzahl an Filtern. Wahrscheinlich wird das Fluggerät dadurch schwer kontrollierbar und kann zu \"Flayaways\" führen. Es wird dringend empfohlen, dass Sie <b>mindestens einen dynamischen Gyro Tiefpass oder Gyro Tiefpass 1 und mindestens einen dynamischen D-Term Tiefpass oder D-Term Lowpass 1</b> einschalten."
     },
-    "receiverThrottleMid": {
-        "message": "Throttle Mid"
-    },
-    "receiverThrottleExpo": {
-        "message": "Throttle Expo"
-    },
     "receiverStickMin": {
         "message": "Minimum Stick"
     },

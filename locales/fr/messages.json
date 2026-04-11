@@ -1201,12 +1201,6 @@
     "filterWarning": {
         "message": "<span class=\"message-negative\"><b>Avertissement:</b></span> Vous ne filtrez pas assez, la valeur est dangereusement basse. L'appareil pourrait devenir difficile à contrôler, et s'en aller seul . Il est vivement suggéré que vous <b>activiez au moins le Filtre Gyro Dynamique Passe-bas ou le filtre Gyro Passe-bas 1 et au moins le Filtre D Term Dynamique Passe-bas ou le filtre D Term Passe-bas 1</b>."
     },
-    "receiverThrottleMid": {
-        "message": "Throttle Mid"
-    },
-    "receiverThrottleExpo": {
-        "message": "Throttle Expo"
-    },
     "receiverStickMin": {
         "message": "Stick Minimum"
     },

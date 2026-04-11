@@ -935,12 +935,6 @@
     "tuningHelp": {
         "message": "<b>Consells d'ajustament</b><br /><span class=\"message-negative\">IMPORTANT:</span> És important verificar la temperatura del motor durant els primers vols. Com més gran sigui el valor del filtre, millor volarà, però també tindràs més soroll als motors.<br>El valor predeterminat de 100Hz és òptim, però per a les configuracions de sorolloses pots provar de baixar el filtre Dterm a 50Hz i possiblement també el filtre del giròscop."
     },
-    "receiverThrottleMid": {
-        "message": "Throttle Mid"
-    },
-    "receiverThrottleExpo": {
-        "message": "Throttle Expo"
-    },
     "receiverStickMin": {
         "message": "Stick Mínim"
     },

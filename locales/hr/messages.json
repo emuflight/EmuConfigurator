@@ -1258,12 +1258,6 @@
     "filterWarning": {
         "message": "<span class=\"message-negative\"><b>Upozorenje:</b></span> Količina filtriranje koju koristite je opasno niska. Ovo će vjerojatno učiniti letjelicu nestabilnom i može doći do nekontroliranog odljetanja. Preporučuje se da <b>omogućite barem jedan Gryo Dinamički Lowpass ili Gyro Lowpass 1 i barem jedan D Term Dinamčki Lowpass ili D Term Lowpass 1</b>."
     },
-    "receiverThrottleMid": {
-        "message": "Gas/Throttle MID"
-    },
-    "receiverThrottleExpo": {
-        "message": "Gas/Throttle EXPO"
-    },
     "receiverStickMin": {
         "message": "'Stick low' prag"
     },

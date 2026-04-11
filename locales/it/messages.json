@@ -1147,12 +1147,6 @@
     "tuningHelp": {
         "message": "<b>Suggerimento per la messa a punto</b><br /><span class=\"message-negative\">IMPORTANTE:</span> E' importante verificare la temperatura del motore durante il primo volo. Più alto è il valore del filtro, più dovrebbe volare meglio, ma avrai anche più rumore nei motori. <br>Il valore predefinito di 100Hz è ottimale, ma per setup più rumorosi puoi provare ad abbassare il filtro Dterm a 50Hz e possibilmente anche il filtro del giroscopio."
     },
-    "receiverThrottleMid": {
-        "message": "Throttle Mid"
-    },
-    "receiverThrottleExpo": {
-        "message": "Throttle Expo"
-    },
     "receiverStickMin": {
         "message": "Stick Minimo"
     },

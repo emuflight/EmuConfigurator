@@ -1276,12 +1276,6 @@
     "filterWarning": {
         "message": "<span class=\"message-negative\"><b>警告:</b></span> 現在適用されているフィルタリング量が非常に少ないです。これは機体制御が困難となる可能性があり、飛行中に大きく影響する可能性があります。<b>『ジャイロダイナミックローパス』または『ジャイロローパス 1』の少なくとも1つと『D値ダイナミックローパス』または『D値ローパス1』の少なくとも1つを有効とする</b>ことを強くお奨めします。"
     },
-    "receiverThrottleMid": {
-        "message": "スロットル Mid"
-    },
-    "receiverThrottleExpo": {
-        "message": "スロットル Expo"
-    },
     "receiverStickMin": {
         "message": "スティック最小値"
     },

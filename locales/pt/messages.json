@@ -1255,12 +1255,6 @@
     "filterWarning": {
         "message": "<span class=\"message-negative\"><b>Aviso:</b></span> A quantidade de filtros utilizados está perigosamente baixa. Isto provavelmente fará com que a aeronave perca o controle durante o voo. É altamente recomendado <b>ativar no mínimo um Filtro Gyro: Lowpass 1 Dinâmico ou Lowpass 1 e ao menos um dos filtros do Termo D: Lowpass 1 Dinâmico ou Lowpass 1</b>."
     },
-    "receiverThrottleMid": {
-        "message": "Throttle Mid"
-    },
-    "receiverThrottleExpo": {
-        "message": "Throttle Expo"
-    },
     "receiverStickMin": {
         "message": "Stick Mínimo"
     },

@@ -1255,12 +1255,6 @@
     "filterWarning": {
         "message": "<span class=\"message-negative\"><b>Varning:</b></span> Filtervärdet är farligt lågt. Farkosten blir troligen svår att styra, och risken ökar för att den flyger iväg okontrollerat. Det är starkt rekommenderat att du <b>aktiverar åtminstone ett av Gyro dynamiskt lågpass eller Gyro lågpass 1, och åtminstone ett av D Term dynamiskt lågpass eller D Term lågpass 1</b>."
     },
-    "receiverThrottleMid": {
-        "message": "Trottel MITT"
-    },
-    "receiverThrottleExpo": {
-        "message": "Trottel EXPO"
-    },
     "receiverStickMin": {
         "message": "'Spak låg'-tröskel"
     },
