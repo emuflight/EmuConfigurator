@@ -32,9 +32,6 @@
     "portsSelectManual": {
         "message": "Pilihan manual"
     },
-    "portOverrideText": {
-        "message": "Port:"
-    },
     "autoConnect": {
         "message": "Sambung Otomatis"
     },
@@ -73,47 +70,8 @@
         "message": "Dataflash: sisa penyimpanan",
         "description": "Text of the dataflash image in the header of the page."
     },
-    "sensorStatusGyro": {
-        "message": "Gyroscope"
-    },
-    "sensorStatusGyroShort": {
-        "message": "Gyro",
-        "description": "Text of the image in the top sensors icons. Please keep it short."
-    },
-    "sensorStatusAccel": {
-        "message": "Accelerometer"
-    },
-    "sensorStatusAccelShort": {
-        "message": "Accel",
-        "description": "Text of the image in the top sensors icons. Please keep it short."
-    },
-    "sensorStatusMag": {
-        "message": "Magnetometer"
-    },
-    "sensorStatusMagShort": {
-        "message": "Mag",
-        "description": "Text of the image in the top sensors icons. Please keep it short."
-    },
-    "sensorStatusBaro": {
-        "message": "Barometer"
-    },
-    "sensorStatusBaroShort": {
-        "message": "Baro",
-        "description": "Text of the image in the top sensors icons. Please keep it short."
-    },
-    "sensorStatusGPS": {
-        "message": "GPS"
-    },
-    "sensorStatusGPSShort": {
-        "message": "GPS",
-        "description": "Text of the image in the top sensors icons. Please keep it short."
-    },
     "sensorStatusSonar": {
         "message": "Sonar / Pengukur jarak"
-    },
-    "sensorStatusSonarShort": {
-        "message": "Sonar",
-        "description": "Text of the image in the top sensors icons. Please keep it short."
     },
     "checkForConfiguratorUnstableVersions": {
         "message": "Tampilkan pemberitahuan pembaruan untuk versi yang tidak stabil dari konfigurator"
@@ -154,9 +112,6 @@
     "tabHelp": {
         "message": "Dokumentasi & Dukungan"
     },
-    "tabSetup": {
-        "message": "Setup"
-    },
     "tabSetupOSD": {
         "message": "Setup OSD"
     },
@@ -169,44 +124,23 @@
     "tabPidTuning": {
         "message": "Tuning PID"
     },
-    "tabReceiver": {
-        "message": "Receiver"
-    },
     "tabServos": {
         "message": "Servo"
-    },
-    "tabFailsafe": {
-        "message": "Failsafe"
     },
     "tabTransponder": {
         "message": "Transponder Racing"
     },
-    "tabOsd": {
-        "message": "OSD"
-    },
     "tabPower": {
         "message": "Daya & Baterai"
-    },
-    "tabGPS": {
-        "message": "GPS"
     },
     "tabMotorTesting": {
         "message": "Motor"
     },
-    "tabLedStrip": {
-        "message": "LED Strip"
-    },
     "tabRawSensorData": {
         "message": "Sensor"
     },
-    "tabCLI": {
-        "message": "CLI"
-    },
     "tabLogging": {
         "message": "Batasan Logging"
-    },
-    "tabOnboardLogging": {
-        "message": "Blackbox"
     },
     "tabAdjustments": {
         "message": "Penyesuaian"
@@ -282,9 +216,6 @@
     },
     "stm32Erase": {
         "message": "Menghapus ..."
-    },
-    "stm32Flashing": {
-        "message": "Flashing ..."
     },
     "stm32Verifying": {
         "message": "Memverifikasi ..."
@@ -401,23 +332,8 @@
     "fcInfoReceived": {
         "message": "Info Flight controller, identifikasi: <strong>$1</strong>, versi: <strong>$2</strong>"
     },
-    "versionLabelTarget": {
-        "message": "Target"
-    },
-    "versionLabelFirmware": {
-        "message": "Firmware"
-    },
-    "versionLabelConfigurator": {
-        "message": "Configurator"
-    },
     "statusbar_port_utilization": {
         "message": "Pemakaian Port:"
-    },
-    "statusbar_usage_download": {
-        "message": "D: $1%"
-    },
-    "statusbar_usage_upload": {
-        "message": "U: $1%"
     },
     "statusbar_packet_error": {
         "message": "Kesalahan paket:"
@@ -476,12 +392,6 @@
     "defaultSupport": {
         "message": "Untuk dukungan silahkan cari di forum dan wiki terlebih dahulu atau hubungi vendor anda.<br /><br />"
     },
-    "defaultSupport1": {
-        "message": "<a href=\"https://discordapp.com/channels/547211754845765635\" target=\"_blank\">Discord</a>"
-    },
-    "defaultSupport2": {
-        "message": "<a href=\"https://github.com/Emuflight\" target=\"_blank\">GitHub</a>"
-    },
     "initialSetupBackupAndRestoreApiVersion": {
         "message": "<span class=\"message-negative\">Fungsi Backup dan Restore nonaktif.</span> Anda memiliki firmware dengan versi API <span class=\"message-negative\">$1</span>, backup dan restore membutuhkan versi <span class=\"message-positive\">$2</span>. Backup pengaturan anda melalui CLI, lihat dokumentasi Emuflight untuk mengetahui caranya."
     },
@@ -506,12 +416,6 @@
     "initialSetupResetText": {
         "message": "Kembalikan ke pengaturan <strong>awal</strong>"
     },
-    "initialSetupButtonBackup": {
-        "message": "Backup"
-    },
-    "initialSetupButtonRestore": {
-        "message": "Restore"
-    },
     "initialSetupButtonRebootBootloader": {
         "message": "Aktifkan Boot Loader / DFU"
     },
@@ -533,14 +437,8 @@
     "initialSetupButtonResetZaxisValue": {
         "message": "Reset sumbu Z, offset: $1 derajat"
     },
-    "initialSetupInfoHead": {
-        "message": "Info"
-    },
     "initialSetupBattery": {
         "message": "Voltase baterai:"
-    },
-    "initialSetupBatteryValue": {
-        "message": "$1 V"
     },
     "initialSetupDrawn": {
         "message": "Kapasitas terpakai:"
@@ -548,32 +446,14 @@
     "initialSetupDrawing": {
         "message": "Arus terpakai:"
     },
-    "initialSetupBatteryMahValue": {
-        "message": "$1 mAh"
-    },
-    "initialSetupBatteryAValue": {
-        "message": "$1 A"
-    },
-    "initialSetupRSSI": {
-        "message": "RSSI:"
-    },
-    "initialSetupRSSIValue": {
-        "message": "$1 %"
-    },
     "initialSetupArmingDisableFlags": {
         "message": "Rambu Arming Non-aktif:"
     },
     "initialSetupArmingAllowed": {
         "message": "Arming Diizinkan"
     },
-    "initialSetupGPSHead": {
-        "message": "GPS"
-    },
     "initialSetupInstrumentsHead": {
         "message": "Instrumen"
-    },
-    "initialSetupAttitude": {
-        "message": "$1 deg"
     },
     "initialSetupAccelCalibStarted": {
         "message": "Kalibrasi accelerometer dimulai"
@@ -608,9 +488,6 @@
     "featureMOTOR_STOP": {
         "message": "Motor tidak berputar ketika armed"
     },
-    "featureSERVO_TILT": {
-        "message": "Servo gimbal"
-    },
     "featureSOFTSERIAL": {
         "message": "Mengaktifkan port serial CPU"
     },
@@ -622,9 +499,6 @@
     },
     "featureGPSTip": {
         "message": "Atur skenario port terlebih dulu"
-    },
-    "featureSONAR": {
-        "message": "Sonar"
     },
     "featureTELEMETRY": {
         "message": "Output telemetri"
@@ -722,14 +596,8 @@
     "configurationFeatureDescription": {
         "message": "Deskripsi"
     },
-    "configurationMixer": {
-        "message": "Mixer"
-    },
     "configurationFeatures": {
         "message": "Fitur Lain"
-    },
-    "configurationReceiver": {
-        "message": "Receiver"
     },
     "configurationReceiverMode": {
         "message": "Mode Receiver"
@@ -787,9 +655,6 @@
     },
     "configurationAccelTrimPitch": {
         "message": "Trim Pitch Accelerometer"
-    },
-    "configurationArming": {
-        "message": "Arming"
     },
     "configurationArmingHelp": {
         "message": "Beberapa pilihan Arming memerlukan accelerometer diaktifkan"
@@ -923,9 +788,6 @@
     "configuration3dNeutral": {
         "message": "3D Netral"
     },
-    "configuration3dDeadbandThrottle": {
-        "message": "3D Deadband Throttle"
-    },
     "configurationSystem": {
         "message": "Konfigurasi Sistem"
     },
@@ -935,23 +797,11 @@
     "configurationLoopTimeHelp": {
         "message": "<strong>Catatan:</strong> Pastikan FC anda mampu untuk beroperasi pada kecepatan ini! Periksa CPU dan kestabilan siklus waktu. Perubahan ini mungkin memerlukan penyetelan ulang PID. Petunjuk: Nonaktifkan Accelerometer dan sensor lainnya untuk mendapatkan kinerja yang lebih."
     },
-    "configurationGPS": {
-        "message": "GPS"
-    },
     "configurationGPSProtocol": {
         "message": "Protokol"
     },
-    "configurationGPSBaudrate": {
-        "message": "Baudrate"
-    },
     "configurationGPSubxSbas": {
         "message": "Tipe Ground Assistance"
-    },
-    "configurationGPSAutoBaud": {
-        "message": "Auto Baud"
-    },
-    "configurationGPSAutoConfig": {
-        "message": "Auto Config"
     },
     "configurationGPSHelp": {
         "message": "<strong>Catatan:</strong> Ingat untuk konfigurasi sebuah Port Serial (melalui tab Port) ketika menggunakan fitur GPS."
@@ -998,45 +848,6 @@
     "portsTelemetryDisabled": {
         "message": "Dinonaktifkan"
     },
-    "portsFunction_MSP": {
-        "message": "MSP"
-    },
-    "portsFunction_GPS": {
-        "message": "GPS"
-    },
-    "portsFunction_TELEMETRY_FRSKY": {
-        "message": "FrSky"
-    },
-    "portsFunction_TELEMETRY_HOTT": {
-        "message": "HoTT"
-    },
-    "portsFunction_TELEMETRY_LTM": {
-        "message": "LTM"
-    },
-    "portsFunction_TELEMETRY_MAVLINK": {
-        "message": "MAVLink"
-    },
-    "portsFunction_TELEMETRY_MSP": {
-        "message": "MSP"
-    },
-    "portsFunction_TELEMETRY_SMARTPORT": {
-        "message": "SmartPort"
-    },
-    "portsFunction_TELEMETRY_IBUS": {
-        "message": "iBUS"
-    },
-    "portsFunction_TELEMETRY_JETIXBUS": {
-        "message": "JETIXBUS"
-    },
-    "portsFunction_TELEMETRY_CRSF": {
-        "message": "CRSF"
-    },
-    "portsFunction_TELEMETRY_SRXL": {
-        "message": "SRXL"
-    },
-    "portsFunction_ESC_SENSOR": {
-        "message": "ESC"
-    },
     "portsFunction_RX_SERIAL": {
         "message": "Rx Serial"
     },
@@ -1073,14 +884,6 @@
     "pidTuningAntiGravityMode": {
         "message": "Mode Anti Gravity"
     },
-    "pidTuningAntiGravityModeOptionSmooth": {
-        "message": "Smooth",
-        "description": "One of the modes of anti gravity"
-    },
-    "pidTuningAntiGravityModeOptionStep": {
-        "message": "Step",
-        "description": "One of the modes of anti gravity"
-    },
     "pidTuningAntiGravityGain": {
         "message": "Gain Anti Gravity"
     },
@@ -1093,12 +896,6 @@
     "receiverRcSmoothing": {
         "message": "Smoothing RC"
     },
-    "receiverRcSmoothingAuto": {
-        "message": "Auto"
-    },
-    "receiverRcSmoothingManual": {
-        "message": "Manual"
-    },
     "receiverRcDerivativeTypeSelect": {
         "message": "Tipe CutOff Derivatif"
     },
@@ -1107,9 +904,6 @@
     },
     "receiverRcSmoothingInterpolation": {
         "message": "Interpolasi"
-    },
-    "receiverRcSmoothingFilter": {
-        "message": "Filter"
     },
     "rcSmoothingInputCutoffHelp": {
         "message": "Frekuensi cutoff dalam Hz yang digunakan filter input. Menggunakan nilai yang rendah akan menhasilkan input yang lebih halus dan lebih sesuai untuk protokol receiver yang lebih lambat. Pengguna pada umumnya cukup membiarkan nilai 0 yang berarti \"Auto\"."
@@ -1144,9 +938,6 @@
     "receiverRcSmoothingDerivativeTypeOff": {
         "message": "Mati"
     },
-    "receiverRcSmoothingChannel": {
-        "message": "Channels Smoothed"
-    },
     "receiverRcInterpolation": {
         "message": "Interpolasi RC"
     },
@@ -1161,15 +952,6 @@
     },
     "receiverRcSmoothingType": {
         "message": "Tipe Smoothing"
-    },
-    "receiverRcInterpolationDefault": {
-        "message": "Preset"
-    },
-    "receiverRcInterpolationAuto": {
-        "message": "Auto"
-    },
-    "receiverRcInterpolationManual": {
-        "message": "Manual"
     },
     "receiverRcInterpolationInterval": {
         "message": "Interval Interpolasi RC [ms]"
@@ -1198,41 +980,17 @@
     "pidTuningProportional": {
         "message": "Proporsional"
     },
-    "pidTuningIntegral": {
-        "message": "Integral"
-    },
     "pidTuningDerivative": {
         "message": "Derivatif"
     },
-    "pidTuningFeedforward": {
-        "message": "Feedforward"
-    },
     "pidTuningRcRate": {
         "message": "Rate RC"
-    },
-    "pidTuningMaxVel": {
-        "message": "Max Vel [deg/s]"
-    },
-    "pidTuningRate": {
-        "message": "Rate"
-    },
-    "pidTuningSuperRate": {
-        "message": "Super Rate"
     },
     "pidTuningRatesPreview": {
         "message": "Rate Preview"
     },
     "pidTuningRcExpo": {
         "message": "Expo RC"
-    },
-    "pidTuningTPA_P": {
-        "message": "TPA P"
-    },
-    "pidTuningTPA_I": {
-        "message": "TPA I"
-    },
-    "pidTuningTPA_D": {
-        "message": "TPA D"
     },
     "pidTuningTPABreakPoint": {
         "message": "Breakpoint TPA"
@@ -1246,32 +1004,17 @@
     "pidTuningThrottleLimitTypeOff": {
         "message": "MATI"
     },
-    "pidTuningThrottleLimitTypeScale": {
-        "message": "SCALE"
-    },
-    "pidTuningThrottleLimitTypeClip": {
-        "message": "CLIP"
-    },
     "pidTuningThrottleLimitTypeTip": {
         "message": "Pilih jenis pembatasan throttle. <b>MATI</b> fitur non-aktif, <b>SCALE</b> akan menyesuaikan throttle dari 0 hingga persentase terpilih dari pergerakan penuh stik, <b>CLIP</b> akan membatasi persentase throttle max dan input diatas persentase tersebut tidal akan memberikan efek tambahan"
     },
     "pidTuningThrottleLimitPercentTip": {
         "message": "Menentukan persentase batas throttle. Nilai 100% akan berakibat fitur non-aktif."
     },
-    "pidTuningFilter": {
-        "message": "Filter"
-    },
     "pidTuningRatesCurve": {
         "message": "Rate"
     },
-    "throttle": {
-        "message": "Throttle"
-    },
     "pidTuningButtonSave": {
         "message": "Menyimpan"
-    },
-    "pidTuningButtonRefresh": {
-        "message": "Refresh"
     },
     "pidTuningControllerHead": {
         "message": "Pengotrol PID"
@@ -1330,12 +1073,6 @@
     "tuningHelp": {
         "message": "<b>Tips Tuning</b><br /><span class=\"message-negative\">PENTING:</span>Penting untuk memverifikasi suhu motor saat penerbangan pertama. Semakin tinggi nilai filter semakin baik, tapi Anda juga akan memberikan lebih banyak noise ke motor. <br>Nilai default 100Hz optimal, tetapi untuk setup yg memiliki noise lebih, Anda bisa mencoba menurunkan filter term D menjadi 50Hz dan mungkin juga filter gyro."
     },
-    "receiverThrottleMid": {
-        "message": "Throttle MID"
-    },
-    "receiverThrottleExpo": {
-        "message": "Throttle EXPO"
-    },
     "receiverStickMin": {
         "message": "Batas 'Stik Rendah'"
     },
@@ -1393,9 +1130,6 @@
     "receiverButtonSave": {
         "message": "Simpan"
     },
-    "receiverButtonRefresh": {
-        "message": "Refresh"
-    },
     "receiverButtonSticks": {
         "message": "Stik Kontrol"
     },
@@ -1414,9 +1148,6 @@
     "auxiliaryToggleUnused": {
         "message": "Sembunyikan mode yg tidak terpakai"
     },
-    "auxiliaryMin": {
-        "message": "Min"
-    },
     "auxiliaryMax": {
         "message": "Maks"
     },
@@ -1428,9 +1159,6 @@
     },
     "auxiliaryEepromSaved": {
         "message": "EEPROM <span class =\"message-positive\">disimpan</span>"
-    },
-    "auxiliaryAutoChannelSelect": {
-        "message": "AUTO"
     },
     "adjustmentsHelp": {
         "message": "Mengkonfigurasi switch penyesuaian. Lihat manual bagian 'in-flight adjustments' untuk detilnya. Perubahan yang dilakukan fungsi penyesuaian tidak disimpan secara otomatis. Ada 4 slot. Setiap switch yang digunakan untuk secara bersamaan melakukan penyesuaian menggunakan sebuah slot."
@@ -1461,21 +1189,6 @@
     },
     "adjustmentsColumnViaChannel": {
         "message": "melalui channel"
-    },
-    "adjustmentsSlot0": {
-        "message": "Slot 1"
-    },
-    "adjustmentsSlot1": {
-        "message": "Slot 2"
-    },
-    "adjustmentsSlot2": {
-        "message": "Slot 3"
-    },
-    "adjustmentsSlot3": {
-        "message": "Slot 4"
-    },
-    "adjustmentsMin": {
-        "message": "Min"
     },
     "adjustmentsMax": {
         "message": "Maks"
@@ -1591,18 +1304,6 @@
     "transponderType0": {
         "message": "Tidak ada"
     },
-    "transponderType1": {
-        "message": "iLap"
-    },
-    "transponderType2": {
-        "message": "aRCiTimer"
-    },
-    "transponderType3": {
-        "message": "ERLT"
-    },
-    "transponderData1": {
-        "message": "Data"
-    },
     "transponderData2": {
         "message": "ID Transponder"
     },
@@ -1645,12 +1346,6 @@
     "servosName": {
         "message": "Nama"
     },
-    "servosMid": {
-        "message": "MID"
-    },
-    "servosMin": {
-        "message": "MIN"
-    },
     "servosMax": {
         "message": "MAKS"
     },
@@ -1666,9 +1361,6 @@
     "servosEepromSave": {
         "message": "EEPROM <span class=\"message-positive\">disimpan</span>"
     },
-    "gpsHead": {
-        "message": "GPS"
-    },
     "gpsMapHead": {
         "message": "Lokasi GPS saat ini"
     },
@@ -1677,9 +1369,6 @@
     },
     "gpsMapMessage2": {
         "message": "Menunggu posisi 3D GPS terkunci…"
-    },
-    "gps3dFix": {
-        "message": "3D Fix:"
     },
     "gpsFixTrue": {
         "message": "<span class=\"fixtrue\">Betul</span>"
@@ -1711,12 +1400,6 @@
     "gpsSignalStr": {
         "message": "Kekuatan Sinyal"
     },
-    "gpsSignalSatId": {
-        "message": "Sat ID"
-    },
-    "gpsSignalQty": {
-        "message": "Qty"
-    },
     "motorsVoltage": {
         "message": "Voltase:"
     },
@@ -1726,83 +1409,14 @@
     "motorsmAhDrawn": {
         "message": "Arus terpakai:"
     },
-    "motorsVoltageValue": {
-        "message": "$1 V"
-    },
-    "motorsADrawingValue": {
-        "message": "$1 A"
-    },
-    "motorsmAhDrawnValue": {
-        "message": "$1 mAh"
-    },
     "motorsText": {
         "message": "Motor"
-    },
-    "motorNumber1": {
-        "message": "Motor - 1"
-    },
-    "motorNumber2": {
-        "message": "Motor - 2"
-    },
-    "motorNumber3": {
-        "message": "Motor - 3"
-    },
-    "motorNumber4": {
-        "message": "Motor - 4"
-    },
-    "motorNumber5": {
-        "message": "Motor - 5"
-    },
-    "motorNumber6": {
-        "message": "Motor - 6"
-    },
-    "motorNumber7": {
-        "message": "Motor - 7"
-    },
-    "motorNumber8": {
-        "message": "Motor - 8"
-    },
-    "servosText": {
-        "message": "Servos"
-    },
-    "servoNumber1": {
-        "message": "Servo - 1"
-    },
-    "servoNumber2": {
-        "message": "Servo - 2"
-    },
-    "servoNumber3": {
-        "message": "Servo - 3"
-    },
-    "servoNumber4": {
-        "message": "Servo - 4"
-    },
-    "servoNumber5": {
-        "message": "Servo - 5"
-    },
-    "servoNumber6": {
-        "message": "Servo - 6"
-    },
-    "servoNumber7": {
-        "message": "Servo - 7"
-    },
-    "servoNumber8": {
-        "message": "Servo - 8"
     },
     "motorsResetMaximumButton": {
         "message": "Atur ulang"
     },
     "motorsResetMaximum": {
         "message": "Reset maksimum overtime"
-    },
-    "motorsSensorGyroSelect": {
-        "message": "gyro"
-    },
-    "motorsSensorAccelSelect": {
-        "message": "accel"
-    },
-    "motorsMaster": {
-        "message": "Master"
     },
     "motorsNotice": {
         "message": "<strong>Motor Test Mode / Peringatan Arming:</strong><br />Memindahkan slider atau mengaktifkan/arming model anda dengan pemancar akan menyebabkan motor <strong>berputar</strong>.<br />Untuk mencegah cedera <strong class=\"message-negative\"> lepaskan SEMUA baling-baling</strong> sebelum menggunakan fitur ini.<br />Mengaktifkan motor test mode juga akan menonaktifkan sementara Runaway Takeoff Prevention, agar model tidak disarm saat melakukan pengujian tanpa baling-baling.<br />"
@@ -1813,47 +1427,11 @@
     "sensorsInfo": {
         "message": "Perlu di ingat bahwa menggunakan periode pembaruan yg cepat dan menampilkan beberapa grafik pada saat yang bersamaan memerlukan sumber daya yang besar dan akan mengurangi baterai anda lebih cepat jika anda menggunakan laptop.<br />Kami sarankan hanya membuat grafik untuk sensor yg anda perlukan dan menggunakan periode pembaruan yg sesuai."
     },
-    "sensorsRefresh": {
-        "message": "Refresh:"
-    },
     "sensorsScale": {
         "message": "Skala:"
     },
-    "sensorsGyroSelect": {
-        "message": "Gyroscope"
-    },
-    "sensorsAccelSelect": {
-        "message": "Accelerometer"
-    },
-    "sensorsMagSelect": {
-        "message": "Magnetometer"
-    },
-    "sensorsBaroSelect": {
-        "message": "Barometer"
-    },
-    "sensorsSonarSelect": {
-        "message": "Sonar"
-    },
-    "sensorsDebugSelect": {
-        "message": "Debug"
-    },
-    "sensorsGyroTitle": {
-        "message": "Gyroscope - deg/s"
-    },
-    "sensorsAccelTitle": {
-        "message": "Accelerometer - g"
-    },
-    "sensorsMagTitle": {
-        "message": "Magnetometer - Ga"
-    },
     "sensorsBaroTitle": {
         "message": "Barometer - meter"
-    },
-    "sensorsSonarTitle": {
-        "message": "Sonar - cm"
-    },
-    "sensorsDebugTitle": {
-        "message": "Debug"
     },
     "cliInputPlaceholder": {
         "message": "Tulis perintah anda di sini"
@@ -2026,9 +1604,6 @@
     "firmwareFlasherReleaseStatus": {
         "message": "Status:"
     },
-    "firmwareFlasherReleaseTarget": {
-        "message": "Target:"
-    },
     "firmwareFlasherReleaseFile": {
         "message": "Biner:"
     },
@@ -2068,17 +1643,11 @@
     "firmwareFlasherFullChipEraseDescription": {
         "message": "Hapus semua data konfigurasi saat ini yang disimpan di FC."
     },
-    "firmwareFlasherManualPort": {
-        "message": "Port"
-    },
     "firmwareFlasherManualBaud": {
         "message": "Baud rate manual"
     },
     "firmwareFlasherManualBaudDescription": {
         "message": "Pemilihan baud rate manual untuk FC yang tidak mendukung kecepatan default atau untuk flashing via bluetooth. <br/><span class = \"message-negative\"> Catatan: </span> Tidak digunakan saat flashing melalui USB DFU"
-    },
-    "firmwareFlasherBaudRate": {
-        "message": "Baud Rate"
     },
     "firmwareFlasherShowDevelopmentReleases": {
         "message": "Tampilkan rilis yang belum stabil"
@@ -2116,9 +1685,6 @@
     "firmwareFlasherButtonDownloading": {
         "message": "Mengunduh..."
     },
-    "firmwareFlasherFlashFirmware": {
-        "message": "Flash Firmware"
-    },
     "firmwareFlasherGithubInfoHead": {
         "message": "Info Firmware GitHub"
     },
@@ -2127,9 +1693,6 @@
     },
     "firmwareFlasherDate": {
         "message": "Tanggal:"
-    },
-    "firmwareFlasherHash": {
-        "message": "Hash:"
     },
     "firmwareFlasherUrl": {
         "message": "Pergi ke Github untuk meninjau commit ini..."
@@ -2183,18 +1746,6 @@
         "message": "Pengaturan warna",
         "description": "Color setup title of the led strip"
     },
-    "ledStripH": {
-        "message": "H",
-        "description": "Abbreviation of Hue in HSV (Hue, Saturation, Brightness) color model"
-    },
-    "ledStripS": {
-        "message": "S",
-        "description": "Abbreviation of Saturation in HSV  (Hue, Saturation, Brightness) color model"
-    },
-    "ledStripV": {
-        "message": "V",
-        "description": "Abbreviation of Brightness in HSV  (Hue, Saturation, Brightness) color model"
-    },
     "ledStripRemainingText": {
         "message": "Sisa",
         "description": "In the LED STRIP, text next the counter of leds remaining"
@@ -2239,18 +1790,6 @@
         "message": "Baterai",
         "description": "One of the modes of the Led Strip"
     },
-    "ledStripFunctionRSSIOption": {
-        "message": "RSSI",
-        "description": "One of the modes of the Led Strip"
-    },
-    "ledStripFunctionGPSOption": {
-        "message": "GPS",
-        "description": "One of the modes of the Led Strip"
-    },
-    "ledStripFunctionRingOption": {
-        "message": "Ring",
-        "description": "One of the modes of the Led Strip"
-    },
     "ledStripColorModifierTitle": {
         "message": "Pengubah warna"
     },
@@ -2261,26 +1800,6 @@
         "message": "Orientasi",
         "description": "One of the modes in Color Mode in Led Strip"
     },
-    "ledStripModeColorsModeHeadfree": {
-        "message": "Headfree",
-        "description": "One of the modes in Color Mode in Led Strip"
-    },
-    "ledStripModeColorsModeHorizon": {
-        "message": "Horizon",
-        "description": "One of the modes in Color Mode in Led Strip"
-    },
-    "ledStripModeColorsModeAngle": {
-        "message": "Angle",
-        "description": "One of the modes in Color Mode in Led Strip"
-    },
-    "ledStripModeColorsModeMag": {
-        "message": "Mag",
-        "description": "One of the modes in Color Mode in Led Strip"
-    },
-    "ledStripModeColorsModeBaro": {
-        "message": "Baro",
-        "description": "One of the modes in Color Mode in Led Strip"
-    },
     "ledStripDirN": {
         "message": "U",
         "description": "North direction in Color Mode in Led Strip"
@@ -2288,10 +1807,6 @@
     "ledStripDirE": {
         "message": "T",
         "description": "East direction in Color Mode in Led Strip"
-    },
-    "ledStripDirS": {
-        "message": "S",
-        "description": "South direction in Color Mode in Led Strip"
     },
     "ledStripDirW": {
         "message": "B",
@@ -2313,14 +1828,6 @@
         "message": "Warna khusus",
         "description": "One of the modes in Color Mode in Led Strip"
     },
-    "ledStripModeColorsModeDisarmed": {
-        "message": "Disarmed",
-        "description": "One of the modes in Color Mode in Led Strip"
-    },
-    "ledStripModeColorsModeArmed": {
-        "message": "Armed",
-        "description": "One of the modes in Color Mode in Led Strip"
-    },
     "ledStripModeColorsModeAnimation": {
         "message": "Animasi",
         "description": "One of the modes in Color Mode in Led Strip"
@@ -2340,10 +1847,6 @@
     "ledStripModeColorsModeGPSLocked": {
         "message": "GPS: terkunci",
         "description": "One of the modes in Color Mode in Led Strip"
-    },
-    "ledStripWiring": {
-        "message": "LED Strip Wiring",
-        "description": "One of the modes in Led Strip"
     },
     "ledStripWiringMode": {
         "message": "Mode Pengurutan Kabel",
@@ -2372,9 +1875,6 @@
     },
     "ledStripBlinkLandingOverlay": {
         "message": "Berkedip pada saat mendarat"
-    },
-    "ledStripOverlayTitle": {
-        "message": "Overlay"
     },
     "ledStripWarningsOverlay": {
         "message": "Peringatan"
@@ -2406,9 +1906,6 @@
     "colorMintGreen": {
         "message": "hijau tua"
     },
-    "colorCyan": {
-        "message": "cyan"
-    },
     "colorLightBlue": {
         "message": "biru muda"
     },
@@ -2418,77 +1915,11 @@
     "colorDarkViolet": {
         "message": "ungu gelap"
     },
-    "colorMagenta": {
-        "message": "magenta"
-    },
     "colorDeepPink": {
         "message": "merah jambu"
     },
-    "controlAxisRoll": {
-        "message": "Roll [A]"
-    },
-    "controlAxisPitch": {
-        "message": "Pitch [E]"
-    },
-    "controlAxisYaw": {
-        "message": "Yaw [R]"
-    },
-    "controlAxisThrottle": {
-        "message": "Throttle [T]"
-    },
-    "controlAxisAux1": {
-        "message": "AUX 1"
-    },
-    "controlAxisAux2": {
-        "message": "AUX 2"
-    },
-    "controlAxisAux3": {
-        "message": "AUX 3"
-    },
-    "controlAxisAux4": {
-        "message": "AUX 4"
-    },
-    "controlAxisAux5": {
-        "message": "AUX 5"
-    },
-    "controlAxisAux6": {
-        "message": "AUX 6"
-    },
-    "controlAxisAux7": {
-        "message": "AUX 7"
-    },
-    "controlAxisAux8": {
-        "message": "AUX 8"
-    },
-    "controlAxisAux9": {
-        "message": "AUX 9"
-    },
-    "controlAxisAux10": {
-        "message": "AUX 10"
-    },
-    "controlAxisAux11": {
-        "message": "AUX 11"
-    },
-    "controlAxisAux12": {
-        "message": "AUX 12"
-    },
-    "controlAxisAux13": {
-        "message": "AUX 13"
-    },
-    "controlAxisAux14": {
-        "message": "AUX 14"
-    },
-    "controlAxisAux15": {
-        "message": "AUX 15"
-    },
-    "controlAxisAux16": {
-        "message": "AUX 16"
-    },
     "pidTuningBasic": {
         "message": "Dasar/Acro"
-    },
-    "pidTuningYawJumpPrevention": {
-        "message": "Yaw Jump Prevention"
     },
     "pidTuningYawJumpPreventionHelp": {
         "message": "Mencegah unit dari lompatan di ujung yaw. Angka lebih tinggi memberi lebih banyak redaman pada akhir gerakan yaw (bekerja seperti D Yaw, yang sebenarnya bukan D layaknya pada sumbu lain)"
@@ -2501,12 +1932,6 @@
     },
     "pidTuningTransition": {
         "message": "Transisi"
-    },
-    "pidTuningHorizon": {
-        "message": "Horizon"
-    },
-    "pidTuningAngle": {
-        "message": "Angle"
     },
     "pidTuningLevelAngleLimit": {
         "message": "Batas Sudut"
@@ -2586,38 +2011,11 @@
     "pidTuningVbatPidCompensationHelp": {
         "message": "Meningkatkan nilai PID sebagai kompensasi penurunan Vbat. Hal ini akan memberikan karakteristik penerbangan yang lebih konsisten. Nilai kompensasi dihitung dari nilai $t(powerBatteryMaximum.message) pada halaman $t(tabPower.message), jadi pastikan nilai tersebut sudah di set dengan benar."
     },
-    "pidTuningFeatheredPids": {
-        "message": "Feathered PIDs"
-    },
-    "pidTuningiDecay": {
-        "message": "iDecay"
-    },
-    "pidTuningEmuBoost": {
-        "message": "EmuBoost"
-    },
-    "pidTuningEmuBoostLimit": {
-        "message": "EmuBoost Limit"
-    },
-    "pidTuningEmuBoostHelp": {
-        "message": "Adds a nonlinear boost to the error seen by your p and i term. Adds a different feeling to the sticks. Values that are to high will cause oscillations. Craft with a lower power to weight like whoops seem happy with quite high values and EmuBoost can really help give them a locked in feeling."
-    },
-    "pidTuningEmuBoostLimitHelp": {
-        "message": "Puts a limit on how much the EmuBoost is allowed to boost your error. Its measured as a percentage of the total error that EmuBoost is allowed to add. A high EmuBoost with a low EmuBoost Limit can give a snappy feeling near the center of the stick. Tune this according to preference."
-    },
     "pidTuningItermRotation": {
         "message": "Rotasi I Term"
     },
     "pidTuningItermRotationHelp": {
         "message": "Memutar vektor I Term agar sesuai dengan sumbu lainnya ketika quad berputar dalam sumbu yaw secara kontinu, selama roll, dan ketika melakukan funnel atau trik lainnya. Sangat berguna bagi pilot acro LOS."
-    },
-    "pidTuningFeatheredPidsHelp": {
-        "message": "Feathered PIDs changes how Dterm is calculated. 0 is error based dterm and 100 is measurement based dterm. Measurement is smoother but less responsive than error. Any value between 0 and 100 is a scalar of partially measurement and error calculated dterm."
-    },
-    "pidTuningiDecayHelp": {
-        "message": "Removes excessive iterm accumulation normally found at the end of quick stick movements. Running a higher decay allows you to run a higher iterm without experiencing bounce back or other common negatives associated with high iterm. Default is a value of 4, but the highest you can run it is 10."
-    },
-    "pidTuningSmartFeedforward": {
-        "message": "Smart Feedforward"
     },
     "pidTuningSmartFeedforwardHelp": {
         "message": "Mengurang efek F Term dari PID. Jika P Term dan F Term aktif bersamaan, hanya salah satu nilai terbesar yang akan digunakan, untuk menghindari overshoots tanpa perlu meningkatkan nilai D, tapi juga akan mengurangi efek respon dari F term ketika ditambahkan ke P."
@@ -2631,12 +2029,6 @@
     "pidTuningItermRelaxAxes": {
         "message": "Sumbu:"
     },
-    "pidTuningItermRelaxAxesOptionRP": {
-        "message": "RP"
-    },
-    "pidTuningItermRelaxAxesOptionRPY": {
-        "message": "RPY"
-    },
     "pidTuningItermRelaxAxesOptionRPInc": {
         "message": "RP (hanya penambahan)"
     },
@@ -2645,18 +2037,6 @@
     },
     "pidTuningItermRelaxType": {
         "message": "Tipe:"
-    },
-    "pidTuningItermRelaxTypeOptionGyro": {
-        "message": "Gyro"
-    },
-    "pidTuningItermRelaxTypeOptionSetpoint": {
-        "message": "Setpoint"
-    },
-    "pidTuningAbsoluteControlGain": {
-        "message": "Absolute Control"
-    },
-    "pidTuningThrottleBoost": {
-        "message": "Throttle Boost"
     },
     "pidTuningThrottleBoostHelp": {
         "message": "Fitur ini memungkinkan throttle dinaikkan dengan pergerakan stick yang cepat, yg akan menambah akselerasi-torsi pada motor dan memberikan respon throttle yang jauh lebih cepat."
@@ -2733,9 +2113,6 @@
     "failsafeProcedureItemSelect4": {
         "message": "Rescue GPS"
     },
-    "failsafeGpsRescueItemAngle": {
-        "message": "Angle"
-    },
     "failsafeGpsRescueItemInitialAltitude": {
         "message": "Ketinggian awal (meter)"
     },
@@ -2745,14 +2122,8 @@
     "failsafeGpsRescueItemGroundSpeed": {
         "message": "Kecepatan darat (meter/detik)"
     },
-    "failsafeGpsRescueItemThrottleMin": {
-        "message": "Throttle minimum"
-    },
     "failsafeGpsRescueItemThrottleMax": {
         "message": "Throttle maksimum"
-    },
-    "failsafeGpsRescueItemThrottleHover": {
-        "message": "Throttle hover"
     },
     "failsafeGpsRescueItemMinSats": {
         "message": "Satelit minimum"
@@ -2820,14 +2191,8 @@
     "powerBatteryCurrentMeterTypeAdc": {
         "message": "Diatas papan ADC"
     },
-    "powerBatteryCurrentMeterTypeVirtual": {
-        "message": "Virtual"
-    },
     "powerBatteryCurrentMeterTypeEsc": {
         "message": "Sensor ESC"
-    },
-    "powerBatteryCurrentMeterTypeMsp": {
-        "message": "MSP Sensor/OSD Slave"
     },
     "powerBatteryMinimum": {
         "message": "Tegangan sel terendah"
@@ -2844,59 +2209,11 @@
     "powerVoltageValue": {
         "message": "$ 1 V"
     },
-    "powerAmperageValue": {
-        "message": "$1 A"
-    },
     "powerVoltageId10": {
         "message": "Baterai"
     },
-    "powerVoltageId20": {
-        "message": "5V"
-    },
-    "powerVoltageId30": {
-        "message": "9V"
-    },
-    "powerVoltageId40": {
-        "message": "12V"
-    },
     "powerVoltageId50": {
         "message": "ESC Gabungan"
-    },
-    "powerVoltageId60": {
-        "message": "ESC Motor 1"
-    },
-    "powerVoltageId61": {
-        "message": "ESC Motor 2"
-    },
-    "powerVoltageId62": {
-        "message": "ESC Motor 3"
-    },
-    "powerVoltageId63": {
-        "message": "ESC Motor 4"
-    },
-    "powerVoltageId64": {
-        "message": "ESC Motor 5"
-    },
-    "powerVoltageId65": {
-        "message": "ESC Motor 6"
-    },
-    "powerVoltageId66": {
-        "message": "ESC Motor 7"
-    },
-    "powerVoltageId67": {
-        "message": "ESC Motor 8"
-    },
-    "powerVoltageId68": {
-        "message": "ESC Motor 9"
-    },
-    "powerVoltageId69": {
-        "message": "ESC Motor 10"
-    },
-    "powerVoltageId70": {
-        "message": "ESC Motor 11"
-    },
-    "powerVoltageId71": {
-        "message": "ESC Motor 12"
     },
     "powerVoltageId80": {
         "message": "Sel 1"
@@ -2934,56 +2251,8 @@
     "powerAmperageId50": {
         "message": "Semua ESC"
     },
-    "powerAmperageId60": {
-        "message": "ESC Motor 1"
-    },
-    "powerAmperageId61": {
-        "message": "ESC Motor 2"
-    },
-    "powerAmperageId62": {
-        "message": "ESC Motor 3"
-    },
-    "powerAmperageId63": {
-        "message": "ESC Motor 4"
-    },
-    "powerAmperageId64": {
-        "message": "ESC Motor 5"
-    },
-    "powerAmperageId65": {
-        "message": "ESC Motor 6"
-    },
-    "powerAmperageId66": {
-        "message": "ESC Motor 7"
-    },
-    "powerAmperageId67": {
-        "message": "ESC Motor 8"
-    },
-    "powerAmperageId68": {
-        "message": "ESC Motor 9"
-    },
-    "powerAmperageId69": {
-        "message": "ESC Motor 10"
-    },
-    "powerAmperageId70": {
-        "message": "ESC Motor 11"
-    },
-    "powerAmperageId71": {
-        "message": "ESC Motor 12"
-    },
-    "powerAmperageId80": {
-        "message": "Virtual"
-    },
-    "powerAmperageId90": {
-        "message": "MSP"
-    },
-    "powerMahValue": {
-        "message": "$1 mAh"
-    },
     "powerAmperageScale": {
         "message": "Skala [1/10 mV/A]"
-    },
-    "powerAmperageOffset": {
-        "message": "Offset [mA]"
     },
     "powerBatteryHead": {
         "message": "Baterai"
@@ -3011,9 +2280,6 @@
     },
     "powerBatteryCapacity": {
         "message": "Kapasitas (mAh)"
-    },
-    "osdSetupTitle": {
-        "message": "OSD"
     },
     "osdSetupPreviewHelp": {
         "message": "<strong>Catatan:</strong> Tinjauan OSD mungkin tidak menampilkan bentuk huruf sebenarnya yang terpasang pada flight controller."
@@ -3098,9 +2364,6 @@
     },
     "osdSetupFontManager": {
         "message": "Pengelolaan Huruf"
-    },
-    "osdSetupHead": {
-        "message": "Info"
     },
     "osdSetupVideoMode": {
         "message": "Mode Video"
@@ -3351,9 +2614,6 @@
     "osdTimerPrecisionTooltip": {
         "message": "Pilih presisi timer, ini mengontrol ketepatan waktu yang dilaporkan"
     },
-    "osdTimerAlarm": {
-        "message": "Alarm:"
-    },
     "osdTimerAlarmTooltip": {
         "message": "Pilih ambang timer alarm dalam beberapa menit, bila melebihi nilai ini, elemen OSD akan berkedip, mengaturnya menjadi 0 untuk menonaktifkan alarm"
     },
@@ -3443,9 +2703,6 @@
     },
     "configurationGyroUse32kHzHelp": {
         "message": "Frekuensi update gyro 32 kHz hanya dimungkinkan jika chip gyro mendukungnya (saat ini MPU6500, MPU9250, dan ICM20xxx jika terhubung melalui SPI). Jika ragu, konsultasikan dengan spesifikasi untuk FC anda."
-    },
-    "configurationAccHardware": {
-        "message": "Accelerometer"
     },
     "configurationBaroHardware": {
         "message": "Barometer (jika didukung)"

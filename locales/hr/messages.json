@@ -32,9 +32,6 @@
     "portsSelectManual": {
         "message": "Ručni odabir"
     },
-    "portOverrideText": {
-        "message": "Port:"
-    },
     "autoConnect": {
         "message": "Automatsko povezivanje"
     },
@@ -83,37 +80,14 @@
     "sensorStatusAccel": {
         "message": "Akcelerometar"
     },
-    "sensorStatusAccelShort": {
-        "message": "Accel",
-        "description": "Text of the image in the top sensors icons. Please keep it short."
-    },
     "sensorStatusMag": {
         "message": "Magnetometar"
-    },
-    "sensorStatusMagShort": {
-        "message": "Mag",
-        "description": "Text of the image in the top sensors icons. Please keep it short."
     },
     "sensorStatusBaro": {
         "message": "Barometar"
     },
-    "sensorStatusBaroShort": {
-        "message": "Baro",
-        "description": "Text of the image in the top sensors icons. Please keep it short."
-    },
-    "sensorStatusGPS": {
-        "message": "GPS"
-    },
-    "sensorStatusGPSShort": {
-        "message": "GPS",
-        "description": "Text of the image in the top sensors icons. Please keep it short."
-    },
     "sensorStatusSonar": {
         "message": "Sonar / Daljinomjer"
-    },
-    "sensorStatusSonarShort": {
-        "message": "Sonar",
-        "description": "Text of the image in the top sensors icons. Please keep it short."
     },
     "checkForConfiguratorUnstableVersions": {
         "message": "Prikaži obavijesti o ažuriranjima za nestabilne verzije konfiguratora"
@@ -166,29 +140,17 @@
     "tabPorts": {
         "message": "Portovi"
     },
-    "tabPidTuning": {
-        "message": "PID Tuning"
-    },
     "tabReceiver": {
         "message": "Prijemnik"
     },
     "tabServos": {
         "message": "Servo motori"
     },
-    "tabFailsafe": {
-        "message": "Failsafe"
-    },
     "tabTransponder": {
         "message": "Transponder utrke"
     },
-    "tabOsd": {
-        "message": "OSD"
-    },
     "tabPower": {
         "message": "Napajanje i baterija"
-    },
-    "tabGPS": {
-        "message": "GPS"
     },
     "tabMotorTesting": {
         "message": "Motori"
@@ -198,12 +160,6 @@
     },
     "tabRawSensorData": {
         "message": "Senzori"
-    },
-    "tabCLI": {
-        "message": "CLI"
-    },
-    "tabLogging": {
-        "message": "Tethered Logging"
     },
     "tabOnboardLogging": {
         "message": "Crna kutija"
@@ -401,23 +357,11 @@
     "fcInfoReceived": {
         "message": "Informacije kontrolera leta, identifikator: <strong>$1</strong>, verzija: <strong>$2</strong>"
     },
-    "versionLabelTarget": {
-        "message": "Target"
-    },
-    "versionLabelFirmware": {
-        "message": "Firmware"
-    },
     "versionLabelConfigurator": {
         "message": "Konfigurator"
     },
     "statusbar_port_utilization": {
         "message": "Iskorištenost porta:"
-    },
-    "statusbar_usage_download": {
-        "message": "D: $1%"
-    },
-    "statusbar_usage_upload": {
-        "message": "U: $1%"
     },
     "statusbar_packet_error": {
         "message": "Pogreške paketa:"
@@ -479,12 +423,6 @@
     "defaultSupport": {
         "message": "Za podršku molimo potražite na forumima i na Emuflight wikiju ili kontaktirajte vašek proizvođaća<br /><br />"
     },
-    "defaultSupport1": {
-        "message": "<a href=\"https://discordapp.com/channels/547211754845765635\" target=\"_blank\">Discord</a>"
-    },
-    "defaultSupport2": {
-        "message": "<a href=\"https://github.com/Emuflight\" target=\"_blank\">GitHub</a>"
-    },
     "initialSetupBackupAndRestoreApiVersion": {
         "message": "<span class=\"message-negative\">Izrada i korištenje sigurnosnih kopija onemogućeno.</span> Koristite firmware s API verzijom <span class=\"message-negative\">$1</span>, sigurnosne kopije zahtijevaju <span class=\"message-positive\">$2</span>.  Molimo napravite sigurnosne kopije postavki kroz CLI sučelje, pogledajte Emuflight dokumentaciju za proceduru."
     },
@@ -542,26 +480,14 @@
     "initialSetupBattery": {
         "message": "Napon baterije:"
     },
-    "initialSetupBatteryValue": {
-        "message": "$1 V"
-    },
     "initialSetupDrawn": {
         "message": "Potrošeni kapacitet:"
     },
     "initialSetupDrawing": {
         "message": "Struja:"
     },
-    "initialSetupBatteryMahValue": {
-        "message": "$1 mAh"
-    },
     "initialSetupBatteryAValue": {
         "message": "$1 V"
-    },
-    "initialSetupRSSI": {
-        "message": "RSSI:"
-    },
-    "initialSetupRSSIValue": {
-        "message": "$1 %"
     },
     "initialSetupArmingDisableFlags": {
         "message": "Zastavice onemogućenosti Arminga:"
@@ -656,14 +582,8 @@
         "message": "Jedna od drugih disarm zastavica je aktivna kod arminga",
         "description": "Description of the ARM_SWITCH arming disable flag"
     },
-    "initialSetupGPSHead": {
-        "message": "GPS"
-    },
     "initialSetupInstrumentsHead": {
         "message": "Instrumenti"
-    },
-    "initialSetupAttitude": {
-        "message": "$1 deg"
     },
     "initialSetupAccelCalibStarted": {
         "message": "Kalibracija akcelerometra pokrenuta"
@@ -683,9 +603,6 @@
     "featureNone": {
         "message": "&lt;Odaberi jednu&gt;"
     },
-    "featureRX_PPM": {
-        "message": "PPM RX input"
-    },
     "featureVBAT": {
         "message": "Praćenja napona baterije"
     },
@@ -698,9 +615,6 @@
     "featureMOTOR_STOP": {
         "message": "Motori se ne vrte kad je letljelica armirana"
     },
-    "featureSERVO_TILT": {
-        "message": "Servo gimbal"
-    },
     "featureSOFTSERIAL": {
         "message": "Omogući softwerske serijske portove procesora"
     },
@@ -712,9 +626,6 @@
     },
     "featureGPSTip": {
         "message": "Prije omogućavanja potrebno je konfigurirati portove"
-    },
-    "featureSONAR": {
-        "message": "Sonar"
     },
     "featureTELEMETRY": {
         "message": "Izlaz za telemetriju"
@@ -860,9 +771,6 @@
     "configurationSensorAlignmentGyro": {
         "message": "GYRO Poravnanje"
     },
-    "configurationSensorGyroToUse": {
-        "message": "GYRO/ACCEL"
-    },
     "configurationSensorGyroToUseNotFound": {
         "message": "Upozorenje: Nema žiroskopa/akcelerometra"
     },
@@ -898,9 +806,6 @@
     },
     "configurationAccelTrimPitch": {
         "message": "Akcelerometar Pitch Trim"
-    },
-    "configurationArming": {
-        "message": "Arming"
     },
     "configurationArmingHelp": {
         "message": "Neke opcije Arminga možda će zahtijevati akcelerometar"
@@ -1049,20 +954,11 @@
     "configurationLoopTimeHelp": {
         "message": "<strong>Napomena:</strong> Provjerite da vaš kontroler leta može raditi na odabranim brzinama! Provjerite CPU opterećenje i stabilnost vremena ciklusa. Mjenjanje ovih postavki će možda utjecati na postavke PID kontrolera. SAVJET: Onemogućite akcelerometa i ostale senzore koje ne koristite kako bi oslobodili procesor."
     },
-    "configurationGPS": {
-        "message": "GPS"
-    },
     "configurationGPSProtocol": {
         "message": "Protokol"
     },
-    "configurationGPSBaudrate": {
-        "message": "Baudrate"
-    },
     "configurationGPSubxSbas": {
         "message": "Vrsta pomoći na tlu"
-    },
-    "configurationGPSAutoBaud": {
-        "message": "Auto Baud"
     },
     "configurationGPSAutoConfig": {
         "message": "Automatska konfiguracija"
@@ -1112,56 +1008,11 @@
     "portsTelemetryDisabled": {
         "message": "Onemogućeno"
     },
-    "portsFunction_MSP": {
-        "message": "MSP"
-    },
-    "portsFunction_GPS": {
-        "message": "GPS"
-    },
-    "portsFunction_TELEMETRY_FRSKY": {
-        "message": "FrSky"
-    },
-    "portsFunction_TELEMETRY_HOTT": {
-        "message": "HoTT"
-    },
-    "portsFunction_TELEMETRY_LTM": {
-        "message": "LTM"
-    },
-    "portsFunction_TELEMETRY_MAVLINK": {
-        "message": "MAVLink"
-    },
-    "portsFunction_TELEMETRY_MSP": {
-        "message": "MSP"
-    },
-    "portsFunction_TELEMETRY_SMARTPORT": {
-        "message": "SmartPort"
-    },
-    "portsFunction_TELEMETRY_IBUS": {
-        "message": "iBUS"
-    },
-    "portsFunction_TELEMETRY_JETIXBUS": {
-        "message": "JETIXBUS"
-    },
-    "portsFunction_TELEMETRY_CRSF": {
-        "message": "CRSF"
-    },
-    "portsFunction_TELEMETRY_SRXL": {
-        "message": "SRXL"
-    },
-    "portsFunction_ESC_SENSOR": {
-        "message": "ESC"
-    },
     "portsFunction_RX_SERIAL": {
         "message": "Serijski RX"
     },
     "portsFunction_BLACKBOX": {
         "message": "Zapisivanje u crnu kutiju"
-    },
-    "portsFunction_TBS_SMARTAUDIO": {
-        "message": "VTX (TBS SmartAudio)"
-    },
-    "portsFunction_IRC_TRAMP": {
-        "message": "VTX (IRC Tramp)"
     },
     "portsFunction_RUNCAM_DEVICE_CONTROL": {
         "message": "Kamera (RunCam Protocol)"
@@ -1171,9 +1022,6 @@
     },
     "pidTuningRateProfileOption": {
         "message": "Rateprofil $1"
-    },
-    "portsFunction_LIDAR_TF": {
-        "message": "Benewake LIDAR"
     },
     "pidTuningUpgradeFirmwareToChangePidController": {
         "message": "<span class=\"message-negative\">Mijenjanje postavki PID kontrolera onemogućeno - možete ih mijenjati kroz CLI.</span> Firmware koji koristite ima API verziju<span class=\"message-negative\">$1</span>, ali ova mogućnost zahtijeva verziju <span class=\"message-positive\">$2</span>."
@@ -1216,9 +1064,6 @@
     "receiverRcSmoothing": {
         "message": "RC poravnavanje"
     },
-    "receiverRcSmoothingAuto": {
-        "message": "Auto"
-    },
     "receiverRcSmoothingManual": {
         "message": "Ručno"
     },
@@ -1230,9 +1075,6 @@
     },
     "receiverRcSmoothingInterpolation": {
         "message": "Interpolacija"
-    },
-    "receiverRcSmoothingFilter": {
-        "message": "Filter"
     },
     "rcSmoothingInputCutoffHelp": {
         "message": "Cutoff frekvencija u Hz koju koristi ulazni filter. Korištenje nižih vrijednosti će rezultirati ravnomjernijim inputima i primjerenije su sporijim protokolima prijemnika. Većina korisnika bi trebala ostaviti ovo na 0, tj. \"Auto\"."
@@ -1285,12 +1127,6 @@
     "receiverRcSmoothingType": {
         "message": "Način poravnavanja"
     },
-    "receiverRcInterpolationDefault": {
-        "message": "Preset"
-    },
-    "receiverRcInterpolationAuto": {
-        "message": "Auto"
-    },
     "receiverRcInterpolationManual": {
         "message": "Ručno"
     },
@@ -1327,35 +1163,11 @@
     "pidTuningDerivative": {
         "message": "Derivacijski"
     },
-    "pidTuningFeedforward": {
-        "message": "Feedforward"
-    },
-    "pidTuningRcRate": {
-        "message": "RC Rate"
-    },
     "pidTuningMaxVel": {
         "message": "Max brz. [deg/s]"
     },
-    "pidTuningRate": {
-        "message": "Rate"
-    },
-    "pidTuningSuperRate": {
-        "message": "Super Rate"
-    },
     "pidTuningRatesPreview": {
         "message": "Rate prikaz"
-    },
-    "pidTuningRcExpo": {
-        "message": "RC Expo"
-    },
-    "pidTuningTPA_P": {
-        "message": "TPA P"
-    },
-    "pidTuningTPA_I": {
-        "message": "TPA I"
-    },
-    "pidTuningTPA_D": {
-        "message": "TPA D"
     },
     "pidTuningTPABreakPoint": {
         "message": "TPA točka prijeloma"
@@ -1380,9 +1192,6 @@
     },
     "pidTuningThrottleLimitPercentTip": {
         "message": "Postavi željeni postotak limitiranja gasa. Postavljanje na 100% onemogućava ovu funkciju."
-    },
-    "pidTuningFilter": {
-        "message": "Filter"
     },
     "pidTuningRatesCurve": {
         "message": "Rate krivulja"
@@ -1543,12 +1352,6 @@
     "auxiliaryToggleUnused": {
         "message": "Sakrij načine rada koji se ne koriste"
     },
-    "auxiliaryMin": {
-        "message": "Min"
-    },
-    "auxiliaryMax": {
-        "message": "Max"
-    },
     "auxiliaryAddRange": {
         "message": "Dodaj raspon"
     },
@@ -1560,9 +1363,6 @@
     },
     "auxiliaryEepromSaved": {
         "message": "EEPROM <span class=\"message-positive\">spremljen</span>"
-    },
-    "auxiliaryAutoChannelSelect": {
-        "message": "AUTO"
     },
     "auxiliaryModeLogicOR": {
         "message": "ILI"
@@ -1596,24 +1396,6 @@
     },
     "adjustmentsColumnViaChannel": {
         "message": "kanalom"
-    },
-    "adjustmentsSlot0": {
-        "message": "Slot 1"
-    },
-    "adjustmentsSlot1": {
-        "message": "Slot 2"
-    },
-    "adjustmentsSlot2": {
-        "message": "Slot 3"
-    },
-    "adjustmentsSlot3": {
-        "message": "Slot 4"
-    },
-    "adjustmentsMin": {
-        "message": "Min"
-    },
-    "adjustmentsMax": {
-        "message": "Max"
     },
     "adjustmentsFunction0": {
         "message": "Bez promjena"
@@ -1654,12 +1436,6 @@
     "adjustmentsFunction12": {
         "message": "Odabir rateprofila"
     },
-    "adjustmentsFunction13": {
-        "message": "Pitch Rate"
-    },
-    "adjustmentsFunction14": {
-        "message": "Roll Rate"
-    },
     "adjustmentsFunction15": {
         "message": "Pitch P prilagodba"
     },
@@ -1677,12 +1453,6 @@
     },
     "adjustmentsFunction20": {
         "message": "Roll D prilagodba"
-    },
-    "adjustmentsFunction21": {
-        "message": "RC Rate Yaw"
-    },
-    "adjustmentsFunction22": {
-        "message": "D Setpoint"
     },
     "adjustmentsFunction22_2": {
         "message": "Pitch & Roll F prilagodba"
@@ -1732,23 +1502,8 @@
     "transponderType0": {
         "message": "Ništa"
     },
-    "transponderType1": {
-        "message": "iLap"
-    },
-    "transponderType2": {
-        "message": "aRCiTimer"
-    },
-    "transponderType3": {
-        "message": "ERLT"
-    },
     "transponderData1": {
         "message": "Podaci"
-    },
-    "transponderData2": {
-        "message": "Transponder ID"
-    },
-    "transponderData3": {
-        "message": "Transponder ID"
     },
     "transponderDataHelp1": {
         "message": "Samo heksadekadske znamenke, 0-9, A-F"
@@ -1786,15 +1541,6 @@
     "servosName": {
         "message": "Ime"
     },
-    "servosMid": {
-        "message": "MID"
-    },
-    "servosMin": {
-        "message": "MIN"
-    },
-    "servosMax": {
-        "message": "MAX"
-    },
     "servosDirectionAndRate": {
         "message": "Smjer i rate"
     },
@@ -1807,9 +1553,6 @@
     "servosEepromSave": {
         "message": "EEPROM <span class=\"message-positive\">spremljen</span>"
     },
-    "gpsHead": {
-        "message": "GPS"
-    },
     "gpsMapHead": {
         "message": "Trenutna GPS lokacija"
     },
@@ -1818,9 +1561,6 @@
     },
     "gpsMapMessage2": {
         "message": "Čekanje na GPS 3D lokaciju…"
-    },
-    "gps3dFix": {
-        "message": "3D Fix:"
     },
     "gpsFixTrue": {
         "message": "<span class=\"fixtrue\">Istina</span>"
@@ -1852,9 +1592,6 @@
     "gpsSignalStr": {
         "message": "Jačina signala"
     },
-    "gpsSignalSatId": {
-        "message": "Sat ID"
-    },
     "gpsSignalQty": {
         "message": "Kol"
     },
@@ -1867,41 +1604,8 @@
     "motorsmAhDrawn": {
         "message": "Potrošeno:"
     },
-    "motorsVoltageValue": {
-        "message": "$1 V"
-    },
-    "motorsADrawingValue": {
-        "message": "$1 A"
-    },
-    "motorsmAhDrawnValue": {
-        "message": "$1 mAh"
-    },
     "motorsText": {
         "message": "Motori"
-    },
-    "motorNumber1": {
-        "message": "Motor - 1"
-    },
-    "motorNumber2": {
-        "message": "Motor - 2"
-    },
-    "motorNumber3": {
-        "message": "Motor - 3"
-    },
-    "motorNumber4": {
-        "message": "Motor - 4"
-    },
-    "motorNumber5": {
-        "message": "Motor - 5"
-    },
-    "motorNumber6": {
-        "message": "Motor - 6"
-    },
-    "motorNumber7": {
-        "message": "Motor - 7"
-    },
-    "motorNumber8": {
-        "message": "Motor - 8"
     },
     "servosText": {
         "message": "Servo motori"
@@ -1930,20 +1634,11 @@
     "servoNumber8": {
         "message": "Servo motor - 8"
     },
-    "motorsResetMaximumButton": {
-        "message": "Reset"
-    },
     "motorsResetMaximum": {
         "message": "Resetiraj maksimume"
     },
     "motorsSensorGyroSelect": {
         "message": "žiro"
-    },
-    "motorsSensorAccelSelect": {
-        "message": "accel"
-    },
-    "motorsMaster": {
-        "message": "Master"
     },
     "motorsNotice": {
         "message": "<strong>Napomena za test motora i arminga:</strong><br />Pomicanje klizača ili armiranje preko stanice će <strong>pokrenuti motore</strong>.<br />Kako bi se izbjegla ozljeda <strong class=\"message-negative\">uklonite SVE propelere</strong> prije korištenja ove mogućnosti.<br />Omogućavanje ovog načina rada za testiranje privremeno će onemogućiti zaštitu od nekontroliranog polijetanja.<br />"
@@ -1972,9 +1667,6 @@
     "sensorsBaroSelect": {
         "message": "Barometar"
     },
-    "sensorsSonarSelect": {
-        "message": "Sonar"
-    },
     "sensorsDebugSelect": {
         "message": "Debugiranje"
     },
@@ -1989,9 +1681,6 @@
     },
     "sensorsBaroTitle": {
         "message": "Barometar - metri"
-    },
-    "sensorsSonarTitle": {
-        "message": "Sonar - cm"
     },
     "sensorsDebugTitle": {
         "message": "Debugiranje"
@@ -2149,9 +1838,6 @@
     "dataflashButtonSaveCancel": {
         "message": "Poništi"
     },
-    "dataflashButtonSaveDismiss": {
-        "message": "Ok"
-    },
     "dataflashButtonEraseConfirm": {
         "message": "Da, obriši memoriju"
     },
@@ -2197,12 +1883,6 @@
     "firmwareFlasherReleaseStatus": {
         "message": "Stanje:"
     },
-    "firmwareFlasherReleaseTarget": {
-        "message": "Target:"
-    },
-    "firmwareFlasherReleaseFile": {
-        "message": "Binary:"
-    },
     "firmwareFlasherReleaseFileUrl": {
         "message": "Ručno preuzimanje."
     },
@@ -2239,17 +1919,11 @@
     "firmwareFlasherFullChipEraseDescription": {
         "message": "Briše sve konfiguracijske podatke trenutno spremljene na kontroleru leta."
     },
-    "firmwareFlasherManualPort": {
-        "message": "Port"
-    },
     "firmwareFlasherManualBaud": {
         "message": "Ručno postavi baud rate"
     },
     "firmwareFlasherManualBaudDescription": {
         "message": "Ručni odabir baud ratea za kontrolere leta koji ne podržavaju zadanu brzinu ili za ažuriranje preko bluetootha.<br /><span class=\"message-negative\">Napomena:</span> Ne treba koristiti kod ažuriranja preko USB DFU načina"
-    },
-    "firmwareFlasherBaudRate": {
-        "message": "Baud Rate"
     },
     "firmwareFlasherShowDevelopmentReleases": {
         "message": "Prikaži nestabilne verzije"
@@ -2293,14 +1967,8 @@
     "firmwareFlasherGithubInfoHead": {
         "message": "GitHub informacije o firmwareu"
     },
-    "firmwareFlasherCommiter": {
-        "message": "Committer:"
-    },
     "firmwareFlasherDate": {
         "message": "Datum:"
-    },
-    "firmwareFlasherHash": {
-        "message": "Hash:"
     },
     "firmwareFlasherUrl": {
         "message": "Idite na GitHub za recenziju ovog commita..."
@@ -2354,18 +2022,6 @@
         "message": "Postavke boje",
         "description": "Color setup title of the led strip"
     },
-    "ledStripH": {
-        "message": "H",
-        "description": "Abbreviation of Hue in HSV (Hue, Saturation, Brightness) color model"
-    },
-    "ledStripS": {
-        "message": "S",
-        "description": "Abbreviation of Saturation in HSV  (Hue, Saturation, Brightness) color model"
-    },
-    "ledStripV": {
-        "message": "V",
-        "description": "Abbreviation of Brightness in HSV  (Hue, Saturation, Brightness) color model"
-    },
     "ledStripRemainingText": {
         "message": "Preostalo",
         "description": "In the LED STRIP, text next the counter of leds remaining"
@@ -2410,14 +2066,6 @@
         "message": "Baterija",
         "description": "One of the modes of the Led Strip"
     },
-    "ledStripFunctionRSSIOption": {
-        "message": "RSSI",
-        "description": "One of the modes of the Led Strip"
-    },
-    "ledStripFunctionGPSOption": {
-        "message": "GPS",
-        "description": "One of the modes of the Led Strip"
-    },
     "ledStripFunctionRingOption": {
         "message": "Zvono",
         "description": "One of the modes of the Led Strip"
@@ -2432,49 +2080,9 @@
         "message": "Orijentacija",
         "description": "One of the modes in Color Mode in Led Strip"
     },
-    "ledStripModeColorsModeHeadfree": {
-        "message": "Headfree",
-        "description": "One of the modes in Color Mode in Led Strip"
-    },
     "ledStripModeColorsModeHorizon": {
         "message": "Horizont",
         "description": "One of the modes in Color Mode in Led Strip"
-    },
-    "ledStripModeColorsModeAngle": {
-        "message": "Angle",
-        "description": "One of the modes in Color Mode in Led Strip"
-    },
-    "ledStripModeColorsModeMag": {
-        "message": "Mag",
-        "description": "One of the modes in Color Mode in Led Strip"
-    },
-    "ledStripModeColorsModeBaro": {
-        "message": "Baro",
-        "description": "One of the modes in Color Mode in Led Strip"
-    },
-    "ledStripDirN": {
-        "message": "N",
-        "description": "North direction in Color Mode in Led Strip"
-    },
-    "ledStripDirE": {
-        "message": "E",
-        "description": "East direction in Color Mode in Led Strip"
-    },
-    "ledStripDirS": {
-        "message": "S",
-        "description": "South direction in Color Mode in Led Strip"
-    },
-    "ledStripDirW": {
-        "message": "W",
-        "description": "West direction in Color Mode in Led Strip"
-    },
-    "ledStripDirU": {
-        "message": "U",
-        "description": "Up direction in Color Mode in Led Strip"
-    },
-    "ledStripDirD": {
-        "message": "D",
-        "description": "Down direction in Color Mode in Led Strip"
     },
     "ledStripModesOrientationTitle": {
         "message": "LED orjentacije ('Mod &amp; orjentacija') i boja",
@@ -2532,9 +2140,6 @@
         "message": "LEDs bez broja poretka kabela neće biti spremljene.",
         "description": "Message in the wiring modes in Led Strip"
     },
-    "ledStripVtxFunction": {
-        "message": "Larson scanner"
-    },
     "ledStripBlinkTitle": {
         "message": "Treptaj"
     },
@@ -2543,9 +2148,6 @@
     },
     "ledStripBlinkLandingOverlay": {
         "message": "Treperi pri sljetanju"
-    },
-    "ledStripOverlayTitle": {
-        "message": "Overlay"
     },
     "ledStripWarningsOverlay": {
         "message": "Upozorenja"
@@ -2589,71 +2191,8 @@
     "colorDarkViolet": {
         "message": "tamno ljubičasta"
     },
-    "colorMagenta": {
-        "message": "magenta"
-    },
     "colorDeepPink": {
         "message": "tamno ružičasta"
-    },
-    "controlAxisRoll": {
-        "message": "Roll [A]"
-    },
-    "controlAxisPitch": {
-        "message": "Pitch [E]"
-    },
-    "controlAxisYaw": {
-        "message": "Yaw [R]"
-    },
-    "controlAxisThrottle": {
-        "message": "Throttle [T]"
-    },
-    "controlAxisAux1": {
-        "message": "AUX 1"
-    },
-    "controlAxisAux2": {
-        "message": "AUX 2"
-    },
-    "controlAxisAux3": {
-        "message": "AUX 3"
-    },
-    "controlAxisAux4": {
-        "message": "AUX 4"
-    },
-    "controlAxisAux5": {
-        "message": "AUX 5"
-    },
-    "controlAxisAux6": {
-        "message": "AUX 6"
-    },
-    "controlAxisAux7": {
-        "message": "AUX 7"
-    },
-    "controlAxisAux8": {
-        "message": "AUX 8"
-    },
-    "controlAxisAux9": {
-        "message": "AUX 9"
-    },
-    "controlAxisAux10": {
-        "message": "AUX 10"
-    },
-    "controlAxisAux11": {
-        "message": "AUX 11"
-    },
-    "controlAxisAux12": {
-        "message": "AUX 12"
-    },
-    "controlAxisAux13": {
-        "message": "AUX 13"
-    },
-    "controlAxisAux14": {
-        "message": "AUX 14"
-    },
-    "controlAxisAux15": {
-        "message": "AUX 15"
-    },
-    "controlAxisAux16": {
-        "message": "AUX 16"
     },
     "pidTuningBasic": {
         "message": "Basic/Acro"
@@ -2672,12 +2211,6 @@
     },
     "pidTuningTransition": {
         "message": "Prijelaz"
-    },
-    "pidTuningHorizon": {
-        "message": "Horizon"
-    },
-    "pidTuningAngle": {
-        "message": "Angle"
     },
     "pidTuningLevelAngleLimit": {
         "message": "Limit kuta"
@@ -2763,44 +2296,11 @@
     "pidTuningVbatPidCompensationHelp": {
         "message": "Povećava PID vrijednosti kako bi kompenziralo pad napona baterije. Ovo će omogućiti konstante karakteristike leta kroz cijeli let. Količina kompenzacije koja je primjenjena se računa iz $t(powerBatteryMaximum.message) postavljene u $t(tabPower.message) kartici, tako da je bitno da to ispravno postavite."
     },
-    "pidTuningFeatheredPids": {
-        "message": "Feathered PIDs"
-    },
-    "pidTuningiDecay": {
-        "message": "iDecay"
-    },
-    "pidTuningEmuBoost": {
-        "message": "EmuBoost"
-    },
-    "pidTuningEmuBoostLimit": {
-        "message": "EmuBoost Limit"
-    },
-    "pidTuningEmuBoostHelp": {
-        "message": "Adds a nonlinear boost to the error seen by your p and i term. Adds a different feeling to the sticks. Values that are to high will cause oscillations. Craft with a lower power to weight like whoops seem happy with quite high values and EmuBoost can really help give them a locked in feeling."
-    },
-    "pidTuningEmuBoostLimitHelp": {
-        "message": "Puts a limit on how much the EmuBoost is allowed to boost your error. Its measured as a percentage of the total error that EmuBoost is allowed to add. A high EmuBoost with a low EmuBoost Limit can give a snappy feeling near the center of the stick. Tune this according to preference."
-    },
-    "pidTuningItermRotation": {
-        "message": "I Term Rotation"
-    },
     "pidTuningItermRotationHelp": {
         "message": "Rotira trenutni I Term vektor ispravno na druge osi kad se letjelica rotira kod yawa tijekom dugih rollova i rađenja drugih trikova. Bitno za LOS acro pilote."
     },
-    "pidTuningFeatheredPidsHelp": {
-        "message": "Feathered PIDs changes how Dterm is calculated. 0 is error based dterm and 100 is measurement based dterm. Measurement is smoother but less responsive than error. Any value between 0 and 100 is a scalar of partially measurement and error calculated dterm."
-    },
-    "pidTuningiDecayHelp": {
-        "message": "Removes excessive iterm accumulation normally found at the end of quick stick movements. Running a higher decay allows you to run a higher iterm without experiencing bounce back or other common negatives associated with high iterm. Default is a value of 4, but the highest you can run it is 10."
-    },
-    "pidTuningSmartFeedforward": {
-        "message": "Smart Feedforward"
-    },
     "pidTuningSmartFeedforwardHelp": {
         "message": "Smanjuje efekt F Terma u PIDu. Kada su i P Term i F Term aktivini u isto vrijeme, koristi samo onaj koji je veći, izbjegavajući preskakanja bez potrebe povećanja D Terma, ali smanjuje efekt dobrog odziva na kontrole kojeg stvara F Term kada se pridoda P Termu."
-    },
-    "pidTuningItermRelax": {
-        "message": "I Term Relax"
     },
     "pidTuningItermRelaxHelp": {
         "message": "Ograničava akumulaciju I Terma kod brzih pokreta. Ovo pomaže smanjiti bounceback na kraju rollova i drugih brzih pokreta. Možete odabrati za koje osi se ovo primjenjuje, i prepoznaju li se brzi pokreti koristeći žiroskop ili određenu razinu kontrole."
@@ -2808,26 +2308,11 @@
     "pidTuningItermRelaxAxes": {
         "message": "Osi:"
     },
-    "pidTuningItermRelaxAxesOptionRP": {
-        "message": "RP"
-    },
-    "pidTuningItermRelaxAxesOptionRPY": {
-        "message": "RPY"
-    },
-    "pidTuningItermRelaxAxesOptionRPInc": {
-        "message": "RP (increment only)"
-    },
-    "pidTuningItermRelaxAxesOptionRPYInc": {
-        "message": "RPY (increment only)"
-    },
     "pidTuningItermRelaxType": {
         "message": "Vrsta:"
     },
     "pidTuningItermRelaxTypeOptionGyro": {
         "message": "Žiro"
-    },
-    "pidTuningItermRelaxTypeOptionSetpoint": {
-        "message": "Setpoint"
     },
     "pidTuningAbsoluteControlGain": {
         "message": "Apsolutna kontrola"
@@ -3021,62 +2506,14 @@
     "powerVoltageHead": {
         "message": "Mjerač napona"
     },
-    "powerVoltageValue": {
-        "message": "$1 V"
-    },
     "powerAmperageValue": {
         "message": "$1 V"
     },
     "powerVoltageId10": {
         "message": "Baterija"
     },
-    "powerVoltageId20": {
-        "message": "5V"
-    },
-    "powerVoltageId30": {
-        "message": "9V"
-    },
-    "powerVoltageId40": {
-        "message": "12V"
-    },
     "powerVoltageId50": {
         "message": "ESC Kombinirano"
-    },
-    "powerVoltageId60": {
-        "message": "ESC Motor 1"
-    },
-    "powerVoltageId61": {
-        "message": "ESC Motor 2"
-    },
-    "powerVoltageId62": {
-        "message": "ESC Motor 3"
-    },
-    "powerVoltageId63": {
-        "message": "ESC Motor 4"
-    },
-    "powerVoltageId64": {
-        "message": "ESC Motor 5"
-    },
-    "powerVoltageId65": {
-        "message": "ESC Motor 6"
-    },
-    "powerVoltageId66": {
-        "message": "ESC Motor 7"
-    },
-    "powerVoltageId67": {
-        "message": "ESC Motor 8"
-    },
-    "powerVoltageId68": {
-        "message": "ESC Motor 9"
-    },
-    "powerVoltageId69": {
-        "message": "ESC Motor 10"
-    },
-    "powerVoltageId70": {
-        "message": "ESC Motor 11"
-    },
-    "powerVoltageId71": {
-        "message": "ESC Motor 12"
     },
     "powerVoltageId80": {
         "message": "Čelija 1"
@@ -3114,50 +2551,8 @@
     "powerAmperageId50": {
         "message": "ESC Kombinirano"
     },
-    "powerAmperageId60": {
-        "message": "ESC Motor 1"
-    },
-    "powerAmperageId61": {
-        "message": "ESC Motor 2"
-    },
-    "powerAmperageId62": {
-        "message": "ESC Motor 3"
-    },
-    "powerAmperageId63": {
-        "message": "ESC Motor 4"
-    },
-    "powerAmperageId64": {
-        "message": "ESC Motor 5"
-    },
-    "powerAmperageId65": {
-        "message": "ESC Motor 6"
-    },
-    "powerAmperageId66": {
-        "message": "ESC Motor 7"
-    },
-    "powerAmperageId67": {
-        "message": "ESC Motor 8"
-    },
-    "powerAmperageId68": {
-        "message": "ESC Motor 9"
-    },
-    "powerAmperageId69": {
-        "message": "ESC Motor 10"
-    },
-    "powerAmperageId70": {
-        "message": "ESC Motor 11"
-    },
-    "powerAmperageId71": {
-        "message": "ESC Motor 12"
-    },
     "powerAmperageId80": {
         "message": "Virtualno"
-    },
-    "powerAmperageId90": {
-        "message": "MSP"
-    },
-    "powerMahValue": {
-        "message": "$1 mAh"
     },
     "powerAmperageScale": {
         "message": "Skaliranje[1/10th mV/A]"
@@ -3191,9 +2586,6 @@
     },
     "powerBatteryCapacity": {
         "message": "Kapacitet (mAh)"
-    },
-    "osdSetupTitle": {
-        "message": "OSD"
     },
     "osdSetupPreviewHelp": {
         "message": "<strong>Napomena:</strong> OSD pretpregled možda neće prikazati stvarni font koji je instaliran na kontroleru leta."
@@ -3258,9 +2650,6 @@
     "osdSetupWarningsTitle": {
         "message": "Upozorenja"
     },
-    "osdSetupFontPresets": {
-        "message": "Font presets:"
-    },
     "osdSetupFontPresetsSelector": {
         "message": "Odaberite presetove fonta:"
     },
@@ -3269,9 +2658,6 @@
     },
     "osdSetupOpenFont": {
         "message": "Otvori datoteku fonta"
-    },
-    "osdSetupCustomLogoTitle": {
-        "message": "Boot logo:"
     },
     "osdSetupCustomLogoOpenImageButton": {
         "message": "Odaberi prilagođenu sliku&hellip;"
@@ -3548,9 +2934,6 @@
     },
     "osdDescStatEscTemperature": {
         "message": "Maksimalna temperatura ESC-a"
-    },
-    "osdDescStatEscRpm": {
-        "message": "Max ESC RPM"
     },
     "osdDescStatMinLinkQuality": {
         "message": "Minimum alternativnog indikatora za kvalitetu veze temeljenu na gubicima paketa"

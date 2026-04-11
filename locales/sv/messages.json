@@ -1,8 +1,4 @@
 {
-    "windowTitle": {
-        "message": "Emuflight Configurator",
-        "description": "Title of the application window, usually not translated"
-    },
     "error": {
         "message": "Fel: {{errorMessage}}"
     },
@@ -35,9 +31,6 @@
     },
     "portsSelectManual": {
         "message": "Manuellt val"
-    },
-    "portOverrideText": {
-        "message": "Port:"
     },
     "autoConnect": {
         "message": "Anslut automatiskt"
@@ -80,44 +73,8 @@
     "sensorStatusGyro": {
         "message": "Gyroskop"
     },
-    "sensorStatusGyroShort": {
-        "message": "Gyro",
-        "description": "Text of the image in the top sensors icons. Please keep it short."
-    },
-    "sensorStatusAccel": {
-        "message": "Accelerometer"
-    },
-    "sensorStatusAccelShort": {
-        "message": "Accel",
-        "description": "Text of the image in the top sensors icons. Please keep it short."
-    },
-    "sensorStatusMag": {
-        "message": "Magnetometer"
-    },
-    "sensorStatusMagShort": {
-        "message": "Mag",
-        "description": "Text of the image in the top sensors icons. Please keep it short."
-    },
-    "sensorStatusBaro": {
-        "message": "Barometer"
-    },
-    "sensorStatusBaroShort": {
-        "message": "Baro",
-        "description": "Text of the image in the top sensors icons. Please keep it short."
-    },
-    "sensorStatusGPS": {
-        "message": "GPS"
-    },
-    "sensorStatusGPSShort": {
-        "message": "GPS",
-        "description": "Text of the image in the top sensors icons. Please keep it short."
-    },
     "sensorStatusSonar": {
         "message": "Sonar / Avståndsmätare"
-    },
-    "sensorStatusSonarShort": {
-        "message": "Sonar",
-        "description": "Text of the image in the top sensors icons. Please keep it short."
     },
     "checkForConfiguratorUnstableVersions": {
         "message": "Visa uppdateringsnotifieringar för icke-stabila versioner av konfiguratorn"
@@ -179,20 +136,11 @@
     "tabServos": {
         "message": "Servon"
     },
-    "tabFailsafe": {
-        "message": "Failsafe"
-    },
     "tabTransponder": {
         "message": "Race-transponder"
     },
-    "tabOsd": {
-        "message": "OSD"
-    },
     "tabPower": {
         "message": "Kraft & batteri"
-    },
-    "tabGPS": {
-        "message": "GPS"
     },
     "tabMotorTesting": {
         "message": "Motorer"
@@ -203,14 +151,8 @@
     "tabRawSensorData": {
         "message": "Sensorer"
     },
-    "tabCLI": {
-        "message": "CLI"
-    },
     "tabLogging": {
         "message": "Loggning till fil"
-    },
-    "tabOnboardLogging": {
-        "message": "Blackbox"
     },
     "tabAdjustments": {
         "message": "Justeringar"
@@ -408,20 +350,11 @@
     "versionLabelTarget": {
         "message": "Mål"
     },
-    "versionLabelFirmware": {
-        "message": "Firmware"
-    },
-    "versionLabelConfigurator": {
-        "message": "Configurator"
-    },
     "statusbar_port_utilization": {
         "message": "Portanvändning:"
     },
     "statusbar_usage_download": {
         "message": "N: $1%"
-    },
-    "statusbar_usage_upload": {
-        "message": "U: $1%"
     },
     "statusbar_packet_error": {
         "message": "Paket-fel:"
@@ -471,20 +404,11 @@
     "defaultDocumentation2": {
         "message": "Utgåvenoteringarna för firmware kan läsas på GitHubs utgåvesida, <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\"> här</a>."
     },
-    "defaultSupportHead": {
-        "message": "Support"
-    },
     "defaultSupportSubline1": {
         "message": "Supportkällor"
     },
     "defaultSupport": {
         "message": "För support, var vänlig sök i forumen och wikin först eller kontakta din försäljare.<br /><br />"
-    },
-    "defaultSupport1": {
-        "message": "<a href=\"https://discordapp.com/channels/547211754845765635\" target=\"_blank\">Discord</a>"
-    },
-    "defaultSupport2": {
-        "message": "<a href=\"https://github.com/Emuflight\" target=\"_blank\">GitHub</a>"
     },
     "initialSetupBackupAndRestoreApiVersion": {
         "message": "<span class=\"message-negative\">Säkerhetskopierings- och återställningsfunktioner inaktiverade.</span> Du har firmware med API-version <span class=\"message-negative\">$1</span>, säkerhetskopiering och återställning kräver <span class=\"message-positive\">$2</span>.  Vänligen säkerhetskopiera dina inställningar via CLI, se Emuflight-dokumentation för förfarandet."
@@ -537,32 +461,14 @@
     "initialSetupButtonResetZaxisValue": {
         "message": "Återställ Z-axel, offset: $1 grader"
     },
-    "initialSetupInfoHead": {
-        "message": "Info"
-    },
     "initialSetupBattery": {
         "message": "Batterispänning:"
-    },
-    "initialSetupBatteryValue": {
-        "message": "$1 V"
     },
     "initialSetupDrawn": {
         "message": "Förbrukad kapacitet:"
     },
     "initialSetupDrawing": {
         "message": "Nuvarande förbrukning:"
-    },
-    "initialSetupBatteryMahValue": {
-        "message": "$1 mAh"
-    },
-    "initialSetupBatteryAValue": {
-        "message": "$1 A"
-    },
-    "initialSetupRSSI": {
-        "message": "RSSI:"
-    },
-    "initialSetupRSSIValue": {
-        "message": "$1 %"
     },
     "initialSetupArmingDisableFlags": {
         "message": "Aktiveringshindrande flaggor:"
@@ -657,9 +563,6 @@
         "message": "En av de andra avaktiveringsflaggorna är aktiv vid aktivering",
         "description": "Description of the ARM_SWITCH arming disable flag"
     },
-    "initialSetupGPSHead": {
-        "message": "GPS"
-    },
     "initialSetupInstrumentsHead": {
         "message": "Instrument"
     },
@@ -713,9 +616,6 @@
     },
     "featureGPSTip": {
         "message": "Konfigurera port-scenario först"
-    },
-    "featureSONAR": {
-        "message": "Sonar"
     },
     "featureTELEMETRY": {
         "message": "Telemetri-utdata"
@@ -774,9 +674,6 @@
     "featureAIRMODE": {
         "message": "Aktivera Airmode permanent"
     },
-    "featureSUPEREXPO_RATES": {
-        "message": "Super Expo Rates"
-    },
     "featureSDCARD": {
         "message": "SDKort-stöd (för loggning)"
     },
@@ -812,9 +709,6 @@
     },
     "configurationFeatureDescription": {
         "message": "Beskrivning"
-    },
-    "configurationMixer": {
-        "message": "Mixer"
     },
     "configurationFeatures": {
         "message": "Andra funktioner"
@@ -860,9 +754,6 @@
     },
     "configurationSensorAlignmentGyro": {
         "message": "GYRO-orientering"
-    },
-    "configurationSensorGyroToUse": {
-        "message": "GYRO/ACCEL"
     },
     "configurationSensorGyroToUseNotFound": {
         "message": "Varning: Ingen Gyro/Acc hittad"
@@ -1035,9 +926,6 @@
     "configuration3dDeadbandHigh": {
         "message": "3D dödband hög"
     },
-    "configuration3dNeutral": {
-        "message": "3D Neutral"
-    },
     "configuration3dDeadbandThrottle": {
         "message": "3D dödband trottel"
     },
@@ -1050,20 +938,11 @@
     "configurationLoopTimeHelp": {
         "message": "<strong>Observera:</strong> Säkerställ att din flygkontroller klarar dessa hastigheter! Kontrollera CPU och cykeltidsstabiliteten. Ändringar här kan kräva ändringar av PID-inställningar. TIPS: Avaktivera accelerometer och andra sensorer för att få bättre prestanda."
     },
-    "configurationGPS": {
-        "message": "GPS"
-    },
     "configurationGPSProtocol": {
         "message": "Protokoll"
     },
-    "configurationGPSBaudrate": {
-        "message": "Baudrate"
-    },
     "configurationGPSubxSbas": {
         "message": "Markassistans-typ"
-    },
-    "configurationGPSAutoBaud": {
-        "message": "Auto Baud"
     },
     "configurationGPSAutoConfig": {
         "message": "Auto-konfiguration"
@@ -1113,56 +992,17 @@
     "portsTelemetryDisabled": {
         "message": "Inaktiv"
     },
-    "portsFunction_MSP": {
-        "message": "MSP"
-    },
-    "portsFunction_GPS": {
-        "message": "GPS"
-    },
-    "portsFunction_TELEMETRY_FRSKY": {
-        "message": "FrSky"
-    },
-    "portsFunction_TELEMETRY_HOTT": {
-        "message": "HoTT"
-    },
-    "portsFunction_TELEMETRY_LTM": {
-        "message": "LTM"
-    },
-    "portsFunction_TELEMETRY_MAVLINK": {
-        "message": "MAVLink"
-    },
-    "portsFunction_TELEMETRY_MSP": {
-        "message": "MSP"
-    },
-    "portsFunction_TELEMETRY_SMARTPORT": {
-        "message": "SmartPort"
-    },
     "portsFunction_TELEMETRY_IBUS": {
         "message": "iBus"
     },
     "portsFunction_TELEMETRY_JETIXBUS": {
         "message": "JETIBUS"
     },
-    "portsFunction_TELEMETRY_CRSF": {
-        "message": "CRSF"
-    },
-    "portsFunction_TELEMETRY_SRXL": {
-        "message": "SRXL"
-    },
-    "portsFunction_ESC_SENSOR": {
-        "message": "ESC"
-    },
     "portsFunction_RX_SERIAL": {
         "message": "Seriell RX"
     },
     "portsFunction_BLACKBOX": {
         "message": "Blackbox-loggning"
-    },
-    "portsFunction_TBS_SMARTAUDIO": {
-        "message": "VTX (TBS SmartAudio)"
-    },
-    "portsFunction_IRC_TRAMP": {
-        "message": "VTX (IRC Tramp)"
     },
     "portsFunction_RUNCAM_DEVICE_CONTROL": {
         "message": "Kamera (RunCam-protokoll)"
@@ -1172,9 +1012,6 @@
     },
     "pidTuningRateProfileOption": {
         "message": "Rate-profil $1"
-    },
-    "portsFunction_LIDAR_TF": {
-        "message": "Benewake LIDAR"
     },
     "pidTuningUpgradeFirmwareToChangePidController": {
         "message": "<span class=\"message-negative\">Inte möjligt att ändra PID-kontroller - du kan ändra den via CLI.</span>  Din firmware har API-version <span class=\"message-negative\">$1</span>, men denna funktion kräver <span class=\"message-positive\">$2</span>."
@@ -1217,9 +1054,6 @@
     "receiverRcSmoothing": {
         "message": "RC-utjämning"
     },
-    "receiverRcSmoothingAuto": {
-        "message": "Auto"
-    },
     "receiverRcSmoothingManual": {
         "message": "Manuell"
     },
@@ -1231,9 +1065,6 @@
     },
     "receiverRcSmoothingInterpolation": {
         "message": "Interpolering"
-    },
-    "receiverRcSmoothingFilter": {
-        "message": "Filter"
     },
     "rcSmoothingInputCutoffHelp": {
         "message": "Cutoff-frekvensen i Hz som används av input-filtret. Lägre värden ger utjämnade inputvärden och passar bra för långsammare mottagarprotokoll. De flesta användare bör låta detta vara 0, vilket motsvarar \"Auto\"."
@@ -1289,9 +1120,6 @@
     "receiverRcInterpolationDefault": {
         "message": "Förval"
     },
-    "receiverRcInterpolationAuto": {
-        "message": "Auto"
-    },
     "receiverRcInterpolationManual": {
         "message": "Manuell"
     },
@@ -1331,32 +1159,11 @@
     "pidTuningFeedforward": {
         "message": "Framkoppling (Feedforward)"
     },
-    "pidTuningRcRate": {
-        "message": "RC Rate"
-    },
     "pidTuningMaxVel": {
         "message": "Max Vel [grader/s]"
     },
-    "pidTuningRate": {
-        "message": "Rate"
-    },
-    "pidTuningSuperRate": {
-        "message": "Super Rate"
-    },
     "pidTuningRatesPreview": {
         "message": "Rates Förhandsvisning"
-    },
-    "pidTuningRcExpo": {
-        "message": "RC Expo"
-    },
-    "pidTuningTPA_P": {
-        "message": "TPA P"
-    },
-    "pidTuningTPA_I": {
-        "message": "TPA I"
-    },
-    "pidTuningTPA_D": {
-        "message": "TPA D"
     },
     "pidTuningTPABreakPoint": {
         "message": "TPA Brytpunkt"
@@ -1381,12 +1188,6 @@
     },
     "pidTuningThrottleLimitPercentTip": {
         "message": "Sätt den önskade trottelbegränsningsprocenten. Värdet 100% inaktiverar funktionen."
-    },
-    "pidTuningFilter": {
-        "message": "Filter"
-    },
-    "pidTuningRatesCurve": {
-        "message": "Rates"
     },
     "throttle": {
         "message": "Trottel"
@@ -1544,12 +1345,6 @@
     "auxiliaryToggleUnused": {
         "message": "Dölj oanvända lägen"
     },
-    "auxiliaryMin": {
-        "message": "Min"
-    },
-    "auxiliaryMax": {
-        "message": "Max"
-    },
     "auxiliaryAddRange": {
         "message": "Lägg till intervall"
     },
@@ -1561,9 +1356,6 @@
     },
     "auxiliaryEepromSaved": {
         "message": "EEPROM <span class=\"message-positive\">sparad</span>"
-    },
-    "auxiliaryAutoChannelSelect": {
-        "message": "AUTO"
     },
     "auxiliaryModeLogicOR": {
         "message": "ELLER"
@@ -1609,12 +1401,6 @@
     },
     "adjustmentsSlot3": {
         "message": "Plats 4"
-    },
-    "adjustmentsMin": {
-        "message": "Min"
-    },
-    "adjustmentsMax": {
-        "message": "Max"
     },
     "adjustmentsFunction0": {
         "message": "Inga ändringar"
@@ -1733,18 +1519,6 @@
     "transponderType0": {
         "message": "Ingen"
     },
-    "transponderType1": {
-        "message": "iLap"
-    },
-    "transponderType2": {
-        "message": "aRCiTimer"
-    },
-    "transponderType3": {
-        "message": "ERLT"
-    },
-    "transponderData1": {
-        "message": "Data"
-    },
     "transponderData2": {
         "message": "Transponder-ID"
     },
@@ -1790,12 +1564,6 @@
     "servosMid": {
         "message": "MITT"
     },
-    "servosMin": {
-        "message": "MIN"
-    },
-    "servosMax": {
-        "message": "MAX"
-    },
     "servosDirectionAndRate": {
         "message": "Riktning och rate"
     },
@@ -1807,9 +1575,6 @@
     },
     "servosEepromSave": {
         "message": "EEPROM <span class=\"message-positive\">sparad</span>"
-    },
-    "gpsHead": {
-        "message": "GPS"
     },
     "gpsMapHead": {
         "message": "Nuvarande GPS-position"
@@ -1868,83 +1633,17 @@
     "motorsmAhDrawn": {
         "message": "Förbrukad ström:"
     },
-    "motorsVoltageValue": {
-        "message": "$1 V"
-    },
-    "motorsADrawingValue": {
-        "message": "$1 A"
-    },
-    "motorsmAhDrawnValue": {
-        "message": "$1 mAh"
-    },
     "motorsText": {
         "message": "Motorer"
     },
-    "motorNumber1": {
-        "message": "Motor - 1"
-    },
-    "motorNumber2": {
-        "message": "Motor - 2"
-    },
-    "motorNumber3": {
-        "message": "Motor - 3"
-    },
-    "motorNumber4": {
-        "message": "Motor - 4"
-    },
-    "motorNumber5": {
-        "message": "Motor - 5"
-    },
-    "motorNumber6": {
-        "message": "Motor - 6"
-    },
-    "motorNumber7": {
-        "message": "Motor - 7"
-    },
-    "motorNumber8": {
-        "message": "Motor - 8"
-    },
     "servosText": {
         "message": "Servon"
-    },
-    "servoNumber1": {
-        "message": "Servo - 1"
-    },
-    "servoNumber2": {
-        "message": "Servo - 2"
-    },
-    "servoNumber3": {
-        "message": "Servo - 3"
-    },
-    "servoNumber4": {
-        "message": "Servo - 4"
-    },
-    "servoNumber5": {
-        "message": "Servo - 5"
-    },
-    "servoNumber6": {
-        "message": "Servo - 6"
-    },
-    "servoNumber7": {
-        "message": "Servo - 7"
-    },
-    "servoNumber8": {
-        "message": "Servo - 8"
     },
     "motorsResetMaximumButton": {
         "message": "Återst."
     },
     "motorsResetMaximum": {
         "message": "Nollställ maxvärden över tid"
-    },
-    "motorsSensorGyroSelect": {
-        "message": "gyro"
-    },
-    "motorsSensorAccelSelect": {
-        "message": "accel"
-    },
-    "motorsMaster": {
-        "message": "Master"
     },
     "motorsNotice": {
         "message": "<strong>Motortestläge / aktiveringsnotering:</strong><br />Flytt av reglagen eller motoraktivering via radiosändaren kommer att få motorerna att <strong>börja rotera</strong>.<br />För att undvika skador <strong class=\"message-negative\">ta bort ALLA propellrar</strong> innan denna funktion används.<br />Aktivering av motortestläge kommer också att tillfälligt inaktivera Förhindrande av oavsiktlig uppstigning (Runaway Takeoff Prevention), för att undvika att den funktionen stoppar motorerna vid tester utan propellrar.<br />"
@@ -1964,35 +1663,14 @@
     "sensorsGyroSelect": {
         "message": "Gyroskop"
     },
-    "sensorsAccelSelect": {
-        "message": "Accelerometer"
-    },
-    "sensorsMagSelect": {
-        "message": "Magnetometer"
-    },
-    "sensorsBaroSelect": {
-        "message": "Barometer"
-    },
-    "sensorsSonarSelect": {
-        "message": "Sonar"
-    },
     "sensorsDebugSelect": {
         "message": "Felsökning"
     },
     "sensorsGyroTitle": {
         "message": "Gyroskop - grader/s"
     },
-    "sensorsAccelTitle": {
-        "message": "Accelerometer - g"
-    },
-    "sensorsMagTitle": {
-        "message": "Magnetometer - Ga"
-    },
     "sensorsBaroTitle": {
         "message": "Barometer - meter"
-    },
-    "sensorsSonarTitle": {
-        "message": "Sonar - cm"
     },
     "sensorsDebugTitle": {
         "message": "Felsök"
@@ -2135,9 +1813,6 @@
     "dataflashButtonSaveCancel": {
         "message": "Avbryt"
     },
-    "dataflashButtonSaveDismiss": {
-        "message": "Ok"
-    },
     "dataflashButtonEraseConfirm": {
         "message": "Ja, rensa dataflashminne"
     },
@@ -2225,9 +1900,6 @@
     "firmwareFlasherFullChipEraseDescription": {
         "message": "Raderar och skriver över all konfigurationdata som finns på styrkortet."
     },
-    "firmwareFlasherManualPort": {
-        "message": "Port"
-    },
     "firmwareFlasherManualBaud": {
         "message": "Manuell baudhastighet"
     },
@@ -2285,9 +1957,6 @@
     "firmwareFlasherDate": {
         "message": "Datum:"
     },
-    "firmwareFlasherHash": {
-        "message": "Hash:"
-    },
     "firmwareFlasherUrl": {
         "message": "Gå till GitHub för att granska ändringen..."
     },
@@ -2340,18 +2009,6 @@
         "message": "Färginställning",
         "description": "Color setup title of the led strip"
     },
-    "ledStripH": {
-        "message": "H",
-        "description": "Abbreviation of Hue in HSV (Hue, Saturation, Brightness) color model"
-    },
-    "ledStripS": {
-        "message": "S",
-        "description": "Abbreviation of Saturation in HSV  (Hue, Saturation, Brightness) color model"
-    },
-    "ledStripV": {
-        "message": "V",
-        "description": "Abbreviation of Brightness in HSV  (Hue, Saturation, Brightness) color model"
-    },
     "ledStripRemainingText": {
         "message": "Återstående",
         "description": "In the LED STRIP, text next the counter of leds remaining"
@@ -2396,18 +2053,6 @@
         "message": "Batteri",
         "description": "One of the modes of the Led Strip"
     },
-    "ledStripFunctionRSSIOption": {
-        "message": "RSSI",
-        "description": "One of the modes of the Led Strip"
-    },
-    "ledStripFunctionGPSOption": {
-        "message": "GPS",
-        "description": "One of the modes of the Led Strip"
-    },
-    "ledStripFunctionRingOption": {
-        "message": "Ring",
-        "description": "One of the modes of the Led Strip"
-    },
     "ledStripColorModifierTitle": {
         "message": "Färgmodifiering"
     },
@@ -2418,45 +2063,13 @@
         "message": "Riktning",
         "description": "One of the modes in Color Mode in Led Strip"
     },
-    "ledStripModeColorsModeHeadfree": {
-        "message": "Headfree",
-        "description": "One of the modes in Color Mode in Led Strip"
-    },
-    "ledStripModeColorsModeHorizon": {
-        "message": "Horizon",
-        "description": "One of the modes in Color Mode in Led Strip"
-    },
-    "ledStripModeColorsModeAngle": {
-        "message": "Angle",
-        "description": "One of the modes in Color Mode in Led Strip"
-    },
-    "ledStripModeColorsModeMag": {
-        "message": "Mag",
-        "description": "One of the modes in Color Mode in Led Strip"
-    },
-    "ledStripModeColorsModeBaro": {
-        "message": "Baro",
-        "description": "One of the modes in Color Mode in Led Strip"
-    },
-    "ledStripDirN": {
-        "message": "N",
-        "description": "North direction in Color Mode in Led Strip"
-    },
     "ledStripDirE": {
         "message": "Ö",
         "description": "East direction in Color Mode in Led Strip"
     },
-    "ledStripDirS": {
-        "message": "S",
-        "description": "South direction in Color Mode in Led Strip"
-    },
     "ledStripDirW": {
         "message": "V",
         "description": "West direction in Color Mode in Led Strip"
-    },
-    "ledStripDirU": {
-        "message": "U",
-        "description": "Up direction in Color Mode in Led Strip"
     },
     "ledStripDirD": {
         "message": "N",
@@ -2476,10 +2089,6 @@
     },
     "ledStripModeColorsModeArmed": {
         "message": "Aktiverad",
-        "description": "One of the modes in Color Mode in Led Strip"
-    },
-    "ledStripModeColorsModeAnimation": {
-        "message": "Animation",
         "description": "One of the modes in Color Mode in Led Strip"
     },
     "ledStripModeColorsModeBlinkBg": {
@@ -2548,9 +2157,6 @@
     "colorRed": {
         "message": "röd"
     },
-    "colorOrange": {
-        "message": "orange"
-    },
     "colorYellow": {
         "message": "gul"
     },
@@ -2563,9 +2169,6 @@
     "colorMintGreen": {
         "message": "mintgrön"
     },
-    "colorCyan": {
-        "message": "cyan"
-    },
     "colorLightBlue": {
         "message": "ljusblå"
     },
@@ -2575,14 +2178,8 @@
     "colorDarkViolet": {
         "message": "mörkviolett"
     },
-    "colorMagenta": {
-        "message": "magenta"
-    },
     "colorDeepPink": {
         "message": "djuprosa"
-    },
-    "controlAxisRoll": {
-        "message": "Roll [A]"
     },
     "controlAxisPitch": {
         "message": "Looping [E]"
@@ -2592,54 +2189,6 @@
     },
     "controlAxisThrottle": {
         "message": "Trottel [T]"
-    },
-    "controlAxisAux1": {
-        "message": "AUX 1"
-    },
-    "controlAxisAux2": {
-        "message": "AUX 2"
-    },
-    "controlAxisAux3": {
-        "message": "AUX 3"
-    },
-    "controlAxisAux4": {
-        "message": "AUX 4"
-    },
-    "controlAxisAux5": {
-        "message": "AUX 5"
-    },
-    "controlAxisAux6": {
-        "message": "AUX 6"
-    },
-    "controlAxisAux7": {
-        "message": "AUX 7"
-    },
-    "controlAxisAux8": {
-        "message": "AUX 8"
-    },
-    "controlAxisAux9": {
-        "message": "AUX 9"
-    },
-    "controlAxisAux10": {
-        "message": "AUX 10"
-    },
-    "controlAxisAux11": {
-        "message": "AUX 11"
-    },
-    "controlAxisAux12": {
-        "message": "AUX 12"
-    },
-    "controlAxisAux13": {
-        "message": "AUX 13"
-    },
-    "controlAxisAux14": {
-        "message": "AUX 14"
-    },
-    "controlAxisAux15": {
-        "message": "AUX 15"
-    },
-    "controlAxisAux16": {
-        "message": "AUX 16"
     },
     "pidTuningBasic": {
         "message": "Basic/Acro"
@@ -2658,12 +2207,6 @@
     },
     "pidTuningTransition": {
         "message": "Övergång"
-    },
-    "pidTuningHorizon": {
-        "message": "Horizon"
-    },
-    "pidTuningAngle": {
-        "message": "Angle"
     },
     "pidTuningLevelAngleLimit": {
         "message": "Angle-gräns"
@@ -2755,32 +2298,17 @@
     "pidTuningItermRotationHelp": {
         "message": "Roterar den aktuella I Term-vektorn på lämpligt sätt till andra axlar när farkosten roterar med konstant gir under rollar och vid \"funnels\" och andra trick. Mycket uppskattat av LOS acro-piloter."
     },
-    "pidTuningFeatheredPidsHelp": {
-        "message": "Feathered PIDs changes how Dterm is calculated. 0 is error based dterm and 100 is measurement based dterm. Measurement is smoother but less responsive than error. Any value between 0 and 100 is a scalar of partially measurement and error calculated dterm."
-    },
-    "pidTuningiDecayHelp": {
-        "message": "Removes excessive iterm accumulation normally found at the end of quick stick movements. Running a higher decay allows you to run a higher iterm without experiencing bounce back or other common negatives associated with high iterm. Default is a value of 4, but the highest you can run it is 10."
-    },
     "pidTuningSmartFeedforward": {
         "message": "Smart framkoppling"
     },
     "pidTuningSmartFeedforwardHelp": {
         "message": "Minskar effekten av F Term i PID. När både P Term och F Term är aktiva samtidigt, används bara den största av de båda, för att undvika att ta i för mycket utan att behöva öka D, men detta reducerar också responsivitetseffekten som skapas av F Term när den adderas till P."
     },
-    "pidTuningItermRelax": {
-        "message": "I Term Relax"
-    },
     "pidTuningItermRelaxHelp": {
         "message": "Begränsar ackumuleringen av I Term när snabba rörelser inträffar. Detta hjälper särskilt till med att reducera tillbakastuds vid slutet av rollar och andra snabba rörelser. Du kan välja vilka axlar detta ska aktiveras på, och om den snabba rörelsen ska upptäckas av gyron eller setpointen (spaken)."
     },
     "pidTuningItermRelaxAxes": {
         "message": "Axlar:"
-    },
-    "pidTuningItermRelaxAxesOptionRP": {
-        "message": "RP"
-    },
-    "pidTuningItermRelaxAxesOptionRPY": {
-        "message": "RPY"
     },
     "pidTuningItermRelaxAxesOptionRPInc": {
         "message": "RP (endast ökning)"
@@ -2791,29 +2319,8 @@
     "pidTuningItermRelaxType": {
         "message": "Typ:"
     },
-    "pidTuningItermRelaxTypeOptionGyro": {
-        "message": "Gyro"
-    },
-    "pidTuningItermRelaxTypeOptionSetpoint": {
-        "message": "Setpoint"
-    },
     "pidTuningAbsoluteControlGain": {
         "message": "Absolut kontroll"
-    },
-    "pidTuningiDecay": {
-        "message": "iDecay"
-    },
-    "pidTuningEmuBoost": {
-        "message": "EmuBoost"
-    },
-    "pidTuningEmuBoostLimit": {
-        "message": "EmuBoost Limit"
-    },
-    "pidTuningEmuBoostHelp": {
-        "message": "Adds a nonlinear boost to the error seen by your p and i term. Adds a different feeling to the sticks. Values that are to high will cause oscillations. Craft with a lower power to weight like whoops seem happy with quite high values and EmuBoost can really help give them a locked in feeling."
-    },
-    "pidTuningEmuBoostLimitHelp": {
-        "message": "Puts a limit on how much the EmuBoost is allowed to boost your error. Its measured as a percentage of the total error that EmuBoost is allowed to add. A high EmuBoost with a low EmuBoost Limit can give a snappy feeling near the center of the stick. Tune this according to preference."
     },
     "pidTuningAbsoluteControlGainHelp": {
         "message": "Denna funktion löser några underliggande problem med $t(pidTuningItermRotation.message) och kommer förhoppningsvis att ersätta den helt så småningom. Funktionen ackumulerar det absoluta gyro-felet i quad-koordinater och mixar in ett proportionellt korrigeringsvärde i setpointen. För att det ska fungera måste du aktivera AirMode och $t(pidTuningItermRelax.message) (for $t(pidTuningItermRelaxAxesOptionRP.message)). Om du kombinerar denna funktion med $t(pidTuningIntegratedYaw.message), kan du sätta $t(pidTuningItermRelax.message) till aktiverad för $t(pidTuningItermRelaxAxesOptionRPY.message)."
@@ -2895,9 +2402,6 @@
     },
     "failsafeProcedureItemSelect4": {
         "message": "GPS-räddning"
-    },
-    "failsafeGpsRescueItemAngle": {
-        "message": "Angle"
     },
     "failsafeGpsRescueItemInitialAltitude": {
         "message": "Initial höjd (meter)"
@@ -3004,80 +2508,11 @@
     "powerVoltageHead": {
         "message": "Spänningsmätare"
     },
-    "powerVoltageValue": {
-        "message": "$1 V"
-    },
-    "powerAmperageValue": {
-        "message": "$1 A"
-    },
     "powerVoltageId10": {
         "message": "Batteri"
     },
-    "powerVoltageId20": {
-        "message": "5V"
-    },
-    "powerVoltageId30": {
-        "message": "9V"
-    },
-    "powerVoltageId40": {
-        "message": "12V"
-    },
     "powerVoltageId50": {
         "message": "ESC Kombinerad"
-    },
-    "powerVoltageId60": {
-        "message": "ESC Motor 1"
-    },
-    "powerVoltageId61": {
-        "message": "ESC Motor 2"
-    },
-    "powerVoltageId62": {
-        "message": "ESC Motor 3"
-    },
-    "powerVoltageId63": {
-        "message": "ESC Motor 4"
-    },
-    "powerVoltageId64": {
-        "message": "ESC Motor 5"
-    },
-    "powerVoltageId65": {
-        "message": "ESC Motor 6"
-    },
-    "powerVoltageId66": {
-        "message": "ESC Motor 7"
-    },
-    "powerVoltageId67": {
-        "message": "ESC Motor 8"
-    },
-    "powerVoltageId68": {
-        "message": "ESC Motor 9"
-    },
-    "powerVoltageId69": {
-        "message": "ESC Motor 10"
-    },
-    "powerVoltageId70": {
-        "message": "ESC Motor 11"
-    },
-    "powerVoltageId71": {
-        "message": "ESC Motor 12"
-    },
-    "powerVoltageId80": {
-        "message": "Cell 1"
-    },
-    "powerVoltageId81": {
-        "message": "Cell 2"
-    },
-    "powerVoltageId82": {
-        "message": "Cell 3"
-    },
-    "powerVoltageId83": {
-        "message": "Cell 4"
-    },
-    "powerVoltageId84": {
-        "message": "Cell 5"
-    },
-    "powerVoltageId85": {
-        "message": "Cell 6"
     },
     "powerVoltageScale": {
         "message": "Skala"
@@ -3097,56 +2532,11 @@
     "powerAmperageId50": {
         "message": "ESC Kombinerad"
     },
-    "powerAmperageId60": {
-        "message": "ESC Motor 1"
-    },
-    "powerAmperageId61": {
-        "message": "ESC Motor 2"
-    },
-    "powerAmperageId62": {
-        "message": "ESC Motor 3"
-    },
-    "powerAmperageId63": {
-        "message": "ESC Motor 4"
-    },
-    "powerAmperageId64": {
-        "message": "ESC Motor 5"
-    },
-    "powerAmperageId65": {
-        "message": "ESC Motor 6"
-    },
-    "powerAmperageId66": {
-        "message": "ESC Motor 7"
-    },
-    "powerAmperageId67": {
-        "message": "ESC Motor 8"
-    },
-    "powerAmperageId68": {
-        "message": "ESC Motor 9"
-    },
-    "powerAmperageId69": {
-        "message": "ESC Motor 10"
-    },
-    "powerAmperageId70": {
-        "message": "ESC Motor 11"
-    },
-    "powerAmperageId71": {
-        "message": "ESC Motor 12"
-    },
     "powerAmperageId80": {
         "message": "Virtuell"
     },
-    "powerAmperageId90": {
-        "message": "MSP"
-    },
-    "powerMahValue": {
-        "message": "$1 mAh"
-    },
     "powerAmperageScale": {
         "message": "Skala [1/10-dels mV/A]"
-    },
-    "powerAmperageOffset": {
-        "message": "Offset [mA]"
     },
     "powerBatteryHead": {
         "message": "Batteri"
@@ -3174,9 +2564,6 @@
     },
     "powerBatteryCapacity": {
         "message": "Kapacitet (mAh)"
-    },
-    "osdSetupTitle": {
-        "message": "OSD"
     },
     "osdSetupPreviewHelp": {
         "message": "<strong>Observera:</strong> OSD-förhandsvisningen visar kanske inte det faktiska teckensnittet som är installerat på flygkontrollern."
@@ -3222,9 +2609,6 @@
     },
     "osdSetupUnitsTitle": {
         "message": "Enheter"
-    },
-    "osdSetupTimersTitle": {
-        "message": "Timers"
     },
     "osdSetupAlarmsTitle": {
         "message": "Larm"
@@ -3285,9 +2669,6 @@
     },
     "osdSetupFontManager": {
         "message": "Teckensnittshanterare"
-    },
-    "osdSetupHead": {
-        "message": "Info"
     },
     "osdSetupVideoMode": {
         "message": "Videoläge"
@@ -3547,9 +2928,6 @@
     "osdTimerSourceTooltip": {
         "message": "Välj timer-källa, detta styr varaktigheten/händelsen som timern mäter"
     },
-    "osdTimerPrecision": {
-        "message": "Precision:"
-    },
     "osdTimerPrecisionTooltip": {
         "message": "Välj timer-precision, detta styr vilken precision tiden rapporteras i"
     },
@@ -3666,9 +3044,6 @@
     },
     "configurationGyroUse32kHzHelp": {
         "message": "32 kHz gyrouppdateringsfrekvens är endast möjligt om gyro-kretsen stödjer det. (gäller just nu MPU6500, MPU9250 och ICM20xxx om anslutna via SPI). Vid tveksamhet, se specifikationen för ditt styrkort."
-    },
-    "configurationAccHardware": {
-        "message": "Accelerometer"
     },
     "configurationBaroHardware": {
         "message": "Barometer (om stöd finns)"
@@ -3807,15 +3182,6 @@
     },
     "dialogConfirmResetClose": {
         "message": "Avbryt"
-    },
-    "modeCameraWifi": {
-        "message": "CAMERA WI-FI BUTTON"
-    },
-    "modeCameraPower": {
-        "message": "CAMERA POWER BUTTON"
-    },
-    "modeCameraChangeMode": {
-        "message": "CAMERA CHANGE MODE"
     },
     "flashTab": {
         "message": "Uppdatera firmware"

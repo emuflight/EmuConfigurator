@@ -76,44 +76,17 @@
     "sensorStatusGyro": {
         "message": "자이로스코프"
     },
-    "sensorStatusGyroShort": {
-        "message": "Gyro",
-        "description": "Text of the image in the top sensors icons. Please keep it short."
-    },
     "sensorStatusAccel": {
         "message": "가속도계"
-    },
-    "sensorStatusAccelShort": {
-        "message": "Accel",
-        "description": "Text of the image in the top sensors icons. Please keep it short."
     },
     "sensorStatusMag": {
         "message": "자력계"
     },
-    "sensorStatusMagShort": {
-        "message": "Mag",
-        "description": "Text of the image in the top sensors icons. Please keep it short."
-    },
     "sensorStatusBaro": {
         "message": "기압계"
     },
-    "sensorStatusBaroShort": {
-        "message": "Baro",
-        "description": "Text of the image in the top sensors icons. Please keep it short."
-    },
-    "sensorStatusGPS": {
-        "message": "GPS"
-    },
-    "sensorStatusGPSShort": {
-        "message": "GPS",
-        "description": "Text of the image in the top sensors icons. Please keep it short."
-    },
     "sensorStatusSonar": {
         "message": "초음파 / 레인지 파인더"
-    },
-    "sensorStatusSonarShort": {
-        "message": "Sonar",
-        "description": "Text of the image in the top sensors icons. Please keep it short."
     },
     "checkForConfiguratorUnstableVersions": {
         "message": "컨피규레이터의 불안정 버전의 업데이트 정보 보기"
@@ -181,14 +154,8 @@
     "tabTransponder": {
         "message": "레이스 트랜스폰더"
     },
-    "tabOsd": {
-        "message": "OSD"
-    },
     "tabPower": {
         "message": "파워 & 배터리"
-    },
-    "tabGPS": {
-        "message": "GPS"
     },
     "tabMotorTesting": {
         "message": "모터"
@@ -198,9 +165,6 @@
     },
     "tabRawSensorData": {
         "message": "센서"
-    },
-    "tabCLI": {
-        "message": "CLI"
     },
     "tabLogging": {
         "message": "로그기록 테더링"
@@ -413,12 +377,6 @@
     "statusbar_port_utilization": {
         "message": "포트 사용률:"
     },
-    "statusbar_usage_download": {
-        "message": "D: $1%"
-    },
-    "statusbar_usage_upload": {
-        "message": "U: $1%"
-    },
     "statusbar_packet_error": {
         "message": "패킷 오류:"
     },
@@ -475,12 +433,6 @@
     },
     "defaultSupport": {
         "message": "지원을 받으려면 먼저 포럼과 위키를 검색하거나 공급 업체에 문의하십시오.<br /><br />"
-    },
-    "defaultSupport1": {
-        "message": "<a href=\"https://discordapp.com/channels/547211754845765635\" target=\"_blank\">Discord</a>"
-    },
-    "defaultSupport2": {
-        "message": "<a href=\"https://github.com/Emuflight\" target=\"_blank\">GitHub</a>"
     },
     "initialSetupBackupAndRestoreApiVersion": {
         "message": "<span class=\"message-negative\">백업과 복구 기능이 비활성화되었습니다.</span> API 버전  <span class=\"message-negative\">$1</span>에 맞는 펌웨어여야 합니다, 백업과 복구 절차는 <span class=\"message-positive\">$2</span>를 참고하십시오. 당신의 설정을 CLI를 통해 백업하세요, 필요한 경우 절차에 대한 베타플라이트 문서를 확인하세요."
@@ -539,26 +491,11 @@
     "initialSetupBattery": {
         "message": "배터리 전압:"
     },
-    "initialSetupBatteryValue": {
-        "message": "$1 V"
-    },
     "initialSetupDrawn": {
         "message": "용량 소모량:"
     },
     "initialSetupDrawing": {
         "message": "전류 소모:"
-    },
-    "initialSetupBatteryMahValue": {
-        "message": "$1 mAh"
-    },
-    "initialSetupBatteryAValue": {
-        "message": "$1 A"
-    },
-    "initialSetupRSSI": {
-        "message": "RSSI:"
-    },
-    "initialSetupRSSIValue": {
-        "message": "$1 %"
     },
     "initialSetupArmingDisableFlags": {
         "message": "아밍 불가 플래그:"
@@ -652,9 +589,6 @@
     "initialSetupArmingDisableFlagsTooltipARM_SWITCH": {
         "message": "다른 디스암 플래그 중 하나가 아밍시 활성화 중입니다",
         "description": "Description of the ARM_SWITCH arming disable flag"
-    },
-    "initialSetupGPSHead": {
-        "message": "GPS"
     },
     "initialSetupInstrumentsHead": {
         "message": "계기"
@@ -1046,9 +980,6 @@
     "configurationLoopTimeHelp": {
         "message": "<strong>도움말:</strong> FC가 이러한 속도로 동작할 수 있는지 확인하십시오! CPU 및 사이클 시간의 안정성을 점검하십시오. 이를 변경하면 PID 재조정이 필요할 수 있습니다. 팁: 가속도계 및 기타 센서를 비활성화하여 더 많은 성능을 얻으십시오."
     },
-    "configurationGPS": {
-        "message": "GPS"
-    },
     "configurationGPSProtocol": {
         "message": "프로토콜"
     },
@@ -1109,44 +1040,8 @@
     "portsTelemetryDisabled": {
         "message": "비활성화됨"
     },
-    "portsFunction_MSP": {
-        "message": "MSP"
-    },
-    "portsFunction_GPS": {
-        "message": "GPS"
-    },
-    "portsFunction_TELEMETRY_FRSKY": {
-        "message": "FrSky"
-    },
-    "portsFunction_TELEMETRY_HOTT": {
-        "message": "HoTT"
-    },
-    "portsFunction_TELEMETRY_LTM": {
-        "message": "LTM"
-    },
-    "portsFunction_TELEMETRY_MAVLINK": {
-        "message": "MAVLink"
-    },
-    "portsFunction_TELEMETRY_MSP": {
-        "message": "MSP"
-    },
     "portsFunction_TELEMETRY_SMARTPORT": {
         "message": "스마트포트"
-    },
-    "portsFunction_TELEMETRY_IBUS": {
-        "message": "iBUS"
-    },
-    "portsFunction_TELEMETRY_JETIXBUS": {
-        "message": "JETIXBUS"
-    },
-    "portsFunction_TELEMETRY_CRSF": {
-        "message": "CRSF"
-    },
-    "portsFunction_TELEMETRY_SRXL": {
-        "message": "SRXL"
-    },
-    "portsFunction_ESC_SENSOR": {
-        "message": "ESC"
     },
     "portsFunction_RX_SERIAL": {
         "message": "시리얼 RX"
@@ -1168,9 +1063,6 @@
     },
     "pidTuningRateProfileOption": {
         "message": "레이트프로파일 $1"
-    },
-    "portsFunction_LIDAR_TF": {
-        "message": "Benewake LIDAR"
     },
     "pidTuningUpgradeFirmwareToChangePidController": {
         "message": "<span class=\"message-negative\">PID 변경 컨트롤러가 비활성화됨 - 당신은 CLI를 통하여 변경할 수 있습니다.</span> 당신은 API 버전  <span class=\"message-negative\">$1</span>의 펌웨어를 가지고 있으나, 이 기능은  <span class=\"message-positive\">$2</span>를 필요로 합니다."
@@ -1341,18 +1233,6 @@
     },
     "pidTuningRatesPreview": {
         "message": "레이트 미리보기"
-    },
-    "pidTuningRcExpo": {
-        "message": "RC Expo"
-    },
-    "pidTuningTPA_P": {
-        "message": "TPA P"
-    },
-    "pidTuningTPA_I": {
-        "message": "TPA I"
-    },
-    "pidTuningTPA_D": {
-        "message": "TPA D"
     },
     "pidTuningTPABreakPoint": {
         "message": "TPA 브레이크포인트"
@@ -1561,9 +1441,6 @@
     "auxiliaryAutoChannelSelect": {
         "message": "자동"
     },
-    "auxiliaryModeLogicOR": {
-        "message": "OR"
-    },
     "adjustmentsHelp": {
         "message": "조정 스위치를 설정하십시오. 자세한 내용은 매뉴얼의 '비행-중 조정' 섹션을 참조하십시오. 조정 기능의 변경사항은 자동으로 저장되지 않습니다. 4개의 슬롯이 있습니다. 조정을 동시에 수행하는 데 사용되는 각 스위치는 슬롯을 독점적으로 사용해야합니다."
     },
@@ -1729,15 +1606,6 @@
     "transponderType0": {
         "message": "없음"
     },
-    "transponderType1": {
-        "message": "iLap"
-    },
-    "transponderType2": {
-        "message": "aRCiTimer"
-    },
-    "transponderType3": {
-        "message": "ERLT"
-    },
     "transponderData1": {
         "message": "데이터"
     },
@@ -1804,9 +1672,6 @@
     "servosEepromSave": {
         "message": "EEPROM <span class=\"message-positive\">저장됨</span>"
     },
-    "gpsHead": {
-        "message": "GPS"
-    },
     "gpsMapHead": {
         "message": "현재 GPS 위치"
     },
@@ -1863,15 +1728,6 @@
     },
     "motorsmAhDrawn": {
         "message": "전류 소비량:"
-    },
-    "motorsVoltageValue": {
-        "message": "$1 V"
-    },
-    "motorsADrawingValue": {
-        "message": "$1 A"
-    },
-    "motorsmAhDrawnValue": {
-        "message": "$1 mAh"
     },
     "motorsText": {
         "message": "모터"
@@ -2336,18 +2192,6 @@
         "message": "색상 설정",
         "description": "Color setup title of the led strip"
     },
-    "ledStripH": {
-        "message": "H",
-        "description": "Abbreviation of Hue in HSV (Hue, Saturation, Brightness) color model"
-    },
-    "ledStripS": {
-        "message": "S",
-        "description": "Abbreviation of Saturation in HSV  (Hue, Saturation, Brightness) color model"
-    },
-    "ledStripV": {
-        "message": "V",
-        "description": "Abbreviation of Brightness in HSV  (Hue, Saturation, Brightness) color model"
-    },
     "ledStripRemainingText": {
         "message": "남아있음",
         "description": "In the LED STRIP, text next the counter of leds remaining"
@@ -2392,14 +2236,6 @@
         "message": "배터리",
         "description": "One of the modes of the Led Strip"
     },
-    "ledStripFunctionRSSIOption": {
-        "message": "RSSI",
-        "description": "One of the modes of the Led Strip"
-    },
-    "ledStripFunctionGPSOption": {
-        "message": "GPS",
-        "description": "One of the modes of the Led Strip"
-    },
     "ledStripFunctionRingOption": {
         "message": "링",
         "description": "One of the modes of the Led Strip"
@@ -2424,14 +2260,6 @@
     },
     "ledStripModeColorsModeAngle": {
         "message": "앵글",
-        "description": "One of the modes in Color Mode in Led Strip"
-    },
-    "ledStripModeColorsModeMag": {
-        "message": "Mag",
-        "description": "One of the modes in Color Mode in Led Strip"
-    },
-    "ledStripModeColorsModeBaro": {
-        "message": "Baro",
         "description": "One of the modes in Color Mode in Led Strip"
     },
     "ledStripDirN": {
@@ -2589,54 +2417,6 @@
     "controlAxisThrottle": {
         "message": "스로틀 [T]"
     },
-    "controlAxisAux1": {
-        "message": "AUX 1"
-    },
-    "controlAxisAux2": {
-        "message": "AUX 2"
-    },
-    "controlAxisAux3": {
-        "message": "AUX 3"
-    },
-    "controlAxisAux4": {
-        "message": "AUX 4"
-    },
-    "controlAxisAux5": {
-        "message": "AUX 5"
-    },
-    "controlAxisAux6": {
-        "message": "AUX 6"
-    },
-    "controlAxisAux7": {
-        "message": "AUX 7"
-    },
-    "controlAxisAux8": {
-        "message": "AUX 8"
-    },
-    "controlAxisAux9": {
-        "message": "AUX 9"
-    },
-    "controlAxisAux10": {
-        "message": "AUX 10"
-    },
-    "controlAxisAux11": {
-        "message": "AUX 11"
-    },
-    "controlAxisAux12": {
-        "message": "AUX 12"
-    },
-    "controlAxisAux13": {
-        "message": "AUX 13"
-    },
-    "controlAxisAux14": {
-        "message": "AUX 14"
-    },
-    "controlAxisAux15": {
-        "message": "AUX 15"
-    },
-    "controlAxisAux16": {
-        "message": "AUX 16"
-    },
     "pidTuningBasic": {
         "message": "기본/아크로"
     },
@@ -2745,20 +2525,11 @@
     "pidTuningVbatPidCompensationHelp": {
         "message": "Vbat이 낮아질 때 이를 보충하기 위해 PID 값을 증가시킵니다. 이것은 비행 내내 보다 일정한 비행 특성을 줄 것입니다. 적용되는 보정량은 $t(tabPower.message) 페이지에서 설정된 $t(powerBatteryMaximum.message)에서 계산되므로 적절한 값으로 설정되어 있는지 확인하십시오."
     },
-    "pidTuningFeatheredPids": {
-        "message": "Feathered PIDs"
-    },
     "pidTuningItermRotation": {
         "message": "I 텀 회전"
     },
     "pidTuningItermRotationHelp": {
         "message": "롤 도중 연속적으로 흔들리거나 퍼널(깔대기)과 다른 기술을 실행할 때 쿼드가 회전하면서 현재 I 텀 벡터를 다른 축으로 적절하게 회전시킵니다. LOS 아크로 파일럿에 의해 인정받았습니다."
-    },
-    "pidTuningFeatheredPidsHelp": {
-        "message": "Feathered PIDs changes how Dterm is calculated. 0 is error based dterm and 100 is measurement based dterm. Measurement is smoother but less responsive than error. Any value between 0 and 100 is a scalar of partially measurement and error calculated dterm."
-    },
-    "pidTuningiDecayHelp": {
-        "message": "Removes excessive iterm accumulation normally found at the end of quick stick movements. Running a higher decay allows you to run a higher iterm without experiencing bounce back or other common negatives associated with high iterm. Default is a value of 4, but the highest you can run it is 10."
     },
     "pidTuningSmartFeedforward": {
         "message": "스마트 피드포워드"
@@ -2774,12 +2545,6 @@
     },
     "pidTuningItermRelaxAxes": {
         "message": "축:"
-    },
-    "pidTuningItermRelaxAxesOptionRP": {
-        "message": "RP"
-    },
-    "pidTuningItermRelaxAxesOptionRPY": {
-        "message": "RPY"
     },
     "pidTuningItermRelaxAxesOptionRPInc": {
         "message": "RP (증가만)"
@@ -2798,21 +2563,6 @@
     },
     "pidTuningAbsoluteControlGain": {
         "message": "절대 제어"
-    },
-    "pidTuningiDecay": {
-        "message": "iDecay"
-    },
-    "pidTuningEmuBoost": {
-        "message": "EmuBoost"
-    },
-    "pidTuningEmuBoostLimit": {
-        "message": "EmuBoost Limit"
-    },
-    "pidTuningEmuBoostHelp": {
-        "message": "Adds a nonlinear boost to the error seen by your p and i term. Adds a different feeling to the sticks. Values that are to high will cause oscillations. Craft with a lower power to weight like whoops seem happy with quite high values and EmuBoost can really help give them a locked in feeling."
-    },
-    "pidTuningEmuBoostLimitHelp": {
-        "message": "Puts a limit on how much the EmuBoost is allowed to boost your error. Its measured as a percentage of the total error that EmuBoost is allowed to add. A high EmuBoost with a low EmuBoost Limit can give a snappy feeling near the center of the stick. Tune this according to preference."
     },
     "pidTuningAbsoluteControlGainHelp": {
         "message": "이 기능은 $t(pidTuningItermRotation.message)의 기본 문제를 해결하고, 희망적으로 어느 시점에서 그것을 대체합니다. 이 기능은 쿼드 좌표에 절대 자이로 오류를 축적하고 설정점에 비례 교정을 혼합합니다. 당신이 그것을 작동하려면 에어모드와 $t(pidTuningItermRelax.message) ($t(pidTuningItermRelaxAxesOptionRP.message)로)을 활셩화해야 합니다. 만약 이 기능을 $t(pidTuningIntegratedYaw.message)와 결합하려면, $t(pidTuningItermRelax.message)을 $t(pidTuningItermRelaxAxesOptionRPY.message)로 설정할 수 있습니다."
@@ -2952,9 +2702,6 @@
     "failsafeSwitchOptionStage2": {
         "message": "단계 2"
     },
-    "failsafeSwitchOptionKill": {
-        "message": "Kill"
-    },
     "powerButtonSave": {
         "message": "저장"
     },
@@ -3003,23 +2750,8 @@
     "powerVoltageHead": {
         "message": "전압"
     },
-    "powerVoltageValue": {
-        "message": "$1 V"
-    },
-    "powerAmperageValue": {
-        "message": "$1 A"
-    },
     "powerVoltageId10": {
         "message": "배터리"
-    },
-    "powerVoltageId20": {
-        "message": "5V"
-    },
-    "powerVoltageId30": {
-        "message": "9V"
-    },
-    "powerVoltageId40": {
-        "message": "12V"
     },
     "powerVoltageId50": {
         "message": "ESC 결합"
@@ -3135,12 +2867,6 @@
     "powerAmperageId80": {
         "message": "가상(의)"
     },
-    "powerAmperageId90": {
-        "message": "MSP"
-    },
-    "powerMahValue": {
-        "message": "$1 mAh"
-    },
     "powerAmperageScale": {
         "message": "스케일 [1/10th mV/A]"
     },
@@ -3173,9 +2899,6 @@
     },
     "powerBatteryCapacity": {
         "message": "용량 (mAh)"
-    },
-    "osdSetupTitle": {
-        "message": "OSD"
     },
     "osdSetupPreviewHelp": {
         "message": "<strong>알림:</strong> OSD 미리보기는 비행 컨트롤러에 설치된 실제 글꼴이 표시되지 않을 수 있습니다."

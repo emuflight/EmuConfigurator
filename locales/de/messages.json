@@ -36,9 +36,6 @@
     "portsSelectManual": {
         "message": "Manuelle Auswahl"
     },
-    "portOverrideText": {
-        "message": "Port:"
-    },
     "autoConnect": {
         "message": "automatisch Verbinden"
     },
@@ -80,10 +77,6 @@
     "sensorStatusGyro": {
         "message": "Gyro"
     },
-    "sensorStatusGyroShort": {
-        "message": "Gyro",
-        "description": "Text of the image in the top sensors icons. Please keep it short."
-    },
     "sensorStatusAccel": {
         "message": "Beschleunigungssensor"
     },
@@ -91,33 +84,16 @@
         "message": "Beschleunigungssensor",
         "description": "Text of the image in the top sensors icons. Please keep it short."
     },
-    "sensorStatusMag": {
-        "message": "Magnetometer"
-    },
     "sensorStatusMagShort": {
         "message": "Magnetometer",
         "description": "Text of the image in the top sensors icons. Please keep it short."
-    },
-    "sensorStatusBaro": {
-        "message": "Barometer"
     },
     "sensorStatusBaroShort": {
         "message": "Barometer",
         "description": "Text of the image in the top sensors icons. Please keep it short."
     },
-    "sensorStatusGPS": {
-        "message": "GPS"
-    },
-    "sensorStatusGPSShort": {
-        "message": "GPS",
-        "description": "Text of the image in the top sensors icons. Please keep it short."
-    },
     "sensorStatusSonar": {
         "message": "Sonar / Entfernungsmesser"
-    },
-    "sensorStatusSonarShort": {
-        "message": "Sonar",
-        "description": "Text of the image in the top sensors icons. Please keep it short."
     },
     "checkForConfiguratorUnstableVersions": {
         "message": "Zeige Updateinformationen für experimentelle Versionen des Konfigurators"
@@ -149,9 +125,6 @@
     "configMigrationSuccessful": {
         "message": "Migrierung erfolgreich, Änderungen eingespielt: $1"
     },
-    "tabFirmwareFlasher": {
-        "message": "Firmware Flasher"
-    },
     "tabLanding": {
         "message": "Willkommen"
     },
@@ -176,23 +149,11 @@
     "tabReceiver": {
         "message": "Empfänger"
     },
-    "tabServos": {
-        "message": "Servos"
-    },
-    "tabFailsafe": {
-        "message": "Failsafe"
-    },
     "tabTransponder": {
         "message": "Renntransponder"
     },
-    "tabOsd": {
-        "message": "OSD"
-    },
     "tabPower": {
         "message": "Strom & Batterie"
-    },
-    "tabGPS": {
-        "message": "GPS"
     },
     "tabMotorTesting": {
         "message": "Motoren"
@@ -366,9 +327,6 @@
     "tabSwitchUpgradeRequired": {
         "message": "Firmwareupdate <strong>erforderlich</strong> bevor der $1 Tab genutzt werden kann"
     },
-    "firmwareVersion": {
-        "message": "Firmware Version: <strong>$1</strong>"
-    },
     "apiVersionReceived": {
         "message": "MultiWii API Version: <strong>$1</strong>"
     },
@@ -402,29 +360,17 @@
     "versionLabelTarget": {
         "message": "Ziel"
     },
-    "versionLabelFirmware": {
-        "message": "Firmware"
-    },
     "versionLabelConfigurator": {
         "message": "Konfigurator"
     },
     "statusbar_port_utilization": {
         "message": "Port Benutzung:"
     },
-    "statusbar_usage_download": {
-        "message": "D: $1%"
-    },
-    "statusbar_usage_upload": {
-        "message": "U: $1%"
-    },
     "statusbar_packet_error": {
         "message": "Paket Fehler:"
     },
     "statusbar_i2c_error": {
         "message": "I2C Fehler:"
-    },
-    "statusbar_cycle_time": {
-        "message": "Cycle Time:"
     },
     "statusbar_cpu_load": {
         "message": "CPU Auslastung: $1%"
@@ -474,12 +420,6 @@
     "defaultSupport": {
         "message": "Für Hilfe durchsuche bitte die Foren und das Wiki zuerst oder wende dich an deinen Händler.<br /><br /> "
     },
-    "defaultSupport1": {
-        "message": "<a href=\"https://discordapp.com/channels/547211754845765635\" target=\"_blank\">Discord</a>"
-    },
-    "defaultSupport2": {
-        "message": "<a href=\"https://github.com/Emuflight\" target=\"_blank\">GitHub</a>"
-    },
     "initialSetupBackupAndRestoreApiVersion": {
         "message": "<span class=\"message-negative\">Backup and restore functionality disabled.</span> You have firmware with API version <span class=\"message-negative\">$1</span>, backup and restore requires <span class=\"message-positive\">$2</span>. Please backup your settings via the CLI, see Emuflight documentation for procedure."
     },
@@ -503,9 +443,6 @@
     },
     "initialSetupResetText": {
         "message": "Auf Werkseinstellungen <strong>zurücksetzen</strong>"
-    },
-    "initialSetupButtonBackup": {
-        "message": "Backup"
     },
     "initialSetupButtonRestore": {
         "message": "Wiederherstellen"
@@ -531,32 +468,14 @@
     "initialSetupButtonResetZaxisValue": {
         "message": "Z Achse zurücksetzen, Abweichung: $1 Grad"
     },
-    "initialSetupInfoHead": {
-        "message": "Info"
-    },
     "initialSetupBattery": {
         "message": "Akku Spannung"
-    },
-    "initialSetupBatteryValue": {
-        "message": "$1 V"
     },
     "initialSetupDrawn": {
         "message": "Benötigte Kapazität:"
     },
     "initialSetupDrawing": {
         "message": "Benötigter Strom:"
-    },
-    "initialSetupBatteryMahValue": {
-        "message": "$1 mAh"
-    },
-    "initialSetupBatteryAValue": {
-        "message": "$1 A"
-    },
-    "initialSetupRSSI": {
-        "message": "RSSI:"
-    },
-    "initialSetupRSSIValue": {
-        "message": "$1 %"
     },
     "initialSetupArmingDisableFlags": {
         "message": "Arming deaktiviert aufgrund:"
@@ -651,9 +570,6 @@
         "message": "Einer der anderen 'Disarm-Flags' ist aktiv während des Armings",
         "description": "Description of the ARM_SWITCH arming disable flag"
     },
-    "initialSetupGPSHead": {
-        "message": "GPS"
-    },
     "initialSetupInstrumentsHead": {
         "message": "Instrumente"
     },
@@ -708,9 +624,6 @@
     "featureGPSTip": {
         "message": "Konfiguriere die Ports zuerst"
     },
-    "featureSONAR": {
-        "message": "Sonar"
-    },
     "featureTELEMETRY": {
         "message": "Telemetrieübertragung"
     },
@@ -759,23 +672,14 @@
     "featureCHANNEL_FORWARDING": {
         "message": "AUX Kanäle als Servo Ausgang weiterleiten"
     },
-    "featureTRANSPONDER": {
-        "message": "Race Transponder"
-    },
     "featureTRANSPONDERTip": {
         "message": "Nach dem Einschalten im Race Transponder Tab konfigurierbar"
     },
     "featureAIRMODE": {
         "message": "Airmode permanent einschalten"
     },
-    "featureSUPEREXPO_RATES": {
-        "message": "Super Expo Rates"
-    },
     "featureSDCARD": {
         "message": "SD-Karten-Unterstützung (für Logs)"
-    },
-    "featureOSD": {
-        "message": "On Screen Display"
     },
     "featureVTX": {
         "message": "Video Sender"
@@ -855,9 +759,6 @@
     "configurationSensorAlignmentGyro": {
         "message": "Gyro Ausrichtung"
     },
-    "configurationSensorGyroToUse": {
-        "message": "GYRO/ACCEL"
-    },
     "configurationSensorGyroToUseNotFound": {
         "message": "Warnung: Kein Gyro/Acc gefunden"
     },
@@ -893,9 +794,6 @@
     },
     "configurationAccelTrimPitch": {
         "message": "Beschleunigungssensor Trimmung Pitch"
-    },
-    "configurationArming": {
-        "message": "Arming"
     },
     "configurationArmingHelp": {
         "message": "Manche Arming Optionen könnten einen aktivierten Beschleunigungssensor benötigen"
@@ -1029,9 +927,6 @@
     "configuration3dDeadbandHigh": {
         "message": "3D Totzone hoch"
     },
-    "configuration3dNeutral": {
-        "message": "3D Neutral"
-    },
     "configuration3dDeadbandThrottle": {
         "message": "3D Gas Totzone"
     },
@@ -1044,17 +939,8 @@
     "configurationLoopTimeHelp": {
         "message": "<strong>Hinweis:</strong> Stelle sicher, dass dein FC mit dieser Geschwindigkeit arbeiten kann. Prüfe die CPU Auslastung und die Cycletime Stabilität. Änderungen führen möglicherweise dazu, dass die PID's neu eingestellt werden müssen. Tipp: Deaktiviere unbenutzte Sensoren, um mehr Leistung zu haben."
     },
-    "configurationGPS": {
-        "message": "GPS"
-    },
     "configurationGPSProtocol": {
         "message": "Protokoll"
-    },
-    "configurationGPSBaudrate": {
-        "message": "Baudrate"
-    },
-    "configurationGPSubxSbas": {
-        "message": "Ground Assistance Type"
     },
     "configurationGPSAutoBaud": {
         "message": "Automatische Baudrate"
@@ -1076,9 +962,6 @@
     },
     "configurationButtonSave": {
         "message": "Speichern und Neustarten"
-    },
-    "portsIdentifier": {
-        "message": "Identifier"
     },
     "portsConfiguration": {
         "message": "Konfiguration / MSP"
@@ -1107,53 +990,11 @@
     "portsTelemetryDisabled": {
         "message": "Deaktiviert"
     },
-    "portsFunction_MSP": {
-        "message": "MSP"
-    },
-    "portsFunction_GPS": {
-        "message": "GPS"
-    },
-    "portsFunction_TELEMETRY_FRSKY": {
-        "message": "FrSky"
-    },
-    "portsFunction_TELEMETRY_HOTT": {
-        "message": "HoTT"
-    },
-    "portsFunction_TELEMETRY_LTM": {
-        "message": "LTM"
-    },
-    "portsFunction_TELEMETRY_MAVLINK": {
-        "message": "MAVLink"
-    },
-    "portsFunction_TELEMETRY_MSP": {
-        "message": "MSP"
-    },
-    "portsFunction_TELEMETRY_SMARTPORT": {
-        "message": "SmartPort"
-    },
-    "portsFunction_TELEMETRY_IBUS": {
-        "message": "iBUS"
-    },
-    "portsFunction_TELEMETRY_JETIXBUS": {
-        "message": "JETIXBUS"
-    },
-    "portsFunction_TELEMETRY_CRSF": {
-        "message": "CRSF"
-    },
-    "portsFunction_TELEMETRY_SRXL": {
-        "message": "SRXL"
-    },
-    "portsFunction_ESC_SENSOR": {
-        "message": "ESC"
-    },
     "portsFunction_RX_SERIAL": {
         "message": "serieller Empfänger"
     },
     "portsFunction_BLACKBOX": {
         "message": "Blackbox Logger"
-    },
-    "portsFunction_TBS_SMARTAUDIO": {
-        "message": "VTX (TBS SmartAudio)"
     },
     "portsFunction_IRC_TRAMP": {
         "message": "VTX (IRC-Tramp)"
@@ -1166,9 +1007,6 @@
     },
     "pidTuningRateProfileOption": {
         "message": "Rate Profil $1"
-    },
-    "portsFunction_LIDAR_TF": {
-        "message": "Benewake LIDAR"
     },
     "pidTuningUpgradeFirmwareToChangePidController": {
         "message": "<span class=\"message-negative\">Changing PID controller disabled - you can change it via the CLI.</span> You have firmware with API version <span class=\"message-negative\">$1</span>, but this functionality requires requires <span class=\"message-positive\">$2</span>."
@@ -1214,9 +1052,6 @@
     "receiverRcSmoothing": {
         "message": "RC Glättung"
     },
-    "receiverRcSmoothingAuto": {
-        "message": "Auto"
-    },
     "receiverRcSmoothingManual": {
         "message": "Manuell"
     },
@@ -1225,12 +1060,6 @@
     },
     "receiverRcInputTypeSelect": {
         "message": "Input Cutoff Typ"
-    },
-    "receiverRcSmoothingInterpolation": {
-        "message": "Interpolation"
-    },
-    "receiverRcSmoothingFilter": {
-        "message": "Filter"
     },
     "rcSmoothingInputCutoffHelp": {
         "message": "Die Cutoff-Frequenz in Hz, die der Eingangsfilter verwendet. Niedrigere Werte führen zu glattere Inputs und sind besser geeignet für langsamere Empfänger Protokolle. Die meisten Benutzer sollten dies bei 0 belassen, was a\"Automatisch\" entspricht."
@@ -1268,9 +1097,6 @@
     "receiverRcSmoothingChannel": {
         "message": "Kanäle geglättet"
     },
-    "receiverRcInterpolation": {
-        "message": "RC Interpolation"
-    },
     "receiverRcInterpolationHelp": {
         "message": "Fernsteuerungen / Empfänger sind nicht so schnell wie Moderne PID Controller. Dadurch entstehen \"Löcher\" im Informationsfluss. Diese Option erlaubt eine Interpolation des Signals und somit einen sauberen Verlauf der P und D Werte, durch weniger sprunghafte Eingaben."
     },
@@ -1286,9 +1112,6 @@
     "receiverRcInterpolationDefault": {
         "message": "Voreinstellung"
     },
-    "receiverRcInterpolationAuto": {
-        "message": "Auto"
-    },
     "receiverRcInterpolationManual": {
         "message": "Manuell"
     },
@@ -1301,9 +1124,6 @@
     "pidTuningFeedforwardTransitionHelp": {
         "message": "Mit diesem Parameter kann man die Feedforward Regelung an der Mittelstellung der Sticks reduzieren und damit ein weicheres Enden von Flips und Rolls erreichen.<br> Der Wert bedeutet eine Auslenkung des Sticks von 0 - Knüppel mittig bis 1 - voller Ausschlag. Wenn der Knüppel weiter ausgelenkt wird als dieser Wert, hat die Feedforward Regelung den eingestellten Wert. Wenn der Stick weniger ausgelenkt ist, wird die Feedforward Regelung proportional reduziert und erreicht 0 in der Nullstellung des Knüppels.<br> Ein Wert von 1 ergibt den maximalen Glättungseffekt, ein Wert von 0 hält die Feedforward Regelung über den gesamten Steuerbereich auf seinem eingestellten Wert."
     },
-    "pidTuningDtermSetpointTransition": {
-        "message": "D Setpoint transition"
-    },
     "pidTuningDtermSetpoint": {
         "message": "D Setpoint Gewichtung"
     },
@@ -1313,47 +1133,17 @@
     "pidTuningDtermSetpointHelp": {
         "message": "Gibt an wie hart der PID Controller bei Eingaben der Sticks vom Zentrum weg reagieren soll. 0 bedeutet das es keinen Unterschied zwischen Stick Eingaben und Abweichungen durch die Umgebung (z.B. Wind gibt). Kleinere Werte führen zu einem sauberen und \"smootheren\" Quad, höhere Werte führen zu einem direkterem Fluggefühl. <br /> Bei hohen Werten wird der Einsatz der RC Interpolation empfohlen um ein Überreagieren zu verhindern."
     },
-    "pidTuningDtermSetpointTransitionWarning": {
-        "message": "<span class=\"message-negative\"><strong>$t(warningTitle.message):</strong> The use of a D Setpoint transition greater than 0 and less than 0.1 is highly discouraged. Doing so may lead instability and reduced stick responsiveness as the sticks cross the centre point.</span>"
-    },
-    "pidTuningProportional": {
-        "message": "Proportional"
-    },
-    "pidTuningIntegral": {
-        "message": "Integral"
-    },
     "pidTuningDerivative": {
         "message": "Differential"
     },
     "pidTuningFeedforward": {
         "message": "Feedforward Regelung"
     },
-    "pidTuningRcRate": {
-        "message": "RC Rate"
-    },
     "pidTuningMaxVel": {
         "message": "Max. Beschleunigung [Grad/s]"
     },
-    "pidTuningRate": {
-        "message": "Rate"
-    },
-    "pidTuningSuperRate": {
-        "message": "Super Rate"
-    },
     "pidTuningRatesPreview": {
         "message": "Vorschau"
-    },
-    "pidTuningRcExpo": {
-        "message": "RC Expo"
-    },
-    "pidTuningTPA_P": {
-        "message": "TPA P"
-    },
-    "pidTuningTPA_I": {
-        "message": "TPA I"
-    },
-    "pidTuningTPA_D": {
-        "message": "TPA D"
     },
     "pidTuningTPABreakPoint": {
         "message": "TPA Einstiegspunkt"
@@ -1370,20 +1160,11 @@
     "pidTuningThrottleLimitTypeScale": {
         "message": "Skalierung"
     },
-    "pidTuningThrottleLimitTypeClip": {
-        "message": "CLIP"
-    },
     "pidTuningThrottleLimitTypeTip": {
         "message": "Wählen Sie den Typ der Gasbegrenzung. <b>OFF</b> deaktiviert die Funktion <b>Skalierung</b>übersetzt den Gasbereich von 0 bis zum gewählten Prozentsatz auf die ganze Gashebelstrecke<b>CLIP</b>setzt ein maximalen Gas Prozentsatz und Gashebelbewegung über diesem Limit haben keine Auswirkung"
     },
     "pidTuningThrottleLimitPercentTip": {
         "message": "Setzt den gewünschten Gas Limit Prozentsatz. 100% deaktiviert die Funktion."
-    },
-    "pidTuningFilter": {
-        "message": "Filter"
-    },
-    "pidTuningRatesCurve": {
-        "message": "Rates"
     },
     "throttle": {
         "message": "Gas"
@@ -1393,9 +1174,6 @@
     },
     "pidTuningButtonRefresh": {
         "message": "Neu laden"
-    },
-    "pidTuningControllerHead": {
-        "message": "PID Controller"
     },
     "pidTuningCopyProfile": {
         "message": "Kopiere Profileinstellungen"
@@ -1541,12 +1319,6 @@
     "auxiliaryToggleUnused": {
         "message": "Nicht verwendete Modi ausblenden"
     },
-    "auxiliaryMin": {
-        "message": "Min"
-    },
-    "auxiliaryMax": {
-        "message": "Max"
-    },
     "auxiliaryAddRange": {
         "message": "Bereich hinzufügen"
     },
@@ -1558,9 +1330,6 @@
     },
     "auxiliaryEepromSaved": {
         "message": "EEPROM <span class=\"message-positive\">gespeichert</span>"
-    },
-    "auxiliaryAutoChannelSelect": {
-        "message": "AUTO"
     },
     "auxiliaryModeLogicOR": {
         "message": "ODER"
@@ -1607,12 +1376,6 @@
     "adjustmentsSlot3": {
         "message": "Speicherplatz 4"
     },
-    "adjustmentsMin": {
-        "message": "Min"
-    },
-    "adjustmentsMax": {
-        "message": "Max"
-    },
     "adjustmentsFunction0": {
         "message": "Keine Änderungen"
     },
@@ -1652,12 +1415,6 @@
     "adjustmentsFunction12": {
         "message": "Rate Profile Auswahl"
     },
-    "adjustmentsFunction13": {
-        "message": "Pitch Rate"
-    },
-    "adjustmentsFunction14": {
-        "message": "Roll Rate"
-    },
     "adjustmentsFunction15": {
         "message": "Pitch P Anpassung"
     },
@@ -1676,17 +1433,8 @@
     "adjustmentsFunction20": {
         "message": "Roll D Anpassung"
     },
-    "adjustmentsFunction21": {
-        "message": "RC Rate Yaw"
-    },
-    "adjustmentsFunction22": {
-        "message": "D Setpoint"
-    },
     "adjustmentsFunction22_2": {
         "message": "Pitch & Roll F Faktor"
-    },
-    "adjustmentsFunction23": {
-        "message": "D Setpoint Transition"
     },
     "adjustmentsFunction23_2": {
         "message": "Feedforward Übergang"
@@ -1730,23 +1478,8 @@
     "transponderType0": {
         "message": "Nichts"
     },
-    "transponderType1": {
-        "message": "iLap"
-    },
-    "transponderType2": {
-        "message": "aRCiTimer"
-    },
-    "transponderType3": {
-        "message": "ERLT"
-    },
     "transponderData1": {
         "message": "Daten"
-    },
-    "transponderData2": {
-        "message": "Transponder ID"
-    },
-    "transponderData3": {
-        "message": "Transponder ID"
     },
     "transponderDataHelp1": {
         "message": "nur hexdezimate Einheiten verwenden. 0-9 A-F"
@@ -1781,9 +1514,6 @@
     "servosChangeDirection": {
         "message": "Ändere die Richtung im Sender damit es übereinstimmt"
     },
-    "servosName": {
-        "message": "Name"
-    },
     "servosMid": {
         "message": "Mittel"
     },
@@ -1804,9 +1534,6 @@
     },
     "servosEepromSave": {
         "message": "EEPROM <span class=\"message-positive\">gespeichert</span>"
-    },
-    "gpsHead": {
-        "message": "GPS"
     },
     "gpsMapHead": {
         "message": "Aktuelle GPS Position"
@@ -1850,9 +1577,6 @@
     "gpsSignalStr": {
         "message": "Signal Stärke"
     },
-    "gpsSignalSatId": {
-        "message": "Sat ID"
-    },
     "gpsSignalQty": {
         "message": "Anzahl"
     },
@@ -1865,68 +1589,8 @@
     "motorsmAhDrawn": {
         "message": "Stromverbrauch:"
     },
-    "motorsVoltageValue": {
-        "message": "$1 V"
-    },
-    "motorsADrawingValue": {
-        "message": "$1 A"
-    },
-    "motorsmAhDrawnValue": {
-        "message": "$1 mAh"
-    },
     "motorsText": {
         "message": "Motoren"
-    },
-    "motorNumber1": {
-        "message": "Motor - 1"
-    },
-    "motorNumber2": {
-        "message": "Motor - 2"
-    },
-    "motorNumber3": {
-        "message": "Motor - 3"
-    },
-    "motorNumber4": {
-        "message": "Motor - 4"
-    },
-    "motorNumber5": {
-        "message": "Motor - 5"
-    },
-    "motorNumber6": {
-        "message": "Motor - 6"
-    },
-    "motorNumber7": {
-        "message": "Motor - 7"
-    },
-    "motorNumber8": {
-        "message": "Motor - 8"
-    },
-    "servosText": {
-        "message": "Servos"
-    },
-    "servoNumber1": {
-        "message": "Servo - 1"
-    },
-    "servoNumber2": {
-        "message": "Servo - 2"
-    },
-    "servoNumber3": {
-        "message": "Servo - 3"
-    },
-    "servoNumber4": {
-        "message": "Servo - 4"
-    },
-    "servoNumber5": {
-        "message": "Servo - 5"
-    },
-    "servoNumber6": {
-        "message": "Servo - 6"
-    },
-    "servoNumber7": {
-        "message": "Servo - 7"
-    },
-    "servoNumber8": {
-        "message": "Servo - 8"
     },
     "motorsResetMaximumButton": {
         "message": "Zurücksetzen"
@@ -1939,9 +1603,6 @@
     },
     "motorsSensorAccelSelect": {
         "message": "Beschleunigungssensor"
-    },
-    "motorsMaster": {
-        "message": "Master"
     },
     "motorsNotice": {
         "message": "<strong>Motor Testmodus - Hinweis:</strong><br />Bewegen der Regler oder Arming des Fluggerätes über die Fernsteuerung wird die Motoren <strong>anlaufen</strong> lassen.<br />Um Verletzungen zu vermeiden <strong class=\"message-negative\"> bitte ALLE Propeller entfernen</strong>.<br />Der Testmodus wird auch den Abhebeschutz deakvieren, so dass sich das Gerät ohne Propeller nicht selbst abschaltet.<br />"
@@ -1964,35 +1625,17 @@
     "sensorsAccelSelect": {
         "message": "Beschleunigungssensor"
     },
-    "sensorsMagSelect": {
-        "message": "Magnetometer"
-    },
-    "sensorsBaroSelect": {
-        "message": "Barometer"
-    },
-    "sensorsSonarSelect": {
-        "message": "Sonar"
-    },
-    "sensorsDebugSelect": {
-        "message": "Debug"
-    },
     "sensorsGyroTitle": {
         "message": "Gyro - Grad / Sekunde"
     },
     "sensorsAccelTitle": {
         "message": "Beschleunigung - g"
     },
-    "sensorsMagTitle": {
-        "message": "Magnetometer - Ga"
-    },
     "sensorsBaroTitle": {
         "message": "Barometer - Meter"
     },
     "sensorsSonarTitle": {
         "message": "Sonar - CM"
-    },
-    "sensorsDebugTitle": {
-        "message": "Debug"
     },
     "cliInfo": {
         "message": "<strong>Hinweis:</strong> Beim Verlassen des CLI Tab oder beim Drücken der Taste \"trennen\" wird <strong>automatisch</strong>  <strong>beenden</strong> and die Flugsteuerung gesendet.  Mit der neuesten Firmware wird sie dadurch<strong>neu gestartet</strong> und nicht gespeicherte Änderungen gehen <strong>verloren</strong>. <p><strong><span class=\"message-negative\">Warnung:</span></strong> Einige CLI Befehle können dazu führen, dass willkürliche Signale an die Motoren geschickt werden. Dadurch können Motoren hochdrehen, wenn ein Batterie angeschlossen ist. Daher wird dringend empfohlen sicherzustellen, dass <strong> keine Batterie angeschlossen ist, bevor Sie Befehle in die CLI eingeben</strong>."
@@ -2132,9 +1775,6 @@
     "dataflashButtonSaveCancel": {
         "message": "Abbrechen"
     },
-    "dataflashButtonSaveDismiss": {
-        "message": "Ok"
-    },
     "dataflashButtonEraseConfirm": {
         "message": "Ja, Speicher löschen"
     },
@@ -2164,9 +1804,6 @@
     },
     "firmwareFlasherReleaseSummaryHead": {
         "message": "Update Info"
-    },
-    "firmwareFlasherReleaseName": {
-        "message": "Name/Version:"
     },
     "firmwareFlasherReleaseVersionUrl": {
         "message": "Bitte Download Seite besuchen"
@@ -2282,9 +1919,6 @@
     "firmwareFlasherDate": {
         "message": "Datum:"
     },
-    "firmwareFlasherHash": {
-        "message": "Hash:"
-    },
     "firmwareFlasherUrl": {
         "message": "Besuche Github, um diese Firmware zu kritisieren..."
     },
@@ -2337,18 +1971,6 @@
         "message": "Farben-Setup",
         "description": "Color setup title of the led strip"
     },
-    "ledStripH": {
-        "message": "H",
-        "description": "Abbreviation of Hue in HSV (Hue, Saturation, Brightness) color model"
-    },
-    "ledStripS": {
-        "message": "S",
-        "description": "Abbreviation of Saturation in HSV  (Hue, Saturation, Brightness) color model"
-    },
-    "ledStripV": {
-        "message": "V",
-        "description": "Abbreviation of Brightness in HSV  (Hue, Saturation, Brightness) color model"
-    },
     "ledStripRemainingText": {
         "message": "Verbleibend",
         "description": "In the LED STRIP, text next the counter of leds remaining"
@@ -2393,18 +2015,6 @@
         "message": "Batterie",
         "description": "One of the modes of the Led Strip"
     },
-    "ledStripFunctionRSSIOption": {
-        "message": "RSSI",
-        "description": "One of the modes of the Led Strip"
-    },
-    "ledStripFunctionGPSOption": {
-        "message": "GPS",
-        "description": "One of the modes of the Led Strip"
-    },
-    "ledStripFunctionRingOption": {
-        "message": "Ring",
-        "description": "One of the modes of the Led Strip"
-    },
     "ledStripColorModifierTitle": {
         "message": "Farb Wahl"
     },
@@ -2415,50 +2025,6 @@
         "message": "Ausrichtung",
         "description": "One of the modes in Color Mode in Led Strip"
     },
-    "ledStripModeColorsModeHeadfree": {
-        "message": "Headfree",
-        "description": "One of the modes in Color Mode in Led Strip"
-    },
-    "ledStripModeColorsModeHorizon": {
-        "message": "Horizon",
-        "description": "One of the modes in Color Mode in Led Strip"
-    },
-    "ledStripModeColorsModeAngle": {
-        "message": "Angle",
-        "description": "One of the modes in Color Mode in Led Strip"
-    },
-    "ledStripModeColorsModeMag": {
-        "message": "Mag",
-        "description": "One of the modes in Color Mode in Led Strip"
-    },
-    "ledStripModeColorsModeBaro": {
-        "message": "Baro",
-        "description": "One of the modes in Color Mode in Led Strip"
-    },
-    "ledStripDirN": {
-        "message": "N",
-        "description": "North direction in Color Mode in Led Strip"
-    },
-    "ledStripDirE": {
-        "message": "E",
-        "description": "East direction in Color Mode in Led Strip"
-    },
-    "ledStripDirS": {
-        "message": "S",
-        "description": "South direction in Color Mode in Led Strip"
-    },
-    "ledStripDirW": {
-        "message": "W",
-        "description": "West direction in Color Mode in Led Strip"
-    },
-    "ledStripDirU": {
-        "message": "U",
-        "description": "Up direction in Color Mode in Led Strip"
-    },
-    "ledStripDirD": {
-        "message": "D",
-        "description": "Down direction in Color Mode in Led Strip"
-    },
     "ledStripModesOrientationTitle": {
         "message": "LED Ausrichtung ('Flugm. &amp; Ausr.') und Farbe",
         "description": "One of the modes in Color Mode in Led Strip"
@@ -2467,32 +2033,8 @@
         "message": "Spezialfarben",
         "description": "One of the modes in Color Mode in Led Strip"
     },
-    "ledStripModeColorsModeDisarmed": {
-        "message": "Disarmed",
-        "description": "One of the modes in Color Mode in Led Strip"
-    },
-    "ledStripModeColorsModeArmed": {
-        "message": "Armed",
-        "description": "One of the modes in Color Mode in Led Strip"
-    },
-    "ledStripModeColorsModeAnimation": {
-        "message": "Animation",
-        "description": "One of the modes in Color Mode in Led Strip"
-    },
     "ledStripModeColorsModeBlinkBg": {
         "message": "Blinken hintergrund",
-        "description": "One of the modes in Color Mode in Led Strip"
-    },
-    "ledStripModeColorsModeGPSNoSats": {
-        "message": "GPS: no sats",
-        "description": "One of the modes in Color Mode in Led Strip"
-    },
-    "ledStripModeColorsModeGPSNoLock": {
-        "message": "GPS: no lock",
-        "description": "One of the modes in Color Mode in Led Strip"
-    },
-    "ledStripModeColorsModeGPSLocked": {
-        "message": "GPS: locked",
         "description": "One of the modes in Color Mode in Led Strip"
     },
     "ledStripWiring": {
@@ -2527,9 +2069,6 @@
     "ledStripBlinkLandingOverlay": {
         "message": "Blinken beim Landen"
     },
-    "ledStripOverlayTitle": {
-        "message": "Overlay"
-    },
     "ledStripWarningsOverlay": {
         "message": "Warnungen"
     },
@@ -2544,9 +2083,6 @@
     },
     "colorRed": {
         "message": "rot"
-    },
-    "colorOrange": {
-        "message": "orange"
     },
     "colorYellow": {
         "message": "gelb"
@@ -2572,71 +2108,8 @@
     "colorDarkViolet": {
         "message": "dunkel lila"
     },
-    "colorMagenta": {
-        "message": "magenta"
-    },
     "colorDeepPink": {
         "message": "pink"
-    },
-    "controlAxisRoll": {
-        "message": "Roll [A]"
-    },
-    "controlAxisPitch": {
-        "message": "Pitch [E]"
-    },
-    "controlAxisYaw": {
-        "message": "Yaw [R]"
-    },
-    "controlAxisThrottle": {
-        "message": "Throttle [T]"
-    },
-    "controlAxisAux1": {
-        "message": "AUX 1"
-    },
-    "controlAxisAux2": {
-        "message": "AUX 2"
-    },
-    "controlAxisAux3": {
-        "message": "AUX 3"
-    },
-    "controlAxisAux4": {
-        "message": "AUX 4"
-    },
-    "controlAxisAux5": {
-        "message": "AUX 5"
-    },
-    "controlAxisAux6": {
-        "message": "AUX 6"
-    },
-    "controlAxisAux7": {
-        "message": "AUX 7"
-    },
-    "controlAxisAux8": {
-        "message": "AUX 8"
-    },
-    "controlAxisAux9": {
-        "message": "AUX 9"
-    },
-    "controlAxisAux10": {
-        "message": "AUX 10"
-    },
-    "controlAxisAux11": {
-        "message": "AUX 11"
-    },
-    "controlAxisAux12": {
-        "message": "AUX 12"
-    },
-    "controlAxisAux13": {
-        "message": "AUX 13"
-    },
-    "controlAxisAux14": {
-        "message": "AUX 14"
-    },
-    "controlAxisAux15": {
-        "message": "AUX 15"
-    },
-    "controlAxisAux16": {
-        "message": "AUX 16"
     },
     "pidTuningBasic": {
         "message": "Basis/Acro"
@@ -2701,9 +2174,6 @@
     "pidTuningGyroNotch2Cutoff": {
         "message": "Gyro Notch Filter 2 Cutoff Frequency [Hz]"
     },
-    "pidTuningNotchFilterHelp": {
-        "message": "The Notch Filter has a Center and a Cutoff. The filter is symmetrical. The Center Frequency is the center of the filter and the Cutoff Frequency is where Notch filter starts. For example with Notch Cutoff of 160 and Notch Center of 260 it means the range is 160-360Hz with most attenuation around center"
-    },
     "pidTuningLowpassFilterHelp": {
         "message": "Die Lowpass Filter können zwei Ausprägungen haben: statisch und dynamisch. Nur eine der beiden Varianten kann für einen funktionsfähigen Lowpass Filter aktiviert sein. Der Statische definiert einen Wert, bei dem die Filterung beginnt. Der Dynamische definiert Min- und Maxwerte, zwischen denen die Filterung patziert wird. Diese bewegt sich dann mit der Gashebelstellung in diesem Korridor."
     },
@@ -2721,9 +2191,6 @@
     },
     "pidTuningDTermLowpass2Frequency": {
         "message": "D Term Lowpass 2 Cutoff Frequency [Hz]"
-    },
-    "pidTuningDTermLowpass2Type": {
-        "message": "D Term Lowpass 2 Filter Type"
     },
     "pidTuningDTermNotchFiltersGroup": {
         "message": "D Term Notch Filter"
@@ -2746,44 +2213,14 @@
     "pidTuningVbatPidCompensationHelp": {
         "message": "Erhört die PID Werte, sobald die Batterie schwächer wird. Das sorgt dafür, dass das Fluggefühl gleich bleibt, während der Akku leerer wird. Die Stärke der Kompensation wird durch die Einstellung der maximalen Zellenspannung errechnet. Stelle sicher, dass in den Energieeinstellungen passende Werte sind."
     },
-    "pidTuningFeatheredPids": {
-        "message": "Feathered PIDs"
-    },
-    "pidTuningiDecay": {
-        "message": "iDecay"
-    },
-    "pidTuningEmuBoost": {
-        "message": "EmuBoost"
-    },
-    "pidTuningEmuBoostLimit": {
-        "message": "EmuBoost Limit"
-    },
-    "pidTuningEmuBoostHelp": {
-        "message": "Adds a nonlinear boost to the error seen by your p and i term. Adds a different feeling to the sticks. Values that are to high will cause oscillations. Craft with a lower power to weight like whoops seem happy with quite high values and EmuBoost can really help give them a locked in feeling."
-    },
-    "pidTuningEmuBoostLimitHelp": {
-        "message": "Puts a limit on how much the EmuBoost is allowed to boost your error. Its measured as a percentage of the total error that EmuBoost is allowed to add. A high EmuBoost with a low EmuBoost Limit can give a snappy feeling near the center of the stick. Tune this according to preference."
-    },
     "pidTuningItermRotation": {
         "message": "i-Term Drehung"
     },
     "pidTuningItermRotationHelp": {
         "message": "Dreht den aktuellen I-Term Vektor korrekt zu den anderen Achsen, während des Drehens des Kopters bei kontinuierlichen Gieren, z.B. bei Funnel (schelle Orbits) und anderen Tricks. Besonders für LOS-Acro Piloten nützlich."
     },
-    "pidTuningFeatheredPidsHelp": {
-        "message": "Feathered PIDs changes how Dterm is calculated. 0 is error based dterm and 100 is measurement based dterm. Measurement is smoother but less responsive than error. Any value between 0 and 100 is a scalar of partially measurement and error calculated dterm."
-    },
-    "pidTuningiDecayHelp": {
-        "message": "Removes excessive iterm accumulation normally found at the end of quick stick movements. Running a higher decay allows you to run a higher iterm without experiencing bounce back or other common negatives associated with high iterm. Default is a value of 4, but the highest you can run it is 10."
-    },
-    "pidTuningSmartFeedforward": {
-        "message": "Smart Feedforward"
-    },
     "pidTuningSmartFeedforwardHelp": {
         "message": "Verringert den Einfluss des F-Term in dem PIDF Controller. Wenn der P-Term und der F-Term im selben Moment aktiv sind, wird nur der größere der beiden genutzt. Dies geschieht, um Überschreitungen zu vermeiden, ohne dass man den D-Term reduzieren muss. Er reduziert aber auch die Reaktionsfähigkeit des F-Terms wenn P hinzugefügt wird."
-    },
-    "pidTuningItermRelax": {
-        "message": "I Term Relax"
     },
     "pidTuningItermRelaxHelp": {
         "message": "Schränkt die Wirkung von I-Term bei schnelle Bewegungen ein. Das hilft \"Bounceback\" am Ende von schnellen Rollen und Bewegungen zu reduzieren. Die aktiven Achsen, als auch die Feedforward Methode bei schnelle Knüppelbewegungen, können gewählt werden."
@@ -2794,9 +2231,6 @@
     "pidTuningItermRelaxAxesOptionRP": {
         "message": "RP (roll+pitch)"
     },
-    "pidTuningItermRelaxAxesOptionRPY": {
-        "message": "RPY"
-    },
     "pidTuningItermRelaxAxesOptionRPInc": {
         "message": "RP (nur inkrementell)"
     },
@@ -2805,9 +2239,6 @@
     },
     "pidTuningItermRelaxType": {
         "message": "Typ:"
-    },
-    "pidTuningItermRelaxTypeOptionGyro": {
-        "message": "Gyro"
     },
     "pidTuningItermRelaxTypeOptionSetpoint": {
         "message": "Sollwert"
@@ -2953,9 +2384,6 @@
     "failsafeSwitchOptionStage2": {
         "message": "Stufe 2"
     },
-    "failsafeSwitchOptionKill": {
-        "message": "Kill"
-    },
     "powerButtonSave": {
         "message": "Speichern"
     },
@@ -2989,9 +2417,6 @@
     "powerBatteryCurrentMeterTypeEsc": {
         "message": "Sensoren der Regler"
     },
-    "powerBatteryCurrentMeterTypeMsp": {
-        "message": "MSP Sensor/OSD Slave"
-    },
     "powerBatteryMinimum": {
         "message": "Minimale Zellspannung"
     },
@@ -3004,62 +2429,11 @@
     "powerVoltageHead": {
         "message": "Voltmeter"
     },
-    "powerVoltageValue": {
-        "message": "$1 V"
-    },
-    "powerAmperageValue": {
-        "message": "$1 A"
-    },
     "powerVoltageId10": {
         "message": "Batterie"
     },
-    "powerVoltageId20": {
-        "message": "5V"
-    },
-    "powerVoltageId30": {
-        "message": "9V"
-    },
-    "powerVoltageId40": {
-        "message": "12V"
-    },
     "powerVoltageId50": {
         "message": "ESC kombiniert"
-    },
-    "powerVoltageId60": {
-        "message": "ESC Motor 1"
-    },
-    "powerVoltageId61": {
-        "message": "ESC Motor 2"
-    },
-    "powerVoltageId62": {
-        "message": "ESC Motor 3"
-    },
-    "powerVoltageId63": {
-        "message": "ESC Motor 4"
-    },
-    "powerVoltageId64": {
-        "message": "ESC Motor 5"
-    },
-    "powerVoltageId65": {
-        "message": "ESC Motor 6"
-    },
-    "powerVoltageId66": {
-        "message": "ESC Motor 7"
-    },
-    "powerVoltageId67": {
-        "message": "ESC Motor 8"
-    },
-    "powerVoltageId68": {
-        "message": "ESC Motor 9"
-    },
-    "powerVoltageId69": {
-        "message": "ESC Motor 10"
-    },
-    "powerVoltageId70": {
-        "message": "ESC Motor 11"
-    },
-    "powerVoltageId71": {
-        "message": "ESC Motor 12"
     },
     "powerVoltageId80": {
         "message": "Zelle 1"
@@ -3097,50 +2471,8 @@
     "powerAmperageId50": {
         "message": "ESC kombiniert"
     },
-    "powerAmperageId60": {
-        "message": "ESC Motor 1"
-    },
-    "powerAmperageId61": {
-        "message": "ESC Motor 2"
-    },
-    "powerAmperageId62": {
-        "message": "ESC Motor 3"
-    },
-    "powerAmperageId63": {
-        "message": "ESC Motor 4"
-    },
-    "powerAmperageId64": {
-        "message": "ESC Motor 5"
-    },
-    "powerAmperageId65": {
-        "message": "ESC Motor 6"
-    },
-    "powerAmperageId66": {
-        "message": "ESC Motor 7"
-    },
-    "powerAmperageId67": {
-        "message": "ESC Motor 8"
-    },
-    "powerAmperageId68": {
-        "message": "ESC Motor 9"
-    },
-    "powerAmperageId69": {
-        "message": "ESC Motor 10"
-    },
-    "powerAmperageId70": {
-        "message": "ESC Motor 11"
-    },
-    "powerAmperageId71": {
-        "message": "ESC Motor 12"
-    },
     "powerAmperageId80": {
         "message": "Virtuell"
-    },
-    "powerAmperageId90": {
-        "message": "MSP"
-    },
-    "powerMahValue": {
-        "message": "$1 mAh"
     },
     "powerAmperageScale": {
         "message": "Skalierung [1/10tel mV/A]"
@@ -3174,9 +2506,6 @@
     },
     "powerBatteryCapacity": {
         "message": "Kapazität (mAh)"
-    },
-    "osdSetupTitle": {
-        "message": "OSD"
     },
     "osdSetupPreviewHelp": {
         "message": "<strong>Hinweis:</strong> OSD-Vorschau eventuell nicht in der Schriftart, welche aktuell auf dem FC installiert ist."
@@ -3418,9 +2747,6 @@
     "osdDescElementRtcDateTime": {
         "message": "Datum / Uhrzeit"
     },
-    "osdDescElementAdjustmentRange": {
-        "message": "Currently active adjustment range setting and value"
-    },
     "osdDescElementHomeDirection": {
         "message": "Pfeil der die Richtung zur Home Position anzeigt"
     },
@@ -3553,9 +2879,6 @@
     "osdTimerPrecisionTooltip": {
         "message": "Einstellung der Timer Genauigkeit"
     },
-    "osdTimerAlarm": {
-        "message": "Alarm:"
-    },
     "osdTimerAlarmTooltip": {
         "message": "Setze den Alarmwert der Stoppuhr in Minuten. Sobald die Zeit überschritten ist blinkt das dazugehörige OSD Element"
     },
@@ -3631,14 +2954,8 @@
     "osdButtonSaved": {
         "message": "Gespeichert"
     },
-    "mainHelpArmed": {
-        "message": "Motor Arming"
-    },
     "mainHelpFailsafe": {
         "message": "Failsafe Modus"
-    },
-    "mainHelpLink": {
-        "message": "Serial Link Status"
     },
     "configurationEscProtocol": {
         "message": "ESC/Motor Protokoll"
@@ -3718,9 +3035,6 @@
     "configurationBatteryMultiwiiCurrent": {
         "message": "Aktieviere den nativen Support für die Messung des Stromflusses über Multiwii MSP"
     },
-    "pidTuningProfile": {
-        "message": "Profile"
-    },
     "pidTuningProfileTip": {
         "message": "Bis zu 3 (bei manchen FCs nur 2) verschiedene Profile für PID Einstellungen können gespeichert. Die Profile enthalten PID Einstellungen, Setpoint sowie Angle/Horzizon Einstellungen und können mit einfachen Stick-Kommandos (siehe Doku) oder per OSD umgestellt werden."
     },
@@ -3729,9 +3043,6 @@
     },
     "pidTuningRateProfileTip": {
         "message": "Bis zu 3 verschiedene Rate Profile können auf dem FC gespeichert werden. Diese enthalten Einstellungen zu RC Rate, Rate, Expo sowie TPA. Der Wechsel zwischen den Profilen kann mit Stick Kommandos oder per OSD vorgenommen werden."
-    },
-    "pidTuningDelta": {
-        "message": "Derivative Method"
     },
     "pidTuningDeltaError": {
         "message": "Fehler"

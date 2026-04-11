@@ -1,7 +1,4 @@
 {
-    "error": {
-        "message": "Error: {{errorMessage}}"
-    },
     "warningTitle": {
         "message": "Advertència"
     },
@@ -22,9 +19,6 @@
     },
     "portsSelectManual": {
         "message": "Selecció Manual"
-    },
-    "portOverrideText": {
-        "message": "Port:"
     },
     "autoConnect": {
         "message": "Auto-Connectar"
@@ -61,37 +55,14 @@
     "sensorStatusGyro": {
         "message": "Giroscopi"
     },
-    "sensorStatusGyroShort": {
-        "message": "Gyro",
-        "description": "Text of the image in the top sensors icons. Please keep it short."
-    },
     "sensorStatusAccel": {
         "message": "Acceleròmetre"
-    },
-    "sensorStatusAccelShort": {
-        "message": "Accel",
-        "description": "Text of the image in the top sensors icons. Please keep it short."
     },
     "sensorStatusMag": {
         "message": "Magnetòmetre"
     },
-    "sensorStatusMagShort": {
-        "message": "Mag",
-        "description": "Text of the image in the top sensors icons. Please keep it short."
-    },
     "sensorStatusBaro": {
         "message": "Baròmetre"
-    },
-    "sensorStatusBaroShort": {
-        "message": "Baro",
-        "description": "Text of the image in the top sensors icons. Please keep it short."
-    },
-    "sensorStatusGPS": {
-        "message": "GPS"
-    },
-    "sensorStatusGPSShort": {
-        "message": "GPS",
-        "description": "Text of the image in the top sensors icons. Please keep it short."
     },
     "sensorStatusSonar": {
         "message": "Sònar / Mesurador de distància"
@@ -148,56 +119,26 @@
     "tabConfiguration": {
         "message": "Configuració"
     },
-    "tabPorts": {
-        "message": "Ports"
-    },
     "tabPidTuning": {
         "message": "Ajustament de PIDs"
     },
     "tabReceiver": {
         "message": "Receptor"
     },
-    "tabServos": {
-        "message": "Servos"
-    },
-    "tabFailsafe": {
-        "message": "Failsafe"
-    },
     "tabTransponder": {
         "message": "Transponder de curses"
-    },
-    "tabOsd": {
-        "message": "OSD"
     },
     "tabPower": {
         "message": "Energia i bateria"
     },
-    "tabGPS": {
-        "message": "GPS"
-    },
-    "tabMotorTesting": {
-        "message": "Motors"
-    },
     "tabLedStrip": {
         "message": "Tira LED"
-    },
-    "tabRawSensorData": {
-        "message": "Sensors"
-    },
-    "tabCLI": {
-        "message": "CLI"
     },
     "tabLogging": {
         "message": "Registre Connectat"
     },
-    "tabOnboardLogging": {
-        "message": "Blackbox"
-    },
     "tabAdjustments": {
         "message": "Ajustaments"
-    },
-    "tabAuxiliary": {
-        "message": "Modes"
     },
     "logActionHide": {
         "message": "Amagar Log"
@@ -377,23 +318,11 @@
     "fcInfoReceived": {
         "message": "Info de la controladora de vol, identificador: <strong>$1</strong>, versió: <strong>$2</strong>"
     },
-    "versionLabelTarget": {
-        "message": "Target"
-    },
-    "versionLabelFirmware": {
-        "message": "Firmware"
-    },
     "versionLabelConfigurator": {
         "message": "Configurador"
     },
     "statusbar_port_utilization": {
         "message": "Utilizatió del port:"
-    },
-    "statusbar_usage_download": {
-        "message": "D: $1%"
-    },
-    "statusbar_usage_upload": {
-        "message": "U: $1%"
     },
     "statusbar_packet_error": {
         "message": "Error de paquet:"
@@ -452,12 +381,6 @@
     "defaultSupport": {
         "message": "Per assistència cerqueu primer els fòrums i la wiki o poseu-vos en contacte amb el vostre proveïdor."
     },
-    "defaultSupport1": {
-        "message": "<a href=\"https://discordapp.com/channels/547211754845765635\" target=\"_blank\">Discord</a>"
-    },
-    "defaultSupport2": {
-        "message": "<a href=\"https://github.com/Emuflight\" target=\"_blank\">GitHub</a>"
-    },
     "initialSetupBackupAndRestoreApiVersion": {
         "message": "<span class=\"message-negative\">Funcionalitats de còpia de seguretat i restauració deshabilitades.</span> La teva versió de la API és <span class=\"message-negative\">$1</span>, la còpia i restauració requereix <span class=\"message-positive\">$2</span>. Si us plau, desa la teva configuració mitjançant el CLI, revisa la documentació de Emuflight per saber com procedir."
     },
@@ -500,14 +423,8 @@
     "initialSetupButtonResetZaxisValue": {
         "message": "Resetejar eix Z, offset: $1 graus"
     },
-    "initialSetupInfoHead": {
-        "message": "Info"
-    },
     "initialSetupBattery": {
         "message": "Voltatge de bateria:"
-    },
-    "initialSetupBatteryValue": {
-        "message": "$1 V"
     },
     "initialSetupDrawn": {
         "message": "Capacitat drenada:"
@@ -515,29 +432,11 @@
     "initialSetupDrawing": {
         "message": "Corrent drenada:"
     },
-    "initialSetupBatteryMahValue": {
-        "message": "$1 mAh"
-    },
-    "initialSetupBatteryAValue": {
-        "message": "$1 A"
-    },
-    "initialSetupRSSI": {
-        "message": "RSSI:"
-    },
-    "initialSetupRSSIValue": {
-        "message": "$1 %"
-    },
     "initialSetupArmingDisableFlags": {
         "message": "Flags deshabilitant l'armat:"
     },
     "initialSetupArmingAllowed": {
         "message": "Armat permès"
-    },
-    "initialSetupGPSHead": {
-        "message": "GPS"
-    },
-    "initialSetupInstrumentsHead": {
-        "message": "Instruments"
     },
     "initialSetupAttitude": {
         "message": "$1 grau/s"
@@ -574,9 +473,6 @@
     },
     "featureMOTOR_STOP": {
         "message": "No girar els motors quan està armat"
-    },
-    "featureSERVO_TILT": {
-        "message": "Servo gimbal"
     },
     "featureSOFTSERIAL": {
         "message": "Habilita els ports sèrie mitjançant CPU"
@@ -650,9 +546,6 @@
     "featureAIRMODE": {
         "message": "Activa Airmode permanentment"
     },
-    "featureSUPEREXPO_RATES": {
-        "message": "Super Expo Rates"
-    },
     "featureSDCARD": {
         "message": "Suporta SDCard (per logging)"
     },
@@ -688,9 +581,6 @@
     },
     "configurationFeatureDescription": {
         "message": "Descripció"
-    },
-    "configurationMixer": {
-        "message": "Mixer"
     },
     "configurationFeatures": {
         "message": "Altres Característiques"
@@ -851,29 +741,11 @@
     "configuration3d": {
         "message": "Característiques 3D ESC/Motor"
     },
-    "configuration3dDeadbandLow": {
-        "message": "3D Deadband Low"
-    },
-    "configuration3dDeadbandHigh": {
-        "message": "3D Deadband High"
-    },
-    "configuration3dNeutral": {
-        "message": "3D Neutral"
-    },
-    "configuration3dDeadbandThrottle": {
-        "message": "3D Deadband Throttle"
-    },
     "configurationSystem": {
         "message": "Configuració de sistema"
     },
     "configurationLoopTime": {
         "message": "Loop Time de la controladora de vol"
-    },
-    "configurationGPS": {
-        "message": "GPS"
-    },
-    "configurationGPSProtocol": {
-        "message": "Protocol"
     },
     "configurationGPSBaudrate": {
         "message": "Velocitat de bauds"
@@ -883,9 +755,6 @@
     },
     "configurationGPSAutoBaud": {
         "message": "Velocitat de transmissió automàtica"
-    },
-    "configurationGPSAutoConfig": {
-        "message": "Auto Config"
     },
     "configurationGPSHelp": {
         "message": "<strong>Nota:</strong> Recorda configurar el Port Sèrie (pestanya Ports) per a fer servir la funció GPS."
@@ -931,45 +800,6 @@
     },
     "portsTelemetryDisabled": {
         "message": "Deshabilitat"
-    },
-    "portsFunction_MSP": {
-        "message": "MSP"
-    },
-    "portsFunction_GPS": {
-        "message": "GPS"
-    },
-    "portsFunction_TELEMETRY_FRSKY": {
-        "message": "FrSky"
-    },
-    "portsFunction_TELEMETRY_HOTT": {
-        "message": "HoTT"
-    },
-    "portsFunction_TELEMETRY_LTM": {
-        "message": "LTM"
-    },
-    "portsFunction_TELEMETRY_MAVLINK": {
-        "message": "MAVLink"
-    },
-    "portsFunction_TELEMETRY_MSP": {
-        "message": "MSP"
-    },
-    "portsFunction_TELEMETRY_SMARTPORT": {
-        "message": "SmartPort"
-    },
-    "portsFunction_TELEMETRY_IBUS": {
-        "message": "iBUS"
-    },
-    "portsFunction_TELEMETRY_JETIXBUS": {
-        "message": "JETIXBUS"
-    },
-    "portsFunction_TELEMETRY_CRSF": {
-        "message": "CRSF"
-    },
-    "portsFunction_TELEMETRY_SRXL": {
-        "message": "SRXL"
-    },
-    "portsFunction_ESC_SENSOR": {
-        "message": "ESC"
     },
     "portsFunction_RX_SERIAL": {
         "message": "RX Sèrie"
@@ -1022,26 +852,8 @@
     "receiverRcInterpolationIntervalHelp": {
         "message": "Interval del mode d'interpolació manual RC en miŀlisegons."
     },
-    "receiverRcInterpolationOff": {
-        "message": "Off"
-    },
-    "receiverRcInterpolationDefault": {
-        "message": "Preset"
-    },
-    "receiverRcInterpolationAuto": {
-        "message": "Auto"
-    },
-    "receiverRcInterpolationManual": {
-        "message": "Manual"
-    },
     "receiverRcInterpolationInterval": {
         "message": "Interval d'Interpolació RC [ms]"
-    },
-    "pidTuningDtermSetpointTransition": {
-        "message": "D Setpoint transition"
-    },
-    "pidTuningDtermSetpoint": {
-        "message": "D Setpoint Weight"
     },
     "pidTuningDtermSetpointTransitionHelp": {
         "message": "Amb aquest paràmetre, D Setpoint Weight pot ser reduït al centre dels sticks, que resulta en flips i rolls més suaus.<br> El valor representa la desciació de l'stick: 0 - stick centrat, 1 - totalment desviat. Quan l'stick està per sobre d'aquest punt, Setpoint Weight es manté constant al valor configurat. Quan l'stick està per sota d'aquest punt, Setpoint Weight és reduït proporcionalment, arribant a 0 a la posició central de l'stick.<br> El valor 1 dona el màxim valor suavitzant, mentre el valor 0 manté el Setpoint Weight fixat añ valor configurat durant tot el recorregut de l'sctick."
@@ -1052,50 +864,17 @@
     "pidTuningProportional": {
         "message": "Proporcional"
     },
-    "pidTuningIntegral": {
-        "message": "Integral"
-    },
     "pidTuningDerivative": {
         "message": "Derivativa"
-    },
-    "pidTuningRcRate": {
-        "message": "RC Rate"
     },
     "pidTuningMaxVel": {
         "message": "Vel Màx [graus/s]"
     },
-    "pidTuningRate": {
-        "message": "Rate"
-    },
-    "pidTuningSuperRate": {
-        "message": "Super Rate"
-    },
     "pidTuningRatesPreview": {
         "message": "Previsualització de Rates"
     },
-    "pidTuningRcExpo": {
-        "message": "RC Expo"
-    },
-    "pidTuningTPA_P": {
-        "message": "TPA P"
-    },
-    "pidTuningTPA_I": {
-        "message": "TPA I"
-    },
-    "pidTuningTPA_D": {
-        "message": "TPA D"
-    },
-    "pidTuningTPABreakPoint": {
-        "message": "TPA Breakpoint"
-    },
     "pidTuningFilter": {
         "message": "Filtre"
-    },
-    "pidTuningRatesCurve": {
-        "message": "Rates"
-    },
-    "throttle": {
-        "message": "Throttle"
     },
     "pidTuningButtonSave": {
         "message": "Desa"
@@ -1160,12 +939,6 @@
     "tuningHelp": {
         "message": "<b>Consells d'ajustament</b><br /><span class=\"message-negative\">IMPORTANT:</span> És important verificar la temperatura del motor durant els primers vols. Com més gran sigui el valor del filtre, millor volarà, però també tindràs més soroll als motors.<br>El valor predeterminat de 100Hz és òptim, però per a les configuracions de sorolloses pots provar de baixar el filtre Dterm a 50Hz i possiblement també el filtre del giròscop."
     },
-    "receiverThrottleMid": {
-        "message": "Throttle MID"
-    },
-    "receiverThrottleExpo": {
-        "message": "Throttle EXPO"
-    },
     "receiverStickMin": {
         "message": "Llindar 'Stick Low'"
     },
@@ -1184,20 +957,11 @@
     "receiverHelpStickMax": {
         "message": "El valor mínim (en ms) per un stick per a ser reconegut com a high/right (MAX_CHECK)."
     },
-    "receiverDeadband": {
-        "message": "RC Deadband"
-    },
     "receiverHelpDeadband": {
         "message": "Aquests són valors (en ms) de quant pot canviar un input RC abans que sigui considerat vàlid. Pot ser incrementat per transmissors amb variacions  a les sortides quan no es toca."
     },
-    "receiverYawDeadband": {
-        "message": "Yaw Deadband"
-    },
     "receiverHelpYawDeadband": {
         "message": "Aquests són valors (en ms) de quant pot canviar un input RC abans que sigui considerat vàlid. Pot ser incrementat per transmissors amb variacions  a les sortides quan no es toca. <strong>Només per el YAW.</strong>"
-    },
-    "recevier3dDeadbandThrottle": {
-        "message": "3D Throttle Deadband"
     },
     "receiverHelp3dDeadbandThrottle": {
         "message": "Aquests valors (en ms) són per ampliar la zona neutral. <strong>Aquest ajustament és només per al throttle 3D.</strong>"
@@ -1241,9 +1005,6 @@
     "receiverMspEnableButton": {
         "message": "Habilita els controls"
     },
-    "auxiliaryMin": {
-        "message": "Min"
-    },
     "auxiliaryMax": {
         "message": "Màx"
     },
@@ -1255,9 +1016,6 @@
     },
     "auxiliaryEepromSaved": {
         "message": "EEPROM <span class=\"message-positive\">desada</span>"
-    },
-    "auxiliaryAutoChannelSelect": {
-        "message": "AUTO"
     },
     "adjustmentsHelp": {
         "message": "Configureu els interruptors d'ajust. Consulteu la secció \"Ajustaments de vol\" del manual per obtenir-ne més detalls. Els canvis que realitzen les funcions d'ajust no es guarden automàticament. Hi ha 4 ranures (slots). Cada interruptor utilitzat per fer ajustaments simultanis requereix l'ús exclusiu d'una ranura."
@@ -1288,18 +1046,6 @@
     },
     "adjustmentsColumnViaChannel": {
         "message": "mitjançant el canal"
-    },
-    "adjustmentsSlot0": {
-        "message": "Slot 1"
-    },
-    "adjustmentsSlot1": {
-        "message": "Slot 2"
-    },
-    "adjustmentsSlot2": {
-        "message": "Slot 3"
-    },
-    "adjustmentsSlot3": {
-        "message": "Slot 4"
     },
     "adjustmentsMin": {
         "message": "Mín"
@@ -1346,12 +1092,6 @@
     "adjustmentsFunction12": {
         "message": "Selecció del perfil de Rates"
     },
-    "adjustmentsFunction13": {
-        "message": "Pitch Rate"
-    },
-    "adjustmentsFunction14": {
-        "message": "Roll Rate"
-    },
     "adjustmentsFunction15": {
         "message": "Ajustament Pitch P"
     },
@@ -1369,12 +1109,6 @@
     },
     "adjustmentsFunction20": {
         "message": "Ajustament Roll D"
-    },
-    "adjustmentsFunction21": {
-        "message": "RC Rate Yaw"
-    },
-    "adjustmentsFunction22": {
-        "message": "D Setpoint"
     },
     "adjustmentsFunction23": {
         "message": "Transitició D Setpoint"
@@ -1396,27 +1130,6 @@
     },
     "transponderConfigurationType": {
         "message": "Tipus de transponder"
-    },
-    "transponderType0": {
-        "message": "None"
-    },
-    "transponderType1": {
-        "message": "iLap"
-    },
-    "transponderType2": {
-        "message": "aRCiTimer"
-    },
-    "transponderType3": {
-        "message": "ERLT"
-    },
-    "transponderData1": {
-        "message": "Data"
-    },
-    "transponderData2": {
-        "message": "Transponder ID"
-    },
-    "transponderData3": {
-        "message": "Transponder ID"
     },
     "transponderDataHelp1": {
         "message": "Només dígits hexadecimals, 0-9, A-F"
@@ -1454,15 +1167,6 @@
     "servosName": {
         "message": "Nom"
     },
-    "servosMid": {
-        "message": "MID"
-    },
-    "servosMin": {
-        "message": "MIN"
-    },
-    "servosMax": {
-        "message": "MAX"
-    },
     "servosDirectionAndRate": {
         "message": "Direcció i rate"
     },
@@ -1475,9 +1179,6 @@
     "servosEepromSave": {
         "message": "EEPROM <span class=\"message-positive\">desada</span>"
     },
-    "gpsHead": {
-        "message": "GPS"
-    },
     "gpsMapHead": {
         "message": "Ubicació actual del GPS"
     },
@@ -1486,9 +1187,6 @@
     },
     "gpsMapMessage2": {
         "message": "Esperant ubicació 3D GPS..."
-    },
-    "gps3dFix": {
-        "message": "3D Fix:"
     },
     "gpsFixTrue": {
         "message": "<span class=\"fixtrue\">Sí</span>"
@@ -1508,9 +1206,6 @@
     "gpsSpeed": {
         "message": "Velocitat:"
     },
-    "gpsSats": {
-        "message": "Sats:"
-    },
     "gpsDistToHome": {
         "message": "Dist a casa:"
     },
@@ -1520,12 +1215,6 @@
     "gpsSignalStr": {
         "message": "Potència Senyal"
     },
-    "gpsSignalSatId": {
-        "message": "Sat ID"
-    },
-    "gpsSignalQty": {
-        "message": "Qty"
-    },
     "motorsVoltage": {
         "message": "Voltatge:"
     },
@@ -1534,84 +1223,6 @@
     },
     "motorsmAhDrawn": {
         "message": "Amp. consumits:"
-    },
-    "motorsVoltageValue": {
-        "message": "$1 V"
-    },
-    "motorsADrawingValue": {
-        "message": "$1 A"
-    },
-    "motorsmAhDrawnValue": {
-        "message": "$1 mAh"
-    },
-    "motorsText": {
-        "message": "Motors"
-    },
-    "motorNumber1": {
-        "message": "Motor - 1"
-    },
-    "motorNumber2": {
-        "message": "Motor - 2"
-    },
-    "motorNumber3": {
-        "message": "Motor - 3"
-    },
-    "motorNumber4": {
-        "message": "Motor - 4"
-    },
-    "motorNumber5": {
-        "message": "Motor - 5"
-    },
-    "motorNumber6": {
-        "message": "Motor - 6"
-    },
-    "motorNumber7": {
-        "message": "Motor - 7"
-    },
-    "motorNumber8": {
-        "message": "Motor - 8"
-    },
-    "servosText": {
-        "message": "Servos"
-    },
-    "servoNumber1": {
-        "message": "Servo - 1"
-    },
-    "servoNumber2": {
-        "message": "Servo - 2"
-    },
-    "servoNumber3": {
-        "message": "Servo - 3"
-    },
-    "servoNumber4": {
-        "message": "Servo - 4"
-    },
-    "servoNumber5": {
-        "message": "Servo - 5"
-    },
-    "servoNumber6": {
-        "message": "Servo - 6"
-    },
-    "servoNumber7": {
-        "message": "Servo - 7"
-    },
-    "servoNumber8": {
-        "message": "Servo - 8"
-    },
-    "motorsResetMaximumButton": {
-        "message": "Reset"
-    },
-    "motorsResetMaximum": {
-        "message": "Reset overtime maximum"
-    },
-    "motorsSensorGyroSelect": {
-        "message": "gyro"
-    },
-    "motorsSensorAccelSelect": {
-        "message": "accel"
-    },
-    "motorsMaster": {
-        "message": "Master"
     },
     "motorsNotice": {
         "message": "<strong>Mode test de Motors / Avís d'armat:</strong><br />Moure els sliders o armar l'aeronau amb l'emisor farà que els motors <strong>girin</strong>.<br />Per prevenir lesions <strong class=\"message-negative\">treu TOTES les pales</strong> abans de fer servir aquesta funció.<br />Habilitar el test de motors també deshabilitarà temporalment el Runaway Takeoff Prevention, per evitar que es desarmi quan s'està provant l'aeronau sense pales.<br />"
@@ -1643,9 +1254,6 @@
     "sensorsSonarSelect": {
         "message": "Sònar"
     },
-    "sensorsDebugSelect": {
-        "message": "Debug"
-    },
     "sensorsGyroTitle": {
         "message": "Giroscopi - graus/s"
     },
@@ -1660,9 +1268,6 @@
     },
     "sensorsSonarTitle": {
         "message": "Sònar - cm"
-    },
-    "sensorsDebugTitle": {
-        "message": "Debug"
     },
     "cliInputPlaceholder": {
         "message": "Escriu la teva comanda aquí"
@@ -1723,9 +1328,6 @@
     },
     "blackboxLoggingNone": {
         "message": "No enregistrar"
-    },
-    "blackboxLoggingFlash": {
-        "message": "Onboard Flash"
     },
     "blackboxLoggingSdCard": {
         "message": "Tarja SD"
@@ -1832,9 +1434,6 @@
     "firmwareFlasherReleaseStatus": {
         "message": "Estat:"
     },
-    "firmwareFlasherReleaseTarget": {
-        "message": "Target:"
-    },
     "firmwareFlasherReleaseFile": {
         "message": "Binari:"
     },
@@ -1865,14 +1464,8 @@
     "firmwareFlasherFlashOnConnectDescription": {
         "message": "Provant de flashejar la controladora automàticament (llençat per la detecció d'un nou port de sèrie)"
     },
-    "firmwareFlasherFullChipErase": {
-        "message": "Full chip erase"
-    },
     "firmwareFlasherFullChipEraseDescription": {
         "message": "Esborra tota la configuració desada a la controladora"
-    },
-    "firmwareFlasherManualPort": {
-        "message": "Port"
     },
     "firmwareFlasherManualBaud": {
         "message": "Velocitat manual de bauds"
@@ -1919,14 +1512,8 @@
     "firmwareFlasherGithubInfoHead": {
         "message": "Informació de Firmware a GitHub"
     },
-    "firmwareFlasherCommiter": {
-        "message": "Committer:"
-    },
     "firmwareFlasherDate": {
         "message": "Data:"
-    },
-    "firmwareFlasherHash": {
-        "message": "Hash:"
     },
     "firmwareFlasherUrl": {
         "message": "Ves a GitHub per a veure el commit..."
@@ -1980,18 +1567,6 @@
         "message": "Configuració de color",
         "description": "Color setup title of the led strip"
     },
-    "ledStripH": {
-        "message": "H",
-        "description": "Abbreviation of Hue in HSV (Hue, Saturation, Brightness) color model"
-    },
-    "ledStripS": {
-        "message": "S",
-        "description": "Abbreviation of Saturation in HSV  (Hue, Saturation, Brightness) color model"
-    },
-    "ledStripV": {
-        "message": "V",
-        "description": "Abbreviation of Brightness in HSV  (Hue, Saturation, Brightness) color model"
-    },
     "ledStripRemainingText": {
         "message": "Restant",
         "description": "In the LED STRIP, text next the counter of leds remaining"
@@ -2020,10 +1595,6 @@
         "message": "Cap",
         "description": "One of the modes of the Led Strip"
     },
-    "ledStripFunctionColorOption": {
-        "message": "Color",
-        "description": "One of the modes of the Led Strip"
-    },
     "ledStripFunctionModesOption": {
         "message": "Modes &amp; Orientació",
         "description": "One of the modes of the Led Strip"
@@ -2034,14 +1605,6 @@
     },
     "ledStripFunctionBatteryOption": {
         "message": "Bateria",
-        "description": "One of the modes of the Led Strip"
-    },
-    "ledStripFunctionRSSIOption": {
-        "message": "RSSI",
-        "description": "One of the modes of the Led Strip"
-    },
-    "ledStripFunctionGPSOption": {
-        "message": "GPS",
         "description": "One of the modes of the Led Strip"
     },
     "ledStripFunctionRingOption": {
@@ -2062,45 +1625,9 @@
         "message": "Mode lliure",
         "description": "One of the modes in Color Mode in Led Strip"
     },
-    "ledStripModeColorsModeHorizon": {
-        "message": "Horizon",
-        "description": "One of the modes in Color Mode in Led Strip"
-    },
-    "ledStripModeColorsModeAngle": {
-        "message": "Angle",
-        "description": "One of the modes in Color Mode in Led Strip"
-    },
-    "ledStripModeColorsModeMag": {
-        "message": "Mag",
-        "description": "One of the modes in Color Mode in Led Strip"
-    },
-    "ledStripModeColorsModeBaro": {
-        "message": "Baro",
-        "description": "One of the modes in Color Mode in Led Strip"
-    },
-    "ledStripDirN": {
-        "message": "N",
-        "description": "North direction in Color Mode in Led Strip"
-    },
-    "ledStripDirE": {
-        "message": "E",
-        "description": "East direction in Color Mode in Led Strip"
-    },
-    "ledStripDirS": {
-        "message": "S",
-        "description": "South direction in Color Mode in Led Strip"
-    },
     "ledStripDirW": {
         "message": "O",
         "description": "West direction in Color Mode in Led Strip"
-    },
-    "ledStripDirU": {
-        "message": "U",
-        "description": "Up direction in Color Mode in Led Strip"
-    },
-    "ledStripDirD": {
-        "message": "D",
-        "description": "Down direction in Color Mode in Led Strip"
     },
     "ledStripModesOrientationTitle": {
         "message": "Orientació del LED ('Modes &amp; Orientació') i Color",
@@ -2158,9 +1685,6 @@
         "message": "Els LEDs sense nombre d'ordenació no es desaran.",
         "description": "Message in the wiring modes in Led Strip"
     },
-    "ledStripVtxFunction": {
-        "message": "Larson scanner"
-    },
     "ledStripBlinkTitle": {
         "message": "Parpadeja"
     },
@@ -2169,9 +1693,6 @@
     },
     "ledStripBlinkLandingOverlay": {
         "message": "Pampallugues en aterrar"
-    },
-    "ledStripOverlayTitle": {
-        "message": "Overlay"
     },
     "ledStripWarningsOverlay": {
         "message": "Avisos"
@@ -2215,71 +1736,8 @@
     "colorDarkViolet": {
         "message": "lila fosc"
     },
-    "colorMagenta": {
-        "message": "magenta"
-    },
     "colorDeepPink": {
         "message": "rosa fort"
-    },
-    "controlAxisRoll": {
-        "message": "Roll [A]"
-    },
-    "controlAxisPitch": {
-        "message": "Pitch [E]"
-    },
-    "controlAxisYaw": {
-        "message": "Yaw [R]"
-    },
-    "controlAxisThrottle": {
-        "message": "Throttle [T]"
-    },
-    "controlAxisAux1": {
-        "message": "AUX 1"
-    },
-    "controlAxisAux2": {
-        "message": "AUX 2"
-    },
-    "controlAxisAux3": {
-        "message": "AUX 3"
-    },
-    "controlAxisAux4": {
-        "message": "AUX 4"
-    },
-    "controlAxisAux5": {
-        "message": "AUX 5"
-    },
-    "controlAxisAux6": {
-        "message": "AUX 6"
-    },
-    "controlAxisAux7": {
-        "message": "AUX 7"
-    },
-    "controlAxisAux8": {
-        "message": "AUX 8"
-    },
-    "controlAxisAux9": {
-        "message": "AUX 9"
-    },
-    "controlAxisAux10": {
-        "message": "AUX 10"
-    },
-    "controlAxisAux11": {
-        "message": "AUX 11"
-    },
-    "controlAxisAux12": {
-        "message": "AUX 12"
-    },
-    "controlAxisAux13": {
-        "message": "AUX 13"
-    },
-    "controlAxisAux14": {
-        "message": "AUX 14"
-    },
-    "controlAxisAux15": {
-        "message": "AUX 15"
-    },
-    "controlAxisAux16": {
-        "message": "AUX 16"
     },
     "pidTuningBasic": {
         "message": "Basic/Acro"
@@ -2298,15 +1756,6 @@
     },
     "pidTuningTransition": {
         "message": "Transició"
-    },
-    "pidTuningHorizon": {
-        "message": "Horizon"
-    },
-    "pidTuningAngle": {
-        "message": "Angle"
-    },
-    "pidTuningLevelAngleLimit": {
-        "message": "Angle Limit"
     },
     "pidTuningLevelHelp": {
         "message": "Els valors de sota canvien el comportament dels modes ANGLE i HORIZON. Diferents controladors de PIDs gestionen els valors de forma diferent. Revisa la documentació."
@@ -2413,12 +1862,6 @@
     "failsafeSwitchModeItem": {
         "message": "Acció de l'interruptor de Failsafe"
     },
-    "failsafeSwitchOptionStage1": {
-        "message": "Stage 1"
-    },
-    "failsafeSwitchOptionStage2": {
-        "message": "Stage 2"
-    },
     "failsafeSwitchOptionKill": {
         "message": "Matar"
     },
@@ -2434,9 +1877,6 @@
     "powerBatteryVoltageMeterTypeNone": {
         "message": "Cap"
     },
-    "powerBatteryVoltageMeterTypeAdc": {
-        "message": "Onboard ADC"
-    },
     "powerBatteryVoltageMeterTypeEsc": {
         "message": "Sensor d'ESC"
     },
@@ -2445,12 +1885,6 @@
     },
     "powerBatteryCurrentMeterTypeNone": {
         "message": "Cap"
-    },
-    "powerBatteryCurrentMeterTypeAdc": {
-        "message": "Onboard ADC"
-    },
-    "powerBatteryCurrentMeterTypeVirtual": {
-        "message": "Virtual"
     },
     "powerBatteryCurrentMeterTypeEsc": {
         "message": "Sensor d'ESC"
@@ -2470,62 +1904,11 @@
     "powerVoltageHead": {
         "message": "Mesurador de Voltatge"
     },
-    "powerVoltageValue": {
-        "message": "$1 V"
-    },
-    "powerAmperageValue": {
-        "message": "$1 A"
-    },
     "powerVoltageId10": {
         "message": "Bateria"
     },
-    "powerVoltageId20": {
-        "message": "5V"
-    },
-    "powerVoltageId30": {
-        "message": "9V"
-    },
-    "powerVoltageId40": {
-        "message": "12V"
-    },
     "powerVoltageId50": {
         "message": "ESC Combinat"
-    },
-    "powerVoltageId60": {
-        "message": "ESC Motor 1"
-    },
-    "powerVoltageId61": {
-        "message": "ESC Motor 2"
-    },
-    "powerVoltageId62": {
-        "message": "ESC Motor 3"
-    },
-    "powerVoltageId63": {
-        "message": "ESC Motor 4"
-    },
-    "powerVoltageId64": {
-        "message": "ESC Motor 5"
-    },
-    "powerVoltageId65": {
-        "message": "ESC Motor 6"
-    },
-    "powerVoltageId66": {
-        "message": "ESC Motor 7"
-    },
-    "powerVoltageId67": {
-        "message": "ESC Motor 8"
-    },
-    "powerVoltageId68": {
-        "message": "ESC Motor 9"
-    },
-    "powerVoltageId69": {
-        "message": "ESC Motor 10"
-    },
-    "powerVoltageId70": {
-        "message": "ESC Motor 11"
-    },
-    "powerVoltageId71": {
-        "message": "ESC Motor 12"
     },
     "powerVoltageId80": {
         "message": "Ceŀla 1"
@@ -2563,51 +1946,6 @@
     "powerAmperageId50": {
         "message": "ESC Combinat"
     },
-    "powerAmperageId60": {
-        "message": "ESC Motor 1"
-    },
-    "powerAmperageId61": {
-        "message": "ESC Motor 2"
-    },
-    "powerAmperageId62": {
-        "message": "ESC Motor 3"
-    },
-    "powerAmperageId63": {
-        "message": "ESC Motor 4"
-    },
-    "powerAmperageId64": {
-        "message": "ESC Motor 5"
-    },
-    "powerAmperageId65": {
-        "message": "ESC Motor 6"
-    },
-    "powerAmperageId66": {
-        "message": "ESC Motor 7"
-    },
-    "powerAmperageId67": {
-        "message": "ESC Motor 8"
-    },
-    "powerAmperageId68": {
-        "message": "ESC Motor 9"
-    },
-    "powerAmperageId69": {
-        "message": "ESC Motor 10"
-    },
-    "powerAmperageId70": {
-        "message": "ESC Motor 11"
-    },
-    "powerAmperageId71": {
-        "message": "ESC Motor 12"
-    },
-    "powerAmperageId80": {
-        "message": "Virtual"
-    },
-    "powerAmperageId90": {
-        "message": "MSP"
-    },
-    "powerMahValue": {
-        "message": "$1 mAh"
-    },
     "powerAmperageScale": {
         "message": "Escala [1/10th mV/A]"
     },
@@ -2617,17 +1955,11 @@
     "powerBatteryHead": {
         "message": "Bateria"
     },
-    "powerStateHead": {
-        "message": "Power State"
-    },
     "powerBatteryConnected": {
         "message": "Connectat"
     },
     "powerBatteryConnectedValueYes": {
         "message": "Sí (Ceŀles: $1)"
-    },
-    "powerBatteryConnectedValueNo": {
-        "message": "No"
     },
     "powerBatteryVoltage": {
         "message": "Voltatge"
@@ -2641,9 +1973,6 @@
     "powerBatteryCapacity": {
         "message": "Capacitat (mAh)"
     },
-    "osdSetupTitle": {
-        "message": "OSD"
-    },
     "osdSetupPreviewHelp": {
         "message": "<strong>Nota:</strong> La previsualització de l'OSD pot no mostrar la font instaŀlada a la controladora de vol."
     },
@@ -2652,9 +1981,6 @@
     },
     "osdSetupUnsupportedNote2": {
         "message": "Algunes controladores tenen <a href=\"https://www.youtube.com/watch?v=ikKH_6SQ-Tk\" target=\"_blank\">MinimOSD</a> que pot ser flashejat i configurat amb <a href=\"https://github.com/ShikOfTheRa/scarab-osd/releases/latest\" target='_blank'>scarab-osd</a>, malgrat això MinimOSD no pot ser configurat a aquesta interfície."
-    },
-    "osdSetupElementsTitle": {
-        "message": "Elements"
     },
     "osdSetupPreviewTitleTip": {
         "message": "Mostra o amaga el logo a la finestra de previsualització. Això no canviarà cap configuració a la controladora de vol."
@@ -2716,9 +2042,6 @@
     "osdSetupFontManager": {
         "message": "Gestor de Fonts"
     },
-    "osdSetupHead": {
-        "message": "Info"
-    },
     "osdSetupVideoMode": {
         "message": "Mode de video"
     },
@@ -2727,9 +2050,6 @@
     },
     "osdSetupCameraConnectedValueYes": {
         "message": "Sí"
-    },
-    "osdSetupCameraConnectedValueNo": {
-        "message": "No"
     },
     "osdSetupResetText": {
         "message": "Resetejar l'OSD per defecte"
@@ -2980,9 +2300,6 @@
     "mainHelpFailsafe": {
         "message": "Mode Failsafe"
     },
-    "mainHelpLink": {
-        "message": "Serial Link Status"
-    },
     "configurationunsyndePwm": {
         "message": "Velocitat del motor PWM separada de la velocitat PID"
     },
@@ -3054,9 +2371,6 @@
     },
     "pidTuningDelta": {
         "message": "Mètode Derivatiu"
-    },
-    "pidTuningDeltaError": {
-        "message": "Error"
     },
     "pidTuningDeltaMeasurement": {
         "message": "Mesurament"

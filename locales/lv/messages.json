@@ -90,30 +90,11 @@
     "sensorStatusMag": {
         "message": "Magnetometrs"
     },
-    "sensorStatusMagShort": {
-        "message": "Mag",
-        "description": "Text of the image in the top sensors icons. Please keep it short."
-    },
     "sensorStatusBaro": {
         "message": "Barometrs"
     },
-    "sensorStatusBaroShort": {
-        "message": "Baro",
-        "description": "Text of the image in the top sensors icons. Please keep it short."
-    },
-    "sensorStatusGPS": {
-        "message": "GPS"
-    },
-    "sensorStatusGPSShort": {
-        "message": "GPS",
-        "description": "Text of the image in the top sensors icons. Please keep it short."
-    },
     "sensorStatusSonar": {
         "message": "Sonārs / Attāluma noteicējs"
-    },
-    "sensorStatusSonarShort": {
-        "message": "Sonar",
-        "description": "Text of the image in the top sensors icons. Please keep it short."
     },
     "checkForConfiguratorUnstableVersions": {
         "message": "Rādīt atjauninājumu paziņojumus priekš konfiguratora nestabilajām versijām"
@@ -172,35 +153,17 @@
     "tabReceiver": {
         "message": "Uztvērējs"
     },
-    "tabServos": {
-        "message": "Servos"
-    },
-    "tabFailsafe": {
-        "message": "Failsafe"
-    },
     "tabTransponder": {
         "message": "Sacensību transponders"
     },
-    "tabOsd": {
-        "message": "OSD"
-    },
     "tabPower": {
         "message": "Barošanas & Akumulators"
-    },
-    "tabGPS": {
-        "message": "GPS"
     },
     "tabMotorTesting": {
         "message": "Motori"
     },
     "tabLedStrip": {
         "message": "LED lenta"
-    },
-    "tabRawSensorData": {
-        "message": "Sensors"
-    },
-    "tabCLI": {
-        "message": "CLI"
     },
     "tabLogging": {
         "message": "Piesaistītā žurnalēšana"
@@ -416,9 +379,6 @@
     "statusbar_usage_download": {
         "message": "D: $1 %"
     },
-    "statusbar_usage_upload": {
-        "message": "U: $1%"
-    },
     "statusbar_packet_error": {
         "message": "Pakešu kļūda:"
     },
@@ -476,12 +436,6 @@
     "defaultSupport": {
         "message": "Palīdzībai, lūdzu, apmeklējiet forumus un wiki vai sazināties ar savu pārdevēju.<br /><br />"
     },
-    "defaultSupport1": {
-        "message": "<a href=\"https://discordapp.com/channels/547211754845765635\" target=\"_blank\">Discord</a>"
-    },
-    "defaultSupport2": {
-        "message": "<a href=\"https://github.com/Emuflight\" target=\"_blank\">GitHub</a>"
-    },
     "initialSetupBackupAndRestoreApiVersion": {
         "message": "<span class=\"message-negative\">Dublēšanas un atjaunošanas funkcionalitāte ir atslēgta.</span>Jūsu programmatūras API versija <span class=\"message-negative\">$1</span>, dublēšanai un atjaunošanai nepieciešama <span class=\"message-positive\">$2</span>.  Lūdzu, dublējat savus iestatījumus ar CLI, procedūras aprakstu skatīt Emuflight dokumentācijā."
     },
@@ -533,32 +487,14 @@
     "initialSetupButtonResetZaxisValue": {
         "message": "Atiestatīt Z asi, nobīde: $1 grādi"
     },
-    "initialSetupInfoHead": {
-        "message": "Info"
-    },
     "initialSetupBattery": {
         "message": "Akumulatora spriegums:"
-    },
-    "initialSetupBatteryValue": {
-        "message": "$1 V"
     },
     "initialSetupDrawn": {
         "message": "Izmantotā kapacitāte:"
     },
     "initialSetupDrawing": {
         "message": "Strāvas patēriņš:"
-    },
-    "initialSetupBatteryMahValue": {
-        "message": "$1 mAh"
-    },
-    "initialSetupBatteryAValue": {
-        "message": "$1 A"
-    },
-    "initialSetupRSSI": {
-        "message": "RSSI:"
-    },
-    "initialSetupRSSIValue": {
-        "message": "$1 %"
     },
     "initialSetupArmingDisableFlags": {
         "message": "Aktivizēšanu bloķējošie karogi:"
@@ -653,9 +589,6 @@
         "message": "Viens no citiem dezaktivācijas karogiem ir aktīvs, kad aktivizē",
         "description": "Description of the ARM_SWITCH arming disable flag"
     },
-    "initialSetupGPSHead": {
-        "message": "GPS"
-    },
     "initialSetupInstrumentsHead": {
         "message": "Instrumenti"
     },
@@ -694,9 +627,6 @@
     },
     "featureMOTOR_STOP": {
         "message": "Negriezt motorus, kad aktivizēts"
-    },
-    "featureSERVO_TILT": {
-        "message": "Servo gimbal"
     },
     "featureSOFTSERIAL": {
         "message": "Ieslēgt seriālo portu uz CPU pamata"
@@ -1046,9 +976,6 @@
     "configurationLoopTimeHelp": {
         "message": "<strong>Piezīme:</strong> Pārliecināties, ka jūsu kontrolieris ir spējīgs darboties šādos ātrumos! Pārbaudiet CPU un cikla laika stabilitāti. Mainot šo iespējams būs nepieciešams pārregulēt PID. IETEIKUMS: Atslēdziet Akselerometru un citus sensorus lai ietaupītu CPU resursus."
     },
-    "configurationGPS": {
-        "message": "GPS"
-    },
     "configurationGPSProtocol": {
         "message": "Protokols"
     },
@@ -1109,56 +1036,11 @@
     "portsTelemetryDisabled": {
         "message": "Atslēgts"
     },
-    "portsFunction_MSP": {
-        "message": "MSP"
-    },
-    "portsFunction_GPS": {
-        "message": "GPS"
-    },
-    "portsFunction_TELEMETRY_FRSKY": {
-        "message": "FrSky"
-    },
-    "portsFunction_TELEMETRY_HOTT": {
-        "message": "HoTT"
-    },
-    "portsFunction_TELEMETRY_LTM": {
-        "message": "LTM"
-    },
-    "portsFunction_TELEMETRY_MAVLINK": {
-        "message": "MAVLink"
-    },
-    "portsFunction_TELEMETRY_MSP": {
-        "message": "MSP"
-    },
-    "portsFunction_TELEMETRY_SMARTPORT": {
-        "message": "SmartPort"
-    },
-    "portsFunction_TELEMETRY_IBUS": {
-        "message": "iBUS"
-    },
-    "portsFunction_TELEMETRY_JETIXBUS": {
-        "message": "JETIXBUS"
-    },
-    "portsFunction_TELEMETRY_CRSF": {
-        "message": "CRSF"
-    },
-    "portsFunction_TELEMETRY_SRXL": {
-        "message": "SRXL"
-    },
-    "portsFunction_ESC_SENSOR": {
-        "message": "ESC"
-    },
     "portsFunction_RX_SERIAL": {
         "message": "Seriālais Rx"
     },
     "portsFunction_BLACKBOX": {
         "message": "Melnās kastes žurnalēšana"
-    },
-    "portsFunction_TBS_SMARTAUDIO": {
-        "message": "VTX (TBS SmartAudio)"
-    },
-    "portsFunction_IRC_TRAMP": {
-        "message": "VTX (IRC Tramp)"
     },
     "portsFunction_RUNCAM_DEVICE_CONTROL": {
         "message": "Kamera (RunCam protokols)"
@@ -1168,9 +1050,6 @@
     },
     "pidTuningRateProfileOption": {
         "message": "Ātrumprofils $1"
-    },
-    "portsFunction_LIDAR_TF": {
-        "message": "Benewake LIDAR"
     },
     "pidTuningUpgradeFirmwareToChangePidController": {
         "message": "<span class=\"message-negative\">PID kontroliera maiņa ir atslēgta  - jūs to varat nomainīt iekš CLI.</span>  Jums ir programmatūra ar API versiju <span class=\"message-negative\">$1</span>, bet šai funkcionalitātei nepieciešama <span class=\"message-positive\">$2</span>."
@@ -1212,9 +1091,6 @@
     },
     "receiverRcSmoothing": {
         "message": "RC izlīdzināšana"
-    },
-    "receiverRcSmoothingAuto": {
-        "message": "Auto"
     },
     "receiverRcSmoothingManual": {
         "message": "Manuāla"
@@ -1285,9 +1161,6 @@
     "receiverRcInterpolationDefault": {
         "message": "Iestatīt"
     },
-    "receiverRcInterpolationAuto": {
-        "message": "Auto"
-    },
     "receiverRcInterpolationManual": {
         "message": "Manuāla"
     },
@@ -1315,18 +1188,6 @@
     "pidTuningDtermSetpointTransitionWarning": {
         "message": "<span class=\"message-negative\"><strong>$t(warningTitle.message):</strong>Izmantojot D iestatījuma pāreju lielāku par 0 un mazāku par 0.1 ir drosmīgs gājiens. Tā darot, tas var novest līdz nestabilitātei un samazināt vadības sviru atsaucību, kad tās šķērso centra punktu.</span>"
     },
-    "pidTuningProportional": {
-        "message": "Proportional"
-    },
-    "pidTuningIntegral": {
-        "message": "Integral"
-    },
-    "pidTuningDerivative": {
-        "message": "Derivative"
-    },
-    "pidTuningFeedforward": {
-        "message": "Feedforward"
-    },
     "pidTuningRcRate": {
         "message": "RC ātrums"
     },
@@ -1344,15 +1205,6 @@
     },
     "pidTuningRcExpo": {
         "message": "RC Ekspo"
-    },
-    "pidTuningTPA_P": {
-        "message": "TPA P"
-    },
-    "pidTuningTPA_I": {
-        "message": "TPA I"
-    },
-    "pidTuningTPA_D": {
-        "message": "TPA D"
     },
     "pidTuningTPABreakPoint": {
         "message": "TPA lūzumpunkts"
@@ -1537,12 +1389,6 @@
     "auxiliaryToggleUnused": {
         "message": "Slēpt neizmantotos režīmus"
     },
-    "auxiliaryMin": {
-        "message": "Min"
-    },
-    "auxiliaryMax": {
-        "message": "Max"
-    },
     "auxiliaryAddRange": {
         "message": "Pievienot"
     },
@@ -1554,9 +1400,6 @@
     },
     "auxiliaryEepromSaved": {
         "message": "EEPROM <span class=\"message-positive\">saglabāts</span>"
-    },
-    "auxiliaryAutoChannelSelect": {
-        "message": "AUTO"
     },
     "auxiliaryModeLogicOR": {
         "message": "VAI"
@@ -1602,12 +1445,6 @@
     },
     "adjustmentsSlot3": {
         "message": "Slots 4"
-    },
-    "adjustmentsMin": {
-        "message": "Min"
-    },
-    "adjustmentsMax": {
-        "message": "Max"
     },
     "adjustmentsFunction0": {
         "message": "Bez izmaiņām"
@@ -1726,15 +1563,6 @@
     "transponderType0": {
         "message": "Neviens"
     },
-    "transponderType1": {
-        "message": "iLap"
-    },
-    "transponderType2": {
-        "message": "aRCiTimer"
-    },
-    "transponderType3": {
-        "message": "ERLT"
-    },
     "transponderData1": {
         "message": "Dati"
     },
@@ -1780,15 +1608,6 @@
     "servosName": {
         "message": "Vārds"
     },
-    "servosMid": {
-        "message": "MID"
-    },
-    "servosMin": {
-        "message": "MIN"
-    },
-    "servosMax": {
-        "message": "MAX"
-    },
     "servosDirectionAndRate": {
         "message": "Virziens un ātrums"
     },
@@ -1800,9 +1619,6 @@
     },
     "servosEepromSave": {
         "message": "EEPROM <span class=\"message-positive\">saglabāts</span>"
-    },
-    "gpsHead": {
-        "message": "GPS"
     },
     "gpsMapHead": {
         "message": "Patreizējais GPS novietojums"
@@ -1861,15 +1677,6 @@
     "motorsmAhDrawn": {
         "message": "Strāvas patēriņš:"
     },
-    "motorsVoltageValue": {
-        "message": "$1 V"
-    },
-    "motorsADrawingValue": {
-        "message": "$1 A"
-    },
-    "motorsmAhDrawnValue": {
-        "message": "$1 mAh"
-    },
     "motorsText": {
         "message": "Motori"
     },
@@ -1896,33 +1703,6 @@
     },
     "motorNumber8": {
         "message": "Motors - 8"
-    },
-    "servosText": {
-        "message": "Servos"
-    },
-    "servoNumber1": {
-        "message": "Servo - 1"
-    },
-    "servoNumber2": {
-        "message": "Servo - 2"
-    },
-    "servoNumber3": {
-        "message": "Servo - 3"
-    },
-    "servoNumber4": {
-        "message": "Servo - 4"
-    },
-    "servoNumber5": {
-        "message": "Servo - 5"
-    },
-    "servoNumber6": {
-        "message": "Servo - 6"
-    },
-    "servoNumber7": {
-        "message": "Servo - 7"
-    },
-    "servoNumber8": {
-        "message": "Servo - 8"
     },
     "motorsResetMaximumButton": {
         "message": "Resetot"
@@ -2128,9 +1908,6 @@
     "dataflashButtonSaveCancel": {
         "message": "Atcelt"
     },
-    "dataflashButtonSaveDismiss": {
-        "message": "Ok"
-    },
     "dataflashButtonEraseConfirm": {
         "message": "Jā, dzēst datu atmiņu"
     },
@@ -2278,9 +2055,6 @@
     "firmwareFlasherDate": {
         "message": "Datums:"
     },
-    "firmwareFlasherHash": {
-        "message": "Hash:"
-    },
     "firmwareFlasherUrl": {
         "message": "Iet uz GitHUb, lai pārbaudītu šo iesūtījumu..."
     },
@@ -2333,18 +2107,6 @@
         "message": "Krāsas iestatījums",
         "description": "Color setup title of the led strip"
     },
-    "ledStripH": {
-        "message": "H",
-        "description": "Abbreviation of Hue in HSV (Hue, Saturation, Brightness) color model"
-    },
-    "ledStripS": {
-        "message": "S",
-        "description": "Abbreviation of Saturation in HSV  (Hue, Saturation, Brightness) color model"
-    },
-    "ledStripV": {
-        "message": "V",
-        "description": "Abbreviation of Brightness in HSV  (Hue, Saturation, Brightness) color model"
-    },
     "ledStripRemainingText": {
         "message": "Palika",
         "description": "In the LED STRIP, text next the counter of leds remaining"
@@ -2389,14 +2151,6 @@
         "message": "Akumulators",
         "description": "One of the modes of the Led Strip"
     },
-    "ledStripFunctionRSSIOption": {
-        "message": "RSSI",
-        "description": "One of the modes of the Led Strip"
-    },
-    "ledStripFunctionGPSOption": {
-        "message": "GPS",
-        "description": "One of the modes of the Led Strip"
-    },
     "ledStripFunctionRingOption": {
         "message": "Aplis",
         "description": "One of the modes of the Led Strip"
@@ -2422,38 +2176,6 @@
     "ledStripModeColorsModeAngle": {
         "message": "Leņķis",
         "description": "One of the modes in Color Mode in Led Strip"
-    },
-    "ledStripModeColorsModeMag": {
-        "message": "Mag",
-        "description": "One of the modes in Color Mode in Led Strip"
-    },
-    "ledStripModeColorsModeBaro": {
-        "message": "Baro",
-        "description": "One of the modes in Color Mode in Led Strip"
-    },
-    "ledStripDirN": {
-        "message": "N",
-        "description": "North direction in Color Mode in Led Strip"
-    },
-    "ledStripDirE": {
-        "message": "E",
-        "description": "East direction in Color Mode in Led Strip"
-    },
-    "ledStripDirS": {
-        "message": "S",
-        "description": "South direction in Color Mode in Led Strip"
-    },
-    "ledStripDirW": {
-        "message": "W",
-        "description": "West direction in Color Mode in Led Strip"
-    },
-    "ledStripDirU": {
-        "message": "U",
-        "description": "Up direction in Color Mode in Led Strip"
-    },
-    "ledStripDirD": {
-        "message": "D",
-        "description": "Down direction in Color Mode in Led Strip"
     },
     "ledStripModesOrientationTitle": {
         "message": "LED orientācija ('Režīms &amp; Orientācija') un krāsa",
@@ -2574,65 +2296,8 @@
     "colorDeepPink": {
         "message": "tumši rozā"
     },
-    "controlAxisRoll": {
-        "message": "Roll [A]"
-    },
-    "controlAxisPitch": {
-        "message": "Pitch [E]"
-    },
-    "controlAxisYaw": {
-        "message": "Yaw [R]"
-    },
     "controlAxisThrottle": {
         "message": "Drosele [T]"
-    },
-    "controlAxisAux1": {
-        "message": "AUX 1"
-    },
-    "controlAxisAux2": {
-        "message": "AUX 2"
-    },
-    "controlAxisAux3": {
-        "message": "AUX 3"
-    },
-    "controlAxisAux4": {
-        "message": "AUX 4"
-    },
-    "controlAxisAux5": {
-        "message": "AUX 5"
-    },
-    "controlAxisAux6": {
-        "message": "AUX 6"
-    },
-    "controlAxisAux7": {
-        "message": "AUX 7"
-    },
-    "controlAxisAux8": {
-        "message": "AUX 8"
-    },
-    "controlAxisAux9": {
-        "message": "AUX 9"
-    },
-    "controlAxisAux10": {
-        "message": "AUX 10"
-    },
-    "controlAxisAux11": {
-        "message": "AUX 11"
-    },
-    "controlAxisAux12": {
-        "message": "AUX 12"
-    },
-    "controlAxisAux13": {
-        "message": "AUX 13"
-    },
-    "controlAxisAux14": {
-        "message": "AUX 14"
-    },
-    "controlAxisAux15": {
-        "message": "AUX 15"
-    },
-    "controlAxisAux16": {
-        "message": "AUX 16"
     },
     "pidTuningBasic": {
         "message": "Pamata/Akro"
@@ -2742,20 +2407,11 @@
     "pidTuningVbatPidCompensationHelp": {
         "message": "Palielina PID vērtības lai kompensētu akumulatorā sprieguma kritumu. Tas sniegs daudz konstantākus lidojumu parametrus visā lidojuma laikā. Pielietotās kompensēšanas lielums ir aprēķināts no $t(powerBatteryMaximum.message), kas uzstādīts $t(tabPower.message) cilnē, tāpēc pārliecinieties ka šī vērtība ir atbilstoša."
     },
-    "pidTuningFeatheredPids": {
-        "message": "Feathered PIDs"
-    },
     "pidTuningItermRotation": {
         "message": "I Term rotācija"
     },
     "pidTuningItermRotationHelp": {
         "message": "Pagriež patreizējo I Term vektoru atbilstoši citām asīm pie multirotorā rotācijas, kad nepārtraukti veic yaw pie roll vai citiem trikiem. Ļoti noderīgi priekš LOS akro pilotiem."
-    },
-    "pidTuningFeatheredPidsHelp": {
-        "message": "Feathered PIDs changes how Dterm is calculated. 0 is error based dterm and 100 is measurement based dterm. Measurement is smoother but less responsive than error. Any value between 0 and 100 is a scalar of partially measurement and error calculated dterm."
-    },
-    "pidTuningiDecayHelp": {
-        "message": "Removes excessive iterm accumulation normally found at the end of quick stick movements. Running a higher decay allows you to run a higher iterm without experiencing bounce back or other common negatives associated with high iterm. Default is a value of 4, but the highest you can run it is 10."
     },
     "pidTuningSmartFeedforward": {
         "message": "Gudrais Feedforward"
@@ -2771,12 +2427,6 @@
     },
     "pidTuningItermRelaxAxes": {
         "message": "Asis:"
-    },
-    "pidTuningItermRelaxAxesOptionRP": {
-        "message": "RP"
-    },
-    "pidTuningItermRelaxAxesOptionRPY": {
-        "message": "RPY"
     },
     "pidTuningItermRelaxAxesOptionRPInc": {
         "message": "RP (tikai pieaugums)"
@@ -2795,21 +2445,6 @@
     },
     "pidTuningAbsoluteControlGain": {
         "message": "Absolūtā kontrole"
-    },
-    "pidTuningiDecay": {
-        "message": "iDecay"
-    },
-    "pidTuningEmuBoost": {
-        "message": "EmuBoost"
-    },
-    "pidTuningEmuBoostLimit": {
-        "message": "EmuBoost Limit"
-    },
-    "pidTuningEmuBoostHelp": {
-        "message": "Adds a nonlinear boost to the error seen by your p and i term. Adds a different feeling to the sticks. Values that are to high will cause oscillations. Craft with a lower power to weight like whoops seem happy with quite high values and EmuBoost can really help give them a locked in feeling."
-    },
-    "pidTuningEmuBoostLimitHelp": {
-        "message": "Puts a limit on how much the EmuBoost is allowed to boost your error. Its measured as a percentage of the total error that EmuBoost is allowed to add. A high EmuBoost with a low EmuBoost Limit can give a snappy feeling near the center of the stick. Tune this according to preference."
     },
     "pidTuningThrottleBoost": {
         "message": "Droseles būsts"
@@ -2946,9 +2581,6 @@
     "failsafeSwitchOptionStage2": {
         "message": "Posms 2"
     },
-    "failsafeSwitchOptionKill": {
-        "message": "Kill"
-    },
     "powerButtonSave": {
         "message": "Saglabāt"
     },
@@ -2997,23 +2629,8 @@
     "powerVoltageHead": {
         "message": "Voltmetrs"
     },
-    "powerVoltageValue": {
-        "message": "$1 V"
-    },
-    "powerAmperageValue": {
-        "message": "$1 A"
-    },
     "powerVoltageId10": {
         "message": "Akumulators"
-    },
-    "powerVoltageId20": {
-        "message": "5V"
-    },
-    "powerVoltageId30": {
-        "message": "9V"
-    },
-    "powerVoltageId40": {
-        "message": "12V"
     },
     "powerVoltageId50": {
         "message": "ESC Kopā"
@@ -3129,12 +2746,6 @@
     "powerAmperageId80": {
         "message": "Virtuālais"
     },
-    "powerAmperageId90": {
-        "message": "MSP"
-    },
-    "powerMahValue": {
-        "message": "$1 mAh"
-    },
     "powerAmperageScale": {
         "message": "Mērogs [1/10th mV/A]"
     },
@@ -3167,9 +2778,6 @@
     },
     "powerBatteryCapacity": {
         "message": "Kapacitāte (mAh)"
-    },
-    "osdSetupTitle": {
-        "message": "OSD"
     },
     "osdSetupPreviewHelp": {
         "message": "<strong>Piezīme:</strong> OSD priekšskatījums var nerādīt aktuālos fontus, kas ieinstalēti lidojuma kontrolierī."
@@ -3524,9 +3132,6 @@
     },
     "osdDescStatEscTemperature": {
         "message": "Max ESC temperatūra"
-    },
-    "osdDescStatEscRpm": {
-        "message": "Max ESC RPM"
     },
     "osdDescStatMinLinkQuality": {
         "message": "Minimums no savienojuma kvalitātes alternatīvā indikatora"

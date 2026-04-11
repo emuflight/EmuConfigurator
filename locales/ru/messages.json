@@ -101,13 +101,6 @@
         "message": "Барометр",
         "description": "Text of the image in the top sensors icons. Please keep it short."
     },
-    "sensorStatusGPS": {
-        "message": "GPS"
-    },
-    "sensorStatusGPSShort": {
-        "message": "GPS",
-        "description": "Text of the image in the top sensors icons. Please keep it short."
-    },
     "sensorStatusSonar": {
         "message": "Сонар/Дальномер"
     },
@@ -175,20 +168,11 @@
     "tabServos": {
         "message": "Сервоприводы"
     },
-    "tabFailsafe": {
-        "message": "Failsafe"
-    },
     "tabTransponder": {
         "message": "Транспондер гонки"
     },
-    "tabOsd": {
-        "message": "OSD"
-    },
     "tabPower": {
         "message": "Питание и Батарея"
-    },
-    "tabGPS": {
-        "message": "GPS"
     },
     "tabMotorTesting": {
         "message": "Моторы"
@@ -322,9 +306,6 @@
     "stm32UnprotectInitFailed": {
         "message": "Не удалось начать процесс снятия защиты от чтения"
     },
-    "noConfigurationReceived": {
-        "message": "No configuration received within <span class=\"message-negative\">10 seconds</span>, communication <span class=\"message-negative\">failed</span>"
-    },
     "firmwareVersionNotSupported": {
         "message": "Версия этой прошивки <span class=\"message-negative\">не поддерживается</span> данным конфигуратором. Пожалуйста, обновите прошивку, которая поддерживает версию конфигуратора <strong>$1</strong> или выше. Используйте командную строку, чтобы сделать резервную копию прошивки перед тем, как обновлять прошивку. Процедура создания/восстановления резервной копии описана в документации.<br />Если вы не хотите обновлять прошивку, то используйте более старую версию конфигуратора."
     },
@@ -401,9 +382,6 @@
     "fcInfoReceived": {
         "message": "Информация о полётном контроллере, идентификатор: <strong>$1</strong>, версия: <strong>$2</strong>"
     },
-    "versionLabelTarget": {
-        "message": "Target"
-    },
     "versionLabelFirmware": {
         "message": "Прошивка"
     },
@@ -412,12 +390,6 @@
     },
     "statusbar_port_utilization": {
         "message": "Загруженность порта:"
-    },
-    "statusbar_usage_download": {
-        "message": "D: $1%"
-    },
-    "statusbar_usage_upload": {
-        "message": "U: $1%"
     },
     "statusbar_packet_error": {
         "message": "Ошибки пакетов:"
@@ -476,12 +448,6 @@
     "defaultSupport": {
         "message": "Для помощи сперва поищите на форумах и на wiki или свяжитесь с вашим продавцом.<br /><br />"
     },
-    "defaultSupport1": {
-        "message": "<a href=\"https://discordapp.com/channels/547211754845765635\" target=\"_blank\">Discord</a>"
-    },
-    "defaultSupport2": {
-        "message": "<a href=\"https://github.com/Emuflight\" target=\"_blank\">GitHub</a>"
-    },
     "initialSetupBackupAndRestoreApiVersion": {
         "message": "<span class=\"message-negative\">Функционал создания и восстановления из резервной копии не доступен.</span> Ваша прошивка имеет API версию конфигуратора <span class=\"message-negative\">$1</span>, создание и восстановление из резервной копии требует версию <span class=\"message-positive\">$2</span>. Пожалуйста, создайте резервную копию ваших настроек через командную строку; загляните в документацию Emuflight, чтобы узнать как это сделать."
     },
@@ -539,26 +505,11 @@
     "initialSetupBattery": {
         "message": "Напряжение батареи:"
     },
-    "initialSetupBatteryValue": {
-        "message": "$1 V"
-    },
     "initialSetupDrawn": {
         "message": "Израсходованная емкость:"
     },
     "initialSetupDrawing": {
         "message": "Потребляемый ток:"
-    },
-    "initialSetupBatteryMahValue": {
-        "message": "$1 mAh"
-    },
-    "initialSetupBatteryAValue": {
-        "message": "$1 A"
-    },
-    "initialSetupRSSI": {
-        "message": "RSSI:"
-    },
-    "initialSetupRSSIValue": {
-        "message": "$1 %"
     },
     "initialSetupArmingDisableFlags": {
         "message": "Флаги, запрещающие arming:"
@@ -652,9 +603,6 @@
     "initialSetupArmingDisableFlagsTooltipARM_SWITCH": {
         "message": "Один из других флагов дизарм активен при арминге",
         "description": "Description of the ARM_SWITCH arming disable flag"
-    },
-    "initialSetupGPSHead": {
-        "message": "GPS"
     },
     "initialSetupInstrumentsHead": {
         "message": "Инструменты"
@@ -890,9 +838,6 @@
     "configurationAccelTrimPitch": {
         "message": "Триммирование аселерометра по Pitch"
     },
-    "configurationArming": {
-        "message": "Arming"
-    },
     "configurationArmingHelp": {
         "message": "Некоторые опции Arming требуют включения акселерометра"
     },
@@ -1040,9 +985,6 @@
     "configurationLoopTimeHelp": {
         "message": "<strong>Примечание:</strong> Убедитесь, что Ваш FC способен работать на этих скоростях! Проверьте ЦП и стабильность времени цикла. Эти изменения могут потребовать подстройки PID. Совет: Отключите Акселерометр и другие сенсоры для повышения производительности."
     },
-    "configurationGPS": {
-        "message": "GPS"
-    },
     "configurationGPSProtocol": {
         "message": "Протокол"
     },
@@ -1079,9 +1021,6 @@
     "portsConfiguration": {
         "message": "Конфигурация и MSP"
     },
-    "portsSerialRx": {
-        "message": "Serial Rx"
-    },
     "portsSensorIn": {
         "message": "Вход датчиков"
     },
@@ -1103,68 +1042,14 @@
     "portsTelemetryDisabled": {
         "message": "Отключено"
     },
-    "portsFunction_MSP": {
-        "message": "MSP"
-    },
-    "portsFunction_GPS": {
-        "message": "GPS"
-    },
-    "portsFunction_TELEMETRY_FRSKY": {
-        "message": "FrSky"
-    },
-    "portsFunction_TELEMETRY_HOTT": {
-        "message": "HoTT"
-    },
-    "portsFunction_TELEMETRY_LTM": {
-        "message": "LTM"
-    },
-    "portsFunction_TELEMETRY_MAVLINK": {
-        "message": "MAVLink"
-    },
-    "portsFunction_TELEMETRY_MSP": {
-        "message": "MSP"
-    },
-    "portsFunction_TELEMETRY_SMARTPORT": {
-        "message": "SmartPort"
-    },
-    "portsFunction_TELEMETRY_IBUS": {
-        "message": "iBUS"
-    },
-    "portsFunction_TELEMETRY_JETIXBUS": {
-        "message": "JETIXBUS"
-    },
-    "portsFunction_TELEMETRY_CRSF": {
-        "message": "CRSF"
-    },
-    "portsFunction_TELEMETRY_SRXL": {
-        "message": "SRXL"
-    },
-    "portsFunction_ESC_SENSOR": {
-        "message": "ESC"
-    },
-    "portsFunction_RX_SERIAL": {
-        "message": "Serial RX"
-    },
     "portsFunction_BLACKBOX": {
         "message": "Запись в Blackbox"
-    },
-    "portsFunction_TBS_SMARTAUDIO": {
-        "message": "VTX (TBS SmartAudio)"
-    },
-    "portsFunction_IRC_TRAMP": {
-        "message": "VTX (IRC Tramp)"
-    },
-    "portsFunction_RUNCAM_DEVICE_CONTROL": {
-        "message": "Camera (RunCam Protocol)"
     },
     "pidTuningProfileOption": {
         "message": "Профиль $1"
     },
     "pidTuningRateProfileOption": {
         "message": "Rate-профиль $1"
-    },
-    "portsFunction_LIDAR_TF": {
-        "message": "Benewake LIDAR"
     },
     "pidTuningUpgradeFirmwareToChangePidController": {
         "message": "<span class=\"message-negative\">Менять PID-контроллер запрещено, но его можно поменять в командной строке.</span>  Ваша прошивка поддерживает конфигуратор версии <span class=\"message-negative\">$1</span>, а этот функционал требует версию прошивки <span class=\"message-positive\">$2</span>."
@@ -1294,12 +1179,6 @@
     "pidTuningFeedforwardTransitionHelp": {
         "message": "С этим параметром Feedforward может быть уменьшен вблизи центра стиков, что приводит к более плавным флипам и разворотам. <br> Значение представляет собой точку отклонения стика: 0 - центрированное по центру, 1 - полное отклонение. Когда стик находится выше этой точки, Feedforward поддерживается постоянным по своему сконфигурированному значению. Когда стик расположен ниже этой точки, показатель подачи уменьшается пропорционально, достигая 0 в центральном положении. <br> Значение 1 дает максимальный эффект сглаживания, а значение 0 сохраняет фиксированное значение Ф Feedforward на его заданном значении по всему диапазону стиков."
     },
-    "pidTuningDtermSetpointTransition": {
-        "message": "D Setpoint transition"
-    },
-    "pidTuningDtermSetpoint": {
-        "message": "D Setpoint Weight"
-    },
     "pidTuningDtermSetpointTransitionHelp": {
         "message": "Этот параметр снижает значение D Setpoint Weight, когда стики находятся в районе центра, что делает завершение флипов и роллов более плавными.<br> Он означает отклонение стика: 0 - стик в центре, 1 - полное отклонение стика. Когда стик находится выше этого значения, то Setpoint Weight имеет установленное значение. Когда стик находится ниже этого значения, то Setpoint Weight уменьшается пропорционально, достигая 0, когда стик находятся в центре.<br> Значение 1 даёт максимальный сглаживающий эффект, а значение 0 сохраняет установленное значение Setpoint Weight при любом отклонении стика."
     },
@@ -1309,44 +1188,11 @@
     "pidTuningDtermSetpointTransitionWarning": {
         "message": "<span class=\"message-negative\"><strong>$t(warningTitle.message):</strong> использование D Setpoint больше 0 и меньше, чем 0.1 не рекомендуется. Это может привести к нестабильности и снижению оперативности стиков когда стик пересекает центральную точку.</span>"
     },
-    "pidTuningProportional": {
-        "message": "Proportional"
-    },
-    "pidTuningIntegral": {
-        "message": "Integral"
-    },
-    "pidTuningDerivative": {
-        "message": "Derivative"
-    },
-    "pidTuningFeedforward": {
-        "message": "Feedforward"
-    },
-    "pidTuningRcRate": {
-        "message": "RC Rate"
-    },
     "pidTuningMaxVel": {
         "message": "Макс. скор. [град/сек]"
     },
-    "pidTuningRate": {
-        "message": "Rate"
-    },
-    "pidTuningSuperRate": {
-        "message": "Super Rate"
-    },
     "pidTuningRatesPreview": {
         "message": "Просмотр Rate-ов в действии"
-    },
-    "pidTuningRcExpo": {
-        "message": "RC Expo"
-    },
-    "pidTuningTPA_P": {
-        "message": "TPA P"
-    },
-    "pidTuningTPA_I": {
-        "message": "TPA I"
-    },
-    "pidTuningTPA_D": {
-        "message": "TPA D"
     },
     "pidTuningTPABreakPoint": {
         "message": "TPA-порог"
@@ -1374,9 +1220,6 @@
     },
     "pidTuningFilter": {
         "message": "Фильтр"
-    },
-    "pidTuningRatesCurve": {
-        "message": "Rates"
     },
     "throttle": {
         "message": "Газ"
@@ -1639,12 +1482,6 @@
     "adjustmentsFunction12": {
         "message": "Выбор rate-профиля"
     },
-    "adjustmentsFunction13": {
-        "message": "Pitch Rate"
-    },
-    "adjustmentsFunction14": {
-        "message": "Roll Rate"
-    },
     "adjustmentsFunction15": {
         "message": "Pitch P корректировка"
     },
@@ -1662,12 +1499,6 @@
     },
     "adjustmentsFunction20": {
         "message": "Roll D корректировка"
-    },
-    "adjustmentsFunction21": {
-        "message": "RC Rate Yaw"
-    },
-    "adjustmentsFunction22": {
-        "message": "D Setpoint"
     },
     "adjustmentsFunction22_2": {
         "message": "Тангаж и Крен F настройка"
@@ -1716,15 +1547,6 @@
     },
     "transponderType0": {
         "message": "Нет"
-    },
-    "transponderType1": {
-        "message": "iLap"
-    },
-    "transponderType2": {
-        "message": "aRCiTimer"
-    },
-    "transponderType3": {
-        "message": "ERLT"
     },
     "transponderData1": {
         "message": "Данные"
@@ -1792,9 +1614,6 @@
     "servosEepromSave": {
         "message": "EEPROM <span class=\"message-positive\">сохранён</span>"
     },
-    "gpsHead": {
-        "message": "GPS"
-    },
     "gpsMapHead": {
         "message": "Текущее местоположение"
     },
@@ -1851,15 +1670,6 @@
     },
     "motorsmAhDrawn": {
         "message": "Потреб. тока:"
-    },
-    "motorsVoltageValue": {
-        "message": "$1 V"
-    },
-    "motorsADrawingValue": {
-        "message": "$1 A"
-    },
-    "motorsmAhDrawnValue": {
-        "message": "$1 mAh"
     },
     "motorsText": {
         "message": "Моторы"
@@ -2318,18 +2128,6 @@
         "message": "Настройка цвета",
         "description": "Color setup title of the led strip"
     },
-    "ledStripH": {
-        "message": "H",
-        "description": "Abbreviation of Hue in HSV (Hue, Saturation, Brightness) color model"
-    },
-    "ledStripS": {
-        "message": "S",
-        "description": "Abbreviation of Saturation in HSV  (Hue, Saturation, Brightness) color model"
-    },
-    "ledStripV": {
-        "message": "V",
-        "description": "Abbreviation of Brightness in HSV  (Hue, Saturation, Brightness) color model"
-    },
     "ledStripRemainingText": {
         "message": "Осталось",
         "description": "In the LED STRIP, text next the counter of leds remaining"
@@ -2374,14 +2172,6 @@
         "message": "Батарея",
         "description": "One of the modes of the Led Strip"
     },
-    "ledStripFunctionRSSIOption": {
-        "message": "RSSI",
-        "description": "One of the modes of the Led Strip"
-    },
-    "ledStripFunctionGPSOption": {
-        "message": "GPS",
-        "description": "One of the modes of the Led Strip"
-    },
     "ledStripFunctionRingOption": {
         "message": "Звонок",
         "description": "One of the modes of the Led Strip"
@@ -2394,10 +2184,6 @@
     },
     "ledStripModeColorsModeOrientation": {
         "message": "Ориентация",
-        "description": "One of the modes in Color Mode in Led Strip"
-    },
-    "ledStripModeColorsModeHeadfree": {
-        "message": "Headfree",
         "description": "One of the modes in Color Mode in Led Strip"
     },
     "ledStripModeColorsModeHorizon": {
@@ -2431,14 +2217,6 @@
     "ledStripDirW": {
         "message": "З",
         "description": "West direction in Color Mode in Led Strip"
-    },
-    "ledStripDirU": {
-        "message": "U",
-        "description": "Up direction in Color Mode in Led Strip"
-    },
-    "ledStripDirD": {
-        "message": "D",
-        "description": "Down direction in Color Mode in Led Strip"
     },
     "ledStripModesOrientationTitle": {
         "message": "Ориентация светодиодов ('Режимы &amp; Ориентация') и цвет",
@@ -2559,66 +2337,6 @@
     "colorDeepPink": {
         "message": "темно-розовый"
     },
-    "controlAxisRoll": {
-        "message": "Roll [A]"
-    },
-    "controlAxisPitch": {
-        "message": "Pitch [E]"
-    },
-    "controlAxisYaw": {
-        "message": "Yaw [R]"
-    },
-    "controlAxisThrottle": {
-        "message": "Throttle [T]"
-    },
-    "controlAxisAux1": {
-        "message": "AUX 1"
-    },
-    "controlAxisAux2": {
-        "message": "AUX 2"
-    },
-    "controlAxisAux3": {
-        "message": "AUX 3"
-    },
-    "controlAxisAux4": {
-        "message": "AUX 4"
-    },
-    "controlAxisAux5": {
-        "message": "AUX 5"
-    },
-    "controlAxisAux6": {
-        "message": "AUX 6"
-    },
-    "controlAxisAux7": {
-        "message": "AUX 7"
-    },
-    "controlAxisAux8": {
-        "message": "AUX 8"
-    },
-    "controlAxisAux9": {
-        "message": "AUX 9"
-    },
-    "controlAxisAux10": {
-        "message": "AUX 10"
-    },
-    "controlAxisAux11": {
-        "message": "AUX 11"
-    },
-    "controlAxisAux12": {
-        "message": "AUX 12"
-    },
-    "controlAxisAux13": {
-        "message": "AUX 13"
-    },
-    "controlAxisAux14": {
-        "message": "AUX 14"
-    },
-    "controlAxisAux15": {
-        "message": "AUX 15"
-    },
-    "controlAxisAux16": {
-        "message": "AUX 16"
-    },
     "pidTuningBasic": {
         "message": "Basic/Acro"
     },
@@ -2721,20 +2439,11 @@
     "pidTuningVbatPidCompensationHelp": {
         "message": "Увеличивает значения PID-ов, в целях компенсации, при низком заряде батареи. Это даёт более стабильные лётные характеристики на протяжении всего полёта. Значение компенсации вычисляется исходя $t(powerBatteryMaximum.message), установленного во вкладке $t(tabPower.message)."
     },
-    "pidTuningFeatheredPids": {
-        "message": "Feathered PIDs"
-    },
     "pidTuningItermRotation": {
         "message": "I Term поворот"
     },
     "pidTuningItermRotationHelp": {
         "message": "Вращение текущего вектора соответственно I составляющей для других осей когда судно вращается продолжительно во время крена или когда выполняет воронки и другие трюки. Очень ценится LOS пилотами."
-    },
-    "pidTuningFeatheredPidsHelp": {
-        "message": "Feathered PIDs changes how Dterm is calculated. 0 is error based dterm and 100 is measurement based dterm. Measurement is smoother but less responsive than error. Any value between 0 and 100 is a scalar of partially measurement and error calculated dterm."
-    },
-    "pidTuningiDecayHelp": {
-        "message": "Removes excessive iterm accumulation normally found at the end of quick stick movements. Running a higher decay allows you to run a higher iterm without experiencing bounce back or other common negatives associated with high iterm. Default is a value of 4, but the highest you can run it is 10."
     },
     "pidTuningSmartFeedforward": {
         "message": "Интеллектуальное упреждение"
@@ -2750,12 +2459,6 @@
     },
     "pidTuningItermRelaxAxes": {
         "message": "Oси:"
-    },
-    "pidTuningItermRelaxAxesOptionRP": {
-        "message": "RP"
-    },
-    "pidTuningItermRelaxAxesOptionRPY": {
-        "message": "RPY"
     },
     "pidTuningItermRelaxAxesOptionRPInc": {
         "message": "RP (только увеличения)"
@@ -2774,21 +2477,6 @@
     },
     "pidTuningAbsoluteControlGain": {
         "message": "Абсолютный контроль"
-    },
-    "pidTuningiDecay": {
-        "message": "iDecay"
-    },
-    "pidTuningEmuBoost": {
-        "message": "EmuBoost"
-    },
-    "pidTuningEmuBoostLimit": {
-        "message": "EmuBoost Limit"
-    },
-    "pidTuningEmuBoostHelp": {
-        "message": "Adds a nonlinear boost to the error seen by your p and i term. Adds a different feeling to the sticks. Values that are to high will cause oscillations. Craft with a lower power to weight like whoops seem happy with quite high values and EmuBoost can really help give them a locked in feeling."
-    },
-    "pidTuningEmuBoostLimitHelp": {
-        "message": "Puts a limit on how much the EmuBoost is allowed to boost your error. Its measured as a percentage of the total error that EmuBoost is allowed to add. A high EmuBoost with a low EmuBoost Limit can give a snappy feeling near the center of the stick. Tune this according to preference."
     },
     "pidTuningThrottleBoost": {
         "message": "Увеличение газа"
@@ -2976,23 +2664,8 @@
     "powerVoltageHead": {
         "message": "Датчик напряжения"
     },
-    "powerVoltageValue": {
-        "message": "$1 V"
-    },
-    "powerAmperageValue": {
-        "message": "$1 A"
-    },
     "powerVoltageId10": {
         "message": "Батарея"
-    },
-    "powerVoltageId20": {
-        "message": "5V"
-    },
-    "powerVoltageId30": {
-        "message": "9V"
-    },
-    "powerVoltageId40": {
-        "message": "12V"
     },
     "powerVoltageId50": {
         "message": "ESC (комбинированно)"
@@ -3108,12 +2781,6 @@
     "powerAmperageId80": {
         "message": "Виртуальный"
     },
-    "powerAmperageId90": {
-        "message": "MSP"
-    },
-    "powerMahValue": {
-        "message": "$1 mAh"
-    },
     "powerAmperageScale": {
         "message": "Масштаб [1/10 mV/A]"
     },
@@ -3147,9 +2814,6 @@
     "powerBatteryCapacity": {
         "message": "Ёмкость (mAh)"
     },
-    "osdSetupTitle": {
-        "message": "OSD"
-    },
     "osdSetupPreviewHelp": {
         "message": "<strong>Примечание:</strong> OSD предпросмотр может отображаться не тем шрифтом, который установлен в полётном контроллере."
     },
@@ -3181,10 +2845,6 @@
     "osdSetupSelectedProfileLabel": {
         "message": "Текущий:",
         "description": "Label for the selection of the curren active OSD profile"
-    },
-    "osdSetupPreviewSelectProfileElement": {
-        "message": "OSD Profile {{profileNumber}}",
-        "description": "Content of the selector for the OSD Profile in the preview"
     },
     "osdSetupPreviewTitleTip": {
         "message": "Показать/скрыть логотип в окне предпросмотра. Этот переключатель никак не повлияет на настройки полётного контроллера."
@@ -3707,9 +3367,6 @@
     },
     "pidTuningDeltaError": {
         "message": "Ошибка"
-    },
-    "pidTuningDeltaMeasurement": {
-        "message": "Measurement"
     },
     "pidTuningDeltaTip": {
         "message": "<b>Derivative from Error</b> обеспечивает более резкую отзывчивость стиков и это предпочтительнее для гонок. <br><br><b>Derivative from Measurement</b> обеспечивает более плавную отзывчивость стиков, что больше подходит для фристайла"
