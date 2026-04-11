@@ -1638,7 +1638,7 @@
         "message": "Aus Datei laden"
     },
     "loggingNote": {
-        "message": "Daten werden <span class=\"message-negative\">nur </span> in diesem Tab geloggt. Wenn der Tab geschlossen wird, wird das Loggen <span class=\"message-negative\">abgebrochen</span> und die Anwendung geht in den normalen Modus zurück."
+        "message": "Data will be logged in this tab <span class=\"message-negative\">only</span>, leaving the tab will <span class=\"message-negative\">cancel</span> logging and application will return to its normal <strong>\"configurator\"</strong> state.<br /> You are free to select the global update period, data will be written into the log file every <strong>1</strong> second for performance reasons."
     },
     "loggingSamplesSaved": {
         "message": "Gespeicherte Logs:"

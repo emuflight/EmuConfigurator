@@ -146,7 +146,7 @@
         "message": "Port sèrie <span class=\"message-positive\">correctament</span> obert amb ID: $1"
     },
     "serialPortOpenFail": {
-        "message": "<strong>Error</strong> al obrir el port sèrie"
+        "message": "<span class=\"message-negative\">Failed</span> to open serial port"
     },
     "serialPortClosedOk": {
         "message": "Port sèrie <span class=\"message-positive\">correctament</span> tancat"

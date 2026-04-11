@@ -3262,7 +3262,7 @@
         "message": "OSD設定を保存しました"
     },
     "osdWritePermissions": {
-        "message": "このファイルに対する<span class = \"message-negative\">書込み権限</span>がありません"
+        "message": "You don't have <span class=\"message-negative\">write permissions</span> for this file"
     },
     "osdButtonSaved": {
         "message": "保存しました"
