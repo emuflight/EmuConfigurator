@@ -987,7 +987,7 @@
         "message": "自動設定"
     },
     "configurationGPSHelp": {
-        "message": "<strong>注:</strong> GPSを使う場合、シリアルポート ([ポート] タブ) の設定を忘れずに行って下さい。"
+        "message": "テレメトリとレスキュー機能のために GPS を有効にします。"
     },
     "configurationSerialRX": {
         "message": "シリアル受信機"

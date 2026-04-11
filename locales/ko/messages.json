@@ -993,7 +993,7 @@
         "message": "자동 설정"
     },
     "configurationGPSHelp": {
-        "message": "<strong>노트:</strong> GPS 기능을 사용할 때는 시리얼 포트(포트 탭을 통해)를 설정하는 것을 잊지 마십시오."
+        "message": "텔레메트리와 구조 기능을 위해 GPS를 활성화합니다."
     },
     "configurationSerialRX": {
         "message": "시리얼 수신기"

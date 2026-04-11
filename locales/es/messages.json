@@ -972,7 +972,7 @@
         "message": "Configuración Auto"
     },
     "configurationGPSHelp": {
-        "message": "<strong>Nota:</strong> Recuerda configurar un Puerto Serie (en el apartado Puertos) cuando uses la funcionalidad GPS."
+        "message": "Habilita el GPS para telemetría y rescate."
     },
     "configurationSerialRX": {
         "message": "Receptor Serie"

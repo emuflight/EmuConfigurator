@@ -1005,7 +1005,7 @@
         "message": "自动设置"
     },
     "configurationGPSHelp": {
-        "message": "<strong>注意:</strong>使用 GPS 之前需要先在串口页面设置一个串口。"
+        "message": "启用 GPS 以实现远程信息传输和救援功能。"
     },
     "configurationSerialRX": {
         "message": "串口接收机"

@@ -873,7 +873,7 @@
         "message": "Auto Configurazione"
     },
     "configurationGPSHelp": {
-        "message": "<strong>Nota:</strong>  Ricorda di configurare una Porta Seriale (nella scheda Porte) quando usi un GPS."
+        "message": "Abilita il GPS per telemetria e soccorso."
     },
     "configurationSerialRX": {
         "message": "Ricevente Seriale"

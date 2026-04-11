@@ -928,7 +928,7 @@
         "message": "Auto Konfig"
     },
     "configurationGPSHelp": {
-        "message": "<strong>Hinweis::</strong> Nicht vergessen den seriellen Anschluss zu konfigurieren (Anschlüsse Tab), wenn GPS benutzt wird."
+        "message": "Aktiviert GPS für Telemetrie und Rettung."
     },
     "configurationSerialRX": {
         "message": "Serieller Empfänger"

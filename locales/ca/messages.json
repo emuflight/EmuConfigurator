@@ -762,7 +762,7 @@
         "message": "Velocitat de transmissió automàtica"
     },
     "configurationGPSHelp": {
-        "message": "<strong>Nota:</strong> Recorda configurar el Port Sèrie (pestanya Ports) per a fer servir la funció GPS."
+        "message": "Habilita el GPS per a telemetria i rescat."
     },
     "configurationSerialRX": {
         "message": "Receptor Sèrie"

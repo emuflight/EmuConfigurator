@@ -942,7 +942,7 @@
         "message": "Config Auto"
     },
     "configurationGPSHelp": {
-        "message": "<strong>Note:</strong> Noubliez pas de configurer un Port Série (via l'onglet Ports) lorsque vous utilisez la fonction GPS."
+        "message": "Active le GPS pour la télémétrie et le secours."
     },
     "configurationSerialRX": {
         "message": "Récepteur Série"
