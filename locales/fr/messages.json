@@ -140,7 +140,7 @@
         "message": "Transpondeur de course"
     },
     "tabPower": {
-        "message": "Alimentation et batterie"
+        "message": "Énergie et Batterie"
     },
     "tabMotorTesting": {
         "message": "Test des moteurs"
@@ -2400,16 +2400,16 @@
         "message": "Capteur MSP/OSD Esclave"
     },
     "powerBatteryMinimum": {
-        "message": "Tension Mini par élément"
+        "message": "Tension Minimale par Cellule"
     },
     "powerBatteryMaximum": {
-        "message": "Tension Maxi par élément"
+        "message": "Tension Maximale par Cellule"
     },
     "powerBatteryWarning": {
-        "message": "Tension d'avertissement par élément"
+        "message": "Tension d\"Alerte par Cellule"
     },
     "powerVoltageHead": {
-        "message": "Tension"
+        "message": "Tension de la Batterie"
     },
     "powerVoltageId10": {
         "message": "Batterie"
@@ -2481,7 +2481,7 @@
         "message": "Coefficient multiplicateur"
     },
     "powerAmperageHead": {
-        "message": "Intensité"
+        "message": "Ampérage de la Batterie"
     },
     "powerAmperageId10": {
         "message": "Batterie"
@@ -2538,10 +2538,10 @@
         "message": "Batterie"
     },
     "powerStateHead": {
-        "message": "Etat alimentation"
+        "message": "État de l\"énergie"
     },
     "powerBatteryConnected": {
-        "message": "Connecté"
+        "message": "Batterie Connectée"
     },
     "powerBatteryConnectedValueYes": {
         "message": "Oui (Element(s): $1)"

@@ -152,7 +152,7 @@
         "message": "トランスポンダー"
     },
     "tabPower": {
-        "message": "電源・バッテリー"
+        "message": "電源とバッテリー"
     },
     "tabMotorTesting": {
         "message": "モーターテスト"
@@ -2663,16 +2663,16 @@
         "message": "MSPセンサー / OSD予備"
     },
     "powerBatteryMinimum": {
-        "message": "1セルあたりの最小電圧"
+        "message": "最低セル電圧"
     },
     "powerBatteryMaximum": {
-        "message": "1セルあたりの最大電圧"
+        "message": "最高セル電圧"
     },
     "powerBatteryWarning": {
-        "message": "1セルあたりの警告電圧"
+        "message": "警告セル電圧"
     },
     "powerVoltageHead": {
-        "message": "電圧メーター"
+        "message": "バッテリー電圧"
     },
     "powerVoltageId10": {
         "message": "バッテリー"
@@ -2744,7 +2744,7 @@
         "message": "倍率値"
     },
     "powerAmperageHead": {
-        "message": "電流メーター"
+        "message": "バッテリー電流"
     },
     "powerAmperageId10": {
         "message": "バッテリー"
@@ -2804,7 +2804,7 @@
         "message": "電源状態"
     },
     "powerBatteryConnected": {
-        "message": "接続"
+        "message": "バッテリー接続済み"
     },
     "powerBatteryConnectedValueYes": {
         "message": "はい (セル: $1)"

@@ -146,7 +146,7 @@
         "message": "Transponder de corridas"
     },
     "tabPower": {
-        "message": "Energia & Bateria"
+        "message": "Energia e Bateria"
     },
     "tabMotorTesting": {
         "message": "Teste de Motores"
@@ -2534,16 +2534,16 @@
         "message": "Sensor MSP/OSD Escravo"
     },
     "powerBatteryMinimum": {
-        "message": "Voltagem mínima da célula"
+        "message": "Voltagem Mínima da Célula"
     },
     "powerBatteryMaximum": {
-        "message": "Voltagem máxima da célula"
+        "message": "Voltagem Máxima da Célula"
     },
     "powerBatteryWarning": {
-        "message": "Alerta de voltagem da célula"
+        "message": "Voltagem de Aviso da Célula"
     },
     "powerVoltageHead": {
-        "message": "Medidor de voltagem"
+        "message": "Voltagem da Bateria"
     },
     "powerVoltageId10": {
         "message": "Bateria"
@@ -2579,7 +2579,7 @@
         "message": "Valor Multiplicador"
     },
     "powerAmperageHead": {
-        "message": "Medidor de Amperes"
+        "message": "Amperagem da Bateria"
     },
     "powerAmperageId10": {
         "message": "Bateria"
@@ -2594,10 +2594,10 @@
         "message": "Bateria"
     },
     "powerStateHead": {
-        "message": "Estado da Energia"
+        "message": "Estado da energia"
     },
     "powerBatteryConnected": {
-        "message": "Conectado"
+        "message": "Bateria Conectada"
     },
     "powerBatteryConnectedValueYes": {
         "message": "Sim (Células: $1)"

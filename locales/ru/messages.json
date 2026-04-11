@@ -149,7 +149,7 @@
         "message": "Транспондер гонки"
     },
     "tabPower": {
-        "message": "Питание и Батарея"
+        "message": "Питание и аккумулятор"
     },
     "tabMotorTesting": {
         "message": "Тестирование моторов"
@@ -2630,16 +2630,16 @@
         "message": "Датчик по MSP-порту / OSD Slave"
     },
     "powerBatteryMinimum": {
-        "message": "Минимальное напряжение на банку"
+        "message": "Минимальное напряжение на ячейку"
     },
     "powerBatteryMaximum": {
-        "message": "Максимальное напряжение на банку"
+        "message": "Максимальное напряжение на ячейку"
     },
     "powerBatteryWarning": {
-        "message": "Предупреждать, если напряжение на банке"
+        "message": "Напряжение предупреждения"
     },
     "powerVoltageHead": {
-        "message": "Датчик напряжения"
+        "message": "Напряжение аккумулятора"
     },
     "powerVoltageId10": {
         "message": "Батарея"
@@ -2711,7 +2711,7 @@
         "message": "Значение множителя"
     },
     "powerAmperageHead": {
-        "message": "Датчик тока"
+        "message": "Ток аккумулятора"
     },
     "powerAmperageId10": {
         "message": "Батарея"
@@ -2765,13 +2765,13 @@
         "message": "Смещение [mA]"
     },
     "powerBatteryHead": {
-        "message": "Батарея"
+        "message": "Аккумулятор"
     },
     "powerStateHead": {
-        "message": "Состояние питания"
+        "message": "Статус питания"
     },
     "powerBatteryConnected": {
-        "message": "Подключено"
+        "message": "Аккумулятор подключен"
     },
     "powerBatteryConnectedValueYes": {
         "message": "Да (банок: $1)"
@@ -2789,7 +2789,7 @@
         "message": "Ток потребления"
     },
     "powerBatteryCapacity": {
-        "message": "Ёмкость (mAh)"
+        "message": "Емкость (мАч)"
     },
     "osdSetupTitle": {
         "message": "Настройка OSD"

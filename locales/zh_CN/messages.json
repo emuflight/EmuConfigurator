@@ -155,7 +155,7 @@
         "message": "OSD 屏幕叠加显示"
     },
     "tabPower": {
-        "message": "动力 & 电池"
+        "message": "电源和电池"
     },
     "tabMotorTesting": {
         "message": "电机测试"
@@ -2736,16 +2736,16 @@
         "message": "MSP 传感器/OSD 从机"
     },
     "powerBatteryMinimum": {
-        "message": "最低单芯电压"
+        "message": "最低电芯电压"
     },
     "powerBatteryMaximum": {
-        "message": "最高单芯电压"
+        "message": "最高电芯电压"
     },
     "powerBatteryWarning": {
-        "message": "警告单芯电压"
+        "message": "电芯报警电压"
     },
     "powerVoltageHead": {
-        "message": "电压计"
+        "message": "电池电压"
     },
     "powerVoltageId10": {
         "message": "电池"
@@ -2817,7 +2817,7 @@
         "message": "倍数"
     },
     "powerAmperageHead": {
-        "message": "电流计"
+        "message": "电池电流"
     },
     "powerAmperageId10": {
         "message": "电池"
@@ -2874,10 +2874,10 @@
         "message": "电池"
     },
     "powerStateHead": {
-        "message": "电池状态"
+        "message": "电源状态"
     },
     "powerBatteryConnected": {
-        "message": "已连接"
+        "message": "电池已连接"
     },
     "powerBatteryConnectedValueYes": {
         "message": "是 (电池芯数: $1)"

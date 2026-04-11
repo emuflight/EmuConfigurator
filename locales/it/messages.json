@@ -143,7 +143,7 @@
         "message": "Servi"
     },
     "tabPower": {
-        "message": "Sensori batteria"
+        "message": "Energia e Batteria"
     },
     "tabMotorTesting": {
         "message": "Test Motori"
@@ -2392,16 +2392,16 @@
         "message": "Sensore MSP / slave OSD"
     },
     "powerBatteryMinimum": {
-        "message": "Tensione minima della cella"
+        "message": "Voltaggio Minimo Cella"
     },
     "powerBatteryMaximum": {
-        "message": "Tensione massima della cella"
+        "message": "Voltaggio Massimo Cella"
     },
     "powerBatteryWarning": {
-        "message": "Avviso tensione cella"
+        "message": "Voltaggio Avvertimento Cella"
     },
     "powerVoltageHead": {
-        "message": "Misuratore di tensione"
+        "message": "Voltaggio Batteria"
     },
     "powerVoltageId10": {
         "message": "Batteria"
@@ -2473,7 +2473,7 @@
         "message": "Valore moltiplicatore"
     },
     "powerAmperageHead": {
-        "message": "Amperometro"
+        "message": "Amperaggio Batteria"
     },
     "powerAmperageId10": {
         "message": "Batteria"
@@ -2527,10 +2527,10 @@
         "message": "Batteria"
     },
     "powerStateHead": {
-        "message": "Stato alimentazione"
+        "message": "Stato energia"
     },
     "powerBatteryConnected": {
-        "message": "Collegato"
+        "message": "Batteria Connessa"
     },
     "powerBatteryConnectedValueYes": {
         "message": "Sì (celle: $1)"

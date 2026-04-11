@@ -2599,16 +2599,16 @@
         "message": "Sensor MSP/OSD Esclavo"
     },
     "powerBatteryMinimum": {
-        "message": "Mínimo Voltaje por Celda"
+        "message": "Voltaje Mínimo de la Celda"
     },
     "powerBatteryMaximum": {
-        "message": "Máximo Voltaje por Celda"
+        "message": "Voltaje Máximo de la Celda"
     },
     "powerBatteryWarning": {
-        "message": "Aviso Voltaje por Celda"
+        "message": "Voltaje de Aviso de la Celda"
     },
     "powerVoltageHead": {
-        "message": "Medidor de Voltaje"
+        "message": "Voltaje de la Batería"
     },
     "powerVoltageId10": {
         "message": "Batería"
@@ -2644,7 +2644,7 @@
         "message": "Valor Multiplicador"
     },
     "powerAmperageHead": {
-        "message": "Medidor de Amperaje"
+        "message": "Amperaje de la Batería"
     },
     "powerAmperageId10": {
         "message": "Batería"
@@ -2662,10 +2662,10 @@
         "message": "Batería"
     },
     "powerStateHead": {
-        "message": "Estado de Energía"
+        "message": "Estado de la energía"
     },
     "powerBatteryConnected": {
-        "message": "Conectado"
+        "message": "Batería Conectada"
     },
     "powerBatteryConnectedValueYes": {
         "message": "Si (Celdas: $1)"

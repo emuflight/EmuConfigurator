@@ -134,7 +134,7 @@
         "message": "Transponder de curses"
     },
     "tabPower": {
-        "message": "Energia i bateria"
+        "message": "Energia i Bateria"
     },
     "tabMotorTesting": {
         "message": "Prova de Motors"
@@ -1910,16 +1910,16 @@
         "message": "Sensor MSP/Esclau OSD"
     },
     "powerBatteryMinimum": {
-        "message": "Voltatge Mínim de ceŀla"
+        "message": "Voltatge Mínim de la Cel·la"
     },
     "powerBatteryMaximum": {
-        "message": "Voltatge Màxim de ceŀla"
+        "message": "Voltatge Màxim de la Cel·la"
     },
     "powerBatteryWarning": {
-        "message": "Voltatge d'avís de ceŀla"
+        "message": "Voltatge d\"Avís de la Cel·la"
     },
     "powerVoltageHead": {
-        "message": "Mesurador de Voltatge"
+        "message": "Voltatge de la Bateria"
     },
     "powerVoltageId10": {
         "message": "Bateria"
@@ -1955,7 +1955,7 @@
         "message": "Valor multiplicador"
     },
     "powerAmperageHead": {
-        "message": "Mesurador d'Amperatge"
+        "message": "Amperatge de la Bateria"
     },
     "powerAmperageId10": {
         "message": "Bateria"
@@ -1972,8 +1972,11 @@
     "powerBatteryHead": {
         "message": "Bateria"
     },
+    "powerStateHead": {
+        "message": "Estat de l\"energia"
+    },
     "powerBatteryConnected": {
-        "message": "Connectat"
+        "message": "Bateria Connectada"
     },
     "powerBatteryConnectedValueYes": {
         "message": "Sí (Ceŀles: $1)"

@@ -138,7 +138,7 @@
         "message": "Renntransponder"
     },
     "tabPower": {
-        "message": "Strom & Batterie"
+        "message": "Strom & Akku"
     },
     "tabMotorTesting": {
         "message": "Motorentest"
@@ -2412,16 +2412,16 @@
         "message": "Sensoren der Regler"
     },
     "powerBatteryMinimum": {
-        "message": "Minimale Zellspannung"
+        "message": "Minimale Zellenspannung"
     },
     "powerBatteryMaximum": {
-        "message": "Maximale Zellspannung"
+        "message": "Maximale Zellenspannung"
     },
     "powerBatteryWarning": {
-        "message": "Zellspannung Warnung"
+        "message": "Warnung Zellenspannung"
     },
     "powerVoltageHead": {
-        "message": "Voltmeter"
+        "message": "Akkuspannung"
     },
     "powerVoltageId10": {
         "message": "Batterie"
@@ -2457,7 +2457,7 @@
         "message": "Multiplikator"
     },
     "powerAmperageHead": {
-        "message": "Amperemeter"
+        "message": "Stromstärke (Amperage)"
     },
     "powerAmperageId10": {
         "message": "Akku"
@@ -2475,13 +2475,13 @@
         "message": "Versatz [mA]"
     },
     "powerBatteryHead": {
-        "message": "Akku"
+        "message": "Akku (Batterie)"
     },
     "powerStateHead": {
-        "message": "Energie-Status"
+        "message": "Stromstatus"
     },
     "powerBatteryConnected": {
-        "message": "Verbunden"
+        "message": "Akku angeschlossen"
     },
     "powerBatteryConnectedValueYes": {
         "message": "Ja (Zellen: $1)"

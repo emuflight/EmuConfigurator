@@ -152,7 +152,7 @@
         "message": "레이스 트랜스폰더"
     },
     "tabPower": {
-        "message": "파워 & 배터리"
+        "message": "전원 및 배터리"
     },
     "tabMotorTesting": {
         "message": "모터 테스트"
@@ -2745,10 +2745,10 @@
         "message": "최대 셀 전압"
     },
     "powerBatteryWarning": {
-        "message": "셀 전압 경고"
+        "message": "경고 셀 전압"
     },
     "powerVoltageHead": {
-        "message": "전압"
+        "message": "배터리 전압"
     },
     "powerVoltageId10": {
         "message": "배터리"
@@ -2820,7 +2820,7 @@
         "message": "배율"
     },
     "powerAmperageHead": {
-        "message": "전류"
+        "message": "배터리 전류"
     },
     "powerAmperageId10": {
         "message": "배터리"
@@ -2877,10 +2877,10 @@
         "message": "배터리"
     },
     "powerStateHead": {
-        "message": "전력 상태"
+        "message": "전원 상태"
     },
     "powerBatteryConnected": {
-        "message": "연결됨"
+        "message": "배터리 연결됨"
     },
     "powerBatteryConnectedValueYes": {
         "message": "예 (셀: $1)"
