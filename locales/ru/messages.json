@@ -3448,5 +3448,8 @@
     },
     "vtxButtonSave": {
         "message": "Сохранить настройки VTX"
+    },
+    "userLanguageSelect": {
+        "message": "Выбрать язык"
     }
 }
