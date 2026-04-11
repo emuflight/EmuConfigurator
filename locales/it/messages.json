@@ -145,9 +145,6 @@
     "tabServos": {
         "message": "Servi"
     },
-    "tabOsd": {
-        "message": "OSD"
-    },
     "tabPower": {
         "message": "Energia e Batteria"
     },

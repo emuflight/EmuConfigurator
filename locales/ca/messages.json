@@ -118,29 +118,17 @@
     "tabConfiguration": {
         "message": "Configuració"
     },
-    "tabPorts": {
-        "message": "Ports"
-    },
     "tabPidTuning": {
         "message": "Ajust PID"
     },
     "tabReceiver": {
         "message": "Receptor"
     },
-    "tabServos": {
-        "message": "Servos"
-    },
     "tabTransponder": {
         "message": "Transponder de curses"
     },
-    "tabOsd": {
-        "message": "OSD"
-    },
     "tabPower": {
         "message": "Energia i Bateria"
-    },
-    "tabMotorTesting": {
-        "message": "Motors"
     },
     "tabLedStrip": {
         "message": "Tira LED"

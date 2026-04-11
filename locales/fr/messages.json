@@ -124,26 +124,14 @@
     "tabSetupOSD": {
         "message": "Réglages OSD"
     },
-    "tabConfiguration": {
-        "message": "Configuration"
-    },
-    "tabPorts": {
-        "message": "Ports"
-    },
     "tabPidTuning": {
         "message": "Réglages PID"
     },
     "tabReceiver": {
         "message": "Récepteur"
     },
-    "tabServos": {
-        "message": "Servos"
-    },
     "tabTransponder": {
         "message": "Transpondeur de course"
-    },
-    "tabOsd": {
-        "message": "OSD"
     },
     "tabPower": {
         "message": "Énergie et Batterie"

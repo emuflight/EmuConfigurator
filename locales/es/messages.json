@@ -139,14 +139,8 @@
     "tabReceiver": {
         "message": "Receptor"
     },
-    "tabServos": {
-        "message": "Servos"
-    },
     "tabTransponder": {
         "message": "Transpondedor de Carrera"
-    },
-    "tabOsd": {
-        "message": "OSD"
     },
     "tabPower": {
         "message": "Energía y Batería"

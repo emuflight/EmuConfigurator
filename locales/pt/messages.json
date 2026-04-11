@@ -142,9 +142,6 @@
     "tabReceiver": {
         "message": "Recetor"
     },
-    "tabServos": {
-        "message": "Servos"
-    },
     "tabTransponder": {
         "message": "Transponder de corridas"
     },

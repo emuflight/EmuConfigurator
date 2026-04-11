@@ -116,9 +116,6 @@
     "tabHelp": {
         "message": "Dokumentation & Hilfe"
     },
-    "tabSetup": {
-        "message": "Setup"
-    },
     "tabSetupOSD": {
         "message": "OSD Einstellungen"
     },
@@ -134,14 +131,8 @@
     "tabReceiver": {
         "message": "Empfänger"
     },
-    "tabServos": {
-        "message": "Servos"
-    },
     "tabTransponder": {
         "message": "Renntransponder"
-    },
-    "tabOsd": {
-        "message": "OSD"
     },
     "tabPower": {
         "message": "Strom & Akku"
@@ -1273,9 +1264,6 @@
     },
     "receiverHelpDeadband": {
         "message": "Das ist der Bereich (in µs) in dem das Kommando der Funke streuen kann, bevor es als \"echt\" erkannt wird. Der Wert kann vergrößert werden, wenn die übertragenen Werte im Ruhezustand zu sehr zittern."
-    },
-    "receiverYawDeadband": {
-        "message": "Yaw Deadband"
     },
     "receiverHelpYawDeadband": {
         "message": "Das ist der Bereich (in µs) in dem das Kommando der Funke streuen kann, bevor es als \"echt\" erkannt wird. Der Wert kann vergrößert werden, wenn die übertragenen Werte im Ruhezustand zu sehr zittern. <strong>Betrifft nur die YAW Achse.</strong>"
@@ -3168,9 +3156,6 @@
     },
     "vtxFrequencyChannel": {
         "message": "VTX-Kanal"
-    },
-    "vtxBand": {
-        "message": "Band"
     },
     "vtxBandHelp": {
         "message": "Wählt das Frequenzband des VTX aus."
