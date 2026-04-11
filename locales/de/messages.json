@@ -373,10 +373,10 @@
         "message": "Emuflight Dokumentation gibt es in den Release Notes und im Wiki.<br /><br />"
     },
     "defaultDocumentation1": {
-        "message": "The Emuflight wiki is a great resource for information, it can be found <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">here</a>.<br />The release notes for the firmware can be read at GitHub releases page, <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\">here</a>.<br />"
+        "message": "Das EmuFlight-Wiki ist eine großartige Informationsquelle und kann <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">hier</a> gefunden werden.<br />Die Versionshinweise für die Firmware können auf der GitHub-Release-Seite <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\">hier</a> gelesen werden.<br />"
     },
     "defaultDocumentation2": {
-        "message": "The EmuConfigurator wiki can be found <a href=\"https://github.com/emuflight/EmuConfigurator/wiki\" target=\"_blank\">here</a>.<br />The Configurator release notes can be read at GitHub releases page, <a href=\"https://github.com/emuflight/EmuConfigurator/releases\" target=\"_blank\">here</a>.<br />"
+        "message": "Das EmuConfigurator-Wiki ist <a href=\"https://github.com/emuflight/EmuConfigurator/wiki\" target=\"_blank\">hier</a> zu finden.<br />Die Configurator-Versionshinweise können auf der GitHub-Release-Seite <a href=\"https://github.com/emuflight/EmuConfigurator/releases\" target=\"_blank\">hier</a> gelesen werden.<br />"
     },
     "defaultSupportHead": {
         "message": "Hilfe"

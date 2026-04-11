@@ -405,10 +405,10 @@
         "message": "베타플라이트 문서는 릴리즈 노트와 위키에 적용됩니다.<br /><br />"
     },
     "defaultDocumentation1": {
-        "message": "The Emuflight wiki is a great resource for information, it can be found <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">here</a>.<br />The release notes for the firmware can be read at GitHub releases page, <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\">here</a>.<br />"
+        "message": "EmuFlight 위키는 훌륭한 정보 리소스이며, <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">여기</a>에서 찾을 수 있습니다.<br />펌웨어 출시 노트는 GitHub 출시 페이지(<a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\">여기</a>)에서 확인할 수 있습니다.<br />"
     },
     "defaultDocumentation2": {
-        "message": "The EmuConfigurator wiki can be found <a href=\"https://github.com/emuflight/EmuConfigurator/wiki\" target=\"_blank\">here</a>.<br />The Configurator release notes can be read at GitHub releases page, <a href=\"https://github.com/emuflight/EmuConfigurator/releases\" target=\"_blank\">here</a>.<br />"
+        "message": "EmuConfigurator 위키는 <a href=\"https://github.com/emuflight/EmuConfigurator/wiki\" target=\"_blank\">여기</a>에서 찾을 수 있습니다.<br />구성기(Configurator) 출시 노트는 GitHub 출시 페이지(<a href=\"https://github.com/emuflight/EmuConfigurator/releases\" target=\"_blank\">여기</a>)에서 확인할 수 있습니다.<br />"
     },
     "defaultSupportHead": {
         "message": "지원"

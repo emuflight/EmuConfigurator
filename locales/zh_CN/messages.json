@@ -411,10 +411,10 @@
         "message": "Emuflight的文档和发布说明可以在wiki里面找到。<br /><br />"
     },
     "defaultDocumentation1": {
-        "message": "The Emuflight wiki is a great resource for information, it can be found <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">here</a>.<br />The release notes for the firmware can be read at GitHub releases page, <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\">here</a>.<br />"
+        "message": "EmuFlight 维基是一个很好的资源，可以在<a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">这里</a>找到。<br />固件的发行说明可以在 GitHub 发行页面<a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\">这里</a>阅读。<br />"
     },
     "defaultDocumentation2": {
-        "message": "The EmuConfigurator wiki can be found <a href=\"https://github.com/emuflight/EmuConfigurator/wiki\" target=\"_blank\">here</a>.<br />The Configurator release notes can be read at GitHub releases page, <a href=\"https://github.com/emuflight/EmuConfigurator/releases\" target=\"_blank\">here</a>.<br />"
+        "message": "EmuConfigurator 维基可以在<a href=\"https://github.com/emuflight/EmuConfigurator/wiki\" target=\"_blank\">这里</a>找到。<br />配置器发行说明可以在 GitHub 发行页面<a href=\"https://github.com/emuflight/EmuConfigurator/releases\" target=\"_blank\">这里</a>阅读。<br />"
     },
     "defaultSupportHead": {
         "message": "支持"

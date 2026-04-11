@@ -393,10 +393,10 @@
         "message": "Emuflight документация доступна в release notes и на wiki (на сайте Github).<br /><br />"
     },
     "defaultDocumentation1": {
-        "message": "The Emuflight wiki is a great resource for information, it can be found <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">here</a>.<br />The release notes for the firmware can be read at GitHub releases page, <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\">here</a>.<br />"
+        "message": "Вики-страница EmuFlight — отличный ресурс для получения информации, ее можно найти <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">здесь</a>.<br />Примечания к версии прошивки можно прочитать на странице релизов GitHub, <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\">здесь</a>.<br />"
     },
     "defaultDocumentation2": {
-        "message": "The EmuConfigurator wiki can be found <a href=\"https://github.com/emuflight/EmuConfigurator/wiki\" target=\"_blank\">here</a>.<br />The Configurator release notes can be read at GitHub releases page, <a href=\"https://github.com/emuflight/EmuConfigurator/releases\" target=\"_blank\">here</a>.<br />"
+        "message": "Вики-страницу EmuConfigurator можно найти <a href=\"https://github.com/emuflight/EmuConfigurator/wiki\" target=\"_blank\">здесь</a>.<br />Примечания к выпуску Конфигуратора можно прочитать на странице релизов GitHub, <a href=\"https://github.com/emuflight/EmuConfigurator/releases\" target=\"_blank\">здесь</a>.<br />"
     },
     "defaultSupportHead": {
         "message": "Нужна помощь?"
