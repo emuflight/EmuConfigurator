@@ -130,11 +130,17 @@
     "tabReceiver": {
         "message": "Receptor"
     },
+    "tabFailsafe": {
+        "message": "Failsafe"
+    },
     "tabTransponder": {
         "message": "Transponder de curses"
     },
     "tabPower": {
         "message": "Energia i Bateria"
+    },
+    "tabGPS": {
+        "message": "GPS"
     },
     "tabMotorTesting": {
         "message": "Prova de Motors"
@@ -1208,6 +1214,9 @@
     "gpsMapMessage2": {
         "message": "Esperant ubicació 3D GPS..."
     },
+    "gps3dFix": {
+        "message": "Fixació 3D"
+    },
     "gpsFixTrue": {
         "message": "<span class=\"fixtrue\">Sí</span>"
     },
@@ -1215,19 +1224,22 @@
         "message": "<span class=\"fixfalse\">No</span>"
     },
     "gpsAltitude": {
-        "message": "Altitud:"
+        "message": "Altitud"
     },
     "gpsLat": {
-        "message": "Latitud:"
+        "message": "Latitud"
     },
     "gpsLon": {
-        "message": "Longitud:"
+        "message": "Longitud"
     },
     "gpsSpeed": {
-        "message": "Velocitat:"
+        "message": "Velocitat"
+    },
+    "gpsSats": {
+        "message": "Satèl·lits"
     },
     "gpsDistToHome": {
-        "message": "Dist a casa:"
+        "message": "Distància a Casa"
     },
     "gpsSignalStrHead": {
         "message": "Potència senyal GPS"
@@ -1850,7 +1862,7 @@
         "message": "Stage 2 - Ajustaments"
     },
     "failsafeDelayItem": {
-        "message": "Temps de guarda per activar l'stage 2 després de perdre la senyal [1 = 0.1 sec.]"
+        "message": "Retard de Failsafe"
     },
     "failsafeDelayHelp": {
         "message": "Temps d'espera de l'stage 1 per a recuperació"
@@ -1886,7 +1898,7 @@
         "message": "Configura aquesta opció per a fer el failsafe switch com a mesura de seguretat. <strong>Nota:</strong> L'armat està bloquejat si el switch està a la posició ON"
     },
     "failsafeSwitchTitle": {
-        "message": "Interruptor de Failsafe"
+        "message": "Mode Failsafe d\"Interruptor"
     },
     "failsafeSwitchModeItem": {
         "message": "Acció de l'interruptor de Failsafe"

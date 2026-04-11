@@ -136,11 +136,17 @@
     "tabReceiver": {
         "message": "Récepteur"
     },
+    "tabFailsafe": {
+        "message": "Failsafe"
+    },
     "tabTransponder": {
         "message": "Transpondeur de course"
     },
     "tabPower": {
         "message": "Énergie et Batterie"
+    },
+    "tabGPS": {
+        "message": "GPS"
     },
     "tabMotorTesting": {
         "message": "Test des moteurs"
@@ -1532,7 +1538,7 @@
         "message": "En attente d'accroche GPS..."
     },
     "gps3dFix": {
-        "message": "Accroche:"
+        "message": "Fix 3D"
     },
     "gpsFixTrue": {
         "message": "<span class=\"fixtrue\">Oui</span>"
@@ -1540,14 +1546,23 @@
     "gpsFixFalse": {
         "message": "<span class=\"fixfalse\">Non</span>"
     },
+    "gpsAltitude": {
+        "message": "Altitude"
+    },
+    "gpsLat": {
+        "message": "Latitude"
+    },
+    "gpsLon": {
+        "message": "Longitude"
+    },
     "gpsSpeed": {
-        "message": "Vitesse:"
+        "message": "Vitesse"
     },
     "gpsSats": {
-        "message": "Satellites:"
+        "message": "Satellites"
     },
     "gpsDistToHome": {
-        "message": "Distance du point de décollage:"
+        "message": "Distance Maison"
     },
     "gpsSignalStrHead": {
         "message": "Force du signal GPS"
@@ -2289,7 +2304,7 @@
         "message": "Stage 2 - Paramètres"
     },
     "failsafeDelayItem": {
-        "message": "Période d'attente pour l'activation du Stage 2, après la perte de signal [1 = 0.1 sec.]"
+        "message": "Délai Failsafe"
     },
     "failsafeDelayHelp": {
         "message": "Période d'attente de recovery pour le Stage 1"
@@ -2355,7 +2370,7 @@
         "message": "Renseigner cette option pour utiliser le switch Failsafe comme un coupe circuit direct sans passer par la procédure de Failsafe. <strong>Note: </strong> l'armement est bloqué avec ce switch sur ON"
     },
     "failsafeSwitchTitle": {
-        "message": "Switch Failsafe"
+        "message": "Mode Failsafe d\"interrupteur"
     },
     "failsafeSwitchModeItem": {
         "message": "Action du switch Failsafe"

@@ -134,11 +134,17 @@
     "tabReceiver": {
         "message": "Empfänger"
     },
+    "tabFailsafe": {
+        "message": "Failsafe"
+    },
     "tabTransponder": {
         "message": "Renntransponder"
     },
     "tabPower": {
         "message": "Strom & Akku"
+    },
+    "tabGPS": {
+        "message": "GPS"
     },
     "tabMotorTesting": {
         "message": "Motorentest"
@@ -1536,7 +1542,7 @@
         "message": "Warte auf GPS 3D Position"
     },
     "gps3dFix": {
-        "message": "3D Position"
+        "message": "3D-Fix"
     },
     "gpsFixTrue": {
         "message": "<span class=\"fixtrue\">wahr</span>"
@@ -1545,22 +1551,22 @@
         "message": "<span class=\"fixfalse\">falsch</span>"
     },
     "gpsAltitude": {
-        "message": "Höhe:"
+        "message": "Höhe"
     },
     "gpsLat": {
-        "message": "Breite:"
+        "message": "Breitengrad (Lat)"
     },
     "gpsLon": {
-        "message": "Länge:"
+        "message": "Längengrad (Lon)"
     },
     "gpsSpeed": {
         "message": "Geschwindigkeit"
     },
     "gpsSats": {
-        "message": "Satelliten:"
+        "message": "Satelliten"
     },
     "gpsDistToHome": {
-        "message": "Entfernung zu Start:"
+        "message": "Entfernung nach Hause"
     },
     "gpsSignalStrHead": {
         "message": "GPS Signal Stärke"
@@ -2289,7 +2295,7 @@
         "message": "Stufe 2 Einstellungen"
     },
     "failsafeDelayItem": {
-        "message": "Zeit nach Signalverlust für die Aktivierung von Stufe 2  [1 = 0,1 Sek. ]"
+        "message": "Failsafe Verzögerung"
     },
     "failsafeDelayHelp": {
         "message": "Stage 1 Wartezeit für Signalwiederherstellung"
@@ -2364,7 +2370,7 @@
         "message": "Aktiviere diese Option um den Failsafe Schalter (Modes Tab) als \"Kill Schalter\" zu benutzen. Der Schalter überschreibt dann alle Failsafe Einstellungen. <strong>Hinweis:</strong> Wenn der Schalter aktiv ist wird sich das Fluggerät nicht armen lassen"
     },
     "failsafeSwitchTitle": {
-        "message": "Failsafe Schalter"
+        "message": "Failsafe-Schalter Modus"
     },
     "failsafeSwitchModeItem": {
         "message": "Failsafe Schalter Aktion"

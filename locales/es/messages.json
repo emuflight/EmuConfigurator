@@ -137,13 +137,16 @@
         "message": "Receptor"
     },
     "tabFailsafe": {
-        "message": "Modo de Seguridad"
+        "message": "Failsafe"
     },
     "tabTransponder": {
         "message": "Transpondedor de Carrera"
     },
     "tabPower": {
         "message": "Energía y Batería"
+    },
+    "tabGPS": {
+        "message": "GPS"
     },
     "tabMotorTesting": {
         "message": "Prueba de Motores"
@@ -1649,7 +1652,7 @@
         "message": "Esperando posición GPS 3D..."
     },
     "gps3dFix": {
-        "message": "Posición 3D:"
+        "message": "Fijación 3D"
     },
     "gpsFixTrue": {
         "message": "<span class=\"fixtrue\">Verdadero</span>"
@@ -1658,22 +1661,22 @@
         "message": "<span class=\"fixfalse\">Falso</span>"
     },
     "gpsAltitude": {
-        "message": "Altitud:"
+        "message": "Altitud"
     },
     "gpsLat": {
-        "message": "Latitud:"
+        "message": "Latitud"
     },
     "gpsLon": {
-        "message": "Longitud:"
+        "message": "Longitud"
     },
     "gpsSpeed": {
-        "message": "Velocidad:"
+        "message": "Velocidad"
     },
     "gpsSats": {
-        "message": "Satélites:"
+        "message": "Satélites"
     },
     "gpsDistToHome": {
-        "message": "Dist. a Casa:"
+        "message": "Distancia a Casa"
     },
     "gpsSignalStrHead": {
         "message": "Fuerza Señal GPS"
@@ -2473,7 +2476,7 @@
         "message": "Etapa 2 - Ajustes"
     },
     "failsafeDelayItem": {
-        "message": "Tiempo de guarda para activación de etapa 2 después de perder la señal [1 = 0.1 seg]"
+        "message": "Retraso de Failsafe"
     },
     "failsafeDelayHelp": {
         "message": "Tiempo a esperar en etapa 1 para recuperación"
@@ -2548,7 +2551,7 @@
         "message": "Ajustar esta opción para usar un interruptor de modo de seguridad o FAILSAFE (apartado Modos). Actúa como un conmutador directo, saltando el procedimiento del modo de seguridad seleccionado. <strong>Nota:</strong> El armado está bloqueado cuando el modo de seguridad está en la posición ENCENDIDO"
     },
     "failsafeSwitchTitle": {
-        "message": "Interruptor Modo de Seguridad"
+        "message": "Modo Failsafe de Interruptor"
     },
     "failsafeSwitchModeItem": {
         "message": "Acción Interruptor Modo de Seguridad"

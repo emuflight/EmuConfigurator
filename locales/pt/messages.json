@@ -142,11 +142,17 @@
     "tabReceiver": {
         "message": "Receptor"
     },
+    "tabFailsafe": {
+        "message": "Failsafe"
+    },
     "tabTransponder": {
         "message": "Transponder de corridas"
     },
     "tabPower": {
         "message": "Energia e Bateria"
+    },
+    "tabGPS": {
+        "message": "GPS"
     },
     "tabMotorTesting": {
         "message": "Teste de Motores"
@@ -1595,7 +1601,7 @@
         "message": "Aguardando posição do GPS 3D…"
     },
     "gps3dFix": {
-        "message": "Posição 3D:"
+        "message": "Fix 3D"
     },
     "gpsFixTrue": {
         "message": "<span class=\"fixtrue\">Verdadeiro</span>"
@@ -1603,14 +1609,23 @@
     "gpsFixFalse": {
         "message": "<span class=\"fixfalse\">Falso</span>"
     },
+    "gpsAltitude": {
+        "message": "Altitude"
+    },
+    "gpsLat": {
+        "message": "Latitude"
+    },
+    "gpsLon": {
+        "message": "Longitude"
+    },
     "gpsSpeed": {
-        "message": "Velocidade:"
+        "message": "Velocidade"
     },
     "gpsSats": {
-        "message": "Status:"
+        "message": "Satélites"
     },
     "gpsDistToHome": {
-        "message": "Distância até a base:"
+        "message": "Distância para Casa"
     },
     "gpsSignalStrHead": {
         "message": "Força do sinal GPS"
@@ -2411,7 +2426,7 @@
         "message": "Estágio 2 - Configurações"
     },
     "failsafeDelayItem": {
-        "message": "Tempo de espera antes de ativar o estágio 2 após perder o sinal [1 = 0.1 sec.]"
+        "message": "Atraso do Failsafe"
     },
     "failsafeDelayHelp": {
         "message": "Tempo para recuperação no estágio 1"
@@ -2486,7 +2501,7 @@
         "message": "Ative esta opção para fazer com que o switch do Failsafe (aba Modos) desligue a aeronave, sobrepondo o procedimento do Failsafe. <strong>Nota:</strong> Não é possível Armar enquanto o switch estiver na posição LIGADO"
     },
     "failsafeSwitchTitle": {
-        "message": "Switch do Failsafe"
+        "message": "Modo Failsafe de Interruptor"
     },
     "failsafeSwitchModeItem": {
         "message": "Ação do switch do Failsafe"

@@ -145,11 +145,17 @@
     "tabServos": {
         "message": "Серво"
     },
+    "tabFailsafe": {
+        "message": "Failsafe"
+    },
     "tabTransponder": {
         "message": "Транспондер гонки"
     },
     "tabPower": {
         "message": "Питание и аккумулятор"
+    },
+    "tabGPS": {
+        "message": "GPS"
     },
     "tabMotorTesting": {
         "message": "Тестирование моторов"
@@ -1601,7 +1607,7 @@
         "message": "Ожидание GPS 3D фиксации…"
     },
     "gps3dFix": {
-        "message": "3D фикс.:"
+        "message": "3D Фикс"
     },
     "gpsFixTrue": {
         "message": "<span class=\"fixtrue\">Да</span>"
@@ -1610,22 +1616,22 @@
         "message": "<span class=\"fixfalse\">Нет</span>"
     },
     "gpsAltitude": {
-        "message": "Высота:"
+        "message": "Высота"
     },
     "gpsLat": {
-        "message": "Широта:"
+        "message": "Широта"
     },
     "gpsLon": {
-        "message": "Долгота:"
+        "message": "Долгота"
     },
     "gpsSpeed": {
-        "message": "Скорость:"
+        "message": "Скорость"
     },
     "gpsSats": {
-        "message": "Спутники:"
+        "message": "Спутники"
     },
     "gpsDistToHome": {
-        "message": "Расст. до дома:"
+        "message": "Дистанция до дома"
     },
     "gpsSignalStrHead": {
         "message": "Мощность GPS сигнала"
@@ -2504,7 +2510,7 @@
         "message": "Этап 2 - Настройки"
     },
     "failsafeDelayItem": {
-        "message": "Запустить этап 2, если сигнал отсутствует указанное время [1 = 0.1 sec.]"
+        "message": "Задержка Failsafe"
     },
     "failsafeDelayHelp": {
         "message": "Время ожидания восстановления сигнала для этапа 1"
@@ -2579,7 +2585,7 @@
         "message": "С помощью этой опции можно настроить аварийный переключатель на аппаратуре (во вкладке \"Режимы\"), который будет производить аварийное отключение, минуя процедуру failsafe. <strong>Примечание:</strong> если аварийный переключатель failsafe будет находиться в позиции \"включен\", то арминг блокируется"
     },
     "failsafeSwitchTitle": {
-        "message": "Failsafe переключатель"
+        "message": "Режим Failsafe на тумблере"
     },
     "failsafeSwitchModeItem": {
         "message": "Failsafe событие переключателя"

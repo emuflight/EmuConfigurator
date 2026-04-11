@@ -142,8 +142,14 @@
     "tabServos": {
         "message": "Servi"
     },
+    "tabFailsafe": {
+        "message": "Failsafe"
+    },
     "tabPower": {
         "message": "Energia e Batteria"
+    },
+    "tabGPS": {
+        "message": "GPS"
     },
     "tabMotorTesting": {
         "message": "Test Motori"
@@ -1475,7 +1481,7 @@
         "message": "In attesa di agganciare GPS 3D…"
     },
     "gps3dFix": {
-        "message": "Aggancio 3D:"
+        "message": "Fix 3D"
     },
     "gpsFixTrue": {
         "message": "<span class=\"fixtrue\">Vero</span>"
@@ -1484,22 +1490,22 @@
         "message": "<span class=\"fixfalse\">Falso</span>"
     },
     "gpsAltitude": {
-        "message": "Quota:"
+        "message": "Altitudine"
     },
     "gpsLat": {
-        "message": "Latitudine:"
+        "message": "Latitudine"
     },
     "gpsLon": {
-        "message": "Longitudine:"
+        "message": "Longitudine"
     },
     "gpsSpeed": {
-        "message": "Velocità:"
+        "message": "Velocità"
     },
     "gpsSats": {
         "message": "Satelliti"
     },
     "gpsDistToHome": {
-        "message": "Distanza fino a casa:"
+        "message": "Distanza da Casa"
     },
     "gpsSignalStrHead": {
         "message": "Forza del segnale GPS"
@@ -2275,7 +2281,7 @@
         "message": "Stadio 2: impostazioni"
     },
     "failsafeDelayItem": {
-        "message": "Tempo di attesa per l'attivazione della Stadio 2 dopo la perdita del segnale [1 = 0,1 sec.]"
+        "message": "Ritardo Failsafe"
     },
     "failsafeDelayHelp": {
         "message": "Tempo per lo Stadio 1 di attendere il recupero"
@@ -2341,7 +2347,7 @@
         "message": "Imposta questa opzione per fare in modo che lo switch failsafe (Scheda Modi di volo) agisca come un kill switch diretto, bypassando la procedura failsafe selezionata. <strong> Nota: </strong> l'armamento motori è bloccato con l'interruttore di interruzione sicura in posizione ACCESO"
     },
     "failsafeSwitchTitle": {
-        "message": "Switch del Failsafe"
+        "message": "Modalità Failsafe Interruttore"
     },
     "failsafeSwitchModeItem": {
         "message": "Azione dello Switch del Failsafe"

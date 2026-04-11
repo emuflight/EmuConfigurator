@@ -146,13 +146,16 @@
         "message": "서보"
     },
     "tabFailsafe": {
-        "message": "페일세이프"
+        "message": "페일세이프 (Failsafe)"
     },
     "tabTransponder": {
         "message": "레이스 트랜스폰더"
     },
     "tabPower": {
         "message": "전원 및 배터리"
+    },
+    "tabGPS": {
+        "message": "GPS"
     },
     "tabMotorTesting": {
         "message": "모터 테스트"
@@ -1679,7 +1682,7 @@
         "message": "GPS 3D 수정을 기다리는 중…"
     },
     "gps3dFix": {
-        "message": "3D 수정:"
+        "message": "3D Fix"
     },
     "gpsFixTrue": {
         "message": "<span class=\"fixtrue\">참</span>"
@@ -1688,22 +1691,22 @@
         "message": "<span class=\"fixfalse\">거짓</span>"
     },
     "gpsAltitude": {
-        "message": "고도:"
+        "message": "고도"
     },
     "gpsLat": {
-        "message": "위도:"
+        "message": "위도"
     },
     "gpsLon": {
-        "message": "경도:"
+        "message": "경도"
     },
     "gpsSpeed": {
-        "message": "속도:"
+        "message": "속도"
     },
     "gpsSats": {
-        "message": "상태:"
+        "message": "위성 수"
     },
     "gpsDistToHome": {
-        "message": "홈까지 거리:"
+        "message": "홈 거리"
     },
     "gpsSignalStrHead": {
         "message": "GPS 신호 강도"
@@ -2613,7 +2616,7 @@
         "message": "단계 2 - 설정"
     },
     "failsafeDelayItem": {
-        "message": "신호가 손실 된 후 단계 2 활성화를 위한 보호 시간 [1 = 0.1초]"
+        "message": "페일세이프 지연"
     },
     "failsafeDelayHelp": {
         "message": "단계 1에서 복구 대기 시간"
@@ -2688,7 +2691,7 @@
         "message": "페일 세이프 스위치 (모드 탭)가 선택한 페일 세이프 절차를 우회하여 직접적인 강제 종료 스위치로 작동하게 하려면 이 옵션을 설정하십시오. <strong>노트:</strong> 페일세이프 킬 스위치가 ON 위치에 있을 때 아밍이 차단됩니다."
     },
     "failsafeSwitchTitle": {
-        "message": "페일세이프 스위치"
+        "message": "스위치 페일세이프 모드"
     },
     "failsafeSwitchModeItem": {
         "message": "페일세이프 스위치 동작"

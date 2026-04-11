@@ -154,6 +154,9 @@
     "tabPower": {
         "message": "電源とバッテリー"
     },
+    "tabGPS": {
+        "message": "GPS"
+    },
     "tabMotorTesting": {
         "message": "モーターテスト"
     },
@@ -1637,7 +1640,7 @@
         "message": "GPS 3次元測位を取得中..."
     },
     "gps3dFix": {
-        "message": "3次元測位"
+        "message": "3D Fix"
     },
     "gpsFixTrue": {
         "message": "<span class=\"text\">True</span>"
@@ -1646,22 +1649,22 @@
         "message": "<span class=\"text\">False</span>"
     },
     "gpsAltitude": {
-        "message": "高度:"
+        "message": "高度"
     },
     "gpsLat": {
-        "message": "緯度:"
+        "message": "緯度"
     },
     "gpsLon": {
-        "message": "経度:"
+        "message": "経度"
     },
     "gpsSpeed": {
-        "message": "速度:"
+        "message": "速度"
     },
     "gpsSats": {
-        "message": "衛星数:"
+        "message": "衛星数"
     },
     "gpsDistToHome": {
-        "message": "ホームまでの距離:"
+        "message": "離陸地点からの距離"
     },
     "gpsSignalStrHead": {
         "message": "GPS強度"
@@ -2534,7 +2537,7 @@
         "message": "ステージ2 - 設定"
     },
     "failsafeDelayItem": {
-        "message": "信号損失後のステージ2 起動時保護時間 [1 = 0.1秒]"
+        "message": "フェイルセーフ遅延"
     },
     "failsafeDelayHelp": {
         "message": "ステージ1の回復を待つための時間"
@@ -2609,7 +2612,7 @@
         "message": "このオプションを設定すると、フェイルセーフスイッチ ([モード] タブ内) で選択されたフェイルセーフの手順を省略し、直接強制停止スイッチとして機能させます。 <strong>注:</strong> フェイルセーフ強制停止スイッチがオンの状態では、アーミングはできません。"
     },
     "failsafeSwitchTitle": {
-        "message": "フェイルセーフ スイッチ"
+        "message": "スイッチフェイルセーフモード"
     },
     "failsafeSwitchModeItem": {
         "message": "フェイルセーフ スイッチ動作"

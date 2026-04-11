@@ -146,7 +146,7 @@
         "message": "舵机"
     },
     "tabFailsafe": {
-        "message": "失控保护"
+        "message": "故障保护 (Failsafe)"
     },
     "tabTransponder": {
         "message": "比赛应答器"
@@ -156,6 +156,9 @@
     },
     "tabPower": {
         "message": "电源和电池"
+    },
+    "tabGPS": {
+        "message": "GPS"
     },
     "tabMotorTesting": {
         "message": "电机测试"
@@ -1670,7 +1673,7 @@
         "message": "等待GPS 3D锁定……"
     },
     "gps3dFix": {
-        "message": "GPS 3D锁定："
+        "message": "3D 定位"
     },
     "gpsFixTrue": {
         "message": "<span class=\"fixtrue\">准确</span>"
@@ -1679,22 +1682,22 @@
         "message": "<span class=\"fixfalse\">失败</span>"
     },
     "gpsAltitude": {
-        "message": "高度："
+        "message": "高度"
     },
     "gpsLat": {
-        "message": "纬度："
+        "message": "纬度"
     },
     "gpsLon": {
-        "message": "经度："
+        "message": "经度"
     },
     "gpsSpeed": {
-        "message": "速度："
+        "message": "速度"
     },
     "gpsSats": {
-        "message": "卫星数："
+        "message": "卫星数量"
     },
     "gpsDistToHome": {
-        "message": "离起飞位置距离"
+        "message": "返航距离"
     },
     "gpsSignalStrHead": {
         "message": "GPS 信号强度"
@@ -2607,7 +2610,7 @@
         "message": "二阶失控保护 - 设置"
     },
     "failsafeDelayItem": {
-        "message": "触发二阶失控保护的信号丢失保护时间[1 = 0.1 秒.]"
+        "message": "故障保护延迟"
     },
     "failsafeDelayHelp": {
         "message": "一阶失控保护等待信号恢复时间"
@@ -2682,7 +2685,7 @@
         "message": "设置这个选项会使失控保护开关(模式页面设置)作为直接关闭开关，将会绕开所有的失控保护检测程序。<strong>注意:</strong> 当打开失控保护开关时，解锁开关无效"
     },
     "failsafeSwitchTitle": {
-        "message": "失控保护开关"
+        "message": "开关故障保护模式"
     },
     "failsafeSwitchModeItem": {
         "message": "失控保护开关行为"
