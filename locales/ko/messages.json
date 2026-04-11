@@ -1,6 +1,6 @@
 {
     "error": {
-        "message": "오류"
+        "message": "Error: {{errorMessage}}"
     },
     "errorTitle": {
         "message": "오류"

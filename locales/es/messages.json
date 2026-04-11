@@ -1,6 +1,6 @@
 {
     "error": {
-        "message": "Error"
+        "message": "Error: {{errorMessage}}"
     },
     "warningTitle": {
         "message": "Advertencia"

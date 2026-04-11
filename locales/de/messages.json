@@ -4,7 +4,7 @@
         "description": "Title of the application window, usually not translated"
     },
     "error": {
-        "message": "Fehler"
+        "message": "Error: {{errorMessage}}"
     },
     "errorTitle": {
         "message": "Fehler"
