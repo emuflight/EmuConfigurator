@@ -116,7 +116,7 @@
         "message": "Миграция конфигурации завершена, применено миграций: $1"
     },
     "tabFirmwareFlasher": {
-        "message": "Программатор"
+        "message": "Прошивка Firmware"
     },
     "tabLanding": {
         "message": "Приветствие"
@@ -148,6 +148,9 @@
     "tabTransponder": {
         "message": "Транспондер гонки"
     },
+    "tabOsd": {
+        "message": "Настройка OSD"
+    },
     "tabPower": {
         "message": "Питание и аккумулятор"
     },
@@ -164,7 +167,7 @@
         "message": "Логирование"
     },
     "tabAdjustments": {
-        "message": "Настройки"
+        "message": "Корректировки"
     },
     "tabAuxiliary": {
         "message": "Режимы"

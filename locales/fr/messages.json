@@ -110,7 +110,7 @@
         "message": "Migration de la configuration effectuée, migrations appliquées: $1"
     },
     "tabFirmwareFlasher": {
-        "message": "Flasher un microprogramme"
+        "message": "Flash du Firmware"
     },
     "tabLanding": {
         "message": "Bienvenue"
@@ -124,6 +124,12 @@
     "tabSetupOSD": {
         "message": "Réglages OSD"
     },
+    "tabConfiguration": {
+        "message": "Configuration"
+    },
+    "tabPorts": {
+        "message": "Ports"
+    },
     "tabPidTuning": {
         "message": "Réglages PID"
     },
@@ -135,6 +141,9 @@
     },
     "tabTransponder": {
         "message": "Transpondeur de course"
+    },
+    "tabOsd": {
+        "message": "OSD"
     },
     "tabPower": {
         "message": "Énergie et Batterie"

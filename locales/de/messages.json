@@ -107,11 +107,17 @@
     "configMigrationSuccessful": {
         "message": "Migrierung erfolgreich, Änderungen eingespielt: $1"
     },
+    "tabFirmwareFlasher": {
+        "message": "Firmware-Flasher"
+    },
     "tabLanding": {
         "message": "Willkommen"
     },
     "tabHelp": {
         "message": "Dokumentation & Hilfe"
+    },
+    "tabSetup": {
+        "message": "Setup"
     },
     "tabSetupOSD": {
         "message": "OSD Einstellungen"
@@ -133,6 +139,9 @@
     },
     "tabTransponder": {
         "message": "Renntransponder"
+    },
+    "tabOsd": {
+        "message": "OSD"
     },
     "tabPower": {
         "message": "Strom & Akku"

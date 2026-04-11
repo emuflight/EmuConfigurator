@@ -116,7 +116,7 @@
         "message": "设置文件移植完成，使用设置文件 $1。"
     },
     "tabFirmwareFlasher": {
-        "message": "固件烧写工具"
+        "message": "固件安装 (Flasher)"
     },
     "tabLanding": {
         "message": "欢迎"
@@ -125,16 +125,16 @@
         "message": "设置文档 & 支持"
     },
     "tabSetup": {
-        "message": "设置"
+        "message": "设置 (Setup)"
     },
     "tabSetupOSD": {
         "message": "OSD 设置"
     },
     "tabConfiguration": {
-        "message": "配置"
+        "message": "配置 (Configuration)"
     },
     "tabPorts": {
-        "message": "端口"
+        "message": "端口 (Ports)"
     },
     "tabPidTuning": {
         "message": "PID 调整 (PID Tuning)"
@@ -152,7 +152,7 @@
         "message": "比赛应答器"
     },
     "tabOsd": {
-        "message": "OSD 屏幕叠加显示"
+        "message": "OSD 设置"
     },
     "tabPower": {
         "message": "电源和电池"
@@ -176,7 +176,7 @@
         "message": "黑匣子 (Blackbox)"
     },
     "tabAdjustments": {
-        "message": "调整"
+        "message": "调整 (Adjustments)"
     },
     "tabAuxiliary": {
         "message": "模式"

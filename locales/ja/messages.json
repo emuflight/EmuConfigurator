@@ -116,7 +116,7 @@
         "message": "設定の移行成功、適用します: $1"
     },
     "tabFirmwareFlasher": {
-        "message": "ファームフラッシャー"
+        "message": "ファームウェア更新"
     },
     "tabLanding": {
         "message": "ようこそ"
@@ -131,10 +131,10 @@
         "message": "OSDセットアップ"
     },
     "tabConfiguration": {
-        "message": "設定"
+        "message": "基本設定"
     },
     "tabPorts": {
-        "message": "ポート"
+        "message": "ポート設定"
     },
     "tabPidTuning": {
         "message": "PID チューニング"
@@ -150,6 +150,9 @@
     },
     "tabTransponder": {
         "message": "トランスポンダー"
+    },
+    "tabOsd": {
+        "message": "OSD 設定"
     },
     "tabPower": {
         "message": "電源とバッテリー"
@@ -170,7 +173,7 @@
         "message": "ブラックボックス"
     },
     "tabAdjustments": {
-        "message": "調整"
+        "message": "調整設定"
     },
     "tabAuxiliary": {
         "message": "モード"

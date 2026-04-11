@@ -115,6 +115,9 @@
     "configMigrationSuccessful": {
         "message": "Migrazione della configurazione completata, migrazioni applicate: $1"
     },
+    "tabFirmwareFlasher": {
+        "message": "Flash del Firmware"
+    },
     "tabLanding": {
         "message": "Benvenuto"
     },
@@ -141,6 +144,9 @@
     },
     "tabServos": {
         "message": "Servi"
+    },
+    "tabOsd": {
+        "message": "OSD"
     },
     "tabPower": {
         "message": "Energia e Batteria"

@@ -98,7 +98,7 @@
         "message": "Migració de configuració completada. migracions aplicades: $1"
     },
     "tabFirmwareFlasher": {
-        "message": "Flaixejador de firmware"
+        "message": "Instal·lador de Firmware"
     },
     "tabLanding": {
         "message": "Benvingut"
@@ -115,6 +115,9 @@
     "tabConfiguration": {
         "message": "Configuració"
     },
+    "tabPorts": {
+        "message": "Ports"
+    },
     "tabPidTuning": {
         "message": "Ajust PID"
     },
@@ -126,6 +129,9 @@
     },
     "tabTransponder": {
         "message": "Transponder de curses"
+    },
+    "tabOsd": {
+        "message": "OSD"
     },
     "tabPower": {
         "message": "Energia i Bateria"

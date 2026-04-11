@@ -110,7 +110,7 @@
         "message": "Migración de configuración completada, migraciones aplicadas: $1"
     },
     "tabFirmwareFlasher": {
-        "message": "Instalar Firmware"
+        "message": "Instalador de Firmware"
     },
     "tabLanding": {
         "message": "Bienvenido"
@@ -141,6 +141,9 @@
     },
     "tabTransponder": {
         "message": "Transpondedor de Carrera"
+    },
+    "tabOsd": {
+        "message": "OSD"
     },
     "tabPower": {
         "message": "Energía y Batería"

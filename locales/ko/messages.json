@@ -116,7 +116,7 @@
         "message": "환경설정 마이그레이션 완료, 적용된 마이그레이션 : $1"
     },
     "tabFirmwareFlasher": {
-        "message": "펌웨어 플래시 도구"
+        "message": "펌웨어 플래셔"
     },
     "tabLanding": {
         "message": "환영합니다"
@@ -125,13 +125,13 @@
         "message": "문서 & 지원"
     },
     "tabSetup": {
-        "message": "초기 설정"
+        "message": "설정"
     },
     "tabSetupOSD": {
         "message": "OSD 설정"
     },
     "tabConfiguration": {
-        "message": "환경 설정"
+        "message": "구성"
     },
     "tabPorts": {
         "message": "포트"
@@ -150,6 +150,9 @@
     },
     "tabTransponder": {
         "message": "레이스 트랜스폰더"
+    },
+    "tabOsd": {
+        "message": "OSD 설정"
     },
     "tabPower": {
         "message": "전원 및 배터리"
