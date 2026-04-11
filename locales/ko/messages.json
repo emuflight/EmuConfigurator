@@ -1265,7 +1265,7 @@
         "message": "스로틀"
     },
     "pidTuningButtonSave": {
-        "message": "저장"
+        "message": "PID 설정 저장"
     },
     "pidTuningButtonRefresh": {
         "message": "새로고침"

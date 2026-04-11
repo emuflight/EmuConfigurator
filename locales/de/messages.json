@@ -123,7 +123,7 @@
         "message": "Anschlüsse"
     },
     "tabPidTuning": {
-        "message": "PID Einstellungen"
+        "message": "PID-Einstellung"
     },
     "tabReceiver": {
         "message": "Empfänger"
@@ -1149,10 +1149,10 @@
         "message": "Gas"
     },
     "pidTuningButtonSave": {
-        "message": "Speichern"
+        "message": "PID-Einstellungen speichern"
     },
     "pidTuningButtonRefresh": {
-        "message": "Neu laden"
+        "message": "Aktualisieren"
     },
     "pidTuningCopyProfile": {
         "message": "Profil kopieren"
@@ -3032,7 +3032,7 @@
         "message": "Bis zu 3 (bei manchen FCs nur 2) verschiedene Profile für PID Einstellungen können gespeichert. Die Profile enthalten PID Einstellungen, Setpoint sowie Angle/Horzizon Einstellungen und können mit einfachen Stick-Kommandos (siehe Doku) oder per OSD umgestellt werden."
     },
     "pidTuningRateProfile": {
-        "message": "Ratenprofil (Rate Profile)"
+        "message": "Rate-Profil"
     },
     "pidTuningRateProfileTip": {
         "message": "Bis zu 3 verschiedene Rate Profile können auf dem FC gespeichert werden. Diese enthalten Einstellungen zu RC Rate, Rate, Expo sowie TPA. Der Wechsel zwischen den Profilen kann mit Stick Kommandos oder per OSD vorgenommen werden."

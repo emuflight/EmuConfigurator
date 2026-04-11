@@ -134,7 +134,7 @@
         "message": "Porte"
     },
     "tabPidTuning": {
-        "message": "Messa a punto PID"
+        "message": "Regolazioni PID"
     },
     "tabReceiver": {
         "message": "Ricevente"
@@ -1094,7 +1094,7 @@
         "message": "Gas"
     },
     "pidTuningButtonSave": {
-        "message": "Salva"
+        "message": "Salva PID"
     },
     "pidTuningButtonRefresh": {
         "message": "Aggiorna"

@@ -116,7 +116,7 @@
         "message": "Configuració"
     },
     "tabPidTuning": {
-        "message": "Ajustament de PIDs"
+        "message": "Ajust PID"
     },
     "tabReceiver": {
         "message": "Receptor"
@@ -879,10 +879,10 @@
         "message": "Filtre"
     },
     "pidTuningButtonSave": {
-        "message": "Desa"
+        "message": "Desa els ajustos PID"
     },
     "pidTuningButtonRefresh": {
-        "message": "Actualitza"
+        "message": "Refresca"
     },
     "pidTuningControllerHead": {
         "message": "Controlador de PIDs"

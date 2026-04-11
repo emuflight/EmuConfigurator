@@ -137,7 +137,7 @@
         "message": "Порты"
     },
     "tabPidTuning": {
-        "message": "PID настройки"
+        "message": "Настройка PID"
     },
     "tabReceiver": {
         "message": "Приемник"
@@ -1196,7 +1196,7 @@
         "message": "Газ"
     },
     "pidTuningButtonSave": {
-        "message": "Сохранить"
+        "message": "Сохранить настройки PID"
     },
     "pidTuningButtonRefresh": {
         "message": "Обновить"

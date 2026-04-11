@@ -125,7 +125,7 @@
         "message": "Réglages OSD"
     },
     "tabPidTuning": {
-        "message": "Réglages de PID"
+        "message": "Réglages PID"
     },
     "tabReceiver": {
         "message": "Récepteur"
@@ -1151,10 +1151,10 @@
         "message": "Gaz"
     },
     "pidTuningButtonSave": {
-        "message": "Sauvegarder"
+        "message": "Sauvegarder PID"
     },
     "pidTuningButtonRefresh": {
-        "message": "Rafraîchir"
+        "message": "Actualiser"
     },
     "pidTuningControllerHead": {
         "message": "Contrôleur de PID"

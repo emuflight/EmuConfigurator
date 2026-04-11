@@ -137,7 +137,7 @@
         "message": "端口"
     },
     "tabPidTuning": {
-        "message": "PID 调校"
+        "message": "PID 调整 (PID Tuning)"
     },
     "tabReceiver": {
         "message": "接收机 (Receiver)"
@@ -1256,10 +1256,10 @@
         "message": "油门曲线"
     },
     "pidTuningButtonSave": {
-        "message": "保存"
+        "message": "保存 PID 设置"
     },
     "pidTuningButtonRefresh": {
-        "message": "刷新"
+        "message": "刷新读取"
     },
     "pidTuningControllerHead": {
         "message": "PID 控制器"
@@ -3449,7 +3449,7 @@
         "message": "飞控可以保存最多3个（有的只能2个）PID配置文件。PID 配置文件包括：PID值， D 设置点，angle/horizon 模式选择设置。配置文件可以通过遥控摇杆命令来回切换(具体操作参阅网上教程)。"
     },
     "pidTuningRateProfile": {
-        "message": "速率配置档案"
+        "message": "速率 (Rates) 配置方案"
     },
     "pidTuningRateProfileTip": {
         "message": "飞控可以保存3个不同的Rate配置文件。 Rate配置文件包括：RC rate， Rate，RC expo，油门和TPA。 配置文件可以通过遥控摇杆命令来回切换（具体操作参阅网上教程）。也可以通过一个3段的开关来选择不同的配置文件。"

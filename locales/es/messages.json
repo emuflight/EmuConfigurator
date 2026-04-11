@@ -131,7 +131,7 @@
         "message": "Puertos"
     },
     "tabPidTuning": {
-        "message": "Ajustar PID"
+        "message": "Ajuste PID"
     },
     "tabReceiver": {
         "message": "Receptor"
@@ -1229,7 +1229,7 @@
         "message": "Acelerador"
     },
     "pidTuningButtonSave": {
-        "message": "Guardar"
+        "message": "Guardar ajustes PID"
     },
     "pidTuningButtonRefresh": {
         "message": "Refrescar"

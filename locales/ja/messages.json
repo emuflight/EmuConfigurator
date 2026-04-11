@@ -137,7 +137,7 @@
         "message": "ポート"
     },
     "tabPidTuning": {
-        "message": "PIDチューニング"
+        "message": "PID チューニング"
     },
     "tabReceiver": {
         "message": "受信機"
@@ -1223,10 +1223,10 @@
         "message": "スロットル"
     },
     "pidTuningButtonSave": {
-        "message": "保存"
+        "message": "PID 設定を保存"
     },
     "pidTuningButtonRefresh": {
-        "message": "更新"
+        "message": "リフレッシュ"
     },
     "pidTuningControllerHead": {
         "message": "PIDコントローラ"
