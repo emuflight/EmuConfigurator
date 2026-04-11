@@ -2543,7 +2543,7 @@
         "message": "Timer"
     },
     "osdSetupAlarmsTitle": {
-        "message": "Alarme"
+        "message": "OSD-Alarme"
     },
     "osdSetupStatsTitle": {
         "message": "Statistiken"
@@ -2567,7 +2567,7 @@
         "message": "oder"
     },
     "osdSetupOpenFont": {
-        "message": "Schriftartdatei öffnen"
+        "message": "Schrift-Manager öffnen"
     },
     "osdSetupCustomLogoTitle": {
         "message": "Startbild:"
@@ -2866,6 +2866,9 @@
     "osdTimerPrecisionTooltip": {
         "message": "Einstellung der Timer Genauigkeit"
     },
+    "osdTimerAlarm": {
+        "message": "Zeitalarm"
+    },
     "osdTimerAlarmTooltip": {
         "message": "Setze den Alarmwert der Stoppuhr in Minuten. Sobald die Zeit überschritten ist blinkt das dazugehörige OSD Element"
     },
@@ -3121,7 +3124,28 @@
     "flashTab": {
         "message": "Firmware aktualisieren"
     },
+    "tabVtx": {
+        "message": "Videosender (VTX)"
+    },
     "vtxFrequencyChannel": {
         "message": "VTX-Kanal"
+    },
+    "vtxBand": {
+        "message": "Band"
+    },
+    "vtxChannel": {
+        "message": "Kanal"
+    },
+    "vtxPower": {
+        "message": "Leistung"
+    },
+    "vtxPitMode": {
+        "message": "Pit-Modus"
+    },
+    "vtxLowPowerDisarm": {
+        "message": "Niedrige Leistung beim Entschärfen"
+    },
+    "vtxButtonSave": {
+        "message": "VTX-Einstellungen speichern"
     }
 }

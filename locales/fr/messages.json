@@ -2610,7 +2610,7 @@
         "message": "Chronos"
     },
     "osdSetupAlarmsTitle": {
-        "message": "Alarmes"
+        "message": "Alarmes OSD"
     },
     "osdSetupStatsTitle": {
         "message": "Statistiques"
@@ -2634,7 +2634,7 @@
         "message": "ou"
     },
     "osdSetupOpenFont": {
-        "message": "Ouvrir le fichier de police"
+        "message": "Ouvrir gestionnaire de polices"
     },
     "osdSetupCustomLogoTitle": {
         "message": "Logo de démarrage:"
@@ -2661,7 +2661,7 @@
         "message": "L'image contient un pixel non valide : rgb({{valueR}}, {{valueG}}, {{valueB}}) aux coordonnées {{posX}}×{{posY}}"
     },
     "osdSetupUploadFont": {
-        "message": "Charger le fichier de police"
+        "message": "Envoyer la police"
     },
     "osdSetupSave": {
         "message": "Sauvegarder"
@@ -2928,7 +2928,7 @@
         "message": "Sélectionnez la précision du Timer, cela contrôle à quelle précision le temps est indiqué dans"
     },
     "osdTimerAlarm": {
-        "message": "Alarme:"
+        "message": "Alarme de temps"
     },
     "osdTimerAlarmTooltip": {
         "message": "Sélectionnez le seuil de l'alarme du timer en minutes, lorsque le temps dépasse cette valeur, l'élément OSD clignote, le réglage à 0 désactive l'alarme"
@@ -3224,7 +3224,28 @@
     "pidTuningIMUFFilterSettings": {
         "message": "Paramètres de filtre IMU-F indépendants du profil"
     },
+    "tabVtx": {
+        "message": "Émetteur Vidéo (VTX)"
+    },
     "vtxFrequencyChannel": {
         "message": "Canal VTX"
+    },
+    "vtxBand": {
+        "message": "Bande"
+    },
+    "vtxChannel": {
+        "message": "Canal"
+    },
+    "vtxPower": {
+        "message": "Puissance"
+    },
+    "vtxPitMode": {
+        "message": "Mode Pit"
+    },
+    "vtxLowPowerDisarm": {
+        "message": "Basse puissance au désarmement"
+    },
+    "vtxButtonSave": {
+        "message": "Sauvegarder VTX"
     }
 }

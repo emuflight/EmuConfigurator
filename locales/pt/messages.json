@@ -2677,7 +2677,7 @@
         "message": "Cronômetros"
     },
     "osdSetupAlarmsTitle": {
-        "message": "Alarmes"
+        "message": "Alarmes OSD"
     },
     "osdSetupStatsTitle": {
         "message": "Estatísticas"
@@ -2701,7 +2701,7 @@
         "message": "ou"
     },
     "osdSetupOpenFont": {
-        "message": "Abrir Arquivo de Fonte"
+        "message": "Abrir gestor de fontes"
     },
     "osdSetupCustomLogoTitle": {
         "message": "Logo do Boot:"
@@ -2728,7 +2728,7 @@
         "message": "A imagem contém um pixel inválido: rgb({{valueR}}, {{valueG}}, {{valueB}}) nas coordenadas {{posX}}x{{posY}}"
     },
     "osdSetupUploadFont": {
-        "message": "Carregar Fonte"
+        "message": "Enviar fonte"
     },
     "osdSetupSave": {
         "message": "Salvar"
@@ -3004,7 +3004,7 @@
         "message": "Selecione a precisão do cronômetro, isto controla em qual precisão o cronômetro será exibido"
     },
     "osdTimerAlarm": {
-        "message": "Alarme:"
+        "message": "Alarme de tempo"
     },
     "osdTimerAlarmTooltip": {
         "message": "Selecione o limite do alarme do cronômetro em minutos, quando o tempo excede este valor, o elemento no OSD irá piscar, um valor de 0 desabilita o alarme"
@@ -3270,7 +3270,28 @@
     "flashTab": {
         "message": "Atualizar Firmware"
     },
+    "tabVtx": {
+        "message": "Transmissor de Vídeo (VTX)"
+    },
     "vtxFrequencyChannel": {
         "message": "Canal VTX"
+    },
+    "vtxBand": {
+        "message": "Banda"
+    },
+    "vtxChannel": {
+        "message": "Canal"
+    },
+    "vtxPower": {
+        "message": "Potência"
+    },
+    "vtxPitMode": {
+        "message": "Modo Pit"
+    },
+    "vtxLowPowerDisarm": {
+        "message": "Baixa potência ao desarmar"
+    },
+    "vtxButtonSave": {
+        "message": "Salvar VTX"
     }
 }

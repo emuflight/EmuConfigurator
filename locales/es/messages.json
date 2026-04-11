@@ -2727,7 +2727,7 @@
         "message": "Temporizadores"
     },
     "osdSetupAlarmsTitle": {
-        "message": "Alarmas"
+        "message": "Alarmas del OSD"
     },
     "osdSetupStatsTitle": {
         "message": "Estadísticas"
@@ -2751,7 +2751,7 @@
         "message": "o"
     },
     "osdSetupOpenFont": {
-        "message": "Abrir Archivo de Fuente"
+        "message": "Abrir gestor de fuentes"
     },
     "osdSetupCustomLogoTitle": {
         "message": "Logo inicial:"
@@ -2778,7 +2778,7 @@
         "message": "La imagen contiene un pixel inválido: rgb({{valueR}}, {{valueG}}, {{valueB}}) en las coordenadas {{posX}}×{{posY}}"
     },
     "osdSetupUploadFont": {
-        "message": "Cargar Fuente"
+        "message": "Subir fuente"
     },
     "osdSetupSave": {
         "message": "Guardar"
@@ -3048,7 +3048,7 @@
         "message": "Elige la precisión del temporizador, esto controla la precisión con la que el tiempo es reportado"
     },
     "osdTimerAlarm": {
-        "message": "Alarma:"
+        "message": "Alarma de tiempo"
     },
     "osdTimerAlarmTooltip": {
         "message": "Elige el umbral de alarma del temporizador en minutos, cuando el tiempo excede este valor el elemento del OSD parpadeará, indicando 0 se desactiva la alarma"
@@ -3311,7 +3311,28 @@
     "flashTab": {
         "message": "Actualizar Firmware"
     },
+    "tabVtx": {
+        "message": "Transmisor de Vídeo (VTX)"
+    },
     "vtxFrequencyChannel": {
         "message": "Canal VTX"
+    },
+    "vtxBand": {
+        "message": "Banda"
+    },
+    "vtxChannel": {
+        "message": "Canal"
+    },
+    "vtxPower": {
+        "message": "Potencia"
+    },
+    "vtxPitMode": {
+        "message": "Modo Pit"
+    },
+    "vtxLowPowerDisarm": {
+        "message": "Baja potencia al desarmar"
+    },
+    "vtxButtonSave": {
+        "message": "Guardar ajustes VTX"
     }
 }

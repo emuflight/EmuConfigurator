@@ -2841,7 +2841,7 @@
         "message": "Таймеры"
     },
     "osdSetupAlarmsTitle": {
-        "message": "Предупреждения"
+        "message": "Предупреждения OSD"
     },
     "osdSetupStatsTitle": {
         "message": "Статистика"
@@ -2865,7 +2865,7 @@
         "message": "или"
     },
     "osdSetupOpenFont": {
-        "message": "Открыть файл шрифта"
+        "message": "Открыть менеджер шрифтов"
     },
     "osdSetupCustomLogoTitle": {
         "message": "Логотип загрузки:"
@@ -3168,7 +3168,7 @@
         "message": "Выберите точность таймера, с этой точностью будет отображаться время в отчётах"
     },
     "osdTimerAlarm": {
-        "message": "Тревога:"
+        "message": "Предупреждение по времени"
     },
     "osdTimerAlarmTooltip": {
         "message": "Выберите порог тревоги для таймера в минутах, если время превысит это значение - элемент OSD будет мигать. Если выставить значение 0, то таймер будет отключён"
@@ -3431,7 +3431,28 @@
     "flashTab": {
         "message": "Обновить прошивку"
     },
+    "tabVtx": {
+        "message": "Видеопередатчик (VTX)"
+    },
     "vtxFrequencyChannel": {
         "message": "Канал VTX (частота)"
+    },
+    "vtxBand": {
+        "message": "Сетка"
+    },
+    "vtxChannel": {
+        "message": "Канал"
+    },
+    "vtxPower": {
+        "message": "Мощность"
+    },
+    "vtxPitMode": {
+        "message": "Pit-mode"
+    },
+    "vtxLowPowerDisarm": {
+        "message": "Низкая мощность при дисарме"
+    },
+    "vtxButtonSave": {
+        "message": "Сохранить настройки VTX"
     }
 }

@@ -2036,7 +2036,7 @@
         "message": "Temporitzadors"
     },
     "osdSetupAlarmsTitle": {
-        "message": "Alarmes"
+        "message": "Alarmes de l\"OSD"
     },
     "osdSetupStatsTitle": {
         "message": "Estadístiques"
@@ -2054,7 +2054,7 @@
         "message": "Font:"
     },
     "osdSetupOpenFont": {
-        "message": "Obrir un arxiu de Font"
+        "message": "Obre el gestor de fonts"
     },
     "osdSetupCustomLogoTitle": {
         "message": "Imatge d'arrencada:"
@@ -2075,7 +2075,7 @@
         "message": "Prem <b>$t(osdSetupUploadFont.message)</b> per a desar la imatge personalitzada"
     },
     "osdSetupUploadFont": {
-        "message": "Pujar Font"
+        "message": "Puja la font"
     },
     "osdSetupSave": {
         "message": "Desa"
@@ -2297,7 +2297,7 @@
         "message": "Selecciona la precisió del timer. Això canvia la precisió del temps reportat."
     },
     "osdTimerAlarm": {
-        "message": "Alarma:"
+        "message": "Alarma de temps"
     },
     "osdTimerAlarmTooltip": {
         "message": "Selecciona el llindar d'alarma en minuts, quan s'excedeixi el temps l'element parpellejarà a l'OSD. Posant-ho a 0 deshabilita l'alarma"
@@ -2479,7 +2479,28 @@
     "modeCameraChangeMode": {
         "message": "MODE DE CANVI DE CÀMERA"
     },
+    "tabVtx": {
+        "message": "Transmissor de Vídeo (VTX)"
+    },
     "vtxFrequencyChannel": {
         "message": "Canal VTX"
+    },
+    "vtxBand": {
+        "message": "Banda"
+    },
+    "vtxChannel": {
+        "message": "Canal"
+    },
+    "vtxPower": {
+        "message": "Potència"
+    },
+    "vtxPitMode": {
+        "message": "Mode Pit"
+    },
+    "vtxLowPowerDisarm": {
+        "message": "Baixa potència en desarmar"
+    },
+    "vtxButtonSave": {
+        "message": "Desa els ajustos VTX"
     }
 }

@@ -2951,7 +2951,7 @@
         "message": "타이머"
     },
     "osdSetupAlarmsTitle": {
-        "message": "알람"
+        "message": "OSD 알람 설정"
     },
     "osdSetupStatsTitle": {
         "message": "통계"
@@ -2975,7 +2975,7 @@
         "message": "또는"
     },
     "osdSetupOpenFont": {
-        "message": "글꼴 파일 열기"
+        "message": "글꼴 관리자 열기"
     },
     "osdSetupCustomLogoTitle": {
         "message": "부트 로고:"
@@ -3278,7 +3278,7 @@
         "message": "타이머 정밀도를 선택하면 시간이 보고되는 정밀도를 제어합니다."
     },
     "osdTimerAlarm": {
-        "message": "알람:"
+        "message": "타이머 알람"
     },
     "osdTimerAlarmTooltip": {
         "message": "타이머 알람 임계값을 분 단위로 선택하십시오. 시간이 이 값을 초과하면 OSD 항목이 깜박이고, 0으로 설정하면 알람이 비활성화됩니다."
@@ -3544,7 +3544,28 @@
     "flashTab": {
         "message": "펌웨어<br/>업데이트"
     },
+    "tabVtx": {
+        "message": "영상 송신기 (VTX)"
+    },
     "vtxFrequencyChannel": {
         "message": "VTX 채널"
+    },
+    "vtxBand": {
+        "message": "밴드"
+    },
+    "vtxChannel": {
+        "message": "채널"
+    },
+    "vtxPower": {
+        "message": "출력"
+    },
+    "vtxPitMode": {
+        "message": "핏 모드 (Pit Mode)"
+    },
+    "vtxLowPowerDisarm": {
+        "message": "디스암 시 저출력"
+    },
+    "vtxButtonSave": {
+        "message": "VTX 설정 저장"
     }
 }

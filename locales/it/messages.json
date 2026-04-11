@@ -2581,7 +2581,7 @@
         "message": "Timer"
     },
     "osdSetupAlarmsTitle": {
-        "message": "Allarmi"
+        "message": "Allarmi OSD"
     },
     "osdSetupStatsTitle": {
         "message": "Statistiche"
@@ -2605,7 +2605,7 @@
         "message": "o"
     },
     "osdSetupOpenFont": {
-        "message": "Apri il file dei caratteri"
+        "message": "Apri gestore font"
     },
     "osdSetupCustomLogoTitle": {
         "message": "Logo di avvio:"
@@ -2629,7 +2629,7 @@
         "message": "Dimensione dell'immagine non valida: {{width}}×{{height}} (expected $t(logoWidthPx)×$t(logoHeightPx))"
     },
     "osdSetupUploadFont": {
-        "message": "Carica carattere"
+        "message": "Carica font"
     },
     "osdSetupSave": {
         "message": "Salva"
@@ -2866,7 +2866,7 @@
         "message": "Seleziona la precisione del timer, controlla a quale precisione viene registrata l'ora"
     },
     "osdTimerAlarm": {
-        "message": "Allarme:"
+        "message": "Allarme tempo"
     },
     "osdTimerAlarmTooltip": {
         "message": "Selezionare la soglia di allarme del timer in minuti, quando il tempo supera questo valore l'elemento OSD lampeggia, impostandolo su 0 si disabilita l'allarme"
@@ -3102,7 +3102,28 @@
     "flashTab": {
         "message": "Aggiornamento Firmware"
     },
+    "tabVtx": {
+        "message": "Trasmettitore Video (VTX)"
+    },
     "vtxFrequencyChannel": {
         "message": "Canale VTX"
+    },
+    "vtxBand": {
+        "message": "Banda"
+    },
+    "vtxChannel": {
+        "message": "Canale"
+    },
+    "vtxPower": {
+        "message": "Potenza"
+    },
+    "vtxPitMode": {
+        "message": "Modalità Pit"
+    },
+    "vtxLowPowerDisarm": {
+        "message": "Bassa potenza al disarmo"
+    },
+    "vtxButtonSave": {
+        "message": "Salva VTX"
     }
 }

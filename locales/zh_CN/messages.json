@@ -2951,7 +2951,7 @@
         "message": "计时器"
     },
     "osdSetupAlarmsTitle": {
-        "message": "报警器"
+        "message": "OSD 报警设置"
     },
     "osdSetupStatsTitle": {
         "message": "统计信息"
@@ -2975,7 +2975,7 @@
         "message": "或"
     },
     "osdSetupOpenFont": {
-        "message": "打开字体文件"
+        "message": "打开字体管理器"
     },
     "osdSetupCustomLogoTitle": {
         "message": "启动徽标:"
@@ -3002,7 +3002,7 @@
         "message": "图像包含无效的像素： rgb ({{valueR}}, {{valueG}}, {{valueB}}) ，坐标 {{posX}}x{{posY}}"
     },
     "osdSetupUploadFont": {
-        "message": "更新字体"
+        "message": "上传字体"
     },
     "osdSetupSave": {
         "message": "保存"
@@ -3278,7 +3278,7 @@
         "message": "选择计时器精度"
     },
     "osdTimerAlarm": {
-        "message": "警报："
+        "message": "计时报警"
     },
     "osdTimerAlarmTooltip": {
         "message": "设置计时器警报时间（分钟）。当计时器时间大于设置时间，将会在OSD上面闪烁。设定为0可禁用报警。"
@@ -3544,7 +3544,28 @@
     "flashTab": {
         "message": "更新固件"
     },
+    "tabVtx": {
+        "message": "视频发射器 (VTX)"
+    },
     "vtxFrequencyChannel": {
         "message": "VTX 通道"
+    },
+    "vtxBand": {
+        "message": "频段"
+    },
+    "vtxChannel": {
+        "message": "频道"
+    },
+    "vtxPower": {
+        "message": "功率"
+    },
+    "vtxPitMode": {
+        "message": "维修模式 (Pit Mode)"
+    },
+    "vtxLowPowerDisarm": {
+        "message": "解锁前维持低功率"
+    },
+    "vtxButtonSave": {
+        "message": "保存 VTX 设置"
     }
 }

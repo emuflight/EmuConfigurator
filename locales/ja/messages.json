@@ -2875,7 +2875,7 @@
         "message": "タイマー"
     },
     "osdSetupAlarmsTitle": {
-        "message": "アラーム"
+        "message": "OSD アラーム設定"
     },
     "osdSetupStatsTitle": {
         "message": "統計"
@@ -2896,7 +2896,7 @@
         "message": "フォントプリセットを選択:"
     },
     "osdSetupOpenFont": {
-        "message": "フォントファイルを開く"
+        "message": "フォントマネージャーを開く"
     },
     "osdSetupCustomLogoTitle": {
         "message": "起動ロゴ:"
@@ -2923,7 +2923,7 @@
         "message": "画像に無効なピクセルが含まれています: RGB({{valueR}}, {{valueG}}, {{valueB}}) 座標 {{posX}}×{{posY}}"
     },
     "osdSetupUploadFont": {
-        "message": "フォントアップロード"
+        "message": "フォントをアップロード"
     },
     "osdSetupSave": {
         "message": "保存"
@@ -3199,7 +3199,7 @@
         "message": "タイマー精度を選択します。これは、時間情報がどれくらいの精度でレポートされるかを制御します。"
     },
     "osdTimerAlarm": {
-        "message": "アラーム:"
+        "message": "タイマーアラーム"
     },
     "osdTimerAlarmTooltip": {
         "message": "タイマーアラームのしきい値を分単位で選択します。時間がこの値を超えると、OSD表示にて点滅し、これを0に設定するとアラームが無効になります。"
@@ -3465,7 +3465,28 @@
     "flashTab": {
         "message": "ファームウェアをアップデート"
     },
+    "tabVtx": {
+        "message": "ビデオ送信機 (VTX)"
+    },
     "vtxFrequencyChannel": {
         "message": "VTX チャンネル"
+    },
+    "vtxBand": {
+        "message": "バンド"
+    },
+    "vtxChannel": {
+        "message": "チャンネル"
+    },
+    "vtxPower": {
+        "message": "出力"
+    },
+    "vtxPitMode": {
+        "message": "ピットモード"
+    },
+    "vtxLowPowerDisarm": {
+        "message": "ディスアーム時に低出力化"
+    },
+    "vtxButtonSave": {
+        "message": "VTX 設定を保存"
     }
 }
