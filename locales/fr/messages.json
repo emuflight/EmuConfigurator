@@ -3247,5 +3247,8 @@
     },
     "vtxButtonSave": {
         "message": "Sauvegarder VTX"
+    },
+    "userLanguageSelect": {
+        "message": "Choisir la langue"
     }
 }
