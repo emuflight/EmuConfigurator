@@ -127,6 +127,9 @@
     "tabSetupOSD": {
         "message": "Réglages OSD"
     },
+    "tabPorts": {
+        "message": "Ports"
+    },
     "tabPidTuning": {
         "message": "Réglages de PID"
     },
@@ -958,6 +961,9 @@
     },
     "portsIdentifier": {
         "message": "Identifiant"
+    },
+    "portsConfiguration": {
+        "message": "Configuration/MSP"
     },
     "portsSensorIn": {
         "message": "Entrée Capteur"
@@ -2549,6 +2555,9 @@
     "powerBatteryCapacity": {
         "message": "Capacité (mAh)"
     },
+    "osdSetupTitle": {
+        "message": "Paramètres OSD"
+    },
     "osdSetupPreviewHelp": {
         "message": "<strong>Note: </strong> La police d'écriture sur l’aperçu OSD et celle installée dans le contrôleur de vol peuvent être différentes."
     },
@@ -2559,8 +2568,10 @@
         "message": "Note certaines FC ont un  <a href=\"https://www.youtube.com/watch?v=ikKH_6SQ-Tk\" target=\"_blank\">MinimOSD intégré</a> qui peut être configuré et flashé avec <a href=\"https://github.com/ShikOfTheRa/scarab-osd/releases/latest\" target='_blank'>scarab-osd</a>, le MinimOSD ne peut pas être configuré avec cette interface."
     },
     "osdSetupProfilesTitle": {
-        "message": "Numéro de profil OSD",
-        "description": "Description of the header of the OSD elements column associated to each profile"
+        "message": "Profils OSD"
+    },
+    "osdSetupElementsTitle": {
+        "message": "Éléments OSD"
     },
     "osdSetupPreviewTitle": {
         "message": "Glisser les éléments pour changer la position",
@@ -2592,11 +2603,14 @@
     "osdSetupUnitsTitle": {
         "message": "Unités"
     },
+    "osdSetupTimersTitle": {
+        "message": "Chronos"
+    },
     "osdSetupAlarmsTitle": {
         "message": "Alarmes"
     },
     "osdSetupStatsTitle": {
-        "message": "Statistiques de vol"
+        "message": "Statistiques"
     },
     "osdSetupVtxTitle": {
         "message": "Réglages VTX"

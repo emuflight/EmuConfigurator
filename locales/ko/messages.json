@@ -1011,7 +1011,7 @@
         "message": "식별자"
     },
     "portsConfiguration": {
-        "message": "환경설정/MSP"
+        "message": "설정/MSP"
     },
     "portsSerialRx": {
         "message": "시리얼 Rx"
@@ -2900,6 +2900,9 @@
     "powerBatteryCapacity": {
         "message": "용량 (mAh)"
     },
+    "osdSetupTitle": {
+        "message": "OSD 설정"
+    },
     "osdSetupPreviewHelp": {
         "message": "<strong>알림:</strong> OSD 미리보기는 비행 컨트롤러에 설치된 실제 글꼴이 표시되지 않을 수 있습니다."
     },
@@ -2910,11 +2913,10 @@
         "message": "일부 비행 컨트롤러는 온보드 <a href=\"https://www.youtube.com/watch?v=ikKH_6SQ-Tk\" target=\"_blank\">MinimOSD</a>를 가지고 있습니다. 이는 <a href=\"https://github.com/ShikOfTheRa/scarab-osd/releases/latest\" target='_blank'>scarab-osd</a>를 통해 플래시하고 설정할 수 있습니다. 그러나 MinimOSD는 이 인터페이스를 통해서 설정할수 없습니다."
     },
     "osdSetupProfilesTitle": {
-        "message": "OSD 프로파일 번호",
-        "description": "Description of the header of the OSD elements column associated to each profile"
+        "message": "OSD 프로필"
     },
     "osdSetupElementsTitle": {
-        "message": "요소"
+        "message": "OSD 요소"
     },
     "osdSetupPreviewTitle": {
         "message": "위치를 변경하려면 항목을 드래그하세요.",
@@ -2937,7 +2939,7 @@
         "description": "Content of the selector for the OSD Profile in the preview"
     },
     "osdSetupVideoFormatTitle": {
-        "message": "비디오 형식"
+        "message": "비디오 포맷"
     },
     "osdSetupUnitsTitle": {
         "message": "단위"
@@ -2949,7 +2951,7 @@
         "message": "알람"
     },
     "osdSetupStatsTitle": {
-        "message": "비행 종료시 통계분석"
+        "message": "통계"
     },
     "osdSetupVtxTitle": {
         "message": "VTX 설정"

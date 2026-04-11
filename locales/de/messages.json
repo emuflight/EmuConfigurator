@@ -126,7 +126,7 @@
         "message": "Konfiguration"
     },
     "tabPorts": {
-        "message": "Anschlüsse (Ports)"
+        "message": "Anschlüsse"
     },
     "tabPidTuning": {
         "message": "PID Einstellungen"
@@ -945,8 +945,11 @@
     "configurationButtonSave": {
         "message": "Speichern und Neustarten"
     },
+    "portsIdentifier": {
+        "message": "Bezeichner"
+    },
     "portsConfiguration": {
-        "message": "Konfiguration / MSP"
+        "message": "Konfiguration/MSP"
     },
     "portsSerialRx": {
         "message": "Serieller Empfänger"
@@ -958,7 +961,7 @@
         "message": "Telemetrie Ausgabe"
     },
     "portsPeripherals": {
-        "message": "Peripherie"
+        "message": "Peripheriegeräte"
     },
     "portsHelp": {
         "message": "<strong>Hinweis:</strong> Nicht alle Konfiguration sind möglich. Sollte der FC hier einen Fehler feststellen, wird die Konfiguration zurückgesetzt."
@@ -2492,6 +2495,9 @@
     "powerBatteryCapacity": {
         "message": "Kapazität (mAh)"
     },
+    "osdSetupTitle": {
+        "message": "OSD-Einstellungen"
+    },
     "osdSetupPreviewHelp": {
         "message": "<strong>Hinweis:</strong> OSD-Vorschau eventuell nicht in der Schriftart, welche aktuell auf dem FC installiert ist."
     },
@@ -2502,11 +2508,10 @@
         "message": "Einige Flightcontroller haben ein eingebautes <a href=\"https://www.youtube.com/watch?v=ikKH_6SQ-Tk\" target=\"_blank\">MinimOSD</a>, das über <a href=\"https://github.com/ShikOfTheRa/scarab-osd/releases/latest\" target='_blank'>scarab-osd</a> konfiguriert und geflasht werden kann.  Diese OSDs können nicht über dieses Interface konfiguriert werden."
     },
     "osdSetupProfilesTitle": {
-        "message": "OSD-Profilnummer",
-        "description": "Description of the header of the OSD elements column associated to each profile"
+        "message": "OSD-Profile"
     },
     "osdSetupElementsTitle": {
-        "message": "Elemente"
+        "message": "OSD-Elemente"
     },
     "osdSetupPreviewTitle": {
         "message": "Elemente zum Ändern der Position ziehen",
@@ -2538,10 +2543,10 @@
         "message": "Timer"
     },
     "osdSetupAlarmsTitle": {
-        "message": "Alarm"
+        "message": "Alarme"
     },
     "osdSetupStatsTitle": {
-        "message": "Zusammenfassung nach dem Flug"
+        "message": "Statistiken"
     },
     "osdSetupVtxTitle": {
         "message": "VTX Einstellungen"

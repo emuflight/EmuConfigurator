@@ -981,7 +981,7 @@
         "message": "Identificador"
     },
     "portsConfiguration": {
-        "message": "Configurações/MSP"
+        "message": "Configuração/MSP"
     },
     "portsSensorIn": {
         "message": "Entrada de sensor"
@@ -2611,6 +2611,9 @@
     "powerBatteryCapacity": {
         "message": "Capacidade (mAh)"
     },
+    "osdSetupTitle": {
+        "message": "Configuração OSD"
+    },
     "osdSetupPreviewHelp": {
         "message": "<strong>Nota:</strong> Pode ser que a fonte da pré-visualização do OSD não seja a mesma da fonte instalada no controlador de voo."
     },
@@ -2621,11 +2624,10 @@
         "message": "Nota: Alguns controladores de voo contém um <a href=\"https://www.youtube.com/watch?v=ikKH_6SQ-Tk\" target=\"_blank\">MinimOSD</a> a bordo que pode ser atualizado e configurado com o <a href=\"https://github.com/ShikOfTheRa/scarab-osd/releases/latest\" target='_blank'>scarab-osd</a>, porém, o MinimOSD não pode ser configurado por aqui."
     },
     "osdSetupProfilesTitle": {
-        "message": "Número do perfil OSD",
-        "description": "Description of the header of the OSD elements column associated to each profile"
+        "message": "Perfis OSD"
     },
     "osdSetupElementsTitle": {
-        "message": "Elementos"
+        "message": "Elementos OSD"
     },
     "osdSetupPreviewTitle": {
         "message": "Arraste os elementos para alterar a posição",
@@ -2648,7 +2650,7 @@
         "description": "Content of the selector for the OSD Profile in the preview"
     },
     "osdSetupVideoFormatTitle": {
-        "message": "Formato do Video"
+        "message": "Formato de vídeo"
     },
     "osdSetupUnitsTitle": {
         "message": "Unidades"
@@ -2660,7 +2662,7 @@
         "message": "Alarmes"
     },
     "osdSetupStatsTitle": {
-        "message": "Estatísticas pós voo"
+        "message": "Estatísticas"
     },
     "osdSetupVtxTitle": {
         "message": "Configurações do VTX"

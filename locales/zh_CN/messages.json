@@ -1020,7 +1020,7 @@
         "message": "标识符"
     },
     "portsConfiguration": {
-        "message": "设置/MSP"
+        "message": "配置/MSP"
     },
     "portsSerialRx": {
         "message": "串行数字接收机"
@@ -2898,7 +2898,7 @@
         "message": "容量 (mAh)"
     },
     "osdSetupTitle": {
-        "message": "OSD 屏幕叠加显示"
+        "message": "OSD 配置"
     },
     "osdSetupPreviewHelp": {
         "message": "<strong>注意：</strong> 预览界面的字体有可能和实际OSD显示的字体不一样。"
@@ -2910,11 +2910,10 @@
         "message": "注意，有的飞控带有 <a href=\"https://www.youtube.com/watch?v=ikKH_6SQ-Tk\" target=\"_blank\">MinimOSD</a> ，可以通过<a href=\"https://github.com/ShikOfTheRa/scarab-osd/releases/latest\" target='_blank'>scarab-osd</a>来烧录和设置，但是这样的飞控不能通过此页面来设置参数。"
     },
     "osdSetupProfilesTitle": {
-        "message": "OSD 配置文件编号",
-        "description": "Description of the header of the OSD elements column associated to each profile"
+        "message": "OSD 配置方案"
     },
     "osdSetupElementsTitle": {
-        "message": "元素"
+        "message": "OSD 元素"
     },
     "osdSetupPreviewTitle": {
         "message": "拖动元素以更改位置",
@@ -2940,16 +2939,16 @@
         "message": "视频制式"
     },
     "osdSetupUnitsTitle": {
-        "message": "单位制式"
+        "message": "单位"
     },
     "osdSetupTimersTitle": {
         "message": "计时器"
     },
     "osdSetupAlarmsTitle": {
-        "message": "警报"
+        "message": "报警器"
     },
     "osdSetupStatsTitle": {
-        "message": "飞行统计数据"
+        "message": "统计信息"
     },
     "osdSetupVtxTitle": {
         "message": "图传设置"

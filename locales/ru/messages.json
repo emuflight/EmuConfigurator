@@ -993,7 +993,7 @@
         "message": "Идентификатор"
     },
     "portsConfiguration": {
-        "message": "Конфигурация и MSP"
+        "message": "Конфигурация/MSP"
     },
     "portsSensorIn": {
         "message": "Вход датчиков"
@@ -2791,6 +2791,9 @@
     "powerBatteryCapacity": {
         "message": "Ёмкость (mAh)"
     },
+    "osdSetupTitle": {
+        "message": "Настройка OSD"
+    },
     "osdSetupPreviewHelp": {
         "message": "<strong>Примечание:</strong> OSD предпросмотр может отображаться не тем шрифтом, который установлен в полётном контроллере."
     },
@@ -2801,11 +2804,10 @@
         "message": "Обратите внимание, что некоторые полётные контроллеры имеют встроенный <a href=\"https://www.youtube.com/watch?v=ikKH_6SQ-Tk\" target=\"_blank\">MinimOSD</a>, который можно прошить и сконфигурировать при помощи <a href=\"https://github.com/ShikOfTheRa/scarab-osd/releases/latest\" target='_blank'>scarab-osd</a>, однако после этого MinimOSD невозможно будет сконфигурировать в этом интерфейсе."
     },
     "osdSetupProfilesTitle": {
-        "message": "Номер профиля OSD",
-        "description": "Description of the header of the OSD elements column associated to each profile"
+        "message": "Профили OSD"
     },
     "osdSetupElementsTitle": {
-        "message": "Элементы"
+        "message": "Элементы OSD"
     },
     "osdSetupPreviewTitle": {
         "message": "Перетащите элементы чтобы изменить позицию",
@@ -2824,7 +2826,7 @@
         "description": "Label for the selection of the curren active OSD profile"
     },
     "osdSetupVideoFormatTitle": {
-        "message": "Формат видео"
+        "message": "Видеоформат"
     },
     "osdSetupUnitsTitle": {
         "message": "Единицы измерения"
@@ -2833,10 +2835,10 @@
         "message": "Таймеры"
     },
     "osdSetupAlarmsTitle": {
-        "message": "Сигналы"
+        "message": "Предупреждения"
     },
     "osdSetupStatsTitle": {
-        "message": "После полетная статистика"
+        "message": "Статистика"
     },
     "osdSetupVtxTitle": {
         "message": "VTX настройки"

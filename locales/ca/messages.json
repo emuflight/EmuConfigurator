@@ -121,6 +121,9 @@
     "tabConfiguration": {
         "message": "Configuració"
     },
+    "tabPorts": {
+        "message": "Ports"
+    },
     "tabPidTuning": {
         "message": "Ajustament de PIDs"
     },
@@ -1987,6 +1990,9 @@
     "powerBatteryCapacity": {
         "message": "Capacitat (mAh)"
     },
+    "osdSetupTitle": {
+        "message": "Configuració OSD"
+    },
     "osdSetupPreviewHelp": {
         "message": "<strong>Nota:</strong> La previsualització de l'OSD pot no mostrar la font instaŀlada a la controladora de vol."
     },
@@ -1996,8 +2002,14 @@
     "osdSetupUnsupportedNote2": {
         "message": "Algunes controladores tenen <a href=\"https://www.youtube.com/watch?v=ikKH_6SQ-Tk\" target=\"_blank\">MinimOSD</a> que pot ser flashejat i configurat amb <a href=\"https://github.com/ShikOfTheRa/scarab-osd/releases/latest\" target='_blank'>scarab-osd</a>, malgrat això MinimOSD no pot ser configurat a aquesta interfície."
     },
+    "osdSetupProfilesTitle": {
+        "message": "Perfils de l\"OSD"
+    },
+    "osdSetupElementsTitle": {
+        "message": "Elements de l\"OSD"
+    },
     "osdSetupVideoFormatTitle": {
-        "message": "Format de video"
+        "message": "Format de vídeo"
     },
     "osdSetupUnitsTitle": {
         "message": "Unitats"
@@ -2009,7 +2021,7 @@
         "message": "Alarmes"
     },
     "osdSetupStatsTitle": {
-        "message": "Estadístiques després del vol"
+        "message": "Estadístiques"
     },
     "osdSetupVtxTitle": {
         "message": "Configuració del VTX"

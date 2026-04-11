@@ -2682,6 +2682,9 @@
     "powerBatteryCapacity": {
         "message": "Capacidad (mAh)"
     },
+    "osdSetupTitle": {
+        "message": "Configuración OSD"
+    },
     "osdSetupPreviewHelp": {
         "message": "<strong>Nota:</strong> la vista previa del OSD puede no mostrar la fuente actual instalada en el controlador de vuelo."
     },
@@ -2692,11 +2695,10 @@
         "message": "Ten en cuenta que algunos controladores de vuelo tienen un <a href=\"https://www.youtube.com/watch?v=ikKH_6SQ-Tk\" target=\"_blank\">MinimOSD</a> integrado que puede ser flasheado y configurado con <a href=\"https://github.com/ShikOfTheRa/scarab-osd/releases/latest\" target='_blank'>scarab-osd</a>, sin embargo el MinimOSD no puede ser configurado desde esta interfaz."
     },
     "osdSetupProfilesTitle": {
-        "message": "Número de Perfil OSD",
-        "description": "Description of the header of the OSD elements column associated to each profile"
+        "message": "Perfiles del OSD"
     },
     "osdSetupElementsTitle": {
-        "message": "Elementos"
+        "message": "Elementos del OSD"
     },
     "osdSetupPreviewTitle": {
         "message": "Arrastra los elementos para cambiar su posición",
@@ -2719,7 +2721,7 @@
         "description": "Content of the selector for the OSD Profile in the preview"
     },
     "osdSetupVideoFormatTitle": {
-        "message": "Formato de Video"
+        "message": "Formato de vídeo"
     },
     "osdSetupUnitsTitle": {
         "message": "Unidades"
@@ -2731,7 +2733,7 @@
         "message": "Alarmas"
     },
     "osdSetupStatsTitle": {
-        "message": "Estadísticas Post Vuelo"
+        "message": "Estadísticas"
     },
     "osdSetupVtxTitle": {
         "message": "Ajustes VTX"

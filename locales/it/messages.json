@@ -888,7 +888,7 @@
         "message": "Identificativo"
     },
     "portsConfiguration": {
-        "message": "Configurazione / MSP"
+        "message": "Configurazione/MSP"
     },
     "portsSerialRx": {
         "message": "RX Seriale"
@@ -900,7 +900,7 @@
         "message": "uscita telemetria"
     },
     "portsPeripherals": {
-        "message": "periferiche"
+        "message": "Periferiche"
     },
     "portsHelp": {
         "message": "<strong>Nota:</strong> non tutte le combinazioni sono valide. Quando il firmware del flight controller rileva questa situazione, la configurazione delle porte seriali viene resettata."
@@ -2541,6 +2541,9 @@
     "powerBatteryCapacity": {
         "message": "Capacità (mAh)"
     },
+    "osdSetupTitle": {
+        "message": "Configurazione OSD"
+    },
     "osdSetupPreviewHelp": {
         "message": "<strong> Nota: </strong> l'anteprima OSD potrebbe non mostrare il carattere effettivo installato sul controller di volo."
     },
@@ -2550,8 +2553,11 @@
     "osdSetupUnsupportedNote2": {
         "message": "Tieni presente che alcuni controllori di volo hanno un <a href=\"https://www.youtube.com/watch?v=ikKH_6SQ-Tk\" target=\"_blank\">MinimOSD</a> integrato che può essere visualizzato e configurato con <a href = \"https://github.com/ShikOfTheRa/scarab-osd/releases/latest\" target=\"_blank\"> scarab-osd </a>, tuttavia il MinimOSD non può essere configurato tramite questa interfaccia."
     },
+    "osdSetupProfilesTitle": {
+        "message": "Profili OSD"
+    },
     "osdSetupElementsTitle": {
-        "message": "Elementi"
+        "message": "Elementi OSD"
     },
     "osdSetupVideoFormatTitle": {
         "message": "Formato video"
@@ -2560,13 +2566,13 @@
         "message": "Unità"
     },
     "osdSetupTimersTitle": {
-        "message": "Cronometro"
+        "message": "Timer"
     },
     "osdSetupAlarmsTitle": {
-        "message": "Allarme"
+        "message": "Allarmi"
     },
     "osdSetupStatsTitle": {
-        "message": "Statistiche post volo"
+        "message": "Statistiche"
     },
     "osdSetupVtxTitle": {
         "message": "Impostazioni VTX"

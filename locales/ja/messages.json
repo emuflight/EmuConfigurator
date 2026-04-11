@@ -1005,7 +1005,7 @@
         "message": "識別子"
     },
     "portsConfiguration": {
-        "message": "設定 / MSP"
+        "message": "設定/MSP"
     },
     "portsSerialRx": {
         "message": "シリアル受信"
@@ -2824,6 +2824,9 @@
     "powerBatteryCapacity": {
         "message": "容量 (mAh)"
     },
+    "osdSetupTitle": {
+        "message": "OSD 設定"
+    },
     "osdSetupPreviewHelp": {
         "message": "<strong>注:</strong> プレビュー画面のフォントは実際のフォントと異なる場合があります。"
     },
@@ -2834,11 +2837,10 @@
         "message": "いくつかのフライトコントローラにはオンボード<a href=\"https://www.youtube.com/watch?v=ikKH_6SQ-Tk\" target=\"_blank\">MinimOSD</a>があり、これを<a href=\"https://github.com/ShikOfTheRa/scarab-osd/releases/latest\" target='_blank'>scarab-osd</a>で設定および書込みができますが、MinimOSDはこのインターフェイスでは設定できません。"
     },
     "osdSetupProfilesTitle": {
-        "message": "OSDプロファイル番号",
-        "description": "Description of the header of the OSD elements column associated to each profile"
+        "message": "OSD プロファイル"
     },
     "osdSetupElementsTitle": {
-        "message": "構成要素"
+        "message": "OSD エレメント"
     },
     "osdSetupPreviewTitle": {
         "message": "ドラッグして位置を変更",
@@ -2861,7 +2863,7 @@
         "description": "Content of the selector for the OSD Profile in the preview"
     },
     "osdSetupVideoFormatTitle": {
-        "message": "ビデオ形式"
+        "message": "ビデオフォーマット"
     },
     "osdSetupUnitsTitle": {
         "message": "単位"
@@ -2873,7 +2875,7 @@
         "message": "アラーム"
     },
     "osdSetupStatsTitle": {
-        "message": "フライト統計情報"
+        "message": "統計"
     },
     "osdSetupVtxTitle": {
         "message": "VTX設定"
