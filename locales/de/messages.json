@@ -1332,22 +1332,22 @@
         "message": "Benutze Speicherplatz 2 und einen 3 Pos. Schalter auf AUX4, um die Auswahl des Rate Profils über diesen 3 Kanal Schalter auf dem selben Kanal auszuwählen."
     },
     "adjustmentsColumnEnable": {
-        "message": "falls aktiviert"
+        "message": "Aktivieren"
     },
     "adjustmentsColumnUsingSlot": {
         "message": "benutze Speicherplatz"
     },
     "adjustmentsColumnWhenChannel": {
-        "message": "falls Kanal"
+        "message": "Wenn Kanal"
     },
     "adjustmentsColumnIsInRange": {
-        "message": "ist im Bereich von"
+        "message": "Im Bereich ist"
     },
     "adjustmentsColumnThenApplyFunction": {
-        "message": "dann füge hinzu"
+        "message": "Funktion anwenden"
     },
     "adjustmentsColumnViaChannel": {
-        "message": "über Kanal"
+        "message": "Über Kanal"
     },
     "adjustmentsSlot0": {
         "message": "Speicherplatz 1"
@@ -1360,6 +1360,12 @@
     },
     "adjustmentsSlot3": {
         "message": "Speicherplatz 4"
+    },
+    "adjustmentsMin": {
+        "message": "Min"
+    },
+    "adjustmentsMax": {
+        "message": "Max"
     },
     "adjustmentsFunction0": {
         "message": "Keine Änderungen"
@@ -1446,7 +1452,7 @@
         "message": "LED-Profilauswahl"
     },
     "adjustmentsSave": {
-        "message": "Speichtern"
+        "message": "Anpassungen speichern"
     },
     "adjustmentsEepromSaved": {
         "message": "EEPROM <span class=\"message-positive\">gespeichert</span>"

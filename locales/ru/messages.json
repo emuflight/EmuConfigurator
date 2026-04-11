@@ -167,7 +167,7 @@
         "message": "Чёрный ящик"
     },
     "tabAdjustments": {
-        "message": "Корректирование в полёте"
+        "message": "Настройки"
     },
     "tabAuxiliary": {
         "message": "Режимы"
@@ -1382,22 +1382,22 @@
         "message": "Используете Slot 2 и 3POS переключатель в AUX4 для включения Rate Profile секция через тот же 3POS в тот же канал."
     },
     "adjustmentsColumnEnable": {
-        "message": "Если включено"
+        "message": "Включить"
     },
     "adjustmentsColumnUsingSlot": {
         "message": "используя слот"
     },
     "adjustmentsColumnWhenChannel": {
-        "message": "когда канал"
+        "message": "Когда канал"
     },
     "adjustmentsColumnIsInRange": {
-        "message": "находится в диапазоне"
+        "message": "Находится в диапазоне"
     },
     "adjustmentsColumnThenApplyFunction": {
-        "message": "то применить"
+        "message": "Применить функцию"
     },
     "adjustmentsColumnViaChannel": {
-        "message": "через канал"
+        "message": "Через канал"
     },
     "adjustmentsSlot0": {
         "message": "Слот 1"
@@ -1412,10 +1412,10 @@
         "message": "Слот 4"
     },
     "adjustmentsMin": {
-        "message": "Мин."
+        "message": "Мин"
     },
     "adjustmentsMax": {
-        "message": "Макс."
+        "message": "Макс"
     },
     "adjustmentsFunction0": {
         "message": "Без изменений"
@@ -1505,7 +1505,7 @@
         "message": "Выбор профиля LED"
     },
     "adjustmentsSave": {
-        "message": "Сохранить"
+        "message": "Сохранить настройки"
     },
     "adjustmentsEepromSaved": {
         "message": "EEPROM <span class=\"message-positive\">сохранён</span>"

@@ -146,7 +146,7 @@
         "message": "Registre Connectat"
     },
     "tabAdjustments": {
-        "message": "Ajustaments"
+        "message": "Ajustos"
     },
     "logActionHide": {
         "message": "Amagar Log"
@@ -1038,22 +1038,22 @@
         "message": "Utilitza Slot 2 i un switch de 3 posicions a l'AUX4 per a habilitat la selecció de perfil de rate al mateix switch de 3 posicions del mateix canal."
     },
     "adjustmentsColumnEnable": {
-        "message": "si habilitat"
+        "message": "Habilita"
     },
     "adjustmentsColumnUsingSlot": {
         "message": "Fent servir slot"
     },
     "adjustmentsColumnWhenChannel": {
-        "message": "quan el canal"
+        "message": "Quan el Canal"
     },
     "adjustmentsColumnIsInRange": {
-        "message": "està al rang"
+        "message": "Està en l\"Interval"
     },
     "adjustmentsColumnThenApplyFunction": {
-        "message": "llavors fes"
+        "message": "Llavors Aplica la Funció"
     },
     "adjustmentsColumnViaChannel": {
-        "message": "mitjançant el canal"
+        "message": "Via Canal"
     },
     "adjustmentsMin": {
         "message": "Mín"
@@ -1125,7 +1125,7 @@
         "message": "Ajustament Horizon Strength"
     },
     "adjustmentsSave": {
-        "message": "Desa"
+        "message": "Desa els Ajustos"
     },
     "adjustmentsEepromSaved": {
         "message": "EEPROM <span class=\"message-positive\">desada</span>"

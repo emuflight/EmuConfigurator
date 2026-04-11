@@ -161,7 +161,7 @@
         "message": "Caja Negra"
     },
     "tabAdjustments": {
-        "message": "Correcciones"
+        "message": "Ajustes"
     },
     "tabAuxiliary": {
         "message": "Modos"
@@ -1421,22 +1421,22 @@
         "message": "Usa Ranura 2 y un interruptor de 3POS en AUX4 para activar la Selección de Perfil de Tasas a través del mismo interruptor de 3POS en el mismo canal."
     },
     "adjustmentsColumnEnable": {
-        "message": "Si activado"
+        "message": "Habilitar"
     },
     "adjustmentsColumnUsingSlot": {
         "message": "usando ranura"
     },
     "adjustmentsColumnWhenChannel": {
-        "message": "cuando canal"
+        "message": "Cuando el Canal"
     },
     "adjustmentsColumnIsInRange": {
-        "message": "está en rango"
+        "message": "Está en el Rango"
     },
     "adjustmentsColumnThenApplyFunction": {
-        "message": "entonces aplicar"
+        "message": "Entonces Aplicar Función"
     },
     "adjustmentsColumnViaChannel": {
-        "message": "vía canal"
+        "message": "Vía Canal"
     },
     "adjustmentsSlot0": {
         "message": "Ranura 1"
@@ -1556,7 +1556,7 @@
         "message": "Selección de Perfil LED"
     },
     "adjustmentsSave": {
-        "message": "Guardar"
+        "message": "Guardar Ajustes"
     },
     "adjustmentsEepromSaved": {
         "message": "EEPROM <span class=\"message-positive\">guardada</span>"

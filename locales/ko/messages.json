@@ -1451,22 +1451,22 @@
         "message": "AUX4의 슬롯 2 및 3POS 스위치를 사용하여 동일한 채널의 동일한 3POS 스위치를 통해 적용가능한 레이트 프로파일을 선택하십시오."
     },
     "adjustmentsColumnEnable": {
-        "message": "사용"
+        "message": "활성화"
     },
     "adjustmentsColumnUsingSlot": {
         "message": "슬롯"
     },
     "adjustmentsColumnWhenChannel": {
-        "message": "채널 1"
+        "message": "채널이"
     },
     "adjustmentsColumnIsInRange": {
-        "message": "범위 설정"
+        "message": "범위 내에 있을 때"
     },
     "adjustmentsColumnThenApplyFunction": {
-        "message": "조정 선택"
+        "message": "기능 적용"
     },
     "adjustmentsColumnViaChannel": {
-        "message": "채널 2"
+        "message": "조정 채널"
     },
     "adjustmentsSlot0": {
         "message": "슬롯 1"
@@ -1481,10 +1481,10 @@
         "message": "슬롯 4"
     },
     "adjustmentsMin": {
-        "message": "최소값"
+        "message": "최소"
     },
     "adjustmentsMax": {
-        "message": "최대값"
+        "message": "최대"
     },
     "adjustmentsFunction0": {
         "message": "변경 없음"
@@ -1586,7 +1586,7 @@
         "message": "LED 프로필 선택"
     },
     "adjustmentsSave": {
-        "message": "저장"
+        "message": "조정 저장"
     },
     "adjustmentsEepromSaved": {
         "message": "EEPROM <span class=\"message-positive\">저장됨</span>"

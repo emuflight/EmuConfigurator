@@ -1331,22 +1331,28 @@
         "message": "Utiliser la position 2 d'un switch 3 positions sur AUX4 pour choisir un Profile Rate à l'aide du même switch sur la même voie."
     },
     "adjustmentsColumnEnable": {
-        "message": "Si activé"
+        "message": "Activer"
     },
     "adjustmentsColumnUsingSlot": {
         "message": "en utilisant un slot"
     },
     "adjustmentsColumnWhenChannel": {
-        "message": "lorsque la voie"
+        "message": "Quand le canal"
     },
     "adjustmentsColumnIsInRange": {
-        "message": "est dans l'intervalle"
+        "message": "Est dans la plage"
     },
     "adjustmentsColumnThenApplyFunction": {
-        "message": "activer alors"
+        "message": "Appliquer la fonction"
     },
     "adjustmentsColumnViaChannel": {
-        "message": "par la voie"
+        "message": "Via le canal"
+    },
+    "adjustmentsMin": {
+        "message": "Min"
+    },
+    "adjustmentsMax": {
+        "message": "Max"
     },
     "adjustmentsFunction0": {
         "message": "Aucun changement"
@@ -1439,7 +1445,7 @@
         "message": "Sélection du profil LED"
     },
     "adjustmentsSave": {
-        "message": "Enregistrer"
+        "message": "Sauvegarder les ajustements"
     },
     "adjustmentsEepromSaved": {
         "message": "EEPROM <span class=\"message-positive\">enregistrée</span>"

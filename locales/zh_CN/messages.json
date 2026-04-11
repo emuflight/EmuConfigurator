@@ -1442,7 +1442,7 @@
         "message": "使用插槽2 和AUX4通道上的三段开关来选择 Rate 配置文件"
     },
     "adjustmentsColumnEnable": {
-        "message": "如果激活"
+        "message": "开启"
     },
     "adjustmentsColumnUsingSlot": {
         "message": "使用插槽"
@@ -1451,10 +1451,10 @@
         "message": "当通道"
     },
     "adjustmentsColumnIsInRange": {
-        "message": "在指定范围时"
+        "message": "处于范围内"
     },
     "adjustmentsColumnThenApplyFunction": {
-        "message": "执行"
+        "message": "应用功能"
     },
     "adjustmentsColumnViaChannel": {
         "message": "通过通道"
@@ -1472,10 +1472,10 @@
         "message": "插槽4"
     },
     "adjustmentsMin": {
-        "message": "最小"
+        "message": "最小值"
     },
     "adjustmentsMax": {
-        "message": "最大"
+        "message": "最大值"
     },
     "adjustmentsFunction0": {
         "message": "不变"
@@ -1577,7 +1577,7 @@
         "message": "选择LED配置文件"
     },
     "adjustmentsSave": {
-        "message": "保存"
+        "message": "保存调整"
     },
     "adjustmentsEepromSaved": {
         "message": "EEPROM <span class=\"message-positive\">已保存</span>"

@@ -1262,22 +1262,28 @@
         "message": "Utilizzare lo slot 2 e un interruttore 3 posizioni su AUX4 per selezionare abilitare la selezione del profilo di velocità tramite lo stesso interruttore 3 posizioni sullo stesso canale."
     },
     "adjustmentsColumnEnable": {
-        "message": "se abilitato"
+        "message": "Abilita"
     },
     "adjustmentsColumnUsingSlot": {
         "message": "utilizza slot"
     },
     "adjustmentsColumnWhenChannel": {
-        "message": "quando il canale"
+        "message": "Quando il Canale"
     },
     "adjustmentsColumnIsInRange": {
-        "message": "è nel raggio d'azione"
+        "message": "È nell\"intervallo"
     },
     "adjustmentsColumnThenApplyFunction": {
-        "message": "quindi applicare"
+        "message": "Quindi Applica Funzione"
     },
     "adjustmentsColumnViaChannel": {
-        "message": "via canale"
+        "message": "Via Canale"
+    },
+    "adjustmentsMin": {
+        "message": "Min"
+    },
+    "adjustmentsMax": {
+        "message": "Max"
     },
     "adjustmentsFunction0": {
         "message": "Nessun cambiamento"
@@ -1373,7 +1379,7 @@
         "message": "Selezione profilo LED"
     },
     "adjustmentsSave": {
-        "message": "salva"
+        "message": "Salva Regolazioni"
     },
     "adjustmentsEepromSaved": {
         "message": "EEPROM <span class=\"message-positive\">salvata</span>"

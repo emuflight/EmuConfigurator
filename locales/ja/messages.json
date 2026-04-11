@@ -1409,22 +1409,22 @@
         "message": "AUX4のスロット2と3ポジションスイッチを選択し、かつ同じチャンネルの3ポジションスイッチを使用することでRateprofile変更を有効にすることができます。"
     },
     "adjustmentsColumnEnable": {
-        "message": "有効 / 無効"
+        "message": "有効"
     },
     "adjustmentsColumnUsingSlot": {
         "message": "使用スロット"
     },
     "adjustmentsColumnWhenChannel": {
-        "message": "チャンネル"
+        "message": "チャンネルが"
     },
     "adjustmentsColumnIsInRange": {
-        "message": "有効範囲"
+        "message": "範囲内の時"
     },
     "adjustmentsColumnThenApplyFunction": {
-        "message": "適用設定"
+        "message": "関数を適用"
     },
     "adjustmentsColumnViaChannel": {
-        "message": "チャンネル"
+        "message": "対象チャンネル"
     },
     "adjustmentsSlot0": {
         "message": "スロット1"
@@ -1544,7 +1544,7 @@
         "message": "LEDプロファイルの選択"
     },
     "adjustmentsSave": {
-        "message": "保存"
+        "message": "調整を保存"
     },
     "adjustmentsEepromSaved": {
         "message": "EEPROM <span class=\"message-positive\">保存しました</span>"

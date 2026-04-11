@@ -1379,22 +1379,28 @@
         "message": "Use o Slot 2 e um switch de 3 posições no AUX4 para selecionar e ativar um perfil de taxa."
     },
     "adjustmentsColumnEnable": {
-        "message": "Ativar"
+        "message": "Habilitar"
     },
     "adjustmentsColumnUsingSlot": {
         "message": "Utilizando o slot"
     },
     "adjustmentsColumnWhenChannel": {
-        "message": "Quando o canal"
+        "message": "Quando o Canal"
     },
     "adjustmentsColumnIsInRange": {
-        "message": "Estiver no Intervalo"
+        "message": "Está na Faixa"
     },
     "adjustmentsColumnThenApplyFunction": {
-        "message": "Então ajustar"
+        "message": "Então Aplicar Função"
     },
     "adjustmentsColumnViaChannel": {
-        "message": "Via canal"
+        "message": "Via Canal"
+    },
+    "adjustmentsMin": {
+        "message": "Mín"
+    },
+    "adjustmentsMax": {
+        "message": "Máx"
     },
     "adjustmentsFunction0": {
         "message": "Sem alterações"
@@ -1496,7 +1502,7 @@
         "message": "Seleção do Perfil de LED"
     },
     "adjustmentsSave": {
-        "message": "Salvar"
+        "message": "Salvar Ajustes"
     },
     "adjustmentsEepromSaved": {
         "message": "EEPROM <span class=\"message-positive\">salvo</span>"
