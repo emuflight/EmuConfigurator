@@ -136,6 +136,9 @@
     "tabReceiver": {
         "message": "Receptor"
     },
+    "tabServos": {
+        "message": "Servos"
+    },
     "tabTransponder": {
         "message": "Transpondedor de Carrera"
     },
@@ -143,7 +146,7 @@
         "message": "Energía y Batería"
     },
     "tabMotorTesting": {
-        "message": "Prueba de Motores"
+        "message": "Motores"
     },
     "tabLedStrip": {
         "message": "Tira LED"
@@ -813,7 +816,7 @@
         "message": "Declinación Magnetómetro [grad]"
     },
     "configurationReverseMotorSwitch": {
-        "message": "Dirección de los motores invertida"
+        "message": "Sentido de giro del motor"
     },
     "configurationReverseMotorSwitchHelp": {
         "message": "Esta opción configura el mezclador para esperar que la dirección de los motores esté invertida y las hélices estén colocadas en consecuencia. <strong>AVISO:</strong> esto no invierte la dirección del motor. Usa la herramienta de configuración para tus ESCs o modifica el orden del cableado entre los ESC y los motores para lograrlo. Además, verifica sin las hélices que los motores giran en la dirección que se muestra en el diagrama de arriba antes de intentar armar."
@@ -855,7 +858,7 @@
         "message": "Usar baliza Dshot (usa los motores para emitir avisos cuando está desarmado)"
     },
     "configurationDshotBeaconTone": {
-        "message": "Tono de la Baliza"
+        "message": "Tono de la señal acústica DShot"
     },
     "configurationDshotBeaconHelp": {
         "message": "La baliza Dshot usa los ESCs y motores para producir sonido. Esto implica que la baliza Dshot no puede ser usada cuando los motores están girando. En Emuflight 3.4 y posterior, cuando se intenta armar mientras la baliza Dshot está activa, hay una pausa de 2 segundos después del último tono de la baliza Dshot antes de realizar el armado. Esto se hace así para evitar que la funcionalidad de baliza Dshot interfiera con los comandos Dshot que se envían al armar.<br/><strong>Atención:</strong> Como la baliza Dshot envía corriente a los motores mientras está activa, puede producir un exceso de calor y dañar los motores y / o los ESCs si la fuerza de la baliza está configurada muy alta. Usa BLHeli Configurator o BLHeli Suite para ajustar y testear la fuerza de la baliza."
@@ -1607,7 +1610,7 @@
         "message": "Servos requieren firmware &gt;= 1.10.0 y que la placa lo soporte."
     },
     "servosChangeDirection": {
-        "message": "Cambiar dirección en TX para Igualar"
+        "message": "Cambiar dirección"
     },
     "servosName": {
         "message": "Nombre"
@@ -1622,13 +1625,13 @@
         "message": "MÁX"
     },
     "servosDirectionAndRate": {
-        "message": "Dirección y tasa"
+        "message": "Dirección y Tasa"
     },
     "servosLiveMode": {
         "message": "Activar modo en vivo"
     },
     "servosButtonSave": {
-        "message": "Guardar"
+        "message": "Guardar Servos"
     },
     "servosEepromSave": {
         "message": "EEPROM <span class=\"message-positive\">guardada</span>"
@@ -1706,16 +1709,19 @@
         "message": "acel"
     },
     "motorsMaster": {
-        "message": "Maestro"
+        "message": "Maestro (Todos)"
     },
     "motorsNotice": {
         "message": "<strong>Aviso Modo Test de Motor / Armado:</strong><br />Mover los controles deslizantes o armar la aeronave con el transmisor provocará que los motores <strong>giren</strong>.<br />Para evitar lesiones <strong class=\"message-negative\">quita TODAS las hélices</strong> antes de utilizar esta funcionalidad.<br />Activar el modo test de motor también desactivará temporalmente la Protección de Despegue Incontrolado, para evitar que desarme la aeronave mientras está en el banco de pruebas sin hélices.<br />"
     },
     "motorsEnableControl": {
-        "message": "Habilitar el control del motor"
+        "message": "Entiendo los riesgos e informo que deseo habilitar el control de motores"
     },
     "motorConfigNotice": {
         "message": "Nota de configuración del motor"
+    },
+    "motorPoleCount": {
+        "message": "Número de polos del motor"
     },
     "sensorsInfo": {
         "message": "Ten en mente que usar períodos rápidos de actualización y dibujar múltiples gráficas al mismo tiempo consume muchos recursos y agotará tu batería más rápido si usas un portátil.<br />Te recomendamos dibujar sólo las gráficas de los sensores en los que estés interesado y usar tiempos de actualización razonables."

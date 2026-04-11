@@ -143,7 +143,7 @@
         "message": "接收机 (Receiver)"
     },
     "tabServos": {
-        "message": "舵机"
+        "message": "舵机 (Servos)"
     },
     "tabFailsafe": {
         "message": "故障保护 (Failsafe)"
@@ -158,7 +158,7 @@
         "message": "电源和电池"
     },
     "tabMotorTesting": {
-        "message": "电机测试"
+        "message": "电机 (Motors)"
     },
     "tabLedStrip": {
         "message": "LED灯带"
@@ -849,7 +849,7 @@
         "message": "磁强计衰落 [deg]"
     },
     "configurationReverseMotorSwitch": {
-        "message": "反转电机转向"
+        "message": "电机转向反转"
     },
     "configurationReverseMotorSwitchHelp": {
         "message": "此选项告知混控程序电机转向已经被反转且螺旋桨也对应安装。<strong>警告：</strong>此选项并不反转电机转向。要反转电机转向，请通过电调配置软件进行设置，或者交换电调 - 电机的线序。同时在尝试解锁前务必确认螺旋桨是按照上面示意图的转向安装的。"
@@ -891,7 +891,7 @@
         "message": "使用 Dshot 信标 （处于锁定状态时可以使用电机来发出蜂鸣声）"
     },
     "configurationDshotBeaconTone": {
-        "message": "信标音调"
+        "message": "DShot 提示音"
     },
     "configurationDshotBeaconHelp": {
         "message": "Dshot 信标使用电调和电机产生声音。这意味着当电机旋转时，Dshot 信标无法工作。在 Emuflight 3.4 和以后的版本，当在 Dshot 信标状态时尝试解锁操作，飞控会在最后一声信标音后延迟2秒再解锁。这是为了防止 Dshot 信标功能干扰在解锁时发送的 Dshot 命令。<br/><strong>警告：</strong> 由于 Dshot 信标会有电流通过，如果信标鸣叫强度设置得太高，可能会造成电机/电调过热甚至损毁。使用 BLHeli 配置程序或 BLHeli 套件来调整和测试信标的强度。"
@@ -1637,7 +1637,7 @@
         "message": "舵机支持要求固件版本大于1.10.0. 和飞控支持"
     },
     "servosChangeDirection": {
-        "message": "设置遥控器通道反向来匹配"
+        "message": "反转方向"
     },
     "servosName": {
         "message": "名字"
@@ -1652,13 +1652,13 @@
         "message": "大"
     },
     "servosDirectionAndRate": {
-        "message": "方向和rate"
+        "message": "方向和速率"
     },
     "servosLiveMode": {
         "message": "激活实时模式"
     },
     "servosButtonSave": {
-        "message": "保存"
+        "message": "保存舵机设置"
     },
     "servosEepromSave": {
         "message": "EEPROM <span class=\"message-positive\">已保存</span>"
@@ -1787,16 +1787,19 @@
         "message": "加速度计"
     },
     "motorsMaster": {
-        "message": "主控制"
+        "message": "总控制 (Master)"
     },
     "motorsNotice": {
         "message": "<strong> 电机测试模式/解除锁定提示：</strong> <br/> 移动滑块或用遥控器解锁飞机会导致电机 <strong> 旋转 </strong>！ <br/> 为了避免造成伤害，在使用此功能之前<strong class=\"message-negative\">卸下所有螺旋桨</strong>！ <br/> 启用电机测试模式还将暂时禁用[预防起飞失控]，以避免在工作台上无螺旋桨测试时自动锁定电机。 <br/>"
     },
     "motorsEnableControl": {
-        "message": "启用电机控制"
+        "message": "我了解相关风险并要求启用电机控制"
     },
     "motorConfigNotice": {
         "message": "电机配置提示"
+    },
+    "motorPoleCount": {
+        "message": "电机磁极数"
     },
     "sensorsInfo": {
         "message": "请注意，设置过高的图形刷新率会更会缩短尤其是笔记本电脑的电池使用时间<br />建议只打开你感兴趣的传感器的图形显示和合理的刷新率"

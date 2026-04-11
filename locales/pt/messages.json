@@ -142,6 +142,9 @@
     "tabReceiver": {
         "message": "Recetor"
     },
+    "tabServos": {
+        "message": "Servos"
+    },
     "tabTransponder": {
         "message": "Transponder de corridas"
     },
@@ -149,7 +152,7 @@
         "message": "Energia e Bateria"
     },
     "tabMotorTesting": {
-        "message": "Teste de Motores"
+        "message": "Motores"
     },
     "tabLedStrip": {
         "message": "Faixa LED"
@@ -810,7 +813,7 @@
         "message": "Declinação do Magnetômetro [deg]"
     },
     "configurationReverseMotorSwitch": {
-        "message": "Direção do motor é invertida"
+        "message": "Sentido de rotação do motor"
     },
     "configurationReverseMotorSwitchHelp": {
         "message": "Esta opção indica à controladora de voo que a rotação dos motores é invertida e que as hélices serão montadas de acordo com isso. <strong>Atenção:</strong> Esta opção não inverte o sentido do motor; Para isto, use a ferramenta de configuração de seu ESC ou altere a ordem dos cabos ESC-motor. Além disso, com as hélices removidas, certifique-se que os motores estão girando nas direções mostradas no diagrama acima antes de tentar armar."
@@ -852,7 +855,7 @@
         "message": "Usar o sinalizador do Dshot (usar os motores para emitir tons quando desarmado)"
     },
     "configurationDshotBeaconTone": {
-        "message": "Tom do sinalizador"
+        "message": "Tom do sinal sonoro DShot"
     },
     "configurationDshotBeaconHelp": {
         "message": "O sinalizador do Dshot usa os ESCs e motores para emitir som. Isso significa que o sinalizador do Dshot não pode ser usado enquanto os motores estiverem rodando. A partir do Emuflight 3.4, quando tentar armar com o sinalizador do Dshot ativo, haverá um atraso de 2 segundos para que a aeronave seja armada após um tom do sinalizador do Dshot. Isto evita que o sinalizador interfira com os comando Dshot enviados durante o processo de armar.<br/><strong>Atenção:</strong> O sinalizador do Dshot envia uma corrente elétrica para os motores quando ativo, isso pode gerar calor excessivo e danificar seus motores e/ou ESCs se a potência do sinalizador estiver muito alta. Use o configurador BLHeli ou o BLHeli Suite para ajustar e testar a potência do sinalizador."
@@ -1559,7 +1562,7 @@
         "message": "Servos requerem o firmware &gt;= 1.10.0. e suporte do destino."
     },
     "servosChangeDirection": {
-        "message": "Mude a direção no TX para que fique igual ao movimento do servo"
+        "message": "Alterar direção"
     },
     "servosName": {
         "message": "Nome"
@@ -1574,13 +1577,13 @@
         "message": "MÁXIMO"
     },
     "servosDirectionAndRate": {
-        "message": "Direção e taxa"
+        "message": "Direção e Taxa"
     },
     "servosLiveMode": {
         "message": "Habilitar modo ao vivo"
     },
     "servosButtonSave": {
-        "message": "Salvar"
+        "message": "Salvar Servos"
     },
     "servosEepromSave": {
         "message": "EEPROM <span class=\"message-positive\">salvo</span>"
@@ -1658,16 +1661,19 @@
         "message": "acelerômetro"
     },
     "motorsMaster": {
-        "message": "Mestre"
+        "message": "Mestre (Todos)"
     },
     "motorsNotice": {
         "message": "<strong>Aviso sobre o modo de Teste de Motor / Armar:</strong><br />Mover os sliders ou armar a sua aeronave com o transmissor irá fazer com que os motores <strong>girem</strong>.<br />Para evitar ferimentos, <strong class=\"message-negative\">remova TODAS as hélices</strong> antes de usar esta função.<br />Habilitar o modo de Teste de Motor também irá temporariamente desabilitar a Prevenção contra voo acidental, afim de evitar o desarme da aeronave enquanto estiver testando na sua bancada, sem as hélices.<br />"
     },
     "motorsEnableControl": {
-        "message": "Ativar controle do motor"
+        "message": "Entendo os riscos e desejo habilitar o controle dos motores"
     },
     "motorConfigNotice": {
         "message": "Nota de configuração do motor"
+    },
+    "motorPoleCount": {
+        "message": "Contagem de pólos do motor"
     },
     "sensorsInfo": {
         "message": "Tenha em mente que ao usar um período de atualização rápido e visualizar vários gráficos simultaneamente utiliza muitos recursos do computador e pode usar sua bateria rapidamente se estiver em um notebook. Recomendamos que somente exiba os gráficos dos sensores em que estiver interessado e que utilize períodos de atualização razoáveis."

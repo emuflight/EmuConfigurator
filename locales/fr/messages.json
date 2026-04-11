@@ -130,6 +130,9 @@
     "tabReceiver": {
         "message": "Récepteur"
     },
+    "tabServos": {
+        "message": "Servos"
+    },
     "tabTransponder": {
         "message": "Transpondeur de course"
     },
@@ -137,7 +140,7 @@
         "message": "Énergie et Batterie"
     },
     "tabMotorTesting": {
-        "message": "Test des moteurs"
+        "message": "Moteurs"
     },
     "tabLedStrip": {
         "message": "Bandeau LED"
@@ -786,7 +789,7 @@
         "message": "Inclinaison du magnétomètre [deg]"
     },
     "configurationReverseMotorSwitch": {
-        "message": "Sens de rotation inversé"
+        "message": "Sens de rotation du moteur"
     },
     "configurationReverseMotorSwitchHelp": {
         "message": "Cette option informe le contrôleur que le sens de rotation des moteurs et des hélices est inversé. <strong>Attention: </strong> l'option n'inverse pas le sens de rotation des moteurs. Pour cela il faut utiliser l'utilitaire de configuration des ESCs ou interchanger 2 des fils moteurs. Enfin, retirez les hélices et vérifiez que le sens de rotation des moteurs est conforme au schéma ci-dessus."
@@ -828,7 +831,7 @@
         "message": "Utiliser les beacons Dshot (utilise les moteurs pour biper quand désarmé)"
     },
     "configurationDshotBeaconTone": {
-        "message": "Beacon tonalité"
+        "message": "Tonalité du signal DShot"
     },
     "configurationDshotBeaconHelp": {
         "message": "Le beacon Dshot utilise les ESCs et les moteurs pour produire du son. Cela signifie que la balise Dshot ne peut pas être utilisée lorsque les moteurs tournent. Dans Emuflight 3.4 et plus récent, lors de l'armement alors que la balise Dshot est active, il y a un délai de 2 secondes après la dernière tonalité de la balise Dshot avant que le vaisseau ne soit armé. Ceci afin d'éviter que la fonctionnalité de la balise Dshot n'interfère avec les commandes Dshot envoyées lors de l'armement.<br/><strong>Warning:</strong> Puisque la balise Dshot fait passer le courant dans vos moteurs quand elle est active, cela peut entraîner une production de chaleur excessive et endommager vos moteurs et/ou ESCs si la puissance de la balise est trop élevée. Utilisez BLHeli Configurator ou BLHeli Suite pour ajuster et tester la tension de la balise."
@@ -1499,19 +1502,19 @@
         "message": "Utiliser les servos nécessite un microprogramme &gt;= 1.10.0. et une carte compatible."
     },
     "servosChangeDirection": {
-        "message": "Changer la direction dans la télécommande afin de correspondre"
+        "message": "Changer la direction"
     },
     "servosName": {
         "message": "Nom"
     },
     "servosDirectionAndRate": {
-        "message": "Direction et rate"
+        "message": "Direction et Taux"
     },
     "servosLiveMode": {
         "message": "Activer le mode direct"
     },
     "servosButtonSave": {
-        "message": "Sauvegarder"
+        "message": "Sauvegarder Servos"
     },
     "servosEepromSave": {
         "message": "EEPROM <span class=\"message-positive\">sauvegardée</span>"
@@ -1604,16 +1607,19 @@
         "message": "Réinitialiser le temps supplémentaire maximum"
     },
     "motorsMaster": {
-        "message": "Maître"
+        "message": "Maître (Tous)"
     },
     "motorsNotice": {
         "message": "<strong>Mode test moteurs / Attention armement:</strong><br />Bouger les curseurs ou armer l'appareil avec la télécommande fait <<strong>tourner les moteurs</strong>.<br />Afin d'éviter de graves blessures <strong class=\"message-negative\">retirer TOUTES les hélices</strong> avant d'activer cette fonction.<br />Le mode test moteurs désactive temporairement la prévention de décollage intempestif, afin d’empêcher le désarmement pendant les essais sans hélices.<br />"
     },
     "motorsEnableControl": {
-        "message": "Activer le contrôle moteur"
+        "message": "Je comprends les risques et souhaite activer le contrôle des moteurs"
     },
     "motorConfigNotice": {
         "message": "Note de configuration moteur"
+    },
+    "motorPoleCount": {
+        "message": "Nombre de pôles moteur"
     },
     "sensorsInfo": {
         "message": "Gardez à l'esprit que le rafraîchissement fréquent des données et la génération de plusieurs graphiques en même temps est exigeant en ressources et vide la batterie de votre ordinateur portable rapidement.<br /> Nous conseillons de ne générer les graphiques que pour les capteurs utiles avec des temps de rafraîchissements raisonnables."

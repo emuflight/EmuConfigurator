@@ -155,7 +155,7 @@
         "message": "전원 및 배터리"
     },
     "tabMotorTesting": {
-        "message": "모터 테스트"
+        "message": "모터"
     },
     "tabLedStrip": {
         "message": "LED 스트립"
@@ -837,7 +837,7 @@
         "message": "자력계 경사 [도]"
     },
     "configurationReverseMotorSwitch": {
-        "message": "모터 방향이 반대로 됩니다."
+        "message": "모터 회전 방향 반전"
     },
     "configurationReverseMotorSwitchHelp": {
         "message": "이 옵션은 모터 방향을 반대로 되게 믹서를 구성하며, 그에 따라 프로펠러가 장착되어야 합니다. <strong>경고:</strong> 이것은 모터 방향을 반대로 바꾸지는 않습니다. 당신의 ESC를 위한 컨피규레이터를 사용하거나 ESC를 변경 - 모터 배선 순서를 전환하여 이를 적용할 수 있습니다. 또한, 아밍을 시도하기 전에 당신의 모터가 위의 다이어그램에서 보여지는 방향으로 회전하는지 프로펠러를 제거한 상태로 반드시 확인하세요."
@@ -879,7 +879,7 @@
         "message": "Dshot 비콘 사용 (디스아밍되면 모터를 사용하여 신호음을 울림)"
     },
     "configurationDshotBeaconTone": {
-        "message": "비콘 톤"
+        "message": "DShot 비콘 톤"
     },
     "configurationDshotBeaconHelp": {
         "message": "Dshot 비콘은 ESC와 모터를 사용하여 소리를 재생합니다. 이는 모터가 회전 중일때는 Dshot 비콘을 사용할 수 없다는 것을 의미합니다. BF 3.4와 최신에서는 Dshot 비콘이 활성화 중일때 아밍을 시도하는 경우, 기체가 아밍되기 전에 마지막 Dshot 비콘 톤 이후 2초의 딜레이가 생깁니다. 이는 Dshot 비콘 기능이 아밍시 Dshot 명령이 보내지는 것을 방해하는 것을 막기 위함입니다.<br/><strong>경고:</strong>Dshot 비콘은 활성화할 경우 당신의 모터를 통해 작동되기 때문에 만약 비콘 강도가 매우 높게 설정되어 있다면, 당신의 모터나 ESC에 과열과 손상을 일으킬 수 있습니다. BLHeli 컨피규레이터나 BLheli Suite를 사용하여 비콘 강도를 조정하고 테스트하세요."
@@ -1643,7 +1643,7 @@
         "message": "서보는 펌웨어 &gt;= 1.10.0.와 타겟 지원이 필요합니다."
     },
     "servosChangeDirection": {
-        "message": "일치하는 TX의 방향 변경"
+        "message": "방향 반전"
     },
     "servosName": {
         "message": "이름"
@@ -1658,13 +1658,13 @@
         "message": "최대값"
     },
     "servosDirectionAndRate": {
-        "message": "방향 및 레이트"
+        "message": "방항 및 레이트"
     },
     "servosLiveMode": {
         "message": "실시간 모드 사용"
     },
     "servosButtonSave": {
-        "message": "저장"
+        "message": "서보 설정 저장"
     },
     "servosEepromSave": {
         "message": "EEPROM <span class=\"message-positive\">저장됨</span>"
@@ -1793,16 +1793,19 @@
         "message": "가속도계"
     },
     "motorsMaster": {
-        "message": "마스터"
+        "message": "마스터 (전체)"
     },
     "motorsNotice": {
         "message": "<strong>모터 테스트 모드 / 아밍 알림:</strong><br />슬라이더를 움직이거나 당신의 기체를 조종기와 아밍하면 모터의 <strong>회전을 유발합니다</strong>.<br />부상을 방지하기 위해 이 기능을 사용하기 전에 <strong class=\"message-negative\">모든 프로펠러를 제거</strong>하십시오.<br />또한 모터 테스트 모드를 활성화하면 프로펠러 없이 벤치 테스트를 할 때 기체를 디스아밍하는 것을 중단하기 위해 일시적으로 폭주 이륙 방지가 비활성됩니다.<br />"
     },
     "motorsEnableControl": {
-        "message": "모터 제어 활성화"
+        "message": "위험을 이해하였으며 모터 제어를 활성화하겠습니다"
     },
     "motorConfigNotice": {
         "message": "모터 설정 주의사항"
+    },
+    "motorPoleCount": {
+        "message": "모터 극수"
     },
     "sensorsInfo": {
         "message": "빠른 업데이트 주기를 사용하고 여러 개의 그래프를 동시에 렌더링하는 것은 리소스가 많이 소모되므로 노트북을 사용하는 경우 배터리가 빨리 소모된다는 점을 기억하십시오. <br /> 적절한 업데이트 주기를 사용하면서 관심있는 센서의 그래프만 렌더링하는 것이 좋습니다."

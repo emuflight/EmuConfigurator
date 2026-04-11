@@ -128,6 +128,9 @@
     "tabReceiver": {
         "message": "Empfänger"
     },
+    "tabServos": {
+        "message": "Servos"
+    },
     "tabTransponder": {
         "message": "Renntransponder"
     },
@@ -135,7 +138,7 @@
         "message": "Strom & Akku"
     },
     "tabMotorTesting": {
-        "message": "Motorentest"
+        "message": "Motoren"
     },
     "tabLedStrip": {
         "message": "LED-Streifen"
@@ -778,7 +781,7 @@
         "message": "Magnetkompass-Abweichung [Grad]"
     },
     "configurationReverseMotorSwitch": {
-        "message": "Drehrichtung der Motoren umkehren"
+        "message": "Motor-Drehrichtung"
     },
     "configurationReverseMotorSwitchHelp": {
         "message": "Diese Option weist den Mixer an, eine umgekehrte Motordrehrichtung zu erwarten. <strong>Warnung:</strong> Dies ändert nicht die reale Drehrichtung der Motoren. Das muss in der ESC-Konfiguration geändert oder die Motorverkabelung angepasst werden. Prüfe mit demontierten Propellern, ob die Motoren in die im Diagramm gezeigte Richtung drehen."
@@ -820,7 +823,7 @@
         "message": "Benutze Dshot Beacon (Motoren erzeugen Signalton wenn disarmed)"
     },
     "configurationDshotBeaconTone": {
-        "message": "Beacon Ton"
+        "message": "DShot-Beacon-Ton"
     },
     "configurationDshotBeaconHelp": {
         "message": "Dshot Beacons sind Töne die mittels ESC und Motor erzeugt werden. Das bedeutet, dass dies nicht genutzt werden kann, während die Motoren drehen. In Emuflight 3.4 und neuer wird deshalb 2 Sekunden nach dem letzen Ton gewartet, bevor tatsächlich gearmt wird, wenn das Arming-Kommando gegeben wurde. Dies verhindert eine Beeinflussung andere Dshot-Kommandos beim Arming durch die Tonerzeugung. <br/><strong>Warning:</strong> Da die Dshot-Kommandos Strom durch die Motoren schicken, kann das zu erheblicher Wärmeentwicklung führen, welche die Motoren und ESC's beschädigen kann, wenn die Beacon Lautstärke zu hoch eingestellt ist. Benutze den BLHeli Konfigurator oder die BLHeli Suite um die Lautstärke einzustellen und zu testen."
@@ -1491,7 +1494,7 @@
         "message": "Servos brauchen Firmware &gt;= 1.10.0 und Target Unterstützung"
     },
     "servosChangeDirection": {
-        "message": "Ändere die Richtung im Sender damit es übereinstimmt"
+        "message": "Richtung ändern"
     },
     "servosMid": {
         "message": "Mittel"
@@ -1509,7 +1512,7 @@
         "message": "Aktiviere Live Modus"
     },
     "servosButtonSave": {
-        "message": "Speichern"
+        "message": "Servos speichern"
     },
     "servosEepromSave": {
         "message": "EEPROM <span class=\"message-positive\">gespeichert</span>"
@@ -1583,14 +1586,20 @@
     "motorsSensorAccelSelect": {
         "message": "Accelerometer (accel)"
     },
+    "motorsMaster": {
+        "message": "Master (Alle)"
+    },
     "motorsNotice": {
         "message": "<strong>Motor Testmodus - Hinweis:</strong><br />Bewegen der Regler oder Arming des Fluggerätes über die Fernsteuerung wird die Motoren <strong>anlaufen</strong> lassen.<br />Um Verletzungen zu vermeiden <strong class=\"message-negative\"> bitte ALLE Propeller entfernen</strong>.<br />Der Testmodus wird auch den Abhebeschutz deakvieren, so dass sich das Gerät ohne Propeller nicht selbst abschaltet.<br />"
     },
     "motorsEnableControl": {
-        "message": "Motorsteuerung aktivieren"
+        "message": "Ich verstehe die Risiken und möchte die Motorsteuerung aktivieren"
     },
     "motorConfigNotice": {
         "message": "Hinweis zur Motorkonfiguration"
+    },
+    "motorPoleCount": {
+        "message": "Magnetpole des Motors"
     },
     "sensorsInfo": {
         "message": "Beachte, dass ein kurze Abtastperiode und das Darstellen mehrerer Graphen gleichzeitig resourcenhungrig ist und den Akkuverbrauch deines Notebooks steigert, wenn du eines benutzt.<br/>Wir empfehlen nur Graphen darzustellen, welche dich interessieren und mit sinnvollen Aktualisierungswerten."

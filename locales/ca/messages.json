@@ -121,6 +121,9 @@
     "tabReceiver": {
         "message": "Receptor"
     },
+    "tabServos": {
+        "message": "Servos"
+    },
     "tabTransponder": {
         "message": "Transponder de curses"
     },
@@ -128,7 +131,7 @@
         "message": "Energia i Bateria"
     },
     "tabMotorTesting": {
-        "message": "Prova de Motors"
+        "message": "Motors"
     },
     "tabLedStrip": {
         "message": "Tira LED"
@@ -654,7 +657,7 @@
         "message": "Declinació del magnetòmetre [graus]"
     },
     "configurationReverseMotorSwitch": {
-        "message": "La direcció dels motors és inversa"
+        "message": "Sentit de gir del motor"
     },
     "configurationAutoDisarmDelay": {
         "message": "Desarma els motors després de [segons] (Requereix de la característica de MOTOR_STOP)"
@@ -690,7 +693,7 @@
         "message": "Configuració de Beacon Dshot"
     },
     "configurationDshotBeaconTone": {
-        "message": "To de Beacon"
+        "message": "Tò del senyal acústic DShot"
     },
     "configurationBeeper": {
         "message": "Configuració del Beeper"
@@ -1182,19 +1185,19 @@
         "message": "Els servos requereixen un firmware &gt;=1.10.0 i suport de la controladora."
     },
     "servosChangeDirection": {
-        "message": "Canvia la direcció al TX per a coincidir"
+        "message": "Canvia la direcció"
     },
     "servosName": {
         "message": "Nom"
     },
     "servosDirectionAndRate": {
-        "message": "Direcció i rate"
+        "message": "Direcció i Taxa"
     },
     "servosLiveMode": {
         "message": "Habilita live mode"
     },
     "servosButtonSave": {
-        "message": "Desa"
+        "message": "Desa els Servos"
     },
     "servosEepromSave": {
         "message": "EEPROM <span class=\"message-positive\">desada</span>"
@@ -1253,14 +1256,20 @@
     "motorsResetMaximumButton": {
         "message": "Restableix valors màxims"
     },
+    "motorsMaster": {
+        "message": "Mestre (Tots)"
+    },
     "motorsNotice": {
         "message": "<strong>Mode test de Motors / Avís d'armat:</strong><br />Moure els sliders o armar l'aeronau amb l'emisor farà que els motors <strong>girin</strong>.<br />Per prevenir lesions <strong class=\"message-negative\">treu TOTES les pales</strong> abans de fer servir aquesta funció.<br />Habilitar el test de motors també deshabilitarà temporalment el Runaway Takeoff Prevention, per evitar que es desarmi quan s'està provant l'aeronau sense pales.<br />"
     },
     "motorsEnableControl": {
-        "message": "Habilitar el control del motor"
+        "message": "Entenc els riscos i vull habilitar el control dels motors"
     },
     "motorConfigNotice": {
         "message": "Nota de configuració del motor"
+    },
+    "motorPoleCount": {
+        "message": "Quantitat de pols del motor"
     },
     "sensorsInfo": {
         "message": "Tingues en compte que fent servir períodes d'actualització ràpids i renderitzant múltiples gràfics alhora pot gastar ràpidament la bateria del teu portàtil.<br />Et recomanem que només rederitzis gràfics dels sensors del teu interès en períodes raonables."

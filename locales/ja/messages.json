@@ -155,7 +155,7 @@
         "message": "電源とバッテリー"
     },
     "tabMotorTesting": {
-        "message": "モーターテスト"
+        "message": "モーター"
     },
     "tabLedStrip": {
         "message": "LED ストリップ"
@@ -831,7 +831,7 @@
         "message": "コンパス偏位 [deg]"
     },
     "configurationReverseMotorSwitch": {
-        "message": "モーター回転方向を逆転"
+        "message": "モーター回転方向反転"
     },
     "configurationReverseMotorSwitchHelp": {
         "message": "このオプションは、モーター回転方向の構成を逆転させプロペラを回すよう、ミキサー設定を行います。\n<strong>注意:</strong> これはモーターそのもののの回転方向を逆転させるわけでありません。ESC設定ツールを使用するか、ESCモーターの配線順序を切り替えて構成変更して下さい。また、プロペラを用いモーターが上図に示す方向に回転していることを確認してから、アームを解除して下さい。"
@@ -873,7 +873,7 @@
         "message": "Dshotビーコンを使用 (ディスアーム時にモーターを使ってビープ音を鳴らす)"
     },
     "configurationDshotBeaconTone": {
-        "message": "ビーコントーン"
+        "message": "DShot ビーコントーン"
     },
     "configurationDshotBeaconHelp": {
         "message": "Dshotビーコンは、ESCおよびモーターを使用してビーコン音を生成します。これは同時に、モーターが回転しているときにDshotビーコンを使用できないことを意味します。 Emuflight 3.4以降では、Dshotビーコンが有効な状態である時にアーミングを試みると、機体がアームされる前、最後に鳴らしたDshotビーコントーンの後に2秒の遅延が起こります。これはDshotビーコン機能が、アーミング中に送信されたDshotコマンドを妨害しないようにするためです。\n<br/><strong>注:</strong> Dshotビーコンは、有効な状態のときにモーターへ電流を流しているため、ビーコン強度が強すぎると過剰な熱の発生やモーター、ESCの損傷を招く場合があります。ビーコン強度を調整してテストするには、BLHeli ConfiguratorまたはBLHeli Suiteを使用して下さい。"
@@ -1601,7 +1601,7 @@
         "message": "サーボはファームウェア &gt;= 1.10.0. が必要でありサポート対象です。"
     },
     "servosChangeDirection": {
-        "message": "一致する送信機のサーボ有効範囲の変更"
+        "message": "方向を反転"
     },
     "servosName": {
         "message": "サーボ"
@@ -1616,13 +1616,13 @@
         "message": "最大"
     },
     "servosDirectionAndRate": {
-        "message": "レート"
+        "message": "方向とレート"
     },
     "servosLiveMode": {
         "message": "Liveモード有効"
     },
     "servosButtonSave": {
-        "message": "保存"
+        "message": "サーボ設定を保存"
     },
     "servosEepromSave": {
         "message": "EEPROM <span class=\"message-positive\">保存しました</span>"
@@ -1750,14 +1750,20 @@
     "motorsSensorAccelSelect": {
         "message": "加速度センサー"
     },
+    "motorsMaster": {
+        "message": "マスター (一括)"
+    },
     "motorsNotice": {
         "message": "<strong>モーターテストモード / アーミングでの注意:</strong><br />スライダーを動かすか、又は送信機から機体をアームした場合、モーターが<strong>回転</strong>します。<br />事故防止のために、この機能を使用する前に<strong class=\"message-negative\">全てのプロペラ</strong>を取り外して下さい。<br />モーターテストモードを有効にする事により一時的に暴走離陸防止機能が無効になります。これはプロペラを外した状態でベンチテストする際に機体がディスアームするのを防止するためです。<br />"
     },
     "motorsEnableControl": {
-        "message": "モーター制御を有効にする"
+        "message": "リスクを理解した上でモーター出力を有効にします"
     },
     "motorConfigNotice": {
         "message": "モーター設定の注意"
+    },
+    "motorPoleCount": {
+        "message": "モーターの磁極数"
     },
     "sensorsInfo": {
         "message": "更新周期を速く設定し、複数のグラフを同時にレンダリングすると、リソースが重くなりノートPC等を使用するとバッテリーを早く消費してしまう場合があるので注意して下さい。<br/>必要とするセンサーのグラフを、適正な更新周期でレンダリングすることをお勧めします。"

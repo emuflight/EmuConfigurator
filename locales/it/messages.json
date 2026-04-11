@@ -146,7 +146,7 @@
         "message": "Energia e Batteria"
     },
     "tabMotorTesting": {
-        "message": "Test Motori"
+        "message": "Motori"
     },
     "tabLedStrip": {
         "message": "Striscia LED"
@@ -726,7 +726,7 @@
         "message": "Declinazione Magnetometro [gradi]"
     },
     "configurationReverseMotorSwitch": {
-        "message": "I motori girano al contrario"
+        "message": "Direzione rotazione motori"
     },
     "configurationReverseMotorSwitchHelp": {
         "message": "Questa opzione configura il mixer per aspettarsi la rotazione inversa dei motori e delle eliche. <strong>Attenzione:</strong> Ciò non inverte la direzione dei motori. Utilizza lo strumento di configurazione dei tuoi ESCs o cambia l'ordine dei cavi fra motore e ESC per ottenere questo obiettivo. Inoltre, assicurati di controllare con le eliche smontate che i motori girino nelle direzioni indicate nel diagramma qui sopra prima di armare."
@@ -768,7 +768,7 @@
         "message": "Usa beacon Dshot (usa i motori per riprodurre i beep quando disarmati)"
     },
     "configurationDshotBeaconTone": {
-        "message": "Tono Beacon"
+        "message": "Tono segnale acustico DShot"
     },
     "configurationDshotBeaconHelp": {
         "message": "Il beacon Dshot utilizza i regolatori e i motori per produrre il suono. Ciò significa che il beacon Dshot non può essere utilizzato quando i motori girano. In Emuflight 3.4 e successivi, quando si prova ad armare mentre il BEACON Dshot è attivo, si ha un ritardo di 2 secondi dopo l'ultimo beacon prima che il modello sia armato. Questo per impedire che la funzionalità di beacon interferisca con i comandi Dshot inviati quando si arma.<br/><strong>Attenzione:</strong> poiché il beacon Dshot porta corrente attraverso i motori quando è attivo, può provocare surriscaldamento e danni ai motori e / o ai regolatori se il volume del beacon è troppo alto. Utilizzare BLHeli Configurator o la Suite BLHeli per regolare e testare la potenza del beacon."
@@ -1436,7 +1436,7 @@
         "message": "I servi richiedono il firmware&gt; = 1.10.0. ed il supporto obiettivi."
     },
     "servosChangeDirection": {
-        "message": "Cambia direzione nella TX per abbinare"
+        "message": "Cambia direzione"
     },
     "servosName": {
         "message": "Nome"
@@ -1451,13 +1451,13 @@
         "message": "Massimo"
     },
     "servosDirectionAndRate": {
-        "message": "Direzione e velocità"
+        "message": "Direzione e Grado"
     },
     "servosLiveMode": {
         "message": "Abilita la modalità Live"
     },
     "servosButtonSave": {
-        "message": "Salva"
+        "message": "Salva Servi"
     },
     "servosEepromSave": {
         "message": "EEPROM <span class=\"message-positive\">salvata</span>"
@@ -1561,14 +1561,20 @@
     "motorsSensorAccelSelect": {
         "message": "Accel"
     },
+    "motorsMaster": {
+        "message": "Master (Tutti)"
+    },
     "motorsNotice": {
         "message": "<strong>Avviso Modalità Test Motore / Armamento motore:</strong> <br /> spostare i cursori o armare il modello con il radiocomando farà sì che i motori <strong>girino</strong>. <br /> al fine di evitare lesioni <strong class=\"message-negative\"> rimuovere tutte le eliche </strong> prima di utilizzare questa funzionalità. <br /> Attivare la modalità di prova del motore disattiverà temporaneamente anche la prevenzione decollo fuori controllo, per impedirgli di disarmare il modello quando si sta eseguendo dei test senza eliche. <br />"
     },
     "motorsEnableControl": {
-        "message": "Abilita controllo motore"
+        "message": "Comprendo i rischi e desidero abilitare il controllo dei motori"
     },
     "motorConfigNotice": {
         "message": "Nota configurazione motori"
+    },
+    "motorPoleCount": {
+        "message": "Numero di poli del motore"
     },
     "sensorsInfo": {
         "message": "Tieni in considerazione che usando una frequenza di aggiornamento veloce e renderizzando molti grafici allo stesso momento userai molte risorse e consumerai più velocemente la batteria se stai usando un computer portatile.<br />Raccomandiamo di renderizzare solo i grafici dei sensori che ti interessano e di usare una frequenza di aggiornamento appropriata."
