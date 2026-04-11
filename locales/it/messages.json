@@ -956,7 +956,7 @@
         "message": "Soglia Anti Gravità"
     },
     "pidTuningAntiGravityHelp": {
-        "message": "Aumenta temporaneamente l\"I-Term durante i rapidi cambi di Throttle per migliorare la stabilità del drone."
+        "message": "Aumenta temporaneamente l\"I-Term durante i rapidi cambi di Throttle per migliorare la stabilità del velivolo."
     },
     "pidTuningPidSettings": {
         "message": "Impostazioni del controller PID"

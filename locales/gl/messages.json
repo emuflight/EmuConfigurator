@@ -435,7 +435,7 @@
         "message": "Calibrar Magnetómetro"
     },
     "initialSetupCalibrateMagText": {
-        "message": "Mova o multirotor <strong>360</strong> graos no eixo de rotacion, dispón de 30 segundos para esta tarefa"
+        "message": "Mova o aparello <strong>360</strong> graos no eixo de rotacion, dispón de 30 segundos para esta tarefa"
     },
     "initialSetupButtonCalibratingText": {
         "message": "Calibrando..."
@@ -2292,7 +2292,7 @@
         "message": "Rotación Término I"
     },
     "pidTuningItermRotationHelp": {
-        "message": "Xira correctamente o vector Termo I actual a outros eixes mentres o quad xira ao xirarse continuamente durante os rolls e ao realizar embudos e outros trucos. Moi apreciado polos pilotos LOS acro."
+        "message": "Xira correctamente o vector Termo I actual a outros eixes mentres o aparello xira ao xirarse continuamente durante os rolls e ao realizar embudos e outros trucos. Moi apreciado polos pilotos LOS acro."
     },
     "pidTuningSmartFeedforwardHelp": {
         "message": "Reduce o efecto do termo F no PID. Cando tanto o termo P como o termo F están activos no mesmo momento, só usa o maior dos dous, evitando pasarse sen necesidade de levantar D, pero tamén reduce o efecto de reacción producido polo termo F cando se engade a P."
@@ -2322,7 +2322,7 @@
         "message": "Control Absoluto"
     },
     "pidTuningAbsoluteControlGainHelp": {
-        "message": "Esta característica resolve algúns problemas subxacentes de $t(pidTuningItermRotation.message) e debería substituílo por algún outro punto. Este recurso acumula o erro xiratorio absoluto nas coordenadas quad e mestura unha corrección proporcional no punto de consigna. Para que funcione, ten que activar AirMode e $t(pidTuningItermRelax.message) (for $t(pidTuningItermRelaxAxesOptionRP.message)). Se combina esta función con $t(pidTuningIntegratedYaw.message), pode configurar $t(pidTuningItermRelax.message) activado para $t(pidTuningItermRelaxAxesOptionRPY.message)."
+        "message": "Esta característica resolve algúns problemas subxacentes de $t(pidTuningItermRotation.message) e debería substituílo por algún outro punto. Este recurso acumula o erro xiratorio absoluto nas coordenadas do aparello e mestura unha corrección proporcional no punto de consigna. Para que funcione, ten que activar AirMode e $t(pidTuningItermRelax.message) (for $t(pidTuningItermRelaxAxesOptionRP.message)). Se combina esta función con $t(pidTuningIntegratedYaw.message), pode configurar $t(pidTuningItermRelax.message) activado para $t(pidTuningItermRelaxAxesOptionRPY.message)."
     },
     "pidTuningThrottleBoost": {
         "message": "Potenciar do Acelerador"
@@ -3150,10 +3150,10 @@
         "message": "<b>Derivativo dende Erro</b> proporciona una respuesta más directa do stick e prefírese para Carreiras.<br><br><b>Derivativo dende Medida</b> proporciona unha resposta do stick máis suave o cal é máis útil para freestyle"
     },
     "pidTuningPidControllerTip": {
-        "message": "<b>Tradicional vs Emuflight (planear):</b> A escala e a lóxica do PID son exactamente as mesmas. Non se necesita reaxustar. Tradicional é o antiguo betaflight evolucionado e reescrito, que é o controlador PID básico basado en matemáticas integradas. O controlador PID de Emuflight usa matemáticas en punto flotante e ten moitas novas funcionalidades especialmente diseñadas para aplicacións multirotor<br><b>Flotante vs Enteiro:</b> A escala e a lóxica do PID son exactamente as mesmas. No se necesita reaxustar. As placas F1 non teñen FPU integrada e o cálculo en punto flotante incrementa a carga de CPU e a matemática integral melloraría o rendimento, pero a matemática en punto flotante pode dar algo máis de precisión."
+        "message": "<b>Tradicional vs Emuflight (planear):</b> A escala e a lóxica do PID son exactamente as mesmas. Non se necesita reaxustar. Tradicional é o antiguo betaflight evolucionado e reescrito, que é o controlador PID básico basado en matemáticas integradas. O controlador PID de Emuflight usa matemáticas en punto flotante e ten moitas novas funcionalidades especialmente diseñadas para aplicacións de aparello<br><b>Flotante vs Enteiro:</b> A escala e a lóxica do PID son exactamente as mesmas. No se necesita reaxustar. As placas F1 non teñen FPU integrada e o cálculo en punto flotante incrementa a carga de CPU e a matemática integral melloraría o rendimento, pero a matemática en punto flotante pode dar algo máis de precisión."
     },
     "pidTuningPidTuningTipFeedforward": {
-        "message": "<b>Proporcional:</b> Notará unha forte resistencia a calquer intento de mover o MultiRotor<br><b>Integral:</b> Incrementa a habilidade de manter a posición inicial xeral e reduce a derivada, pero tamén incrementa o retraso para volver a posición inicial.<br><b>Derivativo:</b> Mellora a velocidade a que se recuperan as desviacións, pero incrementa o ruido<br><b>Prealimentación:</b> Normalmente o controlador PID reacciona ó erro. A Prealimentación anticipa o error basándose na entrada dos mandos, mellorando o tempo de resposta do quad.<br><b>Tasas e Expo</b>: Determina as sensacións cós sticks basadas nestos parámetros. Use o gráfico e o modelo 3D en vivo para encontrar os seus axustes de tasas favoritos"
+        "message": "<b>Proporcional:</b> Notará unha forte resistencia a calquer intento de mover o aparello<br><b>Integral:</b> Incrementa a habilidade de manter a posición inicial xeral e reduce a derivada, pero tamén incrementa o retraso para volver a posición inicial.<br><b>Derivativo:</b> Mellora a velocidade a que se recuperan as desviacións, pero incrementa o ruido<br><b>Prealimentación:</b> Normalmente o controlador PID reacciona ó erro. A Prealimentación anticipa o error basándose na entrada dos mandos, mellorando o tempo de resposta do aparello.<br><b>Tasas e Expo</b>: Determina as sensacións cós sticks basadas nestos parámetros. Use o gráfico e o modelo 3D en vivo para encontrar os seus axustes de tasas favoritos"
     },
     "pidTuningRatesTip": {
         "message": "Xogue cos rates e vexa como afectan á curva do stick"

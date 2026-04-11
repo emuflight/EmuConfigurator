@@ -402,7 +402,7 @@
         "message": "Kalibrasi Magnetometer"
     },
     "initialSetupCalibrateMagText": {
-        "message": "Putar multirotor minimal <strong>360</strong> derajat pada semua sumbu rotasi, anda memiliki 30 detik untuk proses kalibrasi ini"
+        "message": "Putar pesawat minimal <strong>360</strong> derajat pada semua sumbu rotasi, anda memiliki 30 detik untuk proses kalibrasi ini"
     },
     "initialSetupButtonCalibratingText": {
         "message": "Mengkalibrasi..."
@@ -2012,7 +2012,7 @@
         "message": "Rotasi I Term"
     },
     "pidTuningItermRotationHelp": {
-        "message": "Memutar vektor I Term agar sesuai dengan sumbu lainnya ketika quad berputar dalam sumbu yaw secara kontinu, selama roll, dan ketika melakukan funnel atau trik lainnya. Sangat berguna bagi pilot acro LOS."
+        "message": "Memutar vektor I Term agar sesuai dengan sumbu lainnya ketika pesawat berputar dalam sumbu yaw secara kontinu, selama roll, dan ketika melakukan funnel atau trik lainnya. Sangat berguna bagi pilot acro LOS."
     },
     "pidTuningSmartFeedforwardHelp": {
         "message": "Mengurang efek F Term dari PID. Jika P Term dan F Term aktif bersamaan, hanya salah satu nilai terbesar yang akan digunakan, untuk menghindari overshoots tanpa perlu meningkatkan nilai D, tapi juga akan mengurangi efek respon dari F term ketika ditambahkan ke P."
@@ -2771,10 +2771,10 @@
         "message": "<b>Derivatif dari Kesalahan</b> memberikan respons stik langsung dan lebih sering digunakan untuk Racing.<br><br><b>Derivatif dari Pengukuran</b> memberikan respon stik yang lebih halus dan lebih berguna terbang freestyle"
     },
     "pidTuningPidControllerTip": {
-        "message": "<b>Legacy vs Emuflight (float):</b> PID scaling dan logika PID sama persis. Belum tentu butuh retune. Legacy adalah versi lama betaflight yg telah ditulis ulang, yg merupakan kontroler PID sederhana menggunakan perhitungan dalam bilangan bulat. Kontroler PID Emuflight menggunakan perhitungan desimal yg lebih presisi dan memiliki banyak fitur baru yg dirancang khusus untuk aplikasi multirotor <br><b>Koma vs Tanpa Koma:</b> scaling PID dan logika PID sama persis. Tidak butuh retune. FC F1 tidak memiliki FPU onboard dan perhitungan dengan tingkat presisi dalam koma meningkatkan beban CPU, bilangan tanpa koma akan memperbaiki kinerjanya, tapi perhitungan dalam koma mungkin akan sedikit lebih presisi."
+        "message": "<b>Legacy vs Emuflight (float):</b> PID scaling dan logika PID sama persis. Belum tentu butuh retune. Legacy adalah versi lama betaflight yg telah ditulis ulang, yg merupakan kontroler PID sederhana menggunakan perhitungan dalam bilangan bulat. Kontroler PID Emuflight menggunakan perhitungan desimal yg lebih presisi dan memiliki banyak fitur baru yg dirancang khusus untuk aplikasi pesawat <br><b>Koma vs Tanpa Koma:</b> scaling PID dan logika PID sama persis. Tidak butuh retune. FC F1 tidak memiliki FPU onboard dan perhitungan dengan tingkat presisi dalam koma meningkatkan beban CPU, bilangan tanpa koma akan memperbaiki kinerjanya, tapi perhitungan dalam koma mungkin akan sedikit lebih presisi."
     },
     "pidTuningPidTuningTipFeedforward": {
-        "message": "<b>Proporsional:</b> Anda akan merasakan resistensi yang kuat saat mencoba memindahkan MutiRotor<br><b>Integral:</b> Meningkatkan kemampuan untuk mempertahankan posisi awal dan mengurangi drift, tetapi juga akan menambah waktu yang diperlukan untuk kembali ke posisi awal.<br><b>Derivatif:</b> Menambah kecepatan kembali ke posisi awal, tetapi meningkatkan noise<br><b>Feedforward:</b> Umumnya pengaturan PID bereaksi terhadap error. Feedforward mengoreksi error berdasarkan masukan dari stick, menghasilkan quad yang responsif.<br><b>Rate dan Expo</b>: Tentukan respon stick anda berdasarkan parameter-parameter ini. Gunakan grafik dan model 3D yang berfungsi untuk menemukan pengaturan favorit anda"
+        "message": "<b>Proporsional:</b> Anda akan merasakan resistensi yang kuat saat mencoba memindahkan pesawat<br><b>Integral:</b> Meningkatkan kemampuan untuk mempertahankan posisi awal dan mengurangi drift, tetapi juga akan menambah waktu yang diperlukan untuk kembali ke posisi awal.<br><b>Derivatif:</b> Menambah kecepatan kembali ke posisi awal, tetapi meningkatkan noise<br><b>Feedforward:</b> Umumnya pengaturan PID bereaksi terhadap error. Feedforward mengoreksi error berdasarkan masukan dari stick, menghasilkan pesawat yang responsif.<br><b>Rate dan Expo</b>: Tentukan respon stick anda berdasarkan parameter-parameter ini. Gunakan grafik dan model 3D yang berfungsi untuk menemukan pengaturan favorit anda"
     },
     "pidTuningRatesTip": {
         "message": "Bermain dengan rate dan lihat pengaruhnya pada kurva stik"

@@ -402,7 +402,7 @@
         "message": "Calibrer Magnétomètre"
     },
     "initialSetupCalibrateMagText": {
-        "message": "Faire tourner le multirotor à <strong>360° minimum</strong> sur les 3 axes, vous avez 30 secondes pour le faire."
+        "message": "Faire tourner l'appareil à <strong>360° minimum</strong> sur les 3 axes, vous avez 30 secondes pour le faire."
     },
     "initialSetupButtonCalibratingText": {
         "message": "Calibrage"
@@ -1016,7 +1016,7 @@
         "message": "Seuil Anti Gravity"
     },
     "pidTuningAntiGravityHelp": {
-        "message": "Augmente temporairement le I-Term lors de changements rapides de Throttle pour améliorer la stabilité du drone."
+        "message": "Augmente temporairement le I-Term lors de changements rapides de Throttle pour améliorer la stabilité de l'appareil."
     },
     "pidTuningPidSettings": {
         "message": "Réglages du Contrôleur PID"
@@ -2118,7 +2118,7 @@
         "message": "Prévention du saut du YAW"
     },
     "pidTuningYawJumpPreventionHelp": {
-        "message": "Empêche le drone d'avoir un rebond à la fin de l'ordre sur le YAW. Un nombre plus grand donne plus d'amortissement à la fin des mouvements de lacet (fonctionne comme le vieux Yaw D, qui n'était pas un vrai D comme sur un autre axe)"
+        "message": "Empêche l'appareil d'avoir un rebond à la fin de l'ordre sur le YAW. Un nombre plus grand donne plus d'amortissement à la fin des mouvements de lacet (fonctionne comme le vieux Yaw D, qui n'était pas un vrai D comme sur un autre axe)"
     },
     "pidTuningLevel": {
         "message": "Angle/Horizon"
@@ -2208,7 +2208,7 @@
         "message": "Augmente les PID quand la batterie se vide. Cela procure plus de linéarité dans le vol. La compensation est calculée à partir de la valeur $t(powerBatteryMaximum.message) renseignée dans la page $t(tabPower.message). Il faut s'assurer qu'une valeur cohérente soit renseignée."
     },
     "pidTuningItermRotationHelp": {
-        "message": "Transmet la valeur du vecteur I Term aux autres axes lorsque le quad tourne en yaw continuellement pendant des rolls et pendant des funnels ou autres figures. Très apprécié par les pilotes acro LOS."
+        "message": "Transmet la valeur du vecteur I Term aux autres axes lorsque l'appareil tourne en yaw continuellement pendant des rolls et pendant des funnels ou autres figures. Très apprécié par les pilotes acro LOS."
     },
     "pidTuningSmartFeedforwardHelp": {
         "message": "Réduits l'effet de F Term dans les PID. Lorsque P Term et F Term sont actifs en même temps, seule la plus grande valeur sera utilisée, limitant les excès de P et le besoin d'augmenter D, mais réduit la réactivité de F Term quand elle est ajoutée à P."
@@ -3102,7 +3102,7 @@
         "message": "<b>Derivative from Error</b>fourni un feeling plus direct et c'est le préféré pour la 'race'.<br><br><b>Derivative from Measurement</b> fourni plus de 'smooth' et c'est le préféré pour le freestyle"
     },
     "pidTuningPidTuningTipFeedforward": {
-        "message": "<b>Proportionnelle:</b> Vous sentirez une résistance forte lorsque vous tenterez de faire bouger le MultiRotor<br>\n<b>Intégrale:</b> Augmente la capacité à tenir la position initiale et réduit le dérapage, mais augmente aussi le délai pour revenir à la position initiale.<br>\n<b>Dérivée:</b> Améliore la vitesse à laquelle les écarts sont récupérés, mais augmente le bruit<br>\n<b>Feedforward:</b> Traditionnellement le contrôleur PID se base sur les erreurs. Feedforward anticipe les erreurs en se basant sur les entrées sticks, et rend le quad plus réactif.<br>\n<b>Rates et Expo:</b> Agit sur le ressenti et la réactivité des commandes en se basant sur ces paramètres. Utiliser le graphe et la vue du modèle en 3D pour trouver vos paramètres préférés"
+        "message": "<b>Proportionnelle:</b> Vous sentirez une résistance forte lorsque vous tenterez de faire bouger l'appareil<br>\n<b>Intégrale:</b> Augmente la capacité à tenir la position initiale et réduit le dérapage, mais augmente aussi le délai pour revenir à la position initiale.<br>\n<b>Dérivée:</b> Améliore la vitesse à laquelle les écarts sont récupérés, mais augmente le bruit<br>\n<b>Feedforward:</b> Traditionnellement le contrôleur PID se base sur les erreurs. Feedforward anticipe les erreurs en se basant sur les entrées sticks, et rend l'appareil plus réactif.<br>\n<b>Rates et Expo:</b> Agit sur le ressenti et la réactivité des commandes en se basant sur ces paramètres. Utiliser le graphe et la vue du modèle en 3D pour trouver vos paramètres préférés"
     },
     "pidTuningRatesTip": {
         "message": "Jouer avec les rates et voir comment ça affecte la courbe des commandes"

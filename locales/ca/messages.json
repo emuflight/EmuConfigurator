@@ -386,7 +386,7 @@
         "message": "Calibra Magnetòmetre"
     },
     "initialSetupCalibrateMagText": {
-        "message": "Mou el multirotor almenys <strong>360</strong> graus en tots els eixos de rotació, tens 30 segons per a fer aquests moviments"
+        "message": "Mou l'aeronau almenys <strong>360</strong> graus en tots els eixos de rotació, tens 30 segons per a fer aquests moviments"
     },
     "initialSetupButtonCalibratingText": {
         "message": "Calibrant..."
@@ -662,7 +662,7 @@
         "message": "Valor de l'accelerador Motor Inactiu [percentatge]."
     },
     "configurationDigitalIdlePercentHelp": {
-        "message": "Aquest és el valor \"inactiu\" en percentatge de l'acceleració màxima que s'envia als ESC quan el quad està armat i l'stick de gas es troba en una posició mínima. Augmenteu el valor de percentatge per obtenir més velocitat de ralentí."
+        "message": "Aquest és el valor \"inactiu\" en percentatge de l'acceleració màxima que s'envia als ESC quan l'aparell està armat i l'stick de gas es troba en una posició mínima. Augmenteu el valor de percentatge per obtenir més velocitat de ralentí."
     },
     "configurationThrottleMinimum": {
         "message": "Throttle mínim (Valor mínim dels ESC quan està armat)"
@@ -833,7 +833,7 @@
         "message": "Llindar Anti Gravity"
     },
     "pidTuningAntiGravityHelp": {
-        "message": "Augmenta temporalment el I-Term durant canvis ràpids en el Throttle per millorar l'estabilitat del drone."
+        "message": "Augmenta temporalment el I-Term durant canvis ràpids en el Throttle per millorar l'estabilitat de l'aparell."
     },
     "pidTuningPidSettings": {
         "message": "Ajustament del Controlador de PIDs"
@@ -1130,7 +1130,7 @@
         "message": "El firmware del teu controlador de vol no suporta la funcionalitat de transponder."
     },
     "transponderInformation": {
-        "message": "Els sistemes de transponders permeten als organitzadors de cursa cronometrar les teves voltes. El transponder s'intal·la al teu quad i, quan aquest passa per la porta on es troba el receptor, es registre el teu temps de volta. Quan instal·lis un transponder basat en IR, assegura't que aquest apunta cap a fora del quad dirigint-se al receptor i sense que el feix de llum sigui obtruït pel frame, cinta de la bateria, cables, hèlixs, etc."
+        "message": "Els sistemes de transponders permeten als organitzadors de cursa cronometrar les teves voltes. El transponder s'intal·la al teu aparell i, quan aquest passa per la porta on es troba el receptor, es registre el teu temps de volta. Quan instal·lis un transponder basat en IR, assegura't que aquest apunta cap a fora de l'aparell dirigint-se al receptor i sense que el feix de llum sigui obtruït pel frame, cinta de la bateria, cables, hèlixs, etc."
     },
     "transponderConfigurationType": {
         "message": "Tipus de transponder"
@@ -2422,7 +2422,7 @@
         "message": "<b>Derivativa de l'Error</b> et dona resposta més directa dels sticks i és preferible per curses.<br><br><b>Derivativa de la Mesura</b> et dona una resposta més suau i és preferible per freestyle"
     },
     "pidTuningPidControllerTip": {
-        "message": "<b>Legacy vs Emuflight (flotant):</b> L'escalat PID i la lògica PID són exactament iguals. No es necessari el re-escalat. Legacy és una vella versió reescrita evolutiva betaflight, que és un controlador de PID bàsic basat en matemàtiques integrals. El controlador PID de Emuflight utilitza matemàtiques de punt flotant i té moltes noves funcions dissenyades específicament per a aplicacions multirotor <br> <b> Float vs Integer: </b> L'escalat PID i la lògica PID són exactament iguals. No es necessari el re-escalat. Les FC F1 no tenen FPU a bord i la matemàtica del punt flotant augmenta la càrrega de la CPU i la matemàtica del sencer millorarà el rendiment, però la matemàtica flotant pot obtenir una mica més de precisió."
+        "message": "<b>Legacy vs Emuflight (flotant):</b> L'escalat PID i la lògica PID són exactament iguals. No es necessari el re-escalat. Legacy és una vella versió reescrita evolutiva betaflight, que és un controlador de PID bàsic basat en matemàtiques integrals. El controlador PID de Emuflight utilitza matemàtiques de punt flotant i té moltes noves funcions dissenyades específicament per a aeronaus <br> <b> Float vs Integer: </b> L'escalat PID i la lògica PID són exactament iguals. No es necessari el re-escalat. Les FC F1 no tenen FPU a bord i la matemàtica del punt flotant augmenta la càrrega de la CPU i la matemàtica del sencer millorarà el rendiment, però la matemàtica flotant pot obtenir una mica més de precisió."
     },
     "pidTuningRatesTip": {
         "message": "Juga amb els rates i mira com afecten a la corba del valor de l'stick"

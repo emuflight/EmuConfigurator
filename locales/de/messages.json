@@ -400,7 +400,7 @@
         "message": "Magnetometer (mag) kalibrieren"
     },
     "initialSetupCalibrateMagText": {
-        "message": "Multirotor mindestens <strong>360</strong> Grad um alle Achsen, innerhalb von 30 Sekunden, drehen."
+        "message": "Fluggerät mindestens <strong>360</strong> Grad um alle Achsen, innerhalb von 30 Sekunden, drehen."
     },
     "initialSetupButtonCalibratingText": {
         "message": "Kalibriere..."
@@ -787,13 +787,13 @@
         "message": "Motor Leerlauf Gas Wert [Prozent]"
     },
     "configurationDigitalIdlePercentHelp": {
-        "message": "Das ist der \"Leerlaufwert\" der an die Regler geschickt wird wenn der Quad gearmt ist und das Gas auf minimal Position ist. Wert erhöhen um einen schnelleren Leerlauf zu bekommen"
+        "message": "Das ist der \"Leerlaufwert\" der an die Regler geschickt wird wenn das Fluggerät gearmt ist und das Gas auf minimal Position ist. Wert erhöhen um einen schnelleren Leerlauf zu bekommen"
     },
     "configurationThrottleMinimum": {
         "message": "Minimum Gas (kleinster Wert für die Regler falls gearmt)"
     },
     "configurationThrottleMinimumHelp": {
-        "message": "Das ist der \"Leerlaufwert\" der an die Regler geschickt wird wenn der Quad gearmt ist und das Gas auf minimal Position ist. Wert erhöhen um einen schnelleren Leerlauf zu bekommen. Bei Regler Desync Problemen ebenfalls erhöhen"
+        "message": "Das ist der \"Leerlaufwert\" der an die Regler geschickt wird wenn das Fluggerät gearmt ist und das Gas auf minimal Position ist. Wert erhöhen um einen schnelleren Leerlauf zu bekommen. Bei Regler Desync Problemen ebenfalls erhöhen"
     },
     "configurationThrottleMaximum": {
         "message": "Maximum Gas (größter Wert für die Regler falls gearmt)"
@@ -2208,7 +2208,7 @@
         "message": "Absolute Kontrolle"
     },
     "pidTuningAbsoluteControlGainHelp": {
-        "message": "Diese Funktion löst einige grundlegende Probleme von $t(pidTuningItermRotation.message) und sollte sie irgendwann ersetzen. Diese Funktion sammelt den absoluten Gyro-Fehler in Quad Koordinaten und mischt eine proportionale Korrektur in den Sollwert. Dafür müssen AirMode und $t(pidTuningItermRelax.message) (für $t(pidTuningItermRelaxAxesOptionRP.message)) aktiviert sein. Wenn Sie diese Funktion mit $t(pidTuningIntegratedYaw.message) kombinieren, aktivieren Sie $t(pidTuningItermRelax.message) für $t(pidTuningItermRelaxAxesOptionRPY.message)."
+        "message": "Diese Funktion löst einige grundlegende Probleme von $t(pidTuningItermRotation.message) und sollte sie irgendwann ersetzen. Diese Funktion sammelt den absoluten Gyro-Fehler in Fluggerät-Koordinaten und mischt eine proportionale Korrektur in den Sollwert. Dafür müssen AirMode und $t(pidTuningItermRelax.message) (für $t(pidTuningItermRelaxAxesOptionRP.message)) aktiviert sein. Wenn Sie diese Funktion mit $t(pidTuningIntegratedYaw.message) kombinieren, aktivieren Sie $t(pidTuningItermRelax.message) für $t(pidTuningItermRelaxAxesOptionRPY.message)."
     },
     "pidTuningThrottleBoost": {
         "message": "Beschleunigungsschub"
@@ -2226,7 +2226,7 @@
         "message": "Abweichender Winkel (Grad) in dem das Board anders eingebaut wurde als vorgesehen (über Kopf, gedreht, usw.) Falls externe Sensoren (Gyro, Acc, Mag) verwendet werden, bitte diese ebenfalls neu anlernen."
     },
     "failsafeFeaturesHelpNew": {
-        "message": "Es gibt ein zweistufiges Failsafe System. <strong>Stufe 1</strong> tritt dann ein, wenn die Impluslänge des Empfängers nicht stimmt, der Empfänger einen Failsafe übermittelt oder kein Signal mehr empfangen wird. Die Kanal Rückfalleinstellungen werden dann <span class=\"message-negative\">für alle</span> Kanäle gesetzt und ein kurzes Zeitfenster wird geöffnet um eine erneute Verbindung zu ermöglichen. <strong>Stufe 2</strong> tritt dann ein, wenn das Signal für eine längere Zeit weg ist während der Quad / Flieger <span class=\"message-negative\">gearmt</span> ist. Alle Känale werden mit den hier gesetzten Einstellungen überschrieben.<br /><strong>Hinweis:</strong> Im Gegensatz zu Stage 1 werden hier auch Werte für Kanäle überschrieben die ungültige Daten empfangen."
+        "message": "Es gibt ein zweistufiges Failsafe System. <strong>Stufe 1</strong> tritt dann ein, wenn die Impluslänge des Empfängers nicht stimmt, der Empfänger einen Failsafe übermittelt oder kein Signal mehr empfangen wird. Die Kanal Rückfalleinstellungen werden dann <span class=\"message-negative\">für alle</span> Kanäle gesetzt und ein kurzes Zeitfenster wird geöffnet um eine erneute Verbindung zu ermöglichen. <strong>Stufe 2</strong> tritt dann ein, wenn das Signal für eine längere Zeit weg ist während das Fluggerät <span class=\"message-negative\">gearmt</span> ist. Alle Känale werden mit den hier gesetzten Einstellungen überschrieben.<br /><strong>Hinweis:</strong> Im Gegensatz zu Stage 1 werden hier auch Werte für Kanäle überschrieben die ungültige Daten empfangen."
     },
     "failsafePulsrangeTitle": {
         "message": "Einstellungen für gültige Pulslängen des Signals"
@@ -3020,7 +3020,7 @@
         "message": "<b>Legacy vs Emuflight (float):</b> PID Skalierung und PID Logik sind exakt gleich. Nicht notwendigerweise Neueinstellen notwendig. Legacy is das alte in Emuflight gewachsene rewrite, ein einfacher Integer-Arithmetik basierter Regler. Der Emuflight PID Regler nutzt Fleißkomma Arithmetik und hat viele neue Funktionen speziell für Multi-Rotor Anwendungen entwickelt.  <br> <b>Float vs Integer:</b> PID Skalierung und PID Logik sind exakt gleich. Kein Neueinstellen notwendig. F1 Boards haben keine FPU an Bord, somit belasten Fließkomma-Berechnungen die CPU Auslastung, und Integer Berechnungen verbessern die Performance. Jedoch liefert Fließkommaarithmetik die etwas höhere Genuigkeit."
     },
     "pidTuningPidTuningTipFeedforward": {
-        "message": "<b>Proportional:</b> Bewirkt eine sehr starke Widerstandskraft gegen Versuchen den Multirotor zu bewegen.<br><b>Integral:</b> Verbessert die Fähigkeit die Position zu halten und den Drift zu reduzieren, aber erhöht auch die Verzögerung, um zur ursprünglichen Position zurück zu kehren.<br><b>Derivative:</b> Verbessert die Geschwindigkeit, mit der Abweichungen korrigiert werden, aber erhöht Störungen<br><b>Rates und Expo</b>: Bestimme dein Stick Gefühl mit diesen Parametern. Nutze die Grafik und das animierte 3D Modell, um Deine bevorzugte Einstellung zu finden"
+        "message": "<b>Proportional:</b> Bewirkt eine sehr starke Widerstandskraft gegen Versuchen das Fluggerät zu bewegen.<br><b>Integral:</b> Verbessert die Fähigkeit die Position zu halten und den Drift zu reduzieren, aber erhöht auch die Verzögerung, um zur ursprünglichen Position zurück zu kehren.<br><b>Derivative:</b> Verbessert die Geschwindigkeit, mit der Abweichungen korrigiert werden, aber erhöht Störungen<br><b>Rates und Expo</b>: Bestimme dein Stick Gefühl mit diesen Parametern. Nutze die Grafik und das animierte 3D Modell, um Deine bevorzugte Einstellung zu finden"
     },
     "pidTuningRatesTip": {
         "message": "Verändere die Raten und schau, wie sie sich auf die Steuerkurve auswirken"
