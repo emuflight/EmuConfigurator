@@ -3558,5 +3558,8 @@
     },
     "vtxButtonSave": {
         "message": "保存 VTX 设置"
+    },
+    "userLanguageSelect": {
+        "message": "选择语言"
     }
 }
