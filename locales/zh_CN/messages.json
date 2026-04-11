@@ -6,7 +6,7 @@
         "message": "错误"
     },
     "warningTitle": {
-        "message": "警告"
+        "message": "警告 (Warning)"
     },
     "noticeTitle": {
         "message": "提示"
