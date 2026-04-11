@@ -1,6 +1,6 @@
 {
     "error": {
-        "message": "错误: {{errorMessage}}"
+        "message": "发生错误"
     },
     "errorTitle": {
         "message": "错误"
@@ -24,7 +24,7 @@
         "message": "连接"
     },
     "connecting": {
-        "message": "连接中..."
+        "message": "正在连接..."
     },
     "disconnect": {
         "message": "断开连接"

@@ -1,4 +1,7 @@
 {
+    "error": {
+        "message": "Error"
+    },
     "warningTitle": {
         "message": "Advertencia"
     },

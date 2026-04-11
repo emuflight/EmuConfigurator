@@ -4,7 +4,7 @@
         "description": "Title of the application window, usually not translated"
     },
     "error": {
-        "message": "Fehler: {{errorMessage}}"
+        "message": "Fehler"
     },
     "errorTitle": {
         "message": "Fehler"
@@ -28,7 +28,7 @@
         "message": "Verbinden"
     },
     "connecting": {
-        "message": "Verbinde..."
+        "message": "Verbindung wird hergestellt..."
     },
     "disconnect": {
         "message": "Trennen"
