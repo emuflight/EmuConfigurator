@@ -59,9 +59,6 @@
     "rememberLastTab": {
         "message": "Ponovno otvori posljednju karticu pri spajanju"
     },
-    "analyticsOptOut": {
-        "message": "Isključi anonimno prikupljanje statističkih podataka"
-    },
     "userLanguageSelect": {
         "message": "Jezik (potrebno je ponovno pokrenuti aplikaciju kako biste vidjeli promjene)"
     },
@@ -112,7 +109,7 @@
         "description": "Text of the image in the top sensors icons. Please keep it short."
     },
     "sensorStatusSonar": {
-        "message": "Sonar \/ Daljinomjer"
+        "message": "Sonar / Daljinomjer"
     },
     "sensorStatusSonarShort": {
         "message": "Sonar",
@@ -122,16 +119,16 @@
         "message": "Prikaži obavijesti o ažuriranjima za nestabilne verzije konfiguratora"
     },
     "configuratorUpdateNotice": {
-        "message": "Koristite zastarjelu verziju <b>Emuflight konfiguratora<\/b>.<br>Verzija <b>$1<\/b> je dostupna online, molimo posjetite <a href=\"$2\" target=\"_blank\">stranicu<\/a> da biste preuzeli i instalirali najnoviju verziju.<br>Molimo zatvorite konfigurator prije ažuriranja."
+        "message": "Koristite zastarjelu verziju <b>Emuflight konfiguratora</b>.<br>Verzija <b>$1</b> je dostupna online, molimo posjetite <a href=\"$2\" target=\"_blank\">stranicu</a> da biste preuzeli i instalirali najnoviju verziju.<br>Molimo zatvorite konfigurator prije ažuriranja."
     },
     "configuratorUpdateWebsite": {
         "message": "Idi na stranicu s izdanjima"
     },
     "deviceRebooting": {
-        "message": "Uređaj - <span class=\"message-negative\">Ponovno pokretanje<\/span>"
+        "message": "Uređaj - <span class=\"message-negative\">Ponovno pokretanje</span>"
     },
     "deviceReady": {
-        "message": "Uređaj - <span class=\"message-positive\">Spreman<\/span>"
+        "message": "Uređaj - <span class=\"message-positive\">Spreman</span>"
     },
     "backupFileIncompatible": {
         "message": "Ova backup datoteka je generirana za prijašnju verziju i nije kompatibilna s ovom verzijom konfiguratora"
@@ -174,9 +171,6 @@
     },
     "tabReceiver": {
         "message": "Prijemnik"
-    },
-    "tabModeSelection": {
-        "message": "Odabir načina rada"
     },
     "tabServos": {
         "message": "Servo motori"
@@ -227,34 +221,34 @@
         "message": "Prikaži zapisnik"
     },
     "serialPortOpened": {
-        "message": "Serijski port <span class=\"message-positive\">uspješno<\/span> otvoren s ID: $1"
+        "message": "Serijski port <span class=\"message-positive\">uspješno</span> otvoren s ID: $1"
     },
     "serialPortOpenFail": {
-        "message": "<span class=\"message-negative\">Neuspješno<\/span> otvaranje serijskog porta"
+        "message": "<span class=\"message-negative\">Neuspješno</span> otvaranje serijskog porta"
     },
     "serialPortClosedOk": {
-        "message": "Serijski port <span class=\"message-positive\">uspješno<\/span> zatvoren"
+        "message": "Serijski port <span class=\"message-positive\">uspješno</span> zatvoren"
     },
     "serialPortClosedFail": {
-        "message": "<span class=\"message-negative\">Neuspješno<\/span> zatvaranje serijskog porta"
+        "message": "<span class=\"message-negative\">Neuspješno</span> zatvaranje serijskog porta"
     },
     "serialUnrecoverable": {
-        "message": "Nepopravljiva <span class=\"message-negative\">pogreška<\/span> serijske veze, odspajanje..."
+        "message": "Nepopravljiva <span class=\"message-negative\">pogreška</span> serijske veze, odspajanje..."
     },
     "usbDeviceOpened": {
-        "message": "USB uređaj<span class=\"message-positive\">uspješno<\/span> otvoren s ID: $1"
+        "message": "USB uređaj<span class=\"message-positive\">uspješno</span> otvoren s ID: $1"
     },
     "usbDeviceOpenFail": {
-        "message": "<span class=\"message-negative\">Pogreška<\/span> otvaranja USB uređaja!"
+        "message": "<span class=\"message-negative\">Pogreška</span> otvaranja USB uređaja!"
     },
     "usbDeviceClosed": {
-        "message": "USB uređaj<span class=\"message-positive\">uspješno<\/span> zatvoren"
+        "message": "USB uređaj<span class=\"message-positive\">uspješno</span> zatvoren"
     },
     "usbDeviceCloseFail": {
-        "message": "<span class=\"message-negative\">Neuspješno<\/span> zatvaranje USB uređaja"
+        "message": "<span class=\"message-negative\">Neuspješno</span> zatvaranje USB uređaja"
     },
     "usbDeviceUdevNotice": {
-        "message": "Jesu li<strong>udev pravila<\/strong> instalirana ispravno? Pogledajte dokumentaciju"
+        "message": "Jesu li<strong>udev pravila</strong> instalirana ispravno? Pogledajte dokumentaciju"
     },
     "stm32UsbDfuNotFound": {
         "message": "USB DFU nije pronađen"
@@ -314,7 +308,7 @@
         "message": "Zaštita čitanja nije aktivna"
     },
     "stm32ReadProtected": {
-        "message": "Ploča ima zaštitu čitanja. Otključavanje. Nemojte prekidati\/isključivati!"
+        "message": "Ploča ima zaštitu čitanja. Otključavanje. Nemojte prekidati/isključivati!"
     },
     "stm32UnprotectSuccessful": {
         "message": "Otključavanja uspješno."
@@ -329,26 +323,26 @@
         "message": "Neuspjelo pokretanje otključavanja"
     },
     "noConfigurationReceived": {
-        "message": "Nema komunikacije u posljednjih <span class=\"message-negative\">10 sekundi<\/span>, komunikacija<span class=\"message-negative\">neuspješna<\/span>"
+        "message": "Nema komunikacije u posljednjih <span class=\"message-negative\">10 sekundi</span>, komunikacija<span class=\"message-negative\">neuspješna</span>"
     },
     "firmwareVersionNotSupported": {
-        "message": "Ova verzija firmwarea <span class=\"message-negative\">nije podržana<\/span>. Molimo ažurirajte firmware na onaj koji podržava API verziju <strong>$1<\/strong> ili kasniju. Koristite CLI za stvaranje sigurnosne kopije prije ažuriranja. CLI procedura za sigurnosnu kopiju je u dokumentaciji. <br \/>U suprotnom, preuzmite i koristite stariju verziju konfiguratora ako niste spremni na ažuriranje firmwarea."
+        "message": "Ova verzija firmwarea <span class=\"message-negative\">nije podržana</span>. Molimo ažurirajte firmware na onaj koji podržava API verziju <strong>$1</strong> ili kasniju. Koristite CLI za stvaranje sigurnosne kopije prije ažuriranja. CLI procedura za sigurnosnu kopiju je u dokumentaciji. <br />U suprotnom, preuzmite i koristite stariju verziju konfiguratora ako niste spremni na ažuriranje firmwarea."
     },
     "firmwareTypeNotSupported": {
-        "message": "Firmware koji nisu dio Emuflighta\/Cleanflighta <span class=\"message-negative\">nisu podržani<\/span>, osim u CLI sučelju."
+        "message": "Firmware koji nisu dio Emuflighta/Cleanflighta <span class=\"message-negative\">nisu podržani</span>, osim u CLI sučelju."
     },
     "firmwareUpgradeRequired": {
-        "message": "Firmware na ovom uređaju potrebno je ažurirati na noviju verziju. Koristite CLI za stvaranje sigurnosne kopije prije ažuriranja. CLI procedura za sigurnosnu kopiju je u dokumentaciji. <br \/>U suprotnom, preuzmite i koristite stariju verziju konfiguratora ako niste spremni za ažuriranje firmwarea."
+        "message": "Firmware na ovom uređaju potrebno je ažurirati na noviju verziju. Koristite CLI za stvaranje sigurnosne kopije prije ažuriranja. CLI procedura za sigurnosnu kopiju je u dokumentaciji. <br />U suprotnom, preuzmite i koristite stariju verziju konfiguratora ako niste spremni za ažuriranje firmwarea."
     },
     "infoVersions": {
-        "message": "Koristi se - OS: <strong>{{operatingSystem}}<\/strong>, Chrome: <strong>{{chromeVersion}}<\/strong>, Konfigurator: <strong>{{configuratorVersion}}<\/strong>",
+        "message": "Koristi se - OS: <strong>{{operatingSystem}}</strong>, Chrome: <strong>{{chromeVersion}}</strong>, Konfigurator: <strong>{{configuratorVersion}}</strong>",
         "description": "Message that appears in the GUI log panel indicating operating system, Chrome version and Configurator version"
     },
     "buildServerLoaded": {
         "message": "Učitane informacije o verzijama za $1 s build servera."
     },
     "buildServerLoadFailed": {
-        "message": "<b>Build server query za $1 izdanje neuspjela, korištenje spremljenih informacija. Razlog: <code>$2<\/code><\/b>"
+        "message": "<b>Build server query za $1 izdanje neuspjela, korištenje spremljenih informacija. Razlog: <code>$2</code></b>"
     },
     "buildServerUsingCached": {
         "message": "Korištenje spremljenih informacija o verzijama za $1."
@@ -357,7 +351,7 @@
         "message": "Učitane informacije o izdanjima za $1 s GitHuba."
     },
     "releaseCheckFailed": {
-        "message": "<b>GitHub query za $1 izdanje neuspjela, korištenje spremljenih informacija. Razlog: <code>$2<\/code><\/b>"
+        "message": "<b>GitHub query za $1 izdanje neuspjela, korištenje spremljenih informacija. Razlog: <code>$2</code></b>"
     },
     "releaseCheckCached": {
         "message": "Korištenje pohranjenih informacija za informacije o izdanjima za $1."
@@ -366,46 +360,46 @@
         "message": "Nema informacija o izdanju za $1."
     },
     "tabSwitchConnectionRequired": {
-        "message": "Morate se <strong>spojiti<\/strong>prije nego što možete vidjeti bilo koju od kartica."
+        "message": "Morate se <strong>spojiti</strong>prije nego što možete vidjeti bilo koju od kartica."
     },
     "tabSwitchWaitForOperation": {
-        "message": "<span class=\"message-negative\">Ne možete<\/span> to učiniti sada, molimo pričekajte da se trenutna operacija završi ..."
+        "message": "<span class=\"message-negative\">Ne možete</span> to učiniti sada, molimo pričekajte da se trenutna operacija završi ..."
     },
     "tabSwitchUpgradeRequired": {
-        "message": "Morate <strong>ažurirati<\/strong> firmware na posljednju verziju Emuflighta prije nego što možete koristiti $1 tab."
+        "message": "Morate <strong>ažurirati</strong> firmware na posljednju verziju Emuflighta prije nego što možete koristiti $1 tab."
     },
     "firmwareVersion": {
-        "message": "Firmware Verzija: <strong>$1<\/strong>"
+        "message": "Firmware Verzija: <strong>$1</strong>"
     },
     "apiVersionReceived": {
-        "message": "MultiWii API verzija: <strong>$1<\/strong>"
+        "message": "MultiWii API verzija: <strong>$1</strong>"
     },
     "uniqueDeviceIdReceived": {
-        "message": "Jedinstveni ID uređaja: <strong>0x$1<\/strong>"
+        "message": "Jedinstveni ID uređaja: <strong>0x$1</strong>"
     },
     "craftNameReceived": {
-        "message": "Naziv letjelice: <strong>$1<\/strong>"
+        "message": "Naziv letjelice: <strong>$1</strong>"
     },
     "armingDisabled": {
-        "message": "<strong>Arming onemogućen<\/strong>"
+        "message": "<strong>Arming onemogućen</strong>"
     },
     "armingEnabled": {
-        "message": "<strong>Arming omogućen<\/strong>"
+        "message": "<strong>Arming omogućen</strong>"
     },
     "runawayTakeoffPreventionDisabled": {
-        "message": "<strong>Zaštita od nekontroliranog polijetanja privremeno je onemogućena<\/strong>"
+        "message": "<strong>Zaštita od nekontroliranog polijetanja privremeno je onemogućena</strong>"
     },
     "runawayTakeoffPreventionEnabled": {
-        "message": "<strong>Zaštita od nekontroliranog polijetanja omogućena<\/strong>"
+        "message": "<strong>Zaštita od nekontroliranog polijetanja omogućena</strong>"
     },
     "boardInfoReceived": {
-        "message": "Target: <strong>$1<\/strong>, verzija: <strong>$2<\/strong>"
+        "message": "Target: <strong>$1</strong>, verzija: <strong>$2</strong>"
     },
     "buildInfoReceived": {
-        "message": "Trenutni firmware izdan: <strong>$1<\/strong>"
+        "message": "Trenutni firmware izdan: <strong>$1</strong>"
     },
     "fcInfoReceived": {
-        "message": "Informacije kontrolera leta, identifikator: <strong>$1<\/strong>, verzija: <strong>$2<\/strong>"
+        "message": "Informacije kontrolera leta, identifikator: <strong>$1</strong>, verzija: <strong>$2</strong>"
     },
     "versionLabelTarget": {
         "message": "Target"
@@ -415,12 +409,6 @@
     },
     "versionLabelConfigurator": {
         "message": "Konfigurator"
-    },
-    "notifications_app_just_updated_to_version": {
-        "message": "Aplikacija se upravo ažurirala na verziju: $1"
-    },
-    "notifications_click_here_to_start_app": {
-        "message": "Kliknite ovdje da biste pokrenuli aplikaciju"
     },
     "statusbar_port_utilization": {
         "message": "Iskorištenost porta:"
@@ -447,19 +435,19 @@
         "message": "Molimo koristite alat za ažuriranje firmware kako biste pristupili uređajima u DFU načinu rada"
     },
     "dfu_erased_kilobytes": {
-        "message": "Brisanje $1 kB memorije<span class=\"message-positive\">uspješno<\/span>"
+        "message": "Brisanje $1 kB memorije<span class=\"message-positive\">uspješno</span>"
     },
     "dfu_device_flash_info": {
         "message": "Otkriven uređaj s kapacitetom memorije od $1 KiB"
     },
     "dfu_error_image_size": {
-        "message": "<span class=\"message-negative\">Greška:<\/span> Ova slika zauzima više memorije nego što je dostupno na memorijskom čipu! Slika: $1 Kib, limit = $2 KiB"
+        "message": "<span class=\"message-negative\">Greška:</span> Ova slika zauzima više memorije nego što je dostupno na memorijskom čipu! Slika: $1 Kib, limit = $2 KiB"
     },
     "eeprom_saved_ok": {
-        "message": "EEPROM <span class=\"message-positive\">spremljen<\/span>"
+        "message": "EEPROM <span class=\"message-positive\">spremljen</span>"
     },
     "defaultWelcomeIntro": {
-        "message": "Dobrodošli u <strong>Emuflight - Konfigurator<\/strong>, alat dizajniran pojednostavljenju ažuriranja, konfiguriranja i ugađanja postavki vašeg kontrolera leta."
+        "message": "Dobrodošli u <strong>Emuflight - Konfigurator</strong>, alat dizajniran pojednostavljenju ažuriranja, konfiguriranja i ugađanja postavki vašeg kontrolera leta."
     },
     "defaultWelcomeText": {
         "message": "Razvoj EmuFlight -a je u velikom toku. Neke funkcije korisničkog sučelja mogu biti nedovršene ili je nekim funkcijama firmvera moguće pristupiti samo putem CLI -ja. <br> <br> Izvorni kod i izdanja EmuFlight -a nalaze se na <a href=\"https://github.com/emuflight/EmuFlight \" title=\"github.com/emuflight/EmuFlight \" target=\"_blank\"> GitHub </a>. <br/> <br/> Helio/Strix IMUF može se prebaciti putem <a href=\"https://github.com/emuflight/Nemesis/releases/tag/imuf-flasher-0.1.0\" target=\"_blank\"> IMUF Flasher Tool </a> ili preuzeto sa <a href = \" https://github.com/emuflight/imu-f/releases\" target=\"_blank\"> IMUF izdanja </a> spremište. <br/> <br/> EmuFlight BlackBox dnevnici mogu se čitati pomoću vilice BBE dostupne sa ovog <a href=\"https://github.com/emuflight/EmuFlight-Blackbox-Explorer/releases \" target=\"_blank \"> Spremište EmuFlight-BlackBox-Explorer </a>. <br/> <br/> Najnovije <a href=\"https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers\" title=\"http://www.silabs.com\" target=\"_blank\"> Upravljački programi CP210x</a>. <br/> Najnovije <a href=\" https://www.st.com/en/development-tools/stsw-stm32102.html\" title=\"http://www.st.com\" target=\"_blank\"> STM USB VCP upravljački programi</a >. <br/> Najnovije <a href=\"http://zadig.akeo.ie/\" title=\"http://zadig.akeo.ie\"target=\"_blank\">Zadig</a>. <br/> "
@@ -467,35 +455,20 @@
     "defaultContributingHead": {
         "message": "Pridonošenje"
     },
-    "defaultChangelogAction": {
-        "message": "Popis promjena"
-    },
-    "defaultChangelogHead": {
-        "message": "Konfigurator - zapis o promjenama"
-    },
-    "defaultPrivacyPolicyAction": {
-        "message": "Pravila o privatnosti"
-    },
-    "defaultButtonFirmwareFlasher": {
-        "message": "Ažuriranje Firmwarea"
-    },
     "defaultDonate": {
         "message": "Donirajte"
     },
-    "defaultSponsorsHead": {
-        "message": "Sponzori"
-    },
     "defaultDocumentationHead": {
-        "message": "Dokumentacija \/ Uputsvo"
+        "message": "Dokumentacija / Uputsvo"
     },
     "defaultDocumentation": {
-        "message": "Emuflight dokumentacija je dostupna u napomenama izdanja i na Emuflight wikiju.<br \/><br \/>"
+        "message": "Emuflight dokumentacija je dostupna u napomenama izdanja i na Emuflight wikiju.<br /><br />"
     },
     "defaultDocumentation1": {
-        "message": "Emuflight wiki je odličan izvor informacija, može se naći <a href=\"https:\/\/github.com\/emuflight\/EmuFlight\/wiki\" target=\"_blank\">ovdje<\/a>."
+        "message": "Emuflight wiki je odličan izvor informacija, može se naći <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">ovdje</a>."
     },
     "defaultDocumentation2": {
-        "message": "Napomene izdanja za firmware možete pročitati na GitHubu <a href=\"https:\/\/github.com\/Emuflight\/EmuFlight\/releases\" target=\"_blank\">ovdje<\/a>."
+        "message": "Napomene izdanja za firmware možete pročitati na GitHubu <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\">ovdje</a>."
     },
     "defaultSupportHead": {
         "message": "Podrška"
@@ -503,32 +476,29 @@
     "defaultSupportSubline1": {
         "message": "Izvori"
     },
-    "defaultSupportSubline2": {
-        "message": "Developeri"
-    },
     "defaultSupport": {
-        "message": "Za podršku molimo potražite na forumima i na Emuflight wikiju ili kontaktirajte vašek proizvođaća<br \/><br \/>"
+        "message": "Za podršku molimo potražite na forumima i na Emuflight wikiju ili kontaktirajte vašek proizvođaća<br /><br />"
     },
     "defaultSupport1": {
-        "message": "<a href=\"https:\/\/discordapp.com\/channels\/547211754845765635\" target=\"_blank\">Discord<\/a>"
+        "message": "<a href=\"https://discordapp.com/channels/547211754845765635\" target=\"_blank\">Discord</a>"
     },
     "defaultSupport2": {
-         "message": "<a href=\"https:\/\/github.com\/Emuflight\" target=\"_blank\">GitHub<\/a>"
+        "message": "<a href=\"https://github.com/Emuflight\" target=\"_blank\">GitHub</a>"
     },
     "initialSetupBackupAndRestoreApiVersion": {
-        "message": "<span class=\"message-negative\">Izrada i korištenje sigurnosnih kopija onemogućeno.<\/span> Koristite firmware s API verzijom <span class=\"message-negative\">$1<\/span>, sigurnosne kopije zahtijevaju <span class=\"message-positive\">$2<\/span>.  Molimo napravite sigurnosne kopije postavki kroz CLI sučelje, pogledajte Emuflight dokumentaciju za proceduru."
+        "message": "<span class=\"message-negative\">Izrada i korištenje sigurnosnih kopija onemogućeno.</span> Koristite firmware s API verzijom <span class=\"message-negative\">$1</span>, sigurnosne kopije zahtijevaju <span class=\"message-positive\">$2</span>.  Molimo napravite sigurnosne kopije postavki kroz CLI sučelje, pogledajte Emuflight dokumentaciju za proceduru."
     },
     "initialSetupButtonCalibrateAccel": {
         "message": "Kalibracija akcelerometra"
     },
     "initialSetupCalibrateAccelText": {
-        "message": "Postavite kontroler leta ili letjelicu na <strong>ravnu<\/strong> površinu, pritisnite tipku kalibracije i osigurajte da se površina ne miče tijekom kalibracije"
+        "message": "Postavite kontroler leta ili letjelicu na <strong>ravnu</strong> površinu, pritisnite tipku kalibracije i osigurajte da se površina ne miče tijekom kalibracije"
     },
     "initialSetupButtonCalibrateMag": {
         "message": "Kalibracija magnetometra"
     },
     "initialSetupCalibrateMagText": {
-        "message": "Okrenite letjelicu za <strong>360<\/strong> stupnjeva na svim osima, potrebno je ovu operaciju obaviti unutar 30 sekundi"
+        "message": "Okrenite letjelicu za <strong>360</strong> stupnjeva na svim osima, potrebno je ovu operaciju obaviti unutar 30 sekundi"
     },
     "initialSetupButtonCalibratingText": {
         "message": "Kalibriranje..."
@@ -537,7 +507,7 @@
         "message": "Resetiraj postavke"
     },
     "initialSetupResetText": {
-        "message": "Vraća sve postavke na <strong>zadane<\/strong>"
+        "message": "Vraća sve postavke na <strong>zadane</strong>"
     },
     "initialSetupButtonBackup": {
         "message": "Stvori sigurnosnu kopiju"
@@ -546,70 +516,25 @@
         "message": "Vrati sigurnosnu kopiju"
     },
     "initialSetupButtonRebootBootloader": {
-        "message": "Aktiviraj Boot Loader \/ DFU"
+        "message": "Aktiviraj Boot Loader / DFU"
     },
     "initialSetupBackupRestoreText": {
-        "message": "Stvorite <strong>sigurnosnu kopiju<\/strong> vaše konfiguracije kako bi spriječili njihov gubitak, <strong>CLI<\/strong> postavke <span class=\"message-negative\">nisu uključene<\/span>, za te postavke koristite komandu 'diff all' u CLI sučelju."
+        "message": "Stvorite <strong>sigurnosnu kopiju</strong> vaše konfiguracije kako bi spriječili njihov gubitak, <strong>CLI</strong> postavke <span class=\"message-negative\">nisu uključene</span>, za te postavke koristite komandu 'diff all' u CLI sučelju."
     },
     "initialSetupRebootBootloaderText": {
-        "message": "Ponovno pokreni u <strong> boot loader \/ DFU <\/strong> načinu rada."
+        "message": "Ponovno pokreni u <strong> boot loader / DFU </strong> načinu rada."
     },
     "initialSetupBackupSuccess": {
-        "message": "Sigurnosna kopija spremljena <span class=\"message-positive\">uspješno<\/span>"
+        "message": "Sigurnosna kopija spremljena <span class=\"message-positive\">uspješno</span>"
     },
     "initialSetupRestoreSuccess": {
-        "message": "Sigurnosna kopija učitana <span class=\"message-positive\">uspješno<\/span>"
+        "message": "Sigurnosna kopija učitana <span class=\"message-positive\">uspješno</span>"
     },
     "initialSetupButtonResetZaxis": {
         "message": "Resetiraj Z os, pomak: 0 stupnjeva"
     },
     "initialSetupButtonResetZaxisValue": {
         "message": "Resetiraj Z os, pomak: $1 stupnjeva"
-    },
-    "initialSetupMixerHead": {
-        "message": "Tip miksera"
-    },
-    "initialSetupThrottleHead": {
-        "message": "Postavke gasa\/throttlea"
-    },
-    "initialSetupMinimum": {
-        "message": "Minimum:"
-    },
-    "initialSetupMaximum": {
-        "message": "Maksimum:"
-    },
-    "initialSetupFailsafe": {
-        "message": "Failsafe:"
-    },
-    "initialSetupMinCommand": {
-        "message": "MinCommand:"
-    },
-    "initialSetupBatteryHead": {
-        "message": "Baterija"
-    },
-    "initialSetupMinCellV": {
-        "message": "Minimalni napon čelije:"
-    },
-    "initialSetupMaxCellV": {
-        "message": "Maksimalni napon čelije:"
-    },
-    "initialSetupVoltageScale": {
-        "message": "Skaliranje napona:"
-    },
-    "initialSetupAccelTrimsHead": {
-        "message": "Akcelerometar Trim"
-    },
-    "initialSetupPitch": {
-        "message": "Pitch:"
-    },
-    "initialSetupRoll": {
-        "message": "Roll:"
-    },
-    "initialSetupMagHead": {
-        "message": "Magnetometar"
-    },
-    "initialSetupDeclination": {
-        "message": "Deklinacija:"
     },
     "initialSetupInfoHead": {
         "message": "Informacije"
@@ -672,7 +597,7 @@
         "description": "Description of the RUNAWAY_TAKEOFF arming disable flag"
     },
     "initialSetupArmingDisableFlagsTooltipTHROTTLE": {
-        "message": "Kanal gasa\/throttlea je previsok",
+        "message": "Kanal gasa/throttlea je previsok",
         "description": "Description of the THROTTLE arming disable flag"
     },
     "initialSetupArmingDisableFlagsTooltipANGLE": {
@@ -737,12 +662,6 @@
     "initialSetupInstrumentsHead": {
         "message": "Instrumenti"
     },
-    "initialSetupButtonSave": {
-        "message": "Spremi"
-    },
-    "initialSetupModel": {
-        "message": "Model: $1"
-    },
     "initialSetupAttitude": {
         "message": "$1 deg"
     },
@@ -750,19 +669,16 @@
         "message": "Kalibracija akcelerometra pokrenuta"
     },
     "initialSetupAccelCalibEnded": {
-        "message": "Kalibracija akcelerometra <span class=\"message-positive\">završena<\/span>"
+        "message": "Kalibracija akcelerometra <span class=\"message-positive\">završena</span>"
     },
     "initialSetupMagCalibStarted": {
         "message": "Kalibracija magnetometra pokrenuta"
     },
     "initialSetupMagCalibEnded": {
-        "message": "Kalibracija magnetometra <span class=\"message-positive\">završena<\/span>"
+        "message": "Kalibracija magnetometra <span class=\"message-positive\">završena</span>"
     },
     "initialSetupSettingsRestored": {
-        "message": "Postavke vraćene na <strong>zadane<\/strong>"
-    },
-    "initialSetupEepromSaved": {
-        "message": "EEPROM <span class=\"message-positive\">spremljen<\/span>"
+        "message": "Postavke vraćene na <strong>zadane</strong>"
     },
     "featureNone": {
         "message": "&lt;Odaberi jednu&gt;"
@@ -843,7 +759,7 @@
         "message": "SPI RX podrška"
     },
     "featureESC_SENSOR": {
-        "message": "Koristi KISS\/BLHeli_32 ESC telemetriju kao senzor"
+        "message": "Koristi KISS/BLHeli_32 ESC telemetriju kao senzor"
     },
     "featureCHANNEL_FORWARDING": {
         "message": "Proslijedi Aux kanale na izlaze servo motora"
@@ -870,7 +786,7 @@
         "message": "Video odašiljač"
     },
     "featureANTI_GRAVITY": {
-        "message": "Privremeno pojačaj I-Term na velikim promjenama gasa\/throttlea"
+        "message": "Privremeno pojačaj I-Term na velikim promjenama gasa/throttlea"
     },
     "featureDYNAMIC_FILTER": {
         "message": "Dinamički gyro notch filter"
@@ -882,7 +798,7 @@
         "message": "Omogući failsafe"
     },
     "featureFAILSAFETip": {
-        "message": "<strong>Napomena:<\/strong> Kada je Faza 2 onemogućena, stanja kanala koja će biti primijenjna su '<strong>Auto<\/strong>' za sve kanale leta (1-4)."
+        "message": "<strong>Napomena:</strong> Kada je Faza 2 onemogućena, stanja kanala koja će biti primijenjna su '<strong>Auto</strong>' za sve kanale leta (1-4)."
     },
     "featureFAILSAFEOldTip": {
         "message": "Primjeni failsafe postavke kod gubitka signala prijemnika"
@@ -915,19 +831,19 @@
         "message": "RSSI je mjera jačine signala i jako je bitna da znate ako izlazite iz područja pokrivenosti signalom ili postoje li radio interferencije na području leta."
     },
     "configurationEscFeatures": {
-        "message": "Značajke ESC-a\/Motora"
+        "message": "Značajke ESC-a/Motora"
     },
     "configurationFeaturesHelp": {
-        "message": "<strong>Napomena:<\/strong>Nisu sve kombinacije značajki ispravne. Kada to kontroler leta prepozna neke od značajki će se onemogućiti.<br \/><strong>Napomena:<\/strong> Konfigurirajte serijske portove <span class=\"message-negative\">prije<\/span> omogućavanja značajki koje će koristiti te portove."
+        "message": "<strong>Napomena:</strong>Nisu sve kombinacije značajki ispravne. Kada to kontroler leta prepozna neke od značajki će se onemogućiti.<br /><strong>Napomena:</strong> Konfigurirajte serijske portove <span class=\"message-negative\">prije</span> omogućavanja značajki koje će koristiti te portove."
     },
     "configurationSerialRXHelp": {
-        "message": "<strong>Napomena:<\/strong> Potrebno je konfigurirati serijski port u kartici Portovi i odabrati protokol serijskog prijemnika kada koristite RX_SERIAL."
+        "message": "<strong>Napomena:</strong> Potrebno je konfigurirati serijski port u kartici Portovi i odabrati protokol serijskog prijemnika kada koristite RX_SERIAL."
     },
     "configurationSpiRxHelp": {
-        "message": "<strong>Napomena:<\/strong> SPI RX protokol će samo raditi kada je dostupan podržani hardware ili postoji veza s SPI sabirnicom."
+        "message": "<strong>Napomena:</strong> SPI RX protokol će samo raditi kada je dostupan podržani hardware ili postoji veza s SPI sabirnicom."
     },
     "configurationOtherFeaturesHelp": {
-        "message": "<strong>Napomena:<\/strong> Nisu sve značajke podržane na svim kontolerima leta. Ako omogućite određenu, a ona se sama onemogući nakon ponovnog pokretanja, to znači da ta značajka nije podržana."
+        "message": "<strong>Napomena:</strong> Nisu sve značajke podržane na svim kontolerima leta. Ako omogućite određenu, a ona se sama onemogući nakon ponovnog pokretanja, to znači da ta značajka nije podržana."
     },
     "configurationBoardAlignment": {
         "message": "Poravnanje ploče i senzora"
@@ -945,10 +861,10 @@
         "message": "GYRO Poravnanje"
     },
     "configurationSensorGyroToUse": {
-        "message": "GYRO\/ACCEL"
+        "message": "GYRO/ACCEL"
     },
     "configurationSensorGyroToUseNotFound": {
-        "message": "Upozorenje: Nema žiroskopa\/akcelerometra"
+        "message": "Upozorenje: Nema žiroskopa/akcelerometra"
     },
     "configurationSensorGyroToUseFirst": {
         "message": "Prvi"
@@ -996,31 +912,31 @@
         "message": "Rotacija motora je obrnuta"
     },
     "configurationReverseMotorSwitchHelp": {
-        "message": "Kada je ova opcija omogućena kontroler leta očekuje da su rotacije motora obrnute i da su propeleri ispravno postavljeni. <strong>Upozorenje:<\/strong> Ovo ne mijenja rotaciju motora. Koristite alat za konfiguraciju ESCova ili promjenite način spajanja kabela motora na ESC kako biste obrnuli rotaciju motora. Uvijek provjerite odgovara li rotacija motora onoj prikazanoj na slici bez propelera."
+        "message": "Kada je ova opcija omogućena kontroler leta očekuje da su rotacije motora obrnute i da su propeleri ispravno postavljeni. <strong>Upozorenje:</strong> Ovo ne mijenja rotaciju motora. Koristite alat za konfiguraciju ESCova ili promjenite način spajanja kabela motora na ESC kako biste obrnuli rotaciju motora. Uvijek provjerite odgovara li rotacija motora onoj prikazanoj na slici bez propelera."
     },
     "configurationAutoDisarmDelay": {
         "message": "Disarmaj motore nakon zadane odgode od [seconds] (Zahtjeva MOTOR_STOP mogućnost)"
     },
     "configurationDisarmKillSwitch": {
-        "message": "Disarmaj motore neovisno o stanju gasa\/throttlea (Kada je ARM način rada konfiguriran preko AUX kanala)"
+        "message": "Disarmaj motore neovisno o stanju gasa/throttlea (Kada je ARM način rada konfiguriran preko AUX kanala)"
     },
     "configurationDisarmKillSwitchHelp": {
-        "message": "Arming je uvijek onemogućen kada gas\/throttle nije nizak. Pazite jer biste mogli disarmati slučajno prekidačem dok letite s ovom opcijom aktivnom."
+        "message": "Arming je uvijek onemogućen kada gas/throttle nije nizak. Pazite jer biste mogli disarmati slučajno prekidačem dok letite s ovom opcijom aktivnom."
     },
     "configurationDigitalIdlePercent": {
-        "message": "Vrijednost gasa\/throttlea u praznom hodu [percent]"
+        "message": "Vrijednost gasa/throttlea u praznom hodu [percent]"
     },
     "configurationDigitalIdlePercentHelp": {
-        "message": "Ovo je 'idle' vrijednost u postocima maksimalnog gasa\/throttlea koja se šalje ESCovima kada je letjelica armirana i kada je gas na minimalnoj poziciji. Povećajte ovu vrijednost da biste dobili veću brzinu motora u praznom hodu. Povećajte ovu vrijednost u slučaju 'desyncova'."
+        "message": "Ovo je 'idle' vrijednost u postocima maksimalnog gasa/throttlea koja se šalje ESCovima kada je letjelica armirana i kada je gas na minimalnoj poziciji. Povećajte ovu vrijednost da biste dobili veću brzinu motora u praznom hodu. Povećajte ovu vrijednost u slučaju 'desyncova'."
     },
     "configurationThrottleMinimum": {
-        "message": "Minimalni gas\/throttle (Najniža vrijednost prema ESCu kada je letjelica armirana)"
+        "message": "Minimalni gas/throttle (Najniža vrijednost prema ESCu kada je letjelica armirana)"
     },
     "configurationThrottleMinimumHelp": {
         "message": "Ovo je 'idle' vrijednost koja se šalje ESCovima kada je letjelica armirana i kada je gas na minimalnoj poziciji. Povećajte ovu vrijednost da biste dobili veću brzinu motora u praznom hodu. Povećajte ovu vrijednost u slučaju 'desyncova'!"
     },
     "configurationThrottleMaximum": {
-        "message": "Maksimalni gas\/throttle (Najviša vrijednost prema ESCu kada je letjelica armirana)"
+        "message": "Maksimalni gas/throttle (Najviša vrijednost prema ESCu kada je letjelica armirana)"
     },
     "configurationThrottleMinimumCommand": {
         "message": "Minimalni 'Command' (Vrijednost prema ESCu kada je letjelica disarmana)"
@@ -1038,7 +954,7 @@
         "message": "Ton oznake"
     },
     "configurationDshotBeaconHelp": {
-        "message": "DShot beacon koristi ESCove i motore da proizvede zvuk. To znači da se DShot beacon ne može koristiti dok se motori vrte. U Emuflight verziji 3.4 i kasnijoj, kada se pokuša armirati dok je DShot beacon aktivan, postoji kašnjenje od 2 sekunde nakon posljednjeg zvuka prije nego što se letjelica armira. To služi tome da se spriječi ometanje arming procedure. <br\/><strong>Upozorenje:<\/strong>Budući da DShot beacon koristi motore da bi proizveo zvuk, postoji mogućnost od pregrijavanja i oštećenja samih motora ako je postavljena jačina beacona prevelika. Koristite BLHeli konfigurator ili BLHeli Suite kako biste postavili i testirali jačinu beacona."
+        "message": "DShot beacon koristi ESCove i motore da proizvede zvuk. To znači da se DShot beacon ne može koristiti dok se motori vrte. U Emuflight verziji 3.4 i kasnijoj, kada se pokuša armirati dok je DShot beacon aktivan, postoji kašnjenje od 2 sekunde nakon posljednjeg zvuka prije nego što se letjelica armira. To služi tome da se spriječi ometanje arming procedure. <br/><strong>Upozorenje:</strong>Budući da DShot beacon koristi motore da bi proizveo zvuk, postoji mogućnost od pregrijavanja i oštećenja samih motora ako je postavljena jačina beacona prevelika. Koristite BLHeli konfigurator ili BLHeli Suite kako biste postavili i testirali jačinu beacona."
     },
     "configurationBeeper": {
         "message": "Konfiguracija beepera"
@@ -1050,7 +966,7 @@
         "message": "Beepa kad je TX isključen ili je signal izgubljen (ponavlja se dok se veza ne uspostavi)"
     },
     "beeperRX_LOST_LANDING": {
-        "message": "Beepa SOS kad je armiran, a TX je isključen ili je signal izgubljen (automatsko slijetanje\/disarm)"
+        "message": "Beepa SOS kad je armiran, a TX je isključen ili je signal izgubljen (automatsko slijetanje/disarm)"
     },
     "beeperDISARMING": {
         "message": "Beepa kod disarminga letjelice"
@@ -1110,7 +1026,7 @@
         "message": "Beepa kad je letjelica armirana, a filteri rc poravnavanja nisu inicijalizirani"
     },
     "configuration3d": {
-        "message": "Značajke 3D ESC-a\/Motora"
+        "message": "Značajke 3D ESC-a/Motora"
     },
     "configuration3dDeadbandLow": {
         "message": "3D mrtva-zona niska"
@@ -1122,7 +1038,7 @@
         "message": "3D Neutralno"
     },
     "configuration3dDeadbandThrottle": {
-        "message": "3D mrtva-zona gasa\/throttlea"
+        "message": "3D mrtva-zona gasa/throttlea"
     },
     "configurationSystem": {
         "message": "Konfiguracija sustava"
@@ -1130,14 +1046,8 @@
     "configurationLoopTime": {
         "message": "Vrijeme petlje kontrolera leta"
     },
-    "configurationCalculatedCyclesSec": {
-        "message": "Ciklusa\/Sekundi [Hz]"
-    },
     "configurationLoopTimeHelp": {
-        "message": "<strong>Napomena:<\/strong> Provjerite da vaš kontroler leta može raditi na odabranim brzinama! Provjerite CPU opterećenje i stabilnost vremena ciklusa. Mjenjanje ovih postavki će možda utjecati na postavke PID kontrolera. SAVJET: Onemogućite akcelerometa i ostale senzore koje ne koristite kako bi oslobodili procesor."
-    },
-    "configurationLoopTimeNo32KhzHelp": {
-        "message": "$t(configurationLoopTimeHelp.message)<br><strong>Napomena o korištenju 32kHz frekvencije uzorkovanja stanja žiroskopa<\/strong>Podrška za 32kHz je dodana u Emuflight kao eksperimentalna mogućnost. Dosad nikad nije dokazano da postoji prednost nad 8 kHz uzorkovanjem, zbog podložnosti vibracijama koje zahtjevaju agresivno filtriranje, stvarajući kašnjenja u kontrolnoj petlji. Stoga, <strong> podrška za 32kHz uzorkovanje je ukinuta<\/strong> u Emuflight verziji 4.0."
+        "message": "<strong>Napomena:</strong> Provjerite da vaš kontroler leta može raditi na odabranim brzinama! Provjerite CPU opterećenje i stabilnost vremena ciklusa. Mjenjanje ovih postavki će možda utjecati na postavke PID kontrolera. SAVJET: Onemogućite akcelerometa i ostale senzore koje ne koristite kako bi oslobodili procesor."
     },
     "configurationGPS": {
         "message": "GPS"
@@ -1158,7 +1068,7 @@
         "message": "Automatska konfiguracija"
     },
     "configurationGPSHelp": {
-        "message": "<strong>Napomena:<\/strong> Potrebno je konfigurirati serijski port u kartici Portovi prije korištenja GPS-a."
+        "message": "<strong>Napomena:</strong> Potrebno je konfigurirati serijski port u kartici Portovi prije korištenja GPS-a."
     },
     "configurationSerialRX": {
         "message": "Protokol serijskog prijemnika"
@@ -1167,7 +1077,7 @@
         "message": "Protokol SPI Bus prijemnika"
     },
     "configurationEepromSaved": {
-        "message": "EEPROM <span class=\"message-positive\">spremljen<\/span>"
+        "message": "EEPROM <span class=\"message-positive\">spremljen</span>"
     },
     "configurationButtonSave": {
         "message": "Spremi i ponovno pokreni"
@@ -1176,7 +1086,7 @@
         "message": "Identifikator"
     },
     "portsConfiguration": {
-        "message": "Konfiguracija\/MSP"
+        "message": "Konfiguracija/MSP"
     },
     "portsSerialRx": {
         "message": "Serijski Rx"
@@ -1191,16 +1101,13 @@
         "message": "Periferija"
     },
     "portsHelp": {
-        "message": "<strong>Napomena:<\/strong> Nisu sve kombinacije ispravne. Kada kontroler leta to prepozna, konfiguracija serijskih portova će biti resetirana."
+        "message": "<strong>Napomena:</strong> Nisu sve kombinacije ispravne. Kada kontroler leta to prepozna, konfiguracija serijskih portova će biti resetirana."
     },
     "portsMSPHelp": {
-        "message": "<strong>Napomena:<\/strong > <span class=\"message-negative\">Nemojte<\/span> onemogućavati MSP na prvom serijskom portu ako niste sigurni što radite. U suprotnom, možda ćete morati u potpunosti obrisati konfiguraciju i ponovno instalirati firmware."
+        "message": "<strong>Napomena:</strong > <span class=\"message-negative\">Nemojte</span> onemogućavati MSP na prvom serijskom portu ako niste sigurni što radite. U suprotnom, možda ćete morati u potpunosti obrisati konfiguraciju i ponovno instalirati firmware."
     },
     "portsFirmwareUpgradeRequired": {
-        "message": "Ažuriranje firmwarea <span class=\"message-negative\">potrebno<\/span>. Konfiguracije serijskih portova firmwarea &lt; 1.8.0 nisu podržane."
-    },
-    "portsButtonSave": {
-        "message": "Spremi i ponovno pokreni"
+        "message": "Ažuriranje firmwarea <span class=\"message-negative\">potrebno</span>. Konfiguracije serijskih portova firmwarea &lt; 1.8.0 nisu podržane."
     },
     "portsTelemetryDisabled": {
         "message": "Onemogućeno"
@@ -1269,7 +1176,7 @@
         "message": "Benewake LIDAR"
     },
     "pidTuningUpgradeFirmwareToChangePidController": {
-        "message": "<span class=\"message-negative\">Mijenjanje postavki PID kontrolera onemogućeno - možete ih mijenjati kroz CLI.<\/span> Firmware koji koristite ima API verziju<span class=\"message-negative\">$1<\/span>, ali ova mogućnost zahtijeva verziju <span class=\"message-positive\">$2<\/span>."
+        "message": "<span class=\"message-negative\">Mijenjanje postavki PID kontrolera onemogućeno - možete ih mijenjati kroz CLI.</span> Firmware koji koristite ima API verziju<span class=\"message-negative\">$1</span>, ali ova mogućnost zahtijeva verziju <span class=\"message-positive\">$2</span>."
     },
     "pidTuningSubTabPid": {
         "message": "PID Postavke"
@@ -1303,34 +1210,6 @@
     "pidTuningAntiGravityThres": {
         "message": "Anti Gravity prag"
     },
-    "pidTuningDMinHelp": {
-        "message": "D Min omogućuje da imate nižu razinu D u normalnom letu, a višu razinu kada radite brze pokrete u kojima je D jako potreban, poput flipova i rollova. Isto tako D se povećava kod prop washa. Letjelica će imati dinamički D Term koji varira između D Min(tijekom normalnog leta) i standardnog D (kod flipova i rollova). Kada unesete vrijednost 0 ova opcija se onemogućuje. Gain određuje koliko jako se D pojačava kod brzih pokreta. Advance ubrzava primjenu samog pojačanja.",
-        "description": "Help message for D Min feature"
-    },
-    "pidTuningDMin": {
-        "message": "D Min",
-        "description": "Table header of the D Min feature in the PIDs tab"
-    },
-    "pidTuningDMinRoll": {
-        "message": "Roll",
-        "description": "Axis to apply D Min feature"
-    },
-    "pidTuningDMinPitch": {
-        "message": "Pitch",
-        "description": "Axis to apply D Min feature"
-    },
-    "pidTuningDMinYaw": {
-        "message": "Yaw",
-        "description": "Axis to apply D Min feature"
-    },
-    "pidTuningDMinGain": {
-        "message": "Gain",
-        "description": "Gain of the D Min feature"
-    },
-    "pidTuningDMinAdvance": {
-        "message": "Advance",
-        "description": "Advane of the D Min feature"
-    },
     "pidTuningPidSettings": {
         "message": "Postavke PID kontrolera"
     },
@@ -1355,17 +1234,11 @@
     "receiverRcSmoothingFilter": {
         "message": "Filter"
     },
-    "receiverRcSmoothingTypeHelp": {
-        "message": "Vrsta RC poravnanja koja se koristi"
-    },
     "rcSmoothingInputCutoffHelp": {
         "message": "Cutoff frekvencija u Hz koju koristi ulazni filter. Korištenje nižih vrijednosti će rezultirati ravnomjernijim inputima i primjerenije su sporijim protokolima prijemnika. Većina korisnika bi trebala ostaviti ovo na 0, tj. \"Auto\"."
     },
     "rcSmoothingDerivativeCutoffHelp": {
         "message": "Cutoff frekvencija u Hz koju koristi setpoint D filter. Korištenje nižih vrijednosti će rezultirati ravnomjernijim inputima i primjerenije su sporijim protokolima prijemnika. Većina korisnika bi trebala ostaviti ovo na 0, tj. \"Auto\"."
-    },
-    "rcSmoothingChannelsSmoothedHelp": {
-        "message": "Poravnavanje kanale se primjenjuje na"
     },
     "rcSmoothingDerivativeTypeHelp": {
         "message": "Vrsta metode filtriranje korištena za setpont D filter. Većina korisnike bi trebala koristiti zadanu \"BIQUAD\" opciju jer ona daje odličnu ravnotežu između poravnatosti i kašnjenja. \"PT1\" smanjuje kašnjenje, ali i poravnanja."
@@ -1401,7 +1274,7 @@
         "message": "RC interpolacija"
     },
     "receiverRcInterpolationHelp": {
-        "message": "RC TX\/RX sustavi nisu brzi kao i PID petlje. To znači da PID petlje imaju rupe u informacijskom toku RC sustava. Ova opcija omogućuje interpolaciju RC ulaza kada se ne primi nijedan RC paket. Ova opcija zbog toga poboljšava ponašanje P i D dijelova petlje."
+        "message": "RC TX/RX sustavi nisu brzi kao i PID petlje. To znači da PID petlje imaju rupe u informacijskom toku RC sustava. Ova opcija omogućuje interpolaciju RC ulaza kada se ne primi nijedan RC paket. Ova opcija zbog toga poboljšava ponašanje P i D dijelova petlje."
     },
     "receiverRcInterpolationIntervalHelp": {
         "message": "Interval interpolacije za manualnu način RC interpolacije u milisekundama"
@@ -1440,10 +1313,10 @@
         "message": "S ovom vrijednosti, D Setpoint težina može biti smanjena kada su kontrole na sredini, što poboljšava završetke flipova i rollova.<br> Vrijednost reprezentira točku otklona kontrola od centra: 0 - kontrole centrirane, 1 - maksimalni otklon od centra. Kad je kontrola iznad zadadne vrijednosti, Setpoint težina je konstantna na konfiguriranoj vrijednosti. Kada je kontrola ispod zadane vrijednosti, Setpoint težina se smanjuje proporcionalno do 0 kada su kontrole na centru. <br> Vrijednost 1 daje maksimalni efekt poravnavanja, dok vrijednost 0 drži Setpoint težinu fiksnom na konfiguriranoj vrijednosti kroz cijeli hod kontrola."
     },
     "pidTuningDtermSetpointHelp": {
-        "message": "Ovaj parametar određuje akceleracijski efekt kontrole derivacijske komponente.<br> Vrijednost od 0 je jednaka staroj metodi gdje D samo prati žiroskop, dok vrijednost od 1 je jednaka staroj metodi pogreške s jednakim praćenjem žirskopa i kontrolnog omjera.<br>Niža vrijednost znači sporiji\/uglađeniji odziv na kontrolu, dok viša vrijednost nudi više akceleracijskog odziva kontrole.<br>Napomena: RC poravnavanje je preporučeno sa višim vrijednostima kako bi se smanjile vibracije kod naglih kontrola."
+        "message": "Ovaj parametar određuje akceleracijski efekt kontrole derivacijske komponente.<br> Vrijednost od 0 je jednaka staroj metodi gdje D samo prati žiroskop, dok vrijednost od 1 je jednaka staroj metodi pogreške s jednakim praćenjem žirskopa i kontrolnog omjera.<br>Niža vrijednost znači sporiji/uglađeniji odziv na kontrolu, dok viša vrijednost nudi više akceleracijskog odziva kontrole.<br>Napomena: RC poravnavanje je preporučeno sa višim vrijednostima kako bi se smanjile vibracije kod naglih kontrola."
     },
     "pidTuningDtermSetpointTransitionWarning": {
-        "message": "<span class=\"message-negative\"><strong>$t(warningTitle.message):<\/strong> Kokrištenje D Setpoint prijelaza većeg od 0 i manjeg od 0.1 se ne preporučuje. To može dovesti do nestabilnosti i smanjenog odzina na upravljanje kod prijela središnje točke stickova<\/span>"
+        "message": "<span class=\"message-negative\"><strong>$t(warningTitle.message):</strong> Kokrištenje D Setpoint prijelaza većeg od 0 i manjeg od 0.1 se ne preporučuje. To može dovesti do nestabilnosti i smanjenog odzina na upravljanje kod prijela središnje točke stickova</span>"
     },
     "pidTuningProportional": {
         "message": "Proporcionalno"
@@ -1461,7 +1334,7 @@
         "message": "RC Rate"
     },
     "pidTuningMaxVel": {
-        "message": "Max brz. [deg\/s]"
+        "message": "Max brz. [deg/s]"
     },
     "pidTuningRate": {
         "message": "Rate"
@@ -1488,10 +1361,10 @@
         "message": "TPA točka prijeloma"
     },
     "pidTuningThrottleLimitType": {
-        "message": "Način limitiranja gasa\/throttlea"
+        "message": "Način limitiranja gasa/throttlea"
     },
     "pidTuningThrottleLimitPercent": {
-        "message": "Gas\/Throttle limit %"
+        "message": "Gas/Throttle limit %"
     },
     "pidTuningThrottleLimitTypeOff": {
         "message": "ISKLJUČENO"
@@ -1503,7 +1376,7 @@
         "message": "ODREZANO"
     },
     "pidTuningThrottleLimitTypeTip": {
-        "message": "Određuje vrstu limitiranja gasa\/throttlea. <b>ISKLJUČENO<\/b> - funkcija se ne koristi, <b>SKALIRANO<\/b> pretvara raspon gasa od 0 do zadanog postotka koristeći cijeli raspon kontrole gasa na stanici, <b>ODREZANO<\/b> postavlja maksimalni gas na zadani postotak i svaki pomak iznad toga na kontroli gasa na stanici neće imati utjecaja"
+        "message": "Određuje vrstu limitiranja gasa/throttlea. <b>ISKLJUČENO</b> - funkcija se ne koristi, <b>SKALIRANO</b> pretvara raspon gasa od 0 do zadanog postotka koristeći cijeli raspon kontrole gasa na stanici, <b>ODREZANO</b> postavlja maksimalni gas na zadani postotak i svaki pomak iznad toga na kontroli gasa na stanici neće imati utjecaja"
     },
     "pidTuningThrottleLimitPercentTip": {
         "message": "Postavi željeni postotak limitiranja gasa. Postavljanje na 100% onemogućava ovu funkciju."
@@ -1511,23 +1384,17 @@
     "pidTuningFilter": {
         "message": "Filter"
     },
-    "pidTuningFilterFrequency": {
-        "message": "Frekvencija"
-    },
     "pidTuningRatesCurve": {
         "message": "Rate krivulja"
     },
     "throttle": {
-        "message": "Gas\/Throttle krivulja"
+        "message": "Gas/Throttle krivulja"
     },
     "pidTuningButtonSave": {
         "message": "Spremi"
     },
     "pidTuningButtonRefresh": {
         "message": "Osvježi"
-    },
-    "pidTuningProfileHead": {
-        "message": "Profil"
     },
     "pidTuningControllerHead": {
         "message": "PID kontroler"
@@ -1563,37 +1430,37 @@
         "message": "Učitaj zadane vrijednosti profila."
     },
     "pidTuningReceivedProfile": {
-        "message": "Kontroler leta postavi Profil:<strong class=\"message-positive\">$1<\/strong>"
+        "message": "Kontroler leta postavi Profil:<strong class=\"message-positive\">$1</strong>"
     },
     "pidTuningReceivedRateProfile": {
-        "message": "Kontroler leta postavi Rateprofil:<strong class=\"message-positive\">$1<\/strong>"
+        "message": "Kontroler leta postavi Rateprofil:<strong class=\"message-positive\">$1</strong>"
     },
     "pidTuningLoadedProfile": {
-        "message": "Učitan profil: <strong class=\"message-positive\">$1<\/strong>"
+        "message": "Učitan profil: <strong class=\"message-positive\">$1</strong>"
     },
     "pidTuningLoadedRateProfile": {
-        "message": "Učitan rateprofil: <strong class=\"message-positive\">$1<\/strong>"
+        "message": "Učitan rateprofil: <strong class=\"message-positive\">$1</strong>"
     },
     "pidTuningDataRefreshed": {
-        "message": "PID podaci <strong>osvježeni<\/strong>"
+        "message": "PID podaci <strong>osvježeni</strong>"
     },
     "pidTuningEepromSaved": {
-        "message": "EEPROM <span class=\"message-positive\">spremljen<\/span>"
+        "message": "EEPROM <span class=\"message-positive\">spremljen</span>"
     },
     "receiverHelp": {
-        "message": "Molimo pročitajte poglavlje o prijemnicima u dokumentaciji. Konfigurirajte serijski port (ako je potrebno), način rada prijemnika (serijski\/ppm\/pwm), protokol (za serijske prijemnike), povežite prijemnik, mapirajte kanale, konfigurirajte krajnje točke i rapon kanala na stanici tako da svi kanali idu of 1000 do 2000. Postavite sredinu (zadano 1500), trimajte kanale na 1500, konfigurirajte mrtve zone, provjerite ponašanje kada je stanica ugašena. <br \/><span class=\"message-negative\">VAŽNO:<\/span>Prije leta pročitajte poglavlje failsafe i konfigurirajte ga."
+        "message": "Molimo pročitajte poglavlje o prijemnicima u dokumentaciji. Konfigurirajte serijski port (ako je potrebno), način rada prijemnika (serijski/ppm/pwm), protokol (za serijske prijemnike), povežite prijemnik, mapirajte kanale, konfigurirajte krajnje točke i rapon kanala na stanici tako da svi kanali idu of 1000 do 2000. Postavite sredinu (zadano 1500), trimajte kanale na 1500, konfigurirajte mrtve zone, provjerite ponašanje kada je stanica ugašena. <br /><span class=\"message-negative\">VAŽNO:</span>Prije leta pročitajte poglavlje failsafe i konfigurirajte ga."
     },
     "tuningHelp": {
-        "message": "<b>Tuning savjeti<\/b><br \/><span class=\"message-negative\">VAŽNO:<\/span> Bitno je provjeravati temperature motora tijekom prvih letova. Veće vrijednosti filtera će poboljšava karakteristike leta, ali može povećati temperature motora.<br>Zadana vrijednost od 100Hz je optimalna, ali za sustave koji imaju veće vibracije pokušajte smanjiti Dterm filter na 50Hz i po želji gyro filter."
+        "message": "<b>Tuning savjeti</b><br /><span class=\"message-negative\">VAŽNO:</span> Bitno je provjeravati temperature motora tijekom prvih letova. Veće vrijednosti filtera će poboljšava karakteristike leta, ali može povećati temperature motora.<br>Zadana vrijednost od 100Hz je optimalna, ali za sustave koji imaju veće vibracije pokušajte smanjiti Dterm filter na 50Hz i po želji gyro filter."
     },
     "filterWarning": {
-        "message": "<span class=\"message-negative\"><b>Upozorenje:<\/b><\/span> Količina filtriranje koju koristite je opasno niska. Ovo će vjerojatno učiniti letjelicu nestabilnom i može doći do nekontroliranog odljetanja. Preporučuje se da <b>omogućite barem jedan Gryo Dinamički Lowpass ili Gyro Lowpass 1 i barem jedan D Term Dinamčki Lowpass ili D Term Lowpass 1<\/b>."
+        "message": "<span class=\"message-negative\"><b>Upozorenje:</b></span> Količina filtriranje koju koristite je opasno niska. Ovo će vjerojatno učiniti letjelicu nestabilnom i može doći do nekontroliranog odljetanja. Preporučuje se da <b>omogućite barem jedan Gryo Dinamički Lowpass ili Gyro Lowpass 1 i barem jedan D Term Dinamčki Lowpass ili D Term Lowpass 1</b>."
     },
     "receiverThrottleMid": {
-        "message": "Gas\/Throttle MID"
+        "message": "Gas/Throttle MID"
     },
     "receiverThrottleExpo": {
-        "message": "Gas\/Throttle EXPO"
+        "message": "Gas/Throttle EXPO"
     },
     "receiverStickMin": {
         "message": "'Stick low' prag"
@@ -1623,13 +1490,13 @@
         "message": "Yaw mrtva-zona"
     },
     "receiverHelpYawDeadband": {
-        "message": "Ove vrijednosti (u us) određuju koliko RC ulaz mora biti promjenjen da bi se smatrao ispravim. Za stanice koje imaju probleme s trzanjem, ova vrijednost bi trebala biti povećana dok trzaji ne prestanu. <strong>Ova postavka je samo za Yaw<\/strong>"
+        "message": "Ove vrijednosti (u us) određuju koliko RC ulaz mora biti promjenjen da bi se smatrao ispravim. Za stanice koje imaju probleme s trzanjem, ova vrijednost bi trebala biti povećana dok trzaji ne prestanu. <strong>Ova postavka je samo za Yaw</strong>"
     },
     "recevier3dDeadbandThrottle": {
-        "message": "3D Gas\/Throttle mrtva-zona"
+        "message": "3D Gas/Throttle mrtva-zona"
     },
     "receiverHelp3dDeadbandThrottle": {
-        "message": "Ova vrijednost (u us) određuje neutralnu zonu. <strong>Ova opcija je za 3D throttle.<\/strong>"
+        "message": "Ova vrijednost (u us) određuje neutralnu zonu. <strong>Ova opcija je za 3D throttle.</strong>"
     },
     "receiverChannelMap": {
         "message": "Mapiranje kanala"
@@ -1658,23 +1525,20 @@
     "receiverButtonSticks": {
         "message": "Kontrolne palice"
     },
-    "receiverDataRefreshed": {
-        "message": "RC Tuning podaci <strong>osvježeni<\/strong>"
-    },
     "receiverEepromSaved": {
-        "message": "EEPROM <span class=\"message-positive\">spremljen<\/span>"
+        "message": "EEPROM <span class=\"message-positive\">spremljen</span>"
     },
     "receiverModelPreview": {
         "message": "Pregled"
     },
     "receiverMspWarningText": {
-        "message": "Ove kontrole omogućuju da Emuflight bude arman i testiran bez stanice i prijemnika. Ali, <strong>ova mogućnosti nije namijenjena za let i propeleri bi trebali biti skinuti. <\/strong><br><br>Ova mogućnost ne garantira sigurnu kontrolu letjelice.<strong> Ozljede su moguće ako su propeleri na letjelici.<\/strong>"
+        "message": "Ove kontrole omogućuju da Emuflight bude arman i testiran bez stanice i prijemnika. Ali, <strong>ova mogućnosti nije namijenjena za let i propeleri bi trebali biti skinuti. </strong><br><br>Ova mogućnost ne garantira sigurnu kontrolu letjelice.<strong> Ozljede su moguće ako su propeleri na letjelici.</strong>"
     },
     "receiverMspEnableButton": {
         "message": "Omogući kontrole"
     },
     "auxiliaryHelp": {
-        "message": "Ovdje konfigurirajte načine rada koristeći kombinacije raspona i\/ili veza s drugim načinima rada (veze su podržane u BF 4.0 verziji i kasnijim) Koristite <strong>raspone<\/strong> kako biste definirali koji prekidači na vašoj stanici aktiviraju koje načine rada. Odabrani kanal s prijeminika koji daje vrijednost unutar raspona će aktivirati taj način rada. Koristite <strong>veze<\/strong> kako biste aktivirali način rada kada je neki drugi način rada aktivan. <strong>Iznimke:<\/strong> Način rada ARM ne može biti vezan na ili s drugim načinima rada, isto tako načini rada ne mogu biti vezani na druge načina rada koji su već konfigurirani da se aktiviraju vezom. Nije moguće stvarati lančane veze. Načini rada mogu biti aktivirani s više različitih raspona i veza. Ako je definirano više od jednog raspona\/veze za jedan način rada, svaki od njih može biti postavljen na <strong>I<\/strong> ili <strong>ILI<\/strong>. <br \/><br>Način rada će biti aktiviran kada:<br \/>-su svi <strong>I<\/strong> rasponi\/veze aktivne ili <br \/>-barem jedan <strong>ILI<\/strong> raspon\/veza aktivna. <br \/><br \/> Sve postavke je potrebno spremiti klikom na tipku 'Spremi'."
+        "message": "Ovdje konfigurirajte načine rada koristeći kombinacije raspona i/ili veza s drugim načinima rada (veze su podržane u BF 4.0 verziji i kasnijim) Koristite <strong>raspone</strong> kako biste definirali koji prekidači na vašoj stanici aktiviraju koje načine rada. Odabrani kanal s prijeminika koji daje vrijednost unutar raspona će aktivirati taj način rada. Koristite <strong>veze</strong> kako biste aktivirali način rada kada je neki drugi način rada aktivan. <strong>Iznimke:</strong> Način rada ARM ne može biti vezan na ili s drugim načinima rada, isto tako načini rada ne mogu biti vezani na druge načina rada koji su već konfigurirani da se aktiviraju vezom. Nije moguće stvarati lančane veze. Načini rada mogu biti aktivirani s više različitih raspona i veza. Ako je definirano više od jednog raspona/veze za jedan način rada, svaki od njih može biti postavljen na <strong>I</strong> ili <strong>ILI</strong>. <br /><br>Način rada će biti aktiviran kada:<br />-su svi <strong>I</strong> rasponi/veze aktivne ili <br />-barem jedan <strong>ILI</strong> raspon/veza aktivna. <br /><br /> Sve postavke je potrebno spremiti klikom na tipku 'Spremi'."
     },
     "auxiliaryToggleUnused": {
         "message": "Sakrij načine rada koji se ne koriste"
@@ -1695,16 +1559,13 @@
         "message": "Spremi"
     },
     "auxiliaryEepromSaved": {
-        "message": "EEPROM <span class=\"message-positive\">spremljen<\/span>"
+        "message": "EEPROM <span class=\"message-positive\">spremljen</span>"
     },
     "auxiliaryAutoChannelSelect": {
         "message": "AUTO"
     },
     "auxiliaryModeLogicOR": {
         "message": "ILI"
-    },
-    "auxiliaryModeLogicAND": {
-        "message": "I"
     },
     "adjustmentsHelp": {
         "message": "Konfigurirajte prekidače prilagodbi. Pogledajte poglavlje 'in-flight adjustments' u dokumentaciji. Promjene koje ove funkcije naprave nisu automatski spremljene. Postoje 4 slota. Svaki prekidač traži zaseban slot."
@@ -1713,7 +1574,7 @@
         "message": "Primjeri"
     },
     "adjustmentsExample1": {
-        "message": "Koristite Slot 1 i 3POS prekidač na AUX1 kako biste odabrali između Pitch\/Roll P, I i D i drugi 3POS prekidač na AUX2 za povećavanje ili smanjivanje vrijednosti kad se zadrži u gornjoj, odnsno donjoj poziciji."
+        "message": "Koristite Slot 1 i 3POS prekidač na AUX1 kako biste odabrali između Pitch/Roll P, I i D i drugi 3POS prekidač na AUX2 za povećavanje ili smanjivanje vrijednosti kad se zadrži u gornjoj, odnsno donjoj poziciji."
     },
     "adjustmentsExample2": {
         "message": "Koristite Slot 2 i 3POS prekidač na AUX4 da omogućite odabir rateprofila istim 3POS prekidačem na istom kanalu."
@@ -1857,7 +1718,7 @@
         "message": "Spremi"
     },
     "adjustmentsEepromSaved": {
-        "message": "EEPROM <span class=\"message-positive\">spremljen<\/span>"
+        "message": "EEPROM <span class=\"message-positive\">spremljen</span>"
     },
     "transponderNotSupported": {
         "message": "Firmware kontorlera leta ne podržava funkciju transpondera."
@@ -1880,15 +1741,6 @@
     "transponderType3": {
         "message": "ERLT"
     },
-    "transponderConfiguration1": {
-        "message": "Konfiguracijski iLap"
-    },
-    "transponderConfiguration2": {
-        "message": "Konfiguracija aRCiTimera"
-    },
-    "transponderConfiguration3": {
-        "message": "Konfiguracija ERLT"
-    },
     "transponderData1": {
         "message": "Podaci"
     },
@@ -1902,16 +1754,16 @@
         "message": "Samo heksadekadske znamenke, 0-9, A-F"
     },
     "transponderHelp1": {
-        "message": "Ovdje konfigurirajte kod transpondera. Napomena: Samo ispravni kodovi će biti prepoznati u sustavu praćenja vremena. Ispravne kodove možete pronaći na <a href=\"http:\/\/seriouslypro.com\/transponder-codes\" target=\"_blank\">Seriously Pro<\/a>."
+        "message": "Ovdje konfigurirajte kod transpondera. Napomena: Samo ispravni kodovi će biti prepoznati u sustavu praćenja vremena. Ispravne kodove možete pronaći na <a href=\"http://seriouslypro.com/transponder-codes\" target=\"_blank\">Seriously Pro</a>."
     },
     "transponderHelp2": {
-        "message": "Za više informacija posjetite stranicu <a href=\"http:\/\/www.arcitimer.com\/\" title=\"aRCiTimer\" target=\"_blank\">aRCiTimer<\/a>"
+        "message": "Za više informacija posjetite stranicu <a href=\"http://www.arcitimer.com/\" title=\"aRCiTimer\" target=\"_blank\">aRCiTimer</a>"
     },
     "transponderDataHelp3": {
         "message": "Odaberi ERLT ID 0-63"
     },
     "transponderHelp3": {
-        "message": "Za više informacija posjetite stranicu <a href=\"https:\/\/github.com\/polyvision\/EasyRaceLapTimer\" title=\"aRCiTimer\" target=\"_blank\">EasyRaceLapTimer<\/a>"
+        "message": "Za više informacija posjetite stranicu <a href=\"https://github.com/polyvision/EasyRaceLapTimer\" title=\"aRCiTimer\" target=\"_blank\">EasyRaceLapTimer</a>"
     },
     "transponderButtonSave": {
         "message": "Spremi"
@@ -1920,10 +1772,10 @@
         "message": "Spremi i ponovno pokreni"
     },
     "transponderDataInvalid": {
-        "message": "Podaci transpondera su <span class=\"message-negative\">neispravni<\/span>"
+        "message": "Podaci transpondera su <span class=\"message-negative\">neispravni</span>"
     },
     "transponderEepromSaved": {
-        "message": "EEPROM <span class=\"message-positive\">spremljen<\/span>"
+        "message": "EEPROM <span class=\"message-positive\">spremljen</span>"
     },
     "servosFirmwareUpgradeRequired": {
         "message": "Servo motori zahtijevaju firmware &gt;= 1.10.0. i 'target' podršku."
@@ -1943,12 +1795,6 @@
     "servosMax": {
         "message": "MAX"
     },
-    "servosAngleAtMin": {
-        "message": "Kut na min"
-    },
-    "servosAngleAtMax": {
-        "message": "Kut na max"
-    },
     "servosDirectionAndRate": {
         "message": "Smjer i rate"
     },
@@ -1958,14 +1804,8 @@
     "servosButtonSave": {
         "message": "Spremi"
     },
-    "servosNormal": {
-        "message": "Normalno"
-    },
-    "servosReverse": {
-        "message": "Obrnuto"
-    },
     "servosEepromSave": {
-        "message": "EEPROM <span class=\"message-positive\">spremljen<\/span>"
+        "message": "EEPROM <span class=\"message-positive\">spremljen</span>"
     },
     "gpsHead": {
         "message": "GPS"
@@ -1983,10 +1823,10 @@
         "message": "3D Fix:"
     },
     "gpsFixTrue": {
-        "message": "<span class=\"fixtrue\">Istina<\/span>"
+        "message": "<span class=\"fixtrue\">Istina</span>"
     },
     "gpsFixFalse": {
-        "message": "<span class=\"fixfalse\">Laž<\/span>"
+        "message": "<span class=\"fixfalse\">Laž</span>"
     },
     "gpsAltitude": {
         "message": "Visina:"
@@ -2106,13 +1946,13 @@
         "message": "Master"
     },
     "motorsNotice": {
-        "message": "<strong>Napomena za test motora i arminga:<\/strong><br \/>Pomicanje klizača ili armiranje preko stanice će <strong>pokrenuti motore<\/strong>.<br \/>Kako bi se izbjegla ozljeda <strong class=\"message-negative\">uklonite SVE propelere<\/strong> prije korištenja ove mogućnosti.<br \/>Omogućavanje ovog načina rada za testiranje privremeno će onemogućiti zaštitu od nekontroliranog polijetanja.<br \/>"
+        "message": "<strong>Napomena za test motora i arminga:</strong><br />Pomicanje klizača ili armiranje preko stanice će <strong>pokrenuti motore</strong>.<br />Kako bi se izbjegla ozljeda <strong class=\"message-negative\">uklonite SVE propelere</strong> prije korištenja ove mogućnosti.<br />Omogućavanje ovog načina rada za testiranje privremeno će onemogućiti zaštitu od nekontroliranog polijetanja.<br />"
     },
     "motorsEnableControl": {
-        "message": "<strong>Upoznat sam s rizicima<\/strong>, propeleri su uklonjeni - omogući testiranje motora i armiranje te onemogući zaštitu od nekontroliranog polijetanja."
+        "message": "<strong>Upoznat sam s rizicima</strong>, propeleri su uklonjeni - omogući testiranje motora i armiranje te onemogući zaštitu od nekontroliranog polijetanja."
     },
     "sensorsInfo": {
-        "message": "Imajte na umu da korištenje brzih vremena osvježavanja i prikazivanja više grafova u isto vrijeme je procesorski zahtjevno i možda će brže potrošiti bateriju laptopa ako ga koristite.<br \/>Preporučujemo da prikazujete samo grafove senzora koje vas zanimaju i korištenje razumnih vremena osvježavanja."
+        "message": "Imajte na umu da korištenje brzih vremena osvježavanja i prikazivanja više grafova u isto vrijeme je procesorski zahtjevno i možda će brže potrošiti bateriju laptopa ako ga koristite.<br />Preporučujemo da prikazujete samo grafove senzora koje vas zanimaju i korištenje razumnih vremena osvježavanja."
     },
     "sensorsRefresh": {
         "message": "Osvježi:"
@@ -2139,7 +1979,7 @@
         "message": "Debugiranje"
     },
     "sensorsGyroTitle": {
-        "message": "Žiroskop - stupnjeva\/s"
+        "message": "Žiroskop - stupnjeva/s"
     },
     "sensorsAccelTitle": {
         "message": "Akcelerometar -g"
@@ -2157,7 +1997,7 @@
         "message": "Debugiranje"
     },
     "cliInfo": {
-        "message": "<strong>Napomena:<\/strong> Napuštanje CLI kartice ili odspajanje će<strong>automatski<\/strong> poslati\"<strong>exit<\/strong>\" komandu. Na novijim verzijama firmwarea ovo će <strong>ponovno pokrenuti<\/strong> i sve nespremljene promjene biti će <strong>izgubljene<\/strong>.<p><strong><span class=\"message-negative\">Upozorenje:<\/span><\/strong> Neke komnade u CLI mogu rezultirati slanjem pogrešnih signala na pinove motora. Ovo može pokrenuti motore ako je baterija spojena. Stoga je preporučeno da budete sigurni<strong> da baterije nije spojena dok se u CLI sučelju<\/strong>."
+        "message": "<strong>Napomena:</strong> Napuštanje CLI kartice ili odspajanje će<strong>automatski</strong> poslati\"<strong>exit</strong>\" komandu. Na novijim verzijama firmwarea ovo će <strong>ponovno pokrenuti</strong> i sve nespremljene promjene biti će <strong>izgubljene</strong>.<p><strong><span class=\"message-negative\">Upozorenje:</span></strong> Neke komnade u CLI mogu rezultirati slanjem pogrešnih signala na pinove motora. Ovo može pokrenuti motore ako je baterija spojena. Stoga je preporučeno da budete sigurni<strong> da baterije nije spojena dok se u CLI sučelju</strong>."
     },
     "cliInputPlaceholder": {
         "message": "Upišite komandu ovdje. Pritisnite Tab za samodovršavanje."
@@ -2190,13 +2030,13 @@
         "message": "Pregledaj učitane komande"
     },
     "cliConfirmSnippetNote": {
-        "message": "<strong>Napomena<\/strong>: Možete vidjeti i uređivati komande prije izvršavanja."
+        "message": "<strong>Napomena</strong>: Možete vidjeti i uređivati komande prije izvršavanja."
     },
     "cliConfirmSnippetBtn": {
         "message": "Izvrši"
     },
     "loggingNote": {
-        "message": "Podaci će biti bilježeni u <span class=\"message-negative\">samo ovoj karitici<\/span>, napuštanje ove kartice će <span class=\"message-negative\">poništiti <\/span> zapisivanje i aplikacije će se vratiti u normalno <strong>\"konfiguracijsko\"<\/strong> stanje. <br \/> Odaberite globalni period ažuriranja, podaci će se zapisivati u datoteku zapisa svaku <strong>1<\/strong> sekundu zbog performansi."
+        "message": "Podaci će biti bilježeni u <span class=\"message-negative\">samo ovoj karitici</span>, napuštanje ove kartice će <span class=\"message-negative\">poništiti </span> zapisivanje i aplikacije će se vratiti u normalno <strong>\"konfiguracijsko\"</strong> stanje. <br /> Odaberite globalni period ažuriranja, podaci će se zapisivati u datoteku zapisa svaku <strong>1</strong> sekundu zbog performansi."
     },
     "loggingSamplesSaved": {
         "message": "Spremljeni uzorci:"
@@ -2214,10 +2054,10 @@
         "message": "Prestani zapisivati"
     },
     "loggingBack": {
-        "message": "Napusti zapisivanje \/ Odspoji"
+        "message": "Napusti zapisivanje / Odspoji"
     },
     "loggingErrorNotConnected": {
-        "message": "Potrebno se prije toga <strong>spojiti<\/strong>"
+        "message": "Potrebno se prije toga <strong>spojiti</strong>"
     },
     "loggingErrorLogFile": {
         "message": "Molimo odaberite datoteku zapisa"
@@ -2226,7 +2066,7 @@
         "message": "Molimo odaberiti bar jednu vrijednost za bilježenje"
     },
     "loggingAutomaticallyRetained": {
-        "message": "Automatski učitan prijašnja datoteka zapisnika: <strong>$1<\/strong>"
+        "message": "Automatski učitan prijašnja datoteka zapisnika: <strong>$1</strong>"
     },
     "blackboxNotSupported": {
         "message": "Firmware kontorlera leta ne podržava funkciju crne kutije."
@@ -2286,7 +2126,7 @@
         "message": "Spremi memoriju u datoteku... (''deprecated'')"
     },
     "dataflashSaveFileDepreciationHint": {
-        "message": "Spremanje zapisa crne kutije kroz konfigurator je sporo i podložno greškama. Preporučuje se da koristite '<b>$t(onboardLoggingRebootMscText.message)<\/b>' (ispod) kako biste aktivirali način rada s masovnom pohranom da pristupite memorijskom čipu ili karitici na kontroleru leta da preuzmete zapise direktno."
+        "message": "Spremanje zapisa crne kutije kroz konfigurator je sporo i podložno greškama. Preporučuje se da koristite '<b>$t(onboardLoggingRebootMscText.message)</b>' (ispod) kako biste aktivirali način rada s masovnom pohranom da pristupite memorijskom čipu ili karitici na kontroleru leta da preuzmete zapise direktno."
     },
     "dataflashButtonErase": {
         "message": "Obriši flash memoriju"
@@ -2343,7 +2183,7 @@
         "message": "Informacije o izdanju"
     },
     "firmwareFlasherReleaseName": {
-        "message": "Ime\/Verzija:"
+        "message": "Ime/Verzija:"
     },
     "firmwareFlasherReleaseVersionUrl": {
         "message": "Posjetite stranicu izdanja."
@@ -2363,26 +2203,11 @@
     "firmwareFlasherReleaseFile": {
         "message": "Binary:"
     },
-    "firmwareFlasherReleaseStatusReleaseCandidate": {
-        "message": "<span class=\"message-negative\">VAŽNO: Ovo izdanje firmware je označeno kao kandidat za izdavanje. Prijavite bilo kakav problem s \n nijm<\/span>"
-    },
     "firmwareFlasherReleaseFileUrl": {
         "message": "Ručno preuzimanje."
     },
     "firmwareFlasherTargetWarning": {
-        "message": "<span class=\"message-negative\">UPOZORENJE<\/span>: Provjerite ažurirate li datoteku primjerenu vašem kontroleru leta. Ažuriranje s pogrešnom datotekom za drugi kontroler može prouzrokokvati <span class=\"message-negative\">probleme<\/span>."
-    },
-    "firmwareFlasherPath": {
-        "message": "Putanja:"
-    },
-    "firmwareFlasherSize": {
-        "message": "Veličina:"
-    },
-    "firmwareFlasherStatus": {
-        "message": "Status:"
-    },
-    "firmwareFlasherProgress": {
-        "message": "Napredak:"
+        "message": "<span class=\"message-negative\">UPOZORENJE</span>: Provjerite ažurirate li datoteku primjerenu vašem kontroleru leta. Ažuriranje s pogrešnom datotekom za drugi kontroler može prouzrokokvati <span class=\"message-negative\">probleme</span>."
     },
     "firmwareFlasherLoadFirmwareFile": {
         "message": "Molimo učitajte datoteku firmwarea"
@@ -2414,12 +2239,6 @@
     "firmwareFlasherFullChipEraseDescription": {
         "message": "Briše sve konfiguracijske podatke trenutno spremljene na kontroleru leta."
     },
-    "firmwareFlasherFlashDevelopmentFirmware": {
-        "message": "Koristi firmware u razvoju"
-    },
-    "firmwareFlasherFlashDevelopmentFirmwareDescription": {
-        "message": "Ažuriraj na najnoviji (netestirani) firmware u razvoju."
-    },
     "firmwareFlasherManualPort": {
         "message": "Port"
     },
@@ -2427,7 +2246,7 @@
         "message": "Ručno postavi baud rate"
     },
     "firmwareFlasherManualBaudDescription": {
-        "message": "Ručni odabir baud ratea za kontrolere leta koji ne podržavaju zadanu brzinu ili za ažuriranje preko bluetootha.<br \/><span class=\"message-negative\">Napomena:<\/span> Ne treba koristiti kod ažuriranja preko USB DFU načina"
+        "message": "Ručni odabir baud ratea za kontrolere leta koji ne podržavaju zadanu brzinu ili za ažuriranje preko bluetootha.<br /><span class=\"message-negative\">Napomena:</span> Ne treba koristiti kod ažuriranja preko USB DFU načina"
     },
     "firmwareFlasherBaudRate": {
         "message": "Baud Rate"
@@ -2446,15 +2265,6 @@
     },
     "firmwareFlasherOptionLabelBuildTypeReleaseCandidate": {
         "message": "Stabilna izdanja i kandidati za izdanja"
-    },
-    "firmwareFlasherOptionLabelBuildTypeDevelopment": {
-        "message": "Razvoj"
-    },
-    "firmwareFlasherOptionLabelBuildTypeAKK3_3": {
-        "message": "3.3 AKK & RDQ VTX Patch"
-    },
-    "firmwareFlasherOptionLabelBuildTypeAKK3_4": {
-        "message": "3.4 AKK & RDQ VTX Patch"
     },
     "firmwareFlasherOptionLabelSelectFirmware": {
         "message": "Odaberite firmware"
@@ -2499,16 +2309,13 @@
         "message": "Poruka:"
     },
     "firmwareFlasherWarningText": {
-        "message": "Molimo da <span class=\"message-negative\">ne<\/span> pokušavate ažurirati <strong>hardware koji nije namjenjen za Emuflight<\/strong> s ovim alatom za ažuriranje.<br \/> <span class=\"message-negative\">Nemojte <\/span><strong>odspajati<\/strong> kontroler ili <strong>gasiti<\/strong> računalo tijekom ažuriranja. <br \/><br \/><strong>Napomena: <\/strong>STM32 bootloader je smješten u ROM-u i ne može se uništiti.<br \/><strong>Napomena:<\/strong><span class=\"message-negative\">Automatsko povezivanje<\/span> je uvijek onemogućeno dok koristite alat za ažuriranje firmwarea.<br \/><strong>Napomena:<\/strong> Uvijek imajte backup jer postoji mogućnost gubitka cijele konfiguracije. <br \/><strong>Napomena:<\/strong> Ako imate problema pri ažuriranju pokušajte prije svega <strong>ponovno spojiti kabel s kontrolera leta<\/strong>, ponovno pokrenuti konfigurator, ažurirati Chrome i drivere. <br \/><strong>Napomena:<\/strong> Kada ažurirate kontrolere koji se direktno spajaju na USB priključak(većina novih kontrolera) obvezno pročitajte poglavlje 'USB Flashing' u Emuflight uputstvima"
+        "message": "Molimo da <span class=\"message-negative\">ne</span> pokušavate ažurirati <strong>hardware koji nije namjenjen za Emuflight</strong> s ovim alatom za ažuriranje.<br /> <span class=\"message-negative\">Nemojte </span><strong>odspajati</strong> kontroler ili <strong>gasiti</strong> računalo tijekom ažuriranja. <br /><br /><strong>Napomena: </strong>STM32 bootloader je smješten u ROM-u i ne može se uništiti.<br /><strong>Napomena:</strong><span class=\"message-negative\">Automatsko povezivanje</span> je uvijek onemogućeno dok koristite alat za ažuriranje firmwarea.<br /><strong>Napomena:</strong> Uvijek imajte backup jer postoji mogućnost gubitka cijele konfiguracije. <br /><strong>Napomena:</strong> Ako imate problema pri ažuriranju pokušajte prije svega <strong>ponovno spojiti kabel s kontrolera leta</strong>, ponovno pokrenuti konfigurator, ažurirati Chrome i drivere. <br /><strong>Napomena:</strong> Kada ažurirate kontrolere koji se direktno spajaju na USB priključak(većina novih kontrolera) obvezno pročitajte poglavlje 'USB Flashing' u Emuflight uputstvima"
     },
     "firmwareFlasherRecoveryHead": {
-        "message": "<strong>Oporavljanje \/ Izgubljena komunikacija<\/strong>"
+        "message": "<strong>Oporavljanje / Izgubljena komunikacija</strong>"
     },
     "firmwareFlasherRecoveryText": {
-        "message": "Ako ste izgubili komunikaciju s pločom, pratite ove korake kako biste ponovno uspostavili komunikaciju <ul><li>Isključite sve<\/li><li>Omogučite 'Bez sekvence ponovnog pokretanja<\/li><li>Prespojite BOOT pinove ili držite BOOT tipku<\/li><li>Uključite (LED lampica aktivnosti ne bi trebala treptati).<\/li><li>Instalirajte sve STM32 drivere i Zadig ako je potrebno (pogledajte <a href=\"https:\/\/github.com\/EmuFlight\/EmuFlight\/wiki\"target=\"_blank\">'USB Flashing'<\/a> poglavlje u Emuflight uputstvima).<\/li><li>Zatvorite konfigurator, sve Chrome prozore, sve Chrome aplikacije i ponovno pokrenite konfigurator<\/li><li>Pustite BOOT tipku ako ju vaš FC ima.<\/li><li>Ažurirajte kontroler ispravnim firmwareom (koristeći ručno postavljen baud rate ako kontroler tako zahtjeva) <\/li><li>Isključite sve.<\/li><li>Uklonite BOOT prespojnicu<\/li><li>Uključite (LED lampica aktivnosti bi trebala treperiti).<\/li><li>Normalno se povežite.<\/li><\/ul>"
-    },
-    "firmwareFlasherButtonLeave": {
-        "message": "Napusti firmware flasher"
+        "message": "Ako ste izgubili komunikaciju s pločom, pratite ove korake kako biste ponovno uspostavili komunikaciju <ul><li>Isključite sve</li><li>Omogučite 'Bez sekvence ponovnog pokretanja</li><li>Prespojite BOOT pinove ili držite BOOT tipku</li><li>Uključite (LED lampica aktivnosti ne bi trebala treptati).</li><li>Instalirajte sve STM32 drivere i Zadig ako je potrebno (pogledajte <a href=\"https://github.com/EmuFlight/EmuFlight/wiki\"target=\"_blank\">'USB Flashing'</a> poglavlje u Emuflight uputstvima).</li><li>Zatvorite konfigurator, sve Chrome prozore, sve Chrome aplikacije i ponovno pokrenite konfigurator</li><li>Pustite BOOT tipku ako ju vaš FC ima.</li><li>Ažurirajte kontroler ispravnim firmwareom (koristeći ručno postavljen baud rate ako kontroler tako zahtjeva) </li><li>Isključite sve.</li><li>Uklonite BOOT prespojnicu</li><li>Uključite (LED lampica aktivnosti bi trebala treperiti).</li><li>Normalno se povežite.</li></ul>"
     },
     "firmwareFlasherFirmwareNotLoaded": {
         "message": "Firmware nije učitan"
@@ -2519,29 +2326,26 @@
     "firmwareFlasherHexCorrupted": {
         "message": "HEX datoteka je koruptirana"
     },
-    "firmwareFlasherRemoteFirmwareLoaded": {
-        "message": "<span class=\"message-positive\">Učitan firmware, spremno za ažuriranje<\/span>"
-    },
     "firmwareFlasherFailedToLoadOnlineFirmware": {
         "message": "Učitavanje firmwarea nije uspjelo"
     },
     "firmwareFlasherNoFirmwareSelected": {
-        "message": "<b>Firmware nije odabran za učitavanje<\/b>"
+        "message": "<b>Firmware nije odabran za učitavanje</b>"
     },
     "firmwareFlasherNoValidPort": {
-        "message": "<span class=\"message-negative\">Molimo odaberite ispravan serijski port<\/span>"
+        "message": "<span class=\"message-negative\">Molimo odaberite ispravan serijski port</span>"
     },
     "firmwareFlasherWritePermissions": {
-        "message": "Nemate <span class=\"message-negative\">privilegije za pisanje<\/span> u ovu datoteku"
+        "message": "Nemate <span class=\"message-negative\">privilegije za pisanje</span> u ovu datoteku"
     },
     "firmwareFlasherFlashTrigger": {
-        "message": "Otkriven: <strong>$1<\/strong> - pokretanje ažuriranja pri spajanju"
+        "message": "Otkriven: <strong>$1</strong> - pokretanje ažuriranja pri spajanju"
     },
     "firmwareFlasherPreviousDevice": {
-        "message": "Otkriveno: <strong>$1<\/strong> - prethodni uređaj još se uvijek ažurira, molimo ponovno spojite da biste pokušali ponovno"
+        "message": "Otkriveno: <strong>$1</strong> - prethodni uređaj još se uvijek ažurira, molimo ponovno spojite da biste pokušali ponovno"
     },
     "ledStripHelp": {
-        "message": "Kontroler leta može upravljati bojama i efektima individualnih LEDica na traci.<br \/>Konfigurirajte LEDice na gridu, konfigurirajte poredak povezivanja i onda spojite LEDice na letjelicu prema zadanim pozicijama. LEDice bez broja poretka poverivanja neće biti spremljene.<br \/>Dupli klik na boju omogućuje uređivanje HSV vrijednosti."
+        "message": "Kontroler leta može upravljati bojama i efektima individualnih LEDica na traci.<br />Konfigurirajte LEDice na gridu, konfigurirajte poredak povezivanja i onda spojite LEDice na letjelicu prema zadanim pozicijama. LEDice bez broja poretka poverivanja neće biti spremljene.<br />Dupli klik na boju omogućuje uređivanje HSV vrijednosti."
     },
     "ledStripButtonSave": {
         "message": "Spremi"
@@ -2575,7 +2379,7 @@
         "description": "In the LED STRIP, clear all leds"
     },
     "ledStripEepromSaved": {
-        "message": "EEPROM <span class=\"message-positive\">spremljen<\/span>"
+        "message": "EEPROM <span class=\"message-positive\">spremljen</span>"
     },
     "ledStripVtxOverlay": {
         "message": "VTX (koristi vtx frekvenciju za dodjelu boje)"
@@ -2852,7 +2656,7 @@
         "message": "AUX 16"
     },
     "pidTuningBasic": {
-        "message": "Basic\/Acro"
+        "message": "Basic/Acro"
     },
     "pidTuningYawJumpPrevention": {
         "message": "Yaw prevencija skoka"
@@ -2860,23 +2664,8 @@
     "pidTuningYawJumpPreventionHelp": {
         "message": "Spriječava letjelicu da poskakuje nakon yawa. Veći brojevi daju usporavaju yaw pri kraju kretnja yawa (radi kao stari yaw D, koji nije isti D kao za ostale osi)"
     },
-    "pidTuningRcExpoPower": {
-        "message": "RC Expo snaga"
-    },
-    "pidTuningRcExpoPowerHelp": {
-        "message": "Exponent koji se koristi pri izračunu RC Expoa. U Emuflight verzijama prije 3.0, vrijednost je fiksna na 3."
-    },
     "pidTuningLevel": {
-        "message": "Angle\/Horizon"
-    },
-    "pidTuningAltitude": {
-        "message": "Barometar i Sonar\/visina"
-    },
-    "pidTuningMag": {
-        "message": "Magnetometar\/Smjer"
-    },
-    "pidTuningGps": {
-        "message": "GPS navigacija"
+        "message": "Angle/Horizon"
     },
     "pidTuningStrength": {
         "message": "Jačina"
@@ -2893,9 +2682,6 @@
     "pidTuningLevelAngleLimit": {
         "message": "Limit kuta"
     },
-    "pidTuningLevelSensitivity": {
-        "message": "Osjetljivost"
-    },
     "pidTuningLevelHelp": {
         "message": "Vrijednosti ispod mijenjaju ponašanje ANGLE i HORIZON načina rada. Različiti PID kontroleri drugačije upravljaju vrijednostima. Molimo provjerite dokumentaciju."
     },
@@ -2910,15 +2696,6 @@
     },
     "pidTuningGyroLowpassType": {
         "message": "Gyro Lowpass 1 vrsta filtera"
-    },
-    "pidTuningGyroLowpassDynMinFrequency": {
-        "message": "Gyro Lowpass 1 Dinamička Min Cutoff Frekvencija [Hz]"
-    },
-    "pidTuningGyroLowpassDynMaxFrequency": {
-        "message": "Gyro Lowpass 1 Dinamička Max Cutoff Frekvencija [Hz]"
-    },
-    "pidTuningGyroLowpassDynType": {
-        "message": "Gyro Lowpass 1 vrsta dinamičkog filtera"
     },
     "pidTuningGyroLowpass2Frequency": {
         "message": "Gyro Lowpass 2 Cutoff Frekvencija [Hz]"
@@ -2945,7 +2722,7 @@
         "message": "Notch filter ima centar i cutoff. Filter je simetričan. Centralna frekvencija je centar filtera a cutoff frekvencije je gdje notch filter započinje. Na primjer sa notch cutoffom 160 i notch centrom na 260, znači da je raspon 160-360Hz sa najviše atenuacije oko centra"
     },
     "pidTuningLowpassFilterHelp": {
-        "message": "Lowpass filteri imaju dvije varijante: statički i dinamički. Za određeni lowpass filter samo jedan (statički ili dinamički) može biti omogućen i isto vrijeme. Statički ima samo cutoff što je vrijednost koja određuje gdje filter započinje. Dinamički ima raspon od min do max vrijednosti, u tom se rasponu nalazi cutoof i on se pomiče u tom rasponu kako se mijenja gas\/throttle."
+        "message": "Lowpass filteri imaju dvije varijante: statički i dinamički. Za određeni lowpass filter samo jedan (statički ili dinamički) može biti omogućen i isto vrijeme. Statički ima samo cutoff što je vrijednost koja određuje gdje filter započinje. Dinamički ima raspon od min do max vrijednosti, u tom se rasponu nalazi cutoof i on se pomiče u tom rasponu kako se mijenja gas/throttle."
     },
     "pidTuningFilterSettings": {
         "message": "Profilno ovisne postavke filtera"
@@ -2965,23 +2742,11 @@
     "pidTuningDTermLowpass2Type": {
         "message": "D Term Lowpass 2 vrsta filtera"
     },
-    "pidTuningDTermLowpassDynMinFrequency": {
-        "message": "D Term Lowpass 1 Dinamička Min Cutoff Frekvencija[Hz]"
-    },
-    "pidTuningDTermLowpassDynMaxFrequency": {
-        "message": "D Term Lowpass 1 Dinamička Max Cutoff Frekvencija[Hz]"
-    },
-    "pidTuningDTermLowpassDynType": {
-        "message": "D Term Lowpass 1 vrsta dinamičkog filtera"
-    },
     "pidTuningDTermNotchFiltersGroup": {
         "message": "D Term Notch Filteri"
     },
     "pidTuningDTermNotchFrequency": {
         "message": "D Term Notch Filter Centralna Frekvencija[Hz]"
-    },
-    "pidTuningDTermDynLpf": {
-        "message": "D Term Dynamc filter"
     },
     "pidTuningDTermNotchCutoff": {
         "message": "D Term Notch Filter Cutoff Frekvencija[Hz]"
@@ -3023,10 +2788,10 @@
         "message": "Rotira trenutni I Term vektor ispravno na druge osi kad se letjelica rotira kod yawa tijekom dugih rollova i rađenja drugih trikova. Bitno za LOS acro pilote."
     },
     "pidTuningFeatheredPidsHelp": {
-      "message": "Feathered PIDs changes how Dterm is calculated. 0 is error based dterm and 100 is measurement based dterm. Measurement is smoother but less responsive than error. Any value between 0 and 100 is a scalar of partially measurement and error calculated dterm."
+        "message": "Feathered PIDs changes how Dterm is calculated. 0 is error based dterm and 100 is measurement based dterm. Measurement is smoother but less responsive than error. Any value between 0 and 100 is a scalar of partially measurement and error calculated dterm."
     },
     "pidTuningiDecayHelp": {
-      "message": "Removes excessive iterm accumulation normally found at the end of quick stick movements. Running a higher decay allows you to run a higher iterm without experiencing bounce back or other common negatives associated with high iterm. Default is a value of 4, but the highest you can run it is 10."
+        "message": "Removes excessive iterm accumulation normally found at the end of quick stick movements. Running a higher decay allows you to run a higher iterm without experiencing bounce back or other common negatives associated with high iterm. Default is a value of 4, but the highest you can run it is 10."
     },
     "pidTuningSmartFeedforward": {
         "message": "Smart Feedforward"
@@ -3071,7 +2836,7 @@
         "message": "Ova mogućnost riješava probleme $t(pidTuningItermRotation.message) i trebala bi biti uskoro zamijenjena. Ova mogućnost akumulira apsolutnu pogrešku žiroskopa u koordinatama letjelice i dodaje proporcionalnu korekciju u setpoint. Kako bi radila, potrebno je da omogućite AirMode i $t(pidTuningItermRelax.message) (za $t(pidTuningItermRelaxAxesOptionRP.message)). Ako kombinirate ovu mogućnost s $t(pidTuningIntegratedYaw.message), možete omogućiti $t(pidTuningItermRelax.message) za $t(pidTuningItermRelaxAxesOptionRPY.message)."
     },
     "pidTuningThrottleBoost": {
-        "message": "Gas\/Throttle Boost"
+        "message": "Gas/Throttle Boost"
     },
     "pidTuningThrottleBoostHelp": {
         "message": "Ova opcija omogućuje da se gas privremeno pojača kod brzih promjena kontrola, što povećava ubrzanje i moment motora i daje bolji odziv na promjenu gasa."
@@ -3080,28 +2845,13 @@
         "message": "Acro Trainer limit kuta"
     },
     "pidTuningAcroTrainerAngleLimitHelp": {
-        "message": "Dodaje novi način rada za limitiranje kuta za pilote koji uče letjeti u Acro\/Air načinu leta. Prihvatljivi raspon je od 10-80 stupnjeva i način rada mora biti aktiviran prekidačem u $t(tabAuxiliary.message) kartici."
-    },
-    "pidTuningIntegratedYaw": {
-        "message": "Integrirani Yaw"
-    },
-    "pidTuningIntegratedYawCaution": {
-        "message": "<span class=\"message-negative\">OPREZ<\/span>: ako ovo omogućite, morate postaviti YAW PID kako piše <a href=\"https:\/\/github.com\/emuflight\/EmuFlight\/wiki\/Integrated-Yaw\" target=\"_blank\">ovdje<\/a>"
-    },
-    "pidTuningIntegratedYawHelp": {
-        "message": "Integrirani Yaw je mogućnost koja popravlja fundamentalni problem upravljanja četverokoptera: pitch i roll osi su kontrolirane diferencijalnim postiskom koje stvaraju propeleri, yaw je kontroliran drugačije. Integrirani Yaw ovo popravlja integriranjem izlaza yaw Pida prije nego što se primjeni. Ovo popravlja kako Pid vrijednosti rade i sada se može postavljati kao i za sve druge osi. Zahtijeva Apsolutnu Kontrolu jer je I Term nepotreban s Integriranim Yawom."
+        "message": "Dodaje novi način rada za limitiranje kuta za pilote koji uče letjeti u Acro/Air načinu leta. Prihvatljivi raspon je od 10-80 stupnjeva i način rada mora biti aktiviran prekidačem u $t(tabAuxiliary.message) kartici."
     },
     "configHelp2": {
         "message": "Poravnanje ploče kontrolera leta u stupnjevima. Omogućuje postavljanje kontrolera bočno ili naopako. Kada koristite vanjske senzore koristite poravnanje senzora kako biste neovisno o orjentacije kontrolera leta definirali pozicije senzora. "
     },
-    "failsafeFeaturesHelpOld": {
-        "message": "Failsafe konfiguracija se značajno promijenila. Koristite Betalfight <strong>v1.12.0+<\/strong> kako biste omogućili poboljšani panel za konfiguraciju."
-    },
-    "failsafePaneTitleOld": {
-        "message": "Failsafe prijemnika"
-    },
     "failsafeFeaturesHelpNew": {
-        "message": "Failsafe ima dvije faze. <strong>Faza 1<\/strong> se aktivira kada jedan kanal s prijemnika ima nepravilnu dužinu impulsa, odnosno kada prijemnik uđe u failsafe način rada ili ako uopče nema signala s prijemnika. Primjenjuju se zadane postavke <span class=\"message-negative\">na sve kanale<\/span> i počinje teći kratko vrijeme za oporavak prije ulaska u sljedeću fazu. <strong>Faza 2<\/strong> se aktivira kada Faza 1 traje dulje od zadanog vremena za oporavak dok je letjelica <span class=\"message-negative\">armirana<\/span>, svi kanali će ostati na već primjenjenim postavkama u Fazi 1 osim ako ih se ne pregazi određenim procedurama. <br \/><strong>Napomena:<\/strong> Prije ulaska u Fazu 1, zadane postavke se isto tako primjenjuju na zasebne AUX kanale koji imaju nepravilne impulse."
+        "message": "Failsafe ima dvije faze. <strong>Faza 1</strong> se aktivira kada jedan kanal s prijemnika ima nepravilnu dužinu impulsa, odnosno kada prijemnik uđe u failsafe način rada ili ako uopče nema signala s prijemnika. Primjenjuju se zadane postavke <span class=\"message-negative\">na sve kanale</span> i počinje teći kratko vrijeme za oporavak prije ulaska u sljedeću fazu. <strong>Faza 2</strong> se aktivira kada Faza 1 traje dulje od zadanog vremena za oporavak dok je letjelica <span class=\"message-negative\">armirana</span>, svi kanali će ostati na već primjenjenim postavkama u Fazi 1 osim ako ih se ne pregazi određenim procedurama. <br /><strong>Napomena:</strong> Prije ulaska u Fazu 1, zadane postavke se isto tako primjenjuju na zasebne AUX kanale koji imaju nepravilne impulse."
     },
     "failsafePulsrangeTitle": {
         "message": "Postavke ispravnog raspona dužine impulsa"
@@ -3119,13 +2869,13 @@
         "message": "Postavke stanja kanala"
     },
     "failsafeChannelFallbackSettingsHelp": {
-        "message": "Ova stanja su primjenjena neispravnim AUX kanalima ili svim kanalima kada je pokrenuta Faza 1. <strong>Napomena:<\/strong>vrijednosti su spremljene u koracima od 25uSec, da bi male promjene nestale"
+        "message": "Ova stanja su primjenjena neispravnim AUX kanalima ili svim kanalima kada je pokrenuta Faza 1. <strong>Napomena:</strong>vrijednosti su spremljene u koracima od 25uSec, da bi male promjene nestale"
     },
     "failsafeChannelFallbackSettingsAuto": {
-        "message": "<strong>Auto<\/strong> znači Roll, Pitch i Yaw centrirano i gas\/thorrle nisko. <strong>Hold<\/strong> zadržava posljednju ispravnu primljenuvrijednost"
+        "message": "<strong>Auto</strong> znači Roll, Pitch i Yaw centrirano i gas/thorrle nisko. <strong>Hold</strong> zadržava posljednju ispravnu primljenuvrijednost"
     },
     "failsafeChannelFallbackSettingsHold": {
-        "message": "<strong>Hold<\/strong> zadržava posljednju ispravnu primljenu vrijednost. <strong>Set<\/strong> postavlja vrijednost koja će biti korištena"
+        "message": "<strong>Hold</strong> zadržava posljednju ispravnu primljenu vrijednost. <strong>Set</strong> postavlja vrijednost koja će biti korištena"
     },
     "failsafeStageTwoSettingsTitle": {
         "message": "Faza 2 - Postavke"
@@ -3173,16 +2923,16 @@
         "message": "Udaljenost početaka spuštanja (metri)"
     },
     "failsafeGpsRescueItemGroundSpeed": {
-        "message": "Stvarna brzina (metri\/sekundi)"
+        "message": "Stvarna brzina (metri/sekundi)"
     },
     "failsafeGpsRescueItemThrottleMin": {
-        "message": "Minimalni zadani gas\/throttle"
+        "message": "Minimalni zadani gas/throttle"
     },
     "failsafeGpsRescueItemThrottleMax": {
-        "message": "Maksimalni zadani gas\/throttle"
+        "message": "Maksimalni zadani gas/throttle"
     },
     "failsafeGpsRescueItemThrottleHover": {
-        "message": "Gas\/throttle lebdenja"
+        "message": "Gas/throttle lebdenja"
     },
     "failsafeGpsRescueItemMinSats": {
         "message": "Minimalno satelita"
@@ -3203,7 +2953,7 @@
         "message": "Failsafe Kill prekidač (postavite failsafe u kartici Načini rada)"
     },
     "failsafeKillSwitchHelp": {
-        "message": "Aktivirajte ovu opciju da biste failsafe prekidač učinili kill prekidačem, zaobilazeći failsafe proceduru. <strong>Napomena:<\/strong> Arming je blokiran kad je failsafe kill prekidač aktivan"
+        "message": "Aktivirajte ovu opciju da biste failsafe prekidač učinili kill prekidačem, zaobilazeći failsafe proceduru. <strong>Napomena:</strong> Arming je blokiran kad je failsafe kill prekidač aktivan"
     },
     "failsafeSwitchTitle": {
         "message": "Failsafe prekidač"
@@ -3212,7 +2962,7 @@
         "message": "Akcija failsafe prekidača"
     },
     "failsafeSwitchModeHelp": {
-        "message": "Ova opcija određuje što će se dogoditi kada je failsafe aktiviran preko AUX prekidača:<br\/><strong>Faza 1<\/strong> aktivira Fazu 1 failsafea. Ovo je korisno kako bi simulirali ponašanje u slučaju failsafea<br\/><strong>Faza 2<\/strong> ulazi direktno u Fazu 2<br\/><strong>Ugasi<\/strong> disarma odmah (letjelica će pasti)"
+        "message": "Ova opcija određuje što će se dogoditi kada je failsafe aktiviran preko AUX prekidača:<br/><strong>Faza 1</strong> aktivira Fazu 1 failsafea. Ovo je korisno kako bi simulirali ponašanje u slučaju failsafea<br/><strong>Faza 2</strong> ulazi direktno u Fazu 2<br/><strong>Ugasi</strong> disarma odmah (letjelica će pasti)"
     },
     "failsafeSwitchOptionStage1": {
         "message": "Faza 1"
@@ -3227,7 +2977,7 @@
         "message": "Spremi"
     },
     "powerFirmwareUpgradeRequired": {
-        "message": "Ažuriranje firmwarea <span class=\"message-negative\">potrebno<\/span>. Konfiguracije baterije\/struje\/napona koristeći API &lt; 1.33.0 (Emuflight izdanje &lt;=3.17) nisu podržane."
+        "message": "Ažuriranje firmwarea <span class=\"message-negative\">potrebno</span>. Konfiguracije baterije/struje/napona koristeći API &lt; 1.33.0 (Emuflight izdanje &lt;=3.17) nisu podržane."
     },
     "powerBatteryVoltageMeterSource": {
         "message": "Izvor mjerača napona"
@@ -3257,7 +3007,7 @@
         "message": "ESC Senzor"
     },
     "powerBatteryCurrentMeterTypeMsp": {
-        "message": "MSP seznor \/ OSD slave"
+        "message": "MSP seznor / OSD slave"
     },
     "powerBatteryMinimum": {
         "message": "Minimalni napon čelije"
@@ -3410,7 +3160,7 @@
         "message": "$1 mAh"
     },
     "powerAmperageScale": {
-        "message": "Skaliranje[1\/10th mV\/A]"
+        "message": "Skaliranje[1/10th mV/A]"
     },
     "powerAmperageOffset": {
         "message": "Pomak [mA]"
@@ -3446,13 +3196,13 @@
         "message": "OSD"
     },
     "osdSetupPreviewHelp": {
-        "message": "<strong>Napomena:<\/strong> OSD pretpregled možda neće prikazati stvarni font koji je instaliran na kontroleru leta."
+        "message": "<strong>Napomena:</strong> OSD pretpregled možda neće prikazati stvarni font koji je instaliran na kontroleru leta."
     },
     "osdSetupUnsupportedNote1": {
         "message": "Kontroler leta ne odgovara na OSD komande. Ovo vjerojatno znači da nema integrirani Emuflight OSD."
     },
     "osdSetupUnsupportedNote2": {
-        "message": "Neki kontroleri leta imaju onboard <a href=\"https:\/\/www.youtube.com\/watch?v=ikKH_6SQ-Tk\" target=\"_blank\">MinimOSD<\/a> koji može biti ažuriran i konfiguriran s <a href=\"https:\/\/github.com\/ShikOfTheRa\/scarab-osd\/releases\/latest\" target='_blank'>scarab-osd<\/a>, svejedno, MinimOSD ne može biti konfiguriran kroz ovo sučelje."
+        "message": "Neki kontroleri leta imaju onboard <a href=\"https://www.youtube.com/watch?v=ikKH_6SQ-Tk\" target=\"_blank\">MinimOSD</a> koji može biti ažuriran i konfiguriran s <a href=\"https://github.com/ShikOfTheRa/scarab-osd/releases/latest\" target='_blank'>scarab-osd</a>, svejedno, MinimOSD ne može biti konfiguriran kroz ovo sučelje."
     },
     "osdSetupProfilesTitle": {
         "message": "Broj profila OSD-a",
@@ -3536,7 +3286,7 @@
         "message": "Mora sadržavati zelene, crnei bijele piksele"
     },
     "osdSetupCustomLogoInfoUploadHint": {
-        "message": "Kliknite <b>$t(osdSetupUploadFont.message)<\/b> da biste dodali poseban logo"
+        "message": "Kliknite <b>$t(osdSetupUploadFont.message)</b> da biste dodali poseban logo"
     },
     "osdSetupCustomLogoImageSizeError": {
         "message": "Veličina slike nije valjana: {{width}}×{{height}} (očekivano $t(logoWidthPx)×$t(logoHeightPx))"
@@ -3552,9 +3302,6 @@
     },
     "osdSetupFontManager": {
         "message": "Upravitelj fonta"
-    },
-    "osdSetupUncheckAll": {
-        "message": "Odznači sve"
     },
     "osdSetupHead": {
         "message": "Informacije"
@@ -3659,7 +3406,7 @@
         "message": "Tekst upozorenja koji se pojavljuje kad napon baterije padne ispon praga upozorenja"
     },
     "osdDescElementAvgCellVoltage": {
-        "message": "Prosječni napon čelija (napon baterije\/ broj čelija)"
+        "message": "Prosječni napon čelija (napon baterije/ broj čelija)"
     },
     "osdDescElementPitchAngle": {
         "message": "Brojčani kut pitcha u stupnjevima"
@@ -3686,7 +3433,7 @@
         "message": "RPM frekvencija koju prijavljuje ESC telemetrija"
     },
     "osdDescElementRtcDateTime": {
-        "message": "Stvarno vrijeme \/ datum"
+        "message": "Stvarno vrijeme / datum"
     },
     "osdDescElementAdjustmentRange": {
         "message": "Trenutno aktivni raspon prilagodba postavki i vrijednosti"
@@ -3716,10 +3463,10 @@
         "message": "Udaljenost pređena tijekom ovog leta."
     },
     "osdDescElementStickOverlayLeft": {
-        "message": "Overlay za poziciju lijeve palice stanice\/transmittera."
+        "message": "Overlay za poziciju lijeve palice stanice/transmittera."
     },
     "osdDescElementStickOverlayRight": {
-        "message": "Overlay za poziciju desne palice stanice\/transmittera."
+        "message": "Overlay za poziciju desne palice stanice/transmittera."
     },
     "osdDescElementTimer1": {
         "message": "Prikazuje vrijednost tajmera 1"
@@ -3808,9 +3555,6 @@
     "osdDescStatMinLinkQuality": {
         "message": "Minimum alternativnog indikatora za kvalitetu veze temeljenu na gubicima paketa"
     },
-    "osdDescStatFlightDistance": {
-        "message": "Ukupna pređena udaljenost tijekom leta"
-    },
     "osdDescStatMaxFFT": {
         "message": "Vršna FFT frekvencija"
     },
@@ -3827,7 +3571,7 @@
         "message": "Izvor:"
     },
     "osdTimerSourceTooltip": {
-        "message": "Određuje izvor tajmera, ovo kontrolira trajanje\/događaj koji tajmjer mjeri"
+        "message": "Određuje izvor tajmera, ovo kontrolira trajanje/događaj koji tajmjer mjeri"
     },
     "osdTimerPrecision": {
         "message": "Točnost:"
@@ -3863,7 +3607,7 @@
         "message": "Upozorava kada je aktivan način rada za prevrtanje poslije pada"
     },
     "osdWarningEscFail": {
-        "message": "Daje popis s ESCovima\/motorima koji imaju grešku (RPM ili temperatura su van konfiguriranih pragova)"
+        "message": "Daje popis s ESCovima/motorima koji imaju grešku (RPM ili temperatura su van konfiguriranih pragova)"
     },
     "osdWarningCoreTemperature": {
         "message": "Upozorava kad je temperatura MCU jezgre iznad konfiguriranog praga"
@@ -3914,7 +3658,7 @@
         "message": "OSD postavke spremljene"
     },
     "osdWritePermissions": {
-        "message": "Nemate <span class=\"message-negative\">privilegije za pisanje<\/span> u ovu datoteku"
+        "message": "Nemate <span class=\"message-negative\">privilegije za pisanje</span> u ovu datoteku"
     },
     "osdButtonSaved": {
         "message": "Spremljeno"
@@ -3929,10 +3673,10 @@
         "message": "Status serijskog priključka"
     },
     "configurationEscProtocol": {
-        "message": "Protokol ESC-a\/Motora"
+        "message": "Protokol ESC-a/Motora"
     },
     "configurationEscProtocolHelp": {
-        "message": "Odaberite protokol motora. <br>Provjerite podržavaju li vaši ESCovi taj protokol na stranicama proizvođaća<br> <b>Budite oprezni kada koristite DSHOT900 i DSHOT1200 jer ga malo ESCova stvarno podržava!<\/b>"
+        "message": "Odaberite protokol motora. <br>Provjerite podržavaju li vaši ESCovi taj protokol na stranicama proizvođaća<br> <b>Budite oprezni kada koristite DSHOT900 i DSHOT1200 jer ga malo ESCova stvarno podržava!</b>"
     },
     "configurationunsyndePwm": {
         "message": "Brzina PWM motora odvojena od brzine PID kontrolera"
@@ -3998,7 +3742,7 @@
         "message": "Senzor struje"
     },
     "configurationCurrentScale": {
-        "message": "Skaliranje izlaznog napona u miliamperima [1\/10 mV\/A]"
+        "message": "Skaliranje izlaznog napona u miliamperima [1/10 mV/A]"
     },
     "configurationCurrentOffset": {
         "message": "Pomak u milivolt koracima"
@@ -4010,7 +3754,7 @@
         "message": "Profil"
     },
     "pidTuningProfileTip": {
-        "message": "Do 3(2 za neke kontrolere leta) različita Pid profila mogu biti pohranjena. Pid profili uključuju Pid postavke, D setpoint i angle\/horizon postavke s ove kartice. Kada ste vani na terenu, jednostavnim komandama možete mijenjati profile."
+        "message": "Do 3(2 za neke kontrolere leta) različita Pid profila mogu biti pohranjena. Pid profili uključuju Pid postavke, D setpoint i angle/horizon postavke s ove kartice. Kada ste vani na terenu, jednostavnim komandama možete mijenjati profile."
     },
     "pidTuningRateProfile": {
         "message": "Rateprofil"
@@ -4028,19 +3772,16 @@
         "message": "Mjerenje"
     },
     "pidTuningDeltaTip": {
-        "message": "<b>Derivacijski iz greške<\/b> daje direktniju kontrolu i odziv i koristan je za utrkivanje.<br><br><b>Derivacijski iz mjerenja<\/b>nudi uglađeniji odziv na kontrole i koristan je za freestyling"
+        "message": "<b>Derivacijski iz greške</b> daje direktniju kontrolu i odziv i koristan je za utrkivanje.<br><br><b>Derivacijski iz mjerenja</b>nudi uglađeniji odziv na kontrole i koristan je za freestyling"
     },
     "pidTuningPidControllerTip": {
-        "message": "<b>Legacy vs Emuflight(float):<\/b> PID skaliranje i PID logika su potpuno isti. Nije potrebno ponovno tunirati. Legacy koristi jednostavni PID kontroler baziran na cjelobrojnom izračunu. Emuflight PID kontroler koristi kompleksnije decimalne izračune i ima mnog drugih značajki posebno dizajniranih za letjelice s više propelera. <br><b>Float vs Integer:<\/b> PID skaliranje i PID logika su potpuno isti. Nije potrebno ponovno tunirati. F1 procesori nemaju FPU i operacije s pomičnim zarezom povećavaju korištenje prcesora, a cjelobrojne(Integer) operacije će poboljšati performanse, ali će biti manje precizne."
-    },
-    "pidTuningFilterTip": {
-        "message": "<b>Gyro Soft Filter:<\/b> Lowpass filter žiroskopa. Koristite niže vrijednosti za više filtriranja.<br><b>D Term Filter:<\/b> Lowpass filter za Dterm. Može utjecati na D term tuning. Koristite niže vrijednosti za više filtriranja. <br><b>Yaw Filter:<\/b> Filtrira yaw izlaz. Može pomoći na letjelicama koje imaju šum na yaw osi."
+        "message": "<b>Legacy vs Emuflight(float):</b> PID skaliranje i PID logika su potpuno isti. Nije potrebno ponovno tunirati. Legacy koristi jednostavni PID kontroler baziran na cjelobrojnom izračunu. Emuflight PID kontroler koristi kompleksnije decimalne izračune i ima mnog drugih značajki posebno dizajniranih za letjelice s više propelera. <br><b>Float vs Integer:</b> PID skaliranje i PID logika su potpuno isti. Nije potrebno ponovno tunirati. F1 procesori nemaju FPU i operacije s pomičnim zarezom povećavaju korištenje prcesora, a cjelobrojne(Integer) operacije će poboljšati performanse, ali će biti manje precizne."
     },
     "pidTuningPidTuningTip": {
-        "message": "<b>Proporcionalno:<\/b> Osjetit ćete jaku silu otpora ako pokušate pomaknuti letjelicu. <br><b>Integrirano:<\/b> Povećava mogućnost letjelica da drži inicjalnu poziciju i smanji pomicanje, ali povećava kašnjenje kod vraćanja u inicijalnu poziciju.<br><b>Derivacijski:<\/b> Poboljšava brzinu oporavka od devijacija, ali povećava šum<br><b>Rateovi i Expo<\/b>: Određuju osjećaj kontrola prema ovim vrijednostima. Koristite graf i 3d prikaz modela kako biste pronašli najbolje rate postavke"
+        "message": "<b>Proporcionalno:</b> Osjetit ćete jaku silu otpora ako pokušate pomaknuti letjelicu. <br><b>Integrirano:</b> Povećava mogućnost letjelica da drži inicjalnu poziciju i smanji pomicanje, ali povećava kašnjenje kod vraćanja u inicijalnu poziciju.<br><b>Derivacijski:</b> Poboljšava brzinu oporavka od devijacija, ali povećava šum<br><b>Rateovi i Expo</b>: Određuju osjećaj kontrola prema ovim vrijednostima. Koristite graf i 3d prikaz modela kako biste pronašli najbolje rate postavke"
     },
     "pidTuningPidTuningTipFeedforward": {
-        "message": "<b>Proporcionalno:<\/b> Osjetit ćete jaku silu otpora ako pokušate pomaknuti letjelicu. <br><b>Integrirano:<\/b> Povećava mogućnost letjelica da drži inicjalnu poziciju i smanji pomicanje, ali povećava kašnjenje kod vraćanja u inicijalnu poziciju.<br><b>Derivacijski:<\/b> Poboljšava brzinu oporavka od devijacija, ali povećava šum<br><b>Feedforward:<\/b> Obično PID kontroler reagira na pogrešku. Feedforward predviđa pogrešku na temelju kontrola koje dajete, dajući bolji odziv i kontrolu letjelici.<br><b>Rateovi i Expo<\/b>: Određuju osjećaj kontrola prema ovim vrijednostima. Koristite graf i 3d prikaz modela kako biste pronašni najbolje rate postavke"
+        "message": "<b>Proporcionalno:</b> Osjetit ćete jaku silu otpora ako pokušate pomaknuti letjelicu. <br><b>Integrirano:</b> Povećava mogućnost letjelica da drži inicjalnu poziciju i smanji pomicanje, ali povećava kašnjenje kod vraćanja u inicijalnu poziciju.<br><b>Derivacijski:</b> Poboljšava brzinu oporavka od devijacija, ali povećava šum<br><b>Feedforward:</b> Obično PID kontroler reagira na pogrešku. Feedforward predviđa pogrešku na temelju kontrola koje dajete, dajući bolji odziv i kontrolu letjelici.<br><b>Rateovi i Expo</b>: Određuju osjećaj kontrola prema ovim vrijednostima. Koristite graf i 3d prikaz modela kako biste pronašni najbolje rate postavke"
     },
     "pidTuningRatesTip": {
         "message": "Testirajte rateove i vidite kako oni mijenjaju krivulju"
@@ -4079,7 +3820,7 @@
         "message": "Masovna pohrana"
     },
     "onboardLoggingMscNote": {
-        "message": "Ponovno pokreni u <strong>načinu rada za masovnu pohranu<\/strong>. Kada je aktivirano, memorija na kontroleru leta ili SD kartica će biti vidljiva kao medij za pohranu. To će omogućiti preuzimanje zapisa o letu. Odspojite i ponovno pokrenite kontroler leta da biste napustili ovaj način za masovnu pohranu."
+        "message": "Ponovno pokreni u <strong>načinu rada za masovnu pohranu</strong>. Kada je aktivirano, memorija na kontroleru leta ili SD kartica će biti vidljiva kao medij za pohranu. To će omogućiti preuzimanje zapisa o letu. Odspojite i ponovno pokrenite kontroler leta da biste napustili ovaj način za masovnu pohranu."
     },
     "onboardLoggingRebootMscText": {
         "message": "Aktiviraj način rada s uređajem vanjske memorije"

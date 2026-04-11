@@ -59,9 +59,6 @@
     "rememberLastTab": {
         "message": "연결시 마지막 탭 다시 열기"
     },
-    "analyticsOptOut": {
-        "message": "익명화된 통계 데이타 수집 선택 해제"
-    },
     "userLanguageSelect": {
         "message": "언어 (변경 사항을 적용하려면 어플리케이션을 다시 시작해야 함)"
     },
@@ -112,7 +109,7 @@
         "description": "Text of the image in the top sensors icons. Please keep it short."
     },
     "sensorStatusSonar": {
-        "message": "초음파 \/ 레인지 파인더"
+        "message": "초음파 / 레인지 파인더"
     },
     "sensorStatusSonarShort": {
         "message": "Sonar",
@@ -122,16 +119,16 @@
         "message": "컨피규레이터의 불안정 버전의 업데이트 정보 보기"
     },
     "configuratorUpdateNotice": {
-        "message": "<b>베타플라이트 컨피규레이터<\/b>의 오래된 버전을 사용중입니다.<br>버전 <b>$1<\/b>이 온라인상 적용가능합니다. 오류수정과 개선된 최신 버전을 다운로드 및 설치하기 위해서 <a href=\"$2\" target=\"_blank\">릴리즈 페이지<\/a>를 방문하세요.<br>업데이트 하기 전에 컨피규레이터 창을 닫으십시오."
+        "message": "<b>베타플라이트 컨피규레이터</b>의 오래된 버전을 사용중입니다.<br>버전 <b>$1</b>이 온라인상 적용가능합니다. 오류수정과 개선된 최신 버전을 다운로드 및 설치하기 위해서 <a href=\"$2\" target=\"_blank\">릴리즈 페이지</a>를 방문하세요.<br>업데이트 하기 전에 컨피규레이터 창을 닫으십시오."
     },
     "configuratorUpdateWebsite": {
         "message": "릴리즈 웹사이트로 가기"
     },
     "deviceRebooting": {
-        "message": "기기 - <span class=\"message-negative\">재부팅<\/span>"
+        "message": "기기 - <span class=\"message-negative\">재부팅</span>"
     },
     "deviceReady": {
-        "message": "기기 - <span class=\"message-positive\">준비<\/span>"
+        "message": "기기 - <span class=\"message-positive\">준비</span>"
     },
     "backupFileIncompatible": {
         "message": "제공된 백업 파일은 이전 버전에서 생성되었으며, 이 버전의 컨피규레이터와 호환되지 않습니다. 죄송합니다."
@@ -174,9 +171,6 @@
     },
     "tabReceiver": {
         "message": "수신기"
-    },
-    "tabModeSelection": {
-        "message": "모드 선택"
     },
     "tabServos": {
         "message": "서보"
@@ -227,34 +221,34 @@
         "message": "로그 보기"
     },
     "serialPortOpened": {
-        "message": "시리얼 포트 ID: $1이(가) <span class=\"message-positive\">성공적으로<\/span> 열림"
+        "message": "시리얼 포트 ID: $1이(가) <span class=\"message-positive\">성공적으로</span> 열림"
     },
     "serialPortOpenFail": {
-        "message": "시리얼 포트 열기 <span class=\"message-negative\">실패<\/span>"
+        "message": "시리얼 포트 열기 <span class=\"message-negative\">실패</span>"
     },
     "serialPortClosedOk": {
-        "message": "시리얼 포트가 <span class=\"message-positive\">성공적으로<\/span> 닫힘"
+        "message": "시리얼 포트가 <span class=\"message-positive\">성공적으로</span> 닫힘"
     },
     "serialPortClosedFail": {
-        "message": "시리얼 포트 닫기 <span class=\"message-negative\">실패<\/span>"
+        "message": "시리얼 포트 닫기 <span class=\"message-negative\">실패</span>"
     },
     "serialUnrecoverable": {
-        "message": "시리얼 연결의 복구할 수 없는 <span class=\"message-negative\">오류 발생<\/span>, 연결해제 중..."
+        "message": "시리얼 연결의 복구할 수 없는 <span class=\"message-negative\">오류 발생</span>, 연결해제 중..."
     },
     "usbDeviceOpened": {
-        "message": "USB 장치가 ID: $1로 <span class=\"message-positive\">성공적으로<\/span> 열림"
+        "message": "USB 장치가 ID: $1로 <span class=\"message-positive\">성공적으로</span> 열림"
     },
     "usbDeviceOpenFail": {
-        "message": "USB 장치 열기 <span class=\"message-negative\">실패<\/span>!"
+        "message": "USB 장치 열기 <span class=\"message-negative\">실패</span>!"
     },
     "usbDeviceClosed": {
-        "message": "USB 장치가 <span class=\"message-positive\">성공적으로<\/span> 닫힘"
+        "message": "USB 장치가 <span class=\"message-positive\">성공적으로</span> 닫힘"
     },
     "usbDeviceCloseFail": {
-        "message": "USB 장치 닫기 <span class=\"message-negative\">실패<\/span>"
+        "message": "USB 장치 닫기 <span class=\"message-negative\">실패</span>"
     },
     "usbDeviceUdevNotice": {
-        "message": "<strong>udev 규칙이<\/strong> 올바르게 설치되었습니까? 지시 문서를 보십시오."
+        "message": "<strong>udev 규칙이</strong> 올바르게 설치되었습니까? 지시 문서를 보십시오."
     },
     "stm32UsbDfuNotFound": {
         "message": "USB DFU 발견되지 않음"
@@ -329,26 +323,26 @@
         "message": "보호해제 루틴을 시작하지 못했습니다."
     },
     "noConfigurationReceived": {
-        "message": "<span class=\"message-negative\">10 초<\/span> 내에 환경설정을 수신하지 못했습니다. 통신 <span class=\"message-negative\">실패<\/span>"
+        "message": "<span class=\"message-negative\">10 초</span> 내에 환경설정을 수신하지 못했습니다. 통신 <span class=\"message-negative\">실패</span>"
     },
     "firmwareVersionNotSupported": {
-        "message": "이 펌웨어 버전은 <span class=\"message-negative\">지원하지 않습니다<\/span>. API 버전 <strong>$1<\/strong> 이상을 지원하는 펌웨어로 업그레이드하십시오. 플래시하기 전에 CLI를 사용하여 백업하십시오. CLI 백업\/복원 절차는 문서를 참고하십시오.<br \/>또는 업그레이드 준비가 되지 않은 경우 이전 버전의 컨피규레이터를 다운로드하여 사용하십시오."
+        "message": "이 펌웨어 버전은 <span class=\"message-negative\">지원하지 않습니다</span>. API 버전 <strong>$1</strong> 이상을 지원하는 펌웨어로 업그레이드하십시오. 플래시하기 전에 CLI를 사용하여 백업하십시오. CLI 백업/복원 절차는 문서를 참고하십시오.<br />또는 업그레이드 준비가 되지 않은 경우 이전 버전의 컨피규레이터를 다운로드하여 사용하십시오."
     },
     "firmwareTypeNotSupported": {
-        "message": "클린플라이트\/베타플라이트 펌웨어가 아닌 경우, CLI 모드를 제외하고 <span class=\"message-negative\">지원되지 않습니다.<\/span>"
+        "message": "클린플라이트/베타플라이트 펌웨어가 아닌 경우, CLI 모드를 제외하고 <span class=\"message-negative\">지원되지 않습니다.</span>"
     },
     "firmwareUpgradeRequired": {
-        "message": "이 기기의 펌웨어는 최신 버전으로 업그레이드해야합니다. 플래시하기 전에 CLI를 사용하여 백업하십시오. CLI 백업\/복원 절차는 문서를 참고하십시오. <br \/>또는 업그레이드 준비가 되지 않은 경우 이전 버전의 컨피규레이터를 다운로드하여 사용하십시오."
+        "message": "이 기기의 펌웨어는 최신 버전으로 업그레이드해야합니다. 플래시하기 전에 CLI를 사용하여 백업하십시오. CLI 백업/복원 절차는 문서를 참고하십시오. <br />또는 업그레이드 준비가 되지 않은 경우 이전 버전의 컨피규레이터를 다운로드하여 사용하십시오."
     },
     "infoVersions": {
-        "message": "운영-OS: <strong>{{operatingSystem}}<\/strong>, 크롬: <strong>{{chromeVersion}}<\/strong>, 컨피규레이터: <strong>{{configuratorVersion}}<\/strong>",
+        "message": "운영-OS: <strong>{{operatingSystem}}</strong>, 크롬: <strong>{{chromeVersion}}</strong>, 컨피규레이터: <strong>{{configuratorVersion}}</strong>",
         "description": "Message that appears in the GUI log panel indicating operating system, Chrome version and Configurator version"
     },
     "buildServerLoaded": {
         "message": "빌드 서버로부터 $1에 대한 빌드 정보가 로드되었습니다."
     },
     "buildServerLoadFailed": {
-        "message": "<b>$1 릴리즈에 대한 빌드 서버 쿼리 실패, 캐시된 정보를 사용합니다. 이유: <code>$2<\/code><\/b>"
+        "message": "<b>$1 릴리즈에 대한 빌드 서버 쿼리 실패, 캐시된 정보를 사용합니다. 이유: <code>$2</code></b>"
     },
     "buildServerUsingCached": {
         "message": "$1에 대한 캐시된 빌드 정보를 사용합니다."
@@ -357,7 +351,7 @@
         "message": "GitHub로부터 $1에 대한 릴리즈 정보를 로드했습니다."
     },
     "releaseCheckFailed": {
-        "message": "<b>$1 릴리즈에 대한 GitHub 쿼리 실패, 캐시된 정보를 사용합니다. 이유: <code>$2<\/code><\/b>"
+        "message": "<b>$1 릴리즈에 대한 GitHub 쿼리 실패, 캐시된 정보를 사용합니다. 이유: <code>$2</code></b>"
     },
     "releaseCheckCached": {
         "message": "$1 릴리즈에 대한 캐시된 릴리즈 정보를 사용합니다."
@@ -366,46 +360,46 @@
         "message": "$1에 사용할 수 있는 릴리즈 정보가 없습니다."
     },
     "tabSwitchConnectionRequired": {
-        "message": "설정 탭을 보기 전에 먼저 <strong>연결<\/strong>이 필요합니다."
+        "message": "설정 탭을 보기 전에 먼저 <strong>연결</strong>이 필요합니다."
     },
     "tabSwitchWaitForOperation": {
-        "message": "지금 당장 이것을 실행할 수 <span class=\"message-negative\">없습니다<\/span>. 현재 작업이 완료될 때까지 기다려 주십시오 ..."
+        "message": "지금 당장 이것을 실행할 수 <span class=\"message-negative\">없습니다</span>. 현재 작업이 완료될 때까지 기다려 주십시오 ..."
     },
     "tabSwitchUpgradeRequired": {
-        "message": "$1 탭을 사용하기 전에 베타플라이트의 최신버전으로 펌웨어를 <strong>업그레이드<\/strong> 하여야 합니다."
+        "message": "$1 탭을 사용하기 전에 베타플라이트의 최신버전으로 펌웨어를 <strong>업그레이드</strong> 하여야 합니다."
     },
     "firmwareVersion": {
-        "message": "펌웨어 버전: <strong>$1<\/strong>"
+        "message": "펌웨어 버전: <strong>$1</strong>"
     },
     "apiVersionReceived": {
-        "message": "MultiWii API 버전: <strong>$1<\/strong>"
+        "message": "MultiWii API 버전: <strong>$1</strong>"
     },
     "uniqueDeviceIdReceived": {
-        "message": "고유 기기 ID: <strong>0x$1<\/strong>"
+        "message": "고유 기기 ID: <strong>0x$1</strong>"
     },
     "craftNameReceived": {
-        "message": "기체 이름: <strong>$1<\/strong>"
+        "message": "기체 이름: <strong>$1</strong>"
     },
     "armingDisabled": {
-        "message": "<strong>아밍이 비활성화됨<\/strong>"
+        "message": "<strong>아밍이 비활성화됨</strong>"
     },
     "armingEnabled": {
-        "message": "<strong>아밍이 활성화됨<\/strong>"
+        "message": "<strong>아밍이 활성화됨</strong>"
     },
     "runawayTakeoffPreventionDisabled": {
-        "message": "<strong>폭주 이륙 방지 일시적으로 비활성화됨<\/strong>"
+        "message": "<strong>폭주 이륙 방지 일시적으로 비활성화됨</strong>"
     },
     "runawayTakeoffPreventionEnabled": {
-        "message": "<strong>폭주 이륙 방지 활성화됨<\/strong>"
+        "message": "<strong>폭주 이륙 방지 활성화됨</strong>"
     },
     "boardInfoReceived": {
-        "message": "보드: <strong>$1<\/strong>, 버전: <strong>$2<\/strong>"
+        "message": "보드: <strong>$1</strong>, 버전: <strong>$2</strong>"
     },
     "buildInfoReceived": {
-        "message": "실행 중인 펌웨어 릴리즈: <strong>$1<\/strong>"
+        "message": "실행 중인 펌웨어 릴리즈: <strong>$1</strong>"
     },
     "fcInfoReceived": {
-        "message": "비행 컨트롤러 정보, 식별자: <strong>$1<\/strong>, 버전: <strong>$2<\/strong>"
+        "message": "비행 컨트롤러 정보, 식별자: <strong>$1</strong>, 버전: <strong>$2</strong>"
     },
     "versionLabelTarget": {
         "message": "타겟"
@@ -415,12 +409,6 @@
     },
     "versionLabelConfigurator": {
         "message": "컨피규레이터"
-    },
-    "notifications_app_just_updated_to_version": {
-        "message": "어플리케이션이 버전: $1으로 업데이트되었습니다."
-    },
-    "notifications_click_here_to_start_app": {
-        "message": "어플리케이션을 시작하려면 여기를 클릭하세요."
     },
     "statusbar_port_utilization": {
         "message": "포트 사용률:"
@@ -447,52 +435,37 @@
         "message": "DFU 기기에 접속하려면 펌웨어 플래시 도구를 이용하세요."
     },
     "dfu_erased_kilobytes": {
-        "message": "플래시 $1 kB가 <span class=\"message-positive\">성공적으로<\/span> 삭제됨"
+        "message": "플래시 $1 kB가 <span class=\"message-positive\">성공적으로</span> 삭제됨"
     },
     "dfu_device_flash_info": {
         "message": "전체 플래시 크기 $1 KiB의 기기가 감지됨"
     },
     "dfu_error_image_size": {
-        "message": "<span class=\"message-negative\">오류<\/span>: 제공된 이미지가 칩에서 허용가능한 플래시보다 더 큽니다! 이미지: $1 KiB, 제한 = $2 KiB"
+        "message": "<span class=\"message-negative\">오류</span>: 제공된 이미지가 칩에서 허용가능한 플래시보다 더 큽니다! 이미지: $1 KiB, 제한 = $2 KiB"
     },
     "eeprom_saved_ok": {
-        "message": "EEPROM <span class=\"message-positive\">저장됨<\/span>"
+        "message": "EEPROM <span class=\"message-positive\">저장됨</span>"
     },
     "defaultWelcomeIntro": {
-        "message": "비행 컨트롤러의 쉬운 업데이트, 환경설정 및 튜닝을 위한 도구인 <strong>베타플라이트 - 컨피규레이터<\/strong>에 오신 것을 환영합니다."
+        "message": "비행 컨트롤러의 쉬운 업데이트, 환경설정 및 튜닝을 위한 도구인 <strong>베타플라이트 - 컨피규레이터</strong>에 오신 것을 환영합니다."
     },
     "defaultContributingHead": {
         "message": "기여하기"
     },
-    "defaultChangelogAction": {
-        "message": "변경이력"
-    },
-    "defaultChangelogHead": {
-        "message": "컨피규레이터 - 변경이력"
-    },
-    "defaultPrivacyPolicyAction": {
-        "message": "개인정보 보호정책"
-    },
-    "defaultButtonFirmwareFlasher": {
-        "message": "펌웨어 플래시 도구"
-    },
     "defaultDonate": {
         "message": "기부"
     },
-    "defaultSponsorsHead": {
-        "message": "스폰서"
-    },
     "defaultDocumentationHead": {
-        "message": "문서 \/ 매뉴얼"
+        "message": "문서 / 매뉴얼"
     },
     "defaultDocumentation": {
-        "message": "베타플라이트 문서는 릴리즈 노트와 위키에 적용됩니다.<br \/><br \/>"
+        "message": "베타플라이트 문서는 릴리즈 노트와 위키에 적용됩니다.<br /><br />"
     },
     "defaultDocumentation1": {
-        "message": "베타플라이트 위키는 정보를 얻을 수 있는 훌륭한 자료입니다, 그것은 <a href=\"https:\/\/github.com\/emuflight\/EmuFlight\/wiki\" target=\"_blank\">여기서<\/a> 찾으실 수 있습니다."
+        "message": "베타플라이트 위키는 정보를 얻을 수 있는 훌륭한 자료입니다, 그것은 <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">여기서</a> 찾으실 수 있습니다."
     },
     "defaultDocumentation2": {
-        "message": "펌웨어에 대한 릴리즈 노트는 <a href=\"https:\/\/github.com\/Emuflight\/EmuFlight\/releases\" target=\"_blank\">GitHub 릴리즈 페이지<\/a>에서 구독하실 수 있습니다."
+        "message": "펌웨어에 대한 릴리즈 노트는 <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\">GitHub 릴리즈 페이지</a>에서 구독하실 수 있습니다."
     },
     "defaultSupportHead": {
         "message": "지원"
@@ -500,32 +473,29 @@
     "defaultSupportSubline1": {
         "message": "지원 소스"
     },
-    "defaultSupportSubline2": {
-        "message": "개발자"
-    },
     "defaultSupport": {
-        "message": "지원을 받으려면 먼저 포럼과 위키를 검색하거나 공급 업체에 문의하십시오.<br \/><br \/>"
+        "message": "지원을 받으려면 먼저 포럼과 위키를 검색하거나 공급 업체에 문의하십시오.<br /><br />"
     },
     "defaultSupport1": {
-        "message": "<a href=\"https:\/\/discordapp.com\/channels\/547211754845765635\" target=\"_blank\">Discord<\/a>"
+        "message": "<a href=\"https://discordapp.com/channels/547211754845765635\" target=\"_blank\">Discord</a>"
     },
     "defaultSupport2": {
-         "message": "<a href=\"https:\/\/github.com\/Emuflight\" target=\"_blank\">GitHub<\/a>"
+        "message": "<a href=\"https://github.com/Emuflight\" target=\"_blank\">GitHub</a>"
     },
     "initialSetupBackupAndRestoreApiVersion": {
-        "message": "<span class=\"message-negative\">백업과 복구 기능이 비활성화되었습니다.<\/span> API 버전  <span class=\"message-negative\">$1<\/span>에 맞는 펌웨어여야 합니다, 백업과 복구 절차는 <span class=\"message-positive\">$2<\/span>를 참고하십시오. 당신의 설정을 CLI를 통해 백업하세요, 필요한 경우 절차에 대한 베타플라이트 문서를 확인하세요."
+        "message": "<span class=\"message-negative\">백업과 복구 기능이 비활성화되었습니다.</span> API 버전  <span class=\"message-negative\">$1</span>에 맞는 펌웨어여야 합니다, 백업과 복구 절차는 <span class=\"message-positive\">$2</span>를 참고하십시오. 당신의 설정을 CLI를 통해 백업하세요, 필요한 경우 절차에 대한 베타플라이트 문서를 확인하세요."
     },
     "initialSetupButtonCalibrateAccel": {
         "message": "가속도계 교정"
     },
     "initialSetupCalibrateAccelText": {
-        "message": "보드 또는 프레임을 <strong>수평의<\/strong> 표면 위에 두고 교정을 진행하십시오. 교정이 진행되는 동안 플랫폼을 절대 움직이지 마십시오."
+        "message": "보드 또는 프레임을 <strong>수평의</strong> 표면 위에 두고 교정을 진행하십시오. 교정이 진행되는 동안 플랫폼을 절대 움직이지 마십시오."
     },
     "initialSetupButtonCalibrateMag": {
         "message": "자력계 교정"
     },
     "initialSetupCalibrateMagText": {
-        "message": "멀티로터를 최소한 모든 방향에 대하여 <strong>360<\/strong>도 회전시키십시오. 이 작업을 수행하는 데 30초의 시간이 주어집니다."
+        "message": "멀티로터를 최소한 모든 방향에 대하여 <strong>360</strong>도 회전시키십시오. 이 작업을 수행하는 데 30초의 시간이 주어집니다."
     },
     "initialSetupButtonCalibratingText": {
         "message": "교정 중..."
@@ -534,7 +504,7 @@
         "message": "설정 초기화"
     },
     "initialSetupResetText": {
-        "message": "설정을 <strong>기본값<\/strong>으로 복원"
+        "message": "설정을 <strong>기본값</strong>으로 복원"
     },
     "initialSetupButtonBackup": {
         "message": "백업"
@@ -543,70 +513,25 @@
         "message": "복구"
     },
     "initialSetupButtonRebootBootloader": {
-        "message": "부트 로더 \/ DFU 활성화"
+        "message": "부트 로더 / DFU 활성화"
     },
     "initialSetupBackupRestoreText": {
-        "message": "사고의 경우에 당신의 환경설정을 <strong>백업하세요<\/strong>, <strong>CLI<\/strong> 설정은 포함되지 <span class=\"message-negative\">않습니다<\/span> - CLI에서 'diff all' 명령을 이용하세요."
+        "message": "사고의 경우에 당신의 환경설정을 <strong>백업하세요</strong>, <strong>CLI</strong> 설정은 포함되지 <span class=\"message-negative\">않습니다</span> - CLI에서 'diff all' 명령을 이용하세요."
     },
     "initialSetupRebootBootloaderText": {
-        "message": "<strong>부트 로더 \/ DFU<\/strong> 모드로 재부팅"
+        "message": "<strong>부트 로더 / DFU</strong> 모드로 재부팅"
     },
     "initialSetupBackupSuccess": {
-        "message": "백업이 <span class=\"message-positive\">성공적으로<\/span> 저장됨"
+        "message": "백업이 <span class=\"message-positive\">성공적으로</span> 저장됨"
     },
     "initialSetupRestoreSuccess": {
-        "message": "환경설정이 <span class=\"message-positive\">성공적으로<\/span> 복구됨"
+        "message": "환경설정이 <span class=\"message-positive\">성공적으로</span> 복구됨"
     },
     "initialSetupButtonResetZaxis": {
         "message": "Z 축 초기화, 오프셋: 0 도"
     },
     "initialSetupButtonResetZaxisValue": {
         "message": "Z 축 초기화, 오프셋: $1 도"
-    },
-    "initialSetupMixerHead": {
-        "message": "믹서 형식"
-    },
-    "initialSetupThrottleHead": {
-        "message": "스로틀 설정"
-    },
-    "initialSetupMinimum": {
-        "message": "최소값:"
-    },
-    "initialSetupMaximum": {
-        "message": "최대값:"
-    },
-    "initialSetupFailsafe": {
-        "message": "페일세이프:"
-    },
-    "initialSetupMinCommand": {
-        "message": "최소명령값:"
-    },
-    "initialSetupBatteryHead": {
-        "message": "배터리"
-    },
-    "initialSetupMinCellV": {
-        "message": "최소 셀 전압:"
-    },
-    "initialSetupMaxCellV": {
-        "message": "최대 셀 전압:"
-    },
-    "initialSetupVoltageScale": {
-        "message": "전압 크기:"
-    },
-    "initialSetupAccelTrimsHead": {
-        "message": "가속도계 트림"
-    },
-    "initialSetupPitch": {
-        "message": "피치:"
-    },
-    "initialSetupRoll": {
-        "message": "롤:"
-    },
-    "initialSetupMagHead": {
-        "message": "자력계"
-    },
-    "initialSetupDeclination": {
-        "message": "경사:"
     },
     "initialSetupInfoHead": {
         "message": "정보"
@@ -734,12 +659,6 @@
     "initialSetupInstrumentsHead": {
         "message": "계기"
     },
-    "initialSetupButtonSave": {
-        "message": "저장"
-    },
-    "initialSetupModel": {
-        "message": "모델: $1"
-    },
     "initialSetupAttitude": {
         "message": "$1 도"
     },
@@ -747,19 +666,16 @@
         "message": "가속도계 교정이 시작됨"
     },
     "initialSetupAccelCalibEnded": {
-        "message": "가속도계 교정 <span class=\"message-positive\">완료됨<\/span>"
+        "message": "가속도계 교정 <span class=\"message-positive\">완료됨</span>"
     },
     "initialSetupMagCalibStarted": {
         "message": "자력계 교정이 시작됨"
     },
     "initialSetupMagCalibEnded": {
-        "message": "자력계 교정 <span class=\"message-positive\">완료됨<\/span>"
+        "message": "자력계 교정 <span class=\"message-positive\">완료됨</span>"
     },
     "initialSetupSettingsRestored": {
-        "message": "설정이 <strong>기본값<\/strong>으로 복구됨"
-    },
-    "initialSetupEepromSaved": {
-        "message": "EEPROM <span class=\"message-positive\">저장됨<\/span>"
+        "message": "설정이 <strong>기본값</strong>으로 복구됨"
     },
     "featureNone": {
         "message": "&lt;하나를 선택하세요&gt;"
@@ -840,7 +756,7 @@
         "message": "SPI RX 지원"
     },
     "featureESC_SENSOR": {
-        "message": "KISS\/BLHeli_32 ESC 텔레메트리를 센서로 사용"
+        "message": "KISS/BLHeli_32 ESC 텔레메트리를 센서로 사용"
     },
     "featureCHANNEL_FORWARDING": {
         "message": "AUX 채널을 서보 출력으로 사용"
@@ -879,7 +795,7 @@
         "message": "페일세이프 활성"
     },
     "featureFAILSAFETip": {
-        "message": "<strong>노트:<\/strong> 단계 2가 비활성화되어 있으면, 폴백 설정 <strong>자동<\/strong>이 사용자가 설정한 모든 비행채널 (롤, 피치, 요 및 스로틀)을 대신하여 사용됩니다."
+        "message": "<strong>노트:</strong> 단계 2가 비활성화되어 있으면, 폴백 설정 <strong>자동</strong>이 사용자가 설정한 모든 비행채널 (롤, 피치, 요 및 스로틀)을 대신하여 사용됩니다."
     },
     "featureFAILSAFEOldTip": {
         "message": "RX 신호 손실에 페일세이프 설정을 적용하십시오."
@@ -912,19 +828,19 @@
         "message": "RSSI는 신호 강도의 측정이며 매우 편리하므로 기체가 범위를 벗어나거나 RF 간섭을 받을 때를 알 수 있습니다."
     },
     "configurationEscFeatures": {
-        "message": "ESC\/모터 기능"
+        "message": "ESC/모터 기능"
     },
     "configurationFeaturesHelp": {
-        "message": "<strong>노트:<\/strong> 모든 기능 조합이 유효하지는 않습니다. 비행 컨트롤러 펌웨어가 잘못된 기능 조합을 감지하면 충돌하는 기능이 비활성화됩니다.<br \/><strong>노트:<\/strong> 포트를 사용할 기능을 활성화 하기  <span class=\"message-negative\">전에<\/span> 시리얼 포트를 설정하십시오."
+        "message": "<strong>노트:</strong> 모든 기능 조합이 유효하지는 않습니다. 비행 컨트롤러 펌웨어가 잘못된 기능 조합을 감지하면 충돌하는 기능이 비활성화됩니다.<br /><strong>노트:</strong> 포트를 사용할 기능을 활성화 하기  <span class=\"message-negative\">전에</span> 시리얼 포트를 설정하십시오."
     },
     "configurationSerialRXHelp": {
-        "message": "<strong>노트:<\/strong> RX_시리얼 기능을 사용할 때는 시리얼 포트(포트 탭을 통해)를 구성하고 시리얼 수신기 공급자를 선택하십시오."
+        "message": "<strong>노트:</strong> RX_시리얼 기능을 사용할 때는 시리얼 포트(포트 탭을 통해)를 구성하고 시리얼 수신기 공급자를 선택하십시오."
     },
     "configurationSpiRxHelp": {
-        "message": "<strong>알림:<\/strong> SPI RX 공급자는 필요한 하드웨어가 탑재되어 있거나 SPI 버스에 연결된 경우에만 작동합니다."
+        "message": "<strong>알림:</strong> SPI RX 공급자는 필요한 하드웨어가 탑재되어 있거나 SPI 버스에 연결된 경우에만 작동합니다."
     },
     "configurationOtherFeaturesHelp": {
-        "message": "<strong>노트:<\/strong> 모든 기능이 모든 비행 컨트롤러에 의해 지원되지는 않습니다. 만약 특별한 기능을 활성화하고, '저장 및 재부팅'을 누른 후에 비활성된다면, 이는 이 기능이 당신의 보드에 지원되지 않음을 의미합니다."
+        "message": "<strong>노트:</strong> 모든 기능이 모든 비행 컨트롤러에 의해 지원되지는 않습니다. 만약 특별한 기능을 활성화하고, '저장 및 재부팅'을 누른 후에 비활성된다면, 이는 이 기능이 당신의 보드에 지원되지 않음을 의미합니다."
     },
     "configurationBoardAlignment": {
         "message": "보드 및 센서 정렬"
@@ -942,10 +858,10 @@
         "message": "자이로 정렬"
     },
     "configurationSensorGyroToUse": {
-        "message": "자이로\/가속도계"
+        "message": "자이로/가속도계"
     },
     "configurationSensorGyroToUseNotFound": {
-        "message": "경고: 자이로\/가속도계 발견 안됨"
+        "message": "경고: 자이로/가속도계 발견 안됨"
     },
     "configurationSensorGyroToUseFirst": {
         "message": "첫번째"
@@ -993,7 +909,7 @@
         "message": "모터 방향이 반대로 됩니다."
     },
     "configurationReverseMotorSwitchHelp": {
-        "message": "이 옵션은 모터 방향을 반대로 되게 믹서를 구성하며, 그에 따라 프로펠러가 장착되어야 합니다. <strong>경고:<\/strong> 이것은 모터 방향을 반대로 바꾸지는 않습니다. 당신의 ESC를 위한 컨피규레이터를 사용하거나 ESC를 변경 - 모터 배선 순서를 전환하여 이를 적용할 수 있습니다. 또한, 아밍을 시도하기 전에 당신의 모터가 위의 다이어그램에서 보여지는 방향으로 회전하는지 프로펠러를 제거한 상태로 반드시 확인하세요."
+        "message": "이 옵션은 모터 방향을 반대로 되게 믹서를 구성하며, 그에 따라 프로펠러가 장착되어야 합니다. <strong>경고:</strong> 이것은 모터 방향을 반대로 바꾸지는 않습니다. 당신의 ESC를 위한 컨피규레이터를 사용하거나 ESC를 변경 - 모터 배선 순서를 전환하여 이를 적용할 수 있습니다. 또한, 아밍을 시도하기 전에 당신의 모터가 위의 다이어그램에서 보여지는 방향으로 회전하는지 프로펠러를 제거한 상태로 반드시 확인하세요."
     },
     "configurationAutoDisarmDelay": {
         "message": "설정 지연 후 모터 해제 [초] (모터_정지 기능 필요)"
@@ -1035,7 +951,7 @@
         "message": "비콘 톤"
     },
     "configurationDshotBeaconHelp": {
-        "message": "Dshot 비콘은 ESC와 모터를 사용하여 소리를 재생합니다. 이는 모터가 회전 중일때는 Dshot 비콘을 사용할 수 없다는 것을 의미합니다. BF 3.4와 최신에서는 Dshot 비콘이 활성화 중일때 아밍을 시도하는 경우, 기체가 아밍되기 전에 마지막 Dshot 비콘 톤 이후 2초의 딜레이가 생깁니다. 이는 Dshot 비콘 기능이 아밍시 Dshot 명령이 보내지는 것을 방해하는 것을 막기 위함입니다.<br\/><strong>경고:<\/strong>Dshot 비콘은 활성화할 경우 당신의 모터를 통해 작동되기 때문에 만약 비콘 강도가 매우 높게 설정되어 있다면, 당신의 모터나 ESC에 과열과 손상을 일으킬 수 있습니다. BLHeli 컨피규레이터나 BLheli Suite를 사용하여 비콘 강도를 조정하고 테스트하세요."
+        "message": "Dshot 비콘은 ESC와 모터를 사용하여 소리를 재생합니다. 이는 모터가 회전 중일때는 Dshot 비콘을 사용할 수 없다는 것을 의미합니다. BF 3.4와 최신에서는 Dshot 비콘이 활성화 중일때 아밍을 시도하는 경우, 기체가 아밍되기 전에 마지막 Dshot 비콘 톤 이후 2초의 딜레이가 생깁니다. 이는 Dshot 비콘 기능이 아밍시 Dshot 명령이 보내지는 것을 방해하는 것을 막기 위함입니다.<br/><strong>경고:</strong>Dshot 비콘은 활성화할 경우 당신의 모터를 통해 작동되기 때문에 만약 비콘 강도가 매우 높게 설정되어 있다면, 당신의 모터나 ESC에 과열과 손상을 일으킬 수 있습니다. BLHeli 컨피규레이터나 BLheli Suite를 사용하여 비콘 강도를 조정하고 테스트하세요."
     },
     "configurationBeeper": {
         "message": "비퍼 설정"
@@ -1047,7 +963,7 @@
         "message": "TX가 꺼져있거나 신호를 상실한 경우 신호음을 울립니다. (TX가 정상일 때까지 반복됩니다.)"
     },
     "beeperRX_LOST_LANDING": {
-        "message": "아밍된 상태에서 TX가 꺼져있거나 신호를 상실한 경우 SOS 신호음을 울립니다. (자동착륙\/자동해제)"
+        "message": "아밍된 상태에서 TX가 꺼져있거나 신호를 상실한 경우 SOS 신호음을 울립니다. (자동착륙/자동해제)"
     },
     "beeperDISARMING": {
         "message": "비행컨트롤러가 해제 중일 때 신호음을 울립니다."
@@ -1107,7 +1023,7 @@
         "message": "아밍시 rc 스무딩이 필터를 초기화하지 않은 때 비프음"
     },
     "configuration3d": {
-        "message": "3D ESC\/모터 기능"
+        "message": "3D ESC/모터 기능"
     },
     "configuration3dDeadbandLow": {
         "message": "3D 데드밴드 낮음"
@@ -1127,14 +1043,8 @@
     "configurationLoopTime": {
         "message": "비행 컨트롤러 루프타임"
     },
-    "configurationCalculatedCyclesSec": {
-        "message": "사이클\/초 [Hz]"
-    },
     "configurationLoopTimeHelp": {
-        "message": "<strong>도움말:<\/strong> FC가 이러한 속도로 동작할 수 있는지 확인하십시오! CPU 및 사이클 시간의 안정성을 점검하십시오. 이를 변경하면 PID 재조정이 필요할 수 있습니다. 팁: 가속도계 및 기타 센서를 비활성화하여 더 많은 성능을 얻으십시오."
-    },
-    "configurationLoopTimeNo32KhzHelp": {
-        "message": "$t(configurationLoopTimeHelp.message)<br><strong>32 kHz 자이로 샘플링 모드에 대한 공지:<\/strong> 32 kHz 자이로 샘플링 모드에 대한 지원은 베타플라이트에 추가 된 실험적인 기능입니다. 수 년 동안 그것을 사용할 수 있었으나, 그것은 진동에 대한 민감성 및 제어 루프의 지연을 야기하는 공격적인 필터링을 필요로 하는 높은 노이즈 수준 때문에, 결코 그것이 8 kHz 자이로 샘플링 모드 이상의 이점을 가진다고 보여지지 않았습니다. 이러한 이유로, 베타플라이트 4.0에는 <strong>32 kHz 자이로 샘플링 모드에 대한 지원이 중단되었습니다.<\/strong>"
+        "message": "<strong>도움말:</strong> FC가 이러한 속도로 동작할 수 있는지 확인하십시오! CPU 및 사이클 시간의 안정성을 점검하십시오. 이를 변경하면 PID 재조정이 필요할 수 있습니다. 팁: 가속도계 및 기타 센서를 비활성화하여 더 많은 성능을 얻으십시오."
     },
     "configurationGPS": {
         "message": "GPS"
@@ -1155,7 +1065,7 @@
         "message": "자동 설정"
     },
     "configurationGPSHelp": {
-        "message": "<strong>노트:<\/strong> GPS 기능을 사용할 때는 시리얼 포트(포트 탭을 통해)를 설정하는 것을 잊지 마십시오."
+        "message": "<strong>노트:</strong> GPS 기능을 사용할 때는 시리얼 포트(포트 탭을 통해)를 설정하는 것을 잊지 마십시오."
     },
     "configurationSerialRX": {
         "message": "시리얼 수신기 공급자"
@@ -1164,7 +1074,7 @@
         "message": "SPI 버스 수신기 공급자"
     },
     "configurationEepromSaved": {
-        "message": "EEPROM <span class=\"message-positive\">저장됨<\/span>"
+        "message": "EEPROM <span class=\"message-positive\">저장됨</span>"
     },
     "configurationButtonSave": {
         "message": "저장 및 재부팅"
@@ -1173,7 +1083,7 @@
         "message": "식별자"
     },
     "portsConfiguration": {
-        "message": "환경설정\/MSP"
+        "message": "환경설정/MSP"
     },
     "portsSerialRx": {
         "message": "시리얼 Rx"
@@ -1188,16 +1098,13 @@
         "message": "주변 장치"
     },
     "portsHelp": {
-        "message": "<strong>노트:<\/strong> 모든 조합이 유효하지는 않습니다. 비행 컨트롤러 펌웨어가 이를 감지하면 시리얼 포트 환경설정이 재설정됩니다."
+        "message": "<strong>노트:</strong> 모든 조합이 유효하지는 않습니다. 비행 컨트롤러 펌웨어가 이를 감지하면 시리얼 포트 환경설정이 재설정됩니다."
     },
     "portsMSPHelp": {
-        "message": "<strong>노트:<\/strong> 당신이 하는 일을 모르는 경우 첫 번째 시리얼 포트의 MSP를 비활성화 하지  <span class=\"message-negative\">마십시오<\/span>. 만약 그렇게 할 경우 펌웨어 플래싱을 다시 하고 환경설정을 지워야 할 수도 있습니다."
+        "message": "<strong>노트:</strong> 당신이 하는 일을 모르는 경우 첫 번째 시리얼 포트의 MSP를 비활성화 하지  <span class=\"message-negative\">마십시오</span>. 만약 그렇게 할 경우 펌웨어 플래싱을 다시 하고 환경설정을 지워야 할 수도 있습니다."
     },
     "portsFirmwareUpgradeRequired": {
-        "message": "펌웨어 업그레이드가 <span class=\"message-negative\">필요함<\/span>.  펌웨어 &lt; 1.8.0의 시리얼 포트 설정은 지원하지 않습니다."
-    },
-    "portsButtonSave": {
-        "message": "저장 및 재부팅"
+        "message": "펌웨어 업그레이드가 <span class=\"message-negative\">필요함</span>.  펌웨어 &lt; 1.8.0의 시리얼 포트 설정은 지원하지 않습니다."
     },
     "portsTelemetryDisabled": {
         "message": "비활성화됨"
@@ -1266,7 +1173,7 @@
         "message": "Benewake LIDAR"
     },
     "pidTuningUpgradeFirmwareToChangePidController": {
-        "message": "<span class=\"message-negative\">PID 변경 컨트롤러가 비활성화됨 - 당신은 CLI를 통하여 변경할 수 있습니다.<\/span> 당신은 API 버전  <span class=\"message-negative\">$1<\/span>의 펌웨어를 가지고 있으나, 이 기능은  <span class=\"message-positive\">$2<\/span>를 필요로 합니다."
+        "message": "<span class=\"message-negative\">PID 변경 컨트롤러가 비활성화됨 - 당신은 CLI를 통하여 변경할 수 있습니다.</span> 당신은 API 버전  <span class=\"message-negative\">$1</span>의 펌웨어를 가지고 있으나, 이 기능은  <span class=\"message-positive\">$2</span>를 필요로 합니다."
     },
     "pidTuningSubTabPid": {
         "message": "PID 설정"
@@ -1300,34 +1207,6 @@
     "pidTuningAntiGravityThres": {
         "message": "안티 그래비티 임계값"
     },
-    "pidTuningDMinHelp": {
-        "message": "D 최소는 일반 비행에서 D보다 낮은 수준을 가질 수 있는 방법과 플립이나 롤링과 같이 오버슈트를 일으킬 수 있는 빠른 기동을 위한 높은 수준을 제공합니다. 그것은 또한 프롭워시 동안 D를 끌어올립니다. 기체는 D 최소(정상 비행 중) 에서 표준 D(고속 롤링 및 플립 사용) 까지 다양한 동적 D텀을 가질 것입니다. 값이 0이면 기능이 비활성화됩니다. 게인은 퀵 스틱 입력 시 D가 얼마나 강하게 상승되는지를 결정합니다. 가속은 부스트 효과의 시작 속도를 높입니다. 이것은 매우 반응에 민감한 쿼드에서 매우 높은 비율의 플립으로 오버슈트를 했을 때 도움이 될 수 있습니다.",
-        "description": "Help message for D Min feature"
-    },
-    "pidTuningDMin": {
-        "message": "D 최소",
-        "description": "Table header of the D Min feature in the PIDs tab"
-    },
-    "pidTuningDMinRoll": {
-        "message": "롤",
-        "description": "Axis to apply D Min feature"
-    },
-    "pidTuningDMinPitch": {
-        "message": "피치",
-        "description": "Axis to apply D Min feature"
-    },
-    "pidTuningDMinYaw": {
-        "message": "요",
-        "description": "Axis to apply D Min feature"
-    },
-    "pidTuningDMinGain": {
-        "message": "게인",
-        "description": "Gain of the D Min feature"
-    },
-    "pidTuningDMinAdvance": {
-        "message": "가속",
-        "description": "Advane of the D Min feature"
-    },
     "pidTuningPidSettings": {
         "message": "PID 컨트롤러 설정"
     },
@@ -1352,17 +1231,11 @@
     "receiverRcSmoothingFilter": {
         "message": "필터"
     },
-    "receiverRcSmoothingTypeHelp": {
-        "message": "사용된 RC 스무딩 형식"
-    },
     "rcSmoothingInputCutoffHelp": {
         "message": "입력 필터에 의해 사용되는 컷오프 주파수 (Hz)입니다. 낮은 값을 사용하면 입력이 부드러워지고 느린 수신기 프로토콜에 더 적합합니다. 대부분의 사용자는 이 값을 \"자동\"에 해당하는 0에 두어야합니다."
     },
     "rcSmoothingDerivativeCutoffHelp": {
         "message": "설정점 미분 필터에 의해 사용되는 컷오프 주파수(Hz) 입니다. 낮은 값을 사용하면 입력이 부드러워지고 느린 수신기 프로토콜에 더 적합합니다. 대부분의 사용자는 이 값을 \"자동\"에 해당하는 0에 두어야합니다."
-    },
-    "rcSmoothingChannelsSmoothedHelp": {
-        "message": "채널 스무딩은 다음에 적용됩니다"
     },
     "rcSmoothingDerivativeTypeHelp": {
         "message": "설정점 미분에 사용되는 필터링 방법의 형식입니다. 대부분의 사용자는 부드러움과 지연 간의 적절한 균형을 제공하는 기본 \"BIQUAD\" 값을 사용해야합니다. \"PT1\"은 약간 지연을 줄이지만 덜 부드럽게 만듭니다."
@@ -1398,7 +1271,7 @@
         "message": "RC 신호보간"
     },
     "receiverRcInterpolationHelp": {
-        "message": "RC TX\/RX 시스템은 PID 루프만큼 빠르지 않습니다. 즉, PID 루프는 RC 시스템의 정보 스트림에 갭이 있습니다. 이 옵션을 사용하면 RC 프레임을 수신하지 않는 동안 RC 입력을 보간할 수 있습니다. 또한 이 옵션은 제어 입력에 경사가 없기 때문에 보다 깨끗한 P 및 D 동작을 제공합니다."
+        "message": "RC TX/RX 시스템은 PID 루프만큼 빠르지 않습니다. 즉, PID 루프는 RC 시스템의 정보 스트림에 갭이 있습니다. 이 옵션을 사용하면 RC 프레임을 수신하지 않는 동안 RC 입력을 보간할 수 있습니다. 또한 이 옵션은 제어 입력에 경사가 없기 때문에 보다 깨끗한 P 및 D 동작을 제공합니다."
     },
     "receiverRcInterpolationIntervalHelp": {
         "message": "수동 RC 신호보간 모드의 보간 간격 (밀리 초 단위)"
@@ -1437,10 +1310,10 @@
         "message": "이 파라미터를 사용하면, D 설정점 가중치가 스틱의 중립 근처에서 감소하여 플립과 롤이 부드럽게 끝납니다.<br> 값은 스틱의 편향을 나타냅니다: 0 - 스틱 중립, 1 - 전체 편향. 스틱이 그 지점보다 높을 때, 설정점 가중치는 설정된 값으로 일정하게 유지됩니다. 스틱이 그 지점 아래에 위치하면, 설정점 가중치는 스틱 중심점에서 0에 도달하는 것에 비례하여 감소합니다.<br> 값 1은 최대 스무딩 효과를 주며, 값 0은 설정점 가중치를 전체 스틱 범위에 걸쳐 설정된 값으로 고정합니다."
     },
     "pidTuningDtermSetpointHelp": {
-        "message": "이 파라미터는 미분 요소 내 스틱 가속 효과를 결정합니다. <br> 0은 D가 오직 자이로만을 추적하는 이전 측정 방법과 동일합니다. 반면에 1은 동일한 자이로와 스틱 추적 레이트를 갖는 이전 오류 방법과 같습니다. <br> 값이 낮을 수록 스틱 반응이 더욱 느리고\/부드러워지며, 반면에 값이 높을 수록 스틱 가속 응답을 더 많이 제공합니다. <br> RC 신호보간은 컨트롤 킥이 노이즈를 발생시키지 않도록 더 높은 값으로 설정하는 것이 좋습니다."
+        "message": "이 파라미터는 미분 요소 내 스틱 가속 효과를 결정합니다. <br> 0은 D가 오직 자이로만을 추적하는 이전 측정 방법과 동일합니다. 반면에 1은 동일한 자이로와 스틱 추적 레이트를 갖는 이전 오류 방법과 같습니다. <br> 값이 낮을 수록 스틱 반응이 더욱 느리고/부드러워지며, 반면에 값이 높을 수록 스틱 가속 응답을 더 많이 제공합니다. <br> RC 신호보간은 컨트롤 킥이 노이즈를 발생시키지 않도록 더 높은 값으로 설정하는 것이 좋습니다."
     },
     "pidTuningDtermSetpointTransitionWarning": {
-        "message": "<span class=\"message-negative\"><strong>$t(warningTitle.message):<\/strong> 0 보다 크고 0.1 보다 작은 D 설정값 전환의 사용은 불안정을 유발시킬 수 있으며, 중립포인트에서 만나는 스틱의 반응성이 감소될 수 있습니다.<\/span>"
+        "message": "<span class=\"message-negative\"><strong>$t(warningTitle.message):</strong> 0 보다 크고 0.1 보다 작은 D 설정값 전환의 사용은 불안정을 유발시킬 수 있으며, 중립포인트에서 만나는 스틱의 반응성이 감소될 수 있습니다.</span>"
     },
     "pidTuningProportional": {
         "message": "P(비례)"
@@ -1458,7 +1331,7 @@
         "message": "RC 레이트"
     },
     "pidTuningMaxVel": {
-        "message": "최대 속도 [도\/초]"
+        "message": "최대 속도 [도/초]"
     },
     "pidTuningRate": {
         "message": "레이트"
@@ -1500,16 +1373,13 @@
         "message": "클립"
     },
     "pidTuningThrottleLimitTypeTip": {
-        "message": "스로틀 제한의 유형을 선택합니다. <b>끄기<\/b>는 기능을 비활성, <b>스케일<\/b>은 스로틀 범위를 0에서 선택한 퍼센트까지를 전체 스틱범위로 사용하게끔 전환, <b>클립<\/b>은 최대 스로틀 백분율을 설정하고, 그 이상의 스틱범위는 아무런 추가 효과가 없게 합니다."
+        "message": "스로틀 제한의 유형을 선택합니다. <b>끄기</b>는 기능을 비활성, <b>스케일</b>은 스로틀 범위를 0에서 선택한 퍼센트까지를 전체 스틱범위로 사용하게끔 전환, <b>클립</b>은 최대 스로틀 백분율을 설정하고, 그 이상의 스틱범위는 아무런 추가 효과가 없게 합니다."
     },
     "pidTuningThrottleLimitPercentTip": {
         "message": "원하는 스로틀 제한 백분율을 설정합니다. 100%로 설정하면 기능을 사용할 수 없습니다."
     },
     "pidTuningFilter": {
         "message": "필터"
-    },
-    "pidTuningFilterFrequency": {
-        "message": "주파수"
     },
     "pidTuningRatesCurve": {
         "message": "레이트"
@@ -1522,9 +1392,6 @@
     },
     "pidTuningButtonRefresh": {
         "message": "새로고침"
-    },
-    "pidTuningProfileHead": {
-        "message": "프로파일"
     },
     "pidTuningControllerHead": {
         "message": "PID 컨트롤러"
@@ -1560,31 +1427,31 @@
         "message": "기본 프로파일 값이 로드됨"
     },
     "pidTuningReceivedProfile": {
-        "message": "비행 컨트롤러 설정 프로파일:  <strong class=\"message-positive\">$1<\/strong>"
+        "message": "비행 컨트롤러 설정 프로파일:  <strong class=\"message-positive\">$1</strong>"
     },
     "pidTuningReceivedRateProfile": {
-        "message": "비행 컨트롤러 설정 레이트 프로파일:  <strong class=\"message-positive\">$1<\/strong>"
+        "message": "비행 컨트롤러 설정 레이트 프로파일:  <strong class=\"message-positive\">$1</strong>"
     },
     "pidTuningLoadedProfile": {
-        "message": "로드 된 프로파일:  <strong class=\"message-positive\">$1<\/strong>"
+        "message": "로드 된 프로파일:  <strong class=\"message-positive\">$1</strong>"
     },
     "pidTuningLoadedRateProfile": {
-        "message": "로드 된 레이트 프로파일: <strong class=\"message-positive\">$1<\/strong>"
+        "message": "로드 된 레이트 프로파일: <strong class=\"message-positive\">$1</strong>"
     },
     "pidTuningDataRefreshed": {
-        "message": "PID 데이터 <strong>새로 고쳐짐<\/strong>"
+        "message": "PID 데이터 <strong>새로 고쳐짐</strong>"
     },
     "pidTuningEepromSaved": {
-        "message": "EEPROM <span class=\"message-positive\">저장됨<\/span>"
+        "message": "EEPROM <span class=\"message-positive\">저장됨</span>"
     },
     "receiverHelp": {
-        "message": "문서의 수신기 장을 읽으십시오. 시리얼 포트 (필요한 경우), 수신기 모드 (시리얼\/ppm\/pwm), 공급자 (시리얼 수신기인 경우)를 환경설정하고, 수신기 바인딩, 채널 맵을 설정하고, TX에서 채널 종점과 범위가 모든 채널이 ~1000에서 ~2000까지 가도록 환경설정하십시오. 중간점 (기본값 1500)을 설정하고, 채널을 1500으로 조정하고, 스틱 데드밴드를 환경설정하고, TX가 꺼져 있거나 범위를 벗어 났을 때 동작을 확인합니다.<br \/><span class=\"message-negative\">중요:<\/span>비행하기 전에 문서의 페일세이프 장을 읽고 페일세이프를 환경설정하십시오."
+        "message": "문서의 수신기 장을 읽으십시오. 시리얼 포트 (필요한 경우), 수신기 모드 (시리얼/ppm/pwm), 공급자 (시리얼 수신기인 경우)를 환경설정하고, 수신기 바인딩, 채널 맵을 설정하고, TX에서 채널 종점과 범위가 모든 채널이 ~1000에서 ~2000까지 가도록 환경설정하십시오. 중간점 (기본값 1500)을 설정하고, 채널을 1500으로 조정하고, 스틱 데드밴드를 환경설정하고, TX가 꺼져 있거나 범위를 벗어 났을 때 동작을 확인합니다.<br /><span class=\"message-negative\">중요:</span>비행하기 전에 문서의 페일세이프 장을 읽고 페일세이프를 환경설정하십시오."
     },
     "tuningHelp": {
-        "message": "<b>튜닝 팁<\/b><br \/><span class=\"message-negative\">중요:<\/span> 첫 비행 중 모터 온도를 확인하는 것이 중요합니다. 필터 값이 높을수록 더 잘 날 수 있지만 모터에 더 많은 노이즈가 들리게 됩니다. <br> 기본값 100Hz가 최적이지만, 노이즈 설정을 위하여 D텀 필터를 50Hz로 낮출 수 있으며, 자이로 필터를 낮추는 것 또한 가능합니다."
+        "message": "<b>튜닝 팁</b><br /><span class=\"message-negative\">중요:</span> 첫 비행 중 모터 온도를 확인하는 것이 중요합니다. 필터 값이 높을수록 더 잘 날 수 있지만 모터에 더 많은 노이즈가 들리게 됩니다. <br> 기본값 100Hz가 최적이지만, 노이즈 설정을 위하여 D텀 필터를 50Hz로 낮출 수 있으며, 자이로 필터를 낮추는 것 또한 가능합니다."
     },
     "filterWarning": {
-        "message": "<span class=\"message-negative\"><b>경고:<\/b><\/span> 당신이 사용하는 필터링 양은 위험할 정도로 낮습니다. 이는 기체를 제어하기 힘들게 하고, 분실을 초래할 수 있습니다. <b>최소한 하나의 자이로 다이나믹 저역통과 또는 자이로 저역통과 1과 최소한 하나의 D 텀 다이나믹 저역통과 또는 D 텀 저역통과 1을 활성화<\/b>할 것을 강력히 권장합니다."
+        "message": "<span class=\"message-negative\"><b>경고:</b></span> 당신이 사용하는 필터링 양은 위험할 정도로 낮습니다. 이는 기체를 제어하기 힘들게 하고, 분실을 초래할 수 있습니다. <b>최소한 하나의 자이로 다이나믹 저역통과 또는 자이로 저역통과 1과 최소한 하나의 D 텀 다이나믹 저역통과 또는 D 텀 저역통과 1을 활성화</b>할 것을 강력히 권장합니다."
     },
     "receiverThrottleMid": {
         "message": "스로틀 중간값"
@@ -1596,7 +1463,7 @@
         "message": "'스틱 낮음' 한계값"
     },
     "receiverHelpStickMin": {
-        "message": "스틱이 명령 입력 (MIN_CHECK)에 대해 낮음 \/ 좌로 인식되는 최대 값 (미국 내)."
+        "message": "스틱이 명령 입력 (MIN_CHECK)에 대해 낮음 / 좌로 인식되는 최대 값 (미국 내)."
     },
     "receiverStickCenter": {
         "message": "스틱 중립값"
@@ -1608,7 +1475,7 @@
         "message": "'스틱 높음' 한계값"
     },
     "receiverHelpStickMax": {
-        "message": "스틱이 명령 입력 (MAX_CHECK)에 대해 높음 \/ 우로 인식되는 최소 값 (미국 내)."
+        "message": "스틱이 명령 입력 (MAX_CHECK)에 대해 높음 / 우로 인식되는 최소 값 (미국 내)."
     },
     "receiverDeadband": {
         "message": "RC 데드밴드"
@@ -1620,13 +1487,13 @@
         "message": "요 데드밴드"
     },
     "receiverHelpYawDeadband": {
-        "message": "이것들은 유효한 것으로 간주되기 전에 얼마나 많은 RC 입력이 달라질 수 있는지에 따른 값입니다. 출력에 지터가 있는 송신기의 경우, 유휴 상태에서 rc 입력이 트위치되면이 값을 증가시킬 수 있습니다. <strong>이 설정은 요 에만 적용됩니다.<\/strong>"
+        "message": "이것들은 유효한 것으로 간주되기 전에 얼마나 많은 RC 입력이 달라질 수 있는지에 따른 값입니다. 출력에 지터가 있는 송신기의 경우, 유휴 상태에서 rc 입력이 트위치되면이 값을 증가시킬 수 있습니다. <strong>이 설정은 요 에만 적용됩니다.</strong>"
     },
     "recevier3dDeadbandThrottle": {
         "message": "3D 스로틀 데드밴드"
     },
     "receiverHelp3dDeadbandThrottle": {
-        "message": "이것들은 값을 증가시킴으로써 중립 영역을 넓히기 위한 값입니다. <strong>이 설정은 3D 스로틀에만 적용됩니다.<\/strong>"
+        "message": "이것들은 값을 증가시킴으로써 중립 영역을 넓히기 위한 값입니다. <strong>이 설정은 3D 스로틀에만 적용됩니다.</strong>"
     },
     "receiverChannelMap": {
         "message": "채널 맵"
@@ -1655,23 +1522,20 @@
     "receiverButtonSticks": {
         "message": "제어 스틱"
     },
-    "receiverDataRefreshed": {
-        "message": "RC 튜닝 데이터 <strong>새로 고쳐짐<\/strong>"
-    },
     "receiverEepromSaved": {
-        "message": "EEPROM <span class=\"message-positive\">저장됨<\/span>"
+        "message": "EEPROM <span class=\"message-positive\">저장됨</span>"
     },
     "receiverModelPreview": {
         "message": "미리보기"
     },
     "receiverMspWarningText": {
-        "message": "이들 스틱은 베타플라이트를 조종기나 수신기가 없어도 아밍되도록 허용합니다. 그러나, <strong>이 기능은 비행을 위한 것이 아니며, 프로펠러는 반드시 부착하지 않아야 합니다.<\/strong><br><br>이 기능은 당신의 기체의 믿을 수 있는 제어를 보장하지 않습니다. <strong>프로펠러가 남아있다면 심각한 부상을 초래할 수 있습니다. <\/strong>"
+        "message": "이들 스틱은 베타플라이트를 조종기나 수신기가 없어도 아밍되도록 허용합니다. 그러나, <strong>이 기능은 비행을 위한 것이 아니며, 프로펠러는 반드시 부착하지 않아야 합니다.</strong><br><br>이 기능은 당신의 기체의 믿을 수 있는 제어를 보장하지 않습니다. <strong>프로펠러가 남아있다면 심각한 부상을 초래할 수 있습니다. </strong>"
     },
     "receiverMspEnableButton": {
         "message": "제어 활성화"
     },
     "auxiliaryHelp": {
-        "message": "여기서 범위 그리고\/또는 다른 모드의 조합을 사용하여 모드를 구성합니다(링크는 BF 4.0 이후부터 지원됩니다). <strong>범위<\/strong>를 사용하여 조종기에 스위치를 정의하고 해당 모드를 할당합니다. 수신기 채널이 범위의 최소\/최대값 사이에 읽혀지면 모드가 활성화됩니다. <strong>링크<\/strong>를 사용하여 다른 모드가 활성화될 때 모드를 활성화합니다. <strong>예외:<\/strong>아밍은 다른 모드에 또는 부터 링크될 수 없습니다. 모드는 링크(연결된 링크) 로 구성된 다른 모드에 링크될 수 없습니다. 여러 범위\/링크가 어느 모드를 활성하기 위해 사용될 수 있습니다. 하나의 모드에 대해 정의된 범위\/링크가 하나 이상일 경우, 각각은 <strong>AND<\/strong> 또는 <strong>OR<\/strong>로 설정할 수 있습니다. 모드는 다음의 경우에 활성화됩니다:<br \/>- 모든 <strong>AND<\/strong> 범위\/링크가 활성화일 때; 또는<br \/>- 최소 하나의 <strong>OR<\/strong> 범위\/링크가 활성화일 때.<br \/><br \/>저장 버튼을 이용해서 당신의 설정을 저장하는 것을 명심하세요."
+        "message": "여기서 범위 그리고/또는 다른 모드의 조합을 사용하여 모드를 구성합니다(링크는 BF 4.0 이후부터 지원됩니다). <strong>범위</strong>를 사용하여 조종기에 스위치를 정의하고 해당 모드를 할당합니다. 수신기 채널이 범위의 최소/최대값 사이에 읽혀지면 모드가 활성화됩니다. <strong>링크</strong>를 사용하여 다른 모드가 활성화될 때 모드를 활성화합니다. <strong>예외:</strong>아밍은 다른 모드에 또는 부터 링크될 수 없습니다. 모드는 링크(연결된 링크) 로 구성된 다른 모드에 링크될 수 없습니다. 여러 범위/링크가 어느 모드를 활성하기 위해 사용될 수 있습니다. 하나의 모드에 대해 정의된 범위/링크가 하나 이상일 경우, 각각은 <strong>AND</strong> 또는 <strong>OR</strong>로 설정할 수 있습니다. 모드는 다음의 경우에 활성화됩니다:<br />- 모든 <strong>AND</strong> 범위/링크가 활성화일 때; 또는<br />- 최소 하나의 <strong>OR</strong> 범위/링크가 활성화일 때.<br /><br />저장 버튼을 이용해서 당신의 설정을 저장하는 것을 명심하세요."
     },
     "auxiliaryToggleUnused": {
         "message": "사용하지 않는 모드 숨기기"
@@ -1692,16 +1556,13 @@
         "message": "저장"
     },
     "auxiliaryEepromSaved": {
-        "message": "EEPROM <span class=\"message-positive\">저장됨<\/span>"
+        "message": "EEPROM <span class=\"message-positive\">저장됨</span>"
     },
     "auxiliaryAutoChannelSelect": {
         "message": "자동"
     },
     "auxiliaryModeLogicOR": {
         "message": "OR"
-    },
-    "auxiliaryModeLogicAND": {
-        "message": "AND"
     },
     "adjustmentsHelp": {
         "message": "조정 스위치를 설정하십시오. 자세한 내용은 매뉴얼의 '비행-중 조정' 섹션을 참조하십시오. 조정 기능의 변경사항은 자동으로 저장되지 않습니다. 4개의 슬롯이 있습니다. 조정을 동시에 수행하는 데 사용되는 각 스위치는 슬롯을 독점적으로 사용해야합니다."
@@ -1710,7 +1571,7 @@
         "message": "예시"
     },
     "adjustmentsExample1": {
-        "message": "AUX1의 슬롯 1과 3POS 스위치를 사용하여 피치\/롤 P, I, D 중 하나를 선택하고, AUX2의 다른 3POS 스위치를 사용하여 위 또는 아래로 움직여서 값을 높이거나 낮춥니다."
+        "message": "AUX1의 슬롯 1과 3POS 스위치를 사용하여 피치/롤 P, I, D 중 하나를 선택하고, AUX2의 다른 3POS 스위치를 사용하여 위 또는 아래로 움직여서 값을 높이거나 낮춥니다."
     },
     "adjustmentsExample2": {
         "message": "AUX4의 슬롯 2 및 3POS 스위치를 사용하여 동일한 채널의 동일한 3POS 스위치를 통해 적용가능한 레이트 프로파일을 선택하십시오."
@@ -1854,7 +1715,7 @@
         "message": "저장"
     },
     "adjustmentsEepromSaved": {
-        "message": "EEPROM <span class=\"message-positive\">저장됨<\/span>"
+        "message": "EEPROM <span class=\"message-positive\">저장됨</span>"
     },
     "transponderNotSupported": {
         "message": "당신의 비행 컨트롤러의 펌웨어는 트랜스폰더 기능을 지원하지 않습니다."
@@ -1877,15 +1738,6 @@
     "transponderType3": {
         "message": "ERLT"
     },
-    "transponderConfiguration1": {
-        "message": "iLap 환경설정"
-    },
-    "transponderConfiguration2": {
-        "message": "aRCiTimer 환경설정"
-    },
-    "transponderConfiguration3": {
-        "message": "ERLT 환경설정"
-    },
     "transponderData1": {
         "message": "데이터"
     },
@@ -1899,16 +1751,16 @@
         "message": "16 진수 만, 0-9, A-F"
     },
     "transponderHelp1": {
-        "message": "여기서 트랜스폰더 코드를 환경설정하십시오. 노트: 유효한 코드만 레이스 타이밍 시스템에 의해 인식됩니다. 유효한 트랜스폰더 코드는 <a href=\"http:\/\/seriouslypro.com\/transponder-codes\" target=\"_blank\">Seriously Pro<\/a>에서 얻을 수 있습니다."
+        "message": "여기서 트랜스폰더 코드를 환경설정하십시오. 노트: 유효한 코드만 레이스 타이밍 시스템에 의해 인식됩니다. 유효한 트랜스폰더 코드는 <a href=\"http://seriouslypro.com/transponder-codes\" target=\"_blank\">Seriously Pro</a>에서 얻을 수 있습니다."
     },
     "transponderHelp2": {
-        "message": "자세한 내용은 <a href=\"http:\/\/www.arcitimer.com\/\" title=\"aRCiTimer\" target=\"_blank\"> aRCiTimer 사이트<\/a>를 방문하십시오."
+        "message": "자세한 내용은 <a href=\"http://www.arcitimer.com/\" title=\"aRCiTimer\" target=\"_blank\"> aRCiTimer 사이트</a>를 방문하십시오."
     },
     "transponderDataHelp3": {
         "message": "ERLT ID 0-63 선택"
     },
     "transponderHelp3": {
-        "message": "자세한 내용은 <a href=\"https:\/\/github.com\/polyvision\/EasyRaceLapTimer\" title=\"aRCiTimer\" target=\"_blank\">EasyRaceLapTimer 사이트<\/a>를 방문하십시오."
+        "message": "자세한 내용은 <a href=\"https://github.com/polyvision/EasyRaceLapTimer\" title=\"aRCiTimer\" target=\"_blank\">EasyRaceLapTimer 사이트</a>를 방문하십시오."
     },
     "transponderButtonSave": {
         "message": "저장"
@@ -1917,10 +1769,10 @@
         "message": "저장 및 재부팅"
     },
     "transponderDataInvalid": {
-        "message": "트랜스폰더 데이터가 <span class=\"message-negative\">유효하지 않음<\/span>"
+        "message": "트랜스폰더 데이터가 <span class=\"message-negative\">유효하지 않음</span>"
     },
     "transponderEepromSaved": {
-        "message": "EEPROM <span class=\"message-positive\">저장됨<\/span>"
+        "message": "EEPROM <span class=\"message-positive\">저장됨</span>"
     },
     "servosFirmwareUpgradeRequired": {
         "message": "서보는 펌웨어 &gt;= 1.10.0.와 타겟 지원이 필요합니다."
@@ -1940,12 +1792,6 @@
     "servosMax": {
         "message": "최대값"
     },
-    "servosAngleAtMin": {
-        "message": "최소 각도"
-    },
-    "servosAngleAtMax": {
-        "message": "최대 각도"
-    },
     "servosDirectionAndRate": {
         "message": "방향 및 레이트"
     },
@@ -1955,14 +1801,8 @@
     "servosButtonSave": {
         "message": "저장"
     },
-    "servosNormal": {
-        "message": "정방향"
-    },
-    "servosReverse": {
-        "message": "역방향"
-    },
     "servosEepromSave": {
-        "message": "EEPROM <span class=\"message-positive\">저장됨<\/span>"
+        "message": "EEPROM <span class=\"message-positive\">저장됨</span>"
     },
     "gpsHead": {
         "message": "GPS"
@@ -1980,10 +1820,10 @@
         "message": "3D 수정:"
     },
     "gpsFixTrue": {
-        "message": "<span class=\"fixtrue\">참<\/span>"
+        "message": "<span class=\"fixtrue\">참</span>"
     },
     "gpsFixFalse": {
-        "message": "<span class=\"fixfalse\">거짓<\/span>"
+        "message": "<span class=\"fixfalse\">거짓</span>"
     },
     "gpsAltitude": {
         "message": "고도:"
@@ -2103,13 +1943,13 @@
         "message": "마스터"
     },
     "motorsNotice": {
-        "message": "<strong>모터 테스트 모드 \/ 아밍 알림:<\/strong><br \/>슬라이더를 움직이거나 당신의 기체를 조종기와 아밍하면 모터의 <strong>회전을 유발합니다<\/strong>.<br \/>부상을 방지하기 위해 이 기능을 사용하기 전에 <strong class=\"message-negative\">모든 프로펠러를 제거<\/strong>하십시오.<br \/>또한 모터 테스트 모드를 활성화하면 프로펠러 없이 벤치 테스트를 할 때 기체를 디스아밍하는 것을 중단하기 위해 일시적으로 폭주 이륙 방지가 비활성됩니다.<br \/>"
+        "message": "<strong>모터 테스트 모드 / 아밍 알림:</strong><br />슬라이더를 움직이거나 당신의 기체를 조종기와 아밍하면 모터의 <strong>회전을 유발합니다</strong>.<br />부상을 방지하기 위해 이 기능을 사용하기 전에 <strong class=\"message-negative\">모든 프로펠러를 제거</strong>하십시오.<br />또한 모터 테스트 모드를 활성화하면 프로펠러 없이 벤치 테스트를 할 때 기체를 디스아밍하는 것을 중단하기 위해 일시적으로 폭주 이륙 방지가 비활성됩니다.<br />"
     },
     "motorsEnableControl": {
-        "message": "<strong>나는 위험을 인지하고 있으며<\/strong>, 프로펠러가 제거되었음을 확인합니다 - 모터 제어, 아밍 및 폭주 이륙 방지 비활성."
+        "message": "<strong>나는 위험을 인지하고 있으며</strong>, 프로펠러가 제거되었음을 확인합니다 - 모터 제어, 아밍 및 폭주 이륙 방지 비활성."
     },
     "sensorsInfo": {
-        "message": "빠른 업데이트 주기를 사용하고 여러 개의 그래프를 동시에 렌더링하는 것은 리소스가 많이 소모되므로 노트북을 사용하는 경우 배터리가 빨리 소모된다는 점을 기억하십시오. <br \/> 적절한 업데이트 주기를 사용하면서 관심있는 센서의 그래프만 렌더링하는 것이 좋습니다."
+        "message": "빠른 업데이트 주기를 사용하고 여러 개의 그래프를 동시에 렌더링하는 것은 리소스가 많이 소모되므로 노트북을 사용하는 경우 배터리가 빨리 소모된다는 점을 기억하십시오. <br /> 적절한 업데이트 주기를 사용하면서 관심있는 센서의 그래프만 렌더링하는 것이 좋습니다."
     },
     "sensorsRefresh": {
         "message": "새로고침:"
@@ -2136,7 +1976,7 @@
         "message": "디버그"
     },
     "sensorsGyroTitle": {
-        "message": "자이로스코프 - deg\/s"
+        "message": "자이로스코프 - deg/s"
     },
     "sensorsAccelTitle": {
         "message": "가속도계 - g"
@@ -2154,7 +1994,7 @@
         "message": "디버그 0"
     },
     "cliInfo": {
-        "message": "<strong>노트:<\/strong> CLI 탭을 빠져 나가거나 연결끊기를 누르면 <strong>자동으로<\/strong>보드에 \"<strong>exit<\/strong>\"를 보냅니다. 최신 펌웨어를 사용하면 컨트롤러를 <strong>재시작<\/strong>하고, 저장되지 않은 변경은 <strong>상실<\/strong>합니다. <p><strong><span class=\"message-negative\">경고:<\/span><\/strong> CLI에서 일부 명령은 임의로 신호를 모터 출력 핀으로 보내는 결과를 초래할 수 있습니다. 이것은 만약 배터리가 연결된 상태에서 모터의 회전을 유발할 수 있습니다. 그러므로 <strong>CLI에서 명령을 입력하기 전에 배터리를 연결하지 말 것을<\/strong> 강력히 권장합니다."
+        "message": "<strong>노트:</strong> CLI 탭을 빠져 나가거나 연결끊기를 누르면 <strong>자동으로</strong>보드에 \"<strong>exit</strong>\"를 보냅니다. 최신 펌웨어를 사용하면 컨트롤러를 <strong>재시작</strong>하고, 저장되지 않은 변경은 <strong>상실</strong>합니다. <p><strong><span class=\"message-negative\">경고:</span></strong> CLI에서 일부 명령은 임의로 신호를 모터 출력 핀으로 보내는 결과를 초래할 수 있습니다. 이것은 만약 배터리가 연결된 상태에서 모터의 회전을 유발할 수 있습니다. 그러므로 <strong>CLI에서 명령을 입력하기 전에 배터리를 연결하지 말 것을</strong> 강력히 권장합니다."
     },
     "cliInputPlaceholder": {
         "message": "여기에 명령을 입력하세요."
@@ -2178,7 +2018,7 @@
         "message": "복사됨!"
     },
     "loggingNote": {
-        "message": "데이터가 이 탭에 로그되어 집니다. 데이터는 <span class=\"message-negative\">오직<\/span> 이 탭에서만 기록되며, 탭을 나가면 기록을 <span class=\"message-negative\">취소<\/span>하고 어플리케이션이 일반적인 <strong>\"컨피규레이터\"<\/strong> 상태로 돌아갑니다.<br \/> 사용자는 전체 업데이트 주기를 자유롭게 선택할 수 있으며, 데이터는 성능상의 이유로 매 <strong>1<\/strong>초마다 로그 파일에 기록됩니다."
+        "message": "데이터가 이 탭에 로그되어 집니다. 데이터는 <span class=\"message-negative\">오직</span> 이 탭에서만 기록되며, 탭을 나가면 기록을 <span class=\"message-negative\">취소</span>하고 어플리케이션이 일반적인 <strong>\"컨피규레이터\"</strong> 상태로 돌아갑니다.<br /> 사용자는 전체 업데이트 주기를 자유롭게 선택할 수 있으며, 데이터는 성능상의 이유로 매 <strong>1</strong>초마다 로그 파일에 기록됩니다."
     },
     "loggingSamplesSaved": {
         "message": "샘플 저장됨:"
@@ -2196,10 +2036,10 @@
         "message": "로그기록 중지"
     },
     "loggingBack": {
-        "message": "로그기록 나가기 \/ 연결 끊기"
+        "message": "로그기록 나가기 / 연결 끊기"
     },
     "loggingErrorNotConnected": {
-        "message": "먼저 <strong>연결이<\/strong> 필요합니다."
+        "message": "먼저 <strong>연결이</strong> 필요합니다."
     },
     "loggingErrorLogFile": {
         "message": "로그 파일을 선택하십시오."
@@ -2208,7 +2048,7 @@
         "message": "로그기록 할 속성을 하나 이상 선택하십시오."
     },
     "loggingAutomaticallyRetained": {
-        "message": "자동으로 로드된 이전의 로그 파일: <strong>$1<\/strong>"
+        "message": "자동으로 로드된 이전의 로그 파일: <strong>$1</strong>"
     },
     "blackboxNotSupported": {
         "message": "당신의 비행 컨트롤러 펌웨어는 블랙박스 로그기록을 지원하지 않습니다."
@@ -2268,7 +2108,7 @@
         "message": "플래시를 파일로 저장... (권장하지 않음)"
     },
     "dataflashSaveFileDepreciationHint": {
-        "message": "블랙박스 로그를 컨피규레이터를 통해 저장하면 속도가 느리고 오류가 발생하기 비교적 쉽습니다. 대신 '<b>$t(onboardLoggingRebootMscText.message)<\/b>'(아래)를 사용하여 대용량 저장 모드를 활성화하고 로그 파일을 다운로드하는 저장 장치로 비행 컨트롤러에 접근하는 것을 권장합니다."
+        "message": "블랙박스 로그를 컨피규레이터를 통해 저장하면 속도가 느리고 오류가 발생하기 비교적 쉽습니다. 대신 '<b>$t(onboardLoggingRebootMscText.message)</b>'(아래)를 사용하여 대용량 저장 모드를 활성화하고 로그 파일을 다운로드하는 저장 장치로 비행 컨트롤러에 접근하는 것을 권장합니다."
     },
     "dataflashButtonErase": {
         "message": "플래시 삭제"
@@ -2325,7 +2165,7 @@
         "message": "릴리즈 정보"
     },
     "firmwareFlasherReleaseName": {
-        "message": "이름\/버전:"
+        "message": "이름/버전:"
     },
     "firmwareFlasherReleaseVersionUrl": {
         "message": "릴리즈 페이지를 방문하십시오."
@@ -2345,26 +2185,11 @@
     "firmwareFlasherReleaseFile": {
         "message": "바이너리:"
     },
-    "firmwareFlasherReleaseStatusReleaseCandidate": {
-        "message": "<span class=\"message-negative\">중요: 이 펌웨어 릴리즈는 현재 릴리즈 후보로 표시됩니다. 문제를 즉시 보고하십시오.<\/span>"
-    },
     "firmwareFlasherReleaseFileUrl": {
         "message": "수동으로 다운로드하십시오."
     },
     "firmwareFlasherTargetWarning": {
-        "message": "<span class=\"message-negative\">중요<\/span>: 당신의 대상에 적합한 파일을 플래시했는지 확인하십시오. 잘못된 대상에 대한 바이너리를 플래시하면 <span class=\"message-negative\">안 좋은<\/span> 결과를 초래할 수 있습니다."
-    },
-    "firmwareFlasherPath": {
-        "message": "경로:"
-    },
-    "firmwareFlasherSize": {
-        "message": "크기:"
-    },
-    "firmwareFlasherStatus": {
-        "message": "상태:"
-    },
-    "firmwareFlasherProgress": {
-        "message": "진행:"
+        "message": "<span class=\"message-negative\">중요</span>: 당신의 대상에 적합한 파일을 플래시했는지 확인하십시오. 잘못된 대상에 대한 바이너리를 플래시하면 <span class=\"message-negative\">안 좋은</span> 결과를 초래할 수 있습니다."
     },
     "firmwareFlasherLoadFirmwareFile": {
         "message": "펌웨어 파일을 로드하십시오."
@@ -2396,12 +2221,6 @@
     "firmwareFlasherFullChipEraseDescription": {
         "message": "현재 보드에 저장된 모든 환경설정 데이터를 지웁니다."
     },
-    "firmwareFlasherFlashDevelopmentFirmware": {
-        "message": "개발단계 펌웨어 사용"
-    },
-    "firmwareFlasherFlashDevelopmentFirmwareDescription": {
-        "message": "가장 최근의 (테스트되지 않은) 개발단계 펌웨어를 플래시하십시오."
-    },
     "firmwareFlasherManualPort": {
         "message": "포트"
     },
@@ -2409,7 +2228,7 @@
         "message": "수동 전송 속도"
     },
     "firmwareFlasherManualBaudDescription": {
-        "message": "보드가 기본 속도를 지원하지 않거나 블루투스를 통해 플래시할 경우 전송속도를 수동으로 선택하세요.<br \/><span class=\"message-negative\">노트:<\/span> USB DFU를 통하여 플래시하는 경우는 사용하지 마십시오."
+        "message": "보드가 기본 속도를 지원하지 않거나 블루투스를 통해 플래시할 경우 전송속도를 수동으로 선택하세요.<br /><span class=\"message-negative\">노트:</span> USB DFU를 통하여 플래시하는 경우는 사용하지 마십시오."
     },
     "firmwareFlasherBaudRate": {
         "message": "전송 속도"
@@ -2429,17 +2248,8 @@
     "firmwareFlasherOptionLabelBuildTypeReleaseCandidate": {
         "message": "릴리즈와 릴리즈 후보"
     },
-    "firmwareFlasherOptionLabelBuildTypeDevelopment": {
-        "message": "개발 버전"
-    },
-    "firmwareFlasherOptionLabelBuildTypeAKK3_3": {
-        "message": "3.3 AKK & RDQ VTX 패치"
-    },
-    "firmwareFlasherOptionLabelBuildTypeAKK3_4": {
-        "message": "3.4 AKK & RDQ VTX 패치"
-    },
     "firmwareFlasherOptionLabelSelectFirmware": {
-        "message": "펌웨어 \/ 보드를 선택하십시오."
+        "message": "펌웨어 / 보드를 선택하십시오."
     },
     "firmwareFlasherOptionLabelSelectBoard": {
         "message": "보드를 선택하십시오."
@@ -2481,16 +2291,13 @@
         "message": "메시지:"
     },
     "firmwareFlasherWarningText": {
-        "message": "이 펌웨어 플래시 도구로 <strong>베타플라이트가 아닌<\/strong> 하드웨어를 플래시하지 <span class=\"message-negative\">마십시오<\/span>.<br \/>플래시하는 중에 보드의 <strong>연결을 끊거나<\/strong> 컴퓨터의 <strong>전원을 끄지<\/strong> <span class=\"message-negative\">마십시오<\/span>.<br \/><br \/><strong>노트: <\/strong>STM32 부트로더는 ROM에 저장되어 있어, 벽돌상태가 될 수 없습니다.<br \/><strong>노트: <\/strong><span class=\"message-negative\">자동-연결<\/span>은 당신이 펌웨어 플래시 도구에 있는 동안 항상 비활성화됩니다.<br \/><strong>노트: <\/strong>반드시 백업을 하십시오; 일부 업그레이드\/다운그레이드는 당신의 환경설정을 지워질 것입니다.<br \/><strong>노트:<\/strong> 플래시하는 데 문제가 있는 경우 먼저 <strong>FC에서 모든 케이블의 연결을 끊고<\/strong>, 재부팅, 크롬 업그레이드, 드라이브 업그레이드를 시도하십시오.<br \/><strong>노트:<\/strong> 직접 연결된 USB 소켓(대부분의 새로운 보드들) 이 있는 보드를 플래시할 경우, 베타플라이트 매뉴얼의 USB 플래싱 섹션을 읽고 올바른 소프트웨어 및 드라이버를 설치했는지 확인하십시오."
+        "message": "이 펌웨어 플래시 도구로 <strong>베타플라이트가 아닌</strong> 하드웨어를 플래시하지 <span class=\"message-negative\">마십시오</span>.<br />플래시하는 중에 보드의 <strong>연결을 끊거나</strong> 컴퓨터의 <strong>전원을 끄지</strong> <span class=\"message-negative\">마십시오</span>.<br /><br /><strong>노트: </strong>STM32 부트로더는 ROM에 저장되어 있어, 벽돌상태가 될 수 없습니다.<br /><strong>노트: </strong><span class=\"message-negative\">자동-연결</span>은 당신이 펌웨어 플래시 도구에 있는 동안 항상 비활성화됩니다.<br /><strong>노트: </strong>반드시 백업을 하십시오; 일부 업그레이드/다운그레이드는 당신의 환경설정을 지워질 것입니다.<br /><strong>노트:</strong> 플래시하는 데 문제가 있는 경우 먼저 <strong>FC에서 모든 케이블의 연결을 끊고</strong>, 재부팅, 크롬 업그레이드, 드라이브 업그레이드를 시도하십시오.<br /><strong>노트:</strong> 직접 연결된 USB 소켓(대부분의 새로운 보드들) 이 있는 보드를 플래시할 경우, 베타플라이트 매뉴얼의 USB 플래싱 섹션을 읽고 올바른 소프트웨어 및 드라이버를 설치했는지 확인하십시오."
     },
     "firmwareFlasherRecoveryHead": {
-        "message": "<strong>통신 복구 \/ 손실<\/strong>"
+        "message": "<strong>통신 복구 / 손실</strong>"
     },
     "firmwareFlasherRecoveryText": {
-        "message": "보드와의 통신이 끊어진 경우 다음 단계에 따라 통신을 복구하십시오: <ul><li>전원을 끄십시오.<\/li><li>'재부팅 절차 없음', '칩 전부 삭제'를 활성화 하십시오.<\/li><li>부트 핀을 점프하거나 부트 버튼을 누르고 계십시오.<\/li><li>전원을 켜십시오.(제대로 완료되면 작동 중인 LED가 깜박거리지 않습니다)<\/li><li>필요한 경우 STM32 드라이버와 Zadig를 설치하십시오. (베타플라이트 매뉴얼의 <a href=\"https:\/\/github.com\/EmuFlight\/EmuFlight\/wiki\"target=\"_blank\">>USB 플래싱<\/a> 섹션을 보십시오.)<\/li><li>컨피규레이터를 닫고, 모든 실행 중인 크롬 인스턴트, 크롬 앱을 닫으십시오. 컨피규레이터를 다시 시작하십시오.<\/li><li>FC에 BOOT 버튼이 있으면 해제하십시오.<\/li><li>올바른 펌웨어로 플래시 하십시오. (당신의 FC 매뉴얼에 명시된 경우 수동 전송 속도를 사용하여).<\/li><li>전원을 끄십시오.<\/li><li>BOOT 점퍼를 제거하십시오.<\/li><li>전원을 켜십시오. (작동 중인 LED가 깜박입니다.).<\/li><li>정상적으로 연결하십시오.<\/li><\/ul>"
-    },
-    "firmwareFlasherButtonLeave": {
-        "message": "펌웨어 플래시 도구 나가기"
+        "message": "보드와의 통신이 끊어진 경우 다음 단계에 따라 통신을 복구하십시오: <ul><li>전원을 끄십시오.</li><li>'재부팅 절차 없음', '칩 전부 삭제'를 활성화 하십시오.</li><li>부트 핀을 점프하거나 부트 버튼을 누르고 계십시오.</li><li>전원을 켜십시오.(제대로 완료되면 작동 중인 LED가 깜박거리지 않습니다)</li><li>필요한 경우 STM32 드라이버와 Zadig를 설치하십시오. (베타플라이트 매뉴얼의 <a href=\"https://github.com/EmuFlight/EmuFlight/wiki\"target=\"_blank\">>USB 플래싱</a> 섹션을 보십시오.)</li><li>컨피규레이터를 닫고, 모든 실행 중인 크롬 인스턴트, 크롬 앱을 닫으십시오. 컨피규레이터를 다시 시작하십시오.</li><li>FC에 BOOT 버튼이 있으면 해제하십시오.</li><li>올바른 펌웨어로 플래시 하십시오. (당신의 FC 매뉴얼에 명시된 경우 수동 전송 속도를 사용하여).</li><li>전원을 끄십시오.</li><li>BOOT 점퍼를 제거하십시오.</li><li>전원을 켜십시오. (작동 중인 LED가 깜박입니다.).</li><li>정상적으로 연결하십시오.</li></ul>"
     },
     "firmwareFlasherFirmwareNotLoaded": {
         "message": "펌웨어가 로드되지 않았습니다."
@@ -2501,29 +2308,26 @@
     "firmwareFlasherHexCorrupted": {
         "message": "HEX 파일이 손상된 것으로 보입니다."
     },
-    "firmwareFlasherRemoteFirmwareLoaded": {
-        "message": "<span class=\"message-positive\">원격지원 펌웨어가 로드됨, 플래시 할 준비가 되었습니다.<\/span>"
-    },
     "firmwareFlasherFailedToLoadOnlineFirmware": {
         "message": "원격지원 펌웨어 로드 실패"
     },
     "firmwareFlasherNoFirmwareSelected": {
-        "message": "<b>로드 할 펌웨어가 선택되지 않았습니다.<\/b>"
+        "message": "<b>로드 할 펌웨어가 선택되지 않았습니다.</b>"
     },
     "firmwareFlasherNoValidPort": {
-        "message": "<span class=\"message-negative\">유효한 시리얼 포트를 선택하십시오.<\/span>"
+        "message": "<span class=\"message-negative\">유효한 시리얼 포트를 선택하십시오.</span>"
     },
     "firmwareFlasherWritePermissions": {
-        "message": "이 파일에는 <span class=\"message-negative\">쓰기 권한<\/span>이 없습니다."
+        "message": "이 파일에는 <span class=\"message-negative\">쓰기 권한</span>이 없습니다."
     },
     "firmwareFlasherFlashTrigger": {
-        "message": "감지됨: <strong>$1<\/strong> - 연결시 플래시를 시작합니다."
+        "message": "감지됨: <strong>$1</strong> - 연결시 플래시를 시작합니다."
     },
     "firmwareFlasherPreviousDevice": {
-        "message": "감지됨: <strong>$1<\/strong> - 이전 기기가 여전히 플래시중입니다. 다시 연결하여 재시도하세요."
+        "message": "감지됨: <strong>$1</strong> - 이전 기기가 여전히 플래시중입니다. 다시 연결하여 재시도하세요."
     },
     "ledStripHelp": {
-        "message": "비행 컨트롤러는 스트립에서 개별 LED의 색상과 효과를 제어할 수 있습니다.<br \/>그리드에서 LED를 구성하고, 배선 순서를 구성한 다음 그리드 위치에 따라 기체에 LED를 부착하십시오. 배선 순서 번호가 없는 LED는 저장되지 않습니다.<br \/>HSV 값을 편집하려면 색상을 더블클릭하십시오."
+        "message": "비행 컨트롤러는 스트립에서 개별 LED의 색상과 효과를 제어할 수 있습니다.<br />그리드에서 LED를 구성하고, 배선 순서를 구성한 다음 그리드 위치에 따라 기체에 LED를 부착하십시오. 배선 순서 번호가 없는 LED는 저장되지 않습니다.<br />HSV 값을 편집하려면 색상을 더블클릭하십시오."
     },
     "ledStripButtonSave": {
         "message": "저장"
@@ -2557,7 +2361,7 @@
         "description": "In the LED STRIP, clear all leds"
     },
     "ledStripEepromSaved": {
-        "message": "EEPROM <span class=\"message-positive\">저장됨<\/span>"
+        "message": "EEPROM <span class=\"message-positive\">저장됨</span>"
     },
     "ledStripVtxOverlay": {
         "message": "VTX (VTX 주파수를 사용하여 색상 지정)"
@@ -2834,7 +2638,7 @@
         "message": "AUX 16"
     },
     "pidTuningBasic": {
-        "message": "기본\/아크로"
+        "message": "기본/아크로"
     },
     "pidTuningYawJumpPrevention": {
         "message": "요 점프 방지"
@@ -2842,23 +2646,8 @@
     "pidTuningYawJumpPreventionHelp": {
         "message": "요 종점에서 기체가 뛰어 오르지 않도록 합니다. 값이 높을 수록 요 움직임의 끝에서 더 많은 감쇠를 줍니다. (다른 축에서와 같이 실제 D가 아닌 오래된 요 D와 같이 작동)"
     },
-    "pidTuningRcExpoPower": {
-        "message": "RC Expo 세기"
-    },
-    "pidTuningRcExpoPowerHelp": {
-        "message": "RC Expo를 계산할 때 사용되는 지수입니다. 3.0 이전의 베타플라이트 버전에서는 값이 3으로 고정됩니다."
-    },
     "pidTuningLevel": {
-        "message": "앵글\/호리즌"
-    },
-    "pidTuningAltitude": {
-        "message": "기압계 & 초음파센서\/고도"
-    },
-    "pidTuningMag": {
-        "message": "자력계\/기체방향"
-    },
-    "pidTuningGps": {
-        "message": "GPS 네비게이션"
+        "message": "앵글/호리즌"
     },
     "pidTuningStrength": {
         "message": "강도"
@@ -2875,9 +2664,6 @@
     "pidTuningLevelAngleLimit": {
         "message": "앵글 한계"
     },
-    "pidTuningLevelSensitivity": {
-        "message": "민감도"
-    },
     "pidTuningLevelHelp": {
         "message": "아래 값은 앵글 및 호리즌 비행 모드의 동작을 변경합니다. 서로 다른 PID 컨트롤러가 값을 다르게 처리합니다. 문서를 확인하십시오."
     },
@@ -2892,15 +2678,6 @@
     },
     "pidTuningGyroLowpassType": {
         "message": "자이로 저역통과 1 필터 형식"
-    },
-    "pidTuningGyroLowpassDynMinFrequency": {
-        "message": "자이로 저역통과 1 다이나믹 최소 컷오프 주파수 [Hz]"
-    },
-    "pidTuningGyroLowpassDynMaxFrequency": {
-        "message": "자이로 저역통과 1 다이나믹 최대 컷오프 주파수 [Hz]"
-    },
-    "pidTuningGyroLowpassDynType": {
-        "message": "자이로 저역통과 1 다이나믹 필터 형식"
     },
     "pidTuningGyroLowpass2Frequency": {
         "message": "자이로 저역통과 2 컷오프 주파수 [Hz]"
@@ -2947,15 +2724,6 @@
     "pidTuningDTermLowpass2Type": {
         "message": "D 텀 저역통과 2 필터 형식"
     },
-    "pidTuningDTermLowpassDynMinFrequency": {
-        "message": "D 텀 저역통과 1 다이나믹 최소 컷오프 주파수 [Hz]"
-    },
-    "pidTuningDTermLowpassDynMaxFrequency": {
-        "message": "D 텀 저역통과 1 다이나믹 최대 컷오프 주파수 [Hz]"
-    },
-    "pidTuningDTermLowpassDynType": {
-        "message": "D 텀 저역통과 1 다이나믹 필터 형식"
-    },
     "pidTuningDTermNotchFiltersGroup": {
         "message": "D 텀 노치 필터"
     },
@@ -2987,10 +2755,10 @@
         "message": "롤 도중 연속적으로 흔들리거나 퍼널(깔대기)과 다른 기술을 실행할 때 쿼드가 회전하면서 현재 I 텀 벡터를 다른 축으로 적절하게 회전시킵니다. LOS 아크로 파일럿에 의해 인정받았습니다."
     },
     "pidTuningFeatheredPidsHelp": {
-      "message": "Feathered PIDs changes how Dterm is calculated. 0 is error based dterm and 100 is measurement based dterm. Measurement is smoother but less responsive than error. Any value between 0 and 100 is a scalar of partially measurement and error calculated dterm."
+        "message": "Feathered PIDs changes how Dterm is calculated. 0 is error based dterm and 100 is measurement based dterm. Measurement is smoother but less responsive than error. Any value between 0 and 100 is a scalar of partially measurement and error calculated dterm."
     },
     "pidTuningiDecayHelp": {
-      "message": "Removes excessive iterm accumulation normally found at the end of quick stick movements. Running a higher decay allows you to run a higher iterm without experiencing bounce back or other common negatives associated with high iterm. Default is a value of 4, but the highest you can run it is 10."
+        "message": "Removes excessive iterm accumulation normally found at the end of quick stick movements. Running a higher decay allows you to run a higher iterm without experiencing bounce back or other common negatives associated with high iterm. Default is a value of 4, but the highest you can run it is 10."
     },
     "pidTuningSmartFeedforward": {
         "message": "스마트 피드포워드"
@@ -3061,26 +2829,11 @@
     "pidTuningAcroTrainerAngleLimitHelp": {
         "message": "아크로 모드에서 비행을 배우는 파일럿을 위한 새로운 앵글 제한 모드를 추가 합니다. 유효한 범위 10-80 이며 $t(tabAuxiliary.message) 탭에서 스위치를 활성화 해야 합니다."
     },
-    "pidTuningIntegratedYaw": {
-        "message": "통합 요(Yaw)"
-    },
-    "pidTuningIntegratedYawCaution": {
-        "message": "<span class=\"message-negative\">주의<\/span>:이 기능을 사용하는 경우 그에 따라 요 PID를 조정해야 합니다. 더 자세한 정보는 <a href=\"https:\/\/github.com\/emuflight\/EmuFlight\/wiki\/Integrated-Yaw\" target=\"_blank\">여기<\/a>에서 확인하세요."
-    },
-    "pidTuningIntegratedYawHelp": {
-        "message": "통합 요는 쿼드 제어의 근본적인 문제를 해결하기 위한 기능입니다: 피치와 롤 축이 프롭이 만들어내는 추력 차이로 제어가 되는 반면에 요는 다릅니다. 통합 요는 요 pid의 출력값을 믹서에 적용하기 전에 통합함으로써 이를 해결합니다. 이것은 pid가 일하는 방식을 정상화합니다. 이제 다른 축과 같이 설정할 수 있습니다. 통합 요와 함께 I가 필요하지 않기 때문에 절대 제어의 사용을 필요로 합니다."
-    },
     "configHelp2": {
-        "message": "옆면 \/ 아래로 \/ 회전 등으로 장착 할 수 있는 임의의 보드 회전 각도(°). 외부 센서를 작동할 때 센서 정렬(자이로, 가속도계, 자력계)을 사용하여 보드 방향과 상관없이 센서 위치를 정의합니다."
-    },
-    "failsafeFeaturesHelpOld": {
-        "message": "페일세이프 환경설정이 상당히 변경되었습니다. 개선 된 환경설정 패널을 사용하려면 베타플라이트 <strong>v1.12.0+<\/strong>을 사용하십시오."
-    },
-    "failsafePaneTitleOld": {
-        "message": "수신기 페일세이프"
+        "message": "옆면 / 아래로 / 회전 등으로 장착 할 수 있는 임의의 보드 회전 각도(°). 외부 센서를 작동할 때 센서 정렬(자이로, 가속도계, 자력계)을 사용하여 보드 방향과 상관없이 센서 위치를 정의합니다."
     },
     "failsafeFeaturesHelpNew": {
-        "message": "페일세이프에는 두 단계가 있습니다. <strong>단계 1<\/strong>은 비행 채널의 펄스 길이가 유효하지 않거나 수신기가 페일세이프 모드를 보고하거나 수신기에서 아무 신호도 없는 경우 적용되며, 채널 폴백 설정이  <span class=\"message-negative\">모든 채널<\/span>에 적용되고 복구에 짧은 시간이 걸립니다. <strong>단계 2<\/strong>는 기체가  <span class=\"message-negative\">아밍이 된<\/span> 동안 환경설정된 시간보다 오류 상태가 오래 걸릴 때 적용됩니다. 선택한 절차에 의해 무시되지 않는 한 모든 채널은 적용된 채널 폴백 설정으로 유지됩니다.<br \/><strong>노트:<\/strong> 단계 1에 들어가기에 앞서 채널 폴백 설정은 유효하지 않은 펄스가 있는 개별 AUX 채널에도 적용됩니다."
+        "message": "페일세이프에는 두 단계가 있습니다. <strong>단계 1</strong>은 비행 채널의 펄스 길이가 유효하지 않거나 수신기가 페일세이프 모드를 보고하거나 수신기에서 아무 신호도 없는 경우 적용되며, 채널 폴백 설정이  <span class=\"message-negative\">모든 채널</span>에 적용되고 복구에 짧은 시간이 걸립니다. <strong>단계 2</strong>는 기체가  <span class=\"message-negative\">아밍이 된</span> 동안 환경설정된 시간보다 오류 상태가 오래 걸릴 때 적용됩니다. 선택한 절차에 의해 무시되지 않는 한 모든 채널은 적용된 채널 폴백 설정으로 유지됩니다.<br /><strong>노트:</strong> 단계 1에 들어가기에 앞서 채널 폴백 설정은 유효하지 않은 펄스가 있는 개별 AUX 채널에도 적용됩니다."
     },
     "failsafePulsrangeTitle": {
         "message": "유효한 펄스 범위 설정"
@@ -3098,13 +2851,13 @@
         "message": "채널 폴백 설정"
     },
     "failsafeChannelFallbackSettingsHelp": {
-        "message": "이러한 설정은 유효하지 않은 개별 AUX 채널 또는 스테이지 1에 들어갈 때 모든 채널에 적용됩니다. <strong>노트:<\/strong> 값은 25us 단위로 저장되므로 작은 변화가 사라집니다."
+        "message": "이러한 설정은 유효하지 않은 개별 AUX 채널 또는 스테이지 1에 들어갈 때 모든 채널에 적용됩니다. <strong>노트:</strong> 값은 25us 단위로 저장되므로 작은 변화가 사라집니다."
     },
     "failsafeChannelFallbackSettingsAuto": {
-        "message": "<strong>자동<\/strong>은 롤, 피치, 요는 중앙값을, 스로틀은 최저값으로 변경 됨을 의미합니다. <strong>홀드<\/strong>는 수신한 마지막 값을 유지한다는 의미입니다."
+        "message": "<strong>자동</strong>은 롤, 피치, 요는 중앙값을, 스로틀은 최저값으로 변경 됨을 의미합니다. <strong>홀드</strong>는 수신한 마지막 값을 유지한다는 의미입니다."
     },
     "failsafeChannelFallbackSettingsHold": {
-        "message": "<strong>홀드<\/strong> 는 수신한 마지막 값을 유지한다는 의미입니다. <strong>설정<\/strong>은 여기에 주어진 값이 사용되어 진다는 것을 의미합니다."
+        "message": "<strong>홀드</strong> 는 수신한 마지막 값을 유지한다는 의미입니다. <strong>설정</strong>은 여기에 주어진 값이 사용되어 진다는 것을 의미합니다."
     },
     "failsafeStageTwoSettingsTitle": {
         "message": "단계 2 - 설정"
@@ -3152,7 +2905,7 @@
         "message": "하강 거리 (미터)"
     },
     "failsafeGpsRescueItemGroundSpeed": {
-        "message": "지면 속도 (미터\/초)"
+        "message": "지면 속도 (미터/초)"
     },
     "failsafeGpsRescueItemThrottleMin": {
         "message": "스로틀 최소값"
@@ -3182,7 +2935,7 @@
         "message": "페일세이프 킬 스위치 (모드 탭에서 페일세이프 설정)"
     },
     "failsafeKillSwitchHelp": {
-        "message": "페일 세이프 스위치 (모드 탭)가 선택한 페일 세이프 절차를 우회하여 직접적인 강제 종료 스위치로 작동하게 하려면 이 옵션을 설정하십시오. <strong>노트:<\/strong> 페일세이프 킬 스위치가 ON 위치에 있을 때 아밍이 차단됩니다."
+        "message": "페일 세이프 스위치 (모드 탭)가 선택한 페일 세이프 절차를 우회하여 직접적인 강제 종료 스위치로 작동하게 하려면 이 옵션을 설정하십시오. <strong>노트:</strong> 페일세이프 킬 스위치가 ON 위치에 있을 때 아밍이 차단됩니다."
     },
     "failsafeSwitchTitle": {
         "message": "페일세이프 스위치"
@@ -3191,7 +2944,7 @@
         "message": "페일세이프 스위치 동작"
     },
     "failsafeSwitchModeHelp": {
-        "message": "이 옵션은 페일세이프가 AUX 스위치를 통해 활성화되었을 때 무엇이 일어나는지 결정합니다:<br\/><strong>단계 1<\/strong>은 단계 1 페일세이프를 활성화합니다. 정확한 신호 손실 페일세이프 동작을 시뮬레이션 하려는 경우 유용 합니다.<br\/><strong>단계 2<\/strong>는 단계 1을 생략하고 즉시 단계 2 절차를 활성화합니다.<br\/><strong>Kill<\/strong>은 즉시 디스아밍합니다. (당신의 기체는 충돌할 것입니다.)"
+        "message": "이 옵션은 페일세이프가 AUX 스위치를 통해 활성화되었을 때 무엇이 일어나는지 결정합니다:<br/><strong>단계 1</strong>은 단계 1 페일세이프를 활성화합니다. 정확한 신호 손실 페일세이프 동작을 시뮬레이션 하려는 경우 유용 합니다.<br/><strong>단계 2</strong>는 단계 1을 생략하고 즉시 단계 2 절차를 활성화합니다.<br/><strong>Kill</strong>은 즉시 디스아밍합니다. (당신의 기체는 충돌할 것입니다.)"
     },
     "failsafeSwitchOptionStage1": {
         "message": "단계 1"
@@ -3206,7 +2959,7 @@
         "message": "저장"
     },
     "powerFirmwareUpgradeRequired": {
-        "message": "펌웨어 업그레이드가 <span class=\"message-negative\">필요합니다<\/span>. API &lt; 1.33.0 (베타플라이트 릴리즈 &lt;= 3.17)을 사용하는 배터리\/전류\/전압 환경설정은 지원되지 않습니다."
+        "message": "펌웨어 업그레이드가 <span class=\"message-negative\">필요합니다</span>. API &lt; 1.33.0 (베타플라이트 릴리즈 &lt;= 3.17)을 사용하는 배터리/전류/전압 환경설정은 지원되지 않습니다."
     },
     "powerBatteryVoltageMeterSource": {
         "message": "전압 측정 소스"
@@ -3236,7 +2989,7 @@
         "message": "ESC 센서"
     },
     "powerBatteryCurrentMeterTypeMsp": {
-        "message": "MSP 센서\/OSD 슬레이브"
+        "message": "MSP 센서/OSD 슬레이브"
     },
     "powerBatteryMinimum": {
         "message": "최소 셀 전압"
@@ -3389,7 +3142,7 @@
         "message": "$1 mAh"
     },
     "powerAmperageScale": {
-        "message": "스케일 [1\/10th mV\/A]"
+        "message": "스케일 [1/10th mV/A]"
     },
     "powerAmperageOffset": {
         "message": "오프셋 [mA]"
@@ -3425,13 +3178,13 @@
         "message": "OSD"
     },
     "osdSetupPreviewHelp": {
-        "message": "<strong>알림:<\/strong> OSD 미리보기는 비행 컨트롤러에 설치된 실제 글꼴이 표시되지 않을 수 있습니다."
+        "message": "<strong>알림:</strong> OSD 미리보기는 비행 컨트롤러에 설치된 실제 글꼴이 표시되지 않을 수 있습니다."
     },
     "osdSetupUnsupportedNote1": {
         "message": "비행 컨트롤러가 OSD 명령에 응답하지 않습니다. 이는 통합된 BetaFlight OSD가 없다는 것을 의미합니다."
     },
     "osdSetupUnsupportedNote2": {
-        "message": "일부 비행 컨트롤러는 온보드 <a href=\"https:\/\/www.youtube.com\/watch?v=ikKH_6SQ-Tk\" target=\"_blank\">MinimOSD<\/a>를 가지고 있습니다. 이는 <a href=\"https:\/\/github.com\/ShikOfTheRa\/scarab-osd\/releases\/latest\" target='_blank'>scarab-osd<\/a>를 통해 플래시하고 설정할 수 있습니다. 그러나 MinimOSD는 이 인터페이스를 통해서 설정할수 없습니다."
+        "message": "일부 비행 컨트롤러는 온보드 <a href=\"https://www.youtube.com/watch?v=ikKH_6SQ-Tk\" target=\"_blank\">MinimOSD</a>를 가지고 있습니다. 이는 <a href=\"https://github.com/ShikOfTheRa/scarab-osd/releases/latest\" target='_blank'>scarab-osd</a>를 통해 플래시하고 설정할 수 있습니다. 그러나 MinimOSD는 이 인터페이스를 통해서 설정할수 없습니다."
     },
     "osdSetupProfilesTitle": {
         "message": "OSD 프로파일 번호",
@@ -3515,7 +3268,7 @@
         "message": "녹색, 검은색과 흰색 픽셀을 포함 해야 합니다."
     },
     "osdSetupCustomLogoInfoUploadHint": {
-        "message": "서용자 로고를 지속하려면 <b>$t(osdSetupUploadFont.message)<\/b>를 클릭하세요."
+        "message": "서용자 로고를 지속하려면 <b>$t(osdSetupUploadFont.message)</b>를 클릭하세요."
     },
     "osdSetupCustomLogoImageSizeError": {
         "message": "잘못 된 이미지 크기: {{width}}×{{height}} (예상된 크기 $t(logoWidthPx) ×$t(logoHeightPx))"
@@ -3531,9 +3284,6 @@
     },
     "osdSetupFontManager": {
         "message": "글꼴 매니저"
-    },
-    "osdSetupUncheckAll": {
-        "message": "모두 선택해제"
     },
     "osdSetupHead": {
         "message": "정보"
@@ -3638,7 +3388,7 @@
         "message": "배터리 전압이 경고 임계 값 아래로 떨어질 때 나타나는 경고 텍스트"
     },
     "osdDescElementAvgCellVoltage": {
-        "message": "평균 셀 전압 (메인 배터리 전압 \/ 셀 수)"
+        "message": "평균 셀 전압 (메인 배터리 전압 / 셀 수)"
     },
     "osdDescElementPitchAngle": {
         "message": "피치 각도를 도 단위로 수치 표시"
@@ -3665,7 +3415,7 @@
         "message": "ESC 텔레메트리에 의해 보고된 RPM 주파수"
     },
     "osdDescElementRtcDateTime": {
-        "message": "실시간 날짜 \/ 시간"
+        "message": "실시간 날짜 / 시간"
     },
     "osdDescElementAdjustmentRange": {
         "message": "현재 활성화된 조정 범위 설정 및 값"
@@ -3787,9 +3537,6 @@
     "osdDescStatMinLinkQuality": {
         "message": "프레임 손실에 따른 링크 품질에 대한 대체 표시의 최소값"
     },
-    "osdDescStatFlightDistance": {
-        "message": "비행 중 여행한 총 거리"
-    },
     "osdDescStatMaxFFT": {
         "message": "피크 FFT 주파수"
     },
@@ -3797,7 +3544,7 @@
         "message": "소스:"
     },
     "osdTimerSourceTooltip": {
-        "message": "타이머 소스를 선택하면, 타이머가 측정하는 지속시간\/이벤트를 제어합니다."
+        "message": "타이머 소스를 선택하면, 타이머가 측정하는 지속시간/이벤트를 제어합니다."
     },
     "osdTimerPrecision": {
         "message": "정밀도:"
@@ -3833,7 +3580,7 @@
         "message": "충돌 모드가 활성화 된 후 뒤집힐 때 경고"
     },
     "osdWarningEscFail": {
-        "message": "실패한 ESC\/모터 목록을 열거합니다 (RPM 또는 온도가 구성된 임계값을 벗어남)"
+        "message": "실패한 ESC/모터 목록을 열거합니다 (RPM 또는 온도가 구성된 임계값을 벗어남)"
     },
     "osdWarningCoreTemperature": {
         "message": "MCU 코어 온도가 설정된 임계값을 초과할 때 경고합니다"
@@ -3878,7 +3625,7 @@
         "message": "OSD 설정 저장됨"
     },
     "osdWritePermissions": {
-        "message": "이 파일에는 <span class=\"message-negative\">쓰기 권한<\/span>이 없습니다."
+        "message": "이 파일에는 <span class=\"message-negative\">쓰기 권한</span>이 없습니다."
     },
     "osdButtonSaved": {
         "message": "저장됨"
@@ -3893,10 +3640,10 @@
         "message": "시리얼 연결 상태"
     },
     "configurationEscProtocol": {
-        "message": "ESC\/모터 프로토콜"
+        "message": "ESC/모터 프로토콜"
     },
     "configurationEscProtocolHelp": {
-        "message": "모터 프로토콜을 선택하십시오. <br>프로토콜이 ESC에서 지원되는지 확인하십시오. 이 정보는 제조업체 웹사이트에 있습니다. <br> <b>DSHOT900과 DSHOT1200을 지원하는 ESC가 많지 않으므로 주의하십시오!<\/b>"
+        "message": "모터 프로토콜을 선택하십시오. <br>프로토콜이 ESC에서 지원되는지 확인하십시오. 이 정보는 제조업체 웹사이트에 있습니다. <br> <b>DSHOT900과 DSHOT1200을 지원하는 ESC가 많지 않으므로 주의하십시오!</b>"
     },
     "configurationunsyndePwm": {
         "message": "모터 PWM 속도가 PID 속도로부터 분리됨"
@@ -3911,7 +3658,7 @@
         "message": "PID 루프 주파수"
     },
     "configurationPidProcessDenomHelp": {
-        "message": "PID 루프의 최대 주파수는 선택된 ESC \/ 모터 프로토콜에 의해 업데이트가 전송 될 수있는 최대 주파수에 의해 제한됩니다."
+        "message": "PID 루프의 최대 주파수는 선택된 ESC / 모터 프로토콜에 의해 업데이트가 전송 될 수있는 최대 주파수에 의해 제한됩니다."
     },
     "configurationGyroUse32kHz": {
         "message": "자이로 32kHz 샘플링 모드 활성화"
@@ -3962,7 +3709,7 @@
         "message": "전류 센서"
     },
     "configurationCurrentScale": {
-        "message": "출력 전압을 mA로 스케일 [1\/10th mV\/A]"
+        "message": "출력 전압을 mA로 스케일 [1/10th mV/A]"
     },
     "configurationCurrentOffset": {
         "message": "오프셋 [mV 단위]"
@@ -3992,19 +3739,16 @@
         "message": "측정"
     },
     "pidTuningDeltaTip": {
-        "message": "<b>오류로 부터 구하는 미분<\/b>은 더 직접적인 스틱 응답을 제공하며, 보통 레이싱에 적합합니다.<br><br><b>측정으로 부터 구하는 미분<\/b>은 더 부드러운 스틱 응답을 제공하기 때문에 프리스타일에 더욱 적합합니다."
+        "message": "<b>오류로 부터 구하는 미분</b>은 더 직접적인 스틱 응답을 제공하며, 보통 레이싱에 적합합니다.<br><br><b>측정으로 부터 구하는 미분</b>은 더 부드러운 스틱 응답을 제공하기 때문에 프리스타일에 더욱 적합합니다."
     },
     "pidTuningPidControllerTip": {
-        "message": "<b>레거시 vs 베타플라이트 (부동 소수점):<\/b> PID 스케일링과 PID 로직은 정확히 동일합니다. 반드시 다시 조정할 필요는 없습니다. 레거시(legacy)는 정수 수학에 기초를 한 기본 PID 컨트롤러로써 오래된 베타플라이트의 진화 된 리라이트 버전입니다. 베타플라이트 PID 컨트롤러는 부동 소수점 연산을 사용하며, 멀티로터 어플리케이션을 위해 특별히 설계된 많은 새로운 기능을 제공합니다. <br> <b>부동 소수점 vs 정수:<\/b> PID 스케일링 및 PID 로직은 동일합니다. 리튠이 필요 없습니다. F1 보드에는 온보드 FPU가 없고 부동 소수점 연산으로 인해 CPU 부하가 증가하고 정수 연산으로 성능이 향상되지만, 부동 소수점 연산은 약간 더 정밀해질 수 있습니다."
-    },
-    "pidTuningFilterTip": {
-        "message": "<b>자이로 소프트 필터:<\/b> 자이로에 대한 저역통과 필터. 더 많은 필터링을 위해 더 낮은 값을 사용하십시오.<br><b>D텀 필터:<\/b> D텀 저역통과 필터. D 튜닝에 영향을 미칠 수 있습니다. 더 많은 필터링을 위해 더 낮은 값을 사용하십시오. <br><b>요 필터:<\/b>요출력을 필터링합니다. 그것은 노이즈가 있는 요 축을 가진 설정에 도움을 줄 수 있습니다."
+        "message": "<b>레거시 vs 베타플라이트 (부동 소수점):</b> PID 스케일링과 PID 로직은 정확히 동일합니다. 반드시 다시 조정할 필요는 없습니다. 레거시(legacy)는 정수 수학에 기초를 한 기본 PID 컨트롤러로써 오래된 베타플라이트의 진화 된 리라이트 버전입니다. 베타플라이트 PID 컨트롤러는 부동 소수점 연산을 사용하며, 멀티로터 어플리케이션을 위해 특별히 설계된 많은 새로운 기능을 제공합니다. <br> <b>부동 소수점 vs 정수:</b> PID 스케일링 및 PID 로직은 동일합니다. 리튠이 필요 없습니다. F1 보드에는 온보드 FPU가 없고 부동 소수점 연산으로 인해 CPU 부하가 증가하고 정수 연산으로 성능이 향상되지만, 부동 소수점 연산은 약간 더 정밀해질 수 있습니다."
     },
     "pidTuningPidTuningTip": {
-        "message": "<b>비례:<\/b> 멀티로터를 움직이려고 시도 할 때 매우 강한 저항력을 느낄 것입니다.<br><b>적분:<\/b> 전체 초기 위치를 유지하는 능력을 증가시키고 드리프트를 줄이지만, 초기 위치로 복귀 할 때 지연을 증가시킵니다.<br><b>미분:<\/b> 편차가 회복되는 속도를 향상 시키지만, 노이즈를 증가시킵니다.<br><b>레이트 및 Expo<\/b>: 이 파라미터를 기반으로 스틱 느낌을 결정하십시오. 그래프 및 실시간 3D 모델을 사용하여 원하는 레이트 설정을 찾으십시오."
+        "message": "<b>비례:</b> 멀티로터를 움직이려고 시도 할 때 매우 강한 저항력을 느낄 것입니다.<br><b>적분:</b> 전체 초기 위치를 유지하는 능력을 증가시키고 드리프트를 줄이지만, 초기 위치로 복귀 할 때 지연을 증가시킵니다.<br><b>미분:</b> 편차가 회복되는 속도를 향상 시키지만, 노이즈를 증가시킵니다.<br><b>레이트 및 Expo</b>: 이 파라미터를 기반으로 스틱 느낌을 결정하십시오. 그래프 및 실시간 3D 모델을 사용하여 원하는 레이트 설정을 찾으십시오."
     },
     "pidTuningPidTuningTipFeedforward": {
-        "message": "<b>비례:<\/b> 멀티로터를 움직이려고 시도 할 때 매우 강한 저항력을 느낄 것입니다.<br><b>적분:<\/b> 전체 초기 위치를 유지하는 능력을 증가시키고 드리프트를 줄이지만, 초기 위치로 복귀 할 때 지연을 증가시킵니다.<br><b>미분:<\/b> 편차가 회복되는 속도를 향상 시키지만, 노이즈를 증가시킵니다.<br><b>피드포워드:<\/b> 일반적으로 PID 컨트롤러는 오류에 대해 반응합니다. 피드포워드는 스틱 입력을 기반으로 오류를 예상하고, 쿼드에 응답을 줍니다.<br><b>레이트 및 Expo<\/b>: 이 파라미터를 기반으로 스틱 느낌을 결정하십시오. 그래프 및 실시간 3D 모델을 사용하여 원하는 레이트 설정을 찾으십시오."
+        "message": "<b>비례:</b> 멀티로터를 움직이려고 시도 할 때 매우 강한 저항력을 느낄 것입니다.<br><b>적분:</b> 전체 초기 위치를 유지하는 능력을 증가시키고 드리프트를 줄이지만, 초기 위치로 복귀 할 때 지연을 증가시킵니다.<br><b>미분:</b> 편차가 회복되는 속도를 향상 시키지만, 노이즈를 증가시킵니다.<br><b>피드포워드:</b> 일반적으로 PID 컨트롤러는 오류에 대해 반응합니다. 피드포워드는 스틱 입력을 기반으로 오류를 예상하고, 쿼드에 응답을 줍니다.<br><b>레이트 및 Expo</b>: 이 파라미터를 기반으로 스틱 느낌을 결정하십시오. 그래프 및 실시간 3D 모델을 사용하여 원하는 레이트 설정을 찾으십시오."
     },
     "pidTuningRatesTip": {
         "message": "특정 레이트로 플레이하고 이들이 스틱 커브에 어떻게 영향을 주는지 봅니다."
@@ -4043,7 +3787,7 @@
         "message": "대용량 저장 모드"
     },
     "onboardLoggingMscNote": {
-        "message": "<strong>대용량 저장 장치 (MSC)<\/strong> 모드로 재부팅. 한번 활성화되면 당신의 비행 컨트롤러의 온보드 플래시 또는 SD 카드는 당신의 컴퓨터에서 저장 장치로 인식될 것입니다. 그리고 당신의 로그 파일을 다운로드할 수 있습니다. 대량 저장 장치 모드를 종료하려면 비행 컨트롤러를 꺼내고 껐다가 다시 켜십시오."
+        "message": "<strong>대용량 저장 장치 (MSC)</strong> 모드로 재부팅. 한번 활성화되면 당신의 비행 컨트롤러의 온보드 플래시 또는 SD 카드는 당신의 컴퓨터에서 저장 장치로 인식될 것입니다. 그리고 당신의 로그 파일을 다운로드할 수 있습니다. 대량 저장 장치 모드를 종료하려면 비행 컨트롤러를 꺼내고 껐다가 다시 켜십시오."
     },
     "onboardLoggingRebootMscText": {
         "message": "대용량 저장 장치 모드 활성화"
@@ -4073,6 +3817,6 @@
         "message": "카메라 변경 모드"
     },
     "flashTab": {
-        "message": "펌웨어<\/br>업데이트"
+        "message": "펌웨어</br>업데이트"
     }
 }
