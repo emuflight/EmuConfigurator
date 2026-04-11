@@ -764,9 +764,6 @@
     "configurationSensorAlignmentGyro": {
         "message": "Положение Гиро."
     },
-    "configurationSensorGyroToUse": {
-        "message": "ГИРО/АКСЕЛ"
-    },
     "configurationSensorGyroToUseSecond": {
         "message": "Второй"
     },

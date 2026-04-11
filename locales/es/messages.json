@@ -755,9 +755,6 @@
     "configurationSensorAlignmentGyro": {
         "message": "Alineación GIRO"
     },
-    "configurationSensorGyroToUse": {
-        "message": "Giro/Acel"
-    },
     "configurationSensorGyroToUseNotFound": {
         "message": "Atención: Giro/Acel no encontrado"
     },

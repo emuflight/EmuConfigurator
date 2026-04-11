@@ -905,9 +905,6 @@
     "portsTelemetryDisabled": {
         "message": "disabilitato"
     },
-    "portsFunction_TELEMETRY_CRSF": {
-        "message": "crossfire"
-    },
     "portsFunction_RX_SERIAL": {
         "message": "RX Seriale"
     },

@@ -770,9 +770,6 @@
     "configurationSensorAlignmentGyro": {
         "message": "Gyro アライメント"
     },
-    "configurationSensorGyroToUse": {
-        "message": "ジャイロ/加速度"
-    },
     "configurationSensorGyroToUseNotFound": {
         "message": "警告: ジャイロ/加速度センサーが確認できません"
     },

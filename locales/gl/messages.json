@@ -758,9 +758,6 @@
     "configurationSensorAlignmentGyro": {
         "message": "Aliñado do XIRO"
     },
-    "configurationSensorGyroToUse": {
-        "message": "XIRO/ACCEL"
-    },
     "configurationSensorGyroToUseNotFound": {
         "message": "Peligro: Non funciona Xiro/Acc"
     },

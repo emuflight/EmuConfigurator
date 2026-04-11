@@ -776,9 +776,6 @@
     "configurationSensorAlignmentGyro": {
         "message": "자이로 정렬"
     },
-    "configurationSensorGyroToUse": {
-        "message": "자이로/가속도계"
-    },
     "configurationSensorGyroToUseNotFound": {
         "message": "경고: 자이로/가속도계 발견 안됨"
     },

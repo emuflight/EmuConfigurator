@@ -782,9 +782,6 @@
     "configurationSensorAlignmentGyro": {
         "message": "陀螺仪方向"
     },
-    "configurationSensorGyroToUse": {
-        "message": "陀螺仪/加速度计"
-    },
     "configurationSensorGyroToUseNotFound": {
         "message": "警告：未检测到陀螺仪/加速度计"
     },

@@ -776,9 +776,6 @@
     "configurationSensorAlignmentGyro": {
         "message": "ŽIRO centrēšana"
     },
-    "configurationSensorGyroToUse": {
-        "message": "ŽIRO/AKSEL"
-    },
     "configurationSensorGyroToUseNotFound": {
         "message": "Brīdinājums: Žiro/Aksel nav atrasts"
     },
