@@ -9,7 +9,7 @@
         "message": "警告"
     },
     "noticeTitle": {
-        "message": "注意"
+        "message": "提示"
     },
     "operationNotSupported": {
         "message": "您的硬件不支持此操作。"
@@ -24,7 +24,7 @@
         "message": "连接"
     },
     "connecting": {
-        "message": "连接中"
+        "message": "正在连接"
     },
     "disconnect": {
         "message": "断开连接"
@@ -59,9 +59,6 @@
     "rememberLastTab": {
         "message": "连接后重新打开最后使用的选项页"
     },
-    "userLanguageSelect": {
-        "message": "语言 （需要重启应用才能生效）"
-    },
     "language_default": {
         "message": "默认"
     },
@@ -76,37 +73,17 @@
     "sensorStatusGyro": {
         "message": "陀螺仪"
     },
-    "sensorStatusGyroShort": {
-        "message": "陀螺仪",
-        "description": "Text of the image in the top sensors icons. Please keep it short."
-    },
     "sensorStatusAccel": {
         "message": "加速度计"
     },
-    "sensorStatusAccelShort": {
-        "message": "加速度计",
-        "description": "Text of the image in the top sensors icons. Please keep it short."
-    },
     "sensorStatusMag": {
-        "message": "磁力仪"
-    },
-    "sensorStatusMagShort": {
-        "message": "磁力仪",
-        "description": "Text of the image in the top sensors icons. Please keep it short."
+        "message": "磁力计"
     },
     "sensorStatusBaro": {
         "message": "气压计"
     },
-    "sensorStatusBaroShort": {
-        "message": "气压计",
-        "description": "Text of the image in the top sensors icons. Please keep it short."
-    },
     "sensorStatusSonar": {
         "message": "声呐 / 测距计"
-    },
-    "sensorStatusSonarShort": {
-        "message": "声呐",
-        "description": "Text of the image in the top sensors icons. Please keep it short."
     },
     "checkForConfiguratorUnstableVersions": {
         "message": "显示测试版本的配置程序更新提示"
@@ -184,13 +161,10 @@
         "message": "电机"
     },
     "tabLedStrip": {
-        "message": "LED 灯带"
+        "message": "LED灯带"
     },
     "tabRawSensorData": {
         "message": "传感器"
-    },
-    "tabCLI": {
-        "message": "CLI(命令行)"
     },
     "tabLogging": {
         "message": "日志"
@@ -211,10 +185,10 @@
         "message": "显示日志"
     },
     "serialPortOpened": {
-        "message": "打开串口 <span class=\"message-positive\">成功</span> ID: $1"
+        "message": "串口已打开"
     },
     "serialPortOpenFail": {
-        "message": "打开串口 <span class=\"message-negative\">失败</span>"
+        "message": "打开串口失败"
     },
     "serialPortClosedOk": {
         "message": "关闭串口 <span class=\"message-positive\">成功</span>"
@@ -371,10 +345,10 @@
         "message": "飞行器名称: <strong>$1</strong>"
     },
     "armingDisabled": {
-        "message": "<strong>禁止解锁</strong>"
+        "message": "解锁已禁用"
     },
     "armingEnabled": {
-        "message": "<strong>允许解锁</strong>"
+        "message": "解锁已启用"
     },
     "runawayTakeoffPreventionDisabled": {
         "message": "<strong> 预防起飞失控 已被临时禁用</strong>"
@@ -476,7 +450,7 @@
         "message": "把飞控或者飞机<strong>水平</strong>放置，再执行加速度计校准。校准过程中切勿移动飞控或者飞机。"
     },
     "initialSetupButtonCalibrateMag": {
-        "message": "校准磁场计"
+        "message": "校准磁力计"
     },
     "initialSetupCalibrateMagText": {
         "message": "将飞行器在所有轴向上都移动至少<strong>360</strong>度，你有30秒的时间可供进行这项操作。"
@@ -1846,16 +1820,16 @@
         "message": "调试"
     },
     "sensorsGyroTitle": {
-        "message": "陀螺仪 - 度/秒"
+        "message": "陀螺仪"
     },
     "sensorsAccelTitle": {
-        "message": "加速度计 - G"
+        "message": "加速度计"
     },
     "sensorsMagTitle": {
-        "message": "磁场计 - Ga"
+        "message": "磁力计"
     },
     "sensorsBaroTitle": {
-        "message": "高度计 - 米"
+        "message": "气压计"
     },
     "sensorsSonarTitle": {
         "message": "声呐 - 厘米"
@@ -1927,7 +1901,7 @@
         "message": "飞控固件版本太低，无法打开该页面，或者黑匣子功能没有在设置页面打开。"
     },
     "blackboxConfiguration": {
-        "message": "黑匣子设置"
+        "message": "黑匣子配置"
     },
     "blackboxButtonSave": {
         "message": "保存并重启"
@@ -1936,10 +1910,10 @@
         "message": "无"
     },
     "blackboxLoggingFlash": {
-        "message": "板载闪存"
+        "message": "Flash 闪存"
     },
     "blackboxLoggingSdCard": {
-        "message": "SD 卡"
+        "message": "SD卡"
     },
     "blackboxLoggingSerial": {
         "message": "串口"
@@ -2959,9 +2933,6 @@
         "message": "OSD配置文件 {{profileNumber}}",
         "description": "Content of the selector for the OSD Profile in the preview"
     },
-    "osdSetupPreviewTitleTip": {
-        "message": "在预览窗口显示或者隐藏Betalight logo。这选项不会影响飞控上的设置。"
-    },
     "osdSetupVideoFormatTitle": {
         "message": "视频制式"
     },
@@ -3085,9 +3056,6 @@
     "osdDescElementCraftName": {
         "message": "设置页面里设置的飞行器名称"
     },
-    "osdDescElementDisplayName": {
-        "message": "由CLI命令\"display_name\"设置的显示名称"
-    },
     "osdDescElementAltitude": {
         "message": "当前高度 (当超过设置的警告高度时会闪烁)"
     },
@@ -3148,24 +3116,6 @@
     "osdDescElementArmedTime": {
         "message": "距离上次解锁时间"
     },
-    "osdDescElementWarnings": {
-        "message": "警报 (比如低电压)，警告 (不能开锁原因，电池电压极低) 和模拟蜂鸣器(4个闪烁星号)。"
-    },
-    "osdDescElementEscTemperature": {
-        "message": "电调回传温度"
-    },
-    "osdDescElementEscRpm": {
-        "message": "电调回传电机转速"
-    },
-    "osdDescElementEscRpmFreq": {
-        "message": "电调回传电机转速频率"
-    },
-    "osdDescElementRtcDateTime": {
-        "message": "日期/时间"
-    },
-    "osdDescElementAdjustmentRange": {
-        "message": "当前激活的调整范围和数值"
-    },
     "osdDescElementHomeDirection": {
         "message": "指向起飞点的箭头 （啊~那是家的方向~~）"
     },
@@ -3180,6 +3130,45 @@
     },
     "osdDescElementCompassBar": {
         "message": "当前行进方向的图形箭头"
+    },
+    "osdDescElementWarnings": {
+        "message": "警报 (比如低电压)，警告 (不能开锁原因，电池电压极低) 和模拟蜂鸣器(4个闪烁星号)。"
+    },
+    "osdDescElementEscTemperature": {
+        "message": "电调回传温度"
+    },
+    "osdDescElementEscRpm": {
+        "message": "电调回传电机转速"
+    },
+    "osdDescElementRemaningTimeEstimate": {
+        "message": "预计剩余电池飞行时间"
+    },
+    "osdDescElementRtcDateTime": {
+        "message": "日期/时间"
+    },
+    "osdDescElementAdjustmentRange": {
+        "message": "当前激活的调整范围和数值"
+    },
+    "osdDescElementTimer1": {
+        "message": "显示计时器1"
+    },
+    "osdDescElementTimer2": {
+        "message": "显示计时器2"
+    },
+    "osdDescElementCoreTemperature": {
+        "message": "显示飞控主芯片温度"
+    },
+    "osdDescAntiGravity": {
+        "message": "当反重力功能激活时显示指示器"
+    },
+    "osdDescGForce": {
+        "message": "显示当前飞机所受的地心引力"
+    },
+    "osdDescElementMotorDiag": {
+        "message": "显示每个电机输出的图表"
+    },
+    "osdDescElementLogStatus": {
+        "message": "黑匣子编号和警告"
     },
     "osdDescElementFlipArrow": {
         "message": "在乌龟模式中，箭头指示哪边的电机朝上"
@@ -3196,32 +3185,14 @@
     "osdDescElementStickOverlayRight": {
         "message": "遥控器右摇杆的叠层位置"
     },
-    "osdDescElementTimer1": {
-        "message": "显示计时器1"
+    "osdDescElementDisplayName": {
+        "message": "由CLI命令\"display_name\"设置的显示名称"
     },
-    "osdDescElementTimer2": {
-        "message": "显示计时器2"
-    },
-    "osdDescElementRemaningTimeEstimate": {
-        "message": "预计剩余电池飞行时间"
+    "osdDescElementEscRpmFreq": {
+        "message": "电调回传电机转速频率"
     },
     "osdDescElementUnknown": {
         "message": "未知参数"
-    },
-    "osdDescElementCoreTemperature": {
-        "message": "显示飞控主芯片温度"
-    },
-    "osdDescAntiGravity": {
-        "message": "当反重力功能激活时显示指示器"
-    },
-    "osdDescGForce": {
-        "message": "显示当前飞机所受的地心引力"
-    },
-    "osdDescElementMotorDiag": {
-        "message": "显示每个电机输出的图表"
-    },
-    "osdDescElementLogStatus": {
-        "message": "黑匣子编号和警告"
     },
     "osdDescStatMaxSpeed": {
         "message": "记录到的最大速度"
@@ -3304,9 +3275,6 @@
     "osdTimerAlarmTooltip": {
         "message": "设置计时器警报时间（分钟）。当计时器时间大于设置时间，将会在OSD上面闪烁。设定为0可禁用报警。"
     },
-    "osdWarningUnknown": {
-        "message": "未知警告 (会在将来的版本中添加详细信息)"
-    },
     "osdWarningArmingDisabled": {
         "message": "显示导致不能解锁最主要的原因"
     },
@@ -3345,6 +3313,9 @@
     },
     "osdWarningGpsRescueDisabled": {
         "message": "GPS 救援被禁用时发出警告"
+    },
+    "osdWarningUnknown": {
+        "message": "未知警告 (会在将来的版本中添加详细信息)"
     },
     "osdSectionHelpElements": {
         "message": "显示或者隐藏 OSD 显示信息"
@@ -3490,9 +3461,6 @@
     "pidTuningPidControllerTip": {
         "message": "<b>传统 vs Emuflight (浮点数):</b> PID 比例和PID逻辑完全一样的.两者之间更换理论不需要重新调参. 传统的也是betaflight开发者参与重新改写，但是用的是整数来计算. Emuflight PID 用的是浮点数来计算，并且是专门为多轴飞行器设置<br> <b>浮点 vs 整数:</b> PID 比例和PID逻辑完全一样的. N两者之间更换理论不需要重新调参. 使用F1芯片的飞控缺乏板载的FPU，打开浮点计算将会增加CPU负荷，使用整数会得到更加好的运行效果。但是浮点计算会提供稍微更加准确的计算"
     },
-    "pidTuningPidTuningTip": {
-        "message": "<b>比例 P:</b> 数值越大，飞机会输出越大力量来抵消外力引起的移动，过大会引起震荡 <br><b>积分 I:</b>数值越大，对保持飞机姿态更好。但是也会增加飞机到达预定角度时间。<br><b>导数 D:</b> 增加回中时间，但是也会增加噪声<br><b>Rates and Expo</b>: Rates 和expo 影响摇杆手感。参考图表和实时3D模型预览来找到你喜欢的设定。"
-    },
     "pidTuningPidTuningTipFeedforward": {
         "message": "<b>比例 P:</b> 数值越大，飞机会输出越大力量来抵消外力引起的移动，过大会引起震荡 <br><b>积分 I:</b>数值越大，对保持飞机姿态更好。但是也会增加飞机到达预定角度时间。<br><b>导数 D:</b> 增加回中时间，但是也会增加噪声<br><b>前馈:</b> 通常PID响应误差值。前馈则基于摇杆输入来预测误差，提高飞机的响应。<br><b>Rates and Expo</b>: Rates 和expo 影响摇杆手感。参考图表和实时3D模型预览来找到你喜欢的设定。"
     },
@@ -3512,7 +3480,7 @@
         "message": "FPV摄像头角度 [degrees]"
     },
     "onboardLoggingBlackbox": {
-        "message": "黑匣子记录设备"
+        "message": "机载日志记录 (黑匣子)"
     },
     "onboardLoggingRateOfLogging": {
         "message": "黑匣子记录速率"

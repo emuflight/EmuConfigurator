@@ -1,15 +1,15 @@
 {
     "error": {
-        "message": "Erreur : {{errorMessage}}"
+        "message": "Erreur: {{errorMessage}}"
     },
     "errorTitle": {
         "message": "Erreur"
     },
     "warningTitle": {
-        "message": "Danger"
+        "message": "Avertissement"
     },
     "noticeTitle": {
-        "message": "Remarques"
+        "message": "Avis"
     },
     "operationNotSupported": {
         "message": "Cette opération n’est pas prise en charge par votre matériel."
@@ -21,7 +21,7 @@
         "message": "Options de l'application"
     },
     "connect": {
-        "message": "Connexion"
+        "message": "Connecter"
     },
     "connecting": {
         "message": "Connexion en cours"
@@ -55,9 +55,6 @@
     },
     "rememberLastTab": {
         "message": "Rouvrir le dernier onglet à la connexion"
-    },
-    "userLanguageSelect": {
-        "message": "Langue (nécessite un redémarrage pour appliquer les changements)"
     },
     "language_default": {
         "message": "Défaut"
@@ -122,7 +119,7 @@
         "message": "Manuels & Aide"
     },
     "tabSetup": {
-        "message": "Installation"
+        "message": "Configuration"
     },
     "tabSetupOSD": {
         "message": "Réglages OSD"
@@ -161,10 +158,10 @@
         "message": "Afficher les logs"
     },
     "serialPortOpened": {
-        "message": "Connexion au port série ID: $1 <span class=\"message-positive\">réussie</span>opened with ID: $1"
+        "message": "Port Série Ouvert"
     },
     "serialPortOpenFail": {
-        "message": "<span class=\"message-negative\">Echec</span> d'ouverture du port série"
+        "message": "Échec de l\"ouverture du port série"
     },
     "serialPortClosedOk": {
         "message": "Port série <span class=\"message-positive\">fermé</span> avec succès."
@@ -321,10 +318,10 @@
         "message": "Nom de l'appareil:<strong>$1</strong>"
     },
     "armingDisabled": {
-        "message": "<strong>Désarmé</strong>"
+        "message": "Armement Désactivé"
     },
     "armingEnabled": {
-        "message": "<strong>Armé</strong>"
+        "message": "Armement Activé"
     },
     "runawayTakeoffPreventionDisabled": {
         "message": "<strong>Takeoff Prevention temporairement désactivé</strong>"
@@ -408,13 +405,13 @@
         "message": "<span class=\"message-negative\">La sauvegarde et la restauration sont désactivés.</span> La version API de votre microprogramme est <span class=\"message-negative\">$1</span>, la version minimum requise est <span class=\"message-positive\">$2</span>.  Veuillez sauvegarder vos paramètres en CLI, voir la procédure dans l'aide Emuflight."
     },
     "initialSetupButtonCalibrateAccel": {
-        "message": "Calibrer l'accéléromètre"
+        "message": "Calibrer Accéléromètre"
     },
     "initialSetupCalibrateAccelText": {
         "message": "Positionner la carte de vol ou le châssis <strong>à plat</strong>, calibrer, s'assurer que rien ne bouge pendant le calibrage."
     },
     "initialSetupButtonCalibrateMag": {
-        "message": "Calibrer le magnétomètre"
+        "message": "Calibrer Magnétomètre"
     },
     "initialSetupCalibrateMagText": {
         "message": "Faire tourner le multirotor à <strong>360° minimum</strong> sur les 3 axes, vous avez 30 secondes pour le faire."
@@ -771,7 +768,7 @@
         "message": "Défaut"
     },
     "configurationAccelTrims": {
-        "message": "Correction de l'accéléromètre"
+        "message": "Trims de l\"Accéléromètre"
     },
     "configurationAccelTrimRoll": {
         "message": "Correction de l'accéléromètre sur le Roll"
@@ -1612,14 +1609,17 @@
     "sensorsBaroSelect": {
         "message": "Baromètre"
     },
+    "sensorsGyroTitle": {
+        "message": "Gyroscope"
+    },
     "sensorsAccelTitle": {
-        "message": "Accéléromètre - g"
+        "message": "Accéléromètre"
     },
     "sensorsMagTitle": {
-        "message": "Magnétomètre - Ga"
+        "message": "Magnétomètre"
     },
     "sensorsBaroTitle": {
-        "message": "Baromètre - mètres"
+        "message": "Baromètre"
     },
     "cliInfo": {
         "message": "<strong>Note:</strong> Quitter l'onglet CLI ou appuyer sur Déconnecter va <strong>automatiquement</strong> envoyer \"<strong>exit</strong>\" à la console de commande. Avec le dernier firmware, le contrôleur de vol va <strong>redémarrer</strong> et les changements non sauvegardés seront<strong>perdus</strong>.<p><strong><span class=\"message-negative\">Avertissement:</span></strong> Certaines commandes en CLI peuvent produirent des signaux aléatoires envoyés aux sorties moteurs. Ceux-ci, dans certains cas, feront tourner les moteurs si la batterie est connectée. Ainsi, il est fortement recommandé de s'assurer que<strong>la batterie soit déconnectée avant d'entrer des commandes en CLI</strong>."
@@ -1685,7 +1685,7 @@
         "message": "Le microprogramme de votre contrôleur de vol est trop vieux pour supporter cet onglet, ou la fonction Blackbox n'est pas activée dans l'onglet configuration."
     },
     "blackboxConfiguration": {
-        "message": "Configuration de la Blackbox"
+        "message": "Configuration de Blackbox"
     },
     "blackboxButtonSave": {
         "message": "Sauvegarder et redémarrer"
@@ -1694,7 +1694,7 @@
         "message": "Pas d'enregistrement"
     },
     "blackboxLoggingFlash": {
-        "message": "Mémoire sur la carte"
+        "message": "Mémoire Flash"
     },
     "blackboxLoggingSdCard": {
         "message": "Carte SD"
@@ -2164,9 +2164,6 @@
     },
     "pidTuningNotchFilterHelp": {
         "message": "Le filtre Notch est définit par son centre et la coupure. Le filtre est symétrique. La fréquence centre est le milieu du filtre et la coupure est la fréquence à laquelle le filtre démarre. Par exemple avec une coupure de 160 et un centre à 260, la zone 160-360Hz sera filtrée avec un maximum d'atténuation autour du centre"
-    },
-    "pidTuningMatrixFilterHelp": {
-        "message": "Le Matrix filter est un filtre notch dynamique. il met un notch sur le bruit maximal pour chaque axe. la valeur min hz est la valeur la plus petite que le matrix filter pourra attendre. le Q est la largeur du notch. ex: ub Q plus haut est un filtre notch plus précis."
     },
     "pidTuningLowpassFilterHelp": {
         "message": "Les filtres passe-bas peuvent avoir deux variantes : statique et dynamique. Un seul des nombres définit pour chacun des filtres passe-bas est utilisé (statique ou dynamique). Le statique est un seuil de coupure à partir duquel le filtre commence. Le dynamique définit un min et max, la plage dans laquelle la coupure sera placée. Cette plage de coupure varie entre le min et le max en même temps que vous bougez le stick des gaz."
@@ -2700,9 +2697,6 @@
     "osdDescElementCraftName": {
         "message": "Nom du modèle comme indiqué dans le configurateur"
     },
-    "osdDescElementDisplayName": {
-        "message": "Afficher le nom comme défini par la commande cli \"display_name\""
-    },
     "osdDescElementAltitude": {
         "message": "Altitude ( clignote quand le seuil d'alarme est atteint)"
     },
@@ -2760,24 +2754,6 @@
     "osdDescElementArmedTime": {
         "message": "Temps depuis le dernier armement"
     },
-    "osdDescElementWarnings": {
-        "message": "Alertes (par exemple: batterie faible), Avertissements (par exemple: raisons de ne pas armer, batterie critique) et signal sonore (4 astérisques clignotants)."
-    },
-    "osdDescElementEscTemperature": {
-        "message": "Température reportée par la télémétrie des ESC"
-    },
-    "osdDescElementEscRpm": {
-        "message": "Tr/min reporté par la télémétrie des ESC"
-    },
-    "osdDescElementEscRpmFreq": {
-        "message": "Fréquence Trs/min reportée par la télémétrie des ESC"
-    },
-    "osdDescElementRtcDateTime": {
-        "message": "Horloge réel date/heure"
-    },
-    "osdDescElementAdjustmentRange": {
-        "message": "Paramètre et plage de réglage actuel"
-    },
     "osdDescElementHomeDirection": {
         "message": "Flèche indiquant la direction par rapport à la position de départ"
     },
@@ -2792,6 +2768,45 @@
     },
     "osdDescElementCompassBar": {
         "message": "Boussole graphique indiquant le cap actuel"
+    },
+    "osdDescElementWarnings": {
+        "message": "Alertes (par exemple: batterie faible), Avertissements (par exemple: raisons de ne pas armer, batterie critique) et signal sonore (4 astérisques clignotants)."
+    },
+    "osdDescElementEscTemperature": {
+        "message": "Température reportée par la télémétrie des ESC"
+    },
+    "osdDescElementEscRpm": {
+        "message": "Tr/min reporté par la télémétrie des ESC"
+    },
+    "osdDescElementRemaningTimeEstimate": {
+        "message": "Estimation du temps de vol restant"
+    },
+    "osdDescElementRtcDateTime": {
+        "message": "Horloge réel date/heure"
+    },
+    "osdDescElementAdjustmentRange": {
+        "message": "Paramètre et plage de réglage actuel"
+    },
+    "osdDescElementTimer1": {
+        "message": "Affiche la valeur du timer 1"
+    },
+    "osdDescElementTimer2": {
+        "message": "Affiche la valeur du timer 2"
+    },
+    "osdDescElementCoreTemperature": {
+        "message": "Température du coeur du STM32 MCU"
+    },
+    "osdDescAntiGravity": {
+        "message": "Indique lorsque l'anti gravity est actif"
+    },
+    "osdDescGForce": {
+        "message": "Indique le nombre de G subit par l'appareil"
+    },
+    "osdDescElementMotorDiag": {
+        "message": "Affiche un graphique de la sortie de chaque moteur"
+    },
+    "osdDescElementLogStatus": {
+        "message": "Avertissements et numéros de Blackbox"
     },
     "osdDescElementFlipArrow": {
         "message": "En mode tortue, flèche indiquant quels moteurs seront activés"
@@ -2808,32 +2823,14 @@
     "osdDescElementStickOverlayRight": {
         "message": "Superpose la valeur du stick droit de l'émetteur."
     },
-    "osdDescElementTimer1": {
-        "message": "Affiche la valeur du timer 1"
+    "osdDescElementDisplayName": {
+        "message": "Afficher le nom comme défini par la commande cli \"display_name\""
     },
-    "osdDescElementTimer2": {
-        "message": "Affiche la valeur du timer 2"
-    },
-    "osdDescElementRemaningTimeEstimate": {
-        "message": "Estimation du temps de vol restant"
+    "osdDescElementEscRpmFreq": {
+        "message": "Fréquence Trs/min reportée par la télémétrie des ESC"
     },
     "osdDescElementUnknown": {
         "message": "Éléments inconnus (détails devant être ajoutés dans le"
-    },
-    "osdDescElementCoreTemperature": {
-        "message": "Température du coeur du STM32 MCU"
-    },
-    "osdDescAntiGravity": {
-        "message": "Indique lorsque l'anti gravity est actif"
-    },
-    "osdDescGForce": {
-        "message": "Indique le nombre de G subit par l'appareil"
-    },
-    "osdDescElementMotorDiag": {
-        "message": "Affiche un graphique de la sortie de chaque moteur"
-    },
-    "osdDescElementLogStatus": {
-        "message": "Avertissements et numéros de Blackbox"
     },
     "osdDescStatMaxSpeed": {
         "message": "Vitesse maximale relevée"
@@ -2913,9 +2910,6 @@
     "osdTimerAlarmTooltip": {
         "message": "Sélectionnez le seuil de l'alarme du timer en minutes, lorsque le temps dépasse cette valeur, l'élément OSD clignote, le réglage à 0 désactive l'alarme"
     },
-    "osdWarningUnknown": {
-        "message": "Avertissement inconnu (détails à ajouter dans une version ultérieure)"
-    },
     "osdWarningArmingDisabled": {
         "message": "Indique la raison la plus grave de ne pas armer"
     },
@@ -2954,6 +2948,9 @@
     },
     "osdWarningGpsRescueDisabled": {
         "message": "Alerte quand GPS rescue est désactivé"
+    },
+    "osdWarningUnknown": {
+        "message": "Avertissement inconnu (détails à ajouter dans une version ultérieure)"
     },
     "osdSectionHelpElements": {
         "message": "Activer ou désactiver l'OSD"
@@ -3096,9 +3093,6 @@
     "pidTuningDeltaTip": {
         "message": "<b>Derivative from Error</b>fourni un feeling plus direct et c'est le préféré pour la 'race'.<br><br><b>Derivative from Measurement</b> fourni plus de 'smooth' et c'est le préféré pour le freestyle"
     },
-    "pidTuningPidTuningTip": {
-        "message": "<b>Proportionnelle:</b> Vous verrez une résistance forte lorsque vous essaierez de faire bouger le drone<br><b>Intégrale:</b> Augmente la capacité à tenir la position initiale et réduit le dérapage, mais augmente aussi le délai pour revenir à la position initiale.<br><b>Dérivée:</b> Améliore la vitesse à laquelle les écarts sont récupérés, mais augmente le bruit<br><b>Rates et Expo</b>: Détermine la réactivité des commandes en se basant sur ces paramètres. Utiliser le graphe et la vue du modèle en 3D pour trouver vos paramètres préférés."
-    },
     "pidTuningPidTuningTipFeedforward": {
         "message": "<b>Proportionnelle:</b> Vous sentirez une résistance forte lorsque vous tenterez de faire bouger le MultiRotor<br>\n<b>Intégrale:</b> Augmente la capacité à tenir la position initiale et réduit le dérapage, mais augmente aussi le délai pour revenir à la position initiale.<br>\n<b>Dérivée:</b> Améliore la vitesse à laquelle les écarts sont récupérés, mais augmente le bruit<br>\n<b>Feedforward:</b> Traditionnellement le contrôleur PID se base sur les erreurs. Feedforward anticipe les erreurs en se basant sur les entrées sticks, et rend le quad plus réactif.<br>\n<b>Rates et Expo:</b> Agit sur le ressenti et la réactivité des commandes en se basant sur ces paramètres. Utiliser le graphe et la vue du modèle en 3D pour trouver vos paramètres préférés"
     },
@@ -3118,7 +3112,7 @@
         "message": "Angle Caméra FPV (degrés)"
     },
     "onboardLoggingBlackbox": {
-        "message": "Stockage de la blackbox"
+        "message": "Enregistrement embarqué (Blackbox)"
     },
     "onboardLoggingRateOfLogging": {
         "message": "Fréquence d'enregistrement de la Blackbox"
@@ -3183,20 +3177,11 @@
     "pidTuningImuflpfRoll": {
         "message": "IMU-F ROLL LPF cutoff Hz"
     },
-    "pidTuningImuflpfRollHelp": {
-        "message": "Fréquence de Coupure Helio/Strix"
-    },
     "pidTuningImuflpfPitch": {
         "message": "IMU-F PITCH LPF cutoff Hz"
     },
-    "pidTuningImuflpfPitchHelp": {
-        "message": "Fréquence de Coupure Helio/Strix"
-    },
     "pidTuningImuflpfYaw": {
         "message": "IMU-F YAW lpf cutoff Hz"
-    },
-    "pidTuningImuflpfYawHelp": {
-        "message": "Fréquence de Coupure Helio/Strix"
     },
     "pidTuningImuflpfAcc": {
         "message": "IMU-F accelerometer LPF cutoff Hz"

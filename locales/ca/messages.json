@@ -9,13 +9,13 @@
         "message": "Opcions de l'aplicació"
     },
     "connect": {
-        "message": "Connectar"
+        "message": "Connecta"
     },
     "connecting": {
         "message": "Connectant"
     },
     "disconnect": {
-        "message": "Desconnectar"
+        "message": "Desconnecta"
     },
     "portsSelectManual": {
         "message": "Selecció Manual"
@@ -37,9 +37,6 @@
     },
     "permanentExpertMode": {
         "message": "Habilita el mode expert permanentment"
-    },
-    "userLanguageSelect": {
-        "message": "Idioma (es necessita reiniciar l'aplicació perquè els canvis tinguin efecte)"
     },
     "language_default": {
         "message": "Per defecte"
@@ -66,10 +63,6 @@
     },
     "sensorStatusSonar": {
         "message": "Sònar / Mesurador de distància"
-    },
-    "sensorStatusSonarShort": {
-        "message": "Sònar",
-        "description": "Text of the image in the top sensors icons. Please keep it short."
     },
     "checkForConfiguratorUnstableVersions": {
         "message": "Mostra la notificació de versions inestables del configurador"
@@ -147,10 +140,10 @@
         "message": "Mostrar Log"
     },
     "serialPortOpened": {
-        "message": "Port sèrie <span class=\"message-positive\">correctament</span> obert amb ID: $1"
+        "message": "Port Sèrie Obert"
     },
     "serialPortOpenFail": {
-        "message": "<span class=\"message-negative\">Ha fallat</span> obrir el port de sèrie"
+        "message": "Error al obrir Port Sèrie"
     },
     "serialPortClosedOk": {
         "message": "Port sèrie <span class=\"message-positive\">correctament</span> tancat"
@@ -298,10 +291,10 @@
         "message": "Nom de l'aeromodel: <strong>$1</strong>"
     },
     "armingDisabled": {
-        "message": "<strong>Armar Deshabilitat</strong>"
+        "message": "Armament Deshabilitat"
     },
     "armingEnabled": {
-        "message": "<strong>Armar Habilitat</strong>"
+        "message": "Armament Habilitat"
     },
     "runawayTakeoffPreventionDisabled": {
         "message": "<strong>Runaway Takeoff Prevention temporalment Deshabilitat</strong>"
@@ -385,13 +378,13 @@
         "message": "<span class=\"message-negative\">Funcionalitats de còpia de seguretat i restauració deshabilitades.</span> La teva versió de la API és <span class=\"message-negative\">$1</span>, la còpia i restauració requereix <span class=\"message-positive\">$2</span>. Si us plau, desa la teva configuració mitjançant el CLI, revisa la documentació de Emuflight per saber com procedir."
     },
     "initialSetupButtonCalibrateAccel": {
-        "message": "Calibrar acceleròmetre"
+        "message": "Calibra Acceleròmetre"
     },
     "initialSetupCalibrateAccelText": {
         "message": "Situa la teva controladora o frame a una superfície  <strong>anivellada</strong>, continua amb la caŀlibració, vigila que la superfície no es mogui durant el procés"
     },
     "initialSetupButtonCalibrateMag": {
-        "message": "Calibrar magnetòmetre"
+        "message": "Calibra Magnetòmetre"
     },
     "initialSetupCalibrateMagText": {
         "message": "Mou el multirotor almenys <strong>360</strong> graus en tots els eixos de rotació, tens 30 segons per a fer aquests moviments"
@@ -637,7 +630,7 @@
         "message": "Per defecte"
     },
     "configurationAccelTrims": {
-        "message": "Alineament Trim"
+        "message": "Ajustos Acceleròmetre"
     },
     "configurationAccelTrimRoll": {
         "message": "Trim Roll Acceleròmetre"
@@ -1255,16 +1248,16 @@
         "message": "Sònar"
     },
     "sensorsGyroTitle": {
-        "message": "Giroscopi - graus/s"
+        "message": "Giroscopi"
     },
     "sensorsAccelTitle": {
-        "message": "Acceleròmetre - g"
+        "message": "Acceleròmetre"
     },
     "sensorsMagTitle": {
-        "message": "Magnetòmetre - Ga"
+        "message": "Magnetòmetre"
     },
     "sensorsBaroTitle": {
-        "message": "Baròmetre - metres"
+        "message": "Baròmetre"
     },
     "sensorsSonarTitle": {
         "message": "Sònar - cm"
@@ -1321,7 +1314,7 @@
         "message": "El firmware de la teva controladora de vol és massa antic per suportar aquesta pestanya, o la funció Blackbox està deshabilitada a la pestanya de Configuració."
     },
     "blackboxConfiguration": {
-        "message": "Configuració Blackbox"
+        "message": "Configuració de Blackbox"
     },
     "blackboxButtonSave": {
         "message": "Desa i reinicia"
@@ -1329,8 +1322,11 @@
     "blackboxLoggingNone": {
         "message": "No enregistrar"
     },
+    "blackboxLoggingFlash": {
+        "message": "Memòria Flash"
+    },
     "blackboxLoggingSdCard": {
-        "message": "Tarja SD"
+        "message": "Targeta SD"
     },
     "blackboxLoggingSerial": {
         "message": "Port Sèrie"
@@ -1982,9 +1978,6 @@
     "osdSetupUnsupportedNote2": {
         "message": "Algunes controladores tenen <a href=\"https://www.youtube.com/watch?v=ikKH_6SQ-Tk\" target=\"_blank\">MinimOSD</a> que pot ser flashejat i configurat amb <a href=\"https://github.com/ShikOfTheRa/scarab-osd/releases/latest\" target='_blank'>scarab-osd</a>, malgrat això MinimOSD no pot ser configurat a aquesta interfície."
     },
-    "osdSetupPreviewTitleTip": {
-        "message": "Mostra o amaga el logo a la finestra de previsualització. Això no canviarà cap configuració a la controladora de vol."
-    },
     "osdSetupVideoFormatTitle": {
         "message": "Format de video"
     },
@@ -2150,21 +2143,6 @@
     "osdDescElementArmedTime": {
         "message": "Temps des que l'aeronau va ser armada"
     },
-    "osdDescElementWarnings": {
-        "message": "Alertes (p.ex. bateria baixa), avisos (p.ex. raons per les quals no arma) i beeper visual (4 asteriscs parpellejant)."
-    },
-    "osdDescElementEscTemperature": {
-        "message": "Temperatura reportada per la telemetria d'ESCs"
-    },
-    "osdDescElementEscRpm": {
-        "message": "RPM reportat per la telemetria ESC"
-    },
-    "osdDescElementRtcDateTime": {
-        "message": "Hora / data real"
-    },
-    "osdDescElementAdjustmentRange": {
-        "message": "Ajustament de rang i de valor actiu actualment"
-    },
     "osdDescElementHomeDirection": {
         "message": "Fletxa indicant la direcció de la posició de casa"
     },
@@ -2180,20 +2158,35 @@
     "osdDescElementCompassBar": {
         "message": "Compàs gràfic mostrant la direcció actual"
     },
+    "osdDescElementWarnings": {
+        "message": "Alertes (p.ex. bateria baixa), avisos (p.ex. raons per les quals no arma) i beeper visual (4 asteriscs parpellejant)."
+    },
+    "osdDescElementEscTemperature": {
+        "message": "Temperatura reportada per la telemetria d'ESCs"
+    },
+    "osdDescElementEscRpm": {
+        "message": "RPM reportat per la telemetria ESC"
+    },
+    "osdDescElementRemaningTimeEstimate": {
+        "message": "Temps estimat restant de volt"
+    },
+    "osdDescElementRtcDateTime": {
+        "message": "Hora / data real"
+    },
+    "osdDescElementAdjustmentRange": {
+        "message": "Ajustament de rang i de valor actiu actualment"
+    },
     "osdDescElementTimer1": {
         "message": "Mostra el valor del timer 1"
     },
     "osdDescElementTimer2": {
         "message": "Mostra el valor del timer 2"
     },
-    "osdDescElementRemaningTimeEstimate": {
-        "message": "Temps estimat restant de volt"
+    "osdDescElementCoreTemperature": {
+        "message": "Temperatura del nucli MCU STM32"
     },
     "osdDescElementUnknown": {
         "message": "Element desconegut (Els detalls s'afegiran a publicacions futures)"
-    },
-    "osdDescElementCoreTemperature": {
-        "message": "Temperatura del nucli MCU STM32"
     },
     "osdDescStatMaxSpeed": {
         "message": "Velocitat màxima registrada"
@@ -2381,9 +2374,6 @@
     "pidTuningPidControllerTip": {
         "message": "<b>Legacy vs Emuflight (flotant):</b> L'escalat PID i la lògica PID són exactament iguals. No es necessari el re-escalat. Legacy és una vella versió reescrita evolutiva betaflight, que és un controlador de PID bàsic basat en matemàtiques integrals. El controlador PID de Emuflight utilitza matemàtiques de punt flotant i té moltes noves funcions dissenyades específicament per a aplicacions multirotor <br> <b> Float vs Integer: </b> L'escalat PID i la lògica PID són exactament iguals. No es necessari el re-escalat. Les FC F1 no tenen FPU a bord i la matemàtica del punt flotant augmenta la càrrega de la CPU i la matemàtica del sencer millorarà el rendiment, però la matemàtica flotant pot obtenir una mica més de precisió."
     },
-    "pidTuningPidTuningTip": {
-        "message": "<b>Proporcional:</b> Notaràs un forta resistència a qualsevol intent de moure el multi<br><b>Integral:</b> Incrementa l'habilitat de mantenir la posició i redueix el drift, però també incrementa el retard per a tornar a la posició inicial.<br><b>Derivativa:</b> Millora la velocitat en que són corregides les desviacions, però incrementa el soroll<br><b>Rates i Expo</b>: Determina el tacte dels sticks basat en aquests paràmetres. Utilitza el model 3D per a trobar els teus ajustaments preferits."
-    },
     "pidTuningRatesTip": {
         "message": "Juga amb els rates i mira com afecten a la corba del valor de l'stick"
     },
@@ -2400,7 +2390,7 @@
         "message": "Angle de la càmera FPV [graus]"
     },
     "onboardLoggingBlackbox": {
-        "message": "Dispositiu de registre Blackbox"
+        "message": "Registre a bord (Blackbox)"
     },
     "onboardLoggingRateOfLogging": {
         "message": "Velocitat d'enregistrament de Blackbox"

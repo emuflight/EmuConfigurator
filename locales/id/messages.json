@@ -56,9 +56,6 @@
     "rememberLastTab": {
         "message": "Buka kembali tab terakhir saat dihubungkan"
     },
-    "userLanguageSelect": {
-        "message": "Bahasa (perlu restart aplikasi agar perubahan diterapkan)"
-    },
     "language_default": {
         "message": "Standar"
     },
@@ -2293,9 +2290,6 @@
     "osdSetupElementsTitle": {
         "message": "Elemen"
     },
-    "osdSetupPreviewTitleTip": {
-        "message": "Tampilkan atau sembunyikan logo di jendela peninjauan. Ini tidak akan mengubah pengaturan apapun pada pengontrol penerbangan."
-    },
     "osdSetupVideoFormatTitle": {
         "message": "Format Video"
     },
@@ -2476,21 +2470,6 @@
     "osdDescElementArmedTime": {
         "message": "Waktu sejak model di arm"
     },
-    "osdDescElementWarnings": {
-        "message": "Tanda (misalnya baterai rendah), peringatan (misalnya alasan untuk tidak mempersenjatai, baterai rendah kritis) dan pager visual (4 tanda berkedip)."
-    },
-    "osdDescElementEscTemperature": {
-        "message": "Suhu yang dilaporkan oleh telemetry ESC"
-    },
-    "osdDescElementEscRpm": {
-        "message": "RPM dilaporkan oleh telemetri ESC"
-    },
-    "osdDescElementRtcDateTime": {
-        "message": "RTC tanggal / waktu"
-    },
-    "osdDescElementAdjustmentRange": {
-        "message": "Pengaturan dan nilai pengaturan penyesuaian aktif saat ini"
-    },
     "osdDescElementHomeDirection": {
         "message": "Panah menampilkan arah ke posisi rumah"
     },
@@ -2506,26 +2485,29 @@
     "osdDescElementCompassBar": {
         "message": "Kompas grafis yang menunjukkan arah depan model saat ini"
     },
-    "osdDescElementFlipArrow": {
-        "message": "Panah yang menandakan posisi motor yang berada di atas pada mode turtle"
+    "osdDescElementWarnings": {
+        "message": "Tanda (misalnya baterai rendah), peringatan (misalnya alasan untuk tidak mempersenjatai, baterai rendah kritis) dan pager visual (4 tanda berkedip)."
     },
-    "osdDescElementLinkQuality": {
-        "message": "Indikator alternatif untuk 'kualitas link' berdasarkan frame loss - gunakan dengan hati-hati"
+    "osdDescElementEscTemperature": {
+        "message": "Suhu yang dilaporkan oleh telemetry ESC"
     },
-    "osdDescElementFlightDist": {
-        "message": "Jarak tempuh pada penerbangan ini."
+    "osdDescElementEscRpm": {
+        "message": "RPM dilaporkan oleh telemetri ESC"
+    },
+    "osdDescElementRemaningTimeEstimate": {
+        "message": "Perkiraan waktu penerbangan yang tersisa"
+    },
+    "osdDescElementRtcDateTime": {
+        "message": "RTC tanggal / waktu"
+    },
+    "osdDescElementAdjustmentRange": {
+        "message": "Pengaturan dan nilai pengaturan penyesuaian aktif saat ini"
     },
     "osdDescElementTimer1": {
         "message": "Menunjukkan nilai timer 1"
     },
     "osdDescElementTimer2": {
         "message": "Menunjukkan nilai timer 2"
-    },
-    "osdDescElementRemaningTimeEstimate": {
-        "message": "Perkiraan waktu penerbangan yang tersisa"
-    },
-    "osdDescElementUnknown": {
-        "message": "Unsur tak dikenal (rincian akan di tambahkan dalam rilis yang akan datang)"
     },
     "osdDescElementCoreTemperature": {
         "message": "Suhu inti MCU STM32"
@@ -2541,6 +2523,18 @@
     },
     "osdDescElementLogStatus": {
         "message": "Nomor blackbox dan peringatan"
+    },
+    "osdDescElementFlipArrow": {
+        "message": "Panah yang menandakan posisi motor yang berada di atas pada mode turtle"
+    },
+    "osdDescElementLinkQuality": {
+        "message": "Indikator alternatif untuk 'kualitas link' berdasarkan frame loss - gunakan dengan hati-hati"
+    },
+    "osdDescElementFlightDist": {
+        "message": "Jarak tempuh pada penerbangan ini."
+    },
+    "osdDescElementUnknown": {
+        "message": "Unsur tak dikenal (rincian akan di tambahkan dalam rilis yang akan datang)"
     },
     "osdDescStatMaxSpeed": {
         "message": "Kecepatan maksimal terekam"
@@ -2778,9 +2772,6 @@
     },
     "pidTuningPidControllerTip": {
         "message": "<b>Legacy vs Emuflight (float):</b> PID scaling dan logika PID sama persis. Belum tentu butuh retune. Legacy adalah versi lama betaflight yg telah ditulis ulang, yg merupakan kontroler PID sederhana menggunakan perhitungan dalam bilangan bulat. Kontroler PID Emuflight menggunakan perhitungan desimal yg lebih presisi dan memiliki banyak fitur baru yg dirancang khusus untuk aplikasi multirotor <br><b>Koma vs Tanpa Koma:</b> scaling PID dan logika PID sama persis. Tidak butuh retune. FC F1 tidak memiliki FPU onboard dan perhitungan dengan tingkat presisi dalam koma meningkatkan beban CPU, bilangan tanpa koma akan memperbaiki kinerjanya, tapi perhitungan dalam koma mungkin akan sedikit lebih presisi."
-    },
-    "pidTuningPidTuningTip": {
-        "message": "<b>Proporsional:</b> Anda akan merasakan resistensi yang kuat saat mencoba memindahkan MutiRotor<br><b> Integral:</b> Meningkatkan kemampuan untuk mempertahankan posisi awal dan mengurangi drift, tetapi juga akan menambah waktu yang diperlukan untuk kembali ke posisi awal.<br><b>Derivatif:</b> Menambah kecepatan kembali ke posisi awal, tetapi meningkatkan noise<br><b>Rate dan Expo</b>: Tentukan respon stick anda berdasarkan parameter-parameter ini. Gunakan grafik dan model 3D yang berfungsi untuk menemukan pengaturan favorit anda"
     },
     "pidTuningPidTuningTipFeedforward": {
         "message": "<b>Proporsional:</b> Anda akan merasakan resistensi yang kuat saat mencoba memindahkan MutiRotor<br><b>Integral:</b> Meningkatkan kemampuan untuk mempertahankan posisi awal dan mengurangi drift, tetapi juga akan menambah waktu yang diperlukan untuk kembali ke posisi awal.<br><b>Derivatif:</b> Menambah kecepatan kembali ke posisi awal, tetapi meningkatkan noise<br><b>Feedforward:</b> Umumnya pengaturan PID bereaksi terhadap error. Feedforward mengoreksi error berdasarkan masukan dari stick, menghasilkan quad yang responsif.<br><b>Rate dan Expo</b>: Tentukan respon stick anda berdasarkan parameter-parameter ini. Gunakan grafik dan model 3D yang berfungsi untuk menemukan pengaturan favorit anda"

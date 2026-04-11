@@ -56,9 +56,6 @@
     "rememberLastTab": {
         "message": "Öppna senaste fliken vid anslutning"
     },
-    "userLanguageSelect": {
-        "message": "Språk (programmet behöver startas om för att ändringarna ska börja gälla)"
-    },
     "language_default": {
         "message": "Standard"
     },
@@ -2601,9 +2598,6 @@
         "message": "OSD-profil {{profileNumber}}",
         "description": "Content of the selector for the OSD Profile in the preview"
     },
-    "osdSetupPreviewTitleTip": {
-        "message": "Visa eller dölj logo i förhandsvisningen. Detta ändrar inga inställningar i flygkontrollern."
-    },
     "osdSetupVideoFormatTitle": {
         "message": "Videoformat"
     },
@@ -2721,9 +2715,6 @@
     "osdDescElementCraftName": {
         "message": "Farkostnamnet som det angivits i Konfigurationsfliken"
     },
-    "osdDescElementDisplayName": {
-        "message": "Visningsnamnet som det har satts med cli-kommandot \"display_name\""
-    },
     "osdDescElementAltitude": {
         "message": "Aktuell höjd (blinkar om larmtröskeln överskridits)"
     },
@@ -2784,24 +2775,6 @@
     "osdDescElementArmedTime": {
         "message": "Tid sedan farkosten senast aktiverades"
     },
-    "osdDescElementWarnings": {
-        "message": "Larm (t ex lågt batteri), varningar (t ex aktiveringshinder, kritiskt lågt batteri) och visuell ljudsignal (4 blinkande asterisker)."
-    },
-    "osdDescElementEscTemperature": {
-        "message": "Temperatur enligt ESC-telemetri"
-    },
-    "osdDescElementEscRpm": {
-        "message": "Varvtal enligt ESC-telemetri"
-    },
-    "osdDescElementEscRpmFreq": {
-        "message": "RPM-frekvens enligt ESC-telemetri"
-    },
-    "osdDescElementRtcDateTime": {
-        "message": "Datum / tid från realtidsklocka"
-    },
-    "osdDescElementAdjustmentRange": {
-        "message": "Inställning och värde för justeringsområde som är aktivt nu"
-    },
     "osdDescElementHomeDirection": {
         "message": "Pil som visar riktning till hemposition"
     },
@@ -2816,6 +2789,45 @@
     },
     "osdDescElementCompassBar": {
         "message": "Grafisk kompass som visar aktuell riktning"
+    },
+    "osdDescElementWarnings": {
+        "message": "Larm (t ex lågt batteri), varningar (t ex aktiveringshinder, kritiskt lågt batteri) och visuell ljudsignal (4 blinkande asterisker)."
+    },
+    "osdDescElementEscTemperature": {
+        "message": "Temperatur enligt ESC-telemetri"
+    },
+    "osdDescElementEscRpm": {
+        "message": "Varvtal enligt ESC-telemetri"
+    },
+    "osdDescElementRemaningTimeEstimate": {
+        "message": "Uppskattad återstående flygtid"
+    },
+    "osdDescElementRtcDateTime": {
+        "message": "Datum / tid från realtidsklocka"
+    },
+    "osdDescElementAdjustmentRange": {
+        "message": "Inställning och värde för justeringsområde som är aktivt nu"
+    },
+    "osdDescElementTimer1": {
+        "message": "Visar värdet på timer 1"
+    },
+    "osdDescElementTimer2": {
+        "message": "Visar värdet på timer 2"
+    },
+    "osdDescElementCoreTemperature": {
+        "message": "Temperatur på STM32 MCU-kärna"
+    },
+    "osdDescAntiGravity": {
+        "message": "Aktiverar en indikator när anti-gravity är påslagen"
+    },
+    "osdDescGForce": {
+        "message": "Visar hur stor G-kraft farkosten utsätts för"
+    },
+    "osdDescElementMotorDiag": {
+        "message": "Visar ett diagram över utmatningen från respektive motor"
+    },
+    "osdDescElementLogStatus": {
+        "message": "Blackbox-nummer och varningar"
     },
     "osdDescElementFlipArrow": {
         "message": "Pil som visar vilken motorsida som pekar uppåt i sköldpaddsläge (turtle mode)"
@@ -2832,32 +2844,14 @@
     "osdDescElementStickOverlayRight": {
         "message": "Överlagring för höger spakposition."
     },
-    "osdDescElementTimer1": {
-        "message": "Visar värdet på timer 1"
+    "osdDescElementDisplayName": {
+        "message": "Visningsnamnet som det har satts med cli-kommandot \"display_name\""
     },
-    "osdDescElementTimer2": {
-        "message": "Visar värdet på timer 2"
-    },
-    "osdDescElementRemaningTimeEstimate": {
-        "message": "Uppskattad återstående flygtid"
+    "osdDescElementEscRpmFreq": {
+        "message": "RPM-frekvens enligt ESC-telemetri"
     },
     "osdDescElementUnknown": {
         "message": "Okänt element (detaljer tillkommer i en kommande utgåva)"
-    },
-    "osdDescElementCoreTemperature": {
-        "message": "Temperatur på STM32 MCU-kärna"
-    },
-    "osdDescAntiGravity": {
-        "message": "Aktiverar en indikator när anti-gravity är påslagen"
-    },
-    "osdDescGForce": {
-        "message": "Visar hur stor G-kraft farkosten utsätts för"
-    },
-    "osdDescElementMotorDiag": {
-        "message": "Visar ett diagram över utmatningen från respektive motor"
-    },
-    "osdDescElementLogStatus": {
-        "message": "Blackbox-nummer och varningar"
     },
     "osdDescStatMaxSpeed": {
         "message": "Högsta registrerade hastighet"
@@ -2937,9 +2931,6 @@
     "osdTimerAlarmTooltip": {
         "message": "Välj tidslarmets tröskel i minuter, när tiden överskrider detta värde kommer OSD-elementet att blinka, sätt denna till 0 för att inaktivera larmet"
     },
-    "osdWarningUnknown": {
-        "message": "Okänd varning (detaljer tillkommer i en kommande utgåva)"
-    },
     "osdWarningArmingDisabled": {
         "message": "Rapporterar den viktigaste orsaken till att motoraktivering inte är tillåten"
     },
@@ -2978,6 +2969,9 @@
     },
     "osdWarningGpsRescueDisabled": {
         "message": "Varnar när GPS-räddning är avstängd"
+    },
+    "osdWarningUnknown": {
+        "message": "Okänd varning (detaljer tillkommer i en kommande utgåva)"
     },
     "osdSectionHelpElements": {
         "message": "Aktivera eller avaktivera OSD-element."
@@ -3119,9 +3113,6 @@
     },
     "pidTuningPidControllerTip": {
         "message": "<b>Legacy vs Emuflight (float):</b> PID-skalning och PID-logik är exakt samma. Omjustering behövs inte nödvändigtvis. Legacy är en äldre version som är en grundläggande PID-kontroller baserad på heltalsmatematik. Emuflight PID-kontroller använder flyttalsmatematik och har många nya funktioner som designats specifikt för multirotorapplikationer<br><b>Float vs Integer:</b>PID-skalning och PID-logik är exakt samma. Ingen omjustering behövs. F1-kort har ingen inbyggd FPU och flyttalsmatematik ökar belastningen på CPU:n. Heltalsmatematik ger bättre prestanda, men flyttalsmatematik kan ge något bättre precision."
-    },
-    "pidTuningPidTuningTip": {
-        "message": "<b>Proportionell:</b> En mycket stark motkraft märks vid alla försök att flytta multirotorn<br><b>Integral:</b> Ökar förmågan att hålla det initiala läget och minska avdrift, men ökar också fördröjningen för att återvända till initalt läge<br><b>Derivativ:</b> Ger en snabbare återhämtning från avvikelser, men ökar bruset<br><b>Rates och Expo</b>: Bestäm spakkänslan baserat på dessa parametrar. Använd grafen och live 3D-modellen för att hitta din favoritinställning för rate"
     },
     "pidTuningPidTuningTipFeedforward": {
         "message": "<b>Proportionell:</b> En mycket stark motkraft märks vid alla försök att flytta multirotorn<br><b>Integration:</b> Ökar förmågan att hålla det initiala läget och minska avdrift, men ökar också fördröjningen för att återvända till initalt läge<br><b>Derivering:</b> Ger en snabbare återhämtning från avvikelser, men ökar brus<br><b>Framkoppling (Feedforward):</b><br> Normalt reagerar PID-kontrollern på avvikelsen. Framkoppling förutser avvikelsen baserat på spakens läge, och gör multirotorn mer responsiv.<b>Rates och Expo</b>: Bestäm spakkänslan baserat på dessa parametrar. Använd grafen och live 3D-modellen för att hitta din favoritinställning för rate"

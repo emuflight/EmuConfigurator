@@ -59,9 +59,6 @@
     "rememberLastTab": {
         "message": "연결시 마지막 탭 다시 열기"
     },
-    "userLanguageSelect": {
-        "message": "언어 (변경 사항을 적용하려면 어플리케이션을 다시 시작해야 함)"
-    },
     "language_default": {
         "message": "기본값"
     },
@@ -74,13 +71,13 @@
         "description": "Text of the dataflash image in the header of the page."
     },
     "sensorStatusGyro": {
-        "message": "자이로스코프"
+        "message": "자이로"
     },
     "sensorStatusAccel": {
         "message": "가속도계"
     },
     "sensorStatusMag": {
-        "message": "자력계"
+        "message": "지자기계"
     },
     "sensorStatusBaro": {
         "message": "기압계"
@@ -128,13 +125,13 @@
         "message": "문서 & 지원"
     },
     "tabSetup": {
-        "message": "설정"
+        "message": "초기 설정"
     },
     "tabSetupOSD": {
         "message": "OSD 설정"
     },
     "tabConfiguration": {
-        "message": "환경설정"
+        "message": "환경 설정"
     },
     "tabPorts": {
         "message": "포트"
@@ -185,10 +182,10 @@
         "message": "로그 보기"
     },
     "serialPortOpened": {
-        "message": "시리얼 포트 ID: $1이(가) <span class=\"message-positive\">성공적으로</span> 열림"
+        "message": "시리얼 포트 열림"
     },
     "serialPortOpenFail": {
-        "message": "시리얼 포트 열기 <span class=\"message-negative\">실패</span>"
+        "message": "시리얼 포트 열기 실패"
     },
     "serialPortClosedOk": {
         "message": "시리얼 포트가 <span class=\"message-positive\">성공적으로</span> 닫힘"
@@ -345,10 +342,10 @@
         "message": "기체 이름: <strong>$1</strong>"
     },
     "armingDisabled": {
-        "message": "<strong>아밍이 비활성화됨</strong>"
+        "message": "아밍 비활성화됨"
     },
     "armingEnabled": {
-        "message": "<strong>아밍이 활성화됨</strong>"
+        "message": "아밍 활성화됨"
     },
     "runawayTakeoffPreventionDisabled": {
         "message": "<strong>폭주 이륙 방지 일시적으로 비활성화됨</strong>"
@@ -438,13 +435,13 @@
         "message": "<span class=\"message-negative\">백업과 복구 기능이 비활성화되었습니다.</span> API 버전  <span class=\"message-negative\">$1</span>에 맞는 펌웨어여야 합니다, 백업과 복구 절차는 <span class=\"message-positive\">$2</span>를 참고하십시오. 당신의 설정을 CLI를 통해 백업하세요, 필요한 경우 절차에 대한 베타플라이트 문서를 확인하세요."
     },
     "initialSetupButtonCalibrateAccel": {
-        "message": "가속도계 교정"
+        "message": "가속도계 캘리브레이션"
     },
     "initialSetupCalibrateAccelText": {
         "message": "보드 또는 프레임을 <strong>수평의</strong> 표면 위에 두고 교정을 진행하십시오. 교정이 진행되는 동안 플랫폼을 절대 움직이지 마십시오."
     },
     "initialSetupButtonCalibrateMag": {
-        "message": "자력계 교정"
+        "message": "지자기계 캘리브레이션"
     },
     "initialSetupCalibrateMagText": {
         "message": "멀티로터를 최소한 모든 방향에 대하여 <strong>360</strong>도 회전시키십시오. 이 작업을 수행하는 데 30초의 시간이 주어집니다."
@@ -1832,16 +1829,16 @@
         "message": "디버그"
     },
     "sensorsGyroTitle": {
-        "message": "자이로스코프 - deg/s"
+        "message": "자이로"
     },
     "sensorsAccelTitle": {
-        "message": "가속도계 - g"
+        "message": "가속도계"
     },
     "sensorsMagTitle": {
-        "message": "자력계 - Ga"
+        "message": "지자기계"
     },
     "sensorsBaroTitle": {
-        "message": "기압계 - m(미터)"
+        "message": "기압계"
     },
     "sensorsSonarTitle": {
         "message": "초음파 - cm"
@@ -1913,7 +1910,7 @@
         "message": "비행 컨트롤러 펌웨어가 너무 오래되어 이 탭을 지원하지 못하거나, 환경설정 탭에서 블랙박스 기능을 사용할 수 없습니다."
     },
     "blackboxConfiguration": {
-        "message": "블랙박스 환경설정"
+        "message": "블랙박스 설정"
     },
     "blackboxButtonSave": {
         "message": "저장 및 재부팅"
@@ -1922,7 +1919,7 @@
         "message": "로그기록 없음"
     },
     "blackboxLoggingFlash": {
-        "message": "온보드 플래시"
+        "message": "플래시 메모리"
     },
     "blackboxLoggingSdCard": {
         "message": "SD 카드"
@@ -2936,9 +2933,6 @@
         "message": "OSD 프로파일 {{profileNumber}}",
         "description": "Content of the selector for the OSD Profile in the preview"
     },
-    "osdSetupPreviewTitleTip": {
-        "message": "미리보기 화면에서 로고를 보기 또는 숨기기 하세요. 이는 비행 컨트롤러의 어떠한 설정도 변경하지 않습니다."
-    },
     "osdSetupVideoFormatTitle": {
         "message": "비디오 형식"
     },
@@ -3062,9 +3056,6 @@
     "osdDescElementCraftName": {
         "message": "환경설정 탭에서 설정된 기체 이름"
     },
-    "osdDescElementDisplayName": {
-        "message": "\"display_name\" cli 명령에 의해 설정된 이름을 표시합니다."
-    },
     "osdDescElementAltitude": {
         "message": "현재 고도 (임계값 이상일 때 깜빡임)"
     },
@@ -3125,24 +3116,6 @@
     "osdDescElementArmedTime": {
         "message": "기체가 마지막으로 아밍된 이후 시간"
     },
-    "osdDescElementWarnings": {
-        "message": "경계 (예. 배터리 부족시), 경고 (예. 아밍되지 않은 여러 원인 발생시, 배터리 매우 부족시) 및 시각적인 경고 (4개의 깜박이는 별표)."
-    },
-    "osdDescElementEscTemperature": {
-        "message": "ESC 텔레메트리에 의해 보고된 온도"
-    },
-    "osdDescElementEscRpm": {
-        "message": "ESC 텔레메트리에 의해 보고된 RPM"
-    },
-    "osdDescElementEscRpmFreq": {
-        "message": "ESC 텔레메트리에 의해 보고된 RPM 주파수"
-    },
-    "osdDescElementRtcDateTime": {
-        "message": "실시간 날짜 / 시간"
-    },
-    "osdDescElementAdjustmentRange": {
-        "message": "현재 활성화된 조정 범위 설정 및 값"
-    },
     "osdDescElementHomeDirection": {
         "message": "홈 포지션 방향을 보여주는 화살표"
     },
@@ -3157,6 +3130,45 @@
     },
     "osdDescElementCompassBar": {
         "message": "현재 기체방향을 보여주는 나침반 그래픽 막대"
+    },
+    "osdDescElementWarnings": {
+        "message": "경계 (예. 배터리 부족시), 경고 (예. 아밍되지 않은 여러 원인 발생시, 배터리 매우 부족시) 및 시각적인 경고 (4개의 깜박이는 별표)."
+    },
+    "osdDescElementEscTemperature": {
+        "message": "ESC 텔레메트리에 의해 보고된 온도"
+    },
+    "osdDescElementEscRpm": {
+        "message": "ESC 텔레메트리에 의해 보고된 RPM"
+    },
+    "osdDescElementRemaningTimeEstimate": {
+        "message": "남은 비행시간 예상"
+    },
+    "osdDescElementRtcDateTime": {
+        "message": "실시간 날짜 / 시간"
+    },
+    "osdDescElementAdjustmentRange": {
+        "message": "현재 활성화된 조정 범위 설정 및 값"
+    },
+    "osdDescElementTimer1": {
+        "message": "타이머 1의 값 표시"
+    },
+    "osdDescElementTimer2": {
+        "message": "타이머 2의 값 표시"
+    },
+    "osdDescElementCoreTemperature": {
+        "message": "STM32 MCU 코어 온도"
+    },
+    "osdDescAntiGravity": {
+        "message": "안티 그래비티 활성시 표시기 사용"
+    },
+    "osdDescGForce": {
+        "message": "기체가 얼마나 많은 G-포스를 경험하고 있는지를 보여줍니다."
+    },
+    "osdDescElementMotorDiag": {
+        "message": "각 모터의 출력 그래프 표시"
+    },
+    "osdDescElementLogStatus": {
+        "message": "블랙박스 번호 및 경고"
     },
     "osdDescElementFlipArrow": {
         "message": "터틀 모드에서 어떤 모터가 올라가는지를 보여주는 화살표"
@@ -3173,32 +3185,14 @@
     "osdDescElementStickOverlayRight": {
         "message": "우측 조종기 스틱 위치에 대한 오버레이"
     },
-    "osdDescElementTimer1": {
-        "message": "타이머 1의 값 표시"
+    "osdDescElementDisplayName": {
+        "message": "\"display_name\" cli 명령에 의해 설정된 이름을 표시합니다."
     },
-    "osdDescElementTimer2": {
-        "message": "타이머 2의 값 표시"
-    },
-    "osdDescElementRemaningTimeEstimate": {
-        "message": "남은 비행시간 예상"
+    "osdDescElementEscRpmFreq": {
+        "message": "ESC 텔레메트리에 의해 보고된 RPM 주파수"
     },
     "osdDescElementUnknown": {
         "message": "알 수 없는 요소 (다음 릴리스에 추가 될 세부 정보)"
-    },
-    "osdDescElementCoreTemperature": {
-        "message": "STM32 MCU 코어 온도"
-    },
-    "osdDescAntiGravity": {
-        "message": "안티 그래비티 활성시 표시기 사용"
-    },
-    "osdDescGForce": {
-        "message": "기체가 얼마나 많은 G-포스를 경험하고 있는지를 보여줍니다."
-    },
-    "osdDescElementMotorDiag": {
-        "message": "각 모터의 출력 그래프 표시"
-    },
-    "osdDescElementLogStatus": {
-        "message": "블랙박스 번호 및 경고"
     },
     "osdDescStatMaxSpeed": {
         "message": "최대 기록 속도"
@@ -3281,9 +3275,6 @@
     "osdTimerAlarmTooltip": {
         "message": "타이머 알람 임계값을 분 단위로 선택하십시오. 시간이 이 값을 초과하면 OSD 항목이 깜박이고, 0으로 설정하면 알람이 비활성화됩니다."
     },
-    "osdWarningUnknown": {
-        "message": "알 수 없는 경고 (다음 릴리스에 추가 될 세부 정보)"
-    },
     "osdWarningArmingDisabled": {
         "message": "아밍이 되지 않는 가장 심각한 이유 보고"
     },
@@ -3322,6 +3313,9 @@
     },
     "osdWarningGpsRescueDisabled": {
         "message": "GPS 구조를 사용하지 않도록 설정하는 경우 경고합니다"
+    },
+    "osdWarningUnknown": {
+        "message": "알 수 없는 경고 (다음 릴리스에 추가 될 세부 정보)"
     },
     "osdSectionHelpElements": {
         "message": "OSD 요소를 활성화 또는 비활성화합니다."
@@ -3467,9 +3461,6 @@
     "pidTuningPidControllerTip": {
         "message": "<b>레거시 vs 베타플라이트 (부동 소수점):</b> PID 스케일링과 PID 로직은 정확히 동일합니다. 반드시 다시 조정할 필요는 없습니다. 레거시(legacy)는 정수 수학에 기초를 한 기본 PID 컨트롤러로써 오래된 베타플라이트의 진화 된 리라이트 버전입니다. 베타플라이트 PID 컨트롤러는 부동 소수점 연산을 사용하며, 멀티로터 어플리케이션을 위해 특별히 설계된 많은 새로운 기능을 제공합니다. <br> <b>부동 소수점 vs 정수:</b> PID 스케일링 및 PID 로직은 동일합니다. 리튠이 필요 없습니다. F1 보드에는 온보드 FPU가 없고 부동 소수점 연산으로 인해 CPU 부하가 증가하고 정수 연산으로 성능이 향상되지만, 부동 소수점 연산은 약간 더 정밀해질 수 있습니다."
     },
-    "pidTuningPidTuningTip": {
-        "message": "<b>비례:</b> 멀티로터를 움직이려고 시도 할 때 매우 강한 저항력을 느낄 것입니다.<br><b>적분:</b> 전체 초기 위치를 유지하는 능력을 증가시키고 드리프트를 줄이지만, 초기 위치로 복귀 할 때 지연을 증가시킵니다.<br><b>미분:</b> 편차가 회복되는 속도를 향상 시키지만, 노이즈를 증가시킵니다.<br><b>레이트 및 Expo</b>: 이 파라미터를 기반으로 스틱 느낌을 결정하십시오. 그래프 및 실시간 3D 모델을 사용하여 원하는 레이트 설정을 찾으십시오."
-    },
     "pidTuningPidTuningTipFeedforward": {
         "message": "<b>비례:</b> 멀티로터를 움직이려고 시도 할 때 매우 강한 저항력을 느낄 것입니다.<br><b>적분:</b> 전체 초기 위치를 유지하는 능력을 증가시키고 드리프트를 줄이지만, 초기 위치로 복귀 할 때 지연을 증가시킵니다.<br><b>미분:</b> 편차가 회복되는 속도를 향상 시키지만, 노이즈를 증가시킵니다.<br><b>피드포워드:</b> 일반적으로 PID 컨트롤러는 오류에 대해 반응합니다. 피드포워드는 스틱 입력을 기반으로 오류를 예상하고, 쿼드에 응답을 줍니다.<br><b>레이트 및 Expo</b>: 이 파라미터를 기반으로 스틱 느낌을 결정하십시오. 그래프 및 실시간 3D 모델을 사용하여 원하는 레이트 설정을 찾으십시오."
     },
@@ -3489,7 +3480,7 @@
         "message": "FPV 카메라 각도 [도]"
     },
     "onboardLoggingBlackbox": {
-        "message": "블랙박스 로그기록 장치"
+        "message": "온보드 로깅 (블랙박스)"
     },
     "onboardLoggingRateOfLogging": {
         "message": "블랙박스 로그기록 속도"

@@ -59,9 +59,6 @@
     "rememberLastTab": {
         "message": "Atvērt pēdējo cilni pie pieslēgšanās"
     },
-    "userLanguageSelect": {
-        "message": "Valoda (nepieciešams pārstartēt programmu, lai izmaiņas stātos spēkā)"
-    },
     "language_default": {
         "message": "Noklusējuma"
     },
@@ -76,16 +73,8 @@
     "sensorStatusGyro": {
         "message": "Žiroskops"
     },
-    "sensorStatusGyroShort": {
-        "message": "Žiro",
-        "description": "Text of the image in the top sensors icons. Please keep it short."
-    },
     "sensorStatusAccel": {
         "message": "Akselerometrs"
-    },
-    "sensorStatusAccelShort": {
-        "message": "Aksel",
-        "description": "Text of the image in the top sensors icons. Please keep it short."
     },
     "sensorStatusMag": {
         "message": "Magnetometrs"
@@ -2815,9 +2804,6 @@
         "message": "OSD profils {{profileNumber}}",
         "description": "Content of the selector for the OSD Profile in the preview"
     },
-    "osdSetupPreviewTitleTip": {
-        "message": "Rādīt vai slēpt logotipu priekšskatījuma logā. Šis nemainīs nekādus iestatījumus lidojuma kontrolierī."
-    },
     "osdSetupVideoFormatTitle": {
         "message": "Video Formāts"
     },
@@ -2941,9 +2927,6 @@
     "osdDescElementCraftName": {
         "message": "Konfigurācijas cilnē iestatītais gaisa kuģa vārds"
     },
-    "osdDescElementDisplayName": {
-        "message": "Rādīt vārdu kas uzstādīts ar CLI komandu \"display_name\""
-    },
     "osdDescElementAltitude": {
         "message": "Patreizējais augstums (mirgo, ja ir virs trauksmes sliekšņa)"
     },
@@ -3004,24 +2987,6 @@
     "osdDescElementArmedTime": {
         "message": "Laiks kopš gaisa kuģis pēdējo reizi tika aktivizēts"
     },
-    "osdDescElementWarnings": {
-        "message": "Trauksmes (piem. zems akumulatora līmenis), brīdinājumi (piem. iemesls kāpēc neaktivējas, kritiski zems akumulatora līmenis) un vizuālais pīkstulis (4 mirgojoša zvaigznītes)."
-    },
-    "osdDescElementEscTemperature": {
-        "message": "ESC telemetrijas ziņotā temperatūra"
-    },
-    "osdDescElementEscRpm": {
-        "message": "ESC telemetrijas ziņotais RPM"
-    },
-    "osdDescElementEscRpmFreq": {
-        "message": "ESC telemetrijas ziņotā RPM frekvence"
-    },
-    "osdDescElementRtcDateTime": {
-        "message": "Reālā laika pulksteņa datums / laiks"
-    },
-    "osdDescElementAdjustmentRange": {
-        "message": "Patreiz aktīvā pieregulējamā diapazona konfigurācija un vērtība"
-    },
     "osdDescElementHomeDirection": {
         "message": "Bulta, kas norāda virzienu uz mājām"
     },
@@ -3036,6 +3001,45 @@
     },
     "osdDescElementCompassBar": {
         "message": "Kompasa grafiskā josla, kas norāda patreizējo debespusi"
+    },
+    "osdDescElementWarnings": {
+        "message": "Trauksmes (piem. zems akumulatora līmenis), brīdinājumi (piem. iemesls kāpēc neaktivējas, kritiski zems akumulatora līmenis) un vizuālais pīkstulis (4 mirgojoša zvaigznītes)."
+    },
+    "osdDescElementEscTemperature": {
+        "message": "ESC telemetrijas ziņotā temperatūra"
+    },
+    "osdDescElementEscRpm": {
+        "message": "ESC telemetrijas ziņotais RPM"
+    },
+    "osdDescElementRemaningTimeEstimate": {
+        "message": "Paredzamais atlikušais lidojuma laiks"
+    },
+    "osdDescElementRtcDateTime": {
+        "message": "Reālā laika pulksteņa datums / laiks"
+    },
+    "osdDescElementAdjustmentRange": {
+        "message": "Patreiz aktīvā pieregulējamā diapazona konfigurācija un vērtība"
+    },
+    "osdDescElementTimer1": {
+        "message": "Rādīt taimera 1 vērtību"
+    },
+    "osdDescElementTimer2": {
+        "message": "Rādīt taimera 2 vērtību"
+    },
+    "osdDescElementCoreTemperature": {
+        "message": "STM32 MCU kodola temperatūra"
+    },
+    "osdDescAntiGravity": {
+        "message": "Ieslēdz indikatoru, ja antigravitācija ir aktīva"
+    },
+    "osdDescGForce": {
+        "message": "Parādīt cik lielu G-Spēku piedzīvo gaisa kuģis"
+    },
+    "osdDescElementMotorDiag": {
+        "message": "Parādīt katra motora izejas grafisko joslu"
+    },
+    "osdDescElementLogStatus": {
+        "message": "Melnā kastes numurs un brīdinājumi"
     },
     "osdDescElementFlipArrow": {
         "message": "Bultiņa parāda kurā pusē motori ir bruņurupuča režīmā"
@@ -3052,32 +3056,14 @@
     "osdDescElementStickOverlayRight": {
         "message": "Raidītāja labās vadības sviras pozīcijas overlais."
     },
-    "osdDescElementTimer1": {
-        "message": "Rādīt taimera 1 vērtību"
+    "osdDescElementDisplayName": {
+        "message": "Rādīt vārdu kas uzstādīts ar CLI komandu \"display_name\""
     },
-    "osdDescElementTimer2": {
-        "message": "Rādīt taimera 2 vērtību"
-    },
-    "osdDescElementRemaningTimeEstimate": {
-        "message": "Paredzamais atlikušais lidojuma laiks"
+    "osdDescElementEscRpmFreq": {
+        "message": "ESC telemetrijas ziņotā RPM frekvence"
     },
     "osdDescElementUnknown": {
         "message": "Nezināms elements (informācija tiks pievienota nākamajā relīzē)"
-    },
-    "osdDescElementCoreTemperature": {
-        "message": "STM32 MCU kodola temperatūra"
-    },
-    "osdDescAntiGravity": {
-        "message": "Ieslēdz indikatoru, ja antigravitācija ir aktīva"
-    },
-    "osdDescGForce": {
-        "message": "Parādīt cik lielu G-Spēku piedzīvo gaisa kuģis"
-    },
-    "osdDescElementMotorDiag": {
-        "message": "Parādīt katra motora izejas grafisko joslu"
-    },
-    "osdDescElementLogStatus": {
-        "message": "Melnā kastes numurs un brīdinājumi"
     },
     "osdDescStatMaxSpeed": {
         "message": "Maksimālais piefiksētais ātrums"
@@ -3157,9 +3143,6 @@
     "osdTimerAlarmTooltip": {
         "message": "Izvēlēties taimera trauksmes slieksni minūtēs, kad tiks sasniegta šī vērtība, OSD elements sāks mirgot, uzstādiet 0, lai atslēgtu trauksmi"
     },
-    "osdWarningUnknown": {
-        "message": "Nezināms brīdinājums (detaļas tiks pievienotas nākotnes relīzēs)"
-    },
     "osdWarningArmingDisabled": {
         "message": "Ziņo par visiespējamāko iemeslu kāpēc neaktivizējas"
     },
@@ -3198,6 +3181,9 @@
     },
     "osdWarningGpsRescueDisabled": {
         "message": "Brīdināt, kad GPS glābšana ir atslēgta"
+    },
+    "osdWarningUnknown": {
+        "message": "Nezināms brīdinājums (detaļas tiks pievienotas nākotnes relīzēs)"
     },
     "osdSectionHelpElements": {
         "message": "Ieslēgt vai izslēgt OSD elementus."
@@ -3342,9 +3328,6 @@
     },
     "pidTuningPidControllerTip": {
         "message": "<b>Mantojuma vs Emuflight (peldošais):</b> PID mērogošana un PID loģika ir tāda pati. Nav obligāti nepieciešama atkārtota pieregulēšana. Mantojums ir vecais betaflight, kura pamata PID kontrolieris balstīts uz veselo skaitļu matemātikas. Emuflight PID kontrolieris pielieto peldošā punkta matemātiku un tas dod daudz jaunu iespēju, īpaši izstrādātu priekš multirotoriem<br> <b>Peldošais vs veselais:</b> PID mērogošana un PID loģika ir tāda pati. Nav nepieciešama atkārtota pieregulēšana. F1 platēm nav integrēta FPU un peldoša punkta matemātika ievērojami palielina CPU noslodzi un veselo skaitļu matemātika uzlabo ātrdarbību, bet samazina precizitāti."
-    },
-    "pidTuningPidTuningTip": {
-        "message": "<b>Proportional:</b> Jūs jutīsiet ļoti spēcīgu pretestību pie visiem mēģinājumiem kustināt multirotoru<br><b>Integral:</b> Palielina spēju noturēt sākotnējo pozīciju un samazina dreifēšanu, bet arī palielina laiku, kas nepieciešams nonākšanai sākotnējā pozīcijā.<br><b>Derivative:</b> Uzlabo laiku, kurā novirze tiek labota, bet palielina trokšņus<br><b>Ātrumi un Ekspo </b>: Šie parametri nosaka cik jūtīgas būs vadības sviras. Pielietojiet ātrumu līknes un 3D modeli, lai atrastu jums visatbilstošākos ātruma iestatījumus"
     },
     "pidTuningPidTuningTipFeedforward": {
         "message": "<b>Proportional:</b> Jūs jutīsiet ļoti spēcīgu pretestību pie visiem mēģinājumiem kustināt multirotoru<br><b>Integral:</b> Palielina spēju noturēt sākotnējo pozīciju un samazina dreifēšanu, bet arī palielina laiku, kas nepieciešams nonākšanai sākotnējā pozīcijā.<br><b>Derivative:</b> Uzlabo laiku, kurā novirze tiek labota, bet palielina trokšņus<br><b>Feedforward:</b> Parasti PID kontrolieris reaģē uz kļūdām. Feedforward paredz kļūdu balstoties un vadības sviru ievadi, dodot atsaucīgāku multirotoru. <br><b>Ātrumi un Ekspo </b>: Šie parametri nosaka cik jūtīgas būs vadības sviras. Pielietojiet ātrumu līknes un 3D modeli, lai atrastu jums visatbilstošākos ātruma iestatījumus"

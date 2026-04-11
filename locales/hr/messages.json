@@ -56,9 +56,6 @@
     "rememberLastTab": {
         "message": "Ponovno otvori posljednju karticu pri spajanju"
     },
-    "userLanguageSelect": {
-        "message": "Jezik (potrebno je ponovno pokrenuti aplikaciju kako biste vidjeli promjene)"
-    },
     "language_default": {
         "message": "Zadano"
     },
@@ -72,10 +69,6 @@
     },
     "sensorStatusGyro": {
         "message": "Žiroskop"
-    },
-    "sensorStatusGyroShort": {
-        "message": "Žiro",
-        "description": "Text of the image in the top sensors icons. Please keep it short."
     },
     "sensorStatusAccel": {
         "message": "Akcelerometar"
@@ -2623,9 +2616,6 @@
         "message": "OSD profil {{profileNumber}}",
         "description": "Content of the selector for the OSD Profile in the preview"
     },
-    "osdSetupPreviewTitleTip": {
-        "message": "Prikaži ili sakrij logo u prozoru pretpregleda. Ovo neće promjeniti postavke na kontroleru leta."
-    },
     "osdSetupVideoFormatTitle": {
         "message": "Video format"
     },
@@ -2743,9 +2733,6 @@
     "osdDescElementCraftName": {
         "message": "Ime letjelice postavljeno u kartici Konfiguracija"
     },
-    "osdDescElementDisplayName": {
-        "message": "Prikaži naziv koji je postavljen u CLI komandi \"display_name\""
-    },
     "osdDescElementAltitude": {
         "message": "Trenutna visina (treperi kad je iznad praga alarma)"
     },
@@ -2806,24 +2793,6 @@
     "osdDescElementArmedTime": {
         "message": "Vrijeme otkada je letjelica armana"
     },
-    "osdDescElementWarnings": {
-        "message": "Obavijesti (npr. prazna baterija), upozorenja(npr. razlozi nemogućnosti arminga, kritična baterija) i visualni beeper (4 trepteće zvjezdice)."
-    },
-    "osdDescElementEscTemperature": {
-        "message": "Temperatura koju prijavljuje ESC telemetrija"
-    },
-    "osdDescElementEscRpm": {
-        "message": "RPM koji prijavljuje ESC telemetrija"
-    },
-    "osdDescElementEscRpmFreq": {
-        "message": "RPM frekvencija koju prijavljuje ESC telemetrija"
-    },
-    "osdDescElementRtcDateTime": {
-        "message": "Stvarno vrijeme / datum"
-    },
-    "osdDescElementAdjustmentRange": {
-        "message": "Trenutno aktivni raspon prilagodba postavki i vrijednosti"
-    },
     "osdDescElementHomeDirection": {
         "message": "Strelica koja pokazuje lokaciju kuće"
     },
@@ -2838,6 +2807,45 @@
     },
     "osdDescElementCompassBar": {
         "message": "Grafička traka kompasa koja prikazuje trenutačni smjer"
+    },
+    "osdDescElementWarnings": {
+        "message": "Obavijesti (npr. prazna baterija), upozorenja(npr. razlozi nemogućnosti arminga, kritična baterija) i visualni beeper (4 trepteće zvjezdice)."
+    },
+    "osdDescElementEscTemperature": {
+        "message": "Temperatura koju prijavljuje ESC telemetrija"
+    },
+    "osdDescElementEscRpm": {
+        "message": "RPM koji prijavljuje ESC telemetrija"
+    },
+    "osdDescElementRemaningTimeEstimate": {
+        "message": "Očekivano preostalo vrijeme leta"
+    },
+    "osdDescElementRtcDateTime": {
+        "message": "Stvarno vrijeme / datum"
+    },
+    "osdDescElementAdjustmentRange": {
+        "message": "Trenutno aktivni raspon prilagodba postavki i vrijednosti"
+    },
+    "osdDescElementTimer1": {
+        "message": "Prikazuje vrijednost tajmera 1"
+    },
+    "osdDescElementTimer2": {
+        "message": "Prikazuje vrijednost tajmera 2"
+    },
+    "osdDescElementCoreTemperature": {
+        "message": "Temperatura STM32 MCU jezgre"
+    },
+    "osdDescAntiGravity": {
+        "message": "Omogućuje indikator aktivacije Anti-Gravityja"
+    },
+    "osdDescGForce": {
+        "message": "Prikazuje G silu letjelice"
+    },
+    "osdDescElementMotorDiag": {
+        "message": "Prikazuje graf poslanih upravljačkih signala za svaki motor"
+    },
+    "osdDescElementLogStatus": {
+        "message": "Broj crne kutije i upozorenja"
     },
     "osdDescElementFlipArrow": {
         "message": "Strelica koja pokazuje koji motori su u 'turtle' načinu rada"
@@ -2854,32 +2862,14 @@
     "osdDescElementStickOverlayRight": {
         "message": "Overlay za poziciju desne palice stanice/transmittera."
     },
-    "osdDescElementTimer1": {
-        "message": "Prikazuje vrijednost tajmera 1"
+    "osdDescElementDisplayName": {
+        "message": "Prikaži naziv koji je postavljen u CLI komandi \"display_name\""
     },
-    "osdDescElementTimer2": {
-        "message": "Prikazuje vrijednost tajmera 2"
-    },
-    "osdDescElementRemaningTimeEstimate": {
-        "message": "Očekivano preostalo vrijeme leta"
+    "osdDescElementEscRpmFreq": {
+        "message": "RPM frekvencija koju prijavljuje ESC telemetrija"
     },
     "osdDescElementUnknown": {
         "message": "Nepoznati element (detalji će biti dodani u budućim verzijama)"
-    },
-    "osdDescElementCoreTemperature": {
-        "message": "Temperatura STM32 MCU jezgre"
-    },
-    "osdDescAntiGravity": {
-        "message": "Omogućuje indikator aktivacije Anti-Gravityja"
-    },
-    "osdDescGForce": {
-        "message": "Prikazuje G silu letjelice"
-    },
-    "osdDescElementMotorDiag": {
-        "message": "Prikazuje graf poslanih upravljačkih signala za svaki motor"
-    },
-    "osdDescElementLogStatus": {
-        "message": "Broj crne kutije i upozorenja"
     },
     "osdDescStatMaxSpeed": {
         "message": "Maksimalna zabilježena brzina"
@@ -2968,9 +2958,6 @@
     "osdTimerAlarmTooltip": {
         "message": "Odaberite prag alarma tajmera u minutama, kada vrijeme pređe tu vrijednost OSD element će treperiti, postavljanje ovo na 0 onemogućava alarm"
     },
-    "osdWarningUnknown": {
-        "message": "Nepoznato upozorenje(detalji će biti dodani u budućim verzijama)"
-    },
     "osdWarningArmingDisabled": {
         "message": "Prijavljuje najvažniji razlog kod nemogućnosti armiranja"
     },
@@ -3015,6 +3002,9 @@
     },
     "osdWarningLinkQuality": {
         "message": "Upozori kad je kvaliteta veze ispod postavljene razine za alarm"
+    },
+    "osdWarningUnknown": {
+        "message": "Nepoznato upozorenje(detalji će biti dodani u budućim verzijama)"
     },
     "osdSectionHelpElements": {
         "message": "Omogućavanje ili onemogućavanje elemenata OSD-a."
@@ -3159,9 +3149,6 @@
     },
     "pidTuningPidControllerTip": {
         "message": "<b>Legacy vs Emuflight(float):</b> PID skaliranje i PID logika su potpuno isti. Nije potrebno ponovno tunirati. Legacy koristi jednostavni PID kontroler baziran na cjelobrojnom izračunu. Emuflight PID kontroler koristi kompleksnije decimalne izračune i ima mnog drugih značajki posebno dizajniranih za letjelice s više propelera. <br><b>Float vs Integer:</b> PID skaliranje i PID logika su potpuno isti. Nije potrebno ponovno tunirati. F1 procesori nemaju FPU i operacije s pomičnim zarezom povećavaju korištenje prcesora, a cjelobrojne(Integer) operacije će poboljšati performanse, ali će biti manje precizne."
-    },
-    "pidTuningPidTuningTip": {
-        "message": "<b>Proporcionalno:</b> Osjetit ćete jaku silu otpora ako pokušate pomaknuti letjelicu. <br><b>Integrirano:</b> Povećava mogućnost letjelica da drži inicjalnu poziciju i smanji pomicanje, ali povećava kašnjenje kod vraćanja u inicijalnu poziciju.<br><b>Derivacijski:</b> Poboljšava brzinu oporavka od devijacija, ali povećava šum<br><b>Rateovi i Expo</b>: Određuju osjećaj kontrola prema ovim vrijednostima. Koristite graf i 3d prikaz modela kako biste pronašli najbolje rate postavke"
     },
     "pidTuningPidTuningTipFeedforward": {
         "message": "<b>Proporcionalno:</b> Osjetit ćete jaku silu otpora ako pokušate pomaknuti letjelicu. <br><b>Integrirano:</b> Povećava mogućnost letjelica da drži inicjalnu poziciju i smanji pomicanje, ali povećava kašnjenje kod vraćanja u inicijalnu poziciju.<br><b>Derivacijski:</b> Poboljšava brzinu oporavka od devijacija, ali povećava šum<br><b>Feedforward:</b> Obično PID kontroler reagira na pogrešku. Feedforward predviđa pogrešku na temelju kontrola koje dajete, dajući bolji odziv i kontrolu letjelici.<br><b>Rateovi i Expo</b>: Određuju osjećaj kontrola prema ovim vrijednostima. Koristite graf i 3d prikaz modela kako biste pronašni najbolje rate postavke"

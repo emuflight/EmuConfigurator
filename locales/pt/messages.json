@@ -6,10 +6,10 @@
         "message": "Erro"
     },
     "warningTitle": {
-        "message": "Atenção"
+        "message": "Aviso"
     },
     "noticeTitle": {
-        "message": "Aviso"
+        "message": "Notar"
     },
     "operationNotSupported": {
         "message": "Seu hardware não suporta esta operação."
@@ -58,9 +58,6 @@
     },
     "rememberLastTab": {
         "message": "Continuar de onde parou ao conectar"
-    },
-    "userLanguageSelect": {
-        "message": "Idioma (é necessário reiniciar a aplicação para que as alterações surtam efeito)"
     },
     "language_default": {
         "message": "Padrão"
@@ -128,7 +125,7 @@
         "message": "Documentação & Suporte"
     },
     "tabSetup": {
-        "message": "Opções"
+        "message": "Configuração"
     },
     "tabSetupOSD": {
         "message": "Configuração do OSD"
@@ -155,13 +152,10 @@
         "message": "Motores"
     },
     "tabLedStrip": {
-        "message": "Faixa de LED"
+        "message": "Faixa LED"
     },
     "tabRawSensorData": {
         "message": "Sensores"
-    },
-    "tabCLI": {
-        "message": "Linha de comandos"
     },
     "tabLogging": {
         "message": "Log por conexão"
@@ -179,10 +173,10 @@
         "message": "Exibir Histórico"
     },
     "serialPortOpened": {
-        "message": "Porta serial aberta com <span class=\"message-positive\">sucesso</span> com ID: $1"
+        "message": "Porta Serial Aberta"
     },
     "serialPortOpenFail": {
-        "message": "<span class=\"message-negative\">Falha</span> ao abrir porta serial"
+        "message": "Erro ao abrir porta serial"
     },
     "serialPortClosedOk": {
         "message": "Porta serial fechada com <span class=\"message-positive\">sucesso</span>"
@@ -339,10 +333,10 @@
         "message": "Nome da aeronave: <strong>$1</strong>"
     },
     "armingDisabled": {
-        "message": "<strong>Armar Desativado</strong>"
+        "message": "Armamento Desativado"
     },
     "armingEnabled": {
-        "message": "<strong>Permitido Armar</strong>"
+        "message": "Armamento Ativado"
     },
     "runawayTakeoffPreventionDisabled": {
         "message": "<strong>Prevenção contra voo acidental temporariamente desativado</strong>"
@@ -798,7 +792,7 @@
         "message": "Padrão"
     },
     "configurationAccelTrims": {
-        "message": "Ajustes do acelerômetro"
+        "message": "Trims do Acelerômetro"
     },
     "configurationAccelTrimRoll": {
         "message": "Ajustes da rotação (roll) do Acelerômetro"
@@ -1676,16 +1670,16 @@
         "message": "Barômetro"
     },
     "sensorsGyroTitle": {
-        "message": "Giroscópio - deg/s"
+        "message": "Giroscópio"
     },
     "sensorsAccelTitle": {
-        "message": "Acelerômetro - g"
+        "message": "Acelerômetro"
     },
     "sensorsMagTitle": {
-        "message": "Magnetômetro - Ga"
+        "message": "Magnetômetro"
     },
     "sensorsBaroTitle": {
-        "message": "Barômetro - metros"
+        "message": "Barômetro"
     },
     "cliInfo": {
         "message": "<strong>Nota:</strong> Sair da aba de Linha de Comandos (CLI) ou pressionar Desconectar irá <strong>automaticamente</strong> enviar o comando \"<strong>exit</strong>\" para a placa. No firmware mais recente, isto fará com que o controlador de voo <strong>reinicie</strong> e qualquer alteração que não foi salva será <strong>perdida</strong>. <p><strong><span class=\"message-negative\">Atenção:</span></strong> Alguns comandos podem enviar sinais arbitrários para os pinos de saída dos motores. Isto pode fazer com que os motores girem se uma bateria estiver conectada. Portanto, é altamente recomendado verificar que <strong>nenhuma bateria está conectada antes de enviar comandos na CLI</strong>."
@@ -1760,7 +1754,7 @@
         "message": "Não gerar log"
     },
     "blackboxLoggingFlash": {
-        "message": "Flash Onboard"
+        "message": "Memória Flash"
     },
     "blackboxLoggingSdCard": {
         "message": "Cartão SD"
@@ -2647,9 +2641,6 @@
         "message": "Perfil OSD {{profileNumber}}",
         "description": "Content of the selector for the OSD Profile in the preview"
     },
-    "osdSetupPreviewTitleTip": {
-        "message": "Mostrar ou esconder o logo na janela de pré-visualização. Isso não irá afetar nenhuma configuração no controlador de voo."
-    },
     "osdSetupVideoFormatTitle": {
         "message": "Formato do Video"
     },
@@ -2773,9 +2764,6 @@
     "osdDescElementCraftName": {
         "message": "Nome da aeronave como definido na aba de Configurações"
     },
-    "osdDescElementDisplayName": {
-        "message": "Exibe o nome configurado pelo comando \"display_name\" na Linha de Comandos (CLI)"
-    },
     "osdDescElementAltitude": {
         "message": "Altitude atual (Piscar quando estiver acima do limite)"
     },
@@ -2836,24 +2824,6 @@
     "osdDescElementArmedTime": {
         "message": "Tempo desde a ultima vez que a aeronave foi armada"
     },
-    "osdDescElementWarnings": {
-        "message": "Alerta (ex. bateria baixa), avisos (ex. razão por não ter armado, bateria extremamente baixa) e beeper visual (4 asteriscos piscando)."
-    },
-    "osdDescElementEscTemperature": {
-        "message": "Temperatura reportada pela telemetria do ESC"
-    },
-    "osdDescElementEscRpm": {
-        "message": "RPM reportado pela telemetria do ESC"
-    },
-    "osdDescElementEscRpmFreq": {
-        "message": "Frequência RPM, relatada pela telemetria do ESC"
-    },
-    "osdDescElementRtcDateTime": {
-        "message": "Relógio real (data / hora)"
-    },
-    "osdDescElementAdjustmentRange": {
-        "message": "Faixa e valor do elemento de ajuste atualmente ativo"
-    },
     "osdDescElementHomeDirection": {
         "message": "Seta que indica a direção até a base (home)"
     },
@@ -2868,6 +2838,45 @@
     },
     "osdDescElementCompassBar": {
         "message": "Barra de bússola gráfica, mostrando a direção atual"
+    },
+    "osdDescElementWarnings": {
+        "message": "Alerta (ex. bateria baixa), avisos (ex. razão por não ter armado, bateria extremamente baixa) e beeper visual (4 asteriscos piscando)."
+    },
+    "osdDescElementEscTemperature": {
+        "message": "Temperatura reportada pela telemetria do ESC"
+    },
+    "osdDescElementEscRpm": {
+        "message": "RPM reportado pela telemetria do ESC"
+    },
+    "osdDescElementRemaningTimeEstimate": {
+        "message": "Tempo estimado de voo restante"
+    },
+    "osdDescElementRtcDateTime": {
+        "message": "Relógio real (data / hora)"
+    },
+    "osdDescElementAdjustmentRange": {
+        "message": "Faixa e valor do elemento de ajuste atualmente ativo"
+    },
+    "osdDescElementTimer1": {
+        "message": "Mostra o valor do cronômetro 1"
+    },
+    "osdDescElementTimer2": {
+        "message": "Mostra o valor do cronômetro 2"
+    },
+    "osdDescElementCoreTemperature": {
+        "message": "Temperatura do núcleo MCU do STM32"
+    },
+    "osdDescAntiGravity": {
+        "message": "Exibe um indicador quando o módulo antigravidade estiver em efeito"
+    },
+    "osdDescGForce": {
+        "message": "Mostra o valor da Força-G sob a aeronave"
+    },
+    "osdDescElementMotorDiag": {
+        "message": "Mostra um gráfico da saída de cada motor"
+    },
+    "osdDescElementLogStatus": {
+        "message": "Blackbox - Avisos e número do log"
     },
     "osdDescElementFlipArrow": {
         "message": "Seta que indica quais motores estão afastados do chão no modo 'virar após queda' (Turtle mode)"
@@ -2884,32 +2893,14 @@
     "osdDescElementStickOverlayRight": {
         "message": "Posição do stick direito do transmissor."
     },
-    "osdDescElementTimer1": {
-        "message": "Mostra o valor do cronômetro 1"
+    "osdDescElementDisplayName": {
+        "message": "Exibe o nome configurado pelo comando \"display_name\" na Linha de Comandos (CLI)"
     },
-    "osdDescElementTimer2": {
-        "message": "Mostra o valor do cronômetro 2"
-    },
-    "osdDescElementRemaningTimeEstimate": {
-        "message": "Tempo estimado de voo restante"
+    "osdDescElementEscRpmFreq": {
+        "message": "Frequência RPM, relatada pela telemetria do ESC"
     },
     "osdDescElementUnknown": {
         "message": "Elemento desconhecido (detalhes serão adicionados em uma versão futura)"
-    },
-    "osdDescElementCoreTemperature": {
-        "message": "Temperatura do núcleo MCU do STM32"
-    },
-    "osdDescAntiGravity": {
-        "message": "Exibe um indicador quando o módulo antigravidade estiver em efeito"
-    },
-    "osdDescGForce": {
-        "message": "Mostra o valor da Força-G sob a aeronave"
-    },
-    "osdDescElementMotorDiag": {
-        "message": "Mostra um gráfico da saída de cada motor"
-    },
-    "osdDescElementLogStatus": {
-        "message": "Blackbox - Avisos e número do log"
     },
     "osdDescStatMaxSpeed": {
         "message": "Velocidade máxima registrada"
@@ -2992,9 +2983,6 @@
     "osdTimerAlarmTooltip": {
         "message": "Selecione o limite do alarme do cronômetro em minutos, quando o tempo excede este valor, o elemento no OSD irá piscar, um valor de 0 desabilita o alarme"
     },
-    "osdWarningUnknown": {
-        "message": "Alerta Desconhecido (Detalhes serão adicionados em uma próxima versão)"
-    },
     "osdWarningArmingDisabled": {
         "message": "Mostra o principal motivo de não ter armado"
     },
@@ -3033,6 +3021,9 @@
     },
     "osdWarningGpsRescueDisabled": {
         "message": "Alerta quando o Resgate com GPS está desativado"
+    },
+    "osdWarningUnknown": {
+        "message": "Alerta Desconhecido (Detalhes serão adicionados em uma próxima versão)"
     },
     "osdSectionHelpElements": {
         "message": "Ativar ou desativar elementos do OSD."
@@ -3178,9 +3169,6 @@
     "pidTuningPidControllerTip": {
         "message": "<b>Legado vs Emuflight (flutuante):</b> A lógica e a escala do PID é exatamente a mesma. Não é necessário reajustar. O modo Legado é o antigo Emuflight Evolved Rewrite, que é um controlador PID básico baseado em matemática de números inteiros. o controlador PID Emuflight usa matemática de números com ponto flutuante e tem várias novas funcionalidades especificamente desenhadas para multirotores<br><b>Inteiro vs Flutuante:</b> A lógica e a escala do PID é exatamente a mesma. Não é necessário reajustar. placas F1 não tem um FPU a bordo e a matemática com ponto flutuante aumenta a carga do CPU; Matemática com inteiros melhora a performance, mas a matemática com ponto flutuante é mais precisa."
     },
-    "pidTuningPidTuningTip": {
-        "message": "<b>Proporcional:</b> Força da resistência ao tentar mover o multirotor em qualquer direção<br><b>Integral:</b> Aumenta a habilidade de manter a posição inicial e reduz o drift, mas também aumenta o atraso para retornar à posição inicial.<br><b>Derivativo:</b> Melhora a velocidade de recuperação dos desvios, mas também aumenta o ruído<br><b>Taxas e Expo:</b> Determine a sensação dos sticks baseado nestes parâmetros. Use o gráfico e modelo 3D para encontrar suas configurações preferidas"
-    },
     "pidTuningPidTuningTipFeedforward": {
         "message": "<b>Proporcional:</b> Força da aeronave para manter sua posição, aumenta sua resistência sobre qualquer tentativa de mover a aeronave<br><b>Integral:</b> Aumenta a habilidade de manter a posição inicial e reduz a deriva, mas também aumenta o atraso até retornar à posição inicial.<br><b>Derivativo:</b> Melhora a velocidade em que desvios são corrigidos, mas aumenta o ruído.<br><b>Feedforward:</b> Geralmente o controlador PID reage somente a erros, o Feedforward antecipa esse erro com base nos movimentos dos sticks, melhorando a velocidade de resposta da aeronave.<br><b>Taxas e Expo:</b>Determine a sensação dos sticks com esses parâmetros, use o gráfico e o modelo 3D para deixar de sua maneira predileta"
     },
@@ -3200,7 +3188,7 @@
         "message": "Angulo da câmera FPV [graus]"
     },
     "onboardLoggingBlackbox": {
-        "message": "Dispositivo de log do Blackbox"
+        "message": "Registro de bordo (Blackbox)"
     },
     "onboardLoggingRateOfLogging": {
         "message": "Frequência de log do Blackbox"

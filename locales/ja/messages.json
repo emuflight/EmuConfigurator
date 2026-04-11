@@ -59,9 +59,6 @@
     "rememberLastTab": {
         "message": "接続時に前回のタブを開く"
     },
-    "userLanguageSelect": {
-        "message": "言語設定 (変更を有効にするにはConfiguratorを再起動して下さい)"
-    },
     "language_default": {
         "message": "初期値"
     },
@@ -74,16 +71,16 @@
         "description": "Text of the dataflash image in the header of the page."
     },
     "sensorStatusGyro": {
-        "message": "ジャイロスコープ"
+        "message": "ジャイロ"
     },
     "sensorStatusAccel": {
-        "message": "加速度センサー"
+        "message": "加速度計"
     },
     "sensorStatusMag": {
-        "message": "コンパス"
+        "message": "磁力計"
     },
     "sensorStatusBaro": {
-        "message": "気圧センサー"
+        "message": "気圧計"
     },
     "sensorStatusSonar": {
         "message": "超音波距離センサー"
@@ -134,7 +131,7 @@
         "message": "OSDセットアップ"
     },
     "tabConfiguration": {
-        "message": "基本設定"
+        "message": "設定"
     },
     "tabPorts": {
         "message": "ポート"
@@ -161,13 +158,10 @@
         "message": "モーター"
     },
     "tabLedStrip": {
-        "message": "LEDストリップ"
+        "message": "LED ストリップ"
     },
     "tabRawSensorData": {
         "message": "センサー"
-    },
-    "tabCLI": {
-        "message": "CLI コマンドライン"
     },
     "tabLogging": {
         "message": "テザーロギング"
@@ -188,10 +182,10 @@
         "message": "ログ表示"
     },
     "serialPortOpened": {
-        "message": "ID: $1のシリアルポートへ<span class=\"message-positive\">正常</span>に接続しています"
+        "message": "シリアルポートを開きました"
     },
     "serialPortOpenFail": {
-        "message": "シリアルポートに<span class=\"message-negative\">接続できません</span>"
+        "message": "シリアルポートのオープンに失敗しました"
     },
     "serialPortClosedOk": {
         "message": "シリアルポートは<span class=\"message-positive\">正常</span>に切断しました"
@@ -348,10 +342,10 @@
         "message": "機体名: <strong>$1</strong>"
     },
     "armingDisabled": {
-        "message": "<strong>アーミング無効</strong>"
+        "message": "アーム無効"
     },
     "armingEnabled": {
-        "message": "<strong>アーミング有効</strong>"
+        "message": "アーム有効"
     },
     "runawayTakeoffPreventionDisabled": {
         "message": "<strong>暴走離陸防止機能を一時的に無効</strong>"
@@ -435,13 +429,13 @@
         "message": "<span class=\"message-negative\">バックアップと復元の機能が無効です。</span>ファームウェアのAPIバージョンは<span class=\"message-negative\">$1</span>ですが、バックアップと復元には<span class=\"message-positive\">$2</span>が必要です。バックアップにはCLIをご利用下さい。方法についてはEmuflightドキュメントを参照して下さい。"
     },
     "initialSetupButtonCalibrateAccel": {
-        "message": "水平 キャリブレーション"
+        "message": "加速度計のキャリブレーション"
     },
     "initialSetupCalibrateAccelText": {
         "message": "<strong>水平な場所</strong>に機体を置き、キャリブレーションを実行して下さい。キャリブレーションが終了するまで動かさないで下さい。"
     },
     "initialSetupButtonCalibrateMag": {
-        "message": "コンパス キャリブレーション"
+        "message": "磁力計のキャリブレーション"
     },
     "initialSetupCalibrateMagText": {
         "message": "マルチローター機を最低でも<strong>360度</strong>、全ての軸にて回転させて下さい。これを行うのに30秒程度かかります。"
@@ -819,7 +813,7 @@
         "message": "デフォルト"
     },
     "configurationAccelTrims": {
-        "message": "加速度センサー トリム"
+        "message": "加速度計トリム"
     },
     "configurationAccelTrimRoll": {
         "message": "加速度センサー ロールトリム"
@@ -1790,16 +1784,16 @@
         "message": "デバッグ"
     },
     "sensorsGyroTitle": {
-        "message": "ジャイロセンサー - deg/s"
+        "message": "ジャイロ"
     },
     "sensorsAccelTitle": {
-        "message": "加速度センサー - g"
+        "message": "加速度計"
     },
     "sensorsMagTitle": {
-        "message": "コンパス - Ga"
+        "message": "磁力计"
     },
     "sensorsBaroTitle": {
-        "message": "気圧センサー - meters"
+        "message": "気圧計"
     },
     "sensorsSonarTitle": {
         "message": "ソナー - cm"
@@ -1880,7 +1874,7 @@
         "message": "ログ無効"
     },
     "blackboxLoggingFlash": {
-        "message": "オンボードメモリ"
+        "message": "フラッシュメモリ"
     },
     "blackboxLoggingSdCard": {
         "message": "SDカード"
@@ -2863,9 +2857,6 @@
         "message": "OSDプロファイル {{profileNumber}}",
         "description": "Content of the selector for the OSD Profile in the preview"
     },
-    "osdSetupPreviewTitleTip": {
-        "message": "表示またはプレビューウィンドウでロゴを非表示にします。フライトコント ローラの設定は変わりません。"
-    },
     "osdSetupVideoFormatTitle": {
         "message": "ビデオ形式"
     },
@@ -2986,9 +2977,6 @@
     "osdDescElementCraftName": {
         "message": "[設定] タブで設定した機体名"
     },
-    "osdDescElementDisplayName": {
-        "message": "CLIコマンド【display_name】で設定した表示名"
-    },
     "osdDescElementAltitude": {
         "message": "現在の高度 (アラーム値を超えると点滅)"
     },
@@ -3049,24 +3037,6 @@
     "osdDescElementArmedTime": {
         "message": "機体が最後にアームしてからの時間"
     },
-    "osdDescElementWarnings": {
-        "message": "アラート (例: 電池切れ)、警告 (例: アーミング不可理由、バッテリーが非常に低い)、ビジュアルビープ (4点滅LED)。"
-    },
-    "osdDescElementEscTemperature": {
-        "message": "温度レポート by ESCテレメトリー"
-    },
-    "osdDescElementEscRpm": {
-        "message": "回転数レポート by ESCテレメトリー"
-    },
-    "osdDescElementEscRpmFreq": {
-        "message": "回転数レポート by ESCテレメトリー"
-    },
-    "osdDescElementRtcDateTime": {
-        "message": "ハードウェアクロック 日付 / 時間"
-    },
-    "osdDescElementAdjustmentRange": {
-        "message": "調整タブで設定した現在有効となる値"
-    },
     "osdDescElementHomeDirection": {
         "message": "ホームポジション方向を示す矢印"
     },
@@ -3081,6 +3051,45 @@
     },
     "osdDescElementCompassBar": {
         "message": "現在のヘッディングを示すグラフィカルなコンパスバー"
+    },
+    "osdDescElementWarnings": {
+        "message": "アラート (例: 電池切れ)、警告 (例: アーミング不可理由、バッテリーが非常に低い)、ビジュアルビープ (4点滅LED)。"
+    },
+    "osdDescElementEscTemperature": {
+        "message": "温度レポート by ESCテレメトリー"
+    },
+    "osdDescElementEscRpm": {
+        "message": "回転数レポート by ESCテレメトリー"
+    },
+    "osdDescElementRemaningTimeEstimate": {
+        "message": "残り飛行時間の予測"
+    },
+    "osdDescElementRtcDateTime": {
+        "message": "ハードウェアクロック 日付 / 時間"
+    },
+    "osdDescElementAdjustmentRange": {
+        "message": "調整タブで設定した現在有効となる値"
+    },
+    "osdDescElementTimer1": {
+        "message": "タイマー1の値を表示"
+    },
+    "osdDescElementTimer2": {
+        "message": "タイマー2の値を表示"
+    },
+    "osdDescElementCoreTemperature": {
+        "message": "STM32 MCUコア温度"
+    },
+    "osdDescAntiGravity": {
+        "message": "Anti Gravity機能がオンの時、インジケーターを有効にします。"
+    },
+    "osdDescGForce": {
+        "message": "どのくらいのG値(加速度)が機体に負荷をかけているかを示す"
+    },
+    "osdDescElementMotorDiag": {
+        "message": "モーター毎の出力グラフを表示"
+    },
+    "osdDescElementLogStatus": {
+        "message": "ブラックボックス番号と警告"
     },
     "osdDescElementFlipArrow": {
         "message": "タートルモードでどのモーターが起動しているかを示す矢印"
@@ -3097,32 +3106,14 @@
     "osdDescElementStickOverlayRight": {
         "message": "送信機 右スティック ポジションをオーバーレイ表示"
     },
-    "osdDescElementTimer1": {
-        "message": "タイマー1の値を表示"
+    "osdDescElementDisplayName": {
+        "message": "CLIコマンド【display_name】で設定した表示名"
     },
-    "osdDescElementTimer2": {
-        "message": "タイマー2の値を表示"
-    },
-    "osdDescElementRemaningTimeEstimate": {
-        "message": "残り飛行時間の予測"
+    "osdDescElementEscRpmFreq": {
+        "message": "回転数レポート by ESCテレメトリー"
     },
     "osdDescElementUnknown": {
         "message": "不明な構成要素 (将来のリリースで追加される予定)"
-    },
-    "osdDescElementCoreTemperature": {
-        "message": "STM32 MCUコア温度"
-    },
-    "osdDescAntiGravity": {
-        "message": "Anti Gravity機能がオンの時、インジケーターを有効にします。"
-    },
-    "osdDescGForce": {
-        "message": "どのくらいのG値(加速度)が機体に負荷をかけているかを示す"
-    },
-    "osdDescElementMotorDiag": {
-        "message": "モーター毎の出力グラフを表示"
-    },
-    "osdDescElementLogStatus": {
-        "message": "ブラックボックス番号と警告"
     },
     "osdDescStatMaxSpeed": {
         "message": "記録された最大スピード"
@@ -3205,9 +3196,6 @@
     "osdTimerAlarmTooltip": {
         "message": "タイマーアラームのしきい値を分単位で選択します。時間がこの値を超えると、OSD表示にて点滅し、これを0に設定するとアラームが無効になります。"
     },
-    "osdWarningUnknown": {
-        "message": "原因不明の警告 (詳細は今後のリリースで対応予定)"
-    },
     "osdWarningArmingDisabled": {
         "message": "アーミングできない最も重大な理由を報告"
     },
@@ -3246,6 +3234,9 @@
     },
     "osdWarningGpsRescueDisabled": {
         "message": "GPS レスキューが無効な場合に警告"
+    },
+    "osdWarningUnknown": {
+        "message": "原因不明の警告 (詳細は今後のリリースで対応予定)"
     },
     "osdSectionHelpElements": {
         "message": "OSDを有効、または無効にします。"
@@ -3385,9 +3376,6 @@
     "pidTuningPidControllerTip": {
         "message": "<b>Legacy vs Emuflight (float):</b> PIDスケーリングとPIDロジックはまったく同じ仕様です。必ずしも再調整は必要ありません。Legacyは、整数演算に基づく基本的なPIDコントローラである旧ベータ版の進化型演算方式です。 Emuflight PIDコントローラは浮動小数点演算を使用し、マルチローター用に特別に設計された多くの新機能を備えています。<br><b>Float vs Integer:</b> PIDスケーリングとPIDロジックはまったく同じ仕様です。再調整は必要ありません。F1ボードにはオンボードFPUがないため、浮動小数点演算によってCPU負荷が増加するため、整数演算にて性能が向上しますが、浮動小数点演算の方がわずかに精度が向上します。"
     },
-    "pidTuningPidTuningTip": {
-        "message": "<b>Proportional [比例制御]:</b> マルチローターを飛行させた際の現在のエラー量に比例し、出力を制御するパラメータですが、値を高くすると非常に強い抵抗力も出てしまいます。<br><b>Integral [積分制御]:</b> P値が出す補正値を修正します。初期位置を保持し、ドリフトの低減効果を高めますが、値を高くした場合、機体の傾きが初期位置へ戻る際の遅延も増加させてしまいます。<br><b>Derivative [微分制御]:</b> P値、I値が出す補正値で修正できない場合、未来予測を含めて補正します。急激な挙動の追従をする際の偏差として値を高くした場合、偏差回復の速度は向上しますが、ノイズは増加してしまいます。<br><b>レート・Expo:</b> これらのパラメータに基づいて、スティックのフィーリングを決定します。グラフとLive 3Dモデルを使用して、お気に入りのレート設定を見つけましょう。"
-    },
     "pidTuningPidTuningTipFeedforward": {
         "message": "<b>Proportional [比例制御]:</b> マルチローターを飛行させた際の現在のエラー量に比例し、出力を制御するパラメータですが、値を高くすると非常に強い抵抗力も出てしまいます。<br><b>Integral [積分制御]:</b> P値が出す補正値を修正します。初期位置を保持し、ドリフトの低減効果を高めますが、値を高くした場合、機体の傾きが初期位置へ戻る際の遅延も増加させてしまいます。<br><b>Derivative [微分制御]:</b> P値、I値が出す補正値で修正できない場合、未来予測を含めて補正します。急激な挙動の追従をする際の偏差として値を高くした場合、偏差回復の速度は向上しますが、ノイズは増加してしまいます。<br>"
     },
@@ -3407,7 +3395,7 @@
         "message": "FPVカメラアングル [degrees]"
     },
     "onboardLoggingBlackbox": {
-        "message": "ブラックボックス ログデバイス"
+        "message": "オンボード・ロギング (ブラックボックス)"
     },
     "onboardLoggingRateOfLogging": {
         "message": "ブラックボックス ログレート"

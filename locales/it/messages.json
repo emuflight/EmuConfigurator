@@ -6,10 +6,10 @@
         "message": "Errore"
     },
     "warningTitle": {
-        "message": "Attenzione"
+        "message": "Avviso"
     },
     "noticeTitle": {
-        "message": "Avviso"
+        "message": "Nota"
     },
     "operationNotSupported": {
         "message": "Questa operazione non è supportata dal tuo hardware."
@@ -24,7 +24,7 @@
         "message": "Connetti"
     },
     "connecting": {
-        "message": "Connessione in corso"
+        "message": "In connessione"
     },
     "disconnect": {
         "message": "Disconnetti"
@@ -58,9 +58,6 @@
     },
     "rememberLastTab": {
         "message": "Riapri l'ultima pagina alla connessione"
-    },
-    "userLanguageSelect": {
-        "message": "Lingua (è necessario riavviare l'applicazione affinché le modifiche abbiano effetto)"
     },
     "language_default": {
         "message": "Predefinito"
@@ -124,6 +121,9 @@
     "tabHelp": {
         "message": "Documenti e supporto"
     },
+    "tabSetup": {
+        "message": "Configurazione"
+    },
     "tabSetupOSD": {
         "message": "Impostazioni OSD"
     },
@@ -167,10 +167,10 @@
         "message": "Mostra Log"
     },
     "serialPortOpened": {
-        "message": "Porta seriale <span class=\"message-positive\">connessa</span> con ID: $1"
+        "message": "Porta Seriale Aperta"
     },
     "serialPortOpenFail": {
-        "message": "<span class=\"message-negative\">Impossibile</span> connettersi alla porta seriale"
+        "message": "Apertura porta seriale fallita"
     },
     "serialPortClosedOk": {
         "message": "Porta seriale <span class=\"message-positive\">chiusa</span>"
@@ -327,10 +327,10 @@
         "message": "Nome del modello: <strong>$1</strong>"
     },
     "armingDisabled": {
-        "message": "<strong>Armamento motori Disabilitato</strong>"
+        "message": "Armo Disabilitato"
     },
     "armingEnabled": {
-        "message": "<strong>Armamento motori abilitato</strong>"
+        "message": "Armo Abilitato"
     },
     "runawayTakeoffPreventionDisabled": {
         "message": "<strong>Prevenzione di decollo fuori controllo temporaneamente disabilitato</strong>"
@@ -705,7 +705,7 @@
         "message": "Predefinito"
     },
     "configurationAccelTrims": {
-        "message": "Aggiustamento Accelerometro"
+        "message": "Trim Accelerometro"
     },
     "configurationAccelTrimRoll": {
         "message": "Aggiustamento Roll Accelerometro"
@@ -1577,16 +1577,16 @@
         "message": "Barometro"
     },
     "sensorsGyroTitle": {
-        "message": "Giroscopio - gradi/s"
+        "message": "Giroscopio"
     },
     "sensorsAccelTitle": {
-        "message": "Accelerometro - G"
+        "message": "Accelerometro"
     },
     "sensorsMagTitle": {
-        "message": "Magnetometro - Ga"
+        "message": "Magnetometro"
     },
     "sensorsBaroTitle": {
-        "message": "Barometro - metri"
+        "message": "Barometro"
     },
     "cliInputPlaceholder": {
         "message": "Scrivi qui il comando"
@@ -1643,7 +1643,7 @@
         "message": "Il firmware del tuo controllore di volo è troppo vecchio per supportare questa scheda oppure la funzione Blackbox è disabilitata nella scheda Configurazioni."
     },
     "blackboxConfiguration": {
-        "message": "configurazione Blackbox"
+        "message": "Configurazione Blackbox"
     },
     "blackboxButtonSave": {
         "message": "Salva e riavvia"
@@ -1652,10 +1652,10 @@
         "message": "Nessuna registrazione"
     },
     "blackboxLoggingFlash": {
-        "message": "Flash integrata"
+        "message": "Memoria Flash"
     },
     "blackboxLoggingSdCard": {
-        "message": "Scheda di memoria SD"
+        "message": "Scheda SD"
     },
     "blackboxLoggingSerial": {
         "message": "Porta seriale"
@@ -2199,6 +2199,12 @@
     "pidTuningVbatPidCompensationHelp": {
         "message": "Aumenta i valori dei PID per compensare la diminuzione del voltaggio della batteria. Darà caratteristiche di volo più costanti per la durata di tutto il volo. La quantità di compensazione applicata è calcolata in base al $t(powerBatteryMaximum.message) impostato nella pagina $t(tabPower.message), quindi assicurati che sia impostato su in valore appropriato."
     },
+    "pidTuningEmuBoostHelp": {
+        "message": "Aggiunge un boost non linerare all'errore visto dai termini P ed I. Aggiunge un feeling diverso agli stick. Valori troppo alti causano oscillazioni. Multirotori con un rapporto peso/potenza più basso come i whoop adorano valori abbastanza alti di EmuBoost e vengono resi molto più precisi."
+    },
+    "pidTuningEmuBoostLimitHelp": {
+        "message": "Mette un limite a quanto EmuBoost può amplificare l'errore. Viene misurato come percentuale di quanto errore può aggiungere EmuBoost. Un EmuBoost alto con un limite EmuBoost basso può dare un feeling molto reattivo vicino al centro dello stick. Modifica secondo le tue preferenze."
+    },
     "pidTuningSmartFeedforward": {
         "message": "Feedforward Intelligente"
     },
@@ -2213,12 +2219,6 @@
     },
     "pidTuningItermRelaxType": {
         "message": "Tipo:"
-    },
-    "pidTuningEmuBoostHelp": {
-        "message": "Aggiunge un boost non linerare all'errore visto dai termini P ed I. Aggiunge un feeling diverso agli stick. Valori troppo alti causano oscillazioni. Multirotori con un rapporto peso/potenza più basso come i whoop adorano valori abbastanza alti di EmuBoost e vengono resi molto più precisi."
-    },
-    "pidTuningEmuBoostLimitHelp": {
-        "message": "Mette un limite a quanto EmuBoost può amplificare l'errore. Viene misurato come percentuale di quanto errore può aggiungere EmuBoost. Un EmuBoost alto con un limite EmuBoost basso può dare un feeling molto reattivo vicino al centro dello stick. Modifica secondo le tue preferenze."
     },
     "pidTuningAbsoluteControlGain": {
         "message": "Controllo assoluto"
@@ -2547,9 +2547,6 @@
     "osdSetupElementsTitle": {
         "message": "Elementi"
     },
-    "osdSetupPreviewTitleTip": {
-        "message": "Mostra o nascondi il logo nella finestra di anteprima. Questo non cambierà alcuna impostazione sul controller di volo."
-    },
     "osdSetupVideoFormatTitle": {
         "message": "Formato video"
     },
@@ -2724,21 +2721,6 @@
     "osdDescElementArmedTime": {
         "message": "Tempo trascorso dall'ultima volta che il modello è stato armato"
     },
-    "osdDescElementWarnings": {
-        "message": "Avvisi (ad esempio batteria scarica), avvertenze (ad es. Motivi per non armare, batteria quasi scarica) e segnale acustico (4 asterischi lampeggianti)."
-    },
-    "osdDescElementEscTemperature": {
-        "message": "Temperatura rilevata dalla telemetria ESC"
-    },
-    "osdDescElementEscRpm": {
-        "message": "RPM riportato dalla telemetria ESC"
-    },
-    "osdDescElementRtcDateTime": {
-        "message": "Data / ora dell'orologio in tempo reale"
-    },
-    "osdDescElementAdjustmentRange": {
-        "message": "Impostazione e valore dell'intervallo di regolazione attualmente attivo"
-    },
     "osdDescElementHomeDirection": {
         "message": "Freccia che mostra la direzione verso la posizione iniziale"
     },
@@ -2754,17 +2736,29 @@
     "osdDescElementCompassBar": {
         "message": "Barra della bussola grafica che mostra la direzione corrente"
     },
+    "osdDescElementWarnings": {
+        "message": "Avvisi (ad esempio batteria scarica), avvertenze (ad es. Motivi per non armare, batteria quasi scarica) e segnale acustico (4 asterischi lampeggianti)."
+    },
+    "osdDescElementEscTemperature": {
+        "message": "Temperatura rilevata dalla telemetria ESC"
+    },
+    "osdDescElementEscRpm": {
+        "message": "RPM riportato dalla telemetria ESC"
+    },
+    "osdDescElementRemaningTimeEstimate": {
+        "message": "Stima del tempo di volo rimanente"
+    },
+    "osdDescElementRtcDateTime": {
+        "message": "Data / ora dell'orologio in tempo reale"
+    },
+    "osdDescElementAdjustmentRange": {
+        "message": "Impostazione e valore dell'intervallo di regolazione attualmente attivo"
+    },
     "osdDescElementTimer1": {
         "message": "Mostra il valore del timer 1"
     },
     "osdDescElementTimer2": {
         "message": "Mostra il valore del timer 2"
-    },
-    "osdDescElementRemaningTimeEstimate": {
-        "message": "Stima del tempo di volo rimanente"
-    },
-    "osdDescElementUnknown": {
-        "message": "Elemento sconosciuto (dettagli da aggiungere in una versione futura)"
     },
     "osdDescElementCoreTemperature": {
         "message": "Temperatura del core della MCU STM32"
@@ -2774,6 +2768,9 @@
     },
     "osdDescGForce": {
         "message": "Mostra la quantità di forza G che sta agendo sul modello"
+    },
+    "osdDescElementUnknown": {
+        "message": "Elemento sconosciuto (dettagli da aggiungere in una versione futura)"
     },
     "osdDescStatMaxSpeed": {
         "message": "Massima velocità registrata"
@@ -3015,9 +3012,6 @@
     "pidTuningPidControllerTip": {
         "message": "<b>Legacy vs Emuflight (float):</b> PID scaling e PID logic sono la stessa cosa. La calibrazione può non essere necessaria. Legacy è la riscrittura del vecchio Emuflight evoluto che è un semplice controller PID basato su numeri Interi. Il controller PID di Emuflight usa calcoli in virgola mobile ed ha molte nuove funzioni disegnate specificamente per i multirotori <br> <b>Float vs Integer:</b> PID scaling e PID logic sono la stessa cosa. Calibrazione non richiesta. Le schede F1 non hanno una FPU integrata, i calcoli in virgola mobile aumentato il carico della CPU. I calcoli in numeri Interi migliorano le performance ma i calcoli in virgola mobile possono far guadagnare un po' di precisione."
     },
-    "pidTuningPidTuningTip": {
-        "message": "<b>Proporzionale:</b> Noterai un forte resistenza ad ogni tentativo di muovere il MultiRotore<br><b>Integrale:</b> Aumenta la capacità di mantenere la posizione iniziale e riduce il drift, ma aumenta anche il ritardo nel ritornare nella posizione iniziale.<br><b>Derivativo:</b> Aumenta la velocità di recupero delle deviazioni, ma aumenta il rumore<br><b>Rates e Expo</b>: Determina il funzionamento dei tuoi stick usando questi parametri. Usa il modello 3D per trovare le tue impostazioni preferite"
-    },
     "pidTuningRatesTip": {
         "message": "Gioca con i \"rates\" e verifica come influiscono sulla curva dello stick"
     },
@@ -3031,7 +3025,7 @@
         "message": "Angolo della videocamera FPV [gradi]"
     },
     "onboardLoggingBlackbox": {
-        "message": "Dispositivo di registrazione Blackbox"
+        "message": "Registrazione di bordo (Blackbox)"
     },
     "onboardLoggingRateOfLogging": {
         "message": "Frequenza di registrazione della BlackBox"

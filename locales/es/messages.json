@@ -53,9 +53,6 @@
     "rememberLastTab": {
         "message": "Recordar última pestaña al conectar"
     },
-    "userLanguageSelect": {
-        "message": "Idioma (hay que reiniciar la aplicación para que el cambio sea efectivo)"
-    },
     "language_default": {
         "message": "Predeterminado"
     },
@@ -70,16 +67,8 @@
     "sensorStatusGyro": {
         "message": "Giroscopio"
     },
-    "sensorStatusGyroShort": {
-        "message": "Giro",
-        "description": "Text of the image in the top sensors icons. Please keep it short."
-    },
     "sensorStatusAccel": {
         "message": "Acelerómetro"
-    },
-    "sensorStatusAccelShort": {
-        "message": "Acel",
-        "description": "Text of the image in the top sensors icons. Please keep it short."
     },
     "sensorStatusMag": {
         "message": "Magnetómetro"
@@ -130,7 +119,7 @@
         "message": "Documentación y Soporte"
     },
     "tabSetup": {
-        "message": "Ajuste"
+        "message": "Configuración"
     },
     "tabSetupOSD": {
         "message": "Configurar OSD"
@@ -160,7 +149,7 @@
         "message": "Motores"
     },
     "tabLedStrip": {
-        "message": "Tiras LED"
+        "message": "Tira LED"
     },
     "tabRawSensorData": {
         "message": "Sensores"
@@ -184,10 +173,10 @@
         "message": "Mostrar registro"
     },
     "serialPortOpened": {
-        "message": "Puerto serie abierto <span class=\"message-positive\">correctamente</span> con ID: $1"
+        "message": "Puerto Serie Abierto"
     },
     "serialPortOpenFail": {
-        "message": "<span class=\"message-negative\">Error</span> abriendo puerto serie"
+        "message": "Error al abrir el puerto serie"
     },
     "serialPortClosedOk": {
         "message": "Puerto serie cerrado <span class=\"message-positive\">correctamente</span>"
@@ -344,10 +333,10 @@
         "message": "Nombre aeronave: <strong>$1</strong>"
     },
     "armingDisabled": {
-        "message": "<strong>Armado Desactivado</strong>"
+        "message": "Armado Deshabilitado"
     },
     "armingEnabled": {
-        "message": "<strong>Armado Activado</strong>"
+        "message": "Armado Habilitado"
     },
     "runawayTakeoffPreventionDisabled": {
         "message": "<strong>Protección de Despegue Incontrolado temporalmente Desactivada</strong>"
@@ -812,7 +801,7 @@
         "message": "Predeterminado"
     },
     "configurationAccelTrims": {
-        "message": "Trimado Acelerómetro"
+        "message": "Ajustes de Acelerómetro"
     },
     "configurationAccelTrimRoll": {
         "message": "Trimado Roll Acelerómetro"
@@ -1753,16 +1742,16 @@
         "message": "Barómetro"
     },
     "sensorsGyroTitle": {
-        "message": "Giroscopio - grad/s"
+        "message": "Giroscopio"
     },
     "sensorsAccelTitle": {
-        "message": "Acelerómetro - g"
+        "message": "Acelerómetro"
     },
     "sensorsMagTitle": {
-        "message": "Magnetómetro - Ga"
+        "message": "Magnetómetro"
     },
     "sensorsBaroTitle": {
-        "message": "Barómetro - metros"
+        "message": "Barómetro"
     },
     "cliInfo": {
         "message": "<strong>Nota:</strong> Abandonar la pestaña CLI o pulsar Desconectar enviará \"<strong>exit</strong>\" <strong>automáticamente</strong> a la placa. En los últimos firmwares esto hace que el controlador <strong>reinicie</strong> y los cambios no salvados se <strong>perderán</strong>. <p><strong><span class=\"message-negative\">Atención:</span></strong> En CLI algunos comandos pueden resultar en señales arbitrarias enviadas a los pines de salida de motores. Esto puede provocar que los motores giren si la batería está conectada. Por lo tanto es altamente recomendable asegurarse de que <strong>no hay ninguna batería conectada antes de introducir comandos en CLI</strong>."
@@ -1828,7 +1817,7 @@
         "message": "El firmware de tu controlador de vuelo es demasiado antiguo para soportar este apartado, o la funcionalidad Caja Negra está desactivada en el apartado Configuración."
     },
     "blackboxConfiguration": {
-        "message": "Configuración de Caja Negra"
+        "message": "Configuración de Blackbox"
     },
     "blackboxButtonSave": {
         "message": "Guardar y reiniciar"
@@ -1837,7 +1826,7 @@
         "message": "No registrar"
     },
     "blackboxLoggingFlash": {
-        "message": "Flash Integrada"
+        "message": "Memoria Flash"
     },
     "blackboxLoggingSdCard": {
         "message": "Tarjeta SD"
@@ -2726,9 +2715,6 @@
         "message": "Perfil OSD {{profileNumber}}",
         "description": "Content of the selector for the OSD Profile in the preview"
     },
-    "osdSetupPreviewTitleTip": {
-        "message": "Muestra u oculta el logo en la ventana de vista previa. Esto no cambiar ningún ajuste en el controlador de vuelo."
-    },
     "osdSetupVideoFormatTitle": {
         "message": "Formato de Video"
     },
@@ -2846,9 +2832,6 @@
     "osdDescElementCraftName": {
         "message": "Nombre de la aeronave tal como está en el apartado Configuración"
     },
-    "osdDescElementDisplayName": {
-        "message": "Mostrar nombre configurado con el comando cli \"display_name\""
-    },
     "osdDescElementAltitude": {
         "message": "Altitud actual (parpadea por encima del umbral de alarma)"
     },
@@ -2909,24 +2892,6 @@
     "osdDescElementArmedTime": {
         "message": "Tiempo desde que la aeronave fue armada por última vez"
     },
-    "osdDescElementWarnings": {
-        "message": "Alertas (p.ej. batería baja), avisos (p.ej. razones para no armar, batería baja crítica) y pitido visual (4 asteriscos parpadeando)."
-    },
-    "osdDescElementEscTemperature": {
-        "message": "Temperatura reportada por la telemetría de los ESC"
-    },
-    "osdDescElementEscRpm": {
-        "message": "RPM reportadas por la telemetría de los ESC"
-    },
-    "osdDescElementEscRpmFreq": {
-        "message": "Frecuencia RPM reportada por la telemetría de los ESC"
-    },
-    "osdDescElementRtcDateTime": {
-        "message": "Fecha / Hora en tiempo real"
-    },
-    "osdDescElementAdjustmentRange": {
-        "message": "Rango y valor del elemento y ajuste activo actualmente"
-    },
     "osdDescElementHomeDirection": {
         "message": "Flecha mostrando la dirección hacia la posición casa"
     },
@@ -2941,6 +2906,45 @@
     },
     "osdDescElementCompassBar": {
         "message": "Barra gráfica con una brújula mostrando la dirección actual"
+    },
+    "osdDescElementWarnings": {
+        "message": "Alertas (p.ej. batería baja), avisos (p.ej. razones para no armar, batería baja crítica) y pitido visual (4 asteriscos parpadeando)."
+    },
+    "osdDescElementEscTemperature": {
+        "message": "Temperatura reportada por la telemetría de los ESC"
+    },
+    "osdDescElementEscRpm": {
+        "message": "RPM reportadas por la telemetría de los ESC"
+    },
+    "osdDescElementRemaningTimeEstimate": {
+        "message": "Tiempo estimado de vuelo restante"
+    },
+    "osdDescElementRtcDateTime": {
+        "message": "Fecha / Hora en tiempo real"
+    },
+    "osdDescElementAdjustmentRange": {
+        "message": "Rango y valor del elemento y ajuste activo actualmente"
+    },
+    "osdDescElementTimer1": {
+        "message": "Muestra el valor del temporizador 1"
+    },
+    "osdDescElementTimer2": {
+        "message": "Muestra el valor del temporizador 2"
+    },
+    "osdDescElementCoreTemperature": {
+        "message": "Temperatura del núcleo del MCU STM32"
+    },
+    "osdDescAntiGravity": {
+        "message": "Activa un indicador cuando la anti gravedad está activa"
+    },
+    "osdDescGForce": {
+        "message": "Muestra cuánta Fuerza G está experimentando la aeronave"
+    },
+    "osdDescElementMotorDiag": {
+        "message": "Muestra un gráfico con la salida de cada motor"
+    },
+    "osdDescElementLogStatus": {
+        "message": "Número de caja negra y avisos"
     },
     "osdDescElementFlipArrow": {
         "message": "Flecha que indica que lado tiene los motores arriba en modo tortuga"
@@ -2957,32 +2961,14 @@
     "osdDescElementStickOverlayRight": {
         "message": "Superposición de la posición del mando derecho del transmisor."
     },
-    "osdDescElementTimer1": {
-        "message": "Muestra el valor del temporizador 1"
+    "osdDescElementDisplayName": {
+        "message": "Mostrar nombre configurado con el comando cli \"display_name\""
     },
-    "osdDescElementTimer2": {
-        "message": "Muestra el valor del temporizador 2"
-    },
-    "osdDescElementRemaningTimeEstimate": {
-        "message": "Tiempo estimado de vuelo restante"
+    "osdDescElementEscRpmFreq": {
+        "message": "Frecuencia RPM reportada por la telemetría de los ESC"
     },
     "osdDescElementUnknown": {
         "message": "Elemento desconocido (los detalles se añadirán en una futura versión)"
-    },
-    "osdDescElementCoreTemperature": {
-        "message": "Temperatura del núcleo del MCU STM32"
-    },
-    "osdDescAntiGravity": {
-        "message": "Activa un indicador cuando la anti gravedad está activa"
-    },
-    "osdDescGForce": {
-        "message": "Muestra cuánta Fuerza G está experimentando la aeronave"
-    },
-    "osdDescElementMotorDiag": {
-        "message": "Muestra un gráfico con la salida de cada motor"
-    },
-    "osdDescElementLogStatus": {
-        "message": "Número de caja negra y avisos"
     },
     "osdDescStatMaxSpeed": {
         "message": "Máxima velocidad registrada"
@@ -3065,9 +3051,6 @@
     "osdTimerAlarmTooltip": {
         "message": "Elige el umbral de alarma del temporizador en minutos, cuando el tiempo excede este valor el elemento del OSD parpadeará, indicando 0 se desactiva la alarma"
     },
-    "osdWarningUnknown": {
-        "message": "Aviso desconocido (los detalles se añadirán en una futura versión)"
-    },
     "osdWarningArmingDisabled": {
         "message": "Avisa de la razón más importante para no armar"
     },
@@ -3106,6 +3089,9 @@
     },
     "osdWarningGpsRescueDisabled": {
         "message": "Avisa cuando el Rescate GPS está desactivado"
+    },
+    "osdWarningUnknown": {
+        "message": "Aviso desconocido (los detalles se añadirán en una futura versión)"
     },
     "osdSectionHelpElements": {
         "message": "Activa o desactiva elementos del OSD"
@@ -3248,9 +3234,6 @@
     "pidTuningPidControllerTip": {
         "message": "<b>Tradicional vs Emuflight (flotante):</b> La escala y la lógica del PID son exactamente las mismas. No se necesita reajustar. Tradicional es el antiguo betaflight evolucionado a rewrite, que es controlador PID básico basado en matemáticas de enteros. El controlador PID de Emuflight PID usa matemáticas en punto flotante y tiene muchas nuevas funcionalidades especialmente diseñadas para aplicaciones multirotor<br> <b>Flotante vs Entero:</b> La escala y la lógica del PID son exactamente las mismas. No se necesita reajustar. Las placas F1 no tienen FPU integrada y el cálculo en punto flotante incrementa la carga de CPU y la matemática entera mejoraría el rendimiento, pero la matemática en punto flotante puede dar algo más de precisión."
     },
-    "pidTuningPidTuningTip": {
-        "message": "<b>Proporcional:</b> Notarás una fuerte resistencia a cualquier intento de mover el MultiRotor<br><b>Integral:</b> Incrementa la habilidad de mantener la posición inicial general y reduce la deriva, pero también incrementa el retraso para volver a la posición inicial.<br><b>Derivativo:</b> Mejora la velocidad a la que se recuperan las desviaciones, pero incrementa el ruido<br><b>Tasas y Expo</b>: Determina las sensaciones con las palancas basadas en estos parámetros. Usa el gráfico y el modelo 3D en vivo para encontrar tus ajustes de tasas favorito"
-    },
     "pidTuningPidTuningTipFeedforward": {
         "message": "<b>Proporcional:</b> Notarás una fuerte resistencia a cualquier intento de mover el MultiRotor<br><b>Integral:</b> Incrementa la habilidad de mantener la posición inicial general y reduce la deriva, pero también incrementa el retraso para volver a la posición inicial.<br><b>Derivativo:</b> Mejora la velocidad a la que se recuperan las desviaciones, pero incrementa el ruido<br><b>Prealimentación:</b> Normalmente el controlador PID reacciona al error. La Prealimentación anticipa el error basándose en la entrada de los mandos, mejorando el tiempo de respuesta del quad.<br><b>Tasas y Expo</b>: Determina las sensaciones con las palancas basadas en estos parámetros. Usa el gráfico y el modelo 3D en vivo para encontrar tus ajustes de tasas favorito"
     },
@@ -3270,7 +3253,7 @@
         "message": "Ángulo Cámara FPV [grados]"
     },
     "onboardLoggingBlackbox": {
-        "message": "Dispositivo de caja negra"
+        "message": "Registro a bordo (Blackbox)"
     },
     "onboardLoggingRateOfLogging": {
         "message": "Frecuencia de muestreo"
