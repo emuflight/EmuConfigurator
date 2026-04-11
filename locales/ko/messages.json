@@ -166,8 +166,11 @@
     "tabRawSensorData": {
         "message": "센서"
     },
+    "tabCLI": {
+        "message": "CLI"
+    },
     "tabLogging": {
-        "message": "로그기록 테더링"
+        "message": "실시간 로그"
     },
     "tabOnboardLogging": {
         "message": "블랙박스"
@@ -1853,10 +1856,10 @@
         "message": "디버그 0"
     },
     "cliInfo": {
-        "message": "<strong>노트:</strong> CLI 탭을 빠져 나가거나 연결끊기를 누르면 <strong>자동으로</strong>보드에 \"<strong>exit</strong>\"를 보냅니다. 최신 펌웨어를 사용하면 컨트롤러를 <strong>재시작</strong>하고, 저장되지 않은 변경은 <strong>상실</strong>합니다. <p><strong><span class=\"message-negative\">경고:</span></strong> CLI에서 일부 명령은 임의로 신호를 모터 출력 핀으로 보내는 결과를 초래할 수 있습니다. 이것은 만약 배터리가 연결된 상태에서 모터의 회전을 유발할 수 있습니다. 그러므로 <strong>CLI에서 명령을 입력하기 전에 배터리를 연결하지 말 것을</strong> 강력히 권장합니다."
+        "message": "명령어를 입력하거나 자동 완성을 사용하십시오."
     },
     "cliInputPlaceholder": {
-        "message": "여기에 명령을 입력하세요."
+        "message": "여기에 명령어 입력..."
     },
     "cliEnter": {
         "message": "CLI 모드가 감지됨"
@@ -1865,16 +1868,19 @@
         "message": "CLI 재부팅이 감지됨"
     },
     "cliSaveToFileBtn": {
-        "message": "파일로 저장"
+        "message": "파일에 저장"
     },
     "cliClearOutputHistoryBtn": {
-        "message": "출력 이력 삭제"
+        "message": "출력 지우기"
     },
     "cliCopyToClipboardBtn": {
         "message": "클립보드로 복사"
     },
     "cliCopySuccessful": {
         "message": "복사됨!"
+    },
+    "cliLoadFromFileBtn": {
+        "message": "파일에서 불러오기"
     },
     "loggingNote": {
         "message": "데이터가 이 탭에 로그되어 집니다. 데이터는 <span class=\"message-negative\">오직</span> 이 탭에서만 기록되며, 탭을 나가면 기록을 <span class=\"message-negative\">취소</span>하고 어플리케이션이 일반적인 <strong>\"컨피규레이터\"</strong> 상태로 돌아갑니다.<br /> 사용자는 전체 업데이트 주기를 자유롭게 선택할 수 있으며, 데이터는 성능상의 이유로 매 <strong>1</strong>초마다 로그 파일에 기록됩니다."
@@ -2003,13 +2009,13 @@
         "message": "선택한 파일에 쓰지 못했습니다. 해당 폴더에 대한 사용 권한이 유효합니까?"
     },
     "sdcardStatusNoCard": {
-        "message": "카드가 삽입되지 않았습니다"
+        "message": "카드 없음"
     },
     "sdcardStatusReboot": {
         "message": "치명적인 오류<br>재부팅하고 다시 시도하세요."
     },
     "sdcardStatusReady": {
-        "message": "카드 준비"
+        "message": "준비 완료"
     },
     "sdcardStatusStarting": {
         "message": "카드 시작..."
@@ -3488,10 +3494,13 @@
         "message": "FPV 카메라 각도 [도]"
     },
     "onboardLoggingBlackbox": {
-        "message": "온보드 로깅 (블랙박스)"
+        "message": "블랙박스 설정"
     },
     "onboardLoggingRateOfLogging": {
-        "message": "블랙박스 로그기록 속도"
+        "message": "기록 주기"
+    },
+    "onboardLoggingDebugMode": {
+        "message": "디버그 모드"
     },
     "onboardLoggingSerialLogger": {
         "message": "외부 시리얼 로그기록 장치"

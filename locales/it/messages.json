@@ -160,6 +160,15 @@
     "tabRawSensorData": {
         "message": "Sensori"
     },
+    "tabCLI": {
+        "message": "CLI"
+    },
+    "tabLogging": {
+        "message": "Log"
+    },
+    "tabOnboardLogging": {
+        "message": "Blackbox"
+    },
     "tabAdjustments": {
         "message": "Regolazioni"
     },
@@ -1609,8 +1618,11 @@
     "sensorsBaroTitle": {
         "message": "Barometro"
     },
+    "cliInfo": {
+        "message": "Inserisci i comandi o usa l\"autocompletamento."
+    },
     "cliInputPlaceholder": {
-        "message": "Scrivi qui il comando"
+        "message": "Inserisci un comando qui..."
     },
     "cliEnter": {
         "message": "Rilevata modalità CLI"
@@ -1622,7 +1634,10 @@
         "message": "Salva su file"
     },
     "cliClearOutputHistoryBtn": {
-        "message": "Cancella la cronologia della CLI"
+        "message": "Cancella cronologia"
+    },
+    "cliLoadFromFileBtn": {
+        "message": "Carica da file"
     },
     "loggingNote": {
         "message": "I dati saranno registrati <span class=\"message-negative\">soltanto</span> in questa schermata, spostandoti da questa la registrazione sarà <span class=\"message-negative\">cancellata</span> ed il programma tornerà nel suo stato normale di <strong>\"configuratore\"</strong><br />. Sei libero di selezionare la frequenza di aggiornamento globale, i dati saranno scritti nel file di registro ogni <strong>1</strong> secondi per questioni di prestazioni."
@@ -1748,13 +1763,13 @@
         "message": "La scrittura sul file selezionato è fallita, assicurati di avere i permessi necessari sul file o sulla cartella che lo contiene"
     },
     "sdcardStatusNoCard": {
-        "message": "nessuna scheda inserita"
+        "message": "NESSUNA SCHEDA"
     },
     "sdcardStatusReboot": {
         "message": "Errore critico <br>Riavvia per riprovare"
     },
     "sdcardStatusReady": {
-        "message": "scheda pronta"
+        "message": "Pronto"
     },
     "sdcardStatusStarting": {
         "message": "avviando la scheda..."
@@ -3052,10 +3067,13 @@
         "message": "Angolo della videocamera FPV [gradi]"
     },
     "onboardLoggingBlackbox": {
-        "message": "Registrazione di bordo (Blackbox)"
+        "message": "Configurazione Blackbox"
     },
     "onboardLoggingRateOfLogging": {
-        "message": "Frequenza di registrazione della BlackBox"
+        "message": "Frequenza di log"
+    },
+    "onboardLoggingDebugMode": {
+        "message": "Modalità Debug"
     },
     "onboardLoggingSerialLogger": {
         "message": "Dispositivo seriale esterno per la registrazione"

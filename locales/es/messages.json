@@ -157,11 +157,14 @@
     "tabRawSensorData": {
         "message": "Sensores"
     },
+    "tabCLI": {
+        "message": "CLI"
+    },
     "tabLogging": {
-        "message": "Registro Conectado"
+        "message": "Registro"
     },
     "tabOnboardLogging": {
-        "message": "Caja Negra"
+        "message": "Blackbox"
     },
     "tabAdjustments": {
         "message": "Ajustes"
@@ -1760,10 +1763,10 @@
         "message": "Barómetro"
     },
     "cliInfo": {
-        "message": "<strong>Nota:</strong> Abandonar la pestaña CLI o pulsar Desconectar enviará \"<strong>exit</strong>\" <strong>automáticamente</strong> a la placa. En los últimos firmwares esto hace que el controlador <strong>reinicie</strong> y los cambios no salvados se <strong>perderán</strong>. <p><strong><span class=\"message-negative\">Atención:</span></strong> En CLI algunos comandos pueden resultar en señales arbitrarias enviadas a los pines de salida de motores. Esto puede provocar que los motores giren si la batería está conectada. Por lo tanto es altamente recomendable asegurarse de que <strong>no hay ninguna batería conectada antes de introducir comandos en CLI</strong>."
+        "message": "Escriba comandos o use el autocompletado."
     },
     "cliInputPlaceholder": {
-        "message": "Escribe tu comando aquí"
+        "message": "Escriba un comando aquí..."
     },
     "cliEnter": {
         "message": "Detectado modo CLI"
@@ -1772,16 +1775,19 @@
         "message": "Detectado reinicio CLI"
     },
     "cliSaveToFileBtn": {
-        "message": "Guardar en Archivo"
+        "message": "Guardar a archivo"
     },
     "cliClearOutputHistoryBtn": {
-        "message": "Limpiar historial de salida"
+        "message": "Limpiar salida"
     },
     "cliCopyToClipboardBtn": {
         "message": "Copiar al portapapeles"
     },
     "cliCopySuccessful": {
         "message": "¡Copiado!"
+    },
+    "cliLoadFromFileBtn": {
+        "message": "Cargar desde archivo"
     },
     "loggingNote": {
         "message": "Los datos se registran <span class=\"message-negative\">sólamente</span> en este apartado, abandonar el apartado <span class=\"message-negative\">cancelará</span> el registro y la aplicación volverá al estado normal del <strong>\"configurator\"</strong>.<br /> Puedes elegir cualquier período de actualización global, los datos se almacenarán en el archivo de log cada <strong>1</strong> segundo por razones de rendimiento."
@@ -1910,13 +1916,13 @@
         "message": "Error al escribir en el archivo seleccionado, ¿los permisos de la carpeta son correctos?"
     },
     "sdcardStatusNoCard": {
-        "message": "No hay tarjeta SD"
+        "message": "SIN TARJETA"
     },
     "sdcardStatusReboot": {
         "message": "Error fatal<br>Reinicia para reintentar"
     },
     "sdcardStatusReady": {
-        "message": "Tarjeta disponible"
+        "message": "Listo"
     },
     "sdcardStatusStarting": {
         "message": "Iniciando tarjeta..."
@@ -3261,10 +3267,13 @@
         "message": "Ángulo Cámara FPV [grados]"
     },
     "onboardLoggingBlackbox": {
-        "message": "Registro a bordo (Blackbox)"
+        "message": "Configuración de Blackbox"
     },
     "onboardLoggingRateOfLogging": {
-        "message": "Frecuencia de muestreo"
+        "message": "Tasa de registro"
+    },
+    "onboardLoggingDebugMode": {
+        "message": "Modo de depuración"
     },
     "onboardLoggingSerialLogger": {
         "message": "Dispositivo de registro externo"

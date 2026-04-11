@@ -148,8 +148,14 @@
     "tabLedStrip": {
         "message": "Tira LED"
     },
+    "tabCLI": {
+        "message": "CLI"
+    },
     "tabLogging": {
-        "message": "Registre Connectat"
+        "message": "Registrament"
+    },
+    "tabOnboardLogging": {
+        "message": "Blackbox"
     },
     "tabAdjustments": {
         "message": "Ajustos"
@@ -1307,8 +1313,11 @@
     "sensorsSonarTitle": {
         "message": "Sònar - cm"
     },
+    "cliInfo": {
+        "message": "Escriviu ordres o utilitzeu l\"autocompletar."
+    },
     "cliInputPlaceholder": {
-        "message": "Escriu la teva comanda aquí"
+        "message": "Escriu una ordre aquí..."
     },
     "cliEnter": {
         "message": "Mode CLI detectat"
@@ -1317,7 +1326,13 @@
         "message": "Reinici CLI detectat"
     },
     "cliSaveToFileBtn": {
-        "message": "Desa a arxiu"
+        "message": "Desa a fitxer"
+    },
+    "cliClearOutputHistoryBtn": {
+        "message": "Neteja sortida"
+    },
+    "cliLoadFromFileBtn": {
+        "message": "Carrega des de fitxer"
     },
     "loggingNote": {
         "message": "Les dades es registraran en aquesta pestanya <span class=\"message-negative\">només</span>, deixant la pestanya <span class=\"message-negative\">cancel·lar</span> el registre i l'aplicació tornarà a la normalitat <strong>\"configurador\"</strong>. <br /> Podeu seleccionar el període d'actualització global, les dades seran escrites al fitxer de registre cada <strong>1</strong> segon per motius de rendiment."
@@ -1440,13 +1455,13 @@
         "message": "Error en escriure l'arxiu. Tens permisos al directori?"
     },
     "sdcardStatusNoCard": {
-        "message": "No hi ha cap tarja insertada"
+        "message": "SENSE TARGETA"
     },
     "sdcardStatusReboot": {
         "message": "Error fatal<br>Reiniciant per a reintentar"
     },
     "sdcardStatusReady": {
-        "message": "Tarja preparada"
+        "message": "Llest"
     },
     "sdcardStatusStarting": {
         "message": "Iniciant tarja..."
@@ -2447,10 +2462,13 @@
         "message": "Angle de la càmera FPV [graus]"
     },
     "onboardLoggingBlackbox": {
-        "message": "Registre a bord (Blackbox)"
+        "message": "Configuració de Blackbox"
     },
     "onboardLoggingRateOfLogging": {
-        "message": "Velocitat d'enregistrament de Blackbox"
+        "message": "Taxa de registre"
+    },
+    "onboardLoggingDebugMode": {
+        "message": "Mode de depuració"
     },
     "onboardLoggingSerialLogger": {
         "message": "Dispositiu d'enregistrament sèrie"

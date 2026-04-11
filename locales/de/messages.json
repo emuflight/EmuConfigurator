@@ -155,11 +155,14 @@
     "tabRawSensorData": {
         "message": "Sensoren"
     },
+    "tabCLI": {
+        "message": "CLI"
+    },
     "tabLogging": {
-        "message": "Bodenstation Protokoll"
+        "message": "Protokollierung"
     },
     "tabOnboardLogging": {
-        "message": "Flugschreiber"
+        "message": "Blackbox"
     },
     "tabAdjustments": {
         "message": "Anpassungen"
@@ -1638,10 +1641,10 @@
         "message": "Sonar - CM"
     },
     "cliInfo": {
-        "message": "<strong>Hinweis:</strong> Beim Verlassen des CLI Tab oder beim Drücken der Taste \"trennen\" wird <strong>automatisch</strong>  <strong>beenden</strong> and die Flugsteuerung gesendet.  Mit der neuesten Firmware wird sie dadurch<strong>neu gestartet</strong> und nicht gespeicherte Änderungen gehen <strong>verloren</strong>. <p><strong><span class=\"message-negative\">Warnung:</span></strong> Einige CLI Befehle können dazu führen, dass willkürliche Signale an die Motoren geschickt werden. Dadurch können Motoren hochdrehen, wenn ein Batterie angeschlossen ist. Daher wird dringend empfohlen sicherzustellen, dass <strong> keine Batterie angeschlossen ist, bevor Sie Befehle in die CLI eingeben</strong>."
+        "message": "Befehle eingeben oder Autovervollständigung nutzen."
     },
     "cliInputPlaceholder": {
-        "message": "Kommandos hier eingeben"
+        "message": "Befehl hier eingeben..."
     },
     "cliEnter": {
         "message": "CLI Modus erkannt"
@@ -1653,13 +1656,16 @@
         "message": "In Datei speichern"
     },
     "cliClearOutputHistoryBtn": {
-        "message": "CLI-Ausgaben löschen"
+        "message": "Ausgabe leeren"
     },
     "cliCopyToClipboardBtn": {
         "message": "In die Zwischenablage kopieren"
     },
     "cliCopySuccessful": {
         "message": "Kopiert!"
+    },
+    "cliLoadFromFileBtn": {
+        "message": "Aus Datei laden"
     },
     "loggingNote": {
         "message": "Daten werden <span class=\"message-negative\">nur </span> in diesem Tab geloggt. Wenn der Tab geschlossen wird, wird das Loggen <span class=\"message-negative\">abgebrochen</span> und die Anwendung geht in den normalen Modus zurück."
@@ -1785,13 +1791,13 @@
         "message": "Speichern fehlgeschlagen, bitte sicherstellen das die Schreibberechtigungen gegeben sind."
     },
     "sdcardStatusNoCard": {
-        "message": "Keine Karte eingesetzt"
+        "message": "KEINE KARTE"
     },
     "sdcardStatusReboot": {
         "message": "Schwerer Fehler <br> Neustarten um es noch einmal zu versuchen"
     },
     "sdcardStatusReady": {
-        "message": "Karte bereit"
+        "message": "Bereit"
     },
     "sdcardStatusStarting": {
         "message": "Karte startet..."
@@ -3077,10 +3083,13 @@
         "message": "FPV-Kamera Neigungswinkel [Grad]"
     },
     "onboardLoggingBlackbox": {
-        "message": "Onboard-Protokollierung (Blackbox)"
+        "message": "Blackbox-Konfiguration"
     },
     "onboardLoggingRateOfLogging": {
-        "message": "Blackbox Log-Geschwindigkeit"
+        "message": "Protokollrate"
+    },
+    "onboardLoggingDebugMode": {
+        "message": "Debug-Modus"
     },
     "onboardLoggingSerialLogger": {
         "message": "Externes serielles Log-Gerät"

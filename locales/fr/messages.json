@@ -157,8 +157,14 @@
     "tabRawSensorData": {
         "message": "Capteurs"
     },
+    "tabCLI": {
+        "message": "CLI"
+    },
     "tabLogging": {
-        "message": "Journal de bord"
+        "message": "Journalisation"
+    },
+    "tabOnboardLogging": {
+        "message": "Blackbox"
     },
     "tabAdjustments": {
         "message": "Ajustements"
@@ -1658,10 +1664,10 @@
         "message": "Baromètre"
     },
     "cliInfo": {
-        "message": "<strong>Note:</strong> Quitter l'onglet CLI ou appuyer sur Déconnecter va <strong>automatiquement</strong> envoyer \"<strong>exit</strong>\" à la console de commande. Avec le dernier firmware, le contrôleur de vol va <strong>redémarrer</strong> et les changements non sauvegardés seront<strong>perdus</strong>.<p><strong><span class=\"message-negative\">Avertissement:</span></strong> Certaines commandes en CLI peuvent produirent des signaux aléatoires envoyés aux sorties moteurs. Ceux-ci, dans certains cas, feront tourner les moteurs si la batterie est connectée. Ainsi, il est fortement recommandé de s'assurer que<strong>la batterie soit déconnectée avant d'entrer des commandes en CLI</strong>."
+        "message": "Entrez des commandes ou utilisez l\"auto-complétion."
     },
     "cliInputPlaceholder": {
-        "message": "Écrivez votre ligne de commande ici"
+        "message": "Entrez une commande ici..."
     },
     "cliEnter": {
         "message": "Mode CLI détecté"
@@ -1670,16 +1676,19 @@
         "message": "Redémarrage CLI détecté"
     },
     "cliSaveToFileBtn": {
-        "message": "Enregistrer sous"
+        "message": "Enregistrer dans un fichier"
     },
     "cliClearOutputHistoryBtn": {
-        "message": "Effacer l'historique"
+        "message": "Effacer la sortie"
     },
     "cliCopyToClipboardBtn": {
         "message": "Copier dans le presse-papier"
     },
     "cliCopySuccessful": {
         "message": "Copié !"
+    },
+    "cliLoadFromFileBtn": {
+        "message": "Charger d\"un fichier"
     },
     "loggingNote": {
         "message": "Les données sont enregistrées dans cet onglet <span class=\"message-negative\">uniquement</span>, quitter l'onglet  <span class=\"message-negative\">arrête</span> l'enregistrement et l'application retourne en <strong>\"configurateur\"</strong>.<br /> Peu importe la période de rafraîchissement, les données sont écrites <strong>chaque</strong> seconde afin de préserver les performances."
@@ -1805,13 +1814,13 @@
         "message": "Echec de l'enregistrement du fichier, êtes vous sûr de disposer des autorisations sur ce répertoire ?"
     },
     "sdcardStatusNoCard": {
-        "message": "Carte non insérée"
+        "message": "PAS DE CARTE"
     },
     "sdcardStatusReboot": {
         "message": "Erreur fatale<br>redémarrez et essayez à nouveau"
     },
     "sdcardStatusReady": {
-        "message": "Carte prête"
+        "message": "Prêt"
     },
     "sdcardStatusStarting": {
         "message": "Démarrage de la carte"
@@ -3156,10 +3165,13 @@
         "message": "Angle Caméra FPV (degrés)"
     },
     "onboardLoggingBlackbox": {
-        "message": "Enregistrement embarqué (Blackbox)"
+        "message": "Configuration Blackbox"
     },
     "onboardLoggingRateOfLogging": {
-        "message": "Fréquence d'enregistrement de la Blackbox"
+        "message": "Fréquence de journalisation"
+    },
+    "onboardLoggingDebugMode": {
+        "message": "Mode de débogage"
     },
     "onboardLoggingSerialLogger": {
         "message": "Mémoire externalisée"

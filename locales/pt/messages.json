@@ -163,8 +163,14 @@
     "tabRawSensorData": {
         "message": "Sensores"
     },
+    "tabCLI": {
+        "message": "CLI"
+    },
     "tabLogging": {
-        "message": "Log por conexão"
+        "message": "Registro"
+    },
+    "tabOnboardLogging": {
+        "message": "Blackbox"
     },
     "tabAdjustments": {
         "message": "Ajustes"
@@ -1709,10 +1715,10 @@
         "message": "Barômetro"
     },
     "cliInfo": {
-        "message": "<strong>Nota:</strong> Sair da aba de Linha de Comandos (CLI) ou pressionar Desconectar irá <strong>automaticamente</strong> enviar o comando \"<strong>exit</strong>\" para a placa. No firmware mais recente, isto fará com que o controlador de voo <strong>reinicie</strong> e qualquer alteração que não foi salva será <strong>perdida</strong>. <p><strong><span class=\"message-negative\">Atenção:</span></strong> Alguns comandos podem enviar sinais arbitrários para os pinos de saída dos motores. Isto pode fazer com que os motores girem se uma bateria estiver conectada. Portanto, é altamente recomendado verificar que <strong>nenhuma bateria está conectada antes de enviar comandos na CLI</strong>."
+        "message": "Digite os comandos ou use a conclusão automática."
     },
     "cliInputPlaceholder": {
-        "message": "Escreva o seu comando aqui"
+        "message": "Digite um comando aqui..."
     },
     "cliEnter": {
         "message": "Modo Linha de comandos (CLI) detectado"
@@ -1721,16 +1727,19 @@
         "message": "Reiniciar por Linha de comandos (CLI) detectado"
     },
     "cliSaveToFileBtn": {
-        "message": "Salvar em arquivo"
+        "message": "Salvar para arquivo"
     },
     "cliClearOutputHistoryBtn": {
-        "message": "Limpar histórico"
+        "message": "Limpar saída"
     },
     "cliCopyToClipboardBtn": {
         "message": "Copiar para área de transferência"
     },
     "cliCopySuccessful": {
         "message": "Copiado!"
+    },
+    "cliLoadFromFileBtn": {
+        "message": "Carregar de arquivo"
     },
     "loggingNote": {
         "message": "Os dados serão gravados <span class=\"message-negative\">somente</span> nesta aba, sair da aba irá <span class=\"message-negative\">cancelar</span> o log e a aplicação irá retornar para seu estado <strong>\"configurador\"</strong> normal.<br /> Você pode selecionar o período de atualização global, por motivos de performance, os dados serão escritos no arquivo de log a cada <strong>1</strong> segundo."
@@ -1856,13 +1865,13 @@
         "message": "Falha ao escrever no arquivo selecionado, as permissões da pasta estão corretas?"
     },
     "sdcardStatusNoCard": {
-        "message": "Nenhum cartão inserido"
+        "message": "SEM CARTÃO"
     },
     "sdcardStatusReboot": {
         "message": "Erro fatal<br>Reinicie para tentar novamente"
     },
     "sdcardStatusReady": {
-        "message": "Cartão pronto"
+        "message": "Pronto"
     },
     "sdcardStatusStarting": {
         "message": "Cartão inicializando..."
@@ -3217,10 +3226,13 @@
         "message": "Angulo da câmera FPV [graus]"
     },
     "onboardLoggingBlackbox": {
-        "message": "Registro de bordo (Blackbox)"
+        "message": "Configuração da Blackbox"
     },
     "onboardLoggingRateOfLogging": {
-        "message": "Frequência de log do Blackbox"
+        "message": "Taxa de registro"
+    },
+    "onboardLoggingDebugMode": {
+        "message": "Modo de depuração"
     },
     "onboardLoggingSerialLogger": {
         "message": "Dispositivo de log externo"

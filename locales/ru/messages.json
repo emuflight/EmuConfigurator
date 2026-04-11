@@ -166,11 +166,14 @@
     "tabRawSensorData": {
         "message": "Датчики"
     },
+    "tabCLI": {
+        "message": "CLI"
+    },
     "tabLogging": {
-        "message": "Логирование через кабель"
+        "message": "Логирование"
     },
     "tabOnboardLogging": {
-        "message": "Чёрный ящик"
+        "message": "Blackbox"
     },
     "tabAdjustments": {
         "message": "Настройки"
@@ -1777,8 +1780,11 @@
     "sensorsDebugTitle": {
         "message": "Отладка"
     },
+    "cliInfo": {
+        "message": "Введите команды или используйте автозаполнение."
+    },
     "cliInputPlaceholder": {
-        "message": "Пишите ваши команды здесь"
+        "message": "Введите команду..."
     },
     "cliEnter": {
         "message": "Обнаружен переход в режим командной строки"
@@ -1790,13 +1796,16 @@
         "message": "Сохранить в файл"
     },
     "cliClearOutputHistoryBtn": {
-        "message": "Очистить историю"
+        "message": "Очистить вывод"
     },
     "cliCopyToClipboardBtn": {
         "message": "Копировать в буфер обмена"
     },
     "cliCopySuccessful": {
         "message": "Скопировано!"
+    },
+    "cliLoadFromFileBtn": {
+        "message": "Загрузить из файла"
     },
     "loggingNote": {
         "message": "Информация будет логироваться в эту закладку <span class=\"message-negative\">только</span>, покидая эту закладку будет <span class=\"message-negative\">отменено</span> логировние и приложение вернется в нормальное <strong>\"конфигуратор\"</strong> состояние.<br /> Вы вольны выбрать глобальный период обновления, информация будет записана в лог файл каждые <strong>1</strong> секунд по соображениям производительности."
@@ -1922,13 +1931,13 @@
         "message": "Провалена запись в выбранный файл, есть ли разрешение на эту директорию?"
     },
     "sdcardStatusNoCard": {
-        "message": "Карта не вставлена"
+        "message": "НЕТ КАРТЫ"
     },
     "sdcardStatusReboot": {
         "message": "Критическая ошибка<br>Попытка перезагрузки"
     },
     "sdcardStatusReady": {
-        "message": "Карта готова"
+        "message": "Готов"
     },
     "sdcardStatusStarting": {
         "message": "Карта запускается..."
@@ -3378,10 +3387,13 @@
         "message": "Угол наклона FPV-камеры [degrees]"
     },
     "onboardLoggingBlackbox": {
-        "message": "Бортовой регистратор (Blackbox)"
+        "message": "Настройка Blackbox"
     },
     "onboardLoggingRateOfLogging": {
-        "message": "Частота записи в Blackbox"
+        "message": "Частота записи"
+    },
+    "onboardLoggingDebugMode": {
+        "message": "Режим отладки"
     },
     "onboardLoggingSerialLogger": {
         "message": "Внешнее устройство записи"
