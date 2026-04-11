@@ -1031,6 +1031,9 @@
     "portsTelemetryDisabled": {
         "message": "無効"
     },
+    "portsFunction_GPS": {
+        "message": "GPS モジュールとの通信を有効にします。"
+    },
     "portsFunction_RX_SERIAL": {
         "message": "シリアル受信"
     },
@@ -3498,11 +3501,20 @@
     "vtxBand": {
         "message": "バンド"
     },
+    "vtxBandHelp": {
+        "message": "VTX の周波数バンドを選択します。"
+    },
     "vtxChannel": {
         "message": "チャンネル"
     },
+    "vtxChannelHelp": {
+        "message": "VTX の送信チャンネルを選択します。"
+    },
     "vtxPower": {
         "message": "出力"
+    },
+    "vtxPowerHelp": {
+        "message": "送信出力を mW 単位で設定します。"
     },
     "vtxPitMode": {
         "message": "ピットモード"

@@ -980,6 +980,9 @@
     "portsTelemetryDisabled": {
         "message": "Désactivé"
     },
+    "portsFunction_GPS": {
+        "message": "Active la communication avec le module GPS."
+    },
     "portsFunction_TELEMETRY_FRSKY": {
         "message": "Frsky"
     },
@@ -3266,11 +3269,20 @@
     "vtxBand": {
         "message": "Bande"
     },
+    "vtxBandHelp": {
+        "message": "Sélectionne la bande de fréquence du VTX."
+    },
     "vtxChannel": {
         "message": "Canal"
     },
+    "vtxChannelHelp": {
+        "message": "Sélectionne le canal radio du VTX."
+    },
     "vtxPower": {
         "message": "Puissance"
+    },
+    "vtxPowerHelp": {
+        "message": "Ajuste la puissance de transmission en mW."
     },
     "vtxPitMode": {
         "message": "Mode Pit"

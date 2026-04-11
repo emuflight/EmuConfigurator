@@ -1049,6 +1049,9 @@
     "portsTelemetryDisabled": {
         "message": "已禁用"
     },
+    "portsFunction_GPS": {
+        "message": "启用与 GPS 模块的通信。"
+    },
     "portsFunction_TELEMETRY_FRSKY": {
         "message": "Frsky"
     },
@@ -3574,11 +3577,20 @@
     "vtxBand": {
         "message": "频段"
     },
+    "vtxBandHelp": {
+        "message": "选择 VTX 工作频段。"
+    },
     "vtxChannel": {
         "message": "频道"
     },
+    "vtxChannelHelp": {
+        "message": "选择 VTX 工作频道。"
+    },
     "vtxPower": {
         "message": "功率"
+    },
+    "vtxPowerHelp": {
+        "message": "设置发射功率 (单位: mW)。"
     },
     "vtxPitMode": {
         "message": "维修模式 (Pit Mode)"

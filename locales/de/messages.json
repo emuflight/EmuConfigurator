@@ -972,6 +972,9 @@
     "portsTelemetryDisabled": {
         "message": "Deaktiviert"
     },
+    "portsFunction_GPS": {
+        "message": "Aktiviert die Kommunikation mit dem GPS-Modul."
+    },
     "portsFunction_RX_SERIAL": {
         "message": "serieller Empfänger"
     },
@@ -3160,11 +3163,20 @@
     "vtxBand": {
         "message": "Band"
     },
+    "vtxBandHelp": {
+        "message": "Wählt das Frequenzband des VTX aus."
+    },
     "vtxChannel": {
         "message": "Kanal"
     },
+    "vtxChannelHelp": {
+        "message": "Wählt den Funkkanal des VTX aus."
+    },
     "vtxPower": {
         "message": "Leistung"
+    },
+    "vtxPowerHelp": {
+        "message": "Einstellen der Sendeleistung in mW."
     },
     "vtxPitMode": {
         "message": "Pit-Modus"

@@ -917,6 +917,9 @@
     "portsTelemetryDisabled": {
         "message": "disabilitato"
     },
+    "portsFunction_GPS": {
+        "message": "Abilita la comunicazione con il modulo GPS."
+    },
     "portsFunction_TELEMETRY_CRSF": {
         "message": "crossfire"
     },
@@ -3135,11 +3138,20 @@
     "vtxBand": {
         "message": "Banda"
     },
+    "vtxBandHelp": {
+        "message": "Seleziona la banda di frequenza del VTX."
+    },
     "vtxChannel": {
         "message": "Canale"
     },
+    "vtxChannelHelp": {
+        "message": "Seleziona il canale radio del VTX."
+    },
     "vtxPower": {
         "message": "Potenza"
+    },
+    "vtxPowerHelp": {
+        "message": "Regola la potenza di trasmissione in mW."
     },
     "vtxPitMode": {
         "message": "Modalità Pit"

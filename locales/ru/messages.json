@@ -1013,6 +1013,9 @@
     "portsTelemetryDisabled": {
         "message": "Отключено"
     },
+    "portsFunction_GPS": {
+        "message": "Включает связь с модулем GPS."
+    },
     "portsFunction_BLACKBOX": {
         "message": "Запись в Blackbox"
     },
@@ -3461,11 +3464,20 @@
     "vtxBand": {
         "message": "Сетка"
     },
+    "vtxBandHelp": {
+        "message": "Выбор частотной сетки VTX."
+    },
     "vtxChannel": {
         "message": "Канал"
     },
+    "vtxChannelHelp": {
+        "message": "Выбор радиоканала VTX."
+    },
     "vtxPower": {
         "message": "Мощность"
+    },
+    "vtxPowerHelp": {
+        "message": "Настройка мощности передачи в mW."
     },
     "vtxPitMode": {
         "message": "Pit-mode"

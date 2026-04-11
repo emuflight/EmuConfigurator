@@ -806,6 +806,9 @@
     "portsTelemetryDisabled": {
         "message": "Deshabilitat"
     },
+    "portsFunction_GPS": {
+        "message": "Habilita la comunicació amb el mòdul GPS."
+    },
     "portsFunction_RX_SERIAL": {
         "message": "RX Sèrie"
     },
@@ -2527,11 +2530,20 @@
     "vtxBand": {
         "message": "Banda"
     },
+    "vtxBandHelp": {
+        "message": "Selecciona la banda de freqüència del VTX."
+    },
     "vtxChannel": {
         "message": "Canal"
     },
+    "vtxChannelHelp": {
+        "message": "Selecciona el canal de ràdio del VTX."
+    },
     "vtxPower": {
         "message": "Potència"
+    },
+    "vtxPowerHelp": {
+        "message": "Ajusta la potència de transmissió en mW."
     },
     "vtxPitMode": {
         "message": "Mode Pit"

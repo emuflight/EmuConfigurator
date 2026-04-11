@@ -1037,6 +1037,9 @@
     "portsTelemetryDisabled": {
         "message": "비활성화됨"
     },
+    "portsFunction_GPS": {
+        "message": "GPS 모듈과의 통신을 활성화합니다."
+    },
     "portsFunction_TELEMETRY_SMARTPORT": {
         "message": "스마트포트"
     },
@@ -3574,11 +3577,20 @@
     "vtxBand": {
         "message": "밴드"
     },
+    "vtxBandHelp": {
+        "message": "VTX의 주파수 밴드를 선택합니다."
+    },
     "vtxChannel": {
         "message": "채널"
     },
+    "vtxChannelHelp": {
+        "message": "VTX의 전송 채널을 선택합니다."
+    },
     "vtxPower": {
         "message": "출력"
+    },
+    "vtxPowerHelp": {
+        "message": "출력을 mW 단위로 설정합니다."
     },
     "vtxPitMode": {
         "message": "핏 모드 (Pit Mode)"
