@@ -1829,7 +1829,7 @@
         "message": "Si prega di caricare il file del firmware"
     },
     "firmwareFlasherNoReboot": {
-        "message": "Nessuna sequenza di riavvio"
+        "message": "Senza riavvio automatico"
     },
     "firmwareFlasherOnlineSelectBuildType": {
         "message": "Seleziona il tipo di build per vedere le schede disponibili."
@@ -1844,13 +1844,13 @@
         "message": "Abilita se il tuo FC è in modalità boot. Vale a dire se hai acceso il FC con i pin del bootloader collegati o tenendo premuto il pulsante BOOT"
     },
     "firmwareFlasherFlashOnConnect": {
-        "message": "Flasha alla connessione"
+        "message": "Flash alla connessione"
     },
     "firmwareFlasherFlashOnConnectDescription": {
         "message": "Tentare di flashare automaticamente la scheda (attivata dalla porta seriale appena rilevata)."
     },
     "firmwareFlasherFullChipErase": {
-        "message": "Cancella completamente il chip"
+        "message": "Cancellazione completa del chip"
     },
     "firmwareFlasherFullChipEraseDescription": {
         "message": "Cancella tutti i dati di configurazione contenuti sulla scheda."

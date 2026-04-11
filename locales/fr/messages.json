@@ -1877,7 +1877,7 @@
         "message": "Veuillez charger le fichier du microprogramme"
     },
     "firmwareFlasherNoReboot": {
-        "message": "Pas de redémarrage"
+        "message": "Pas de redémarrage automatique"
     },
     "firmwareFlasherOnlineSelectBuildType": {
         "message": "Choisir le type de build pour voir les cartes disponibles."
@@ -1892,7 +1892,7 @@
         "message": "Activer si votre contrôleur de vol est en boot mode (Si vous l'avez branché en faisant contact entre les pins bootloader ou en maintenant le bouton BOOT, connu aussi en tant que DFU mode)"
     },
     "firmwareFlasherFlashOnConnect": {
-        "message": "Flasher une fois connecté"
+        "message": "Flash à la connexion"
     },
     "firmwareFlasherFlashOnConnectDescription": {
         "message": "Tentative de flashage auto de la carte (déclenchement par détection d'un nouveau port série)"

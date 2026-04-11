@@ -1997,7 +1997,7 @@
         "message": "Пожалуйста, загрузите файл прошивки"
     },
     "firmwareFlasherNoReboot": {
-        "message": "Без перезагрузки"
+        "message": "Без автоперезагрузки"
     },
     "firmwareFlasherOnlineSelectBuildType": {
         "message": "Выберите тип сборки, чтобы увидеть доступные платы полетных контроллеров."
@@ -2012,13 +2012,13 @@
         "message": "Включите её, если ваш полётный контроллер находится в boot-режиме, т.е. если Вы подключили питание полётного контроллера с замкнутыми контактами \"BOOT\" или удерживая кнопку \"BOOT\"."
     },
     "firmwareFlasherFlashOnConnect": {
-        "message": "Прош. при подкл."
+        "message": "Прошивка при подключении"
     },
     "firmwareFlasherFlashOnConnectDescription": {
         "message": "Попытка прошивки платы автоматически (инициируется вновь обнаруженным последовательным портом)."
     },
     "firmwareFlasherFullChipErase": {
-        "message": "Полное стирание чипа"
+        "message": "Полная очистка чипа"
     },
     "firmwareFlasherFullChipEraseDescription": {
         "message": "Очищает все данные о настройках, хранящиеся памяти в полётного контроллера."

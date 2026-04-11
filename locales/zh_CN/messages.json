@@ -2072,7 +2072,7 @@
         "message": "请载入固件文件"
     },
     "firmwareFlasherNoReboot": {
-        "message": "无重启序列"
+        "message": "烧录后不自动重启"
     },
     "firmwareFlasherOnlineSelectBuildType": {
         "message": "选择 \"生成类型\" 以查看可用的飞控板。"
@@ -2087,13 +2087,13 @@
         "message": "如果你的飞控已经处于boot模式下则启用这个选项。比如你在插电时已经短接了飞控的boot引脚或者按住了boot按钮。"
     },
     "firmwareFlasherFlashOnConnect": {
-        "message": "当飞控连接时自动烧录固件"
+        "message": "连上后自动烧录"
     },
     "firmwareFlasherFlashOnConnectDescription": {
         "message": "当发现新的串口设备时尝试自动烧录固件"
     },
     "firmwareFlasherFullChipErase": {
-        "message": "全盘擦除（会丢失所有设置）"
+        "message": "全片擦除"
     },
     "firmwareFlasherFullChipEraseDescription": {
         "message": "擦除保存在飞控上的所有设置"

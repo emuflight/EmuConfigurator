@@ -1988,7 +1988,7 @@
         "message": "Por favor, carga el archivo con el firmware"
     },
     "firmwareFlasherNoReboot": {
-        "message": "No reiniciar"
+        "message": "Sin reinicio automático"
     },
     "firmwareFlasherOnlineSelectBuildType": {
         "message": "Selecciona el tipo de versión para ver las placas disponibles."
@@ -2003,7 +2003,7 @@
         "message": "Activar si tu FC está en modo boot. Por ej. si arrancaste el FC con los pins del gestor de arranque unidos o mientras pulsabas el botón BOOT."
     },
     "firmwareFlasherFlashOnConnect": {
-        "message": "Instalar al conectar"
+        "message": "Flash al conectar"
     },
     "firmwareFlasherFlashOnConnectDescription": {
         "message": "Intentar instalar el firmware automáticamente (se ejecuta al detectar un nuevo puerto serie)."

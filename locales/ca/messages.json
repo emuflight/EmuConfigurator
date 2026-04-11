@@ -1530,7 +1530,7 @@
         "message": "Si us plau carrega l'arxiu de firmware"
     },
     "firmwareFlasherNoReboot": {
-        "message": "Sense reboot sequence"
+        "message": "Sense reinici automàtic"
     },
     "firmwareFlasherOnlineSelectBoardDescription": {
         "message": "Selecciona la teva controladora per veure les versions de firmware online disponibles - Selecciona el firmware correcte que s'adeqüi a la teva controladora."
@@ -1542,10 +1542,13 @@
         "message": "Habilita-ho si la teva controladora està en mode boot. P.ex. si l'has engegat amb els pins de boot creuats o has premut el botó de BOOT."
     },
     "firmwareFlasherFlashOnConnect": {
-        "message": "Flasheja al connectar"
+        "message": "Flash al connectar"
     },
     "firmwareFlasherFlashOnConnectDescription": {
         "message": "Provant de flashejar la controladora automàticament (llençat per la detecció d'un nou port de sèrie)"
+    },
+    "firmwareFlasherFullChipErase": {
+        "message": "Esborrat complet del xip"
     },
     "firmwareFlasherFullChipEraseDescription": {
         "message": "Esborra tota la configuració desada a la controladora"

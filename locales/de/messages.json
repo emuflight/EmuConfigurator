@@ -1860,7 +1860,7 @@
         "message": "Bitte lade eine Firmware-Datei"
     },
     "firmwareFlasherNoReboot": {
-        "message": "Keine Reboot-Sequenz"
+        "message": "Kein automatischer Neustart"
     },
     "firmwareFlasherOnlineSelectBuildType": {
         "message": "Wähle anzuzeigenden Entwicklungsstand der Firmware für die jeweiligen FC's."
@@ -1875,13 +1875,13 @@
         "message": "Auswählen, wenn dein FC im Boot-Modus ist - also wenn du den FC mit verbundenen Boot-Pins oder gedrücktem Boot-Knopf eingeschaltet hast."
     },
     "firmwareFlasherFlashOnConnect": {
-        "message": "Flashen nach Verbindung"
+        "message": "Flashen beim Verbinden"
     },
     "firmwareFlasherFlashOnConnectDescription": {
         "message": "FC automatisch Flashen (Auslösung durch Erkennung eines neuen seriellen Portes)."
     },
     "firmwareFlasherFullChipErase": {
-        "message": "Chip vollständig Löschen"
+        "message": "Chip vollständig löschen"
     },
     "firmwareFlasherFullChipEraseDescription": {
         "message": "Löscht alle im FC gespeicherten Einstellungen."

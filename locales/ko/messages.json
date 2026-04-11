@@ -2081,7 +2081,7 @@
         "message": "펌웨어 파일을 로드하십시오."
     },
     "firmwareFlasherNoReboot": {
-        "message": "재부팅 절차 없음"
+        "message": "자동 재시작 안 함"
     },
     "firmwareFlasherOnlineSelectBuildType": {
         "message": "사용 가능한 보드를 보고 빌드 형식을 선택하세요."
@@ -2096,13 +2096,13 @@
         "message": "FC가 부팅 모드인 경우 활성화됩니다. 즉 부트로더 핀을 점프하거나 또는 FC의 BOOT 버튼을 누르고 있는 상태에서 FC의 전원을 켠 경우입니다."
     },
     "firmwareFlasherFlashOnConnect": {
-        "message": "연결시 플래시함"
+        "message": "연결 시 플래시"
     },
     "firmwareFlasherFlashOnConnectDescription": {
         "message": "보드를 자동으로 플래시 하기를 시도하십시오 (새로 감지 된 시리얼 포트에 의해 트리거됨)."
     },
     "firmwareFlasherFullChipErase": {
-        "message": "칩 완전 삭제"
+        "message": "칩 전체 삭제"
     },
     "firmwareFlasherFullChipEraseDescription": {
         "message": "현재 보드에 저장된 모든 환경설정 데이터를 지웁니다."

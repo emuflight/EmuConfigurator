@@ -2033,7 +2033,7 @@
         "message": "ファームウェアファイルを選択して下さい"
     },
     "firmwareFlasherNoReboot": {
-        "message": "再起動シーケンスなし"
+        "message": "自動再起動しない"
     },
     "firmwareFlasherOnlineSelectBuildType": {
         "message": "使用可能なFCボードを表示するには、ビルドタイプを選択します。"
@@ -2048,13 +2048,13 @@
         "message": "FCがBOOTモードの場合に有効とします。具体的にはブートローダーのピンをジャンパさせたり、BOOTボタンを押しながらFCの電源を入れた場合に有効とします。"
     },
     "firmwareFlasherFlashOnConnect": {
-        "message": "接続時に書込み"
+        "message": "接続時にフラッシュ"
     },
     "firmwareFlasherFlashOnConnectDescription": {
         "message": "FCボードへ自動的にフラッシュします。(新たに検出されたシリアルポートによって起動)"
     },
     "firmwareFlasherFullChipErase": {
-        "message": "チップメモリの完全消去"
+        "message": "全チップ消去"
     },
     "firmwareFlasherFullChipEraseDescription": {
         "message": "FCボードに現在保存されている全ての設定データを消去します。"
