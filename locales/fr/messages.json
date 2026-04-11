@@ -1144,6 +1144,9 @@
     "pidTuningRatesPreview": {
         "message": "Prévisualisation des Rates"
     },
+    "pidTuningRCRatesTypeHelp": {
+        "message": "Style de définition des Rates (Betaflight, Raceflight, KISS, etc.)"
+    },
     "pidTuningThrottleLimitType": {
         "message": "Limite Gaz"
     },

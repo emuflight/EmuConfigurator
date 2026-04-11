@@ -1213,6 +1213,9 @@
     "pidTuningRcExpo": {
         "message": "Expo RC"
     },
+    "pidTuningRCRatesTypeHelp": {
+        "message": "Estilo de definición de los Rates (Betaflight, Raceflight, KISS, etc.)"
+    },
     "pidTuningTPABreakPoint": {
         "message": "Punto de corte del TPA"
     },

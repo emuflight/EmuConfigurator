@@ -1246,6 +1246,9 @@
     "pidTuningRatesPreview": {
         "message": "레이트 미리보기"
     },
+    "pidTuningRCRatesTypeHelp": {
+        "message": "레이트 계산 방식의 종류입니다 (Betaflight, Raceflight, KISS 등)"
+    },
     "pidTuningTPABreakPoint": {
         "message": "TPA 브레이크포인트"
     },

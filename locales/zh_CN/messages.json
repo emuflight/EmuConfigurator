@@ -1240,6 +1240,9 @@
     "pidTuningRatesPreview": {
         "message": "Rates 预览"
     },
+    "pidTuningRCRatesTypeHelp": {
+        "message": "速率计算公式类型 (Betaflight, Raceflight, KISS 等等)"
+    },
     "pidTuningTPABreakPoint": {
         "message": "TPA 起始点"
     },

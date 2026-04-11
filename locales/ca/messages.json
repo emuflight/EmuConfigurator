@@ -893,6 +893,9 @@
     "pidTuningRatesPreview": {
         "message": "Previsualització de Rates"
     },
+    "pidTuningRCRatesTypeHelp": {
+        "message": "Estil de definició dels Rates (Betaflight, Raceflight, KISS, etc.)"
+    },
     "pidTuningFilter": {
         "message": "Filtre"
     },

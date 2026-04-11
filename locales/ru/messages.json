@@ -1180,6 +1180,9 @@
     "pidTuningRatesPreview": {
         "message": "Просмотр Rate-ов в действии"
     },
+    "pidTuningRCRatesTypeHelp": {
+        "message": "Математическая модель расчета рейтов (Betaflight, Raceflight, KISS и т.д.)"
+    },
     "pidTuningTPABreakPoint": {
         "message": "TPA-порог"
     },

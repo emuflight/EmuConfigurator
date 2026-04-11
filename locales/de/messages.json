@@ -1142,6 +1142,9 @@
     "pidTuningRatesPreview": {
         "message": "Vorschau"
     },
+    "pidTuningRCRatesTypeHelp": {
+        "message": "Stil der Rate-Definition (Betaflight, Raceflight, KISS, etc.)"
+    },
     "pidTuningTPABreakPoint": {
         "message": "TPA Einstiegspunkt"
     },

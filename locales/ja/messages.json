@@ -1204,6 +1204,9 @@
     "pidTuningRatesPreview": {
         "message": "レートプレビュー"
     },
+    "pidTuningRCRatesTypeHelp": {
+        "message": "レート計算の方式です (Betaflight, Raceflight, KISS など)"
+    },
     "pidTuningTPABreakPoint": {
         "message": "TPA 区切り点"
     },

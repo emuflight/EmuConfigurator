@@ -1084,6 +1084,9 @@
     "pidTuningRcExpo": {
         "message": "Esponenziale"
     },
+    "pidTuningRCRatesTypeHelp": {
+        "message": "Stile di definizione dei Rate (Betaflight, Raceflight, KISS, etc.)"
+    },
     "pidTuningTPABreakPoint": {
         "message": "Punto di interruzione TPA"
     },
