@@ -2224,7 +2224,7 @@
         "message": "Aumenta i valori dei PID per compensare la diminuzione del voltaggio della batteria. Darà caratteristiche di volo più costanti per la durata di tutto il volo. La quantità di compensazione applicata è calcolata in base al $t(powerBatteryMaximum.message) impostato nella pagina $t(tabPower.message), quindi assicurati che sia impostato su in valore appropriato."
     },
     "pidTuningEmuBoostHelp": {
-        "message": "Aggiunge un boost non linerare all'errore visto dai termini P ed I. Aggiunge un feeling diverso agli stick. Valori troppo alti causano oscillazioni. Multirotori con un rapporto peso/potenza più basso come i whoop adorano valori abbastanza alti di EmuBoost e vengono resi molto più precisi."
+        "message": "Aggiunge un boost non lineare all'errore visto dai termini P ed I. Aggiunge un feeling diverso agli stick. Valori troppo alti causano oscillazioni. Multirotori con un rapporto peso/potenza più basso come i whoop adorano valori abbastanza alti di EmuBoost e vengono resi molto più precisi."
     },
     "pidTuningEmuBoostLimitHelp": {
         "message": "Mette un limite a quanto EmuBoost può amplificare l'errore. Viene misurato come percentuale di quanto errore può aggiungere EmuBoost. Un EmuBoost alto con un limite EmuBoost basso può dare un feeling molto reattivo vicino al centro dello stick. Modifica secondo le tue preferenze."

@@ -3114,7 +3114,7 @@
         "message": "当前行进方向的图形箭头"
     },
     "osdDescElementWarnings": {
-        "message": "警报 (比如低电压)，警告 (不能开锁原因，电池电压极低) 和模拟蜂鸣器(4个闪烁星号)。"
+        "message": "警报 (比如低电压)，警告 (不能解锁原因，电池电压极低) 和模拟蜂鸣器(4个闪烁星号)。"
     },
     "osdDescElementEscTemperature": {
         "message": "电调回传温度"
