@@ -2315,7 +2315,7 @@
         "message": "Flight controller anda tidak menanggapi ke perintah OSD. Mungkin FC anda tidak memiliki OSD Emuflight."
     },
     "osdSetupUnsupportedNote2": {
-        "message": "Perhatikan bahwa beberapa flight controller memiliki <a href=\"https://www.youtube.com/watch?v=ikKH_6SQ-Tk\" target=\"_blank\">MinimOSD</a> bawaan yang dapat diflash dan dikonfigurasi dengan <a href=\"https://github.com/ShikOfTheRa/scarab-osd/releases/latest\" target='_blank'>scarab-osd</a>, namun MinimOSD tidak dapat dikonfigurasi melalui antarmuka ini."
+        "message": "Perhatikan bahwa beberapa flight controller memiliki <a href=\"https://www.youtube.com/watch?v=ikKH_6SQ-Tk\" target=\"_blank\">MinimOSD</a> bawaan yang dapat diflash dan dikonfigurasi dengan <a href=\"https://github.com/ShikOfTheRa/scarab-osd/releases/latest\" target=\"_blank\">scarab-osd</a>, namun MinimOSD tidak dapat dikonfigurasi melalui antarmuka ini."
     },
     "osdSetupElementsTitle": {
         "message": "Elemen"

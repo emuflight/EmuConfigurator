@@ -2141,7 +2141,7 @@
         "message": "没有加载固件"
     },
     "firmwareFlasherFirmwareLocalLoaded": {
-        "message": "已加载本地固件：（$1 字节）"
+        "message": "已加载本地固件: ($1 字节)"
     },
     "firmwareFlasherHexCorrupted": {
         "message": "HEX文件似乎已损坏"

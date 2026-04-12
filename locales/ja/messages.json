@@ -254,7 +254,7 @@
         "message": "ローカル消去を実行中 ..."
     },
     "stm32InvalidHex": {
-        "message": "無効な 16 進数"
+        "message": "無効な16進数"
     },
     "stm32Erase": {
         "message": "消去中..."
