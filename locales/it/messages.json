@@ -1175,7 +1175,7 @@
         "message": "Stick Minimo"
     },
     "receiverHelpStickMin": {
-        "message": "Il valore massimo (in us) in cui lo stick verrà riconosceiuto come basso / sinistra per l'input di comando (MIN_CHECK)."
+        "message": "Il valore massimo (in us) in cui lo stick verrà riconosciuto come basso / sinistra per l'input di comando (MIN_CHECK)."
     },
     "receiverStickCenter": {
         "message": "Stick Centrale"

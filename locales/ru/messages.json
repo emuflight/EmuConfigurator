@@ -864,7 +864,7 @@
         "message": "Это значение, которое посылается к регуляторам  оборотов во время дизарминга. Установите его в такое значение, при котором перестают крутиться моторы (для большинства регуляторов оборотов значение - 1000)."
     },
     "configurationDshotBeeper": {
-        "message": "Настройка DSHOT пискa"
+        "message": "Настройка DSHOT писка"
     },
     "configurationUseDshotBeeper": {
         "message": "Применить DSHOT писк (пищит моторами, если долгое время находится в режиме дизарма)"
@@ -3024,7 +3024,7 @@
     "osdDescElementEscRpm": {
         "message": "Скорость оборотов, полученная из телеметрии от ESC"
     },
-    "osdDescElementRemaningTimeEstimate": {
+    "osdDescElementRemainingTimeEstimate": {
         "message": "Расчётное время до полного разряда батареи"
     },
     "osdDescElementRtcDateTime": {
@@ -3445,7 +3445,7 @@
         "message": "Pit-mode"
     },
     "vtxLowPowerDisarm": {
-        "message": "Низкая мощность при дисарме"
+        "message": "Низкая мощность при дизарме"
     },
     "vtxButtonSave": {
         "message": "Сохранить настройки VTX"

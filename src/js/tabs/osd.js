@@ -1239,7 +1239,7 @@ OSD.loadDisplayFields = function() {
         },
         REMAINING_TIME_ESTIMATE: {
             name: 'REMAINING_TIME_ESTIMATE',
-            text: 'osdTextElementRemaningTimeEstimate',
+            text: 'osdTextElementRemainingTimeEstimate',
             desc: 'osdDescElementRemainingTimeEstimate',
             default_position: -1,
             draw_order: 80,
