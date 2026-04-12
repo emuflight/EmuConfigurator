@@ -36,7 +36,7 @@
         "message": "手动选择"
     },
     "portOverrideText": {
-        "message": "端口:"
+        "message": "端口："
     },
     "autoConnect": {
         "message": "自动连接"
@@ -48,7 +48,7 @@
         "message": "自动连接：开启 - 地面站会自动连接新发现的端口"
     },
     "autoConnectDisabled": {
-        "message": "自动连接: 禁用-用户需要选择正确的串行端口, 然后单击 \"连接\" 按钮。"
+        "message": "自动连接：禁用-用户需要选择正确的串行端口, 然后单击 \"连接\" 按钮。"
     },
     "expertMode": {
         "message": "专家模式 (Expert Mode)"
@@ -1985,7 +1985,7 @@
         "message": "写入文件失败，请确认文件和文件夹权限。"
     },
     "sdcardStatusNoCard": {
-        "message": "无内存卡"
+        "message": "无SD卡"
     },
     "sdcardStatusReboot": {
         "message": "致命错误<br>重启后再试"

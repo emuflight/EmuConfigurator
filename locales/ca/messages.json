@@ -1930,7 +1930,7 @@
         "message": "Configura aquesta opció per a fer el failsafe switch com a mesura de seguretat. <strong>Nota:</strong> L'armat està bloquejat si el switch està a la posició ON"
     },
     "failsafeSwitchTitle": {
-        "message": "Mode Failsafe d'Interruptor"
+        "message": "Failsafe d'Interruptor"
     },
     "failsafeSwitchModeItem": {
         "message": "Acció de l'interruptor de Failsafe"
@@ -2348,9 +2348,6 @@
     },
     "osdWarningCrashFlipMode": {
         "message": "Avisa quan es dona la volta després que s'activi el crash mode"
-    },
-    "osdWarningTextFailsafe": {
-        "message": "Seguretat de Falla"
     },
     "osdSectionHelpVideoMode": {
         "message": "Configura el mode de video esperat (hauria de funcionar en AUTO, d'altra forma configura-ho manualment)"

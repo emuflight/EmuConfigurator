@@ -219,7 +219,7 @@
         "message": "Kommunikation mit Bootloader fehlgeschlagen"
     },
     "stm32ResponseBootloaderFailed": {
-        "message": "Keine Antwort des Bootloaders. Prgrammierung fehlgeschlagen"
+        "message": "Keine Antwort des Bootloaders. Programmierung fehlgeschlagen"
     },
     "stm32GlobalEraseExtended": {
         "message": "Lösche den kompletten Chip (über erweitertes Löschen)"
