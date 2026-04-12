@@ -860,16 +860,16 @@
     "configurationThrottleMinimumCommandHelp": {
         "message": "Detta är det värde som skickas till ESC:erna när farkosten är inaktiverad. Sätt detta till ett värde som stoppar motorerna (1000 för de flesta ESC:er)."
     },
-    "configurationDSHOTBeeper": {
+    "configurationDshotBeeper": {
         "message": "Konfiguration av DSHOT signalfyr"
     },
-    "configurationUseDSHOTBeeper": {
+    "configurationUseDshotBeeper": {
         "message": "Använd DSHOT signalfyr (använd motorerna för att sända ljud vid motorinaktivering)"
     },
-    "configurationDSHOTBeaconTone": {
+    "configurationDshotBeaconTone": {
         "message": "Signalfyr-ton"
     },
-    "configurationDSHOTBeaconHelp": {
+    "configurationDshotBeaconHelp": {
         "message": "DSHOT-signalfyren använder ESC:erna och motorerna för att producera ljud. Detta innebär att DSHOT-signalfyren inte kan användas medan motorerna roterar. I Emuflight 3.4 och nyare, när motoraktivering påbörjas medan DSHOT-signalfyren är aktiv, blir det en 2-sekunders paus efter den sista DSHOT-signalfyrtonen innan farkosten aktiveras. Detta är för att förhindra att DSHOT-signalfyrfunktionen stör DSHOT-kommandon som sänds vid motoraktivering.<br/><strong>Varning:</strong> Eftersom DSHOT-signalfyren skickar ström genom motorerna när den är aktiv, kan detta orsaka alltför stor värmeproduktion och skador på motorerna och / eller ESC:erna om signalfyrens styrka är för hög. Använd BLHeli Configurator eller BLHeli Suite för att justera och testa signalfyrens styrka."
     },
     "configurationBeeper": {

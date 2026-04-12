@@ -881,16 +881,16 @@
     "configurationThrottleMinimumCommandHelp": {
         "message": "이것은 기체가 해제될 때 ESC로 보내지는 값입니다. 모터를 정지시킨 값으로 설정하십시오(대부분의 ESC의 경우 1000)."
     },
-    "configurationDSHOTBeeper": {
+    "configurationDshotBeeper": {
         "message": "DSHOT 비콘 환경설정"
     },
-    "configurationUseDSHOTBeeper": {
+    "configurationUseDshotBeeper": {
         "message": "DSHOT 비콘 사용 (디스아밍되면 모터를 사용하여 신호음을 울림)"
     },
-    "configurationDSHOTBeaconTone": {
+    "configurationDshotBeaconTone": {
         "message": "DSHOT 비콘 톤"
     },
-    "configurationDSHOTBeaconHelp": {
+    "configurationDshotBeaconHelp": {
         "message": "DSHOT 비콘은 ESC와 모터를 사용하여 소리를 재생합니다. 이는 모터가 회전 중일때는 DSHOT 비콘을 사용할 수 없다는 것을 의미합니다. BF 3.4와 최신에서는 DSHOT 비콘이 활성화 중일때 아밍을 시도하는 경우, 기체가 아밍되기 전에 마지막 DSHOT 비콘 톤 이후 2초의 딜레이가 생깁니다. 이는 DSHOT 비콘 기능이 아밍시 DSHOT 명령이 보내지는 것을 방해하는 것을 막기 위함입니다.<br/><strong>경고:</strong>DSHOT 비콘은 활성화할 경우 당신의 모터를 통해 작동되기 때문에 만약 비콘 강도가 매우 높게 설정되어 있다면, 당신의 모터나 ESC에 과열과 손상을 일으킬 수 있습니다. BLHeli 컨피규레이터나 BLheli Suite를 사용하여 비콘 강도를 조정하고 테스트하세요."
     },
     "configurationBeeper": {

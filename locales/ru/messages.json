@@ -863,16 +863,16 @@
     "configurationThrottleMinimumCommandHelp": {
         "message": "Это значение, которое посылается к регуляторам  оборотов во время дизарминга. Установите его в такое значение, при котором перестают крутиться моторы (для большинства регуляторов оборотов значение - 1000)."
     },
-    "configurationDSHOTBeeper": {
+    "configurationDshotBeeper": {
         "message": "Настройка DSHOT пискa"
     },
-    "configurationUseDSHOTBeeper": {
+    "configurationUseDshotBeeper": {
         "message": "Применить DSHOT писк (пищит моторами, если долгое время находится в режиме дизарма)"
     },
-    "configurationDSHOTBeaconTone": {
+    "configurationDshotBeaconTone": {
         "message": "Тональность бипера DSHOT"
     },
-    "configurationDSHOTBeaconHelp": {
+    "configurationDshotBeaconHelp": {
         "message": "DSHOT маяк используется для того чтоб ESCs и двигатели производили звук. Это значит, что DSHOT маяк не может быть использован когда двигатели вращаются. В Emuflight 3.4 и новее, когда происходит попытка \"вооружить\" пока DSHOT маяк активен, тогда аппарат \"вооружится\" спустя 2 секунды после последнего DSHOT маяка. Это должно помешать функциям маяка DSHOT мешать командам DSHOT, отправленным при вооружении.<br/><strong>Внимание:</strong> Поскольку маяк DSHOT пропускает ток через ваши двигатели, когда он активен, то это может привести к чрезмерному перегреву и повреждению ваших двигателей и / или ESC, если мощность маяка слишком высока. Используете BLHeli Configurator или BLHeli Suite для регулировки и проверки силы маяка."
     },
     "configurationBeeper": {

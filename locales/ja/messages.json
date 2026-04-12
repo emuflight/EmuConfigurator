@@ -875,16 +875,16 @@
     "configurationThrottleMinimumCommandHelp": {
         "message": "これは機体がディスアームされたときにESCに送信される値です。この値をモーターを停止させる値に設定して下さい。(殆どのESCは1000)"
     },
-    "configurationDSHOTBeeper": {
+    "configurationDshotBeeper": {
         "message": "DSHOTビーコン設定"
     },
-    "configurationUseDSHOTBeeper": {
+    "configurationUseDshotBeeper": {
         "message": "DSHOTビーコンを使用 (ディスアーム時にモーターを使ってビープ音を鳴らす)"
     },
-    "configurationDSHOTBeaconTone": {
+    "configurationDshotBeaconTone": {
         "message": "DSHOT ビーコントーン"
     },
-    "configurationDSHOTBeaconHelp": {
+    "configurationDshotBeaconHelp": {
         "message": "DSHOTビーコンは、ESCおよびモーターを使用してビーコン音を生成します。これは同時に、モーターが回転しているときにDSHOTビーコンを使用できないことを意味します。 Emuflight 3.4以降では、DSHOTビーコンが有効な状態である時にアーミングを試みると、機体がアームされる前、最後に鳴らしたDSHOTビーコントーンの後に2秒の遅延が起こります。これはDSHOTビーコン機能が、アーミング中に送信されたDSHOTコマンドを妨害しないようにするためです。\n<br/><strong>注:</strong> DSHOTビーコンは、有効な状態のときにモーターへ電流を流しているため、ビーコン強度が強すぎると過剰な熱の発生やモーター、ESCの損傷を招く場合があります。ビーコン強度を調整してテストするには、BLHeli ConfiguratorまたはBLHeli Suiteを使用して下さい。"
     },
     "configurationBeeper": {

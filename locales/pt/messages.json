@@ -860,16 +860,16 @@
     "configurationThrottleMinimumCommandHelp": {
         "message": "Este é o valor que é enviado para os ESCs quando a aeronave está desarmada. Defina um valor em que os motores fiquem parados (1000 para a maioria dos ESCs)."
     },
-    "configurationDSHOTBeeper": {
+    "configurationDshotBeeper": {
         "message": "Configuração do sinalizador do DSHOT"
     },
-    "configurationUseDSHOTBeeper": {
+    "configurationUseDshotBeeper": {
         "message": "Usar o sinalizador do DSHOT (usar os motores para emitir tons quando desarmado)"
     },
-    "configurationDSHOTBeaconTone": {
+    "configurationDshotBeaconTone": {
         "message": "Tom do sinal sonoro DSHOT"
     },
-    "configurationDSHOTBeaconHelp": {
+    "configurationDshotBeaconHelp": {
         "message": "O sinalizador do DSHOT usa os ESCs e motores para emitir som. Isso significa que o sinalizador do DSHOT não pode ser usado enquanto os motores estiverem rodando. A partir do Emuflight 3.4, quando tentar armar com o sinalizador do DSHOT ativo, haverá um atraso de 2 segundos para que a aeronave seja armada após um tom do sinalizador do DSHOT. Isto evita que o sinalizador interfira com os comando DSHOT enviados durante o processo de armar.<br/><strong>Atenção:</strong> O sinalizador do DSHOT envia uma corrente elétrica para os motores quando ativo, isso pode gerar calor excessivo e danificar seus motores e/ou ESCs se a potência do sinalizador estiver muito alta. Use o configurador BLHeli ou o BLHeli Suite para ajustar e testar a potência do sinalizador."
     },
     "configurationBeeper": {

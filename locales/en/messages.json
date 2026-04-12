@@ -1079,16 +1079,16 @@
     "configurationThrottleMinimumCommandHelp": {
         "message": "This is the value that is sent to the ESCs when the craft is disarmed. Set this to a value that has the motors stopped (1000 for most ESCs)."
     },
-    "configurationDSHOTBeeper": {
+    "configurationDshotBeeper": {
         "message": "DSHOT Beacon Configuration"
     },
-    "configurationUseDSHOTBeeper": {
+    "configurationUseDshotBeeper": {
         "message": "Use DSHOT beacon (use motors to sound beeps when disarmed)"
     },
-    "configurationDSHOTBeaconTone": {
+    "configurationDshotBeaconTone": {
         "message": "Beacon Tone"
     },
-    "configurationDSHOTBeaconHelp": {
+    "configurationDshotBeaconHelp": {
         "message": "The DSHOT beacon uses the ESCs and motors to produce sound. This means that the DSHOT beacon cannot be used when the motors are spinning. In Emuflight 3.4 and newer, when arming is attempted while the DSHOT beacon is active, there is a 2 second delay after the last DSHOT beacon tone before the craft is armed. This is to prevent the DSHOT beacon functionality from interfering with the DSHOT commands sent when arming.<br/><strong>Warning:</strong> Since the DSHOT beacon is running current through your motors when active, this can result in excessive heat production and damage to your motors and / or ESCs if the beacon strength is set too high. Use BLHeli Configurator or the BLHeli Suite to adjust and test the beacon strength."
     },
     "configurationBeeper": {

@@ -869,16 +869,16 @@
     "configurationThrottleMinimumCommandHelp": {
         "message": "Ovo je vrijednost koja se šalje ESCovima kada je letjelica disarmirana. Postavite ovu vrijednost na onu koja zaustavlja motore (1000 za većinu ESCova)."
     },
-    "configurationDSHOTBeeper": {
+    "configurationDshotBeeper": {
         "message": "Konfiguracija DSHOT beacona"
     },
-    "configurationUseDSHOTBeeper": {
+    "configurationUseDshotBeeper": {
         "message": "Koristi DSHOT beacon (koristi motore da proizvode zvuk kad je disarman)"
     },
-    "configurationDSHOTBeaconTone": {
+    "configurationDshotBeaconTone": {
         "message": "Ton oznake"
     },
-    "configurationDSHOTBeaconHelp": {
+    "configurationDshotBeaconHelp": {
         "message": "DSHOT beacon koristi ESCove i motore da proizvede zvuk. To znači da se DSHOT beacon ne može koristiti dok se motori vrte. U Emuflight verziji 3.4 i kasnijoj, kada se pokuša armirati dok je DSHOT beacon aktivan, postoji kašnjenje od 2 sekunde nakon posljednjeg zvuka prije nego što se letjelica armira. To služi tome da se spriječi ometanje arming procedure. <br/><strong>Upozorenje:</strong>Budući da DSHOT beacon koristi motore da bi proizveo zvuk, postoji mogućnost od pregrijavanja i oštećenja samih motora ako je postavljena jačina beacona prevelika. Koristite BLHeli konfigurator ili BLHeli Suite kako biste postavili i testirali jačinu beacona."
     },
     "configurationBeeper": {

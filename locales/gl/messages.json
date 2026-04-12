@@ -866,16 +866,16 @@
     "configurationThrottleMinimumCommandHelp": {
         "message": "Este é o valor que se envía aos ESCs cando a aeronave está desarmada. Selecciona un valor onde os motores estean parados (1000 para a maioria dos ESCs)."
     },
-    "configurationDSHOTBeeper": {
+    "configurationDshotBeeper": {
         "message": "Configuración baliza DSHOT"
     },
-    "configurationUseDSHOTBeeper": {
+    "configurationUseDshotBeeper": {
         "message": "Usar a baliza DSHOT (usa os motores para emitir pitidos cando está desarmado)"
     },
-    "configurationDSHOTBeaconTone": {
+    "configurationDshotBeaconTone": {
         "message": "Ton da baliza"
     },
-    "configurationDSHOTBeaconHelp": {
+    "configurationDshotBeaconHelp": {
         "message": "A baliza DSHOT utiliza os ESCs e os motores para producir son. Isto significa que a baliza DSHOT non se pode empregar cando os motores están xirando. En Emuflight 3.4 e máis recentes, cando se intenta armar mentres a baliza DSHOT está activa, hai un atraso de 2 segundos despois do último ton da baliza DSHOT antes de que a aeronave estea armada. Trátase de evitar que a funcionalidade de baliza DSHOT interfira cós comandos DSHOT enviados ao armar. <br/><strong>Aviso:</strong> Xa que a baliza DSHOT está funcionando a través dos seus motores cando está activo, isto pode provocar un exceso de calor producindo danos nos seus motores e / ou ESCs se a intensidade da baliza é demasiado alta. Use BLHeli Configurator ou BLHeli Suite para axustar e probar a intensidade da baliza."
     },
     "configurationBeeper": {

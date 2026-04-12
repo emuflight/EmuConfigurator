@@ -887,16 +887,16 @@
     "configurationThrottleMinimumCommandHelp": {
         "message": "这个数值是飞控锁定电机时发给电调的数值。将它设定为可以让电机停转的数值。（对大部分电调而言该值是1000）"
     },
-    "configurationDSHOTBeeper": {
+    "configurationDshotBeeper": {
         "message": "DSHOT 信标配置"
     },
-    "configurationUseDSHOTBeeper": {
+    "configurationUseDshotBeeper": {
         "message": "使用 DSHOT 信标 （处于锁定状态时可以使用电机来发出蜂鸣声）"
     },
-    "configurationDSHOTBeaconTone": {
+    "configurationDshotBeaconTone": {
         "message": "DSHOT 提示音"
     },
-    "configurationDSHOTBeaconHelp": {
+    "configurationDshotBeaconHelp": {
         "message": "DSHOT 信标使用电调和电机产生声音。这意味着当电机旋转时，DSHOT 信标无法工作。在 Emuflight 3.4 和以后的版本，当在 DSHOT 信标状态时尝试解锁操作，飞控会在最后一声信标音后延迟2秒再解锁。这是为了防止 DSHOT 信标功能干扰在解锁时发送的 DSHOT 命令。<br/><strong>警告：</strong> 由于 DSHOT 信标会有电流通过，如果信标鸣叫强度设置得太高，可能会造成电机/电调过热甚至损毁。使用 BLHeli 配置程序或 BLHeli 套件来调整和测试信标的强度。"
     },
     "configurationBeeper": {

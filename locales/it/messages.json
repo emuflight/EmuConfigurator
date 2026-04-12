@@ -779,16 +779,16 @@
     "configurationThrottleMinimumCommandHelp": {
         "message": "Questo è il valore che viene inviato agli ESC quando il mezzo è disarmato. Impostalo su un valore che lasci i motori fermi (1000 per la maggior parte degli ESC)."
     },
-    "configurationDSHOTBeeper": {
+    "configurationDshotBeeper": {
         "message": "Configurazione DSHOT Beacon"
     },
-    "configurationUseDSHOTBeeper": {
+    "configurationUseDshotBeeper": {
         "message": "Usa beacon DSHOT (usa i motori per riprodurre i beep quando disarmati)"
     },
-    "configurationDSHOTBeaconTone": {
+    "configurationDshotBeaconTone": {
         "message": "Tono segnale acustico DSHOT"
     },
-    "configurationDSHOTBeaconHelp": {
+    "configurationDshotBeaconHelp": {
         "message": "Il beacon DSHOT utilizza i regolatori e i motori per produrre il suono. Ciò significa che il beacon DSHOT non può essere utilizzato quando i motori girano. In Emuflight 3.4 e successivi, quando si prova ad armare mentre il BEACON DSHOT è attivo, si ha un ritardo di 2 secondi dopo l'ultimo beacon prima che il modello sia armato. Questo per impedire che la funzionalità di beacon interferisca con i comandi DSHOT inviati quando si arma.<br/><strong>Attenzione:</strong> poiché il beacon DSHOT porta corrente attraverso i motori quando è attivo, può provocare surriscaldamento e danni ai motori e / o ai regolatori se il volume del beacon è troppo alto. Utilizzare BLHeli Configurator o la Suite BLHeli per regolare e testare la potenza del beacon."
     },
     "configurationBeeper": {

@@ -884,16 +884,16 @@
     "configurationThrottleMinimumCommandHelp": {
         "message": "Šī ir vērtība, kas tiek sūtīta uz ESC, kad gaisa kuģis ir deaktivēts. Uzstādi vērtību pie kura motori ir apstājušies (1000 priekš lielākās ESC daļas)."
     },
-    "configurationDSHOTBeeper": {
+    "configurationDshotBeeper": {
         "message": "DSHOT Beacon konfigurācija"
     },
-    "configurationUseDSHOTBeeper": {
+    "configurationUseDshotBeeper": {
         "message": "Lieto DSHOT beacon (lietot motorus, lai atskaņotu pīkstienus, kad deaktivē)"
     },
-    "configurationDSHOTBeaconTone": {
+    "configurationDshotBeaconTone": {
         "message": "Skaņas signāla tonis"
     },
-    "configurationDSHOTBeaconHelp": {
+    "configurationDshotBeaconHelp": {
         "message": "DSHOT beacon izmanto ESC un motorus lai atskaņotu skaņas. Tas nozīmē, ka DSHOT beacon nevar tikt izmantots kamēr motori griežas. Emuflight 3.4 un jaunākos, ja mēģina aktivizēt gaisa kuģi kamēr DSHOT beacon ir aktīvs, būs 2 sekunžu aizture pēc pēdēja DSHOT beacon skaņas signāla, pirms gaisa kuģa aktivizēšanās. Tas novērš DSHOT beacon funkcionalitātes interferenci ar DSHOT komandām kas tiek sūtītas kad notiek aktivizēšana. <br/><strong>Brīdinājums:</strong> Tā kā DSHOT beacon savas aktivitātes laikā caur motoru laiž ievērojamu strāvu, tas var novēst pie pārmērīgas siltumizdales un bojāt motorus un / vai ESC ja \"beacon strength\" ir uzstādīts pārāk augstu. Izmantojiet BLHeli Configurator vai BLHeli Suite lai pieregulētu \"beacon strength\"."
     },
     "configurationBeeper": {

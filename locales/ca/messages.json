@@ -712,10 +712,10 @@
     "configurationThrottleMinimumCommandHelp": {
         "message": "Aquest és el valor que s'envia als ESCs quan l'aeronau està desarmada. Posa-ho a un valor que mantingui els motors parats (1000 a la majoria d'ESCs)."
     },
-    "configurationDSHOTBeeper": {
+    "configurationDshotBeeper": {
         "message": "Configuració de Beacon DSHOT"
     },
-    "configurationDSHOTBeaconTone": {
+    "configurationDshotBeaconTone": {
         "message": "To del senyal acústic DSHOT"
     },
     "configurationBeeper": {
