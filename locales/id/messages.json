@@ -1,4 +1,7 @@
 {
+    "windowTitle": {
+        "message": "Configurator Emuflight"
+    },
     "error": {
         "message": "Kesalahan: {{errorMessage}}"
     },
@@ -56,8 +59,17 @@
     "rememberLastTab": {
         "message": "Buka kembali tab terakhir saat dihubungkan"
     },
+    "language_changed": {
+        "message": "Perubahan bahasa disimpan"
+    },
+    "language_choice_message": {
+        "message": "Ubah bahasa:"
+    },
     "language_default": {
         "message": "Standar"
+    },
+    "language_default_pretty": {
+        "message": "Default Sistem ($t(detectedLanguage))"
     },
     "sensorDataFlashNotFound": {
         "message": "Chip dataflash <br>tidak ditemukan",
@@ -103,8 +115,14 @@
     "tabFirmwareFlasher": {
         "message": "Flasher Firmware"
     },
+    "tabMixerCalc": {
+        "message": "Kalkulator Campuran Motor"
+    },
     "tabLanding": {
         "message": "Selamat Datang"
+    },
+    "tabPrivacyPolicy": {
+        "message": "Kebijakan Privasi"
     },
     "tabHelp": {
         "message": "Dokumentasi & Dukungan"
@@ -123,6 +141,9 @@
     },
     "tabServos": {
         "message": "Servo"
+    },
+    "tabFailsafe": {
+        "message": "Failsafe"
     },
     "tabTransponder": {
         "message": "Transponder Racing"
@@ -211,6 +232,9 @@
     "stm32LocalErase": {
         "message": "Melakukan penghapusan lokal ..."
     },
+    "stm32InvalidHex": {
+        "message": "Hex tidak valid"
+    },
     "stm32Erase": {
         "message": "Menghapus ..."
     },
@@ -258,6 +282,9 @@
     },
     "firmwareTypeNotSupported": {
         "message": "Firmware selain Cleanflight/Emuflight <span class=\"message-negative\">tidak didukung</span>, kecuali untuk mode CLI."
+    },
+    "firmwareMSPNotSupported": {
+        "message": "Versi MSP tidak didukung. Silakan perbarui EmuConfigurator."
     },
     "firmwareUpgradeRequired": {
         "message": "Firmware pada perangkat ini perlu ditingkatkan ke versi yang lebih baru. Gunakan CLI untuk backup sebelum flashing. Prosedur backup/restore CLI ada di dokumentasi.<br />Atau unduh dan gunakan Emuflight versi lama jika anda belum siap untuk upgrade."
@@ -1131,7 +1158,7 @@
         "message": "Stik Kontrol"
     },
     "receiverEepromSaved": {
-        "message": "EEPROM <span class=\"message-positive\">saved</span>"
+        "message": "EEPROM <span class=\"message-positive\">disimpan</span>"
     },
     "receiverModelPreview": {
         "message": "Tinjauan"
@@ -2634,6 +2661,9 @@
     },
     "osdWarningEscFail": {
         "message": "Menamplikan daftar ESCs/motors yang bermasalah (RPM atau temperatur diluar batas yg telah ditentukan)"
+    },
+    "osdWarningTextFailsafe": {
+        "message": "Failsafe"
     },
     "osdSectionHelpElements": {
         "message": "Mengaktifkan atau menonaktifkan elemen OSD."

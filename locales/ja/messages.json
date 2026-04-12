@@ -1,4 +1,7 @@
 {
+    "windowTitle": {
+        "message": "Emuflight コンフィグレータ"
+    },
     "error": {
         "message": "エラー: {{errorMessage}}"
     },
@@ -59,8 +62,17 @@
     "rememberLastTab": {
         "message": "接続時に前回のタブを開く"
     },
+    "language_changed": {
+        "message": "言語の変更が保存されました"
+    },
+    "language_choice_message": {
+        "message": "言語を変更:"
+    },
     "language_default": {
         "message": "初期値"
+    },
+    "language_default_pretty": {
+        "message": "システムデフォルト ($t(detectedLanguage))"
     },
     "sensorDataFlashNotFound": {
         "message": "データ書込みできません<br>チップを確認しました",
@@ -118,8 +130,14 @@
     "tabFirmwareFlasher": {
         "message": "ファームウェア更新"
     },
+    "tabMixerCalc": {
+        "message": "モーターミックス計算"
+    },
     "tabLanding": {
         "message": "ようこそ"
+    },
+    "tabPrivacyPolicy": {
+        "message": "プライバシーポリシー"
     },
     "tabHelp": {
         "message": "マニュアル & サポート"
@@ -235,6 +253,9 @@
     "stm32LocalErase": {
         "message": "ローカル消去を実行中 ..."
     },
+    "stm32InvalidHex": {
+        "message": "無効な 16 進数"
+    },
     "stm32Erase": {
         "message": "消去中..."
     },
@@ -285,6 +306,9 @@
     },
     "firmwareTypeNotSupported": {
         "message": "CLIモードを除き、Cleanflight / Emuflight 以外のファームウェアは<span class=\"message-negative\">サポートされていません</span>。"
+    },
+    "firmwareMSPNotSupported": {
+        "message": "MSP バージョンはサポートされていません。EmuConfigurator をアップグレードしてください。"
     },
     "firmwareUpgradeRequired": {
         "message": "このデバイスのファームウェアは、新しいバージョンにアップグレードする必要があります。 書換えする前にCLIを使用してバックアップして下さい。 CLIのバックアップ / リストア手順はドキュメントに記載されています。<br />または、アップグレードする準備ができていない場合は、旧バージョンのConfiguratorをダウンロードして使用して下さい。"
@@ -363,7 +387,7 @@
         "message": "I2C エラー:"
     },
     "statusbar_cycle_time": {
-        "message": "サイクルタイム: $1"
+        "message": "サイクルタイム:"
     },
     "statusbar_cpu_load": {
         "message": "CPU 負荷: $1%"
@@ -3192,6 +3216,9 @@
     },
     "osdWarningRcSmoothingFailure": {
         "message": "RCスムージングの初期化に失敗した場合に警告"
+    },
+    "osdWarningTextFailsafe": {
+        "message": "フェイルセーフ"
     },
     "osdWarningFailsafe": {
         "message": "フェイルセーフ発生時に警告"

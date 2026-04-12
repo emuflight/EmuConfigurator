@@ -1,4 +1,7 @@
 {
+    "windowTitle": {
+        "message": "Konfigurator Emuflight"
+    },
     "error": {
         "message": "Greška: {{errorMessage}}"
     },
@@ -56,8 +59,17 @@
     "rememberLastTab": {
         "message": "Ponovno otvori posljednju karticu pri spajanju"
     },
+    "language_changed": {
+        "message": "Promjena jezika spremljena"
+    },
+    "language_choice_message": {
+        "message": "Promjena jezika:"
+    },
     "language_default": {
         "message": "Zadano"
+    },
+    "language_default_pretty": {
+        "message": "Zadana vrijednost sustava ($t(detectedLanguage))"
     },
     "sensorDataFlashNotFound": {
         "message": "Memorijski čip <br> nije pronađen",
@@ -115,8 +127,14 @@
     "tabFirmwareFlasher": {
         "message": "Ažuriranje Firmwarea"
     },
+    "tabMixerCalc": {
+        "message": "Kalkulator miješanja motora"
+    },
     "tabLanding": {
         "message": "Dobrodošli"
+    },
+    "tabPrivacyPolicy": {
+        "message": "Politika privatnosti"
     },
     "tabHelp": {
         "message": "Dokumentacija i podrška"
@@ -138,6 +156,9 @@
     },
     "tabServos": {
         "message": "Servo motori"
+    },
+    "tabFailsafe": {
+        "message": "Zaštita od greške"
     },
     "tabTransponder": {
         "message": "Transponder utrke"
@@ -229,6 +250,9 @@
     "stm32LocalErase": {
         "message": "Izvršavanje lokalnog brisanja ..."
     },
+    "stm32InvalidHex": {
+        "message": "Nevaljani heksadecimalni"
+    },
     "stm32Erase": {
         "message": "Brisanje..."
     },
@@ -279,6 +303,9 @@
     },
     "firmwareTypeNotSupported": {
         "message": "Firmware koji nisu dio Emuflighta/Cleanflighta <span class=\"message-negative\">nisu podržani</span>, osim u CLI sučelju."
+    },
+    "firmwareMSPNotSupported": {
+        "message": "Verzija MSP nije podržana. Molimo ažurirajte EmuConfigurator."
     },
     "firmwareUpgradeRequired": {
         "message": "Firmware na ovom uređaju potrebno je ažurirati na noviju verziju. Koristite CLI za stvaranje sigurnosne kopije prije ažuriranja. CLI procedura za sigurnosnu kopiju je u dokumentaciji. <br />U suprotnom, preuzmite i koristite stariju verziju konfiguratora ako niste spremni za ažuriranje firmwarea."
@@ -2972,6 +2999,9 @@
     },
     "osdWarningRcSmoothingFailure": {
         "message": "Upozorava kad je inicijalizacija RC poravnavanja neuspješna"
+    },
+    "osdWarningTextFailsafe": {
+        "message": "Zaštita od greške"
     },
     "osdWarningFailsafe": {
         "message": "Upozorava kad se dogodi failsafe"

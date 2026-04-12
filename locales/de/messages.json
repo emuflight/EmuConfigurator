@@ -63,8 +63,17 @@
     "rememberLastTab": {
         "message": "Öffne die letzte Registerkarte beim Verbinden"
     },
+    "language_changed": {
+        "message": "Sprachänderung gespeichert"
+    },
+    "language_choice_message": {
+        "message": "Sprache ändern:"
+    },
     "language_default": {
         "message": "Automatisch"
+    },
+    "language_default_pretty": {
+        "message": "Systemstandard ($t(detectedLanguage))"
     },
     "sensorDataFlashNotFound": {
         "message": "Keine Speichermöglichkeit<br>Chip nicht gefunden",
@@ -110,8 +119,14 @@
     "tabFirmwareFlasher": {
         "message": "Firmware-Flasher"
     },
+    "tabMixerCalc": {
+        "message": "Motorenmischrechner"
+    },
     "tabLanding": {
         "message": "Willkommen"
+    },
+    "tabPrivacyPolicy": {
+        "message": "Datenschutzrichtlinie"
     },
     "tabHelp": {
         "message": "Dokumentation & Hilfe"
@@ -130,6 +145,9 @@
     },
     "tabReceiver": {
         "message": "Empfänger"
+    },
+    "tabFailsafe": {
+        "message": "Sicherheitsabschaltung"
     },
     "tabTransponder": {
         "message": "Renntransponder"
@@ -215,6 +233,9 @@
     "stm32LocalErase": {
         "message": "Lokales löschen"
     },
+    "stm32InvalidHex": {
+        "message": "Ungültiges Hex"
+    },
     "stm32Erase": {
         "message": "lösche..."
     },
@@ -262,6 +283,9 @@
     },
     "firmwareTypeNotSupported": {
         "message": "Nicht Emuflight/Cleanfight Firmware wird <span class=\"message-negative\">nicht unterstützt</span> mit Ausnahme vom CLI Modus."
+    },
+    "firmwareMSPNotSupported": {
+        "message": "MSP-Version wird nicht unterstützt. Bitte aktualisieren Sie EmuConfigurator."
     },
     "infoVersions": {
         "message": "Betriebssystem: <strong>{{operatingSystem}}</strong>, Chrome: <strong>{{chromeVersion}}</strong>, Konfigurator: <strong>{{configuratorVersion}}</strong>",
@@ -337,7 +361,7 @@
         "message": "I2C Fehler:"
     },
     "statusbar_cycle_time": {
-        "message": "Zykluszeit: $1"
+        "message": "Zykluszeit:"
     },
     "statusbar_cpu_load": {
         "message": "CPU-Last: $1%"
@@ -2871,6 +2895,9 @@
     },
     "osdWarningRcSmoothingFailure": {
         "message": "Warnung, wenn Initialisierung der \"RC-Glättung\" fehlgeschlagen ist"
+    },
+    "osdWarningTextFailsafe": {
+        "message": "Sicherheitsabschaltung"
     },
     "osdWarningFailsafe": {
         "message": "Warnung, wenn 'Failsafe' auftritt"

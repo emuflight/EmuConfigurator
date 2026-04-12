@@ -1,4 +1,7 @@
 {
+    "windowTitle": {
+        "message": "Configurador Emuflight"
+    },
     "error": {
         "message": "Error: {{errorMessage}}"
     },
@@ -56,8 +59,17 @@
     "rememberLastTab": {
         "message": "Recordar última pestaña al conectar"
     },
+    "language_changed": {
+        "message": "Cambio de idioma guardado"
+    },
+    "language_choice_message": {
+        "message": "Cambiar idioma:"
+    },
     "language_default": {
         "message": "Predeterminado"
+    },
+    "language_default_pretty": {
+        "message": "Por Defecto del Sistema ($t(detectedLanguage))"
     },
     "sensorDataFlashNotFound": {
         "message": "Memoria flash<br>no disponible",
@@ -115,8 +127,14 @@
     "tabFirmwareFlasher": {
         "message": "Instalador de Firmware"
     },
+    "tabMixerCalc": {
+        "message": "Cálculo de Mezcla de Motores"
+    },
     "tabLanding": {
         "message": "Bienvenido"
+    },
+    "tabPrivacyPolicy": {
+        "message": "Política de Privacidad"
     },
     "tabHelp": {
         "message": "Documentación y Soporte"
@@ -138,6 +156,9 @@
     },
     "tabReceiver": {
         "message": "Receptor"
+    },
+    "tabFailsafe": {
+        "message": "Seguridad de Falla"
     },
     "tabTransponder": {
         "message": "Transpondedor de Carrera"
@@ -223,6 +244,9 @@
     "stm32LocalErase": {
         "message": "Ejecutando borrado local ..."
     },
+    "stm32InvalidHex": {
+        "message": "Hexadecimal inválido"
+    },
     "stm32Erase": {
         "message": "Borrando ..."
     },
@@ -273,6 +297,9 @@
     },
     "firmwareTypeNotSupported": {
         "message": "No - Cleanflight/Emuflight firmware <span class=\"message-negative\"> no soportado</span>, excepto modo CLI."
+    },
+    "firmwareMSPNotSupported": {
+        "message": "La versión MSP no es compatible. Actualice EmuConfigurator."
     },
     "firmwareUpgradeRequired": {
         "message": "El firmware de este dispositivo necesita actualizarse a una nueva versión. Use CLI para hacer una copia de seguridad antes de flashear. El proceso de copia/restauración con CLI está en la documentación.<br />Alternativamente puede descargar y usar una versión anterior del configurador si no está preparado para actualizar."
@@ -354,7 +381,7 @@
         "message": "Paquetes con error:"
     },
     "statusbar_cycle_time": {
-        "message": "Tiempo de ciclo: $1"
+        "message": "Tiempo de ciclo:"
     },
     "statusbar_cpu_load": {
         "message": "Carga de CPU: $1%"
@@ -3049,6 +3076,9 @@
     },
     "osdWarningRcSmoothingFailure": {
         "message": "Avisa cuando la inicialización del Suavizado RC ha fallado"
+    },
+    "osdWarningTextFailsafe": {
+        "message": "Seguridad de Falla"
     },
     "osdWarningFailsafe": {
         "message": "Avisa cuando se ejecuta el Modo de Seguridad"

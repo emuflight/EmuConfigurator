@@ -1,6 +1,9 @@
 {
+    "windowTitle": {
+        "message": "Emuflight 配置器"
+    },
     "error": {
-        "message": "Error: {{errorMessage}}"
+        "message": "错误: {{errorMessage}}"
     },
     "errorTitle": {
         "message": "错误"
@@ -59,8 +62,17 @@
     "rememberLastTab": {
         "message": "连接后重新打开最后使用的选项页"
     },
+    "language_changed": {
+        "message": "语言更改已保存"
+    },
+    "language_choice_message": {
+        "message": "更改语言:"
+    },
     "language_default": {
         "message": "默认"
+    },
+    "language_default_pretty": {
+        "message": "系统默认 ($t(detectedLanguage))"
     },
     "sensorDataFlashNotFound": {
         "message": "没有找到<br>闪存芯片",
@@ -118,8 +130,14 @@
     "tabFirmwareFlasher": {
         "message": "固件安装 (Flasher)"
     },
+    "tabMixerCalc": {
+        "message": "电机混合计算"
+    },
     "tabLanding": {
         "message": "欢迎"
+    },
+    "tabPrivacyPolicy": {
+        "message": "隐私政策"
     },
     "tabHelp": {
         "message": "设置文档 & 支持"
@@ -235,6 +253,9 @@
     "stm32LocalErase": {
         "message": "正在执行本地擦除……"
     },
+    "stm32InvalidHex": {
+        "message": "无效的十六进制"
+    },
     "stm32Erase": {
         "message": "正在擦除……"
     },
@@ -285,6 +306,9 @@
     },
     "firmwareTypeNotSupported": {
         "message": "该固件版本的Emuflight configurator <span class=\"message-negative\">不支持</span>,只能使用CLI模式."
+    },
+    "firmwareMSPNotSupported": {
+        "message": "不支持 MSP 版本。请升级 EmuConfigurator。"
     },
     "firmwareUpgradeRequired": {
         "message": "飞控固件需要更新到新的版本，使用CLI 来备份设置。具体操作信息请参考 Emuflight 文档。<br />如果不想更新到最新的固件，可以使用支持该固件的地面站来设置使用。"
@@ -375,7 +399,7 @@
         "message": "I2C 错误:"
     },
     "statusbar_cycle_time": {
-        "message": "循环时间: $1"
+        "message": "循环时间:"
     },
     "statusbar_cpu_load": {
         "message": "CPU 负载: $1%"
@@ -3259,6 +3283,9 @@
     },
     "osdWarningRcSmoothingFailure": {
         "message": "当 RC 平滑初始化失败时发出警告"
+    },
+    "osdWarningTextFailsafe": {
+        "message": "失控保护"
     },
     "osdWarningFailsafe": {
         "message": "发生失控保护时发出警告"

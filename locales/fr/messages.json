@@ -1,4 +1,7 @@
 {
+    "windowTitle": {
+        "message": "Configurateur Emuflight"
+    },
     "error": {
         "message": "Erreur : {{errorMessage}}"
     },
@@ -56,8 +59,17 @@
     "rememberLastTab": {
         "message": "Rouvrir le dernier onglet à la connexion"
     },
+    "language_changed": {
+        "message": "Changement de langue enregistré"
+    },
+    "language_choice_message": {
+        "message": "Changer de langue:"
+    },
     "language_default": {
         "message": "Défaut"
+    },
+    "language_default_pretty": {
+        "message": "Paramètre Système ($t(detectedLanguage))"
     },
     "sensorDataFlashNotFound": {
         "message": "Aucune donnée de flash<br>puce trouvée",
@@ -112,8 +124,14 @@
     "tabFirmwareFlasher": {
         "message": "Flash du Firmware"
     },
+    "tabMixerCalc": {
+        "message": "Calcul de Mélange de Moteurs"
+    },
     "tabLanding": {
         "message": "Bienvenue"
+    },
+    "tabPrivacyPolicy": {
+        "message": "Politique de Confidentialité"
     },
     "tabHelp": {
         "message": "Manuels & Aide"
@@ -129,6 +147,9 @@
     },
     "tabReceiver": {
         "message": "Récepteur"
+    },
+    "tabFailsafe": {
+        "message": "Sécurité de Basculement"
     },
     "tabTransponder": {
         "message": "Transpondeur de course"
@@ -211,6 +232,9 @@
     "stm32LocalErase": {
         "message": "Effacement local en cours ..."
     },
+    "stm32InvalidHex": {
+        "message": "Hexadécimal invalide"
+    },
     "stm32Erase": {
         "message": "Effacement ..."
     },
@@ -261,6 +285,9 @@
     },
     "firmwareTypeNotSupported": {
         "message": "Les microprogrammes autres que Cleanflight/Emuflight  ne sont <span class=\"message-negative\">pas pris en charge et non supportés</span>."
+    },
+    "firmwareMSPNotSupported": {
+        "message": "La version MSP n'est pas supportée. Veuillez mettre à jour EmuConfigurator."
     },
     "firmwareUpgradeRequired": {
         "message": "Le microprogramme de ce dispositif a besoin d'être mis à jour. Utilisez le CLI pour sauvegarder avant de flasher. Les procédures de sauvegarde/restauration par le CLI sont décrites dans l'aide.<br /> Téléchargez et utilisez une ancienne version du configurateur si vous n'êtes pas prêt à le mettre à jour."
@@ -345,7 +372,7 @@
         "message": "Erreur I2C:"
     },
     "statusbar_cycle_time": {
-        "message": "Temps de cycle : $1"
+        "message": "Temps de cycle :"
     },
     "statusbar_cpu_load": {
         "message": "Charge CPU : $1%"
@@ -2947,6 +2974,9 @@
     },
     "osdWarningRcSmoothingFailure": {
         "message": "Alerte échec initialisation du lissage rc"
+    },
+    "osdWarningTextFailsafe": {
+        "message": "Sécurité de Basculement"
     },
     "osdWarningFailsafe": {
         "message": "Alerte Failsafe actif"

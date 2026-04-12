@@ -1,9 +1,15 @@
 {
+    "windowTitle": {
+        "message": "Configurador Emuflight"
+    },
     "warningTitle": {
         "message": "Advertència"
     },
     "noticeTitle": {
         "message": "Avís"
+    },
+    "operationNotSupported": {
+        "message": "Aquesta operació no és compatible amb el vostre hardware."
     },
     "options_title": {
         "message": "Opcions de l'aplicació"
@@ -41,8 +47,20 @@
     "permanentExpertMode": {
         "message": "Habilita el mode expert permanentment"
     },
+    "rememberLastTab": {
+        "message": "Reobrir l'última pestanya en connectar"
+    },
+    "language_changed": {
+        "message": "Canvi d'idioma desat"
+    },
+    "language_choice_message": {
+        "message": "Canviar idioma:"
+    },
     "language_default": {
         "message": "Per defecte"
+    },
+    "language_default_pretty": {
+        "message": "Per Defecte del Sistema ($t(detectedLanguage))"
     },
     "sensorDataFlashNotFound": {
         "message": "Cap dataflash <br>xip trobat",
@@ -100,8 +118,14 @@
     "tabFirmwareFlasher": {
         "message": "Instal·lador de Firmware"
     },
+    "tabMixerCalc": {
+        "message": "Càlcul de Mescla de Motors"
+    },
     "tabLanding": {
         "message": "Benvingut"
+    },
+    "tabPrivacyPolicy": {
+        "message": "Política de Privacitat"
     },
     "tabHelp": {
         "message": "Documentació i suport"
@@ -120,6 +144,9 @@
     },
     "tabReceiver": {
         "message": "Receptor"
+    },
+    "tabFailsafe": {
+        "message": "Seguretat de Falla"
     },
     "tabTransponder": {
         "message": "Transponder de curses"
@@ -202,6 +229,9 @@
     "stm32LocalErase": {
         "message": "Executant esborrat local ..."
     },
+    "stm32InvalidHex": {
+        "message": "Hexadecimal invàlid"
+    },
     "stm32Erase": {
         "message": "Esborrant ..."
     },
@@ -252,6 +282,9 @@
     },
     "firmwareTypeNotSupported": {
         "message": "El firmware NO - Cleanflight/Emuflight <span class=\"message-negative\">no està suportat</span>, excepte pel mode CLI."
+    },
+    "firmwareMSPNotSupported": {
+        "message": "La versió MSP no és compatible. Si us plau, actualitzeu EmuConfigurator."
     },
     "firmwareUpgradeRequired": {
         "message": "El firmware d'aquest dispositiu necessita ser actualitzat a una versió superior. Utilitza el CLI per fer una còpia de seguretat abans de flashejar. El procediment està explicat a la documentació.<br />D'altra banda pots descarregar i fer servir una versió antiga del configurador si no estàs preparat per actualitzar."
@@ -326,7 +359,7 @@
         "message": "Error I2C:"
     },
     "statusbar_cycle_time": {
-        "message": "Temps de cicle: $1"
+        "message": "Temps de cicle:"
     },
     "statusbar_cpu_load": {
         "message": "Càrrega de la CPU: $1%"
@@ -2316,6 +2349,9 @@
     "osdWarningCrashFlipMode": {
         "message": "Avisa quan es dona la volta després que s'activi el crash mode"
     },
+    "osdWarningTextFailsafe": {
+        "message": "Seguretat de Falla"
+    },
     "osdSectionHelpVideoMode": {
         "message": "Configura el mode de video esperat (hauria de funcionar en AUTO, d'altra forma configura-ho manualment)"
     },
@@ -2426,6 +2462,9 @@
     },
     "pidTuningPidControllerTip": {
         "message": "<b>Legacy vs Emuflight (flotant):</b> L'escalat PID i la lògica PID són exactament iguals. No es necessari el re-escalat. Legacy és una vella versió reescrita evolutiva betaflight, que és un controlador de PID bàsic basat en matemàtiques integrals. El controlador PID de Emuflight utilitza matemàtiques de punt flotant i té moltes noves funcions dissenyades específicament per a aeronaus <br> <b> Float vs Integer: </b> L'escalat PID i la lògica PID són exactament iguals. No es necessari el re-escalat. Les FC F1 no tenen FPU a bord i la matemàtica del punt flotant augmenta la càrrega de la CPU i la matemàtica del sencer millorarà el rendiment, però la matemàtica flotant pot obtenir una mica més de precisió."
+    },
+    "pidTuningPidTuningTipFeedforward": {
+        "message": "<b>Proporcional:</b> Notaràs una forta resistència a qualsevol intent de moure l'aeronau<br><b>Integral:</b> Incrementa l'habilitat de mantenir la posició i redueix el drift, però també incrementa el retard per a tornar a la posició inicial.<br><b>Derivativa:</b> Millora la velocitat en que són corregides les desviacions, però incrementa el soroll<br><b>Prealimentació:</b> Normalment el controlador PID reacciona a l'error. La Prealimentació anticipa l'error basant-se en l'entrada dels sticks, millorant el temps de resposta de l'aeronau.<br><b>Rates i Expo</b>: Determina el tacte dels sticks basat en aquests paràmetres. Utilitza el model 3D per a trobar els teus ajustaments preferits."
     },
     "pidTuningRatesTip": {
         "message": "Juga amb els rates i mira com afecten a la corba del valor de l'stick"

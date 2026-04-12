@@ -1,4 +1,7 @@
 {
+    "windowTitle": {
+        "message": "Configuratore Emuflight"
+    },
     "error": {
         "message": "Errore: {{errorMessage}}"
     },
@@ -59,8 +62,17 @@
     "rememberLastTab": {
         "message": "Riapri l'ultima pagina alla connessione"
     },
+    "language_changed": {
+        "message": "Cambio di lingua salvato"
+    },
+    "language_choice_message": {
+        "message": "Cambia lingua:"
+    },
     "language_default": {
         "message": "Predefinito"
+    },
+    "language_default_pretty": {
+        "message": "Impostazione Predefinita del Sistema ($t(detectedLanguage))"
     },
     "sensorDataFlashNotFound": {
         "message": "Nessun chip per <br>flashare i dati trovato",
@@ -118,8 +130,14 @@
     "tabFirmwareFlasher": {
         "message": "Flash del Firmware"
     },
+    "tabMixerCalc": {
+        "message": "Calcolo Miscela Motori"
+    },
     "tabLanding": {
         "message": "Benvenuto"
+    },
+    "tabPrivacyPolicy": {
+        "message": "Politica sulla Privacy"
     },
     "tabHelp": {
         "message": "Documenti e supporto"
@@ -144,6 +162,9 @@
     },
     "tabServos": {
         "message": "Servi"
+    },
+    "tabFailsafe": {
+        "message": "Protezione da Mancanza Segnale"
     },
     "tabPower": {
         "message": "Energia e Batteria"
@@ -226,6 +247,9 @@
     "stm32LocalErase": {
         "message": "Esecuzione della cancellazione locale ..."
     },
+    "stm32InvalidHex": {
+        "message": "Esadecimale non valido"
+    },
     "stm32Erase": {
         "message": "cancellazione in corso..."
     },
@@ -276,6 +300,9 @@
     },
     "firmwareTypeNotSupported": {
         "message": "Il configuratore <span class=\"message-negative\">non supporta</span> firmware diversi da Cleanflight o Emuflight. Solo la modalità CLI è supportata."
+    },
+    "firmwareMSPNotSupported": {
+        "message": "La versione MSP non è supportata. Aggiorna EmuConfigurator."
     },
     "firmwareUpgradeRequired": {
         "message": "Il firmware su questo dispositivo deve essere aggiornato a una versione più recente. Utilizzare il CLI per il backup prima del flashing. La procedura di backup/ripristino CLI è nella documentazione.<br />In alternativa, scaricare e utilizzare una vecchia versione del configuratore se non è ancora pronto per l'aggiornamento."
@@ -354,7 +381,7 @@
         "message": "Errori I2C:"
     },
     "statusbar_cycle_time": {
-        "message": "Tempo di ciclo: $1"
+        "message": "Tempo di ciclo:"
     },
     "statusbar_cpu_load": {
         "message": "Carico CPU: $1%"
@@ -2868,6 +2895,9 @@
     "osdWarningEscFail": {
         "message": "Mostra una lista degli ESC/motori che hanno problemi (giri/min o temperatura fuori dala soglia configurata)"
     },
+    "osdWarningTextFailsafe": {
+        "message": "Protezione da Mancanza Segnale"
+    },
     "osdSectionHelpElements": {
         "message": "Abilita o disabilita gli elementi OSD"
     },
@@ -3011,6 +3041,9 @@
     },
     "pidTuningPidControllerTip": {
         "message": "<b>Legacy vs Emuflight (float):</b> PID scaling e PID logic sono la stessa cosa. La calibrazione può non essere necessaria. Legacy è la riscrittura del vecchio Emuflight evoluto che è un semplice controller PID basato su numeri Interi. Il controller PID di Emuflight usa calcoli in virgola mobile ed ha molte nuove funzioni disegnate specificamente per i multirotori <br> <b>Float vs Integer:</b> PID scaling e PID logic sono la stessa cosa. Calibrazione non richiesta. Le schede F1 non hanno una FPU integrata, i calcoli in virgola mobile aumentato il carico della CPU. I calcoli in numeri Interi migliorano le performance ma i calcoli in virgola mobile possono far guadagnare un po' di precisione."
+    },
+    "pidTuningPidTuningTipFeedforward": {
+        "message": "<b>Proporzionale:</b> Noterai una forte resistenza ad ogni tentativo di muovere il velivolo<br><b>Integrale:</b> Aumenta la capacità di mantenere la posizione iniziale e riduce il drift, ma aumenta anche il ritardo nel ritornare nella posizione iniziale.<br><b>Derivativo:</b> Aumenta la velocità di recupero delle deviazioni, ma aumenta il rumore<br><b>Feedforward:</b> Normalmente il controllore PID reagisce all'errore. Il Feedforward anticipa l'errore basandosi sull'input degli stick, migliorando la reattività del velivolo.<br><b>Rates e Expo</b>: Determina il funzionamento dei tuoi stick usando questi parametri. Usa il modello 3D per trovare le tue impostazioni preferite."
     },
     "pidTuningRatesTip": {
         "message": "Gioca con i \"rates\" e verifica come influiscono sulla curva dello stick"

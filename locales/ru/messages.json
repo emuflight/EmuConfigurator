@@ -1,4 +1,7 @@
 {
+    "windowTitle": {
+        "message": "Конфигуратор Emuflight"
+    },
     "error": {
         "message": "Ошибка: {{errorMessage}}"
     },
@@ -59,8 +62,17 @@
     "rememberLastTab": {
         "message": "Повторно открыть последнюю вкладку при подключении"
     },
+    "language_changed": {
+        "message": "Изменение языка сохранено"
+    },
+    "language_choice_message": {
+        "message": "Изменить язык:"
+    },
     "language_default": {
         "message": "По умолчанию"
+    },
+    "language_default_pretty": {
+        "message": "Системное значение по умолчанию ($t(detectedLanguage))"
     },
     "sensorDataFlashNotFound": {
         "message": "Отсутствует <br>модуль памяти",
@@ -118,8 +130,14 @@
     "tabFirmwareFlasher": {
         "message": "Прошивка"
     },
+    "tabMixerCalc": {
+        "message": "Расчет мешающихся двигателей"
+    },
     "tabLanding": {
         "message": "Приветствие"
+    },
+    "tabPrivacyPolicy": {
+        "message": "Политика конфиденциальности"
     },
     "tabHelp": {
         "message": "Документация и поддержка"
@@ -144,6 +162,9 @@
     },
     "tabServos": {
         "message": "Сервоприводы"
+    },
+    "tabFailsafe": {
+        "message": "Восстановление при отказе"
     },
     "tabTransponder": {
         "message": "Транспондер гонки"
@@ -229,6 +250,9 @@
     "stm32LocalErase": {
         "message": "Выполняется локальное стирание ..."
     },
+    "stm32InvalidHex": {
+        "message": "Недействительный шестнадцатеричный"
+    },
     "stm32Erase": {
         "message": "Очистка ..."
     },
@@ -276,6 +300,9 @@
     },
     "firmwareTypeNotSupported": {
         "message": "Прошивки, кроме Cleanflight/Emuflight <span class=\"message-negative\">не поддерживаются</span>, но для них доступен режим командной строки."
+    },
+    "firmwareMSPNotSupported": {
+        "message": "Версия MSP не поддерживается. Обновите EmuConfigurator."
     },
     "firmwareUpgradeRequired": {
         "message": "Прошивка в этом устройстве нуждается в обновлении до новой версии. Используйте командную строку, чтобы сделать резервную копию перед обновлением прошивки. Процедура создания/восстановления резервной копии описана в документации.<br />Если вы не хотите обновлять прошивку, то используйте более старую версию конфигуратора."
@@ -357,7 +384,7 @@
         "message": "I2C ошибки:"
     },
     "statusbar_cycle_time": {
-        "message": "Время цикла: $1"
+        "message": "Время цикла:"
     },
     "statusbar_cpu_load": {
         "message": "Загрузка CPU: $1%"
@@ -3158,6 +3185,9 @@
     },
     "osdWarningRcSmoothingFailure": {
         "message": "Предупреждает когда инициализация RC не работает (нарушена)"
+    },
+    "osdWarningTextFailsafe": {
+        "message": "Восстановление при отказе"
     },
     "osdWarningFailsafe": {
         "message": "Предупреждает когда происходит failsafe"

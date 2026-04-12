@@ -1,4 +1,7 @@
 {
+    "windowTitle": {
+        "message": "Configurador Emuflight"
+    },
     "error": {
         "message": "Erro: {{errorMessage}} "
     },
@@ -59,8 +62,17 @@
     "rememberLastTab": {
         "message": "Abrir a última pestana ao conectar"
     },
+    "language_changed": {
+        "message": "Cambio de idioma gardado"
+    },
+    "language_choice_message": {
+        "message": "Cambiar idioma:"
+    },
     "language_default": {
         "message": "Por defecto"
+    },
+    "language_default_pretty": {
+        "message": "Por Defecto do Sistema ($t(detectedLanguage))"
     },
     "sensorDataFlashNotFound": {
         "message": "Memoria flash <br> non dispoñible",
@@ -118,8 +130,14 @@
     "tabFirmwareFlasher": {
         "message": "Flasheador de Firmware"
     },
+    "tabMixerCalc": {
+        "message": "Cálculo de Mestura de Motores"
+    },
     "tabLanding": {
         "message": "Benvido/a"
+    },
+    "tabPrivacyPolicy": {
+        "message": "Política de Privacidade"
     },
     "tabHelp": {
         "message": "Documentación e Soporte"
@@ -141,6 +159,9 @@
     },
     "tabReceiver": {
         "message": "Receptor"
+    },
+    "tabFailsafe": {
+        "message": "Seguridade de Fallo"
     },
     "tabTransponder": {
         "message": "Transpondedor de carreira"
@@ -232,6 +253,9 @@
     "stm32LocalErase": {
         "message": "Executando o borrado local ..."
     },
+    "stm32InvalidHex": {
+        "message": "Hexadecimal inválido"
+    },
     "stm32Erase": {
         "message": "Borrando ..."
     },
@@ -282,6 +306,9 @@
     },
     "firmwareTypeNotSupported": {
         "message": "Un firmware que non sexa Cleanflight/Emuflight <span class=\"message-negative\">non está soportado</span>, agás para o modo CLI."
+    },
+    "firmwareMSPNotSupported": {
+        "message": "A versión MSP non é compatible. Actualice EmuConfigurator."
     },
     "firmwareUpgradeRequired": {
         "message": "O firmware neste dispositivo necesita actualización a unha nova versión. Empregue o CLI para backup antes de flashear. O procedemento CLI de backup/recuperación atópase na documentación.<br />Se o prefire tamén pode descargar e usar unha versión antigua do configurador se non desexa actualizar."
@@ -2986,6 +3013,9 @@
     },
     "osdWarningRcSmoothingFailure": {
         "message": "Avisa cuando a inicialización do Suavizado RC fallou"
+    },
+    "osdWarningTextFailsafe": {
+        "message": "Seguridade de Fallo"
     },
     "osdWarningFailsafe": {
         "message": "Avisa cuando se executa o Modo de Seguridade"

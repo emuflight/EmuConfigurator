@@ -1,6 +1,9 @@
 {
+    "windowTitle": {
+        "message": "Emuflight 구성자"
+    },
     "error": {
-        "message": "Error: {{errorMessage}}"
+        "message": "오류: {{errorMessage}}"
     },
     "errorTitle": {
         "message": "오류"
@@ -59,8 +62,17 @@
     "rememberLastTab": {
         "message": "연결시 마지막 탭 다시 열기"
     },
+    "language_changed": {
+        "message": "언어 변경이 저장되었습니다"
+    },
+    "language_choice_message": {
+        "message": "언어 변경:"
+    },
     "language_default": {
         "message": "기본값"
+    },
+    "language_default_pretty": {
+        "message": "시스템 기본값 ($t(detectedLanguage))"
     },
     "sensorDataFlashNotFound": {
         "message": "데이터플래시 <br>칩이 발견되지 않음",
@@ -118,8 +130,14 @@
     "tabFirmwareFlasher": {
         "message": "펌웨어 플래셔"
     },
+    "tabMixerCalc": {
+        "message": "모터 혼합 계산"
+    },
     "tabLanding": {
         "message": "환영합니다"
+    },
+    "tabPrivacyPolicy": {
+        "message": "개인정보 보호 정책"
     },
     "tabHelp": {
         "message": "문서 & 지원"
@@ -235,6 +253,9 @@
     "stm32LocalErase": {
         "message": "로컬 지우기 실행 ..."
     },
+    "stm32InvalidHex": {
+        "message": "잘못된 16진수"
+    },
     "stm32Erase": {
         "message": "삭제 중 ..."
     },
@@ -285,6 +306,9 @@
     },
     "firmwareTypeNotSupported": {
         "message": "클린플라이트/베타플라이트 펌웨어가 아닌 경우, CLI 모드를 제외하고 <span class=\"message-negative\">지원되지 않습니다.</span>"
+    },
+    "firmwareMSPNotSupported": {
+        "message": "MSP 버전이 지원되지 않습니다. EmuConfigurator를 업그레이드하세요."
     },
     "firmwareUpgradeRequired": {
         "message": "이 기기의 펌웨어는 최신 버전으로 업그레이드해야합니다. 플래시하기 전에 CLI를 사용하여 백업하십시오. CLI 백업/복원 절차는 문서를 참고하십시오. <br />또는 업그레이드 준비가 되지 않은 경우 이전 버전의 컨피규레이터를 다운로드하여 사용하십시오."
@@ -369,7 +393,7 @@
         "message": "I2C 오류:"
     },
     "statusbar_cycle_time": {
-        "message": "사이클 타임: $1"
+        "message": "사이클 타임:"
     },
     "statusbar_cpu_load": {
         "message": "CPU 부하: $1%"
@@ -3276,6 +3300,9 @@
     },
     "osdWarningRcSmoothingFailure": {
         "message": "RC 스무딩 초기화 실패시 경고합니다"
+    },
+    "osdWarningTextFailsafe": {
+        "message": "페일세이프"
     },
     "osdWarningFailsafe": {
         "message": "페일세이프 발생시 경고합니다"

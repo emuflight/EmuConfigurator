@@ -1,4 +1,7 @@
 {
+    "windowTitle": {
+        "message": "Configurador Emuflight"
+    },
     "error": {
         "message": "Erro: {{errorMessage}}"
     },
@@ -59,8 +62,17 @@
     "rememberLastTab": {
         "message": "Continuar de onde parou ao conectar"
     },
+    "language_changed": {
+        "message": "Mudança de idioma salva"
+    },
+    "language_choice_message": {
+        "message": "Mudar idioma:"
+    },
     "language_default": {
         "message": "Padrão"
+    },
+    "language_default_pretty": {
+        "message": "Padrão do Sistema ($t(detectedLanguage))"
     },
     "sensorDataFlashNotFound": {
         "message": "Nenhuma memória <br> flash detectada",
@@ -118,8 +130,14 @@
     "tabFirmwareFlasher": {
         "message": "Atualização de firmware"
     },
+    "tabMixerCalc": {
+        "message": "Cálculo de Mistura de Motores"
+    },
     "tabLanding": {
         "message": "Bem-vindo"
+    },
+    "tabPrivacyPolicy": {
+        "message": "Política de Privacidade"
     },
     "tabHelp": {
         "message": "Documentação & Suporte"
@@ -141,6 +159,9 @@
     },
     "tabReceiver": {
         "message": "Receptor"
+    },
+    "tabFailsafe": {
+        "message": "Proteção contra Falha"
     },
     "tabTransponder": {
         "message": "Transponder de corridas"
@@ -226,6 +247,9 @@
     "stm32LocalErase": {
         "message": "Executando formatação local ..."
     },
+    "stm32InvalidHex": {
+        "message": "Hexadecimal inválido"
+    },
     "stm32Erase": {
         "message": "Formatando ..."
     },
@@ -276,6 +300,9 @@
     },
     "firmwareTypeNotSupported": {
         "message": "Firmware que não seja Cleanflight ou Emuflight <span class=\"message-negative\">não é suportado</span>, exceto por Linha de comandos (CLI)."
+    },
+    "firmwareMSPNotSupported": {
+        "message": "A versão MSP não é compatível. Atualize o EmuConfigurator."
     },
     "firmwareUpgradeRequired": {
         "message": "O firmware deste dispositivo precisa ser atualizado para uma versão mais recente. Use a Linha de comandos (CLI) para realizar uma cópia de segurança antes da atualização. O procedimento para fazer uma cópia de segurança/restaurar encontra-se na documentação.<br />Como alternativa faça o download e use uma versão antiga do configurador, caso não esteja preparado para efetuar a atualização."
@@ -357,7 +384,7 @@
         "message": "Erros I2C:"
     },
     "statusbar_cycle_time": {
-        "message": "Tempo de ciclo: $1"
+        "message": "Tempo de ciclo:"
     },
     "statusbar_cpu_load": {
         "message": "Carga da CPU: $1%"
@@ -3002,6 +3029,9 @@
     },
     "osdWarningRcSmoothingFailure": {
         "message": "Alerta quando a inicialização do \"Suavizar RC\" falha"
+    },
+    "osdWarningTextFailsafe": {
+        "message": "Proteção contra Falha"
     },
     "osdWarningFailsafe": {
         "message": "Alerta quando um Failsafe ocorre"

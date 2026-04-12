@@ -1,4 +1,7 @@
 {
+    "windowTitle": {
+        "message": "Emuflight konfigurētājs"
+    },
     "error": {
         "message": "Kļūda: {{errorMessage}}"
     },
@@ -59,8 +62,17 @@
     "rememberLastTab": {
         "message": "Atvērt pēdējo cilni pie pieslēgšanās"
     },
+    "language_changed": {
+        "message": "Valodas maiņa tika saglabāta"
+    },
+    "language_choice_message": {
+        "message": "Mainīt valodu:"
+    },
     "language_default": {
         "message": "Noklusējuma"
+    },
+    "language_default_pretty": {
+        "message": "Sistēmas noklusējums ($t(detectedLanguage))"
     },
     "sensorDataFlashNotFound": {
         "message": "Datu atmiņas <br>čips nav atrasts",
@@ -118,8 +130,14 @@
     "tabFirmwareFlasher": {
         "message": "Programmators"
     },
+    "tabMixerCalc": {
+        "message": "Motora maisīšanas kalkulators"
+    },
     "tabLanding": {
         "message": "Laipni lūgti"
+    },
+    "tabPrivacyPolicy": {
+        "message": "Privātuma politika"
     },
     "tabHelp": {
         "message": "Dokumentācija & Atbalsts"
@@ -141,6 +159,9 @@
     },
     "tabReceiver": {
         "message": "Uztvērējs"
+    },
+    "tabFailsafe": {
+        "message": "Drošības funkcija"
     },
     "tabTransponder": {
         "message": "Sacensību transponders"
@@ -232,6 +253,9 @@
     "stm32LocalErase": {
         "message": "Izpilda lokālo dzēšanu..."
     },
+    "stm32InvalidHex": {
+        "message": "Nederīgs heksadecimāls"
+    },
     "stm32Erase": {
         "message": "Notiek dzēšana..."
     },
@@ -282,6 +306,9 @@
     },
     "firmwareTypeNotSupported": {
         "message": "Programmas, kas nav Cleanflight/Emuflight <span class=\"message-negative\">netiek atbalstītas</span>, izņemot CLI režīmu."
+    },
+    "firmwareMSPNotSupported": {
+        "message": "MSP versija nav atbalstīta. Lūdzu, atjauniniet EmuConfigurator."
     },
     "firmwareUpgradeRequired": {
         "message": "Šai programmatūrai uz šīs iekārtas nepieciešama atjaunināšana uz jaunāku versiju. Izmantojiet CLI, lai dublētu datus pirms programmēšanas. CLI dublēšanas/atjaunošanas procedūras ir dokumentācijā. <br />Alternatīva ir lejupielādēt un lietot veco konfiguratora versiju, ja jūs neesat gatavs atjaunināt."
@@ -3151,6 +3178,9 @@
     },
     "osdWarningRcSmoothingFailure": {
         "message": "Brīdināt, kad RC izlīdzināšanas inicializācija neizdevās"
+    },
+    "osdWarningTextFailsafe": {
+        "message": "Drošības funkcija"
     },
     "osdWarningFailsafe": {
         "message": "Brīdināt, kad Failsafe situācija rodas"
