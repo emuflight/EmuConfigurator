@@ -3055,7 +3055,7 @@
     "osdDescElementEscRpm": {
         "message": "回転数レポート by ESCテレメトリー"
     },
-    "osdDescElementRemaningTimeEstimate": {
+    "osdDescElementRemainingTimeEstimate": {
         "message": "残り飛行時間の予測"
     },
     "osdDescElementRtcDateTime": {

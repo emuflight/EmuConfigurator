@@ -4290,7 +4290,7 @@
         "message": "Timer: remaining time estimate",
         "description": "One of the elements of the OSD"
     },
-    "osdDescElementRemaningTimeEstimate": {
+    "osdDescElementRemainingTimeEstimate": {
         "message": "Estimate of flight time remaining"
     },
     "osdTextElementRtcDateTime": {

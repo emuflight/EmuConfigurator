@@ -2832,7 +2832,7 @@
     "osdDescElementEscRpm": {
         "message": "RPM koji prijavljuje ESC telemetrija"
     },
-    "osdDescElementRemaningTimeEstimate": {
+    "osdDescElementRemainingTimeEstimate": {
         "message": "Očekivano preostalo vrijeme leta"
     },
     "osdDescElementRtcDateTime": {

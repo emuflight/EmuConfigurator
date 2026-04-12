@@ -2820,7 +2820,7 @@
     "osdDescElementEscRpm": {
         "message": "Varvtal enligt ESC-telemetri"
     },
-    "osdDescElementRemaningTimeEstimate": {
+    "osdDescElementRemainingTimeEstimate": {
         "message": "Uppskattad återstående flygtid"
     },
     "osdDescElementRtcDateTime": {

@@ -2253,7 +2253,7 @@
     "osdDescElementEscRpm": {
         "message": "RPM reportat per la telemetria ESC"
     },
-    "osdDescElementRemaningTimeEstimate": {
+    "osdDescElementRemainingTimeEstimate": {
         "message": "Temps estimat restant de volt"
     },
     "osdDescElementRtcDateTime": {

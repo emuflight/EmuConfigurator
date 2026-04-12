@@ -1240,7 +1240,7 @@ OSD.loadDisplayFields = function() {
         REMAINING_TIME_ESTIMATE: {
             name: 'REMAINING_TIME_ESTIMATE',
             text: 'osdTextElementRemaningTimeEstimate',
-            desc: 'osdDescElementRemaningTimeEstimate',
+            desc: 'osdDescElementRemainingTimeEstimate',
             default_position: -1,
             draw_order: 80,
             positionable: true,

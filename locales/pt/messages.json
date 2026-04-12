@@ -2868,7 +2868,7 @@
     "osdDescElementEscRpm": {
         "message": "RPM reportado pela telemetria do ESC"
     },
-    "osdDescElementRemaningTimeEstimate": {
+    "osdDescElementRemainingTimeEstimate": {
         "message": "Tempo estimado de voo restante"
     },
     "osdDescElementRtcDateTime": {

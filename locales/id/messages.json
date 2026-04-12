@@ -2524,7 +2524,7 @@
     "osdDescElementEscRpm": {
         "message": "RPM dilaporkan oleh telemetri ESC"
     },
-    "osdDescElementRemaningTimeEstimate": {
+    "osdDescElementRemainingTimeEstimate": {
         "message": "Perkiraan waktu penerbangan yang tersisa"
     },
     "osdDescElementRtcDateTime": {

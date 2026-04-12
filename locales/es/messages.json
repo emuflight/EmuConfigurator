@@ -1346,7 +1346,7 @@
         "message": "Esto son valores (en us). Para ampliar la zona neutral incrementar el valor. <strong>Este ajuste es sólo para acelerador 3D.</strong>"
     },
     "receiverChannelMap": {
-        "message": "Mapa de canales"
+        "message": "Mapa de Canales"
     },
     "receiverChannelDefaultOption": {
         "message": "Predeterminado"
@@ -2915,7 +2915,7 @@
     "osdDescElementEscRpm": {
         "message": "RPM reportadas por la telemetría de los ESC"
     },
-    "osdDescElementRemaningTimeEstimate": {
+    "osdDescElementRemainingTimeEstimate": {
         "message": "Tiempo estimado de vuelo restante"
     },
     "osdDescElementRtcDateTime": {
@@ -3076,9 +3076,6 @@
     },
     "osdWarningRcSmoothingFailure": {
         "message": "Avisa cuando la inicialización del Suavizado RC ha fallado"
-    },
-    "osdWarningTextFailsafe": {
-        "message": "Seguridad de Falla"
     },
     "osdWarningFailsafe": {
         "message": "Avisa cuando se ejecuta el Modo de Seguridad"

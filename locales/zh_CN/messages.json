@@ -3122,7 +3122,7 @@
     "osdDescElementEscRpm": {
         "message": "电调回传电机转速"
     },
-    "osdDescElementRemaningTimeEstimate": {
+    "osdDescElementRemainingTimeEstimate": {
         "message": "预计剩余电池飞行时间"
     },
     "osdDescElementRtcDateTime": {

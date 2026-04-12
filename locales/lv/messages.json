@@ -3020,7 +3020,7 @@
     "osdDescElementEscRpm": {
         "message": "ESC telemetrijas ziņotais RPM"
     },
-    "osdDescElementRemaningTimeEstimate": {
+    "osdDescElementRemainingTimeEstimate": {
         "message": "Paredzamais atlikušais lidojuma laiks"
     },
     "osdDescElementRtcDateTime": {

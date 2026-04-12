@@ -3139,7 +3139,7 @@
     "osdDescElementEscRpm": {
         "message": "ESC 텔레메트리에 의해 보고된 RPM"
     },
-    "osdDescElementRemaningTimeEstimate": {
+    "osdDescElementRemainingTimeEstimate": {
         "message": "남은 비행시간 예상"
     },
     "osdDescElementRtcDateTime": {

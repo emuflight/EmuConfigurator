@@ -3427,7 +3427,7 @@
         "message": "Канал VTX (частота)"
     },
     "vtxBand": {
-        "message": "Сетка"
+        "message": "Диапазон"
     },
     "vtxBandHelp": {
         "message": "Выбор частотной сетки VTX."

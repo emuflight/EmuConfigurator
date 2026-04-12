@@ -2843,7 +2843,7 @@
     "osdDescElementEscRpm": {
         "message": "RPM reportadas pola telemetría dos ESC"
     },
-    "osdDescElementRemaningTimeEstimate": {
+    "osdDescElementRemainingTimeEstimate": {
         "message": "Tempo estimado restante de voo"
     },
     "osdDescElementRtcDateTime": {
