@@ -426,7 +426,7 @@
         "message": "EmuFlightのwikiは素晴らしい情報源です。<a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">ここ</a>にあります。<br />ファームウェアのリリースノートは、GitHubのリリースページ（<a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\">ここ</a>）で読むことができます。<br />"
     },
     "defaultDocumentation2": {
-        "message": "EmuConfiguratorのwikiは<a href=\"https://github.com/emuflight/EmuConfigurator/wiki\" target=\"_blank\">ここ</a>にあります。<br />配置器（Configurator）のリリースノートは、GitHubのリリースページ（<a href=\"https://github.com/emuflight/EmuConfigurator/releases\" target=\"_blank\">ここ</a>）で読むことができます。<br />"
+        "message": "EmuConfiguratorのwikiは<a href=\"https://github.com/emuflight/EmuConfigurator/wiki\" target=\"_blank\">ここ</a>にあります。<br />コンフィグレータ（Configurator）のリリースノートは、GitHubのリリースページ（<a href=\"https://github.com/emuflight/EmuConfigurator/releases\" target=\"_blank\">ここ</a>）で読むことができます。<br />"
     },
     "defaultSupportHead": {
         "message": "サポート"

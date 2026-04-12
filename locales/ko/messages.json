@@ -89,7 +89,7 @@
         "message": "가속도계"
     },
     "sensorStatusMag": {
-        "message": "지자기계"
+        "message": "자력계"
     },
     "sensorStatusBaro": {
         "message": "기압계"
@@ -453,7 +453,7 @@
         "message": "보드 또는 프레임을 <strong>수평의</strong> 표면 위에 두고 교정을 진행하십시오. 교정이 진행되는 동안 플랫폼을 절대 움직이지 마십시오."
     },
     "initialSetupButtonCalibrateMag": {
-        "message": "지자기계 캘리브레이션"
+        "message": "자력계 캘리브레이션"
     },
     "initialSetupCalibrateMagText": {
         "message": "멀티로터를 최소한 모든 방향에 대하여 <strong>360</strong>도 회전시키십시오. 이 작업을 수행하는 데 30초의 시간이 주어집니다."
@@ -1811,7 +1811,7 @@
         "message": "스케일:"
     },
     "sensorsGyroSelect": {
-        "message": "자이로스코프"
+        "message": "자이로"
     },
     "sensorsAccelSelect": {
         "message": "가속도계"
@@ -1835,7 +1835,7 @@
         "message": "가속도계"
     },
     "sensorsMagTitle": {
-        "message": "지자기계"
+        "message": "자력계"
     },
     "sensorsBaroTitle": {
         "message": "기압계"

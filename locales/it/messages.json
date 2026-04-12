@@ -131,7 +131,7 @@
         "message": "Flash del Firmware"
     },
     "tabMixerCalc": {
-        "message": "Calcolo Miscela Motori"
+        "message": "Calcolo Mixer Motori"
     },
     "tabLanding": {
         "message": "Benvenuto"
@@ -2350,7 +2350,7 @@
         "message": "Imposta questa opzione per fare in modo che lo switch failsafe (Scheda Modi di volo) agisca come un kill switch diretto, bypassando la procedura failsafe selezionata. <strong> Nota: </strong> l'armamento motori è bloccato con l'interruttore di interruzione sicura in posizione ACCESO"
     },
     "failsafeSwitchTitle": {
-        "message": "Modalità Failsafe Interruttore"
+        "message": "Interruttore modalità failsafe"
     },
     "failsafeSwitchModeItem": {
         "message": "Azione dello Switch del Failsafe"
