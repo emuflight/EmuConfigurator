@@ -35,13 +35,13 @@ td {
   border-collapse: collapse;
 }
 
-th {
+#tab-static th {
   background-color: #eee;
   text-align: center;
   padding: 2px 6px 2px 6px;
 }
 
-td {
+#tab-static td {
   text-align: center;
   padding: 4px;
 }
