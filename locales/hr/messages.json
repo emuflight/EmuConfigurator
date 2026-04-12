@@ -251,7 +251,7 @@
         "message": "Izvršavanje lokalnog brisanja ..."
     },
     "stm32InvalidHex": {
-        "message": "Nevaljani heksadecimalni"
+        "message": "Nevaljani heksadecimalni zapis"
     },
     "stm32Erase": {
         "message": "Brisanje..."

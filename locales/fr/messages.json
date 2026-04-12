@@ -2868,7 +2868,7 @@
         "message": "Fréquence Trs/min reportée par la télémétrie des ESC"
     },
     "osdDescElementUnknown": {
-        "message": "Éléments inconnus (détails devant être ajoutés dans le"
+        "message": "Éléments inconnus (détails à ajouter dans une version future)"
     },
     "osdDescStatMaxSpeed": {
         "message": "Vitesse maximale relevée"

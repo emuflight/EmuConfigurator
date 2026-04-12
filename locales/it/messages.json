@@ -983,7 +983,7 @@
         "message": "Soglia Anti Gravità"
     },
     "pidTuningAntiGravityHelp": {
-        "message": "Aumenta temporaneamente l\"I-Term durante i rapidi cambi di Throttle per migliorare la stabilità del velivolo."
+        "message": "Aumenta temporaneamente l'I-Term durante i rapidi cambi di Throttle per migliorare la stabilità del velivolo."
     },
     "pidTuningPidSettings": {
         "message": "Impostazioni del controller PID"
@@ -1286,7 +1286,7 @@
         "message": "Quando il Canale"
     },
     "adjustmentsColumnIsInRange": {
-        "message": "È nell\"intervallo"
+        "message": "È nell'intervallo"
     },
     "adjustmentsColumnThenApplyFunction": {
         "message": "Quindi Applica Funzione"
@@ -2302,7 +2302,7 @@
         "message": "Ritardo per lo spegnimento dei motori durante il Failsafe [1 = 0,1 sec.]"
     },
     "failsafeOffDelayHelp": {
-        "message": "Tempo in cui i motori ruotano ancora prima dell\"arresto di emergenza."
+        "message": "Tempo in cui i motori ruotano ancora prima dell'arresto di emergenza."
     },
     "failsafeSubTitle1": {
         "message": "Stadio 2 - Procedura di Failsafe"
