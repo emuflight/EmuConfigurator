@@ -828,17 +828,17 @@
     "configurationThrottleMinimumCommandHelp": {
         "message": "Das ist der Wert der an die Regler geschickt wird wenn disarmt ist. Setze diesen Wert so tief das die Motoren stoppen (in der Regel auf 1000)."
     },
-    "configurationDshotBeeper": {
-        "message": "Dshot Beacon Konfiguration"
+    "configurationDSHOTBeeper": {
+        "message": "DSHOT Beacon Konfiguration"
     },
-    "configurationUseDshotBeeper": {
-        "message": "Benutze Dshot Beacon (Motoren erzeugen Signalton wenn disarmed)"
+    "configurationUseDSHOTBeeper": {
+        "message": "Benutze DSHOT Beacon (Motoren erzeugen Signalton wenn disarmed)"
     },
-    "configurationDshotBeaconTone": {
-        "message": "DShot-Beacon-Ton"
+    "configurationDSHOTBeaconTone": {
+        "message": "DSHOT-Beacon-Ton"
     },
-    "configurationDshotBeaconHelp": {
-        "message": "Dshot Beacons sind Töne die mittels ESC und Motor erzeugt werden. Das bedeutet, dass dies nicht genutzt werden kann, während die Motoren drehen. In Emuflight 3.4 und neuer wird deshalb 2 Sekunden nach dem letzen Ton gewartet, bevor tatsächlich gearmt wird, wenn das Arming-Kommando gegeben wurde. Dies verhindert eine Beeinflussung andere Dshot-Kommandos beim Arming durch die Tonerzeugung. <br/><strong>Warning:</strong> Da die Dshot-Kommandos Strom durch die Motoren schicken, kann das zu erheblicher Wärmeentwicklung führen, welche die Motoren und ESC's beschädigen kann, wenn die Beacon Lautstärke zu hoch eingestellt ist. Benutze den BLHeli Konfigurator oder die BLHeli Suite um die Lautstärke einzustellen und zu testen."
+    "configurationDSHOTBeaconHelp": {
+        "message": "DSHOT Beacons sind Töne die mittels ESC und Motor erzeugt werden. Das bedeutet, dass dies nicht genutzt werden kann, während die Motoren drehen. In Emuflight 3.4 und neuer wird deshalb 2 Sekunden nach dem letzen Ton gewartet, bevor tatsächlich gearmt wird, wenn das Arming-Kommando gegeben wurde. Dies verhindert eine Beeinflussung andere DSHOT-Kommandos beim Arming durch die Tonerzeugung. <br/><strong>Warning:</strong> Da die DSHOT-Kommandos Strom durch die Motoren schicken, kann das zu erheblicher Wärmeentwicklung führen, welche die Motoren und ESC's beschädigen kann, wenn die Beacon Lautstärke zu hoch eingestellt ist. Benutze den BLHeli Konfigurator oder die BLHeli Suite um die Lautstärke einzustellen und zu testen."
     },
     "configurationBeeper": {
         "message": "Piepser Konfiguration"
@@ -2951,7 +2951,7 @@
         "message": "ESC/Motor Protokoll"
     },
     "configurationEscProtocolHelp": {
-        "message": "Auswahl des Motor-Protokolls.<br>Bitte sicherstellen dass die Regler dies auch unterstützen. Im Zweifelsfall Dokumentation der Regler heranziehen.<br><b>Achtung bei Dshot900 oder Dshot1200, noch nicht viele Regler unterstützen diese Protokolle.</b>"
+        "message": "Auswahl des Motor-Protokolls.<br>Bitte sicherstellen dass die Regler dies auch unterstützen. Im Zweifelsfall Dokumentation der Regler heranziehen.<br><b>Achtung bei DSHOT900 oder DSHOT1200, noch nicht viele Regler unterstützen diese Protokolle.</b>"
     },
     "configurationunsyndePwm": {
         "message": "Motor PWM Geschwindigkeit unabhängig vom PID Controller"

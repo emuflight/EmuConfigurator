@@ -863,17 +863,17 @@
     "configurationThrottleMinimumCommandHelp": {
         "message": "Este es el valor que se envía a los ESC cuando la aeronave está desarmada. Ajústalo a un valor que haga que los motores estén parados (1000 para la mayoría de ESCs)."
     },
-    "configurationDshotBeeper": {
-        "message": "Configuración de Baliza Dshot"
+    "configurationDSHOTBeeper": {
+        "message": "Configuración de Baliza DSHOT"
     },
-    "configurationUseDshotBeeper": {
-        "message": "Usar baliza Dshot (usa los motores para emitir avisos cuando está desarmado)"
+    "configurationUseDSHOTBeeper": {
+        "message": "Usar baliza DSHOT (usa los motores para emitir avisos cuando está desarmado)"
     },
-    "configurationDshotBeaconTone": {
-        "message": "Tono de la señal acústica DShot"
+    "configurationDSHOTBeaconTone": {
+        "message": "Tono de la señal acústica DSHOT"
     },
-    "configurationDshotBeaconHelp": {
-        "message": "La baliza Dshot usa los ESCs y motores para producir sonido. Esto implica que la baliza Dshot no puede ser usada cuando los motores están girando. En Emuflight 3.4 y posterior, cuando se intenta armar mientras la baliza Dshot está activa, hay una pausa de 2 segundos después del último tono de la baliza Dshot antes de realizar el armado. Esto se hace así para evitar que la funcionalidad de baliza Dshot interfiera con los comandos Dshot que se envían al armar.<br/><strong>Atención:</strong> Como la baliza Dshot envía corriente a los motores mientras está activa, puede producir un exceso de calor y dañar los motores y / o los ESCs si la fuerza de la baliza está configurada muy alta. Usa BLHeli Configurator o BLHeli Suite para ajustar y testear la fuerza de la baliza."
+    "configurationDSHOTBeaconHelp": {
+        "message": "La baliza DSHOT usa los ESCs y motores para producir sonido. Esto implica que la baliza DSHOT no puede ser usada cuando los motores están girando. En Emuflight 3.4 y posterior, cuando se intenta armar mientras la baliza DSHOT está activa, hay una pausa de 2 segundos después del último tono de la baliza DSHOT antes de realizar el armado. Esto se hace así para evitar que la funcionalidad de baliza DSHOT interfiera con los comandos DSHOT que se envían al armar.<br/><strong>Atención:</strong> Como la baliza DSHOT envía corriente a los motores mientras está activa, puede producir un exceso de calor y dañar los motores y / o los ESCs si la fuerza de la baliza está configurada muy alta. Usa BLHeli Configurator o BLHeli Suite para ajustar y testear la fuerza de la baliza."
     },
     "configurationBeeper": {
         "message": "Configuración de Avisos Acústicos"

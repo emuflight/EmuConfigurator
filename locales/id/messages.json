@@ -722,17 +722,17 @@
     "configurationThrottleMinimumCommandHelp": {
         "message": "Inilah nilai yang di kirim ke ESC ketika model di disarm. Berikan nilai yang menyebabkan motor berhenti (1000 untuk kebanyakan ESC)."
     },
-    "configurationDshotBeeper": {
-        "message": "Pengaturan Dshot Beacon"
+    "configurationDSHOTBeeper": {
+        "message": "Pengaturan DSHOT Beacon"
     },
-    "configurationUseDshotBeeper": {
-        "message": "Gunakan Dshot beacon (motor akan berbunyi ''beep\" jika disarm)"
+    "configurationUseDSHOTBeeper": {
+        "message": "Gunakan DSHOT beacon (motor akan berbunyi ''beep\" jika disarm)"
     },
-    "configurationDshotBeaconTone": {
+    "configurationDSHOTBeaconTone": {
         "message": "Nada Beacon"
     },
-    "configurationDshotBeaconHelp": {
-        "message": "Dshot beacon menggunakan ESC dan motor untuk menghasilkan suara. Oleh karena itu Dshot beacon tidak dapat digunakan ketika motor berputar. Pada Emuflight 3.4 dan yang lebih baru, ketika terjadi percobaan arming saat Dshot beacon aktif, akan ada jeda 2 detik setelah nada Dshot beacon terakhir sebelum model di arm. Hal ini berguna untuk mencegah fungsi Dshot beacon mengganggu perintah Dshot ke ESC ketika arming.<br/><strong>Peringatan:</strong> Karena Dshot beacon mengalirkan arus ke motor Anda ketika aktif, hal ini dapat menyebabkan panas berlebih yang dapat merusak motor / atau ESC jika kekuatannnya di set terlalu tinggi. Gunakan BLHeli Configurator atau BLHeli Suite untuk menyesuaikan dan mengetahui kekuatan Dshot beacon."
+    "configurationDSHOTBeaconHelp": {
+        "message": "DSHOT beacon menggunakan ESC dan motor untuk menghasilkan suara. Oleh karena itu DSHOT beacon tidak dapat digunakan ketika motor berputar. Pada Emuflight 3.4 dan yang lebih baru, ketika terjadi percobaan arming saat DSHOT beacon aktif, akan ada jeda 2 detik setelah nada DSHOT beacon terakhir sebelum model di arm. Hal ini berguna untuk mencegah fungsi DSHOT beacon mengganggu perintah DSHOT ke ESC ketika arming.<br/><strong>Peringatan:</strong> Karena DSHOT beacon mengalirkan arus ke motor Anda ketika aktif, hal ini dapat menyebabkan panas berlebih yang dapat merusak motor / atau ESC jika kekuatannnya di set terlalu tinggi. Gunakan BLHeli Configurator atau BLHeli Suite untuk menyesuaikan dan mengetahui kekuatan DSHOT beacon."
     },
     "configurationBeeper": {
         "message": "Pengaturan Bunyi"

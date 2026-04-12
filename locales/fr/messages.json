@@ -836,17 +836,17 @@
     "configurationThrottleMinimumCommandHelp": {
         "message": "Valeur envoyée aux ESC lorsque la machine est désarmée. Renseigner une valeur pour laquelle les moteurs ne tournent pas (1000 pour la plupart des ESC)."
     },
-    "configurationDshotBeeper": {
-        "message": "Configuration des Beacon Dshot"
+    "configurationDSHOTBeeper": {
+        "message": "Configuration des Beacon DSHOT"
     },
-    "configurationUseDshotBeeper": {
-        "message": "Utiliser les beacons Dshot (utilise les moteurs pour biper quand désarmé)"
+    "configurationUseDSHOTBeeper": {
+        "message": "Utiliser les beacons DSHOT (utilise les moteurs pour biper quand désarmé)"
     },
-    "configurationDshotBeaconTone": {
-        "message": "Tonalité du signal DShot"
+    "configurationDSHOTBeaconTone": {
+        "message": "Tonalité du signal DSHOT"
     },
-    "configurationDshotBeaconHelp": {
-        "message": "Le beacon Dshot utilise les ESCs et les moteurs pour produire du son. Cela signifie que la balise Dshot ne peut pas être utilisée lorsque les moteurs tournent. Dans Emuflight 3.4 et plus récent, lors de l'armement alors que la balise Dshot est active, il y a un délai de 2 secondes après la dernière tonalité de la balise Dshot avant que le vaisseau ne soit armé. Ceci afin d'éviter que la fonctionnalité de la balise Dshot n'interfère avec les commandes Dshot envoyées lors de l'armement.<br/><strong>Warning:</strong> Puisque la balise Dshot fait passer le courant dans vos moteurs quand elle est active, cela peut entraîner une production de chaleur excessive et endommager vos moteurs et/ou ESCs si la puissance de la balise est trop élevée. Utilisez BLHeli Configurator ou BLHeli Suite pour ajuster et tester la tension de la balise."
+    "configurationDSHOTBeaconHelp": {
+        "message": "Le beacon DSHOT utilise les ESCs et les moteurs pour produire du son. Cela signifie que la balise DSHOT ne peut pas être utilisée lorsque les moteurs tournent. Dans Emuflight 3.4 et plus récent, lors de l'armement alors que la balise DSHOT est active, il y a un délai de 2 secondes après la dernière tonalité de la balise DSHOT avant que le vaisseau ne soit armé. Ceci afin d'éviter que la fonctionnalité de la balise DSHOT n'interfère avec les commandes DSHOT envoyées lors de l'armement.<br/><strong>Warning:</strong> Puisque la balise DSHOT fait passer le courant dans vos moteurs quand elle est active, cela peut entraîner une production de chaleur excessive et endommager vos moteurs et/ou ESCs si la puissance de la balise est trop élevée. Utilisez BLHeli Configurator ou BLHeli Suite pour ajuster et tester la tension de la balise."
     },
     "configurationBeeper": {
         "message": "Configuration du Beeper"

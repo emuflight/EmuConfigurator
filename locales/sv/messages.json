@@ -860,17 +860,17 @@
     "configurationThrottleMinimumCommandHelp": {
         "message": "Detta är det värde som skickas till ESC:erna när farkosten är inaktiverad. Sätt detta till ett värde som stoppar motorerna (1000 för de flesta ESC:er)."
     },
-    "configurationDshotBeeper": {
-        "message": "Konfiguration av Dshot signalfyr"
+    "configurationDSHOTBeeper": {
+        "message": "Konfiguration av DSHOT signalfyr"
     },
-    "configurationUseDshotBeeper": {
-        "message": "Använd Dshot signalfyr (använd motorerna för att sända ljud vid motorinaktivering)"
+    "configurationUseDSHOTBeeper": {
+        "message": "Använd DSHOT signalfyr (använd motorerna för att sända ljud vid motorinaktivering)"
     },
-    "configurationDshotBeaconTone": {
+    "configurationDSHOTBeaconTone": {
         "message": "Signalfyr-ton"
     },
-    "configurationDshotBeaconHelp": {
-        "message": "Dshot-signalfyren använder ESC:erna och motorerna för att producera ljud. Detta innebär att Dshot-signalfyren inte kan användas medan motorerna roterar. I Emuflight 3.4 och nyare, när motoraktivering påbörjas medan Dshot-signalfyren är aktiv, blir det en 2-sekunders paus efter den sista Dshot-signalfyrtonen innan farkosten aktiveras. Detta är för att förhindra att Dshot-signalfyrfunktionen stör Dshot-kommandon som sänds vid motoraktivering.<br/><strong>Varning:</strong> Eftersom Dshot-signalfyren skickar ström genom motorerna när den är aktiv, kan detta orsaka alltför stor värmeproduktion och skador på motorerna och / eller ESC:erna om signalfyrens styrka är för hög. Använd BLHeli Configurator eller BLHeli Suite för att justera och testa signalfyrens styrka."
+    "configurationDSHOTBeaconHelp": {
+        "message": "DSHOT-signalfyren använder ESC:erna och motorerna för att producera ljud. Detta innebär att DSHOT-signalfyren inte kan användas medan motorerna roterar. I Emuflight 3.4 och nyare, när motoraktivering påbörjas medan DSHOT-signalfyren är aktiv, blir det en 2-sekunders paus efter den sista DSHOT-signalfyrtonen innan farkosten aktiveras. Detta är för att förhindra att DSHOT-signalfyrfunktionen stör DSHOT-kommandon som sänds vid motoraktivering.<br/><strong>Varning:</strong> Eftersom DSHOT-signalfyren skickar ström genom motorerna när den är aktiv, kan detta orsaka alltför stor värmeproduktion och skador på motorerna och / eller ESC:erna om signalfyrens styrka är för hög. Använd BLHeli Configurator eller BLHeli Suite för att justera och testa signalfyrens styrka."
     },
     "configurationBeeper": {
         "message": "Konfiguration av ljudsignal"
