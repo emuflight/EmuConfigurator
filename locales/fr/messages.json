@@ -2820,7 +2820,7 @@
         "message": "Estimation du temps de vol restant"
     },
     "osdDescElementRtcDateTime": {
-        "message": "Horloge réel date/heure"
+        "message": "Horloge réelle date/heure"
     },
     "osdDescElementAdjustmentRange": {
         "message": "Paramètre et plage de réglage actuel"

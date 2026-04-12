@@ -462,7 +462,7 @@
         "message": "Calibrar Magnetómetro"
     },
     "initialSetupCalibrateMagText": {
-        "message": "Mova o aparello <strong>360</strong> graos no eixo de rotacion, dispón de 30 segundos para esta tarefa"
+        "message": "Mova o aparello <strong>360</strong> graos no eixo de rotación, dispón de 30 segundos para esta tarefa"
     },
     "initialSetupButtonCalibratingText": {
         "message": "Calibrando..."
