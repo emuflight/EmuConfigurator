@@ -149,7 +149,7 @@
         "message": "Récepteur"
     },
     "tabFailsafe": {
-        "message": "Sécurité de Basculement"
+        "message": "Failsafe"
     },
     "tabTransponder": {
         "message": "Transpondeur de course"

@@ -1,6 +1,6 @@
 {
     "windowTitle": {
-        "message": "Configurador Emuflight"
+        "message": "Configurador EmuFlight"
     },
     "warningTitle": {
         "message": "Advertència"
@@ -89,7 +89,7 @@
         "message": "Mostra la notificació de versions inestables del configurador"
     },
     "configuratorUpdateNotice": {
-        "message": "Estàs fent servir una versió desactualitzada del <b>Configurador Emuflight </b>.<br>La versió <b>$1</b> està disponible, siusplau visita la pàgina <a href=\"$2\" target=\"_blank\">descarrega aquí</a> per a descarregar i instaŀlar la última versió amb correccions i millores.<br>Tanca la finestra del configurador abans d'actualitzar."
+        "message": "Estàs fent servir una versió desactualitzada del <b>Configurador EmuFlight </b>.<br>La versió <b>$1</b> està disponible, siusplau visita la pàgina <a href=\"$2\" target=\"_blank\">descarrega aquí</a> per a descarregar i instaŀlar la última versió amb correccions i millores.<br>Tanca la finestra del configurador abans d'actualitzar."
     },
     "configuratorUpdateWebsite": {
         "message": "Ves a la pàgina de llançament"
@@ -146,7 +146,7 @@
         "message": "Receptor"
     },
     "tabFailsafe": {
-        "message": "Seguretat de Falla"
+        "message": "Failsafe"
     },
     "tabTransponder": {
         "message": "Transponder de curses"
@@ -281,7 +281,7 @@
         "message": "Aquest firmware <span class=\"message-negative\">no està suportat</span>. Siusplau, actualitza al firmware que suporti la versió api <strong>$1</strong> o millor. Utilitza el CLI per fer una còpia de seguretat abans de flashejar. La còpia i restauració al CLI està explicada a la documentació.<br />També pots fer servir una versió antiga del configurador si no estàs llest per actualitzar."
     },
     "firmwareTypeNotSupported": {
-        "message": "El firmware NO - Cleanflight/Emuflight <span class=\"message-negative\">no està suportat</span>, excepte pel mode CLI."
+        "message": "El firmware NO - Cleanflight/EmuFlight <span class=\"message-negative\">no està suportat</span>, excepte pel mode CLI."
     },
     "firmwareMSPNotSupported": {
         "message": "La versió MSP no és compatible. Si us plau, actualitzeu EmuConfigurator."
@@ -380,7 +380,7 @@
         "message": "EEPROM <span class=\"message-positive\">desada</span>"
     },
     "defaultWelcomeIntro": {
-        "message": "Benvingut a <strong>Emuflight - Configurator</strong>, una aplicació dissenyada per a simplificar l'actualització, configuració i posada a punt de la teva controladora de vol."
+        "message": "Benvingut a <strong>EmuFlight - Configurator</strong>, una aplicació dissenyada per a simplificar l'actualització, configuració i posada a punt de la teva controladora de vol."
     },
     "defaultContributingHead": {
         "message": "Contribuir"
@@ -392,10 +392,10 @@
         "message": "Documentació / Manual"
     },
     "defaultDocumentation": {
-        "message": "La documentació de Emuflight està disponible a les notes de la llançament i a la wiki.<br /><br />"
+        "message": "La documentació de EmuFlight està disponible a les notes de la llançament i a la wiki.<br /><br />"
     },
     "defaultDocumentation1": {
-        "message": "La wiki d'EmuFlight és una gran font d'informació, la pots trobar <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">aquí</a>.<br />Les notes de llançament del firmware es poden llegir a la pàgina de versions de GitHub, <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\">aquí</a>.<br />"
+        "message": "La wiki d'EmuFlight és una gran font d'informació, la pots trobar <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">aquí</a>.<br />Les notes de llançament del firmware es poden llegir a la pàgina de versions de GitHub, <a href=\"https://github.com/EmuFlight/EmuFlight/releases\" target=\"_blank\">aquí</a>.<br />"
     },
     "defaultDocumentation2": {
         "message": "La wiki d'EmuConfigurator es pot trobar <a href=\"https://github.com/emuflight/EmuConfigurator/wiki\" target=\"_blank\">aquí</a>.<br />Les notes de llançament del Configurador es poden llegir a la pàgina de versions de GitHub, <a href=\"https://github.com/emuflight/EmuConfigurator/releases\" target=\"_blank\">aquí</a>.<br />"
@@ -407,7 +407,7 @@
         "message": "Fonts de suport"
     },
     "initialSetupBackupAndRestoreApiVersion": {
-        "message": "<span class=\"message-negative\">Funcionalitats de còpia de seguretat i restauració deshabilitades.</span> La teva versió de la API és <span class=\"message-negative\">$1</span>, la còpia i restauració requereix <span class=\"message-positive\">$2</span>. Si us plau, desa la teva configuració mitjançant el CLI, revisa la documentació de Emuflight per saber com procedir."
+        "message": "<span class=\"message-negative\">Funcionalitats de còpia de seguretat i restauració deshabilitades.</span> La teva versió de la API és <span class=\"message-negative\">$1</span>, la còpia i restauració requereix <span class=\"message-positive\">$2</span>. Si us plau, desa la teva configuració mitjançant el CLI, revisa la documentació de EmuFlight per saber com procedir."
     },
     "initialSetupButtonCalibrateAccel": {
         "message": "Calibra Acceleròmetre"
@@ -1034,7 +1034,7 @@
         "message": "Previsualitza"
     },
     "receiverMspWarningText": {
-        "message": "Aquests comandaments permeten a Emuflight ser armat i testejat sense un transmissor o receptor instaŀlat. De qualsevol forma <strong>aquesta característica no està pensada per volar i les pales no haurien d'estar posades</strong><br><br>Aquesta característica no et garanteix el control fiable de l'aeronau. <strong>Poden produir-se lesions greus si es deixen posades les pales.</strong>"
+        "message": "Aquests comandaments permeten a EmuFlight ser armat i testejat sense un transmissor o receptor instaŀlat. De qualsevol forma <strong>aquesta característica no està pensada per volar i les pales no haurien d'estar posades</strong><br><br>Aquesta característica no et garanteix el control fiable de l'aeronau. <strong>Poden produir-se lesions greus si es deixen posades les pales.</strong>"
     },
     "receiverMspEnableButton": {
         "message": "Habilita els controls"
@@ -1598,13 +1598,13 @@
         "message": "Missatge:"
     },
     "firmwareFlasherWarningText": {
-        "message": "Si us plau, <span class=\"message-negative\">no</span> intenteu flashejar el maquinari <strong>no-Emuflight</strong> amb aquest firmware flasher.<br /><span class=\"message-negative\">No</span> <strong>desconnecteu</strong> la FC o <strong>desactiveu</strong> l'ordinador mentre flasheja.<br /><br /><strong>Nota: </strong>STM32 bootloader s'emmagatzema en ROM, no es pot brickejar. <br /><strong>Nota: </strong><span class=\"message-negative\">Connectar automàticament</span> sempre està desactivat mentre es troba dins del firmware flasher.<br /><strong>Nota: </strong>Assegureu-vos que teniu una còpia de seguretat; les actualitzacions / downgrades esborraran la teva configuració.<br /><strong>Nota:</strong> si teniu problemes per flashejar <strong>proveu de desconnectar tots els cables del FC</strong> intenteu reiniciar, actualitzeu Chrome, actualitzeu controladors.<br /> <strong>Nota:</strong> Quan flashejis les controladores que connecten directament als ports USB (la majoria de les controladores més noves), assegureu-vos de llegir la secció USB Flashing del manual Emuflight i instal·lar el programari i controladors correctes"
+        "message": "Si us plau, <span class=\"message-negative\">no</span> intenteu flashejar el maquinari <strong>no-EmuFlight</strong> amb aquest firmware flasher.<br /><span class=\"message-negative\">No</span> <strong>desconnecteu</strong> la FC o <strong>desactiveu</strong> l'ordinador mentre flasheja.<br /><br /><strong>Nota: </strong>STM32 bootloader s'emmagatzema en ROM, no es pot brickejar. <br /><strong>Nota: </strong><span class=\"message-negative\">Connectar automàticament</span> sempre està desactivat mentre es troba dins del firmware flasher.<br /><strong>Nota: </strong>Assegureu-vos que teniu una còpia de seguretat; les actualitzacions / downgrades esborraran la teva configuració.<br /><strong>Nota:</strong> si teniu problemes per flashejar <strong>proveu de desconnectar tots els cables del FC</strong> intenteu reiniciar, actualitzeu Chrome, actualitzeu controladors.<br /> <strong>Nota:</strong> Quan flashejis les controladores que connecten directament als ports USB (la majoria de les controladores més noves), assegureu-vos de llegir la secció USB Flashing del manual EmuFlight i instal·lar el programari i controladors correctes"
     },
     "firmwareFlasherRecoveryHead": {
         "message": "<strong>Recuperació / Comunicació perduda</strong>"
     },
     "firmwareFlasherRecoveryText": {
-        "message": "Si heu perdut la comunicació amb la placa, seguiu aquests passos per restaurar-la: <ul><li>Apagueu.</li><li>Activeu 'Sense seqüència de reinici', activeu 'Esborrat complet del xip'.</li><li>Poseu un pontet als pins BOOT o manteniu el botó BOOT premut.</li><li>Enceneu (el LED d'activitat NO ha de parpellejar si es fa correctament).</li><li>Instal·leu tots els controladors STM32 i Zadig si cal (vegeu la secció <a href=\"https://github.com/emuflight/EmuFlight/wiki/Installing-Emuflight\"target=\"_blank\">USB Flashing</a> del manual d'Emuflight).</li><li>Tanqueu el configurador, tanqueu totes les instàncies de Chrome, tanqueu totes les aplicacions de Chrome, reinicieu el Configurador.</li><li>Allibereu el botó BOOT si el vostre FC en té un.</li><li>Flashegeu amb el firmware correcte (useu la velocitat manual si s'especifica al manual del vostre FC).</li><li>Apagueu.</li><li>Retireu el pontet BOOT.</li><li>Enceneu (el LED d'activitat ha de parpellejar).</li><li>Connecteu normalment.</li></ul>"
+        "message": "Si heu perdut la comunicació amb la placa, seguiu aquests passos per restaurar-la: <ul><li>Apagueu.</li><li>Activeu 'Sense seqüència de reinici', activeu 'Esborrat complet del xip'.</li><li>Poseu un pontet als pins BOOT o manteniu el botó BOOT premut.</li><li>Enceneu (el LED d'activitat NO ha de parpellejar si es fa correctament).</li><li>Instal·leu tots els controladors STM32 i Zadig si cal (vegeu la secció <a href=\"https://github.com/emuflight/EmuFlight/wiki/Installing-EmuFlight\"target=\"_blank\">USB Flashing</a> del manual d'EmuFlight).</li><li>Tanqueu el configurador, tanqueu totes les instàncies de Chrome, tanqueu totes les aplicacions de Chrome, reinicieu el Configurador.</li><li>Allibereu el botó BOOT si el vostre FC en té un.</li><li>Flashegeu amb el firmware correcte (useu la velocitat manual si s'especifica al manual del vostre FC).</li><li>Apagueu.</li><li>Retireu el pontet BOOT.</li><li>Enceneu (el LED d'activitat ha de parpellejar).</li><li>Connecteu normalment.</li></ul>"
     },
     "firmwareFlasherFirmwareNotLoaded": {
         "message": "Firmware no carregat"
@@ -1942,7 +1942,7 @@
         "message": "Desa"
     },
     "powerFirmwareUpgradeRequired": {
-        "message": "Actualització de firmware <span class=\"message-negative\">requerida</span>. La configuració de Batería/Amperatge/Voltatge fa servir l'API &lt; 1.33.0 (Versió de Emuflight &lt;= 3.17) no està suportada."
+        "message": "Actualització de firmware <span class=\"message-negative\">requerida</span>. La configuració de Batería/Amperatge/Voltatge fa servir l'API &lt; 1.33.0 (Versió de EmuFlight &lt;= 3.17) no està suportada."
     },
     "powerBatteryVoltageMeterSource": {
         "message": "Font del Mesurador de Voltatge"
@@ -2461,7 +2461,7 @@
         "message": "<b>Derivativa de l'Error</b> et dona resposta més directa dels sticks i és preferible per curses.<br><br><b>Derivativa de la Mesura</b> et dona una resposta més suau i és preferible per freestyle"
     },
     "pidTuningPidControllerTip": {
-        "message": "<b>Legacy vs Emuflight (flotant):</b> L'escalat PID i la lògica PID són exactament iguals. No es necessari el re-escalat. Legacy és una vella versió reescrita evolutiva betaflight, que és un controlador de PID bàsic basat en matemàtiques integrals. El controlador PID de Emuflight utilitza matemàtiques de punt flotant i té moltes noves funcions dissenyades específicament per a aeronaus <br> <b> Float vs Integer: </b> L'escalat PID i la lògica PID són exactament iguals. No es necessari el re-escalat. Les FC F1 no tenen FPU a bord i la matemàtica del punt flotant augmenta la càrrega de la CPU i la matemàtica del sencer millorarà el rendiment, però la matemàtica flotant pot obtenir una mica més de precisió."
+        "message": "<b>Legacy vs EmuFlight (flotant):</b> L'escalat PID i la lògica PID són exactament iguals. No es necessari el re-escalat. Legacy és una vella versió reescrita evolutiva betaflight, que és un controlador de PID bàsic basat en matemàtiques integrals. El controlador PID de EmuFlight utilitza matemàtiques de punt flotant i té moltes noves funcions dissenyades específicament per a aeronaus <br> <b> Float vs Integer: </b> L'escalat PID i la lògica PID són exactament iguals. No es necessari el re-escalat. Les FC F1 no tenen FPU a bord i la matemàtica del punt flotant augmenta la càrrega de la CPU i la matemàtica del sencer millorarà el rendiment, però la matemàtica flotant pot obtenir una mica més de precisió."
     },
     "pidTuningPidTuningTipFeedforward": {
         "message": "<b>Proporcional:</b> Notaràs una forta resistència a qualsevol intent de moure l'aeronau<br><b>Integral:</b> Incrementa l'habilitat de mantenir la posició i redueix el drift, però també incrementa el retard per a tornar a la posició inicial.<br><b>Derivativa:</b> Millora la velocitat en que són corregides les desviacions, però incrementa el soroll<br><b>Prealimentació:</b> Normalment el controlador PID reacciona a l'error. La Prealimentació anticipa l'error basant-se en l'entrada dels sticks, millorant el temps de resposta de l'aeronau.<br><b>Rates i Expo</b>: Determina el tacte dels sticks basat en aquests paràmetres. Utilitza el model 3D per a trobar els teus ajustaments preferits."

@@ -2783,7 +2783,7 @@
         "message": "Zeigt den Namen, welcher durch den \"display_name\"-cli-Befehl festgelegt wurde."
     },
     "osdDescElementEscRpmFreq": {
-        "message": "Motordrehzahl (über Regler Telemetrie)"
+        "message": "RPM-Frequenz (Hz) über ESC-Telemetrie, nützlich zur Filterabstimmung"
     },
     "osdDescElementUnknown": {
         "message": "Unbekanntes Element (Details kommen in zukünftigen Versionen)"
