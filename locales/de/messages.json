@@ -285,7 +285,7 @@
         "message": "Nicht Emuflight/Cleanfight Firmware wird <span class=\"message-negative\">nicht unterstützt</span> mit Ausnahme vom CLI Modus."
     },
     "firmwareMSPNotSupported": {
-        "message": "MSP-Version wird nicht unterstützt. Bitte aktualisieren Sie EmuConfigurator."
+        "message": "MSP-Version wird nicht unterstützt. Bitte aktualisiere EmuConfigurator."
     },
     "infoVersions": {
         "message": "Betriebssystem: <strong>{{operatingSystem}}</strong>, Chrome: <strong>{{chromeVersion}}</strong>, Konfigurator: <strong>{{configuratorVersion}}</strong>",
@@ -676,7 +676,7 @@
         "message": "Video Sender"
     },
     "featureANTI_GRAVITY": {
-        "message": "Kurzfristiger I-Term Boost bei starken Gas Änderungen"
+        "message": "Kurzfristiger I-Term Boost bei starken Gasänderungen"
     },
     "featureDYNAMIC_FILTER": {
         "message": "Dynamischer Gyro Notch Filter"

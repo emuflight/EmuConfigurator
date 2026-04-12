@@ -2495,7 +2495,7 @@
         "message": "Ative esta opção para fazer com que o switch do Failsafe (aba Modos) desligue a aeronave, sobrepondo o procedimento do Failsafe. <strong>Nota:</strong> Não é possível Armar enquanto o switch estiver na posição LIGADO"
     },
     "failsafeSwitchTitle": {
-        "message": "Modo Failsafe de Interruptor"
+        "message": "Failsafe por Interruptor"
     },
     "failsafeSwitchModeItem": {
         "message": "Ação do switch do Failsafe"
