@@ -131,6 +131,9 @@
     "tabHelp": {
         "message": "Dokumentation & Hilfe"
     },
+    "tabSetup": {
+        "message": "Einstellungen"
+    },
     "tabSetupOSD": {
         "message": "OSD Einstellungen"
     },
@@ -146,6 +149,9 @@
     "tabReceiver": {
         "message": "Empfänger"
     },
+    "tabServos": {
+        "message": "Servos"
+    },
     "tabFailsafe": {
         "message": "Sicherheitsabschaltung"
     },
@@ -154,6 +160,9 @@
     },
     "tabPower": {
         "message": "Strom & Akku"
+    },
+    "tabGPS": {
+        "message": "GPS"
     },
     "tabMotorTesting": {
         "message": "Motoren"
@@ -164,8 +173,14 @@
     "tabRawSensorData": {
         "message": "Sensoren"
     },
+    "tabCLI": {
+        "message": "CLI"
+    },
     "tabLogging": {
         "message": "Protokollierung"
+    },
+    "tabOnboardLogging": {
+        "message": "Blackbox"
     },
     "tabAdjustments": {
         "message": "Anpassungen"

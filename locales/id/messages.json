@@ -729,7 +729,7 @@
         "message": "Nada Beacon"
     },
     "configurationDshotBeaconHelp": {
-        "message": "DSHOT beacon menggunakan ESC dan motor untuk menghasilkan suara. Oleh karena itu DSHOT beacon tidak dapat digunakan ketika motor berputar. Pada Emuflight 3.4 dan yang lebih baru, ketika terjadi percobaan arming saat DSHOT beacon aktif, akan ada jeda 2 detik setelah nada DSHOT beacon terakhir sebelum model di arm. Hal ini berguna untuk mencegah fungsi DSHOT beacon mengganggu perintah DSHOT ke ESC ketika arming.<br/><strong>Peringatan:</strong> Karena DSHOT beacon mengalirkan arus ke motor Anda ketika aktif, hal ini dapat menyebabkan panas berlebih yang dapat merusak motor / atau ESC jika kekuatannnya di set terlalu tinggi. Gunakan BLHeli Configurator atau BLHeli Suite untuk menyesuaikan dan mengetahui kekuatan DSHOT beacon."
+        "message": "DSHOT beacon menggunakan ESC dan motor untuk menghasilkan suara. Oleh karena itu DSHOT beacon tidak dapat digunakan ketika motor berputar. Pada Emuflight 3.4 dan yang lebih baru, ketika terjadi percobaan arming saat DSHOT beacon aktif, akan ada jeda 2 detik setelah nada DSHOT beacon terakhir sebelum model di arm. Hal ini berguna untuk mencegah fungsi DSHOT beacon mengganggu perintah DSHOT ke ESC ketika arming.<br/><strong>Peringatan:</strong> Karena DSHOT beacon mengalirkan arus ke motor Anda ketika aktif, hal ini dapat menyebabkan panas berlebih yang dapat merusak motor / atau ESC jika kekuatannya di set terlalu tinggi. Gunakan BLHeli Configurator atau BLHeli Suite untuk menyesuaikan dan mengetahui kekuatan DSHOT beacon."
     },
     "configurationBeeper": {
         "message": "Pengaturan Bunyi"
@@ -1074,7 +1074,7 @@
         "message": "Flight controller mengatur Profil: <strong class=\"message-positive\">$1</strong>"
     },
     "pidTuningReceivedRateProfile": {
-        "message": "Flight controller mengatur Rateprofile: <strong class=\"message-positive\">$1</strong>"
+        "message": "Flight controller mengatur ProfilRate: <strong class=\"message-positive\">$1</strong>"
     },
     "pidTuningLoadedProfile": {
         "message": "Profil Dimuat: <strong class=\"message-positive\">$1</strong>"

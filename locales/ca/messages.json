@@ -389,7 +389,7 @@
         "message": "Documentació / Manual"
     },
     "defaultDocumentation": {
-        "message": "La documentació de EmuFlight està disponible a les notes de la llançament i a la wiki.<br /><br />"
+        "message": "La documentació de EmuFlight està disponible a les notes del llançament i a la wiki.<br /><br />"
     },
     "defaultDocumentation1": {
         "message": "La wiki d'EmuFlight és una gran font d'informació, la pots trobar <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\" rel=\"noopener noreferrer\">aquí</a>.<br />Les notes de llançament del firmware es poden llegir a la pàgina de versions de GitHub, <a href=\"https://github.com/EmuFlight/EmuFlight/releases\" target=\"_blank\" rel=\"noopener noreferrer\">aquí</a>.<br />"
@@ -1163,7 +1163,7 @@
         "message": "El firmware del teu controlador de vol no suporta la funcionalitat de transponder."
     },
     "transponderInformation": {
-        "message": "Els sistemes de transponders permeten als organitzadors de cursa cronometrar les teves voltes. El transponder s'intal·la al teu aparell i, quan aquest passa per la porta on es troba el receptor, es registre el teu temps de volta. Quan instal·lis un transponder basat en IR, assegura't que aquest apunta cap a fora de l'aparell dirigint-se al receptor i sense que el feix de llum sigui obtruït pel frame, cinta de la bateria, cables, hèlixs, etc."
+        "message": "Els sistemes de transponders permeten als organitzadors de cursa cronometrar les teves voltes. El transponder s'instal·la al teu aparell i, quan aquest passa per la porta on es troba el receptor, es registra el teu temps de volta. Quan instal·lis un transponder basat en IR, assegura't que aquest apunta cap a fora de l'aparell dirigint-se al receptor i sense que el feix de llum sigui obstruït pel frame, cinta de la bateria, cables, hèlixs, etc."
     },
     "transponderConfigurationType": {
         "message": "Tipus de transponder"
