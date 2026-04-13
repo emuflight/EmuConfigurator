@@ -606,7 +606,7 @@
         "message": "Calibrate Magnetometer"
     },
     "initialSetupCalibrateMagText": {
-        "message": "Move aircraft at least <strong>360</strong> degrees on all axis of rotation, you have 30 seconds to perform this task"
+        "message": "Move aircraft at least <strong>360</strong> degrees on all axes of rotation, you have 30 seconds to perform this task"
     },
     "initialSetupButtonCalibratingText": {
         "message": "Calibrating..."
@@ -4996,7 +4996,7 @@
         "message": "<b>Derivative from Error</b> provides more direct stick response and is mostly prefered for Racing.<br><br><b>Derivative from Measurement</b> provides smoother stick response what is more usefull for freestyling"
     },
     "pidTuningPidControllerTip": {
-        "message": "<b>Legacy vs Emuflight (float):</b> PID scaling and PID logic is exactly the same. Not necessarily retune needed. Legacy is old betaflight evolved rewrite, which is basic PID controller based on integer math. Emuflight PID controller uses floating point math and has many new features specifically designed for aircraft applications <br> <b>Float vs Integer:</b> PID scaling and PID logic is exactly the same. No retune needed. F1 boards have no onboard FPU and floating point math increases CPU load and integer math will improve performance, but float math might gain slightly more precision."
+        "message": "<b>Legacy vs Emuflight (float):</b> PID scaling and PID logic is exactly the same. A retune is not necessarily needed. Legacy is old betaflight evolved rewrite, which is basic PID controller based on integer math. Emuflight PID controller uses floating point math and has many new features specifically designed for aircraft applications <br> <b>Float vs Integer:</b> PID scaling and PID logic is exactly the same. No retune needed. F1 boards have no onboard FPU and floating point math increases CPU load and integer math will improve performance, but float math might gain slightly more precision."
     },
     "pidTuningPidTuningTipFeedforward": {
         "message": "<b>Proportional:</b> You will notice a very strong resistant force to any attempts to move the aircraft<br><b>Integral:</b> Increase the ability to hold overall initial position and reduce drift, but also increase the delay in returning to initial position.<br><b>Derivative:</b> Improves the speed at which deviations are recovered, but increases noise<br>"

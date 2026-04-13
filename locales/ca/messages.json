@@ -42,7 +42,7 @@
         "message": "Mode Expert"
     },
     "expertModeDescription": {
-        "message": "Habilita ajustos avançats."
+        "message": "Mostra versions no publicades i potencialment inestables."
     },
     "permanentExpertMode": {
         "message": "Habilita el mode expert permanentment"
@@ -2089,7 +2089,7 @@
         "message": "Font:"
     },
     "osdSetupOpenFont": {
-        "message": "Obre el gestor de fonts"
+        "message": "Carrega Font"
     },
     "osdSetupCustomLogoTitle": {
         "message": "Imatge d'arrencada:"
@@ -2521,7 +2521,7 @@
         "message": "Transmissor de Vídeo (VTX)"
     },
     "vtxFrequencyChannel": {
-        "message": "Canal VTX"
+        "message": "Canal de Freqüència"
     },
     "vtxBand": {
         "message": "Banda"

@@ -1832,7 +1832,7 @@
         "message": "调试"
     },
     "cliInfo": {
-        "message": "<strong>注意：</strong> 离开 CLI 标签或点击断开连接将<strong>自动</strong>向板卡发送 \"<strong>exit</strong>\"。在最新的固件中，这将使控制器<strong>重启</strong>，未保存的更改将<strong>丢失</strong>。<p><strong><span class=\"message-negative\">警告：</span></strong> CLI 中的某些命令可能会导致向电机输出引脚发送任意信号。如果连接了电池，这可能会导致电机转动。因此，强烈建议在<strong>在 CLI 中输入命令之前，确保没有连接电池</strong>。"
+        "message": "<strong>注意：</strong> 离开 CLI 标签或点击断开连接将<strong>自动</strong>向板卡发送 \"<strong>exit</strong>\"。在最新的固件中，这将使控制器<strong>重启</strong>，未保存的更改将<strong>丢失</strong>。<p><strong><span class=\"message-negative\">警告：</span></strong> CLI 中的某些命令可能会导致向电机输出引脚发送任意信号。如果连接了电池，这可能会导致电机转动。因此，强烈建议<strong>在 CLI 中输入命令之前，确保没有连接电池</strong>。"
     },
     "cliInputPlaceholder": {
         "message": "在此输入命令..."
