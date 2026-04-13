@@ -2352,6 +2352,9 @@
     "pidTuningAcroTrainerAngleLimitHelp": {
         "message": "Lägger till ett nytt vinkelbegränsningsläge för piloter som lär sig flyga i acro-läge. Det giltiga intervallet är 10-80, och det måste aktiveras med en switch i fliken $t(tabAuxiliary.message)."
     },
+    "pidTuningIntegratedYaw": {
+        "message": "Integrerad Yaw"
+    },
     "configHelp2": {
         "message": "Godtycklig styrkortsrotation i grader, för att möjliggöra montering sidledes / upp och ner / roterat etc. Vid användning av externa sensorer, använd sensorinriktning (Gyro, Acc, Mag) för att definiera sensorpositionen oberoende från styrkortsrotationen."
     },
