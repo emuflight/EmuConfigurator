@@ -423,7 +423,7 @@
         "message": "A wiki do EmuFlight é um grande recurso para informações, pode ser encontrada <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\" rel=\"noopener noreferrer\">aqui</a>.<br />As notas de lançamento do firmware podem ser lidas na página de lançamentos do GitHub, <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\" rel=\"noopener noreferrer\">aqui</a>.<br />"
     },
     "defaultDocumentation2": {
-        "message": "A wiki do EmuConfigurator pode ser encontrada <a href=\"https://github.com/emuflight/EmuConfigurator/wiki\" target=\"_blank\">aqui</a>.<br />As notas de lançamento do Configurador podem ser lidas na página de lançamentos do GitHub, <a href=\"https://github.com/emuflight/EmuConfigurator/releases\" target=\"_blank\">aqui</a>.<br />"
+        "message": "A wiki do EmuConfigurator pode ser encontrada <a href=\"https://github.com/emuflight/EmuConfigurator/wiki\" target=\"_blank\" rel=\"noopener noreferrer\">aqui</a>.<br />As notas de lançamento do Configurador podem ser lidas na página de lançamentos do GitHub, <a href=\"https://github.com/emuflight/EmuConfigurator/releases\" target=\"_blank\" rel=\"noopener noreferrer\">aqui</a>.<br />"
     },
     "defaultSupportHead": {
         "message": "Suporte"

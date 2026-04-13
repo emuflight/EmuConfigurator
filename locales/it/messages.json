@@ -1895,7 +1895,7 @@
         "message": "<strong> Recupero / comunicazione persa </strong>"
     },
     "firmwareFlasherRecoveryText": {
-        "message": "Se hai perso la comunicazione con la tua scheda, segui questi passaggi per ripristinarla: <ul><li>Spegni.</li><li>Attiva 'Nessuna sequenza di riavvio', attiva 'Cancellazione completa del chip'.</li><li>Metti un jumper sui pin BOOT o tieni premuto il pulsante BOOT.</li><li>Accendi (il LED di attività NON deve lampeggiare se eseguito correttamente).</li><li>Installa tutti i driver STM32 e Zadig se necessario (vedi la sezione <a href=\"https://github.com/emuflight/EmuFlight/wiki/Installing-Emuflight\"target=\"_blank\">USB Flashing</a> del manuale Emuflight).</li><li>Chiudi il configuratore, chiudi tutte le istanze di Chrome, chiudi tutte le app Chrome, riavvia il Configuratore.</li><li>Rilascia il pulsante BOOT se il tuo FC ne ha uno.</li><li>Flash con il firmware corretto (usa il baud rate manuale se specificato nel manuale del tuo FC).</li><li>Spegni.</li><li>Rimuovi il jumper BOOT.</li><li>Accendi (il LED di attività deve lampeggiare).</li><li>Connetti normalmente.</li></ul>"
+        "message": "Se hai perso la comunicazione con la tua scheda, segui questi passaggi per ripristinarla: <ul><li>Spegni.</li><li>Attiva 'Nessuna sequenza di riavvio', attiva 'Cancellazione completa del chip'.</li><li>Metti un jumper sui pin BOOT o tieni premuto il pulsante BOOT.</li><li>Accendi (il LED di attività NON deve lampeggiare se eseguito correttamente).</li><li>Installa tutti i driver STM32 e Zadig se necessario (vedi la sezione <a href=\"https://github.com/emuflight/EmuFlight/wiki/Installing-Emuflight\" target=\"_blank\" rel=\"noopener noreferrer\">USB Flashing</a> del manuale Emuflight).</li><li>Chiudi il configuratore, chiudi tutte le istanze di Chrome, chiudi tutte le app Chrome, riavvia il Configuratore.</li><li>Rilascia il pulsante BOOT se il tuo FC ne ha uno.</li><li>Flash con il firmware corretto (usa il baud rate manuale se specificato nel manuale del tuo FC).</li><li>Spegni.</li><li>Rimuovi il jumper BOOT.</li><li>Accendi (il LED di attività deve lampeggiare).</li><li>Connetti normalmente.</li></ul>"
     },
     "firmwareFlasherFirmwareNotLoaded": {
         "message": "Firmware non caricato"
@@ -2566,7 +2566,7 @@
         "message": "Il tuo controllore di volo non risponde ai comandi OSD. Questo probabilmente significa che non ha un OSD BetaFlight integrato."
     },
     "osdSetupUnsupportedNote2": {
-        "message": "Nota che alcuni flight controller hanno un <a href=\"https://www.youtube.com/watch?v=ikKH_6SQ-Tk\" target=\"_blank\">MinimOSD</a> integrato che può essere programmato e configurato con <a href=\"https://github.com/ShikOfTheRa/scarab-osd/releases/latest\" target='_blank'>scarab-osd</a>, tuttavia il MinimOSD non può essere configurato tramite questa interfaccia."
+        "message": "Nota che alcuni flight controller hanno un <a href=\"https://www.youtube.com/watch?v=ikKH_6SQ-Tk\" target=\"_blank\" rel=\"noopener noreferrer\">MinimOSD</a> integrato che può essere programmato e configurato con <a href=\"https://github.com/ShikOfTheRa/scarab-osd/releases/latest\" target=\"_blank\" rel=\"noopener noreferrer\">scarab-osd</a>, tuttavia il MinimOSD non può essere configurato tramite questa interfaccia."
     },
     "osdSetupProfilesTitle": {
         "message": "Profili OSD"
