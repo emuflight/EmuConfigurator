@@ -157,9 +157,6 @@
     "tabReceiver": {
         "message": "Receptor"
     },
-    "tabFailsafe": {
-        "message": "Failsafe"
-    },
     "tabTransponder": {
         "message": "Transpondedor de Carrera"
     },

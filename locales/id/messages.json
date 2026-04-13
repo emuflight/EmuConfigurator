@@ -142,9 +142,6 @@
     "tabServos": {
         "message": "Servo"
     },
-    "tabFailsafe": {
-        "message": "Failsafe"
-    },
     "tabTransponder": {
         "message": "Transponder Racing"
     },
@@ -2661,9 +2658,6 @@
     },
     "osdWarningEscFail": {
         "message": "Menamplikan daftar ESCs/motors yang bermasalah (RPM atau temperatur diluar batas yg telah ditentukan)"
-    },
-    "osdWarningTextFailsafe": {
-        "message": "Failsafe"
     },
     "osdSectionHelpElements": {
         "message": "Mengaktifkan atau menonaktifkan elemen OSD."

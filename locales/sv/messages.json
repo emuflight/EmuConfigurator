@@ -151,9 +151,6 @@
     "tabServos": {
         "message": "Servon"
     },
-    "tabFailsafe": {
-        "message": "Failsafe"
-    },
     "tabTransponder": {
         "message": "Race-transponder"
     },
@@ -2978,9 +2975,6 @@
     },
     "osdWarningRcSmoothingFailure": {
         "message": "Varnar när initiering av rc-utjämning misslyckades"
-    },
-    "osdWarningTextFailsafe": {
-        "message": "Failsafe"
     },
     "osdWarningFailsafe": {
         "message": "Varnar när Failsafe inträffar"

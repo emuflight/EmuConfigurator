@@ -145,9 +145,6 @@
     "tabReceiver": {
         "message": "Receptor"
     },
-    "tabFailsafe": {
-        "message": "Failsafe"
-    },
     "tabTransponder": {
         "message": "Transponder de curses"
     },
