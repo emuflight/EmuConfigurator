@@ -2249,6 +2249,9 @@
     "pidTuningAcroTrainerAngleLimitHelp": {
         "message": "Fügt einen neuen Winkelbegrenzungsmodus für Piloten hinzu, welche den Acro Modus lernen wollen. Der Wertebereich geht von 10-80 und muss mit einem Schalter im $t(tabAuxiliary.message) Tab aktiviert werden."
     },
+    "pidTuningIntegratedYaw": {
+        "message": "Integriertes Gieren"
+    },
     "configHelp2": {
         "message": "Abweichender Winkel (Grad) in dem das Board anders eingebaut wurde als vorgesehen (über Kopf, gedreht, usw.) Falls externe Sensoren (Gyro, Acc, Mag) verwendet werden, bitte diese ebenfalls neu anlernen."
     },

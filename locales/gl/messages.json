@@ -2351,6 +2351,9 @@
     "pidTuningAbsoluteControlGainHelp": {
         "message": "Esta característica resolve algúns problemas subxacentes de $t(pidTuningItermRotation.message) e debería substituílo por algún outro punto. Este recurso acumula o erro xiratorio absoluto nas coordenadas do aparello e mestura unha corrección proporcional no punto de consigna. Para que funcione, ten que activar AirMode e $t(pidTuningItermRelax.message) (for $t(pidTuningItermRelaxAxesOptionRP.message)). Se combina esta función con $t(pidTuningIntegratedYaw.message), pode configurar $t(pidTuningItermRelax.message) activado para $t(pidTuningItermRelaxAxesOptionRPY.message)."
     },
+    "pidTuningIntegratedYaw": {
+        "message": "Yaw Integrado"
+    },
     "pidTuningThrottleBoost": {
         "message": "Potenciar do Acelerador"
     },
