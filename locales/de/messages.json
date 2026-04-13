@@ -397,10 +397,10 @@
         "message": "Emuflight Dokumentation gibt es in den Release Notes und im Wiki.<br /><br />"
     },
     "defaultDocumentation1": {
-        "message": "Das EmuFlight-Wiki ist eine großartige Informationsquelle und kann <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">hier</a> gefunden werden.<br />Die Versionshinweise für die Firmware können auf der GitHub-Release-Seite <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\">hier</a> gelesen werden.<br />"
+        "message": "Das EmuFlight-Wiki ist eine großartige Informationsquelle und kann <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\" rel=\"noopener noreferrer\">hier</a> gefunden werden.<br />Die Versionshinweise für die Firmware können auf der GitHub-Release-Seite <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\" rel=\"noopener noreferrer\">hier</a> gelesen werden.<br />"
     },
     "defaultDocumentation2": {
-        "message": "Das EmuConfigurator-Wiki ist <a href=\"https://github.com/emuflight/EmuConfigurator/wiki\" target=\"_blank\">hier</a> zu finden.<br />Die Configurator-Versionshinweise können auf der GitHub-Release-Seite <a href=\"https://github.com/emuflight/EmuConfigurator/releases\" target=\"_blank\">hier</a> gelesen werden.<br />"
+        "message": "Das EmuConfigurator-Wiki ist <a href=\"https://github.com/emuflight/EmuConfigurator/wiki\" target=\"_blank\" rel=\"noopener noreferrer\">hier</a> zu finden.<br />Die Configurator-Versionshinweise können auf der GitHub-Release-Seite <a href=\"https://github.com/emuflight/EmuConfigurator/releases\" target=\"_blank\" rel=\"noopener noreferrer\">hier</a> gelesen werden.<br />"
     },
     "defaultSupportHead": {
         "message": "Hilfe"
@@ -838,7 +838,7 @@
         "message": "DSHOT-Beacon-Ton"
     },
     "configurationDshotBeaconHelp": {
-        "message": "DSHOT Beacons sind Töne die mittels ESC und Motor erzeugt werden. Das bedeutet, dass dies nicht genutzt werden kann, während die Motoren drehen. In Emuflight 3.4 und neuer wird deshalb 2 Sekunden nach dem letzen Ton gewartet, bevor tatsächlich gearmt wird, wenn das Arming-Kommando gegeben wurde. Dies verhindert eine Beeinflussung andere DSHOT-Kommandos beim Arming durch die Tonerzeugung. <br/><strong>Warning:</strong> Da die DSHOT-Kommandos Strom durch die Motoren schicken, kann das zu erheblicher Wärmeentwicklung führen, welche die Motoren und ESC's beschädigen kann, wenn die Beacon Lautstärke zu hoch eingestellt ist. Benutze den BLHeli Konfigurator oder die BLHeli Suite um die Lautstärke einzustellen und zu testen."
+        "message": "DSHOT Beacons sind Töne die mittels ESC und Motor erzeugt werden. Das bedeutet, dass dies nicht genutzt werden kann, während die Motoren drehen. In Emuflight 3.4 und neuer wird deshalb 2 Sekunden nach dem letzten Ton gewartet, bevor tatsächlich gearmt wird, wenn das Arming-Kommando gegeben wurde. Dies verhindert eine Beeinflussung anderer DSHOT-Kommandos beim Arming durch die Tonerzeugung. <br/><strong>Achtung:</strong> Da die DSHOT-Kommandos Strom durch die Motoren schicken, kann das zu erheblicher Wärmeentwicklung führen, welche die Motoren und ESC's beschädigen kann, wenn die Beacon-Lautstärke zu hoch eingestellt ist. Benutze den BLHeli Konfigurator oder die BLHeli Suite um die Lautstärke einzustellen und zu testen."
     },
     "configurationBeeper": {
         "message": "Piepser Konfiguration"
