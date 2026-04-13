@@ -399,10 +399,10 @@
         "message": "Dokumentasi Emuflight tersedia dalam catatan rilis dan wiki.<br /><br />"
     },
     "defaultDocumentation1": {
-        "message": "Wiki EmuFlight adalah sumber informasi yang bagus, bisa ditemukan <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">di sini</a>.<br />Catatan rilis firmware bisa dibaca di halaman rilis GitHub, <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\">di sini</a>.<br />"
+        "message": "Wiki EmuFlight adalah sumber informasi yang bagus, bisa ditemukan <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\" rel=\"noopener noreferrer\">di sini</a>.<br />Catatan rilis firmware bisa dibaca di halaman rilis GitHub, <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\" rel=\"noopener noreferrer\">di sini</a>.<br />"
     },
     "defaultDocumentation2": {
-        "message": "Wiki EmuConfigurator bisa ditemukan <a href=\"https://github.com/emuflight/EmuConfigurator/wiki\" target=\"_blank\">di sini</a>.<br />Catatan rilis Configurator bisa dibaca di halaman rilis GitHub, <a href=\"https://github.com/emuflight/EmuConfigurator/releases\" target=\"_blank\">di sini</a>.<br />"
+        "message": "Wiki EmuConfigurator bisa ditemukan <a href=\"https://github.com/emuflight/EmuConfigurator/wiki\" target=\"_blank\" rel=\"noopener noreferrer\">di sini</a>.<br />Catatan rilis Configurator bisa dibaca di halaman rilis GitHub, <a href=\"https://github.com/emuflight/EmuConfigurator/releases\" target=\"_blank\" rel=\"noopener noreferrer\">di sini</a>.<br />"
     },
     "defaultSupportHead": {
         "message": "Dukungan"
@@ -723,7 +723,7 @@
         "message": "Pengaturan DSHOT Beacon"
     },
     "configurationUseDshotBeeper": {
-        "message": "Gunakan DSHOT beacon (motor akan berbunyi ''beep\" jika disarm)"
+        "message": "Gunakan DSHOT beacon (motor akan berbunyi \"beep\" jika disarm)"
     },
     "configurationDshotBeaconTone": {
         "message": "Nada Beacon"
@@ -1731,7 +1731,7 @@
         "message": "<strong>Pemulihan / Komunikasi terputus</strong>"
     },
     "firmwareFlasherRecoveryText": {
-        "message": "Jika Anda telah kehilangan komunikasi dengan board, ikuti langkah-langkah berikut untuk memulihkan komunikasi: <ul><li>Matikan daya.</li><li>Aktifkan 'Tanpa urutan reboot', aktifkan 'Hapus chip penuh'.</li><li>Jumper pin BOOT atau tahan tombol BOOT.</li><li>Nyalakan daya (LED aktivitas TIDAK akan berkedip jika dilakukan dengan benar).</li><li>Instal semua driver STM32 dan Zadig jika diperlukan (lihat bagian <a href=\"https://github.com/emuflight/EmuFlight/wiki/Installing-Emuflight\"target=\"_blank\">USB Flashing</a> manual Emuflight).</li><li>Tutup configurator, tutup semua instance Chrome yang berjalan, tutup semua aplikasi Chrome, Restart Configurator.</li><li>Lepaskan tombol BOOT jika FC Anda memilikinya.</li><li>Flash dengan firmware yang benar (menggunakan baud rate manual jika ditentukan dalam manual FC Anda).</li><li>Matikan daya.</li><li>Lepaskan jumper BOOT.</li><li>Nyalakan daya (LED aktivitas seharusnya berkedip).</li><li>Hubungkan secara normal.</li></ul>"
+        "message": "Jika Anda telah kehilangan komunikasi dengan board, ikuti langkah-langkah berikut untuk memulihkan komunikasi: <ul><li>Matikan daya.</li><li>Aktifkan 'Tanpa urutan reboot', aktifkan 'Hapus chip penuh'.</li><li>Jumper pin BOOT atau tahan tombol BOOT.</li><li>Nyalakan daya (LED aktivitas TIDAK akan berkedip jika dilakukan dengan benar).</li><li>Instal semua driver STM32 dan Zadig jika diperlukan (lihat bagian <a href=\"https://github.com/emuflight/EmuFlight/wiki/Installing-Emuflight\" target=\"_blank\" rel=\"noopener noreferrer\">USB Flashing</a> manual Emuflight).</li><li>Tutup configurator, tutup semua instance Chrome yang berjalan, tutup semua aplikasi Chrome, Restart Configurator.</li><li>Lepaskan tombol BOOT jika FC Anda memilikinya.</li><li>Flash dengan firmware yang benar (menggunakan baud rate manual jika ditentukan dalam manual FC Anda).</li><li>Matikan daya.</li><li>Lepaskan jumper BOOT.</li><li>Nyalakan daya (LED aktivitas seharusnya berkedip).</li><li>Hubungkan secara normal.</li></ul>"
     },
     "firmwareFlasherFirmwareNotLoaded": {
         "message": "Firmware tidak dimuat"
@@ -2312,7 +2312,7 @@
         "message": "Flight controller anda tidak menanggapi ke perintah OSD. Mungkin FC anda tidak memiliki OSD Emuflight."
     },
     "osdSetupUnsupportedNote2": {
-        "message": "Perhatikan bahwa beberapa flight controller memiliki <a href=\"https://www.youtube.com/watch?v=ikKH_6SQ-Tk\" target=\"_blank\">MinimOSD</a> bawaan yang dapat diflash dan dikonfigurasi dengan <a href=\"https://github.com/ShikOfTheRa/scarab-osd/releases/latest\" target=\"_blank\">scarab-osd</a>, namun MinimOSD tidak dapat dikonfigurasi melalui antarmuka ini."
+        "message": "Perhatikan bahwa beberapa flight controller memiliki <a href=\"https://www.youtube.com/watch?v=ikKH_6SQ-Tk\" target=\"_blank\" rel=\"noopener noreferrer\">MinimOSD</a> bawaan yang dapat diflash dan dikonfigurasi dengan <a href=\"https://github.com/ShikOfTheRa/scarab-osd/releases/latest\" target=\"_blank\" rel=\"noopener noreferrer\">scarab-osd</a>, namun MinimOSD tidak dapat dikonfigurasi melalui antarmuka ini."
     },
     "osdSetupElementsTitle": {
         "message": "Elemen"

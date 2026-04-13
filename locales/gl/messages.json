@@ -161,7 +161,7 @@
         "message": "Receptor"
     },
     "tabFailsafe": {
-        "message": "Seguridade de Fallo"
+        "message": "Failsafe"
     },
     "tabTransponder": {
         "message": "Transpondedor de carreira"
@@ -3015,7 +3015,7 @@
         "message": "Avisa cuando a inicialización do Suavizado RC fallou"
     },
     "osdWarningTextFailsafe": {
-        "message": "Seguridade de Fallo"
+        "message": "Failsafe"
     },
     "osdWarningFailsafe": {
         "message": "Avisa cuando se executa o Modo de Seguridade"

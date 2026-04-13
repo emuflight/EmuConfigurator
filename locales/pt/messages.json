@@ -54,7 +54,7 @@
         "message": "Ativar Modo Expert"
     },
     "expertModeDescription": {
-        "message": "Mostra versões em desenvolvimento e potencialmente instáveis"
+        "message": "Ativa configurações avançadas e ferramentas experimentais"
     },
     "permanentExpertMode": {
         "message": "Sempre usar o modo avançado"
@@ -143,7 +143,7 @@
         "message": "Documentação & Suporte"
     },
     "tabSetup": {
-        "message": "Configuração"
+        "message": "Configuração Inicial"
     },
     "tabSetupOSD": {
         "message": "Configuração do OSD"

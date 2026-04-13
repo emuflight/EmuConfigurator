@@ -89,7 +89,7 @@
         "message": "Mostra la notificació de versions inestables del configurador"
     },
     "configuratorUpdateNotice": {
-        "message": "Estàs fent servir una versió desactualitzada del <b>Configurador EmuFlight </b>.<br>La versió <b>$1</b> està disponible, siusplau visita la pàgina <a href=\"$2\" target=\"_blank\">descarrega aquí</a> per a descarregar i instaŀlar la última versió amb correccions i millores.<br>Tanca la finestra del configurador abans d'actualitzar."
+        "message": "Estàs fent servir una versió desactualitzada del <b>Configurador EmuFlight </b>.<br>La versió <b>$1</b> està disponible, siusplau visita la pàgina <a href=\"$2\" target=\"_blank\" rel=\"noopener noreferrer\">descarrega aquí</a> per a descarregar i instaŀlar la última versió amb correccions i millores.<br>Tanca la finestra del configurador abans d'actualitzar."
     },
     "configuratorUpdateWebsite": {
         "message": "Ves a la pàgina de llançament"
@@ -392,10 +392,10 @@
         "message": "La documentació de EmuFlight està disponible a les notes de la llançament i a la wiki.<br /><br />"
     },
     "defaultDocumentation1": {
-        "message": "La wiki d'EmuFlight és una gran font d'informació, la pots trobar <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">aquí</a>.<br />Les notes de llançament del firmware es poden llegir a la pàgina de versions de GitHub, <a href=\"https://github.com/EmuFlight/EmuFlight/releases\" target=\"_blank\">aquí</a>.<br />"
+        "message": "La wiki d'EmuFlight és una gran font d'informació, la pots trobar <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\" rel=\"noopener noreferrer\">aquí</a>.<br />Les notes de llançament del firmware es poden llegir a la pàgina de versions de GitHub, <a href=\"https://github.com/EmuFlight/EmuFlight/releases\" target=\"_blank\" rel=\"noopener noreferrer\">aquí</a>.<br />"
     },
     "defaultDocumentation2": {
-        "message": "La wiki d'EmuConfigurator es pot trobar <a href=\"https://github.com/emuflight/EmuConfigurator/wiki\" target=\"_blank\">aquí</a>.<br />Les notes de llançament del Configurador es poden llegir a la pàgina de versions de GitHub, <a href=\"https://github.com/emuflight/EmuConfigurator/releases\" target=\"_blank\">aquí</a>.<br />"
+        "message": "La wiki d'EmuConfigurator es pot trobar <a href=\"https://github.com/emuflight/EmuConfigurator/wiki\" target=\"_blank\" rel=\"noopener noreferrer\">aquí</a>.<br />Les notes de llançament del Configurador es poden llegir a la pàgina de versions de GitHub, <a href=\"https://github.com/emuflight/EmuConfigurator/releases\" target=\"_blank\" rel=\"noopener noreferrer\">aquí</a>.<br />"
     },
     "defaultSupportHead": {
         "message": "Suport"
@@ -1601,7 +1601,7 @@
         "message": "<strong>Recuperació / Comunicació perduda</strong>"
     },
     "firmwareFlasherRecoveryText": {
-        "message": "Si heu perdut la comunicació amb la placa, seguiu aquests passos per restaurar-la: <ul><li>Apagueu.</li><li>Activeu 'Sense seqüència de reinici', activeu 'Esborrat complet del xip'.</li><li>Poseu un pontet als pins BOOT o manteniu el botó BOOT premut.</li><li>Enceneu (el LED d'activitat NO ha de parpellejar si es fa correctament).</li><li>Instal·leu tots els controladors STM32 i Zadig si cal (vegeu la secció <a href=\"https://github.com/emuflight/EmuFlight/wiki/Installing-EmuFlight\"target=\"_blank\">USB Flashing</a> del manual d'EmuFlight).</li><li>Tanqueu el configurador, tanqueu totes les instàncies de Chrome, tanqueu totes les aplicacions de Chrome, reinicieu el Configurador.</li><li>Allibereu el botó BOOT si el vostre FC en té un.</li><li>Flashegeu amb el firmware correcte (useu la velocitat manual si s'especifica al manual del vostre FC).</li><li>Apagueu.</li><li>Retireu el pontet BOOT.</li><li>Enceneu (el LED d'activitat ha de parpellejar).</li><li>Connecteu normalment.</li></ul>"
+        "message": "Si heu perdut la comunicació amb la placa, seguiu aquests passos per restaurar-la: <ul><li>Apagueu.</li><li>Activeu 'Sense seqüència de reinici', activeu 'Esborrat complet del xip'.</li><li>Poseu un pontet als pins BOOT o manteniu el botó BOOT premut.</li><li>Enceneu (el LED d'activitat NO ha de parpellejar si es fa correctament).</li><li>Instal·leu tots els controladors STM32 i Zadig si cal (vegeu la secció <a href=\"https://github.com/emuflight/EmuFlight/wiki/Installing-EmuFlight\" target=\"_blank\" rel=\"noopener noreferrer\">USB Flashing</a> del manual d'EmuFlight).</li><li>Tanqueu el configurador, tanqueu totes les instàncies de Chrome, tanqueu totes les aplicacions de Chrome, reinicieu el Configurador.</li><li>Allibereu el botó BOOT si el vostre FC en té un.</li><li>Flashegeu amb el firmware correcte (useu la velocitat manual si s'especifica al manual del vostre FC).</li><li>Apagueu.</li><li>Retireu el pontet BOOT.</li><li>Enceneu (el LED d'activitat ha de parpellejar).</li><li>Connecteu normalment.</li></ul>"
     },
     "firmwareFlasherFirmwareNotLoaded": {
         "message": "Firmware no carregat"
