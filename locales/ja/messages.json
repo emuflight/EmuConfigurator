@@ -423,10 +423,10 @@
         "message": "Emuflightドキュメントは、リリースノートおよび wiki にてご利用いただけます。<br /><br />"
     },
     "defaultDocumentation1": {
-        "message": "EmuFlightのwikiは素晴らしい情報源です。<a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">ここ</a>にあります。<br />ファームウェアのリリースノートは、GitHubのリリースページ（<a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\">ここ</a>）で読むことができます。<br />"
+        "message": "EmuFlightのwikiは素晴らしい情報源です。<a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\" rel=\"noopener noreferrer\">ここ</a>にあります。<br />ファームウェアのリリースノートは、GitHubのリリースページ（<a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\" rel=\"noopener noreferrer\">ここ</a>）で読むことができます。<br />"
     },
     "defaultDocumentation2": {
-        "message": "EmuConfiguratorのwikiは<a href=\"https://github.com/emuflight/EmuConfigurator/wiki\" target=\"_blank\">ここ</a>にあります。<br />コンフィグレータ（Configurator）のリリースノートは、GitHubのリリースページ（<a href=\"https://github.com/emuflight/EmuConfigurator/releases\" target=\"_blank\">ここ</a>）で読むことができます。<br />"
+        "message": "EmuConfiguratorのwikiは<a href=\"https://github.com/emuflight/EmuConfigurator/wiki\" target=\"_blank\" rel=\"noopener noreferrer\">ここ</a>にあります。<br />コンフィグレータ（Configurator）のリリースノートは、GitHubのリリースページ（<a href=\"https://github.com/emuflight/EmuConfigurator/releases\" target=\"_blank\" rel=\"noopener noreferrer\">ここ</a>）で読むことができます。<br />"
     },
     "defaultSupportHead": {
         "message": "サポート"
@@ -2105,7 +2105,7 @@
         "message": "<strong>リカバリー / 通信ロスト</strong>"
     },
     "firmwareFlasherRecoveryText": {
-        "message": "フライトコントローラーとの通信を失った場合は、以下の手順で通信を回復してください: <ul><li>電源を切る。</li><li>'リブートシーケンスなし'を有効にし、'フルチップ消去'を有効にする。</li><li>BOOTピンをジャンパーするか、BOOTボタンを押し続ける。</li><li>電源を入れる（正しく行われた場合、アクティビティLEDは点滅しません）。</li><li>必要に応じてすべてのSTM32ドライバとZadigをインストールする（Emuflightマニュアルの<a href=\"https://github.com/emuflight/EmuFlight/wiki/Installing-Emuflight\" target=\"_blank\" rel=\"noopener noreferrer\">USB Flashing</a>セクションを参照）。</li><li>コンフィギュレーターを閉じ、すべてのChromeインスタンスを閉じ、すべてのChromeアプリを閉じ、コンフィギュレーターを再起動する。</li><li>FCにBOOTボタンがある場合は放す。</li><li>正しいファームウェアでフラッシュする（FCのマニュアルにボーレートが指定されている場合はそれを使用）。</li><li>電源を切る。</li><li>BOOTジャンパーを外す。</li><li>電源を入れる（アクティビティLEDが点滅するはずです）。</li><li>通常通り接続する。</li></ul>"
+        "message": "フライトコントローラーとの通信を失った場合は、以下の手順で通信を回復してください: <ul><li>電源を切る。</li><li>'$t(firmwareFlasherNoReboot.message)'を有効にし、'$t(firmwareFlasherFullChipErase.message)'を有効にする。</li><li>BOOTピンをジャンパーするか、BOOTボタンを押し続ける。</li><li>電源を入れる（正しく行われた場合、アクティビティLEDは点滅しません）。</li><li>必要に応じてすべてのSTM32ドライバとZadigをインストールする（Emuflightマニュアルの<a href=\"https://github.com/emuflight/EmuFlight/wiki/Installing-Emuflight\" target=\"_blank\" rel=\"noopener noreferrer\">USB Flashing</a>セクションを参照）。</li><li>コンフィギュレーターを閉じ、すべてのChromeインスタンスを閉じ、すべてのChromeアプリを閉じ、コンフィギュレーターを再起動する。</li><li>FCにBOOTボタンがある場合は放す。</li><li>正しいファームウェアでフラッシュする（FCのマニュアルにボーレートが指定されている場合はそれを使用）。</li><li>電源を切る。</li><li>BOOTジャンパーを外す。</li><li>電源を入れる（アクティビティLEDが点滅するはずです）。</li><li>通常通り接続する。</li></ul>"
     },
     "firmwareFlasherFirmwareNotLoaded": {
         "message": "ファームウェアが読込まれていません"

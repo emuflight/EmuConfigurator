@@ -414,10 +414,10 @@
         "message": "La documentación de Emuflight está disponible en las notas de la versión y en la wiki.<br /><br />"
     },
     "defaultDocumentation1": {
-        "message": "La wiki de EmuFlight es un gran recurso de información, se puede encontrar <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">aquí</a>.<br />Las notas de la versión del firmware se pueden leer en la página de lanzamientos de GitHub, <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\">aquí</a>.<br />"
+        "message": "La wiki de EmuFlight es un gran recurso de información, se puede encontrar <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\" rel=\"noopener noreferrer\">aquí</a>.<br />Las notas de la versión del firmware se pueden leer en la página de lanzamientos de GitHub, <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\" rel=\"noopener noreferrer\">aquí</a>.<br />"
     },
     "defaultDocumentation2": {
-        "message": "La wiki de EmuConfigurator se puede encontrar <a href=\"https://github.com/emuflight/EmuConfigurator/wiki\" target=\"_blank\">aquí</a>.<br />Las notas de la versión del Configurador se pueden leer en la página de lanzamientos de GitHub, <a href=\"https://github.com/emuflight/EmuConfigurator/releases\" target=\"_blank\">aquí</a>.<br />"
+        "message": "La wiki de EmuConfigurator se puede encontrar <a href=\"https://github.com/emuflight/EmuConfigurator/wiki\" target=\"_blank\" rel=\"noopener noreferrer\">aquí</a>.<br />Las notas de la versión del Configurador se pueden leer en la página de lanzamientos de GitHub, <a href=\"https://github.com/emuflight/EmuConfigurator/releases\" target=\"_blank\" rel=\"noopener noreferrer\">aquí</a>.<br />"
     },
     "defaultSupportHead": {
         "message": "Soporte"

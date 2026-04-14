@@ -160,9 +160,6 @@
     "tabReceiver": {
         "message": "Uztvērējs"
     },
-    "tabFailsafe": {
-        "message": "Failsafe"
-    },
     "tabTransponder": {
         "message": "Sacensību transponders"
     },
@@ -3178,9 +3175,6 @@
     },
     "osdWarningRcSmoothingFailure": {
         "message": "Brīdināt, kad RC izlīdzināšanas inicializācija neizdevās"
-    },
-    "osdWarningTextFailsafe": {
-        "message": "Failsafe"
     },
     "osdWarningFailsafe": {
         "message": "Brīdināt, kad Failsafe situācija rodas"
