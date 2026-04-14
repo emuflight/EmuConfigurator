@@ -71,16 +71,16 @@
         "description": "Text of the dataflash image in the header of the page."
     },
     "sensorStatusGyro": {
-        "message": "Giroscopi"
+        "message": "Gyro"
     },
     "sensorStatusAccel": {
-        "message": "Acceleròmetre"
+        "message": "Accel"
     },
     "sensorStatusMag": {
-        "message": "Magnetòmetre"
+        "message": "Mag"
     },
     "sensorStatusBaro": {
-        "message": "Baròmetre"
+        "message": "Baro"
     },
     "sensorStatusSonar": {
         "message": "Sónar"
@@ -407,13 +407,13 @@
         "message": "<span class=\"message-negative\">Funcionalitats de còpia de seguretat i restauració deshabilitades.</span> La teva versió de la API és <span class=\"message-negative\">$1</span>, la còpia i restauració requereix <span class=\"message-positive\">$2</span>. Si us plau, desa la teva configuració mitjançant el CLI, revisa la documentació de EmuFlight per saber com procedir."
     },
     "initialSetupButtonCalibrateAccel": {
-        "message": "Calibra Acceleròmetre"
+        "message": "Calibra Accel"
     },
     "initialSetupCalibrateAccelText": {
         "message": "Situa la teva controladora o frame a una superfície  <strong>anivellada</strong>, continua amb la caŀlibració, vigila que la superfície no es mogui durant el procés"
     },
     "initialSetupButtonCalibrateMag": {
-        "message": "Calibra Magnetòmetre"
+        "message": "Calibra Mag"
     },
     "initialSetupCalibrateMagText": {
         "message": "Mou l'aeronau almenys <strong>360</strong> graus en tots els eixos de rotació, tens 30 segons per a fer aquests moviments"
@@ -659,7 +659,7 @@
         "message": "Per defecte"
     },
     "configurationAccelTrims": {
-        "message": "Ajustos Acceleròmetre"
+        "message": "Ajustos Accel"
     },
     "configurationAccelTrimRoll": {
         "message": "Trim Roll Acceleròmetre"
@@ -719,10 +719,10 @@
         "message": "Configuració del Beeper"
     },
     "beeperGYRO_CALIBRATED": {
-        "message": "Giroscopi calibrat"
+        "message": "Gyro calibrat"
     },
     "beeperRX_LOST": {
-        "message": "Senyal de ràdio perdut"
+        "message": "Senyal RX perdut"
     },
     "beeperRX_LOST_LANDING": {
         "message": "Sona SOS quan està armat i s'apaga el TX o es perd la senyal (autoaterrament/autodesarmat)"
@@ -782,10 +782,10 @@
         "message": "Velocitat de transmissió automàtica"
     },
     "configurationSerialRX": {
-        "message": "Receptor Sèrie"
+        "message": "RX Sèrie"
     },
     "configurationSpiRX": {
-        "message": "Receptor SPI"
+        "message": "RX SPI"
     },
     "configurationEepromSaved": {
         "message": "EEPROM <span class=\"message-positive\">desada</span>"
@@ -1292,31 +1292,31 @@
         "message": "Escala:"
     },
     "sensorsGyroSelect": {
-        "message": "Giroscopi"
+        "message": "Gyro"
     },
     "sensorsAccelSelect": {
-        "message": "Acceleròmetre"
+        "message": "Accel"
     },
     "sensorsMagSelect": {
-        "message": "Magnetòmetre"
+        "message": "Mag"
     },
     "sensorsBaroSelect": {
-        "message": "Baròmetre"
+        "message": "Baro"
     },
     "sensorsSonarSelect": {
         "message": "Sònar"
     },
     "sensorsGyroTitle": {
-        "message": "Giroscopi"
+        "message": "Gyro"
     },
     "sensorsAccelTitle": {
-        "message": "Acceleròmetre"
+        "message": "Accel"
     },
     "sensorsMagTitle": {
-        "message": "Magnetòmetre"
+        "message": "Mag"
     },
     "sensorsBaroTitle": {
-        "message": "Baròmetre"
+        "message": "Baro"
     },
     "sensorsSonarTitle": {
         "message": "Sònar - cm"
@@ -1601,7 +1601,7 @@
         "message": "<strong>Recuperació / Comunicació perduda</strong>"
     },
     "firmwareFlasherRecoveryText": {
-        "message": "Si heu perdut la comunicació amb la placa, seguiu aquests passos per restaurar-la: <ul><li>Apagueu.</li><li>Activeu 'Sense seqüència de reinici', activeu 'Esborrat complet del xip'.</li><li>Poseu un pontet als pins BOOT o manteniu el botó BOOT premut.</li><li>Enceneu (el LED d'activitat NO ha de parpellejar si es fa correctament).</li><li>Instal·leu tots els controladors STM32 i Zadig si cal (vegeu la secció <a href=\"https://github.com/emuflight/EmuFlight/wiki/Installing-EmuFlight\" target=\"_blank\" rel=\"noopener noreferrer\">USB Flashing</a> del manual d'EmuFlight).</li><li>Tanqueu el configurador, tanqueu totes les instàncies de Chrome, tanqueu totes les aplicacions de Chrome, reinicieu el Configurador.</li><li>Allibereu el botó BOOT si el vostre FC en té un.</li><li>Flashegeu amb el firmware correcte (useu la velocitat manual si s'especifica al manual del vostre FC).</li><li>Apagueu.</li><li>Retireu el pontet BOOT.</li><li>Enceneu (el LED d'activitat ha de parpellejar).</li><li>Connecteu normalment.</li></ul>"
+        "message": "Si heu perdut la comunicació amb la placa, seguiu aquests passos per restaurar-la: <ul><li>Apagueu.</li><li>Activeu 'Sense reinici automàtic', activeu 'Esborrat complet del xip'.</li><li>Poseu un pontet als pins BOOT o manteniu el botó BOOT premut.</li><li>Enceneu (el LED d'activitat NO ha de parpellejar si es fa correctament).</li><li>Instal·leu tots els controladors STM32 i Zadig si cal (vegeu la secció <a href=\"https://github.com/emuflight/EmuFlight/wiki/Installing-EmuFlight\" target=\"_blank\" rel=\"noopener noreferrer\">USB Flashing</a> del manual d'EmuFlight).</li><li>Tanqueu el configurador, tanqueu totes les instàncies de Chrome, tanqueu totes les aplicacions de Chrome, reinicieu el Configurador.</li><li>Allibereu el botó BOOT si el vostre FC en té un.</li><li>Flashegeu amb el firmware correcte (useu la velocitat manual si s'especifica al manual del vostre FC).</li><li>Apagueu.</li><li>Retireu el pontet BOOT.</li><li>Enceneu (el LED d'activitat ha de parpellejar).</li><li>Connecteu normalment.</li></ul>"
     },
     "firmwareFlasherFirmwareNotLoaded": {
         "message": "Firmware no carregat"
@@ -2389,10 +2389,10 @@
         "message": "La freqüència de giroscopi de 32kHz només és possible si el xip ho suporta (MPU6500, MPU9250, i ICM20xx si està connectat per SPI). Si ho dubtes consulta les especificacions de la teva controladora."
     },
     "configurationAccHardware": {
-        "message": "Acceleròmetre"
+        "message": "Accel"
     },
     "configurationMagHardware": {
-        "message": "Magnetòmetre (si és compatible)"
+        "message": "Mag (si és compatible)"
     },
     "configurationSmallAngleHelp": {
         "message": "L'aeronau no armarà si està inclinada certs graus. Només aplica si l'acceleròmetre està habilitat. Posar-ho a 180º deshabilitarà la comprovació."

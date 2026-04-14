@@ -157,9 +157,6 @@
     "tabServos": {
         "message": "Servo motori"
     },
-    "tabFailsafe": {
-        "message": "Zaštita od greške"
-    },
     "tabTransponder": {
         "message": "Transponder utrke"
     },
@@ -2999,9 +2996,6 @@
     },
     "osdWarningRcSmoothingFailure": {
         "message": "Upozorava kad je inicijalizacija RC poravnavanja neuspješna"
-    },
-    "osdWarningTextFailsafe": {
-        "message": "Zaštita od greške"
     },
     "osdWarningFailsafe": {
         "message": "Upozorava kad se dogodi failsafe"

@@ -160,9 +160,6 @@
     "tabReceiver": {
         "message": "Receptor"
     },
-    "tabFailsafe": {
-        "message": "Proteção contra Falha"
-    },
     "tabTransponder": {
         "message": "Transponder de corridas"
     },
@@ -3030,9 +3027,6 @@
     "osdWarningRcSmoothingFailure": {
         "message": "Alerta quando a inicialização do \"Suavizar RC\" falha"
     },
-    "osdWarningTextFailsafe": {
-        "message": "Proteção contra Falha"
-    },
     "osdWarningFailsafe": {
         "message": "Alerta quando um Failsafe ocorre"
     },
@@ -3271,7 +3265,7 @@
         "message": "Transmissor de Vídeo (VTX)"
     },
     "vtxFrequencyChannel": {
-        "message": "Canal VTX"
+        "message": "Canal de frequência (VTX)"
     },
     "vtxBand": {
         "message": "Banda"

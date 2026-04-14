@@ -3309,7 +3309,7 @@
         "message": "Transmisor de Vídeo (VTX)"
     },
     "vtxFrequencyChannel": {
-        "message": "Canal VTX"
+        "message": "Frecuencia VTX"
     },
     "vtxBand": {
         "message": "Banda"
