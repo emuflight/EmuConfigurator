@@ -688,7 +688,7 @@
         "message": "Video Sender"
     },
     "featureANTI_GRAVITY": {
-        "message": "Kurzfristiger I-Term Boost bei starken Gasänderungen"
+        "message": "Anti Gravity — Kurzfristiger I-Term Boost bei starken Gasänderungen"
     },
     "featureDYNAMIC_FILTER": {
         "message": "Dynamischer Gyro Notch Filter"
@@ -2247,7 +2247,7 @@
         "message": "Absolute Kontrolle"
     },
     "pidTuningAbsoluteControlGainHelp": {
-        "message": "Diese Funktion löst einige grundlegende Probleme von $t(pidTuningItermRotation.message) und sollte sie irgendwann ersetzen. Diese Funktion sammelt den absoluten Gyro-Fehler in Fluggerät-Koordinaten und mischt eine proportionale Korrektur in den Sollwert. Dafür müssen AirMode und $t(pidTuningItermRelax.message) (für $t(pidTuningItermRelaxAxesOptionRP.message)) aktiviert sein. Wenn Sie diese Funktion mit $t(pidTuningIntegratedYaw.message) kombinieren, aktivieren Sie $t(pidTuningItermRelax.message) für $t(pidTuningItermRelaxAxesOptionRPY.message)."
+        "message": "Diese Funktion löst einige grundlegende Probleme von $t(pidTuningItermRotation.message) und sollte sie irgendwann ersetzen. Diese Funktion sammelt den absoluten Gyro-Fehler in Fluggerät-Koordinaten und mischt eine proportionale Korrektur in den Sollwert. Dafür müssen AirMode und $t(pidTuningItermRelax.message) (für $t(pidTuningItermRelaxAxesOptionRP.message)) aktiviert sein. Wenn du diese Funktion mit $t(pidTuningIntegratedYaw.message) kombinierst, aktiviere $t(pidTuningItermRelax.message) für $t(pidTuningItermRelaxAxesOptionRPY.message)."
     },
     "pidTuningThrottleBoost": {
         "message": "Beschleunigungsschub"
@@ -2268,7 +2268,7 @@
         "message": "Abweichender Winkel (Grad) in dem das Board anders eingebaut wurde als vorgesehen (über Kopf, gedreht, usw.) Falls externe Sensoren (Gyro, Acc, Mag) verwendet werden, bitte diese ebenfalls neu anlernen."
     },
     "failsafeFeaturesHelpNew": {
-        "message": "Es gibt ein zweistufiges Failsafe System. <strong>Stufe 1</strong> tritt dann ein, wenn die Impulslänge des Empfängers nicht stimmt, der Empfänger einen Failsafe übermittelt oder kein Signal mehr empfangen wird. Die Kanal Rückfalleinstellungen werden dann <span class=\"message-negative\">für alle</span> Kanäle gesetzt und ein kurzes Zeitfenster wird geöffnet um eine erneute Verbindung zu ermöglichen. <strong>Stufe 2</strong> tritt dann ein, wenn das Signal für eine längere Zeit weg ist während das Fluggerät <span class=\"message-negative\">gearmt</span> ist. Alle Känale werden mit den hier gesetzten Einstellungen überschrieben.<br /><strong>Hinweis:</strong> Im Gegensatz zu Stage 1 werden hier auch Werte für Kanäle überschrieben die ungültige Daten empfangen."
+        "message": "Es gibt ein zweistufiges Failsafe-System. <strong>Stufe 1</strong> tritt dann ein, wenn die Impulslänge des Empfängers nicht stimmt, der Empfänger einen Failsafe übermittelt oder kein Signal mehr empfangen wird. Die Kanalrückfalleinstellungen werden dann <span class=\"message-negative\">für alle</span> Kanäle gesetzt und ein kurzes Zeitfenster wird geöffnet um eine erneute Verbindung zu ermöglichen. <strong>Stufe 2</strong> tritt dann ein, wenn das Signal für eine längere Zeit weg ist während das Fluggerät <span class=\"message-negative\">gearmt</span> ist. Alle Kanäle werden mit den hier gesetzten Einstellungen überschrieben.<br /><strong>Hinweis:</strong> Im Gegensatz zu Stufe 1 werden hier auch Werte für Kanäle überschrieben die ungültige Daten empfangen."
     },
     "failsafePulsrangeTitle": {
         "message": "Einstellungen für gültige Pulslängen des Signals"
@@ -2283,10 +2283,10 @@
         "message": "Maximale Länge"
     },
     "failsafeChannelFallbackSettingsTitle": {
-        "message": "Kanal Rückfall Einstellungen"
+        "message": "Kanalrückfalleinstellungen"
     },
     "failsafeChannelFallbackSettingsHelp": {
-        "message": "Im Fall eines Stage 1 Failsafe werden diese Einstellungen den AUX Kanälen zugewiesen. <strong>Hinweis:</strong> Werte werden im Abstand von 25us gesetzt, kleinere Einstellungen werden vernachlässigt."
+        "message": "Im Fall eines Stufe 1 Failsafe werden diese Einstellungen den AUX Kanälen zugewiesen. <strong>Hinweis:</strong> Werte werden im Abstand von 25us gesetzt, kleinere Einstellungen werden vernachlässigt."
     },
     "failsafeChannelFallbackSettingsAuto": {
         "message": "<strong>Auto</strong> heißt Roll, Pitch, Yaw zentrieren sich, Gas wird niedrig gehalten. <strong>Hold</strong> bedeutet das der letzte empfangene Wert beibehalten wird."

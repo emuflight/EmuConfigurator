@@ -160,9 +160,7 @@
     "tabReceiver": {
         "message": "Receptor"
     },
-    "tabFailsafe": {
-        "message": "Failsafe"
-    },
+
     "tabTransponder": {
         "message": "Transpondedor de carreira"
     },
@@ -2319,7 +2317,7 @@
         "message": "Rotación Término I"
     },
     "pidTuningItermRotationHelp": {
-        "message": "Xira correctamente o vector Termo I actual a outros eixes mentres o aparello xira ao xirarse continuamente durante os rolls e ao realizar embudos e outros trucos. Moi apreciado polos pilotos LOS acro."
+        "message": "Xira correctamente o vector I-Term actual a outros eixes mentres o aparello xira ao xirarse continuamente durante os rolls e ao realizar embudos e outros trucos. Moi apreciado polos pilotos LOS acro."
     },
     "pidTuningSmartFeedforwardHelp": {
         "message": "Reduce o efecto do termo F no PID. Cando tanto o termo P como o termo F están activos no mesmo momento, só usa o maior dos dous, evitando pasarse sen necesidade de levantar D, pero tamén reduce o efecto de reacción producido polo termo F cando se engade a P."
@@ -2328,7 +2326,7 @@
         "message": "Afloxar Termo I"
     },
     "pidTuningItermRelaxHelp": {
-        "message": "Limita a acumulación de Termo I cando se producen movementos rápidos. Isto axuda especialmente a reducir o retroceso ao final dos rolls e outros movementos rápidos. Pode escoller os eixes nos que está activo e se o movemento rápido está detectado usando o Xiro ou o Setpoint (stick)."
+        "message": "Limita a acumulación de I-Term cando se producen movementos rápidos. Isto axuda especialmente a reducir o retroceso ao final dos rolls e outros movementos rápidos. Pode escoller os eixes nos que está activo e se o movemento rápido está detectado usando o Xiro ou o Setpoint (stick)."
     },
     "pidTuningItermRelaxAxes": {
         "message": "Eixos:"
@@ -3017,9 +3015,7 @@
     "osdWarningRcSmoothingFailure": {
         "message": "Avisa cuando a inicialización do Suavizado RC fallou"
     },
-    "osdWarningTextFailsafe": {
-        "message": "Failsafe"
-    },
+
     "osdWarningFailsafe": {
         "message": "Avisa cuando se executa o Modo de Seguridade"
     },

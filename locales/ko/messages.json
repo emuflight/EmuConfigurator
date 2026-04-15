@@ -83,16 +83,16 @@
         "description": "Text of the dataflash image in the header of the page."
     },
     "sensorStatusGyro": {
-        "message": "자이로"
+        "message": "Gyro"
     },
     "sensorStatusAccel": {
-        "message": "가속도계"
+        "message": "Accel"
     },
     "sensorStatusMag": {
-        "message": "자력계"
+        "message": "Mag"
     },
     "sensorStatusBaro": {
-        "message": "기압계"
+        "message": "Baro"
     },
     "sensorStatusSonar": {
         "message": "소나"

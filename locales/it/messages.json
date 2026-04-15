@@ -83,16 +83,16 @@
         "description": "Text of the dataflash image in the header of the page."
     },
     "sensorStatusGyro": {
-        "message": "Giroscopio"
+        "message": "Gyro"
     },
     "sensorStatusAccel": {
-        "message": "Accelerometro"
+        "message": "Accel"
     },
     "sensorStatusMag": {
-        "message": "Magnetometro"
+        "message": "Mag"
     },
     "sensorStatusBaro": {
-        "message": "Barometro"
+        "message": "Baro"
     },
     "sensorStatusSonar": {
         "message": "Sonar"
@@ -163,9 +163,7 @@
     "tabServos": {
         "message": "Servi"
     },
-    "tabFailsafe": {
-        "message": "Protezione da Mancanza Segnale"
-    },
+
     "tabPower": {
         "message": "Energia e Batteria"
     },
@@ -432,13 +430,13 @@
         "message": "<span class=\"message-negative\">funzione di Backup e ripristino disabilitata.</span>La versione API del tuo Firmware è <span class=\"message-negative\">$1</span>, per eseguire backup e ripristino è necessaria la versione<span class=\"message-positive\">$2</span>. puoi eseguire il backup dei tuoi settaggi via CLI, vedi la documentazione Emuflight per la procedura."
     },
     "initialSetupButtonCalibrateAccel": {
-        "message": "Calibra Accelerometro"
+        "message": "Calibra Accel"
     },
     "initialSetupCalibrateAccelText": {
         "message": "Posiziona la scheda su una superfice <strong>orizzontale</strong>, procedi con la calibrazione, assicurati che nulla si muova durante la calibrazione"
     },
     "initialSetupButtonCalibrateMag": {
-        "message": "Calibra Magnetometro"
+        "message": "Calibra Mag"
     },
     "initialSetupCalibrateMagText": {
         "message": "Muovi il multirotore di almeno <strong>360</strong> gradi su tutti gli assi di rotazione, hai 30 secondi per completare l'operazione"
@@ -543,16 +541,16 @@
         "message": "$1 gradi"
     },
     "initialSetupAccelCalibStarted": {
-        "message": "Calibrazione dell'accelerometro iniziata"
+        "message": "Calibrazione Accel iniziata"
     },
     "initialSetupAccelCalibEnded": {
-        "message": "Calibrazione Accelerometro <span class=\"message-positive\">completata</span>"
+        "message": "Calibrazione Accel <span class=\"message-positive\">completata</span>"
     },
     "initialSetupMagCalibStarted": {
-        "message": "Calibrazione Magnetometro avviata"
+        "message": "Calibrazione Mag avviata"
     },
     "initialSetupMagCalibEnded": {
-        "message": "Calibrazione Magnetometro <span class=\"message-positive\">completata</span>"
+        "message": "Calibrazione Mag <span class=\"message-positive\">completata</span>"
     },
     "initialSetupSettingsRestored": {
         "message": "Impostazioni <strong>predefinite</strong> ripristinate"
@@ -726,13 +724,13 @@
         "message": "Predefinito"
     },
     "configurationAccelTrims": {
-        "message": "Trim Accelerometro"
+        "message": "Trim Accel"
     },
     "configurationAccelTrimRoll": {
-        "message": "Aggiustamento Roll Accelerometro"
+        "message": "Aggiustamento Roll Accel"
     },
     "configurationAccelTrimPitch": {
-        "message": "Aggiustamento Pitch Accelerometro"
+        "message": "Aggiustamento Pitch Accel"
     },
     "configurationArming": {
         "message": "Arma"
@@ -741,7 +739,7 @@
         "message": "Alcune opzioni di armamento motori possono richiedere l'abilitazione degli accelerometri"
     },
     "configurationMagDeclination": {
-        "message": "Declinazione Magnetometro [gradi]"
+        "message": "Declinazione Mag [gradi]"
     },
     "configurationReverseMotorSwitch": {
         "message": "Direzione rotazione motori"
@@ -795,7 +793,7 @@
         "message": "Configurazione dei Beep"
     },
     "beeperGYRO_CALIBRATED": {
-        "message": "Giroscopio calibrato"
+        "message": "Gyro calibrated"
     },
     "beeperRX_LOST": {
         "message": "Segnale radio perso"
@@ -1586,25 +1584,25 @@
         "message": "Giroscopio:"
     },
     "sensorsAccelSelect": {
-        "message": "Accelerometro"
+        "message": "Accel"
     },
     "sensorsMagSelect": {
-        "message": "Magnetometro"
+        "message": "Mag"
     },
     "sensorsBaroSelect": {
-        "message": "Barometro"
+        "message": "Baro"
     },
     "sensorsGyroTitle": {
-        "message": "Giroscopio"
+        "message": "Gyro"
     },
     "sensorsAccelTitle": {
-        "message": "Accelerometro"
+        "message": "Accel"
     },
     "sensorsMagTitle": {
-        "message": "Magnetometro"
+        "message": "Mag"
     },
     "sensorsBaroTitle": {
-        "message": "Barometro"
+        "message": "Baro"
     },
     "cliInfo": {
         "message": "<strong>Nota:</strong> Lasciare la scheda CLI o premere Disconnetti invierà <strong>automaticamente</strong> \"<strong>exit</strong>\" alla scheda. Con l'ultimo firmware, questo farà <strong>riavviare</strong> il controller e le modifiche non salvate andranno <strong>perse</strong>.<p><strong><span class=\"message-negative\">Avviso:</span></strong> Alcuni comandi nel CLI possono causare l'invio di segnali arbitrari sui pin di uscita del motore. Ciò può causare la rotazione dei motori se è collegata una batteria. Pertanto, si consiglia vivamente di assicurarsi che <strong>nessuna batteria sia collegata prima di inserire comandi nel CLI</strong>."
@@ -2895,9 +2893,7 @@
     "osdWarningEscFail": {
         "message": "Mostra una lista degli ESC/motori che hanno problemi (giri/min o temperatura fuori dala soglia configurata)"
     },
-    "osdWarningTextFailsafe": {
-        "message": "Protezione da Mancanza Segnale"
-    },
+
     "osdSectionHelpElements": {
         "message": "Abilita o disabilita gli elementi OSD"
     },
@@ -2965,7 +2961,7 @@
         "message": "La frequenza di aggiornamento a 32 kHz è possibile solo se il processore del giroscopio la supporta (attualmente MPU6500, MPU9250, e ICM20xxx se connessi tramite SPI). In caso di dubbi consulta le specifiche della tua scheda."
     },
     "configurationAccHardware": {
-        "message": "Accelerometro"
+        "message": "Accel"
     },
     "configurationBaroHardware": {
         "message": "Barometro (se supportato)"

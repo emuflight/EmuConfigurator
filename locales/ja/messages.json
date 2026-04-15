@@ -83,16 +83,16 @@
         "description": "Text of the dataflash image in the header of the page."
     },
     "sensorStatusGyro": {
-        "message": "ジャイロ"
+        "message": "Gyro"
     },
     "sensorStatusAccel": {
-        "message": "加速度計"
+        "message": "Accel"
     },
     "sensorStatusMag": {
-        "message": "磁力計"
+        "message": "Mag"
     },
     "sensorStatusBaro": {
-        "message": "気圧計"
+        "message": "Baro"
     },
     "sensorStatusSonar": {
         "message": "ソナー"
@@ -163,9 +163,6 @@
     "tabServos": {
         "message": "サーボ"
     },
-    "tabFailsafe": {
-        "message": "フェイルセーフ"
-    },
     "tabTransponder": {
         "message": "トランスポンダー"
     },
@@ -185,7 +182,7 @@
         "message": "リアルタイムログ"
     },
     "tabOnboardLogging": {
-        "message": "ブラックボックス"
+        "message": "Blackbox"
     },
     "tabAdjustments": {
         "message": "調整設定"
@@ -514,7 +511,7 @@
         "description": "Description of the NO GYRO arming disable flag"
     },
     "initialSetupArmingDisableFlagsTooltipFAILSAFE": {
-        "message": "フェイルセーフが有効です",
+        "message": "Failsafeが有効です",
         "description": "Description of the FAILSAFE arming disable flag"
     },
     "initialSetupArmingDisableFlagsTooltipRX_FAILSAFE": {
@@ -522,11 +519,11 @@
         "description": "Description of the RX_FAILSAFE arming disable flag"
     },
     "initialSetupArmingDisableFlagsTooltipBAD_RX_RECOVERY": {
-        "message": "受信機はフェイルセーフから回復したばかりですが、アームスイッチはオンのままです",
+        "message": "受信機はFailsafeから回復したばかりですが、アームスイッチはオンのままです",
         "description": "Description of the BAD_RX_RECOVERY arming disable flag"
     },
     "initialSetupArmingDisableFlagsTooltipBOXFAILSAFE": {
-        "message": "「フェイルセーフ」スイッチが有効です",
+        "message": "「Failsafe」スイッチが有効です",
         "description": "Description of the BOXFAILSAFE arming disable flag"
     },
     "initialSetupArmingDisableFlagsTooltipRUNAWAY_TAKEOFF": {
@@ -684,10 +681,10 @@
         "message": "この機能を有効にする前に、必ずバッテリーとプロペラを外して下さい。"
     },
     "featureBLACKBOX": {
-        "message": "ブラックボックス フライトデータレコーダー"
+        "message": "Blackbox フライトデータレコーダー"
     },
     "featureBLACKBOXTip": {
-        "message": "有効後 [ブラックボックス] タブで設定をして下さい。"
+        "message": "有効後 [Blackbox] タブで設定をして下さい。"
     },
     "featureRX_SPI": {
         "message": "SPI受信サポート"
@@ -726,16 +723,16 @@
         "message": "動的ジャイロ ノッチフィルター"
     },
     "featureFAILSAFE": {
-        "message": "フェイルセーフ ステージ2を有効"
+        "message": "Failsafe ステージ2を有効"
     },
     "featureFAILSAFEOld": {
-        "message": "フェイルセーフを有効"
+        "message": "Failsafeを有効"
     },
     "featureFAILSAFETip": {
         "message": "<strong>注: </strong>ステージ2を無効にすると、全てのフライトチャンネル (ロール、ピッチ、ヨー、スロットル) のユーザ設定ではなく、フォールバック設定の<strong>自動</strong>が適用されます。"
     },
     "featureFAILSAFEOldTip": {
-        "message": "受信信号損失時にフェイルセーフの設定を適用"
+        "message": "受信信号損失時にFailsafeの設定を適用"
     },
     "configurationFeatureEnabled": {
         "message": "有効"
@@ -942,7 +939,7 @@
         "message": "USB ブザー"
     },
     "beeperBLACKBOX_ERASE": {
-        "message": "ブラックボックスログ消去が完了したときのビープ音"
+        "message": "Blackboxログ消去が完了したときのビープ音"
     },
     "beeperCRASH_FLIP": {
         "message": "クラッシュフリップモードをオンしたときのビープ音"
@@ -1041,7 +1038,7 @@
         "message": "シリアル受信"
     },
     "portsFunction_BLACKBOX": {
-        "message": "ブラックボックスログ"
+        "message": "Blackboxログ"
     },
     "portsFunction_RUNCAM_DEVICE_CONTROL": {
         "message": "カメラ (RunCamプロトコル)"
@@ -1289,7 +1286,7 @@
         "message": "EEPROM <span class=\"message-positive\">保存しました</span>"
     },
     "receiverHelp": {
-        "message": "ドキュメントの [受信機] 章をお読み下さい。 シリアルポート(必要な場合)、受信機モード(シリアル / PPM /  PWM)、プロトコル(シリアル受信機の場合)、受信機のバインド、チャンネルマップの設定、送信機のチャンネルエンドポイント / 送信機の全てのチャンネルの1000～2000までのレンジ設定を確認および設定をして下さい。また中央値(デフォルト 1500)、トリムチャンネル 1500とし、スティックのデッドバンドを設定し、送信機がオフまたは範囲外のときの動作を指定します。<br /><span class=\"message-negative\">重要:</span> 飛行する前にドキュメントの [フェイルセーフ] 章を読み、フェイルセーフを設定して下さい。"
+        "message": "ドキュメントの [受信機] 章をお読み下さい。 シリアルポート(必要な場合)、受信機モード(シリアル / PPM /  PWM)、プロトコル(シリアル受信機の場合)、受信機のバインド、チャンネルマップの設定、送信機のチャンネルエンドポイント / 送信機の全てのチャンネルの1000～2000までのレンジ設定を確認および設定をして下さい。また中央値(デフォルト 1500)、トリムチャンネル 1500とし、スティックのデッドバンドを設定し、送信機がオフまたは範囲外のときの動作を指定します。<br /><span class=\"message-negative\">重要:</span> 飛行する前にドキュメントの [Failsafe] 章を読み、Failsafeを設定して下さい。"
     },
     "tuningHelp": {
         "message": "<b>チューニングTips</b><br /><span class=\"message-negative\">重要:</span> 最初のフライト中はモーターの温度を確認することが重要です。フィルター値が高くなるほど飛行が軽快となりますが、モーターにはより多くのノイズが発生します。<br>デフォルト値である100Hzが最適値となりますが、ノイズ低減設定ではD値フィルターを50Hzに、またはジャイロフィルターの値を下げてみて下さい。"
@@ -1787,16 +1784,16 @@
         "message": "デバッグ"
     },
     "sensorsGyroTitle": {
-        "message": "ジャイロ"
+        "message": "Gyro"
     },
     "sensorsAccelTitle": {
-        "message": "加速度計"
+        "message": "Accel"
     },
     "sensorsMagTitle": {
-        "message": "磁力計"
+        "message": "Mag"
     },
     "sensorsBaroTitle": {
-        "message": "気圧計"
+        "message": "Baro"
     },
     "sensorsSonarTitle": {
         "message": "ソナー - cm"
@@ -1865,13 +1862,13 @@
         "message": "自動的に以前のログファイルをロード: <strong>$1</strong>"
     },
     "blackboxNotSupported": {
-        "message": "このフライトコントローラのファームウェアは、ブラックボックスによるログをサポートしていません。"
+        "message": "このフライトコントローラのファームウェアは、Blackboxによるログをサポートしていません。"
     },
     "blackboxMaybeSupported": {
-        "message": "このフライトコントローラのファームウェアは古すぎるか、あるいは [設定] タブでブラックボックス機能が無効になっているため、このタブは使えません。"
+        "message": "このフライトコントローラのファームウェアは古すぎるか、あるいは [設定] タブでBlackbox機能が無効になっているため、このタブは使えません。"
     },
     "blackboxConfiguration": {
-        "message": "ブラックボックス設定"
+        "message": "Blackbox設定"
     },
     "blackboxButtonSave": {
         "message": "保存して再起動"
@@ -1922,7 +1919,7 @@
         "message": "フラッシュメモリを保存... (廃止予定)"
     },
     "dataflashSaveFileDepreciationHint": {
-        "message": "Emuflight Configuratorを使ってブラックボックスログを保存するのは、時間がかかり比較的エラーが発生しやすくなります。代わりに '<b>$t(onboardLoggingRebootMscText.message)</b>' (上記) を使用して大容量ストレージモードを有効にし、FCにアクセスしてログをダウンロードする記憶媒体とすることをお勧めします。"
+        "message": "Emuflight Configuratorを使ってBlackboxログを保存するのは、時間がかかり比較的エラーが発生しやすくなります。代わりに '<b>$t(onboardLoggingRebootMscText.message)</b>' (上記) を使用して大容量ストレージモードを有効にし、FCにアクセスしてログをダウンロードする記憶媒体とすることをお勧めします。"
     },
     "dataflashButtonErase": {
         "message": "データを消去"
@@ -2496,7 +2493,7 @@
         "message": "横向き / 下向き / 任意な回転による取付けが可能なFCボードの回転角度です。外部センサーを使用する場合は、センサーのアライメント (Gyro、Accel、コンパス) を使用して、ボードの向きから独立したセンサー位置を定義します。 "
     },
     "failsafeFeaturesHelpNew": {
-        "message": "フェイルセーフには２つの段階があります。<strong>ステージ1</strong> [第1段階] は送受信間の信号が無効、もしくは不安定な場合、受信機がフェイルセーフ信号を出力した場合、または受信機からの信号が全くない場合に実行され、<span class=\"message-negative\">全てのチャンネル</span>にチャンネルフォールバック設定が適用、復旧可能と設定した時間の中で作動します。<strong>ステージ2</strong> [第2段階] は、機体が<span class=\"message-negative\">アーム</span>されている際、あらかじめ設定した復旧可能時間よりも長くかかると切り替わり、却下しない限り選択された手順により、全てのチャンネルが適用されたチャンネルフォールバック設定のままとなります。<br /><strong>注:</strong> ステージ1が作動する前に、チャンネルフォールバック設定は無効な信号になっている個々のAUXチャンネルにも適用されます。"
+        "message": "Failsafeには２つの段階があります。<strong>ステージ1</strong> [第1段階] は送受信間の信号が無効、もしくは不安定な場合、受信機がFailsafe信号を出力した場合、または受信機からの信号が全くない場合に実行され、<span class=\"message-negative\">全てのチャンネル</span>にチャンネルフォールバック設定が適用、復旧可能と設定した時間の中で作動します。<strong>ステージ2</strong> [第2段階] は、機体が<span class=\"message-negative\">アーム</span>されている際、あらかじめ設定した復旧可能時間よりも長くかかると切り替わり、却下しない限り選択された手順により、全てのチャンネルが適用されたチャンネルフォールバック設定のままとなります。<br /><strong>注:</strong> ステージ1が作動する前に、チャンネルフォールバック設定は無効な信号になっている個々のAUXチャンネルにも適用されます。"
     },
     "failsafePulsrangeTitle": {
         "message": "パルス有効範囲の設定"
@@ -2526,25 +2523,25 @@
         "message": "ステージ2 - 設定"
     },
     "failsafeDelayItem": {
-        "message": "フェイルセーフ遅延"
+        "message": "Failsafe遅延"
     },
     "failsafeDelayHelp": {
-        "message": "信号喪失からフェイルセーフ発動までの待機時間です。"
+        "message": "信号喪失からFailsafe発動までの待機時間です。"
     },
     "failsafeThrottleLowItem": {
-        "message": "フェイルセーフ スロットル低遅延 [1 = 0.1 sec.]"
+        "message": "Failsafe スロットル低遅延 [1 = 0.1 sec.]"
     },
     "failsafeThrottleLowHelp": {
-        "message": "選択しているフェイルセーフを実行する代わりに、この時間の間スロットルが低かったとき機体をディスアームします。"
+        "message": "選択しているFailsafeを実行する代わりに、この時間の間スロットルが低かったとき機体をディスアームします。"
     },
     "failsafeThrottleItem": {
         "message": "着陸時に使用されるスロットル値"
     },
     "failsafeOffDelayItem": {
-        "message": "フェイルセーフ時にモーターをオフするための遅延時間 [1 = 0.1秒]"
+        "message": "Failsafe時にモーターをオフするための遅延時間 [1 = 0.1秒]"
     },
     "failsafeOffDelayHelp": {
-        "message": "フェイルセーフ発動からモーターが完全に停止するまでの時間です。"
+        "message": "Failsafe発動からモーターが完全に停止するまでの時間です。"
     },
     "failsafeSubTitle1": {
         "message": "ステージ2 - フェイル セーフ手順"
@@ -2592,22 +2589,22 @@
         "message": "ON"
     },
     "failsafeGpsRescueItemSanityChecksFSOnly": {
-        "message": "フェイルセーフのみ"
+        "message": "Failsafeのみ"
     },
     "failsafeKillSwitchItem": {
-        "message": "フェイルセーフ 強制停止スイッチ ([モード] タブでフェイルセーフを設定)"
+        "message": "Failsafe 強制停止スイッチ ([モード] タブでFailsafeを設定)"
     },
     "failsafeKillSwitchHelp": {
-        "message": "このオプションを設定すると、フェイルセーフスイッチ ([モード] タブ内) で選択されたフェイルセーフの手順を省略し、直接強制停止スイッチとして機能させます。 <strong>注:</strong> フェイルセーフ強制停止スイッチがオンの状態では、アーミングはできません。"
+        "message": "このオプションを設定すると、Failsafeスイッチ ([モード] タブ内) で選択されたFailsafeの手順を省略し、直接強制停止スイッチとして機能させます。 <strong>注:</strong> Failsafe強制停止スイッチがオンの状態では、アーミングはできません。"
     },
     "failsafeSwitchTitle": {
-        "message": "スイッチフェイルセーフモード"
+        "message": "スイッチFailsafeモード"
     },
     "failsafeSwitchModeItem": {
-        "message": "フェイルセーフ スイッチ動作"
+        "message": "Failsafe スイッチ動作"
     },
     "failsafeSwitchModeHelp": {
-        "message": "このオプションは、フェイルセーフがAUXスイッチを介して有効となったときの動作を決定します。<br/><strong>ステージ1</strong> は、ステージ1のフェイルセーフをオンにします。 これは、フェイルセーフの動作をシミュレートする場合に便利な機能です。<br/><strong>ステージ2</strong> はステージ1をスキップし、すぐにステージ2をオンにします。<br/><strong>強制停止</strong> は、即座にディスアームします。 (クワッドコプターは墜落してしまいます)"
+        "message": "このオプションは、FailsafeがAUXスイッチを介して有効となったときの動作を決定します。<br/><strong>ステージ1</strong> は、ステージ1のFailsafeをオンにします。 これは、Failsafeの動作をシミュレートする場合に便利な機能です。<br/><strong>ステージ2</strong> はステージ1をスキップし、すぐにステージ2をオンにします。<br/><strong>強制停止</strong> は、即座にディスアームします。 (クワッドコプターは墜落してしまいます)"
     },
     "failsafeSwitchOptionStage1": {
         "message": "ステージ1"
@@ -3083,7 +3080,7 @@
         "message": "モーター毎の出力グラフを表示"
     },
     "osdDescElementLogStatus": {
-        "message": "ブラックボックス番号と警告"
+        "message": "Blackbox番号と警告"
     },
     "osdDescElementFlipArrow": {
         "message": "タートルモードでどのモーターが起動しているかを示す矢印"
@@ -3128,7 +3125,7 @@
         "message": "記録された最大高度"
     },
     "osdDescStatBlackbox": {
-        "message": "ブラックボックス合計使用率"
+        "message": "Blackbox合計使用率"
     },
     "osdDescStatEndBattery": {
         "message": "ディスアーム時バッテリー電圧"
@@ -3143,7 +3140,7 @@
         "message": "ホームロケーションからの最大距離"
     },
     "osdDescStatBlackboxLogNumber": {
-        "message": "飛行後のブラックボックスログ番号"
+        "message": "飛行後のBlackboxログ番号"
     },
     "osdDescStatTimer1": {
         "message": "ディスアーム時のタイマー1の値"
@@ -3217,11 +3214,8 @@
     "osdWarningRcSmoothingFailure": {
         "message": "RCスムージングの初期化に失敗した場合に警告"
     },
-    "osdWarningTextFailsafe": {
-        "message": "フェイルセーフ"
-    },
     "osdWarningFailsafe": {
-        "message": "フェイルセーフ発生時に警告"
+        "message": "Failsafe発生時に警告"
     },
     "osdWarningLaunchControl": {
         "message": "起動制御モードが有効となったときの警告"
@@ -3269,7 +3263,7 @@
         "message": "モーターアーミング"
     },
     "mainHelpFailsafe": {
-        "message": "フェイルセーフモード"
+        "message": "Failsafeモード"
     },
     "mainHelpLink": {
         "message": "シリアル接続状態"
@@ -3398,7 +3392,7 @@
         "message": "FPVカメラアングル [degrees]"
     },
     "onboardLoggingBlackbox": {
-        "message": "ブラックボックス設定"
+        "message": "Blackbox設定"
     },
     "onboardLoggingRateOfLogging": {
         "message": "記録レート"

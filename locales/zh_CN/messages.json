@@ -459,7 +459,7 @@
         "message": "把飞控或者飞机<strong>水平</strong>放置，再执行加速度计校准。校准过程中切勿移动飞控或者飞机。"
     },
     "initialSetupButtonCalibrateMag": {
-        "message": "校准磁力计"
+        "message": "校准 Mag"
     },
     "initialSetupCalibrateMagText": {
         "message": "将飞行器在所有轴向上都移动至少<strong>360</strong>度，你有30秒的时间可供进行这项操作。"
@@ -825,10 +825,10 @@
         "message": "第二个陀螺仪"
     },
     "configurationSensorAlignmentAcc": {
-        "message": "加速度计方向"
+        "message": "Accel 方向"
     },
     "configurationSensorAlignmentMag": {
-        "message": "磁力计方向"
+        "message": "Mag 方向"
     },
     "configurationSensorAlignmentDefaultOption": {
         "message": "默认"
@@ -2557,7 +2557,7 @@
         "message": "为正在学习飞行的飞行员增加一个新的角度限制模式。有效范围为 10-80，需要使用 $t(tabAuxiliary.message) 选项卡中的一个开关激活。"
     },
     "configHelp2": {
-        "message": "任意角度（直立，反转，旋转等）安装飞控板。当使用外部传感器时，请使用传感器校正设置(陀螺，加速度计，磁力计)来决定独立于飞控板的传感器位置。"
+        "message": "任意角度（直立，反转，旋转等）安装飞控板。当使用外部传感器时，请使用传感器校正设置 (Gyro, Accel, Mag) 来决定独立于飞控板的传感器位置。"
     },
     "failsafeFeaturesHelpNew": {
         "message": "失控保护有两个阶段。当飞控在任一接收通道收到无效的脉冲长度，或者接收机汇报已失控，或者彻底没有收到接收机信号，飞控将进入<strong>一阶失控保护</strong>状态。飞控将会在<span class=\"message-negative\">所有通道</span>使用预置通道设置，如果短时间内信号恢复将可退出失控保护状态。在飞机处于<span class=\"message-negative\">解锁</span>状态，并且一阶失控保护模式持续时间超过了预设的时间，飞控将进入<strong>二价失控保护</strong>状态，所有通道将会保持当前输出。<br /><strong>注意：</strong> 在飞控进入一阶失控保护之前，如果AUX 通道出现无效的脉冲，该通道一样会使用预置通道设置。"

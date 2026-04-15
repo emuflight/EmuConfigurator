@@ -2230,9 +2230,7 @@
     "powerVoltageHead": {
         "message": "Meteran Tegangan"
     },
-    "powerVoltageValue": {
-        "message": "$1 V"
-    },
+
     "powerVoltageId10": {
         "message": "Baterai"
     },
