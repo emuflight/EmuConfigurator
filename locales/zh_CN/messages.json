@@ -101,7 +101,7 @@
         "message": "显示测试版本的配置程序更新提示"
     },
     "configuratorUpdateNotice": {
-        "message": "你正在使用旧版本的 <b> Emuflight地面站 </b>。<br> 版本<b>$1</b>已经在网上发布。请到 <a href=\"$2\" target=\"_blank\">发布页面</a>下载安装最新的地面站，<br>更新之前请关闭地面站."
+        "message": "你正在使用旧版本的 <b> Emuflight地面站 </b>。<br> 版本<b>$1</b>已经在网上发布。请到 <a href=\"$2\" target=\"_blank\" rel=\"noopener noreferrer\">发布页面</a>下载安装最新的地面站，<br>更新之前请关闭地面站."
     },
     "configuratorUpdateWebsite": {
         "message": "打开版本发布网站"

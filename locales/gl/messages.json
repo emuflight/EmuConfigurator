@@ -1269,10 +1269,10 @@
         "message": "EEPROM <span class=\"message-positive\">gardada</span>"
     },
     "receiverHelp": {
-        "message": "Le o capítulo do receptor na documentación. Configura o porto serie (se é necesario), o modo receptor (serie/ppm/pwm), o provedor (para receptores serie), vincula o receptor, establece o mapa de canais, configura os extremos/rango de canais no TX para que todos os canais vaian de ~1000 a ~2000. Establece o punto medio (por defecto 1500), axusta os canais a 1500, configura o deadband do mando, verifica o comportamento cando o TX está apagado ou fóra do rango.<br /><span class=\"message-negative\">IMPORTANTE:</span> Antes de voar le o capítulo de failsafe na documentación e configura o failsafe."
+        "message": "Le o capítulo do receptor na documentación. Configura o porto serie (se é necesario), o modo receptor (serie/ppm/pwm), o provedor (para receptores serie), vincula o receptor, establece o mapa de canais, configura os extremos/rango de canais no TX para que todos os canais vaian de ~1000 a ~2000. Establece o punto medio (por defecto 1500), axusta os canais a 1500, configura o deadband do mando, verifica o comportamento cando o TX está apagado ou fóra do rango.<br /><span class=\"message-negative\">IMPORTANTE:</span> Antes de voar le o capítulo de Failsafe na documentación e configura o Failsafe."
     },
     "tuningHelp": {
-        "message": "<b>Consellos de axuste</b><br /><span class=\"message-negative\">IMPORTANTE:</span> É importante verificar a temperatura dos motores durante os primeiros voos. Canto maior sexa o valor do filtro, mellor pode voar, pero tamén haberá máis ruído nos motores. <br>O valor predeterminado de 100Hz é óptimo, pero para configuracións con máis ruído podes tentar baixar o filtro Dterm a 50Hz e posiblemente tamén o filtro de xiroscopio."
+        "message": "<b>Consellos de axuste</b><br /><span class=\"message-negative\">IMPORTANTE:</span> É importante verificar a temperatura dos motores durante os primeiros voos. Canto maior sexa o valor do filtro, mellor pode voar, pero tamén haberá máis ruído nos motores. <br>O valor predeterminado de 100Hz é óptimo, pero para configuracións con máis ruído podes tentar baixar o filtro Dterm a 50Hz e posiblemente tamén o filtro de Gyro."
     },
     "filterWarning": {
         "message": "<span class=\"message-negative\"><b>Aviso: </b></span> A cantidade de filtrado que está a usar é perigosamente baixa. É probable que sexa difícil de controlar. É altamente recomendable que <b> habilite polo menos un dos Gyro Dynamic Lowpass ou Gyro Lowpass 1 e polo menos un dos D Term Dynamic Lowpass ou D Term Lowpass 1</b>."
@@ -2326,7 +2326,7 @@
         "message": "Afloxar Termo I"
     },
     "pidTuningItermRelaxHelp": {
-        "message": "Limita a acumulación de I-Term cando se producen movementos rápidos. Isto axuda especialmente a reducir o retroceso ao final dos rolls e outros movementos rápidos. Pode escoller os eixes nos que está activo e se o movemento rápido está detectado usando o Xiro ou o Setpoint (stick)."
+        "message": "Limita a acumulación de I-Term cando se producen movementos rápidos. Isto axuda especialmente a reducir o retroceso ao final dos rolls e outros movementos rápidos. Pode escoller os eixes nos que está activo e se o movemento rápido está detectado usando o Gyro ou o Setpoint (stick)."
     },
     "pidTuningItermRelaxAxes": {
         "message": "Eixos:"

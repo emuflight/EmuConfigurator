@@ -95,7 +95,7 @@
         "message": "Montrer les notifications de mise à jour des versions instables du configurateur"
     },
     "configuratorUpdateNotice": {
-        "message": "Vous utilisez une version dépassée du <b>Configurateur Emuflight</b>.<br>La version <b>$1</b> est disponible en ligne, rendez-vous <a href=\"$2\" target=\"_blank\">à la page \"version\" </a> pour télécharger et installer la dernière version pourvue de corrections et optimisations.<br>Svp, fermez le configurateur avant la mise à jour."
+        "message": "Vous utilisez une version dépassée du <b>Configurateur Emuflight</b>.<br>La version <b>$1</b> est disponible en ligne, rendez-vous <a href=\"$2\" target=\"_blank\" rel=\"noopener noreferrer\">à la page \"version\" </a> pour télécharger et installer la dernière version pourvue de corrections et optimisations.<br>Svp, fermez le configurateur avant la mise à jour."
     },
     "configuratorUpdateWebsite": {
         "message": "Aller sur le site de publication"
@@ -417,13 +417,13 @@
         "message": "<span class=\"message-negative\">La sauvegarde et la restauration sont désactivés.</span> La version API de votre microprogramme est <span class=\"message-negative\">$1</span>, la version minimum requise est <span class=\"message-positive\">$2</span>.  Veuillez sauvegarder vos paramètres en CLI, voir la procédure dans l'aide Emuflight."
     },
     "initialSetupButtonCalibrateAccel": {
-        "message": "Calibrer Accéléromètre"
+        "message": "Calibrer Accel"
     },
     "initialSetupCalibrateAccelText": {
         "message": "Positionner la carte de vol ou le châssis <strong>à plat</strong>, calibrer, s'assurer que rien ne bouge pendant le calibrage."
     },
     "initialSetupButtonCalibrateMag": {
-        "message": "Calibrer Magnétomètre"
+        "message": "Calibrer Mag"
     },
     "initialSetupCalibrateMagText": {
         "message": "Faire tourner l'appareil à <strong>360° minimum</strong> sur les 3 axes, vous avez 30 secondes pour le faire."

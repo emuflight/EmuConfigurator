@@ -101,7 +101,7 @@
         "message": "Rādīt atjauninājumu paziņojumus priekš konfiguratora nestabilajām versijām"
     },
     "configuratorUpdateNotice": {
-        "message": "Jūs lietojat novecojušu <b>Emuflight Konfiguratora</b> versiju.<br>Versija <b>$1</b> ir pieejama, lūdzu apmeklējiet <a href=\"$2\" target=\"_blank\">relīžu lapu</a>, lai lejupielādētu un uzstādītu jaunāko versiju ar labojumiem un uzlabojumiem.<br>Lūdzu aizveriet konfiguratora logu pirms atjaunināšanās."
+        "message": "Jūs lietojat novecojušu <b>Emuflight Konfiguratora</b> versiju.<br>Versija <b>$1</b> ir pieejama, lūdzu apmeklējiet <a href=\"$2\" target=\"_blank\" rel=\"noopener noreferrer\">relīžu lapu</a>, lai lejupielādētu un uzstādītu jaunāko versiju ar labojumiem un uzlabojumiem.<br>Lūdzu aizveriet konfiguratora logu pirms atjaunināšanās."
     },
     "configuratorUpdateWebsite": {
         "message": "Dodieties uz relīzes vietni"

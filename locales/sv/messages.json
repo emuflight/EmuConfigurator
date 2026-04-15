@@ -89,7 +89,7 @@
         "message": "Visa uppdateringsnotifieringar för icke-stabila versioner av konfiguratorn"
     },
     "configuratorUpdateNotice": {
-        "message": "Du använder en utdaterad version av <b>Emuflight-konfiguratorn</b>.<br>Version <b>$1</b> är tillgänglig online, besök <a href=\"$2\" target=\"_blank\">utgivningssidan</a> för att ladda ner senaste versionen med korrigeringar och förbättringar.<br>Stäng konfigurator-fönstret innan uppdateringen."
+        "message": "Du använder en utdaterad version av <b>Emuflight-konfiguratorn</b>.<br>Version <b>$1</b> är tillgänglig online, besök <a href=\"$2\" target=\"_blank\" rel=\"noopener noreferrer\">utgivningssidan</a> för att ladda ner senaste versionen med korrigeringar och förbättringar.<br>Stäng konfigurator-fönstret innan uppdateringen."
     },
     "configuratorUpdateWebsite": {
         "message": "Gå till utgivningssidan"

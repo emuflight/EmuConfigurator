@@ -101,7 +101,7 @@
         "message": "Mostra notifiche per versioni beta del configuratore"
     },
     "configuratorUpdateNotice": {
-        "message": "Stai usando una versione obsoleta di <b>Emuflight Configurator</b>. <br>La versione <b>$1</b> è disponibile online, visita <a href=\"$2\" target=\"_blank\">la pagina dei rilasci</a> per scaricare e installare l'ultima versione.<br> Perfavore chiudi l'applicazione prima di aggiornare."
+        "message": "Stai usando una versione obsoleta di <b>Emuflight Configurator</b>. <br>La versione <b>$1</b> è disponibile online, visita <a href=\"$2\" target=\"_blank\" rel=\"noopener noreferrer\">la pagina dei rilasci</a> per scaricare e installare l'ultima versione.<br> Perfavore chiudi l'applicazione prima di aggiornare."
     },
     "configuratorUpdateWebsite": {
         "message": "Visita la pagina degli aggiornamenti"

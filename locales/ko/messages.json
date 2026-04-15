@@ -101,7 +101,7 @@
         "message": "컨피규레이터의 불안정 버전의 업데이트 정보 보기"
     },
     "configuratorUpdateNotice": {
-        "message": "<b>베타플라이트 컨피규레이터</b>의 오래된 버전을 사용중입니다.<br>버전 <b>$1</b>이 온라인상 적용가능합니다. 오류수정과 개선된 최신 버전을 다운로드 및 설치하기 위해서 <a href=\"$2\" target=\"_blank\">릴리즈 페이지</a>를 방문하세요.<br>업데이트 하기 전에 컨피규레이터 창을 닫으십시오."
+        "message": "<b>베타플라이트 컨피규레이터</b>의 오래된 버전을 사용중입니다.<br>버전 <b>$1</b>이 온라인상 적용가능합니다. 오류수정과 개선된 최신 버전을 다운로드 및 설치하기 위해서 <a href=\"$2\" target=\"_blank\" rel=\"noopener noreferrer\">릴리즈 페이지</a>를 방문하세요.<br>업데이트 하기 전에 컨피규레이터 창을 닫으십시오."
     },
     "configuratorUpdateWebsite": {
         "message": "릴리즈 웹사이트로 가기"
@@ -429,10 +429,10 @@
         "message": "베타플라이트 문서는 릴리즈 노트와 위키에 적용됩니다.<br /><br />"
     },
     "defaultDocumentation1": {
-        "message": "EmuFlight 위키는 훌륭한 정보 리소스이며, <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">여기</a>에서 찾을 수 있습니다.<br />펌웨어 출시 노트는 GitHub 출시 페이지(<a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\">여기</a>)에서 확인할 수 있습니다.<br />"
+        "message": "EmuFlight 위키는 훌륭한 정보 리소스이며, <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\" rel=\"noopener noreferrer\">여기</a>에서 찾을 수 있습니다.<br />펌웨어 출시 노트는 GitHub 출시 페이지(<a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\" rel=\"noopener noreferrer\">여기</a>)에서 확인할 수 있습니다.<br />"
     },
     "defaultDocumentation2": {
-        "message": "EmuConfigurator 위키는 <a href=\"https://github.com/emuflight/EmuConfigurator/wiki\" target=\"_blank\">여기</a>에서 찾을 수 있습니다.<br />구성기(Configurator) 출시 노트는 GitHub 출시 페이지(<a href=\"https://github.com/emuflight/EmuConfigurator/releases\" target=\"_blank\">여기</a>)에서 확인할 수 있습니다.<br />"
+        "message": "EmuConfigurator 위키는 <a href=\"https://github.com/emuflight/EmuConfigurator/wiki\" target=\"_blank\" rel=\"noopener noreferrer\">여기</a>에서 찾을 수 있습니다.<br />구성기(Configurator) 출시 노트는 GitHub 출시 페이지(<a href=\"https://github.com/emuflight/EmuConfigurator/releases\" target=\"_blank\" rel=\"noopener noreferrer\">여기</a>)에서 확인할 수 있습니다.<br />"
     },
     "defaultSupportHead": {
         "message": "지원"

@@ -101,7 +101,7 @@
         "message": "未検証バージョンの更新通知を表示"
     },
     "configuratorUpdateNotice": {
-        "message": "お使いの<b>Emuflight Configurator</b>は旧バージョンです。<br>Version <b>$1</b> が利用可能です。<a href=\"$2\" target=\"_blank\">リリースページ</a>から修正・機能向上した最新版をダウンロードしてインストールして下さい。<br>注: 更新する前にConfiguratorを閉じて下さい。"
+        "message": "お使いの<b>Emuflight Configurator</b>は旧バージョンです。<br>Version <b>$1</b> が利用可能です。<a href=\"$2\" target=\"_blank\" rel=\"noopener noreferrer\">リリースページ</a>から修正・機能向上した最新版をダウンロードしてインストールして下さい。<br>注: 更新する前にConfiguratorを閉じて下さい。"
     },
     "configuratorUpdateWebsite": {
         "message": "リリースサイトに移動"

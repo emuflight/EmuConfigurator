@@ -98,7 +98,7 @@
         "message": "Prikaži obavijesti o ažuriranjima za nestabilne verzije konfiguratora"
     },
     "configuratorUpdateNotice": {
-        "message": "Koristite zastarjelu verziju <b>Emuflight konfiguratora</b>.<br>Verzija <b>$1</b> je dostupna online, molimo posjetite <a href=\"$2\" target=\"_blank\">stranicu</a> da biste preuzeli i instalirali najnoviju verziju.<br>Molimo zatvorite konfigurator prije ažuriranja."
+        "message": "Koristite zastarjelu verziju <b>Emuflight konfiguratora</b>.<br>Verzija <b>$1</b> je dostupna online, molimo posjetite <a href=\"$2\" target=\"_blank\" rel=\"noopener noreferrer\">stranicu</a> da biste preuzeli i instalirali najnoviju verziju.<br>Molimo zatvorite konfigurator prije ažuriranja."
     },
     "configuratorUpdateWebsite": {
         "message": "Idi na stranicu s izdanjima"

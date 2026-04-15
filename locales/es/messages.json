@@ -98,7 +98,7 @@
         "message": "Mostrar notificaciones de actualizaciones para versiones no estables del configurador"
     },
     "configuratorUpdateNotice": {
-        "message": "Estás utilizando una versión desactualizada de <b>Emuflight Configurator</b>.<br>La versión <b>$1</b> está disponible, por favor visita <a href=\"$2\" target=\"_blank\">la página de versiones</a> para descargar e instalar la última versión con correcciones y mejoras.<br>Por favor, cierra la ventana del configurador antes de actualizar."
+        "message": "Estás utilizando una versión desactualizada de <b>Emuflight Configurator</b>.<br>La versión <b>$1</b> está disponible, por favor visita <a href=\"$2\" target=\"_blank\" rel=\"noopener noreferrer\">la página de versiones</a> para descargar e instalar la última versión con correcciones y mejoras.<br>Por favor, cierra la ventana del configurador antes de actualizar."
     },
     "configuratorUpdateWebsite": {
         "message": "Ir a la Web de Versiones"

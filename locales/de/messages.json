@@ -90,7 +90,7 @@
         "message": "Zeige Updateinformationen für experimentelle Versionen des Konfigurators"
     },
     "configuratorUpdateNotice": {
-        "message": "Du benutzt eine veraltete Version des <b>Emuflight Konfigurators</b>. <br>Version <b>$1</b> ist online verfügbar. Bitte auf <a href=\"$2\" target=\"_blank\">der Downloadseite</a> herunterladen und installieren. <br>Den Konfigurator vor dem Herunterladen bitte schließen."
+        "message": "Du benutzt eine veraltete Version des <b>Emuflight Konfigurators</b>. <br>Version <b>$1</b> ist online verfügbar. Bitte auf <a href=\"$2\" target=\"_blank\" rel=\"noopener noreferrer\">der Downloadseite</a> herunterladen und installieren. <br>Den Konfigurator vor dem Herunterladen bitte schließen."
     },
     "configuratorUpdateWebsite": {
         "message": "Webseite mit Downloadversionen aufrufen"
@@ -2262,7 +2262,7 @@
         "message": "Fügt einen neuen Winkelbegrenzungsmodus für Piloten hinzu, welche den Acro Modus lernen wollen. Der Wertebereich geht von 10-80 und muss mit einem Schalter im $t(tabAuxiliary.message) Tab aktiviert werden."
     },
     "pidTuningIntegratedYaw": {
-        "message": "Integriertes Gieren"
+        "message": "Integrated Yaw"
     },
     "configHelp2": {
         "message": "Abweichender Winkel (Grad) in dem das Board anders eingebaut wurde als vorgesehen (über Kopf, gedreht, usw.) Falls externe Sensoren (Gyro, Acc, Mag) verwendet werden, bitte diese ebenfalls neu anlernen."
@@ -3062,7 +3062,7 @@
         "message": "<b>Legacy vs Emuflight (float):</b> PID Skalierung und PID Logik sind exakt gleich. Nicht notwendigerweise Neueinstellen notwendig. Legacy is das alte in Emuflight gewachsene rewrite, ein einfacher Integer-Arithmetik basierter Regler. Der Emuflight PID Regler nutzt Fleißkomma Arithmetik und hat viele neue Funktionen speziell für Multi-Rotor Anwendungen entwickelt.  <br> <b>Float vs Integer:</b> PID Skalierung und PID Logik sind exakt gleich. Kein Neueinstellen notwendig. F1 Boards haben keine FPU an Bord, somit belasten Fließkomma-Berechnungen die CPU Auslastung, und Integer Berechnungen verbessern die Performance. Jedoch liefert Fließkommaarithmetik die etwas höhere Genuigkeit."
     },
     "pidTuningPidTuningTipFeedforward": {
-        "message": "<b>Proportional:</b> Bewirkt eine sehr starke Widerstandskraft gegen Versuchen das Fluggerät zu bewegen.<br><b>Integral:</b> Verbessert die Fähigkeit die Position zu halten und den Drift zu reduzieren, aber erhöht auch die Verzögerung, um zur ursprünglichen Position zurück zu kehren.<br><b>Derivative:</b> Verbessert die Geschwindigkeit, mit der Abweichungen korrigiert werden, aber erhöht Störungen<br><b>Rates und Expo</b>: Bestimme dein Stick Gefühl mit diesen Parametern. Nutze die Grafik und das animierte 3D Modell, um Deine bevorzugte Einstellung zu finden"
+        "message": "<b>Proportional:</b> Bewirkt eine sehr starke Widerstandskraft gegen Versuchen das Fluggerät zu bewegen.<br><b>Integral:</b> Verbessert die Fähigkeit die Position zu halten und den Drift zu reduzieren, aber erhöht auch die Verzögerung, um zur ursprünglichen Position zurück zu kehren.<br><b>Derivative:</b> Verbessert die Geschwindigkeit, mit der Abweichungen korrigiert werden, aber erhöht Störungen<br><b>Feedforward:</b> Korrigiert Steueränderungen anhand des gewünschten Sollwerts, reduziert Verzögerung und verbessert die Reaktionsfähigkeit.<br><b>Rates und Expo</b>: Bestimme dein Stick Gefühl mit diesen Parametern. Nutze die Grafik und das animierte 3D Modell, um Deine bevorzugte Einstellung zu finden"
     },
     "pidTuningRatesTip": {
         "message": "Verändere die Raten und schau, wie sie sich auf die Steuerkurve auswirken"

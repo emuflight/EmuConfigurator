@@ -86,7 +86,7 @@
         "message": "Tampilkan pemberitahuan pembaruan untuk versi yang tidak stabil dari konfigurator"
     },
     "configuratorUpdateNotice": {
-        "message": "Anda sedang menggunakan sebuah versi lama dari <b>Emuflight Configurator</b>.<br>Versi <b>$1</b> tersedia secara online, silahkan kunjungi <a href=\"$2\" target=\"_blank\">halaman rilis</a> untuk mengunduh dan memasang versi terbaru dengan perbaikan dan penyempurnaan.<br>Silahkan tutup jendela Emuflight sebelum memperbarui."
+        "message": "Anda sedang menggunakan sebuah versi lama dari <b>Emuflight Configurator</b>.<br>Versi <b>$1</b> tersedia secara online, silahkan kunjungi <a href=\"$2\" target=\"_blank\" rel=\"noopener noreferrer\">halaman rilis</a> untuk mengunduh dan memasang versi terbaru dengan perbaikan dan penyempurnaan.<br>Silahkan tutup jendela Emuflight sebelum memperbarui."
     },
     "configuratorUpdateWebsite": {
         "message": "Kunjungi situs Rilis"
@@ -2796,7 +2796,7 @@
         "message": "<b>Derivatif dari Kesalahan</b> memberikan respons stik langsung dan lebih sering digunakan untuk Racing.<br><br><b>Derivatif dari Pengukuran</b> memberikan respon stik yang lebih halus dan lebih berguna terbang freestyle"
     },
     "pidTuningPidControllerTip": {
-        "message": "<b>Legacy vs Emuflight (float):</b> PID scaling dan logika PID sama persis. Belum tentu butuh retune. Legacy adalah versi lama betaflight yg telah ditulis ulang, yg merupakan kontroler PID sederhana menggunakan perhitungan dalam bilangan bulat. Kontroler PID Emuflight menggunakan perhitungan desimal yg lebih presisi dan memiliki banyak fitur baru yg dirancang khusus untuk aplikasi pesawat <br><b>Koma vs Tanpa Koma:</b> scaling PID dan logika PID sama persis. Tidak butuh retune. FC F1 tidak memiliki FPU onboard dan perhitungan dengan tingkat presisi dalam koma meningkatkan beban CPU, bilangan tanpa koma akan memperbaiki kinerjanya, tapi perhitungan dalam koma mungkin akan sedikit lebih presisi."
+        "message": "<b>Legacy vs EmuFlight (float):</b> PID scaling dan logika PID sama persis. Belum tentu butuh retune. Legacy adalah versi lama BetaFlight yg telah ditulis ulang, yg merupakan kontroler PID sederhana menggunakan perhitungan dalam bilangan bulat. Kontroler PID EmuFlight menggunakan perhitungan desimal yg lebih presisi dan memiliki banyak fitur baru yg dirancang khusus untuk aplikasi pesawat <br><b>Float vs Integer:</b> scaling PID dan logika PID sama persis. Tidak butuh retune. FC F1 tidak memiliki FPU onboard dan perhitungan dengan tingkat presisi dalam koma meningkatkan beban CPU, bilangan tanpa koma akan memperbaiki kinerjanya, tapi perhitungan dalam koma mungkin akan sedikit lebih presisi."
     },
     "pidTuningPidTuningTipFeedforward": {
         "message": "<b>Proporsional:</b> Anda akan merasakan resistensi yang kuat saat mencoba memindahkan pesawat<br><b>Integral:</b> Meningkatkan kemampuan untuk mempertahankan posisi awal dan mengurangi drift, tetapi juga akan menambah waktu yang diperlukan untuk kembali ke posisi awal.<br><b>Derivatif:</b> Menambah kecepatan kembali ke posisi awal, tetapi meningkatkan noise<br><b>Feedforward:</b> Umumnya pengaturan PID bereaksi terhadap error. Feedforward mengoreksi error berdasarkan masukan dari stick, menghasilkan pesawat yang responsif.<br><b>Rate dan Expo</b>: Tentukan respon stick anda berdasarkan parameter-parameter ini. Gunakan grafik dan model 3D yang berfungsi untuk menemukan pengaturan favorit anda"
