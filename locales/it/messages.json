@@ -793,7 +793,7 @@
         "message": "Configurazione dei Beep"
     },
     "beeperGYRO_CALIBRATED": {
-        "message": "Gyro calibrated"
+        "message": "Giroscopio calibrato"
     },
     "beeperRX_LOST": {
         "message": "Segnale radio perso"

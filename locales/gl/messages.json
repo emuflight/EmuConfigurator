@@ -1710,7 +1710,7 @@
         "message": "Copiado!"
     },
     "loggingNote": {
-        "message": "Os datos rexistraranse <span class=\"message-negative\">só</span> nesta pestana; ao saír da pestana <span class=\"message-negative\">cancelarase</span> o rexistro e a aplicación volvará ao estado normal de <strong>\"configurador\"</strong>.<br /> Podes seleccionar libremente o período de actualización global; os datos escribiranse no ficheiro de rexistro cada <strong>1</strong> segundo por razóns de rendemento."
+        "message": "Os datos rexistraranse <span class=\"message-negative\">só</span> nesta pestana; ao saír da pestana <span class=\"message-negative\">cancelarase</span> o rexistro e a aplicación volverá ao estado normal de <strong>\"configurador\"</strong>.<br /> Podes seleccionar libremente o período de actualización global; os datos escribiranse no ficheiro de rexistro cada <strong>1</strong> segundo por razóns de rendemento."
     },
     "loggingSamplesSaved": {
         "message": "Exemplos gardados:"

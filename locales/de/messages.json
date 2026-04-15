@@ -149,17 +149,11 @@
     "tabReceiver": {
         "message": "Empfänger"
     },
-    "tabServos": {
-        "message": "Servos"
-    },
     "tabTransponder": {
         "message": "Renntransponder"
     },
     "tabPower": {
         "message": "Strom & Akku"
-    },
-    "tabGPS": {
-        "message": "GPS"
     },
     "tabMotorTesting": {
         "message": "Motoren"
@@ -169,9 +163,6 @@
     },
     "tabRawSensorData": {
         "message": "Sensoren"
-    },
-    "tabCLI": {
-        "message": "CLI"
     },
     "tabLogging": {
         "message": "Protokollierung"

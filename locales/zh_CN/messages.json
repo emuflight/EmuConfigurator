@@ -82,18 +82,6 @@
         "message": "闪存芯片：空闲空间",
         "description": "Text of the dataflash image in the header of the page."
     },
-    "sensorStatusGyro": {
-        "message": "陀螺仪"
-    },
-    "sensorStatusAccel": {
-        "message": "加速度计"
-    },
-    "sensorStatusMag": {
-        "message": "磁力计"
-    },
-    "sensorStatusBaro": {
-        "message": "气压计"
-    },
     "sensorStatusSonar": {
         "message": "声呐"
     },
@@ -616,15 +604,6 @@
     },
     "initialSetupAccelCalibStarted": {
         "message": "开始加速度计校准"
-    },
-    "initialSetupAccelCalibEnded": {
-        "message": "加速度计校准 <span class=\"message-positive\">完成</span>"
-    },
-    "initialSetupMagCalibStarted": {
-        "message": "磁力计校准"
-    },
-    "initialSetupMagCalibEnded": {
-        "message": "磁力计校准 <span class=\"message-positive\">完成</span>"
     },
     "initialSetupSettingsRestored": {
         "message": "恢复到<strong>默认</strong>设置"
@@ -1795,35 +1774,11 @@
     "sensorsScale": {
         "message": "比例："
     },
-    "sensorsGyroSelect": {
-        "message": "陀螺仪"
-    },
-    "sensorsAccelSelect": {
-        "message": "加速度计"
-    },
-    "sensorsMagSelect": {
-        "message": "磁力计"
-    },
-    "sensorsBaroSelect": {
-        "message": "高度计"
-    },
     "sensorsSonarSelect": {
         "message": "声呐"
     },
     "sensorsDebugSelect": {
         "message": "调试"
-    },
-    "sensorsGyroTitle": {
-        "message": "陀螺仪"
-    },
-    "sensorsAccelTitle": {
-        "message": "加速度计"
-    },
-    "sensorsMagTitle": {
-        "message": "磁力计"
-    },
-    "sensorsBaroTitle": {
-        "message": "气压计"
     },
     "sensorsSonarTitle": {
         "message": "声呐 - 厘米"
@@ -3117,10 +3072,10 @@
         "message": "警报 (比如低电压)，警告 (不能解锁原因，电池电压极低) 和模拟蜂鸣器(4个闪烁星号)。"
     },
     "osdDescElementEscTemperature": {
-        "message": "电调回传温度"
+        "message": "ESC回传温度"
     },
     "osdDescElementEscRpm": {
-        "message": "电调回传电机转速"
+        "message": "ESC回传电机转速"
     },
     "osdDescElementRemainingTimeEstimate": {
         "message": "预计剩余电池飞行时间"
@@ -3373,9 +3328,6 @@
     },
     "configurationBaroHardware": {
         "message": "气压计 （如有）"
-    },
-    "configurationMagHardware": {
-        "message": "磁力计 （如有）"
     },
     "configurationSmallAngle": {
         "message": "最大允许解锁角度 [degrees]"

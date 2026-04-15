@@ -163,9 +163,6 @@
     "tabServos": {
         "message": "서보"
     },
-    "tabFailsafe": {
-        "message": "페일세이프 (Failsafe)"
-    },
     "tabTransponder": {
         "message": "레이스 트랜스폰더"
     },
@@ -3300,9 +3297,6 @@
     },
     "osdWarningRcSmoothingFailure": {
         "message": "RC 스무딩 초기화 실패시 경고합니다"
-    },
-    "osdWarningTextFailsafe": {
-        "message": "페일세이프"
     },
     "osdWarningFailsafe": {
         "message": "페일세이프 발생시 경고합니다"
