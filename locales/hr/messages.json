@@ -1,6 +1,6 @@
 {
     "windowTitle": {
-        "message": "Konfigurator Emuflight"
+        "message": "Konfigurator EmuFlight"
     },
     "error": {
         "message": "Greška: {{errorMessage}}"
@@ -98,7 +98,7 @@
         "message": "Prikaži obavijesti o ažuriranjima za nestabilne verzije konfiguratora"
     },
     "configuratorUpdateNotice": {
-        "message": "Koristite zastarjelu verziju <b>Emuflight konfiguratora</b>.<br>Verzija <b>$1</b> je dostupna online, molimo posjetite <a href=\"$2\" target=\"_blank\" rel=\"noopener noreferrer\">stranicu</a> da biste preuzeli i instalirali najnoviju verziju.<br>Molimo zatvorite konfigurator prije ažuriranja."
+        "message": "Koristite zastarjelu verziju <b>EmuFlight konfiguratora</b>.<br>Verzija <b>$1</b> je dostupna online, molimo posjetite <a href=\"$2\" target=\"_blank\" rel=\"noopener noreferrer\">stranicu</a> da biste preuzeli i instalirali najnoviju verziju.<br>Molimo zatvorite konfigurator prije ažuriranja."
     },
     "configuratorUpdateWebsite": {
         "message": "Idi na stranicu s izdanjima"
@@ -299,7 +299,7 @@
         "message": "Ova verzija firmwarea <span class=\"message-negative\">nije podržana</span>. Molimo ažurirajte firmware na onaj koji podržava API verziju <strong>$1</strong> ili kasniju. Koristite CLI za stvaranje sigurnosne kopije prije ažuriranja. CLI procedura za sigurnosnu kopiju je u dokumentaciji. <br />U suprotnom, preuzmite i koristite stariju verziju konfiguratora ako niste spremni na ažuriranje firmwarea."
     },
     "firmwareTypeNotSupported": {
-        "message": "Firmware koji nisu dio Emuflighta/Cleanflighta <span class=\"message-negative\">nisu podržani</span>, osim u CLI sučelju."
+        "message": "Firmware koji nisu dio EmuFlighta/Cleanflighta <span class=\"message-negative\">nisu podržani</span>, osim u CLI sučelju."
     },
     "firmwareMSPNotSupported": {
         "message": "Verzija MSP nije podržana. Molimo ažurirajte EmuConfigurator."
@@ -339,7 +339,7 @@
         "message": "<span class=\"message-negative\">Ne možete</span> to učiniti sada, molimo pričekajte da se trenutna operacija završi ..."
     },
     "tabSwitchUpgradeRequired": {
-        "message": "Morate <strong>ažurirati</strong> firmware na posljednju verziju Emuflighta prije nego što možete koristiti $1 tab."
+        "message": "Morate <strong>ažurirati</strong> firmware na posljednju verziju EmuFlighta prije nego što možete koristiti $1 tab."
     },
     "firmwareVersion": {
         "message": "Firmware Verzija: <strong>$1</strong>"
@@ -408,7 +408,7 @@
         "message": "EEPROM <span class=\"message-positive\">spremljen</span>"
     },
     "defaultWelcomeIntro": {
-        "message": "Dobrodošli u <strong>Emuflight - Konfigurator</strong>, alat dizajniran pojednostavljenju ažuriranja, konfiguriranja i ugađanja postavki vašeg kontrolera leta."
+        "message": "Dobrodošli u <strong>EmuFlight - Konfigurator</strong>, alat dizajniran pojednostavljenju ažuriranja, konfiguriranja i ugađanja postavki vašeg kontrolera leta."
     },
     "defaultWelcomeText": {
         "message": "<a href=\"https://github.com/emuflight\" target=\"_blank\" rel=\"noopener noreferrer\">EmuFlight</a> je eksperimentalni softver za višerotorne letjelice s naglaskom na filtriranje i upravljanje letom. Izvorni kod i izdanja nalaze se na <a href=\"https://github.com/emuflight/EmuFlight\" title=\"github.com/emuflight/EmuFlight\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub</a>.<br /><br /> Helio/Strix IMUF može se programirati putem <a href=\"https://github.com/emuflight/Nemesis/releases/tag/imuf-flasher-0.1.0\" target=\"_blank\" rel=\"noopener noreferrer\">IMUF Flasher alata</a> ili preuzeti iz repozitorija <a href=\"https://github.com/emuflight/imu-f/releases\" target=\"_blank\" rel=\"noopener noreferrer\">IMUF releases</a>. <br /><br />EmuFlight BlackBox zapisi mogu se čitati pomoću <a href=\"https://github.com/emuflight/EmuFlight-Blackbox-Explorer/releases\" target=\"_blank\" rel=\"noopener noreferrer\">EmuFlight-BlackBox-Explorer</a>.<br /><br /><a href=\"https://github.com/ImpulseRC/ImpulseRC_Driver_Fixer\" target=\"_blank\" rel=\"noopener noreferrer\">ImpulseRC Driver Fixer</a>.<br /><a href=\"https://zadig.akeo.ie/\" title=\"https://zadig.akeo.ie\" target=\"_blank\" rel=\"noopener noreferrer\">Zadig</a>.<br /><a href=\"https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers\" title=\"http://www.silabs.com\" target=\"_blank\" rel=\"noopener noreferrer\">CP210x upravljački programi</a> (zastarjelo).<br /><a href=\"https://www.st.com/en/development-tools/stsw-stm32102.html\" title=\"http://www.st.com\" target=\"_blank\" rel=\"noopener noreferrer\">STM USB VCP upravljački programi</a> (zastarjelo).<br />"
@@ -423,7 +423,7 @@
         "message": "Dokumentacija / Uputsvo"
     },
     "defaultDocumentation": {
-        "message": "Emuflight dokumentacija je dostupna u napomenama izdanja i na Emuflight wikiju.<br /><br />"
+        "message": "EmuFlight dokumentacija je dostupna u napomenama izdanja i na EmuFlight wikiju.<br /><br />"
     },
     "defaultDocumentation1": {
         "message": "EmuFlight wiki je odličan izvor informacija, može se pronaći <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\" rel=\"noopener noreferrer\">ovdje</a>.<br />Napomene o izdanju firmvera mogu se pročitati na stranici GitHub izdanja, <a href=\"https://github.com/emuflight/EmuFlight/releases\" target=\"_blank\" rel=\"noopener noreferrer\">ovdje</a>.<br />"
@@ -438,10 +438,10 @@
         "message": "Izvori"
     },
     "defaultSupport": {
-        "message": "Za podršku molimo potražite na forumima i na Emuflight wikiju ili kontaktirajte vašek proizvođaća<br /><br />"
+        "message": "Za podršku molimo potražite na forumima i na EmuFlight wikiju ili kontaktirajte vašek proizvođaća<br /><br />"
     },
     "initialSetupBackupAndRestoreApiVersion": {
-        "message": "<span class=\"message-negative\">Izrada i korištenje sigurnosnih kopija onemogućeno.</span> Koristite firmware s API verzijom <span class=\"message-negative\">$1</span>, sigurnosne kopije zahtijevaju <span class=\"message-positive\">$2</span>.  Molimo napravite sigurnosne kopije postavki kroz CLI sučelje, pogledajte Emuflight dokumentaciju za proceduru."
+        "message": "<span class=\"message-negative\">Izrada i korištenje sigurnosnih kopija onemogućeno.</span> Koristite firmware s API verzijom <span class=\"message-negative\">$1</span>, sigurnosne kopije zahtijevaju <span class=\"message-positive\">$2</span>.  Molimo napravite sigurnosne kopije postavki kroz CLI sučelje, pogledajte EmuFlight dokumentaciju za proceduru."
     },
     "initialSetupButtonCalibrateAccel": {
         "message": "Kalibracija akcelerometra"
@@ -513,7 +513,7 @@
         "message": "Arming dozvoljen"
     },
     "initialSetupArmingDisableFlagsTooltip": {
-        "message": "Popis zastavica koje pokazuju zašto arming trenutno nije dozvoljen. Pređite mišem preko zastavice ili posjetiti poglavlje 'Arming Sequence & Safety' u Emuflight Wikiju za više informacija."
+        "message": "Popis zastavica koje pokazuju zašto arming trenutno nije dozvoljen. Pređite mišem preko zastavice ili posjetiti poglavlje 'Arming Sequence & Safety' u EmuFlight Wikiju za više informacija."
     },
     "initialSetupArmingDisableFlagsTooltipNO_GYRO": {
         "message": "Žiroskop nije pronađen",
@@ -580,7 +580,7 @@
         "description": "Description of the BST arming disable flag"
     },
     "initialSetupArmingDisableFlagsTooltipMSP": {
-        "message": "MSP veza je aktivna, vjerojatno s ovim Emuflight Konfiguratorom",
+        "message": "MSP veza je aktivna, vjerojatno s ovim EmuFlight Konfiguratorom",
         "description": "Description of the MSP arming disable flag"
     },
     "initialSetupArmingDisableFlagsTooltipPARALYZE": {
@@ -876,7 +876,7 @@
         "message": "Ton oznake"
     },
     "configurationDshotBeaconHelp": {
-        "message": "DSHOT beacon koristi ESCove i motore da proizvede zvuk. To znači da se DSHOT beacon ne može koristiti dok se motori vrte. U Emuflight verziji 3.4 i kasnijoj, kada se pokuša armirati dok je DSHOT beacon aktivan, postoji kašnjenje od 2 sekunde nakon posljednjeg zvuka prije nego što se letjelica armira. To služi tome da se spriječi ometanje arming procedure. <br/><strong>Upozorenje:</strong>Budući da DSHOT beacon koristi motore da bi proizveo zvuk, postoji mogućnost od pregrijavanja i oštećenja samih motora ako je postavljena jačina beacona prevelika. Koristite BLHeli konfigurator ili BLHeli Suite kako biste postavili i testirali jačinu beacona."
+        "message": "DSHOT beacon koristi ESCove i motore da proizvede zvuk. To znači da se DSHOT beacon ne može koristiti dok se motori vrte. U EmuFlight verziji 3.4 i kasnijoj, kada se pokuša armirati dok je DSHOT beacon aktivan, postoji kašnjenje od 2 sekunde nakon posljednjeg zvuka prije nego što se letjelica armira. To služi tome da se spriječi ometanje arming procedure. <br/><strong>Upozorenje:</strong>Budući da DSHOT beacon koristi motore da bi proizveo zvuk, postoji mogućnost od pregrijavanja i oštećenja samih motora ako je postavljena jačina beacona prevelika. Koristite BLHeli konfigurator ili BLHeli Suite kako biste postavili i testirali jačinu beacona."
     },
     "configurationBeeper": {
         "message": "Konfiguracija beepera"
@@ -1352,7 +1352,7 @@
         "message": "Pregled"
     },
     "receiverMspWarningText": {
-        "message": "Ove kontrole omogućuju da Emuflight bude arman i testiran bez stanice i prijemnika. Ali, <strong>ova mogućnosti nije namijenjena za let i propeleri bi trebali biti skinuti. </strong><br><br>Ova mogućnost ne garantira sigurnu kontrolu letjelice.<strong> Ozljede su moguće ako su propeleri na letjelici.</strong>"
+        "message": "Ove kontrole omogućuju da EmuFlight bude arman i testiran bez stanice i prijemnika. Ali, <strong>ova mogućnosti nije namijenjena za let i propeleri bi trebali biti skinuti. </strong><br><br>Ova mogućnost ne garantira sigurnu kontrolu letjelice.<strong> Ozljede su moguće ako su propeleri na letjelici.</strong>"
     },
     "receiverMspEnableButton": {
         "message": "Omogući kontrole"
@@ -1985,13 +1985,13 @@
         "message": "Poruka:"
     },
     "firmwareFlasherWarningText": {
-        "message": "Molimo da <span class=\"message-negative\">ne</span> pokušavate ažurirati <strong>hardware koji nije namjenjen za Emuflight</strong> s ovim alatom za ažuriranje.<br /> <span class=\"message-negative\">Nemojte </span><strong>odspajati</strong> kontroler ili <strong>gasiti</strong> računalo tijekom ažuriranja. <br /><br /><strong>Napomena: </strong>STM32 bootloader je smješten u ROM-u i ne može se uništiti.<br /><strong>Napomena:</strong><span class=\"message-negative\">Automatsko povezivanje</span> je uvijek onemogućeno dok koristite alat za ažuriranje firmwarea.<br /><strong>Napomena:</strong> Uvijek imajte backup jer postoji mogućnost gubitka cijele konfiguracije. <br /><strong>Napomena:</strong> Ako imate problema pri ažuriranju pokušajte prije svega <strong>ponovno spojiti kabel s kontrolera leta</strong>, ponovno pokrenuti konfigurator, ažurirati Chrome i drivere. <br /><strong>Napomena:</strong> Kada ažurirate kontrolere koji se direktno spajaju na USB priključak(većina novih kontrolera) obvezno pročitajte poglavlje 'USB Flashing' u Emuflight uputstvima"
+        "message": "Molimo da <span class=\"message-negative\">ne</span> pokušavate ažurirati <strong>hardware koji nije namjenjen za EmuFlight</strong> s ovim alatom za ažuriranje.<br /> <span class=\"message-negative\">Nemojte </span><strong>odspajati</strong> kontroler ili <strong>gasiti</strong> računalo tijekom ažuriranja. <br /><br /><strong>Napomena: </strong>STM32 bootloader je smješten u ROM-u i ne može se uništiti.<br /><strong>Napomena:</strong><span class=\"message-negative\">Automatsko povezivanje</span> je uvijek onemogućeno dok koristite alat za ažuriranje firmwarea.<br /><strong>Napomena:</strong> Uvijek imajte backup jer postoji mogućnost gubitka cijele konfiguracije. <br /><strong>Napomena:</strong> Ako imate problema pri ažuriranju pokušajte prije svega <strong>ponovno spojiti kabel s kontrolera leta</strong>, ponovno pokrenuti konfigurator, ažurirati Chrome i drivere. <br /><strong>Napomena:</strong> Kada ažurirate kontrolere koji se direktno spajaju na USB priključak(većina novih kontrolera) obvezno pročitajte poglavlje 'USB Flashing' u EmuFlight uputstvima"
     },
     "firmwareFlasherRecoveryHead": {
         "message": "<strong>Oporavljanje / Izgubljena komunikacija</strong>"
     },
     "firmwareFlasherRecoveryText": {
-        "message": "Ako ste izgubili komunikaciju s pločom, slijedite ove korake za vraćanje komunikacije: <ul><li>Isključite napajanje.</li><li>Omogućite 'Bez sekvence ponovnog pokretanja', omogućite 'Puno brisanje čipa'.</li><li>Premostite BOOT pinove ili držite BOOT gumb.</li><li>Uključite napajanje (LED aktivnosti NE smije treptati ako je ispravno učinjeno).</li><li>Instalirajte sve STM32 upravljačke programe i Zadig ako je potrebno (pogledajte odjeljak <a href=\"https://github.com/emuflight/EmuFlight/wiki/Installing-Emuflight\" target=\"_blank\" rel=\"noopener noreferrer\">USB Flashing</a> priručnika Emuflight).</li><li>Zatvorite konfigurator, zatvorite sve pokrenute instance Chromea, zatvorite sve Chrome aplikacije, ponovo pokrenite Konfigurator.</li><li>Otpustite BOOT gumb ako ga vaš FC ima.</li><li>Flashajte s ispravnim firmware (koristite ručnu brzinu prijenosa ako je navedena u priručniku vašeg FC-a).</li><li>Isključite napajanje.</li><li>Uklonite BOOT premosnik.</li><li>Uključite napajanje (LED aktivnosti treba treptati).</li><li>Spojite normalno.</li></ul>"
+        "message": "Ako ste izgubili komunikaciju s pločom, slijedite ove korake za vraćanje komunikacije: <ul><li>Isključite napajanje.</li><li>Omogućite 'Bez sekvence ponovnog pokretanja', omogućite 'Puno brisanje čipa'.</li><li>Premostite BOOT pinove ili držite BOOT gumb.</li><li>Uključite napajanje (LED aktivnosti NE smije treptati ako je ispravno učinjeno).</li><li>Instalirajte sve STM32 upravljačke programe i Zadig ako je potrebno (pogledajte odjeljak <a href=\"https://github.com/emuflight/EmuFlight/wiki/Installing-EmuFlight\" target=\"_blank\" rel=\"noopener noreferrer\">USB Flashing</a> priručnika EmuFlight).</li><li>Zatvorite konfigurator, zatvorite sve pokrenute instance Chromea, zatvorite sve Chrome aplikacije, ponovo pokrenite Konfigurator.</li><li>Otpustite BOOT gumb ako ga vaš FC ima.</li><li>Flashajte s ispravnim firmware (koristite ručnu brzinu prijenosa ako je navedena u priručniku vašeg FC-a).</li><li>Isključite napajanje.</li><li>Uklonite BOOT premosnik.</li><li>Uključite napajanje (LED aktivnosti treba treptati).</li><li>Spojite normalno.</li></ul>"
     },
     "firmwareFlasherFirmwareNotLoaded": {
         "message": "Firmware nije učitan"
@@ -2467,7 +2467,7 @@
         "message": "Spremi"
     },
     "powerFirmwareUpgradeRequired": {
-        "message": "Ažuriranje firmwarea <span class=\"message-negative\">potrebno</span>. Konfiguracije baterije/struje/napona koristeći API &lt; 1.33.0 (Emuflight izdanje &lt;=3.17) nisu podržane."
+        "message": "Ažuriranje firmwarea <span class=\"message-negative\">potrebno</span>. Konfiguracije baterije/struje/napona koristeći API &lt; 1.33.0 (EmuFlight izdanje &lt;=3.17) nisu podržane."
     },
     "powerBatteryVoltageMeterSource": {
         "message": "Izvor mjerača napona"
@@ -2596,7 +2596,7 @@
         "message": "<strong>Napomena:</strong> OSD pretpregled možda neće prikazati stvarni font koji je instaliran na kontroleru leta."
     },
     "osdSetupUnsupportedNote1": {
-        "message": "Kontroler leta ne odgovara na OSD komande. Ovo vjerojatno znači da nema integrirani Emuflight OSD."
+        "message": "Kontroler leta ne odgovara na OSD komande. Ovo vjerojatno znači da nema integrirani EmuFlight OSD."
     },
     "osdSetupUnsupportedNote2": {
         "message": "Neki kontroleri leta imaju onboard <a href=\"https://www.youtube.com/watch?v=ikKH_6SQ-Tk\" target=\"_blank\" rel=\"noopener noreferrer\">MinimOSD</a> koji može biti ažuriran i konfiguriran s <a href=\"https://github.com/ShikOfTheRa/scarab-osd/releases/latest\" target=\"_blank\" rel=\"noopener noreferrer\">scarab-osd</a>, svejedno, MinimOSD ne može biti konfiguriran kroz ovo sučelje."
@@ -3160,7 +3160,7 @@
         "message": "<b>Derivacijski iz greške</b> daje direktniju kontrolu i odziv i koristan je za utrkivanje.<br><br><b>Derivacijski iz mjerenja</b>nudi uglađeniji odziv na kontrole i koristan je za freestyling"
     },
     "pidTuningPidControllerTip": {
-        "message": "<b>Legacy vs Emuflight(float):</b> PID skaliranje i PID logika su potpuno isti. Nije potrebno ponovno tunirati. Legacy koristi jednostavni PID kontroler baziran na cjelobrojnom izračunu. Emuflight PID kontroler koristi kompleksnije decimalne izračune i ima mnog drugih značajki posebno dizajniranih za letjelice s više propelera. <br><b>Float vs Integer:</b> PID skaliranje i PID logika su potpuno isti. Nije potrebno ponovno tunirati. F1 procesori nemaju FPU i operacije s pomičnim zarezom povećavaju korištenje prcesora, a cjelobrojne(Integer) operacije će poboljšati performanse, ali će biti manje precizne."
+        "message": "<b>Legacy vs EmuFlight(float):</b> PID skaliranje i PID logika su potpuno isti. Nije potrebno ponovno tunirati. Legacy koristi jednostavni PID kontroler baziran na cjelobrojnom izračunu. EmuFlight PID kontroler koristi kompleksnije decimalne izračune i ima mnog drugih značajki posebno dizajniranih za letjelice s više propelera. <br><b>Float vs Integer:</b> PID skaliranje i PID logika su potpuno isti. Nije potrebno ponovno tunirati. F1 procesori nemaju FPU i operacije s pomičnim zarezom povećavaju korištenje prcesora, a cjelobrojne(Integer) operacije će poboljšati performanse, ali će biti manje precizne."
     },
     "pidTuningPidTuningTipFeedforward": {
         "message": "<b>Proporcionalno:</b> Osjetit ćete jaku silu otpora ako pokušate pomaknuti letjelicu. <br><b>Integrirano:</b> Povećava mogućnost letjelica da drži inicjalnu poziciju i smanji pomicanje, ali povećava kašnjenje kod vraćanja u inicijalnu poziciju.<br><b>Derivacijski:</b> Poboljšava brzinu oporavka od devijacija, ali povećava šum<br><b>Feedforward:</b> Obično PID kontroler reagira na pogrešku. Feedforward predviđa pogrešku na temelju kontrola koje dajete, dajući bolji odziv i kontrolu letjelici.<br><b>Rateovi i Expo</b>: Određuju osjećaj kontrola prema ovim vrijednostima. Koristite graf i 3d prikaz modela kako biste pronašni najbolje rate postavke"
