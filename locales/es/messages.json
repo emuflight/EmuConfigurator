@@ -2,9 +2,6 @@
     "windowTitle": {
         "message": "Configurador Emuflight"
     },
-    "error": {
-        "message": "Error: {{errorMessage}}"
-    },
     "warningTitle": {
         "message": "Advertencia"
     },
@@ -2683,7 +2680,7 @@
         "message": "Tu controlador de vuelo no está respondiendo a los comandos OSD. Esto probablemente significa que no tiene un OSD Emuflight integrado."
     },
     "osdSetupUnsupportedNote2": {
-        "message": "Ten en cuenta que algunos controladores de vuelo tienen un <a href=\"https://www.youtube.com/watch?v=ikKH_6SQ-Tk\" target=\"_blank\">MinimOSD</a> integrado que puede ser flasheado y configurado con <a href=\"https://github.com/ShikOfTheRa/scarab-osd/releases/latest\" target='_blank'>scarab-osd</a>, sin embargo el MinimOSD no puede ser configurado desde esta interfaz."
+        "message": "Ten en cuenta que algunos controladores de vuelo tienen un <a href=\"https://www.youtube.com/watch?v=ikKH_6SQ-Tk\" target=\"_blank\" rel=\"noopener noreferrer\">MinimOSD</a> integrado que puede ser flasheado y configurado con <a href=\"https://github.com/ShikOfTheRa/scarab-osd/releases/latest\" target=\"_blank\" rel=\"noopener noreferrer\">scarab-osd</a>, sin embargo el MinimOSD no puede ser configurado desde esta interfaz."
     },
     "osdSetupProfilesTitle": {
         "message": "Perfiles del OSD"

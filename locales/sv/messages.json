@@ -2590,7 +2590,7 @@
         "message": "Din flygkontroller svarar inte på OSD-kommandon. Detta innebär förmodligen att den inte har en integrerad BetaFlight-OSD."
     },
     "osdSetupUnsupportedNote2": {
-        "message": "Notera att vissa flygkontrollers har en inbyggd <a href=\"https://www.youtube.com/watch?v=ikKH_6SQ-Tk\" target=\"_blank\">MinimOSD</a> som kan flashas och konfigureras med <a href=\"https://github.com/ShikOfTheRa/scarab-osd/releases/latest\" target='_blank'>scarab-osd</a>, dock kan MinimOSD inte konfigureras via detta gränssnitt."
+        "message": "Notera att vissa flygkontrollers har en inbyggd <a href=\"https://www.youtube.com/watch?v=ikKH_6SQ-Tk\" target=\"_blank\" rel=\"noopener noreferrer\">MinimOSD</a> som kan flashas och konfigureras med <a href=\"https://github.com/ShikOfTheRa/scarab-osd/releases/latest\" target=\"_blank\" rel=\"noopener noreferrer\">scarab-osd</a>, dock kan MinimOSD inte konfigureras via detta gränssnitt."
     },
     "osdSetupProfilesTitle": {
         "message": "OSD-profilnummer",

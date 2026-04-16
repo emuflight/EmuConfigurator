@@ -181,9 +181,6 @@
     "tabLogging": {
         "message": "リアルタイムログ"
     },
-    "tabOnboardLogging": {
-        "message": "Blackbox"
-    },
     "tabAdjustments": {
         "message": "調整設定"
     },
@@ -1639,12 +1636,6 @@
     "gps3dFix": {
         "message": "3D Fix"
     },
-    "gpsFixTrue": {
-        "message": "<span class=\"fixtrue\">True</span>"
-    },
-    "gpsFixFalse": {
-        "message": "<span class=\"fixfalse\">False</span>"
-    },
     "gpsAltitude": {
         "message": "高度"
     },
@@ -2820,7 +2811,7 @@
         "message": "お使いのフライトコントローラはBetaFlight OSDに対応していないようです。"
     },
     "osdSetupUnsupportedNote2": {
-        "message": "いくつかのフライトコントローラにはオンボード<a href=\"https://www.youtube.com/watch?v=ikKH_6SQ-Tk\" target=\"_blank\">MinimOSD</a>があり、これを<a href=\"https://github.com/ShikOfTheRa/scarab-osd/releases/latest\" target='_blank'>scarab-osd</a>で設定および書込みができますが、MinimOSDはこのインターフェイスでは設定できません。"
+        "message": "いくつかのフライトコントローラにはオンボード<a href=\"https://www.youtube.com/watch?v=ikKH_6SQ-Tk\" target=\"_blank\" rel=\"noopener noreferrer\">MinimOSD</a>があり、これを<a href=\"https://github.com/ShikOfTheRa/scarab-osd/releases/latest\" target=\"_blank\" rel=\"noopener noreferrer\">scarab-osd</a>で設定および書込みができますが、MinimOSDはこのインターフェイスでは設定できません。"
     },
     "osdSetupProfilesTitle": {
         "message": "OSD プロファイル"

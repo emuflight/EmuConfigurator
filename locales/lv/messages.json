@@ -2781,7 +2781,7 @@
         "message": "Jūsu lidojuma kontrolieris neatbild uz OSD komandām. Visdrīzāk tas nozīmē to, ka tam nav integrēta BetaFlight OSD."
     },
     "osdSetupUnsupportedNote2": {
-        "message": "Ņemiet vēra to ka dažiem lidojuma kontrolieriem uz plates ir <a href=\"https://www.youtube.com/watch?v=ikKH_6SQ-Tk\" target=\"_blank\">MinimOSD</a>, kas var būt saprogrammēts un konfigurēts ar <a href=\"https://github.com/ShikOfTheRa/scarab-osd/releases/latest\" target='_blank'>scarab-osd</a>, toties MinimOSD nevar nokonfigurēt caur šo interfeisu."
+        "message": "Ņemiet vēra to ka dažiem lidojuma kontrolieriem uz plates ir <a href=\"https://www.youtube.com/watch?v=ikKH_6SQ-Tk\" target=\"_blank\" rel=\"noopener noreferrer\">MinimOSD</a>, kas var būt saprogrammēts un konfigurēts ar <a href=\"https://github.com/ShikOfTheRa/scarab-osd/releases/latest\" target=\"_blank\" rel=\"noopener noreferrer\">scarab-osd</a>, toties MinimOSD nevar nokonfigurēt caur šo interfeisu."
     },
     "osdSetupProfilesTitle": {
         "message": "OSD Profila numurs",
