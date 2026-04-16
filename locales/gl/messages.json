@@ -1,4 +1,7 @@
 {
+    "windowTitle": {
+        "message": "Configurador Emuflight"
+    },
     "error": {
         "message": "Erro: {{errorMessage}} "
     },
@@ -59,53 +62,17 @@
     "rememberLastTab": {
         "message": "Abrir a última pestana ao conectar"
     },
-    "userLanguageSelect": {
-        "message": "Lingua (É necesario reiniciar a aplicación para que os cambios teñan efecto)"
+    "language_changed": {
+        "message": "Cambio de idioma gardado"
+    },
+    "language_choice_message": {
+        "message": "Cambiar idioma:"
     },
     "language_default": {
         "message": "Por defecto"
     },
-    "language_ca": {
-        "message": "Català (ca)"
-    },
-    "language_de": {
-        "message": "Deutsch (de)"
-    },
-    "language_en": {
-        "message": "English (en)"
-    },
-    "language_es": {
-        "message": "Español (es)"
-    },
-    "language_fr": {
-        "message": "Français (fr)"
-    },
-    "language_id": {
-        "message": "Bahasa Indonesia (id)"
-    },
-    "language_it": {
-        "message": "Italiano (it)"
-    },
-    "language_ja": {
-        "message": "日本語 (ja)"
-    },
-    "language_ko": {
-        "message": "한국어 (ko)"
-    },
-    "language_lv": {
-        "message": "Latviešu (lv)"
-    },
-    "language_pt": {
-        "message": "Português (pt)"
-    },
-    "language_ru": {
-        "message": "Русский язык (ru)"
-    },
-    "language_sv": {
-        "message": "Svenska (sv)"
-    },
-    "language_zh_CN": {
-        "message": "简体中文 (zh_CN)"
+    "language_default_pretty": {
+        "message": "Por Defecto do Sistema ($t(detectedLanguage))"
     },
     "sensorDataFlashNotFound": {
         "message": "Memoria flash <br> non dispoñible",
@@ -117,10 +84,6 @@
     },
     "sensorStatusGyro": {
         "message": "Xiroscopio"
-    },
-    "sensorStatusGyroShort": {
-        "message": "Xiro",
-        "description": "Text of the image in the top sensors icons. Please keep it short."
     },
     "sensorStatusAccel": {
         "message": "Acelerómetro"
@@ -138,7 +101,7 @@
         "message": "Mostrar notificacións de actualizacións para versións inestables do configurador"
     },
     "configuratorUpdateNotice": {
-        "message": "Está a usar unha versión desactualizada do <b>Configurador Emuflight</b>.<br>A versión <b>$1</b> está dispoñible en liña, visite <a href=\"$2\" target=\"_blank\">a páxina de lanzamento</a> para descargar e instalar a última versión con correccións e melloras. Por favor pecha a xanela do configurador antes de actualizar."
+        "message": "Está a usar unha versión desactualizada do <b>Configurador Emuflight</b>.<br>A versión <b>$1</b> está dispoñible en liña, visite <a href=\"$2\" target=\"_blank\" rel=\"noopener noreferrer\">a páxina de lanzamento</a> para descargar e instalar a última versión con correccións e melloras. Por favor pecha a xanela do configurador antes de actualizar."
     },
     "configuratorUpdateWebsite": {
         "message": "Ir a web de descargas"
@@ -167,8 +130,14 @@
     "tabFirmwareFlasher": {
         "message": "Flasheador de Firmware"
     },
+    "tabMixerCalc": {
+        "message": "Cálculo de Mestura de Motores"
+    },
     "tabLanding": {
         "message": "Benvido/a"
+    },
+    "tabPrivacyPolicy": {
+        "message": "Política de Privacidade"
     },
     "tabHelp": {
         "message": "Documentación e Soporte"
@@ -281,6 +250,9 @@
     "stm32LocalErase": {
         "message": "Executando o borrado local ..."
     },
+    "stm32InvalidHex": {
+        "message": "Hexadecimal inválido"
+    },
     "stm32Erase": {
         "message": "Borrando ..."
     },
@@ -331,6 +303,9 @@
     },
     "firmwareTypeNotSupported": {
         "message": "Un firmware que non sexa Cleanflight/Emuflight <span class=\"message-negative\">non está soportado</span>, agás para o modo CLI."
+    },
+    "firmwareMSPNotSupported": {
+        "message": "A versión MSP non é compatible. Actualice EmuConfigurator."
     },
     "firmwareUpgradeRequired": {
         "message": "O firmware neste dispositivo necesita actualización a unha nova versión. Empregue o CLI para backup antes de flashear. O procedemento CLI de backup/recuperación atópase na documentación.<br />Se o prefire tamén pode descargar e usar unha versión antigua do configurador se non desexa actualizar."
@@ -457,10 +432,10 @@
         "message": "A documentación de Emuflight está dispoñible nas notas da versión e na wiki.<br /><br />"
     },
     "defaultDocumentation1": {
-        "message": "O Wiki de Emuflight ten unha gran cantidade de información e pode atoparse <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">aquí</a>."
+        "message": "O Wiki de EmuFlight é un gran recurso de información, pódese atopar <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\" rel=\"noopener noreferrer\">aquí</a>.<br />As notas de versión do firmware pódense ler na páxina de lanzamentos de GitHub, <a href=\"https://github.com/emuflight/EmuFlight/releases\" target=\"_blank\" rel=\"noopener noreferrer\">aquí</a>.<br />"
     },
     "defaultDocumentation2": {
-        "message": "As notas da versión do firmware poden ser lidas na páxina de GitHub, <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\">aquí</a>."
+        "message": "O Wiki de EmuConfigurator pódese atopar <a href=\"https://github.com/emuflight/EmuConfigurator/wiki\" target=\"_blank\" rel=\"noopener noreferrer\">aquí</a>.<br />As notas de versión do Configurador pódense ler na páxina de lanzamentos de GitHub, <a href=\"https://github.com/emuflight/EmuConfigurator/releases\" target=\"_blank\" rel=\"noopener noreferrer\">aquí</a>.<br />"
     },
     "defaultSupportHead": {
         "message": "Soporte"
@@ -472,7 +447,7 @@
         "message": "Para soporte por favor busque nos foros e na wiki ou contacte co vendedor. <br /><br />"
     },
     "initialSetupBackupAndRestoreApiVersion": {
-        "message": "<span class=\"message-negative\"> Desactivada función de copia de seguridade e restauración. </span> Ten firmware con versión API <span class=\"message-negative\">$1</span>, requere copia de seguridade e restauración <span class=\"mensaxe positiva\">$2</span>. Por favor, faga unha copia de seguridade dos axustes mediante a CLI, consulte a documentación de Emuflight para o procedemento."
+        "message": "<span class=\"message-negative\">Funcionalidade de copia de seguridade e restauración desactivada.</span> Tes firmware con versión de API <span class=\"message-negative\">$1</span>, a copia de seguridade e restauración require <span class=\"message-positive\">$2</span>. Por favor, fai copia de seguridade dos axustes mediante o CLI; consulta a documentación de Emuflight para o procedemento."
     },
     "initialSetupButtonCalibrateAccel": {
         "message": "Calibrar Acelerómetro"
@@ -484,7 +459,7 @@
         "message": "Calibrar Magnetómetro"
     },
     "initialSetupCalibrateMagText": {
-        "message": "Mova o multirotor <strong>360</strong> graos no eixo de rotacion, dispón de 30 segundos para esta tarefa"
+        "message": "Mova o aparello <strong>360</strong> graos no eixo de rotación, dispón de 30 segundos para esta tarefa"
     },
     "initialSetupButtonCalibratingText": {
         "message": "Calibrando..."
@@ -807,9 +782,6 @@
     "configurationSensorAlignmentGyro": {
         "message": "Aliñado do XIRO"
     },
-    "configurationSensorGyroToUse": {
-        "message": "XIRO/ACCEL"
-    },
     "configurationSensorGyroToUseNotFound": {
         "message": "Peligro: Non funciona Xiro/Acc"
     },
@@ -892,16 +864,16 @@
         "message": "Este é o valor que se envía aos ESCs cando a aeronave está desarmada. Selecciona un valor onde os motores estean parados (1000 para a maioria dos ESCs)."
     },
     "configurationDshotBeeper": {
-        "message": "Configuración baliza Dshot"
+        "message": "Configuración baliza DSHOT"
     },
     "configurationUseDshotBeeper": {
-        "message": "Usar a baliza Dshot (usa os motores para emitir pitidos cando está desarmado)"
+        "message": "Usar a baliza DSHOT (usa os motores para emitir pitidos cando está desarmado)"
     },
     "configurationDshotBeaconTone": {
         "message": "Ton da baliza"
     },
     "configurationDshotBeaconHelp": {
-        "message": "A baliza Dshot utiliza os ESCs e os motores para producir son. Isto significa que a baliza Dshot non se pode empregar cando os motores están xirando. En Emuflight 3.4 e máis recentes, cando se intenta armar mentres a baliza Dshot está activa, hai un atraso de 2 segundos despois do último ton da baliza Dshot antes de que a aeronave estea armada. Trátase de evitar que a funcionalidade de baliza Dshot interfira cós comandos Dshot enviados ao armar. <br/><strong>Aviso:</strong> Xa que a baliza Dshot está funcionando a través dos seus motores cando está activo, isto pode provocar un exceso de calor producindo danos nos seus motores e / ou ESCs se a intensidade da baliza é demasiado alta. Use BLHeli Configurator ou BLHeli Suite para axustar e probar a intensidade da baliza."
+        "message": "A baliza DSHOT utiliza os ESCs e os motores para producir son. Isto significa que a baliza DSHOT non se pode empregar cando os motores están xirando. En Emuflight 3.4 e máis recentes, cando se intenta armar mentres a baliza DSHOT está activa, hai un atraso de 2 segundos despois do último ton da baliza DSHOT antes de que a aeronave estea armada. Trátase de evitar que a funcionalidade de baliza DSHOT interfira cós comandos DSHOT enviados ao armar. <br/><strong>Aviso:</strong> Xa que a baliza DSHOT está funcionando a través dos seus motores cando está activo, isto pode provocar un exceso de calor producindo danos nos seus motores e / ou ESCs se a intensidade da baliza é demasiado alta. Use BLHeli Configurator ou BLHeli Suite para axustar e probar a intensidade da baliza."
     },
     "configurationBeeper": {
         "message": "Configuración do Beeper"
@@ -1296,10 +1268,10 @@
         "message": "EEPROM <span class=\"message-positive\">gardada</span>"
     },
     "receiverHelp": {
-        "message": "Por favor, lea o capítulo sobre a documentación do receptor. Configurar o porto serie (se é necesario), o modo do receptor (serial / ppm / pwm), o provedor (para os receptores serie), enlazar co receptor, seleccionar o canal do mapa, configurar os puntos finais do canle / intervalo na TX para que tódolos canles pasen de ~ 1000 a ~ 2000. Estableza o punto medio (predeterminado 1500), reduza as canles a 1500, configure a banda morta dos stick, comprobe o comportamento cando a TX está desactivada ou fóra do rango. <br /> <span class = \"message-negative\"> IMPORTANTE: </span> Antes de voar lea a documentación sobre a proba de fallos (Failsafe) e configureo."
+        "message": "Le o capítulo do receptor na documentación. Configura o porto serie (se é necesario), o modo receptor (serie/ppm/pwm), o provedor (para receptores serie), vincula o receptor, establece o mapa de canais, configura os extremos/rango de canais no TX para que todos os canais vaian de ~1000 a ~2000. Establece o punto medio (por defecto 1500), axusta os canais a 1500, configura o deadband do mando, verifica o comportamento cando o TX está apagado ou fóra do rango.<br /><span class=\"message-negative\">IMPORTANTE:</span> Antes de voar le o capítulo de Failsafe na documentación e configura o Failsafe."
     },
     "tuningHelp": {
-        "message": "<b>Consellos de axuste</b><br/><span class=\"message-negative\"> IMPORTANTE: </span> É importante verificar as temperaturas do motor durante os primeiros voos. Canto maior sexa o valor do filtro, mellor pode voar, pero tamén conseguirá máis ruído nos motores. <br> O valor predeterminado de 100Hz é óptimo, pero para configuracións de ruído pode intentar baixar o filtro Dterm a 50Hz e posiblemente tamén o filtro xiratorio."
+        "message": "<b>Consellos de axuste</b><br /><span class=\"message-negative\">IMPORTANTE:</span> É importante verificar a temperatura dos motores durante os primeiros voos. Canto maior sexa o valor do filtro, mellor pode voar, pero tamén haberá máis ruído nos motores. <br>O valor predeterminado de 100Hz é óptimo, pero para configuracións con máis ruído podes tentar baixar o filtro Dterm a 50Hz e posiblemente tamén o filtro de Gyro."
     },
     "filterWarning": {
         "message": "<span class=\"message-negative\"><b>Aviso: </b></span> A cantidade de filtrado que está a usar é perigosamente baixa. É probable que sexa difícil de controlar. É altamente recomendable que <b> habilite polo menos un dos Gyro Dynamic Lowpass ou Gyro Lowpass 1 e polo menos un dos D Term Dynamic Lowpass ou D Term Lowpass 1</b>."
@@ -1377,7 +1349,7 @@
         "message": "Activar controis"
     },
     "auxiliaryHelp": {
-        "message": "Configure os modos aquí usando unha combinación de canles e / ou enlaces a outros modos (enlaces soportados en BF 4.0 e posteriores). Use <strong>intervalos</strong> para definir os interruptores do seu transmisor e as asignacións de modo correspondentes. Un canle de receptor que dá unha lectura entre un intervalo mínimo / máximo activará o modo. Usa a<strong>ligazón </strong> para activar un modo cando se activa outro modo. <strong> Excepcións: </strong> ARM non se pode ligar a ou desde outro modo, non se pode ligar a outros modos configurados cunha ligazón (ligazóns encadeadas). Pódense usar varios intervalos / ligazóns para activar calquera modo. Se hai máis dun intervalo / ligazón definido para un modo, cada un deles pode configurarse como <strong>e</strong>ou<strong>OR</strong>. Activarase un modo cando:<br/> - Todas as ligazóns <strong>e</strong> rangos/links estean activas; OR <br/> - polo menos un <strong> OR </strong> intervalo / ligazón está activo. <br/> <br/> Non esqueza gardar a configuración mediante o botón Gardar."
+        "message": "Configura os modos aquí usando combinacións de rangos e/ou ligazóns a outros modos (ligazóns compatibles con BF 4.0 e posteriores). Usa <strong>rangos</strong> para definir os interruptores no teu transmisor e as asignacións de modo correspondentes. Un canal receptor que dea unha lectura entre un mínimo/máximo de rango activará o modo. Usa unha <strong>ligazón</strong> para activar un modo cando se activa outro. <strong>Excepcións:</strong> ARM non pode estar vinculado a ou desde outro modo, os modos non poden estar vinculados a outros modos configurados cunha ligazón (ligazóns en cadea). Pódense usar múltiples rangos/ligazóns para activar calquera modo. Se hai máis dun rango/ligazón definido para un modo, cada un pode configurarse como <strong>E</strong> ou <strong>OU</strong>. Un modo activarase cando:<br />- TODOS os rangos/ligazóns <strong>E</strong> están activos; OU<br />- polo menos un rango/ligazón <strong>OU</strong> está activo.<br /><br />Lembra gardar a configuración co botón Gardar."
     },
     "auxiliaryToggleUnused": {
         "message": "Ocultar modos non empregados"
@@ -1560,16 +1532,16 @@
         "message": "Só díxitos hexadecimais, 0-9, A-F"
     },
     "transponderHelp1": {
-        "message": "Configure o seu código de transpondedor aquí. Nota: Os sistemas de medición de tempos en carreira so recoñecerán códigos válidos. Pode obter códigos válidos de transpondedor en <a href=\"http://seriouslypro.com/transponder-codes\" target=\"_blank\">Seriously Pro</a>."
+        "message": "Configure o seu código de transpondedor aquí. Nota: Os sistemas de medición de tempos en carreira so recoñecerán códigos válidos. Pode obter códigos válidos de transpondedor en <a href=\"http://seriouslypro.com/transponder-codes\" target=\"_blank\" rel=\"noopener noreferrer\">Seriously Pro</a>."
     },
     "transponderHelp2": {
-        "message": "Para obter máis información, por favor, visite <a href=\"http://www.arcitimer.com/\" title=\"aRCiTimer\" target=\"_blank\">aRCiTimer</a>"
+        "message": "Para obter máis información, por favor, visite <a href=\"http://www.arcitimer.com/\" title=\"aRCiTimer\" target=\"_blank\" rel=\"noopener noreferrer\">aRCiTimer</a>"
     },
     "transponderDataHelp3": {
         "message": "Elexir ERLT ID 0-63"
     },
     "transponderHelp3": {
-        "message": "Para obter mais información, por favor, visita <a href=\"https://github.com/polyvision/EasyRaceLapTimer\" title=\"aRCiTimer\" target=\"_blank\">EasyRaceLapTimer</a>"
+        "message": "Para obter mais información, por favor, visita <a href=\"https://github.com/polyvision/EasyRaceLapTimer\" title=\"aRCiTimer\" target=\"_blank\" rel=\"noopener noreferrer\">EasyRaceLapTimer</a>"
     },
     "transponderButtonSave": {
         "message": "Gardar"
@@ -1664,11 +1636,8 @@
     "motorsResetMaximum": {
         "message": "Restablecer o tempo máximo"
     },
-    "motorsSensorGyroSelect": {
-        "message": "xiro"
-    },
     "motorsNotice": {
-        "message": "<strong>Modo proba de motor / Aviso de armado: </strong><br/> Mover os controis ou armar a aeronave coa emisora ​​fará que os motores <strong> xiren </strong>.<br/> Para previr lesións <strong class=\"message-negative\">retirar Tódalas hélices </strong> antes de empregar esta función. <br/> A habilitación do modo de proba do motor tamén desactivará temporalmente a prevención de despegue para evitar que desarme a nave cando o banco fai a proba sen hélices.<br/>"
+        "message": "<strong>Modo de proba de motores / Aviso de armado:</strong><br />Mover os controis deslizantes ou armar o aparello co transmisor provocará que os motores <strong>se poñan en marcha</strong>.<br />Para evitar lesións, <strong class=\"message-negative\">retira TODAS as hélices</strong> antes de usar esta función.<br />Activar o modo de proba de motores tamén desactivará temporalmente a Prevención de despegue descontrolado, para evitar que desarme o aparello durante as probas sen hélices.<br />"
     },
     "motorsEnableControl": {
         "message": "<strong> Comprendo os riscos </strong>, as hélices están retiradas: permítese o control e armado do motor, e desactívase a prevención do despegue de Runaway."
@@ -1740,7 +1709,7 @@
         "message": "Copiado!"
     },
     "loggingNote": {
-        "message": "Os datos rexistraranse nesta pestana <span class=\"message-negative\">solo</span>, deixando a pestana <span class=\"message-negative\">cancela</span> o rexistro e a aplicación volverá ao seu estado normal <strong>\"configurador\" </strong>.<br/> É libre para seleccionar o período de actualización global, os datos serán escritos no ficheiro de rexistro cada <strong>1</strong> segundo por razóns de rendemento."
+        "message": "Os datos rexistraranse <span class=\"message-negative\">só</span> nesta pestana; ao saír da pestana <span class=\"message-negative\">cancelarase</span> o rexistro e a aplicación volverá ao estado normal de <strong>\"configurador\"</strong>.<br /> Podes seleccionar libremente o período de actualización global; os datos escribiranse no ficheiro de rexistro cada <strong>1</strong> segundo por razóns de rendemento."
     },
     "loggingSamplesSaved": {
         "message": "Exemplos gardados:"
@@ -2016,7 +1985,7 @@
         "message": "<strong> Recuperación / comunicación perdida </strong>"
     },
     "firmwareFlasherRecoveryText": {
-        "message": "Se perde a conexión coa súa controladora siga estes pasos para reestabrecer a comunicación: <ul><li>Apagar</li><li>Activar 'non reiniciar', Activar 'Borrado completo do chip'.</li><li>Puenté os pins de BOOT ou manteña pulsado o botón BOOT.</li><li>Encenda(o LED de actividade NON parpadeará se se fai correctamente).</li><li>Instale tódolos drivers para STM32 e Zadig en caso de ser necesario (consulte a sección <a href=\"https://github.com/EmuFlight/EmuFlight/wiki\"target=\"_blank\">Flasheo USB</a> do manual de Emuflight).</li><li>Peche o configurador, peche tódalas instancias de chrome, peche tódalas aplicacións de Chrome, Reinicie o Configurador.</li><li>Solte o botón se a súa controladora ten un.</li><li>Cargue o firmware correcto empregando unha velocidade de transmisión manual (se está especificada no manual da controladora)</li><li>Apagar.</li><li>Elimine o puenteo dos pins de BOOT</li><li>Encenda (o LED de actividad debería de parpadear).</li><li>Conecte con normalidade.</li></ul>"
+        "message": "Se perdeu a comunicación coa placa, siga estes pasos para restaurala: <ul><li>Apague.</li><li>Active 'Sen secuencia de reinicio', active 'Borrado completo do chip'.</li><li>Ponte os pines BOOT ou mantén premido o botón BOOT.</li><li>Acenda (o LED de actividade NON debe parpadear se se fai correctamente).</li><li>Instale todos os controladores STM32 e Zadig se é necesario (consulte a sección <a href=\"https://github.com/emuflight/EmuFlight/wiki/Installing-Emuflight\" target=\"_blank\" rel=\"noopener noreferrer\">USB Flashing</a> do manual de Emuflight).</li><li>Peche o configurador, peche todas as instancias de Chrome, peche todas as aplicacións de Chrome, reinicie o Configurador.</li><li>Solte o botón BOOT se o seu FC o ten.</li><li>Grave co firmware correcto (usando a velocidade de baudios manual se se especifica no manual do seu FC).</li><li>Apague.</li><li>Retire a ponte BOOT.</li><li>Acenda (o LED de actividade debería parpadear).</li><li>Conecte normalmente.</li></ul>"
     },
     "firmwareFlasherFirmwareNotLoaded": {
         "message": "Firmware non cargado"
@@ -2347,7 +2316,7 @@
         "message": "Rotación Término I"
     },
     "pidTuningItermRotationHelp": {
-        "message": "Xira correctamente o vector Termo I actual a outros eixes mentres o quad xira ao xirarse continuamente durante os rolls e ao realizar embudos e outros trucos. Moi apreciado polos pilotos LOS acro."
+        "message": "Xira correctamente o vector I-Term actual a outros eixes mentres o aparello xira ao xirarse continuamente durante os rolls e ao realizar embudos e outros trucos. Moi apreciado polos pilotos LOS acro."
     },
     "pidTuningSmartFeedforwardHelp": {
         "message": "Reduce o efecto do termo F no PID. Cando tanto o termo P como o termo F están activos no mesmo momento, só usa o maior dos dous, evitando pasarse sen necesidade de levantar D, pero tamén reduce o efecto de reacción producido polo termo F cando se engade a P."
@@ -2356,7 +2325,7 @@
         "message": "Afloxar Termo I"
     },
     "pidTuningItermRelaxHelp": {
-        "message": "Limita a acumulación de Termo I cando se producen movementos rápidos. Isto axuda especialmente a reducir o retroceso ao final dos rolls e outros movementos rápidos. Pode escoller os eixes nos que está activo e se o movemento rápido está detectado usando o Xiro ou o Setpoint (stick)."
+        "message": "Limita a acumulación de I-Term cando se producen movementos rápidos. Isto axuda especialmente a reducir o retroceso ao final dos rolls e outros movementos rápidos. Pode escoller os eixes nos que está activo e se o movemento rápido está detectado usando o Gyro ou o Setpoint (stick)."
     },
     "pidTuningItermRelaxAxes": {
         "message": "Eixos:"
@@ -2370,9 +2339,6 @@
     "pidTuningItermRelaxType": {
         "message": "Tipo:"
     },
-    "pidTuningItermRelaxTypeOptionGyro": {
-        "message": "Xiro"
-    },
     "pidTuningItermRelaxTypeOptionSetpoint": {
         "message": "Valor obxetivo"
     },
@@ -2380,7 +2346,10 @@
         "message": "Control Absoluto"
     },
     "pidTuningAbsoluteControlGainHelp": {
-        "message": "Esta característica resolve algúns problemas subxacentes de $t(pidTuningItermRotation.message) e debería substituílo por algún outro punto. Este recurso acumula o erro xiratorio absoluto nas coordenadas quad e mestura unha corrección proporcional no punto de consigna. Para que funcione, ten que activar AirMode e $t(pidTuningItermRelax.message) (for $t(pidTuningItermRelaxAxesOptionRP.message)). Se combina esta función con $t(pidTuningIntegratedYaw.message), pode configurar $t(pidTuningItermRelax.message) activado para $t(pidTuningItermRelaxAxesOptionRPY.message)."
+        "message": "Esta característica resolve algúns problemas subxacentes de $t(pidTuningItermRotation.message) e debería substituílo por algún outro punto. Este recurso acumula o erro xiratorio absoluto nas coordenadas do aparello e mestura unha corrección proporcional no Setpoint. Para que funcione, ten que activar AirMode e $t(pidTuningItermRelax.message) (for $t(pidTuningItermRelaxAxesOptionRP.message)). Se combina esta función con $t(pidTuningIntegratedYaw.message), pode configurar $t(pidTuningItermRelax.message) activado para $t(pidTuningItermRelaxAxesOptionRPY.message)."
+    },
+    "pidTuningIntegratedYaw": {
+        "message": "Yaw Integrado"
     },
     "pidTuningThrottleBoost": {
         "message": "Potenciar do Acelerador"
@@ -2644,7 +2613,7 @@
         "message": "O controlador de voo non responde aos comandos OSD. Isto probablemente significa que non ten un OSD integrado de BetaFlight."
     },
     "osdSetupUnsupportedNote2": {
-        "message": "Observe que algunhas placas controladoras teñen integrado un <a href=\"https://www.youtube.com/watch?v=ikKH_6SQ-Tk\" target=\"_blank\">MinimOSD</a> que pode ser flasheado e configurado con <a href=\"https://github.com/ShikOfTheRa/scarab-osd/releases/latest\" target='_blank'>scarab-osd</a>, de calquera maneira o MinimOSD non pode ser configurado a través deste interfaz."
+        "message": "Observe que algunhas placas controladoras teñen integrado un <a href=\"https://www.youtube.com/watch?v=ikKH_6SQ-Tk\" target=\"_blank\" rel=\"noopener noreferrer\">MinimOSD</a> que pode ser flasheado e configurado con <a href=\"https://github.com/ShikOfTheRa/scarab-osd/releases/latest\" target=\"_blank\" rel=\"noopener noreferrer\">scarab-osd</a>, de calquera maneira o MinimOSD non pode ser configurado a través deste interfaz."
     },
     "osdSetupProfilesTitle": {
         "message": "Número Perfil OSD",
@@ -2672,9 +2641,6 @@
     "osdSetupPreviewSelectProfileElement": {
         "message": "Perfil OSD {{profileNumber}}",
         "description": "Content of the selector for the OSD Profile in the preview"
-    },
-    "osdSetupPreviewTitleTip": {
-        "message": "Mostrar ou ocultar o logotipo na xanela de previsualización. Isto non cambiará ningunha configuración do controlador de voo."
     },
     "osdSetupVideoFormatTitle": {
         "message": "Formato de vídeo"
@@ -2793,9 +2759,6 @@
     "osdDescElementCraftName": {
         "message": "Nome da aeronave tal como está no apartado Configuración"
     },
-    "osdDescElementDisplayName": {
-        "message": "Mostrar nome configurado có comando cli \"display_name\""
-    },
     "osdDescElementAltitude": {
         "message": "Altitude actual (parpadea por riba do limiar de alarma)"
     },
@@ -2856,24 +2819,6 @@
     "osdDescElementArmedTime": {
         "message": "Tempo dende que a aeronave foi armada por última vez"
     },
-    "osdDescElementWarnings": {
-        "message": "Alertas (p.ej. batería baixa), avisos (p.ej. razons para non armar, batería baixa crítica) e pitido visual (4 asteriscos parpadeando)."
-    },
-    "osdDescElementEscTemperature": {
-        "message": "Temperatura reportada pola telemetría dos ESC"
-    },
-    "osdDescElementEscRpm": {
-        "message": "RPM reportadas por la telemetría dos ESC"
-    },
-    "osdDescElementEscRpmFreq": {
-        "message": "Frecuencia RPM reportada pola telemetría dos ESC"
-    },
-    "osdDescElementRtcDateTime": {
-        "message": "Data / Hora en tempo real"
-    },
-    "osdDescElementAdjustmentRange": {
-        "message": "Axuste de rango e valor do elemento activo actualmente"
-    },
     "osdDescElementHomeDirection": {
         "message": "Flecha mostrando a dirección da posición da casa"
     },
@@ -2888,6 +2833,45 @@
     },
     "osdDescElementCompassBar": {
         "message": "Barra gráfica cuna brúxula mostrando a dirección actual"
+    },
+    "osdDescElementWarnings": {
+        "message": "Alertas (p.ej. batería baixa), avisos (p.ej. razons para non armar, batería baixa crítica) e pitido visual (4 asteriscos parpadeando)."
+    },
+    "osdDescElementEscTemperature": {
+        "message": "Temperatura reportada pola telemetría dos ESC"
+    },
+    "osdDescElementEscRpm": {
+        "message": "RPM reportadas pola telemetría dos ESC"
+    },
+    "osdDescElementRemainingTimeEstimate": {
+        "message": "Tempo estimado restante de voo"
+    },
+    "osdDescElementRtcDateTime": {
+        "message": "Data / Hora en tempo real"
+    },
+    "osdDescElementAdjustmentRange": {
+        "message": "Axuste de rango e valor do elemento activo actualmente"
+    },
+    "osdDescElementTimer1": {
+        "message": "Mostra o valor do temporizador 1"
+    },
+    "osdDescElementTimer2": {
+        "message": "Mostra o valor do temporizador 2"
+    },
+    "osdDescElementCoreTemperature": {
+        "message": "Temperatura do núcleo do STM32 MCU"
+    },
+    "osdDescAntiGravity": {
+        "message": "Activa un indicador cando a anti gravidade está activa"
+    },
+    "osdDescGForce": {
+        "message": "Mostra canta Forza G está experimentando a aeronave"
+    },
+    "osdDescElementMotorDiag": {
+        "message": "Mostra un gráfico coa saída de cada motor"
+    },
+    "osdDescElementLogStatus": {
+        "message": "Número de caixa negra e avisos"
     },
     "osdDescElementFlipArrow": {
         "message": "Flecha que indica que lado ten os motores arriba en modo tartaruga"
@@ -2904,32 +2888,14 @@
     "osdDescElementStickOverlayRight": {
         "message": "Superposición da posición do mando dereito do transmisor."
     },
-    "osdDescElementTimer1": {
-        "message": "Mostra o valor do temporizador 1"
+    "osdDescElementDisplayName": {
+        "message": "Mostrar nome configurado có comando cli \"display_name\""
     },
-    "osdDescElementTimer2": {
-        "message": "Mostra o valor do temporizador 2"
-    },
-    "osdDescElementRemaningTimeEstimate": {
-        "message": "Tempo estimado restante de voo"
+    "osdDescElementEscRpmFreq": {
+        "message": "Frecuencia RPM reportada pola telemetría dos ESC"
     },
     "osdDescElementUnknown": {
-        "message": "Elemento descoñecido (os detalles añadiranse nunha futura versión)"
-    },
-    "osdDescElementCoreTemperature": {
-        "message": "Temperatura do núcleo do STM32 MCU"
-    },
-    "osdDescAntiGravity": {
-        "message": "Activa un indicador cando a anti gravidade está activa"
-    },
-    "osdDescGForce": {
-        "message": "Mostra canta Forza G está experimentando a aeronave"
-    },
-    "osdDescElementMotorDiag": {
-        "message": "Mostra un gráfico coa saída de cada motor"
-    },
-    "osdDescElementLogStatus": {
-        "message": "Número de caixa negra e avisos"
+        "message": "Elemento descoñecido (os detalles engadiranse nunha futura versión)"
     },
     "osdDescStatMaxSpeed": {
         "message": "Máxima velocidade rexistrada"
@@ -3021,9 +2987,6 @@
     "osdTimerAlarmTooltip": {
         "message": "Elixe o limiar de alarma do temporizador en minutos, cando o tempo excede este valor o elemento do OSD parpadeará, indicando 0 se desactiva a alarma"
     },
-    "osdWarningUnknown": {
-        "message": "Aviso descoñecido (os detalles añadiranse nunha futura versión)"
-    },
     "osdWarningArmingDisabled": {
         "message": "Avisa da razón máis importante para non armar"
     },
@@ -3068,6 +3031,9 @@
     },
     "osdWarningLinkQuality": {
         "message": "Avisa cando a Calidad do Enlace está por debaixo da alarma configurada"
+    },
+    "osdWarningUnknown": {
+        "message": "Aviso descoñecido (os detalles engadiranse nunha futura versión)"
     },
     "osdSectionHelpElements": {
         "message": "Activar ou desactivar os elementos do OSD"
@@ -3211,13 +3177,10 @@
         "message": "<b>Derivativo dende Erro</b> proporciona una respuesta más directa do stick e prefírese para Carreiras.<br><br><b>Derivativo dende Medida</b> proporciona unha resposta do stick máis suave o cal é máis útil para freestyle"
     },
     "pidTuningPidControllerTip": {
-        "message": "<b>Tradicional vs Emuflight (planear):</b> A escala e a lóxica do PID son exactamente as mesmas. Non se necesita reaxustar. Tradicional é o antiguo betaflight evolucionado e reescrito, que é o controlador PID básico basado en matemáticas integradas. O controlador PID de Emuflight usa matemáticas en punto flotante e ten moitas novas funcionalidades especialmente diseñadas para aplicacións multirotor<br><b>Flotante vs Enteiro:</b> A escala e a lóxica do PID son exactamente as mesmas. No se necesita reaxustar. As placas F1 non teñen FPU integrada e o cálculo en punto flotante incrementa a carga de CPU e a matemática integral melloraría o rendimento, pero a matemática en punto flotante pode dar algo máis de precisión."
-    },
-    "pidTuningPidTuningTip": {
-        "message": "<b>Proporcional:</b> Notará unha forte resistencia a calquer intento de mover o MultiRotor<br><b>Integral:</b> Incrementa a habilidade de manter a posición inicial xeral e reduce a derivada, pero tamén incrementa o retraso para volver a posición inicial.<br><b>Derivativo:</b> Mellora a velocidade a que se recuperan as desviacións, pero incrementa o ruido<br><b>Tasas e Expo</b>: Determina as sensacións cos sticks basadas nestos parámetros. Use o gráfico e o modelo 3D en vivo para encontrar os seus axustes de tasas favoritos"
+        "message": "<b>Tradicional vs Emuflight (planear):</b> A escala e a lóxica do PID son exactamente as mesmas. Non se necesita reaxustar. Tradicional é o antiguo betaflight evolucionado e reescrito, que é o controlador PID básico basado en matemáticas integradas. O controlador PID de Emuflight usa matemáticas en punto flotante e ten moitas novas funcionalidades especialmente diseñadas para aplicacións de aparello<br><b>Flotante vs Enteiro:</b> A escala e a lóxica do PID son exactamente as mesmas. No se necesita reaxustar. As placas F1 non teñen FPU integrada e o cálculo en punto flotante incrementa a carga de CPU e a matemática integral melloraría o rendimento, pero a matemática en punto flotante pode dar algo máis de precisión."
     },
     "pidTuningPidTuningTipFeedforward": {
-        "message": "<b>Proporcional:</b> Notará unha forte resistencia a calquer intento de mover o MultiRotor<br><b>Integral:</b> Incrementa a habilidade de manter a posición inicial xeral e reduce a derivada, pero tamén incrementa o retraso para volver a posición inicial.<br><b>Derivativo:</b> Mellora a velocidade a que se recuperan as desviacións, pero incrementa o ruido<br><b>Prealimentación:</b> Normalmente o controlador PID reacciona ó erro. A Prealimentación anticipa o error basándose na entrada dos mandos, mellorando o tempo de resposta do quad.<br><b>Tasas e Expo</b>: Determina as sensacións cós sticks basadas nestos parámetros. Use o gráfico e o modelo 3D en vivo para encontrar os seus axustes de tasas favoritos"
+        "message": "<b>Proporcional:</b> Notará unha forte resistencia a calquer intento de mover o aparello<br><b>Integral:</b> Incrementa a habilidade de manter a posición inicial xeral e reduce a derivada, pero tamén incrementa o retraso para volver a posición inicial.<br><b>Derivativo:</b> Mellora a velocidade a que se recuperan as desviacións, pero incrementa o ruido<br><b>Prealimentación:</b> Normalmente o controlador PID reacciona ó erro. A Prealimentación anticipa o error basándose na entrada dos mandos, mellorando o tempo de resposta do aparello.<br><b>Tasas e Expo</b>: Determina as sensacións cós sticks basadas nestos parámetros. Use o gráfico e o modelo 3D en vivo para encontrar os seus axustes de tasas favoritos"
     },
     "pidTuningRatesTip": {
         "message": "Xogue cos rates e vexa como afectan á curva do stick"

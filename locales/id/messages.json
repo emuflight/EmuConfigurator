@@ -1,4 +1,7 @@
 {
+    "windowTitle": {
+        "message": "Configurator EmuFlight"
+    },
     "error": {
         "message": "Kesalahan: {{errorMessage}}"
     },
@@ -56,11 +59,17 @@
     "rememberLastTab": {
         "message": "Buka kembali tab terakhir saat dihubungkan"
     },
-    "userLanguageSelect": {
-        "message": "Bahasa (perlu restart aplikasi agar perubahan diterapkan)"
+    "language_changed": {
+        "message": "Perubahan bahasa disimpan"
+    },
+    "language_choice_message": {
+        "message": "Ubah bahasa:"
     },
     "language_default": {
         "message": "Standar"
+    },
+    "language_default_pretty": {
+        "message": "Default Sistem ($t(detectedLanguage))"
     },
     "sensorDataFlashNotFound": {
         "message": "Chip dataflash <br>tidak ditemukan",
@@ -77,7 +86,7 @@
         "message": "Tampilkan pemberitahuan pembaruan untuk versi yang tidak stabil dari konfigurator"
     },
     "configuratorUpdateNotice": {
-        "message": "Anda sedang menggunakan sebuah versi lama dari <b>Emuflight Configurator</b>.<br>Versi <b>$1</b> tersedia secara online, silahkan kunjungi <a href=\"$2\" target=\"_blank\">halaman rilis</a> untuk mengunduh dan memasang versi terbaru dengan perbaikan dan penyempurnaan.<br>Silahkan tutup jendela Emuflight sebelum memperbarui."
+        "message": "Anda sedang menggunakan sebuah versi lama dari <b>EmuFlight Configurator</b>.<br>Versi <b>$1</b> tersedia secara online, silahkan kunjungi <a href=\"$2\" target=\"_blank\" rel=\"noopener noreferrer\">halaman rilis</a> untuk mengunduh dan memasang versi terbaru dengan perbaikan dan penyempurnaan.<br>Silahkan tutup jendela EmuFlight sebelum memperbarui."
     },
     "configuratorUpdateWebsite": {
         "message": "Kunjungi situs Rilis"
@@ -89,16 +98,16 @@
         "message": "Perangkat - <span class=\"message-positive\">Siap</span>"
     },
     "backupFileIncompatible": {
-        "message": "Backup dibuat untuk versi lama Emuflight dan tidak sesuai dengan versi Emuflight ini. Maaf"
+        "message": "Backup dibuat untuk versi lama EmuFlight dan tidak sesuai dengan versi EmuFlight ini. Maaf"
     },
     "backupFileUnmigratable": {
-        "message": "Backup dibuat oleh versi lama Emuflight dan tidak dapat di migrasi ke versi Emuflight yg lebih baru. Maaf."
+        "message": "Backup dibuat oleh versi lama EmuFlight dan tidak dapat di migrasi ke versi EmuFlight yg lebih baru. Maaf."
     },
     "configMigrationFrom": {
-        "message": "Migrasi berkas konfigurasi yang dihasilkan oleh Emuflight: $1"
+        "message": "Migrasi berkas konfigurasi yang dihasilkan oleh EmuFlight: $1"
     },
     "configMigratedTo": {
-        "message": "Migrasi berkas konfigurasi ke Emuflight: $1"
+        "message": "Migrasi berkas konfigurasi ke EmuFlight: $1"
     },
     "configMigrationSuccessful": {
         "message": "Migrasi berkas konfigurasi selesai, migrasi telah diterapkan: $1"
@@ -106,8 +115,14 @@
     "tabFirmwareFlasher": {
         "message": "Flasher Firmware"
     },
+    "tabMixerCalc": {
+        "message": "Kalkulator Campuran Motor"
+    },
     "tabLanding": {
         "message": "Selamat Datang"
+    },
+    "tabPrivacyPolicy": {
+        "message": "Kebijakan Privasi"
     },
     "tabHelp": {
         "message": "Dokumentasi & Dukungan"
@@ -214,6 +229,9 @@
     "stm32LocalErase": {
         "message": "Melakukan penghapusan lokal ..."
     },
+    "stm32InvalidHex": {
+        "message": "Hex tidak valid"
+    },
     "stm32Erase": {
         "message": "Menghapus ..."
     },
@@ -257,13 +275,16 @@
         "message": "Tidak ada konfigurasi yang diterima setelah <span class=\"message-negative\">10 detik</span>, komunikasi <span class=\"message-negative\">gagal</span>"
     },
     "firmwareVersionNotSupported": {
-        "message": "Firmware ini adalah versi<span class=\"message-negative\">tidak didukung</span>. Silahkan perbarui ke firmware yang mendukung versi api<strong>$1</strong>atau lebih tinggi. Gunakan CLI untuk backup sebelum flashing. Prosedur backup/restore CLI ada di dokumentasi.<br />Atau unduh dan gunakan Emuflight versi lama jika anda belum siap untuk upgrade."
+        "message": "Firmware ini adalah versi<span class=\"message-negative\">tidak didukung</span>. Silahkan perbarui ke firmware yang mendukung versi api<strong>$1</strong>atau lebih tinggi. Gunakan CLI untuk backup sebelum flashing. Prosedur backup/restore CLI ada di dokumentasi.<br />Atau unduh dan gunakan EmuFlight versi lama jika anda belum siap untuk upgrade."
     },
     "firmwareTypeNotSupported": {
-        "message": "Firmware selain Cleanflight/Emuflight <span class=\"message-negative\">tidak didukung</span>, kecuali untuk mode CLI."
+        "message": "Firmware selain Cleanflight/EmuFlight <span class=\"message-negative\">tidak didukung</span>, kecuali untuk mode CLI."
+    },
+    "firmwareMSPNotSupported": {
+        "message": "Versi MSP tidak didukung. Silakan perbarui EmuConfigurator."
     },
     "firmwareUpgradeRequired": {
-        "message": "Firmware pada perangkat ini perlu ditingkatkan ke versi yang lebih baru. Gunakan CLI untuk backup sebelum flashing. Prosedur backup/restore CLI ada di dokumentasi.<br />Atau unduh dan gunakan Emuflight versi lama jika anda belum siap untuk upgrade."
+        "message": "Firmware pada perangkat ini perlu ditingkatkan ke versi yang lebih baru. Gunakan CLI untuk backup sebelum flashing. Prosedur backup/restore CLI ada di dokumentasi.<br />Atau unduh dan gunakan EmuFlight versi lama jika anda belum siap untuk upgrade."
     },
     "infoVersions": {
         "message": "Sistem Operasi: <strong>{{operatingSystem}}</strong>, Chrome: <strong>{{chromeVersion}}</strong>, Configurator: <strong>{{configuratorVersion}}</strong>",
@@ -288,7 +309,7 @@
         "message": "Menggunakan informasi rilis dari cache untuk rilis $1."
     },
     "releaseCheckNoInfo": {
-        "message": "Tidak ada informasi rilis yang tersedia untuk $ 1."
+        "message": "Tidak ada informasi rilis yang tersedia untuk $1."
     },
     "tabSwitchConnectionRequired": {
         "message": "Anda perlu untuk <strong>menghubungkan</strong> sebelum anda dapat melihat isi tab."
@@ -297,7 +318,7 @@
         "message": "Anda <span class=\"message-negative\">tidak dapat</span> melakukan ini sekarang, silahkan tunggu operasi saat ini selesai ..."
     },
     "tabSwitchUpgradeRequired": {
-        "message": "Anda perlu untuk <strong>upgrade</strong> firmware anda ke versi Emuflight terbaru sebelum dapat menggunakan tab $1."
+        "message": "Anda perlu untuk <strong>upgrade</strong> firmware anda ke versi EmuFlight terbaru sebelum dapat menggunakan tab $1."
     },
     "firmwareVersion": {
         "message": "Versi Firmware: <strong>$1</strong>"
@@ -363,7 +384,7 @@
         "message": "EEPROM <span class=\"message-positive\">disimpan</span>"
     },
     "defaultWelcomeIntro": {
-        "message": "Selamat Datang di <strong> Emuflight - Configurator </strong>, sebuah perangkat yang dirancang untuk memudahkan pembaruan, konfigurasi dan menyetel <em> flight controller</em> anda."
+        "message": "Selamat Datang di <strong> EmuFlight - Configurator </strong>, sebuah perangkat yang dirancang untuk memudahkan pembaruan, konfigurasi dan menyetel <em> flight controller</em> anda."
     },
     "defaultContributingHead": {
         "message": "Berkontribusi"
@@ -375,13 +396,13 @@
         "message": "Dokumentasi / Manual"
     },
     "defaultDocumentation": {
-        "message": "Dokumentasi Emuflight tersedia dalam catatan rilis dan wiki.<br /><br />"
+        "message": "Dokumentasi EmuFlight tersedia dalam catatan rilis dan wiki.<br /><br />"
     },
     "defaultDocumentation1": {
-        "message": "Wiki Emuflight merupakan sumber informasi yang lengkap, bisa ditemukan <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">di sini</a>."
+        "message": "Wiki EmuFlight adalah sumber informasi yang bagus, bisa ditemukan <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\" rel=\"noopener noreferrer\">di sini</a>.<br />Catatan rilis firmware bisa dibaca di halaman rilis GitHub, <a href=\"https://github.com/EmuFlight/EmuFlight/releases\" target=\"_blank\" rel=\"noopener noreferrer\">di sini</a>.<br />"
     },
     "defaultDocumentation2": {
-        "message": "Catatan rilis untuk firmware bisa di baca di halaman rilis GitHub, <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\">di sini</a>."
+        "message": "Wiki EmuConfigurator bisa ditemukan <a href=\"https://github.com/emuflight/EmuConfigurator/wiki\" target=\"_blank\" rel=\"noopener noreferrer\">di sini</a>.<br />Catatan rilis Configurator bisa dibaca di halaman rilis GitHub, <a href=\"https://github.com/emuflight/EmuConfigurator/releases\" target=\"_blank\" rel=\"noopener noreferrer\">di sini</a>.<br />"
     },
     "defaultSupportHead": {
         "message": "Dukungan"
@@ -393,7 +414,7 @@
         "message": "Untuk dukungan silahkan cari di forum dan wiki terlebih dahulu atau hubungi vendor anda.<br /><br />"
     },
     "initialSetupBackupAndRestoreApiVersion": {
-        "message": "<span class=\"message-negative\">Fungsi Backup dan Restore nonaktif.</span> Anda memiliki firmware dengan versi API <span class=\"message-negative\">$1</span>, backup dan restore membutuhkan versi <span class=\"message-positive\">$2</span>. Backup pengaturan anda melalui CLI, lihat dokumentasi Emuflight untuk mengetahui caranya."
+        "message": "<span class=\"message-negative\">Fungsi Backup dan Restore nonaktif.</span> Anda memiliki firmware dengan versi API <span class=\"message-negative\">$1</span>, backup dan restore membutuhkan versi <span class=\"message-positive\">$2</span>. Backup pengaturan anda melalui CLI, lihat dokumentasi EmuFlight untuk mengetahui caranya."
     },
     "initialSetupButtonCalibrateAccel": {
         "message": "Kalibrasi Accelerometer"
@@ -405,7 +426,7 @@
         "message": "Kalibrasi Magnetometer"
     },
     "initialSetupCalibrateMagText": {
-        "message": "Putar multirotor minimal <strong>360</strong> derajat pada semua sumbu rotasi, anda memiliki 30 detik untuk proses kalibrasi ini"
+        "message": "Putar pesawat minimal <strong>360</strong> derajat pada semua sumbu rotasi, anda memiliki 30 detik untuk proses kalibrasi ini"
     },
     "initialSetupButtonCalibratingText": {
         "message": "Mengkalibrasi..."
@@ -459,13 +480,13 @@
         "message": "Kalibrasi accelerometer dimulai"
     },
     "initialSetupAccelCalibEnded": {
-        "message": "Kalibrasi accelerometer <span class =\"message-positive\">selesai</span>"
+        "message": "Kalibrasi accelerometer <span class=\"message-positive\">selesai</span>"
     },
     "initialSetupMagCalibStarted": {
         "message": "Kalibrasi magnetometer dimulai"
     },
     "initialSetupMagCalibEnded": {
-        "message": "Kalibrasi Magnetometer <span class =\"message-positive\">selesai</span>"
+        "message": "Kalibrasi magnetometer <span class=\"message-positive\">selesai</span>"
     },
     "initialSetupSettingsRestored": {
         "message": "Pengaturan di kembalikan ke <strong>awal</strong>"
@@ -699,16 +720,16 @@
         "message": "Inilah nilai yang di kirim ke ESC ketika model di disarm. Berikan nilai yang menyebabkan motor berhenti (1000 untuk kebanyakan ESC)."
     },
     "configurationDshotBeeper": {
-        "message": "Pengaturan Dshot Beacon"
+        "message": "Pengaturan DSHOT Beacon"
     },
     "configurationUseDshotBeeper": {
-        "message": "Gunakan Dshot beacon (motor akan berbunyi ''beep\" jika disarm)"
+        "message": "Gunakan DSHOT beacon (motor akan berbunyi \"beep\" jika disarm)"
     },
     "configurationDshotBeaconTone": {
         "message": "Nada Beacon"
     },
     "configurationDshotBeaconHelp": {
-        "message": "Dshot beacon menggunakan ESC dan motor untuk menghasilkan suara. Oleh karena itu Dshot beacon tidak dapat digunakan ketika motor berputar. Pada Emuflight 3.4 dan yang lebih baru, ketika terjadi percobaan arming saat Dshot beacon aktif, akan ada jeda 2 detik setelah nada Dshot beacon terakhir sebelum model di arm. Hal ini berguna untuk mencegah fungsi Dshot beacon mengganggu perintah Dshot ke ESC ketika arming.<br/><strong>Peringatan:</strong> Karena Dshot beacon mengalirkan arus ke motor Anda ketika aktif, hal ini dapat menyebabkan panas berlebih yang dapat merusak motor / atau ESC jika kekuatannnya di set terlalu tinggi. Gunakan BLHeli Configurator atau BLHeli Suite untuk menyesuaikan dan mengetahui kekuatan Dshot beacon."
+        "message": "DSHOT beacon menggunakan ESC dan motor untuk menghasilkan suara. Oleh karena itu DSHOT beacon tidak dapat digunakan ketika motor berputar. Pada EmuFlight 3.4 dan yang lebih baru, ketika terjadi percobaan arming saat DSHOT beacon aktif, akan ada jeda 2 detik setelah nada DSHOT beacon terakhir sebelum model di arm. Hal ini berguna untuk mencegah fungsi DSHOT beacon mengganggu perintah DSHOT ke ESC ketika arming.<br/><strong>Peringatan:</strong> Karena DSHOT beacon mengalirkan arus ke motor Anda ketika aktif, hal ini dapat menyebabkan panas berlebih yang dapat merusak motor / atau ESC jika kekuatannya di set terlalu tinggi. Gunakan BLHeli Configurator atau BLHeli Suite untuk menyesuaikan dan mengetahui kekuatan DSHOT beacon."
     },
     "configurationBeeper": {
         "message": "Pengaturan Bunyi"
@@ -840,7 +861,7 @@
         "message": "<strong>Catatan:</strong> tidak semua kombinasi cocok. Bila firmware flight controller menemukan konfigurasi yg tidak cocok, pengaturan port serial ini akan kembali ke awal."
     },
     "portsMSPHelp": {
-        "message": "<strong>Catatan:</strong> <span class =\"message-negative\">JANGAN</span> non-aktifkan MSP pada port serial pertama kecuali anda mengerti apa yang anda lakukan. Hal ini dapat menyebabkan anda harus melakukan flashing ulang dan menghapus konfigurasi yg ada."
+        "message": "<strong>Catatan:</strong> <span class=\"message-negative\">JANGAN</span> nonaktifkan MSP pada port serial pertama kecuali Anda tahu apa yang Anda lakukan. Anda mungkin harus reflash dan menghapus konfigurasi Anda jika melakukannya."
     },
     "portsFirmwareUpgradeRequired": {
         "message": "Upgrade Firmware <span class=\"message-negative\">dibutuhkan</span>. konfigurasi port serial dari firmware &lt; 1.8.0 tidak didukung."
@@ -1050,13 +1071,13 @@
         "message": "Nilai profil bawaan dimuat."
     },
     "pidTuningReceivedProfile": {
-        "message": "Profil Flight controller: <strong class = \"message-positive\"> $1 </strong>"
+        "message": "Flight controller mengatur Profil: <strong class=\"message-positive\">$1</strong>"
     },
     "pidTuningReceivedRateProfile": {
-        "message": "Flight controller mengatur ProfilRate: <strong class = \"message-positive\">$1</strong>"
+        "message": "Flight controller mengatur ProfilRate: <strong class=\"message-positive\">$1</strong>"
     },
     "pidTuningLoadedProfile": {
-        "message": "Profil yang Dimuat: <strong class = \"message-positive\">$1</strong>"
+        "message": "Profil Dimuat: <strong class=\"message-positive\">$1</strong>"
     },
     "pidTuningLoadedRateProfile": {
         "message": "ProfilRate Dimuat: <strong class=\"message-positive\">$1</strong>"
@@ -1134,16 +1155,19 @@
         "message": "Stik Kontrol"
     },
     "receiverEepromSaved": {
-        "message": "EEPROM <span class =\"message-positive\">simpan</span>"
+        "message": "EEPROM <span class=\"message-positive\">disimpan</span>"
     },
     "receiverModelPreview": {
         "message": "Tinjauan"
     },
     "receiverMspWarningText": {
-        "message": "Stik ini memungkinkan Emuflight untuk di arm dan diuji tanpa tx/rx. Namun,<strong>fitur ini tidak ditujukan untuk penerbangan dan baling-baling tidak boleh terpasang.</strong><br><br>Fitur ini tidak menjamin kontrol yang dapat diandalkan. <strong>Cedera serius kemungkinan terjadi jika baling-baling terpasang.</strong>"
+        "message": "Stik ini memungkinkan EmuFlight untuk di arm dan diuji tanpa tx/rx. Namun,<strong>fitur ini tidak ditujukan untuk penerbangan dan baling-baling tidak boleh terpasang.</strong><br><br>Fitur ini tidak menjamin kontrol yang dapat diandalkan. <strong>Cedera serius kemungkinan terjadi jika baling-baling terpasang.</strong>"
     },
     "receiverMspEnableButton": {
         "message": "Aktifkan kontrol"
+    },
+    "auxiliaryHelp": {
+        "message": "Konfigurasikan mode di sini menggunakan kombinasi rentang dan/atau tautan ke mode lain (tautan didukung pada BF 4.0 dan lebih baru). Gunakan <strong>rentang</strong> untuk mendefinisikan sakelar pada transmitter Anda dan penugasan mode yang sesuai. Saluran receiver yang membaca antara min/maks rentang akan mengaktifkan mode tersebut. Gunakan <strong>tautan</strong> untuk mengaktifkan mode ketika mode lain diaktifkan. <strong>Pengecualian:</strong> ARM tidak dapat ditautkan ke atau dari mode lain, mode tidak dapat ditautkan ke mode lain yang dikonfigurasi dengan tautan (tautan berantai). Beberapa rentang/tautan dapat digunakan untuk mengaktifkan mode apa pun. Jika lebih dari satu rentang/tautan didefinisikan untuk sebuah mode, masing-masing dapat diatur ke <strong>DAN</strong> atau <strong>ATAU</strong>. Sebuah mode akan diaktifkan ketika:<br />- SEMUA rentang/tautan <strong>DAN</strong> aktif; ATAU<br />- setidaknya satu rentang/tautan <strong>ATAU</strong> aktif.<br /><br />Ingat untuk menyimpan pengaturan Anda menggunakan tombol Simpan."
     },
     "auxiliaryToggleUnused": {
         "message": "Sembunyikan mode yg tidak terpakai"
@@ -1158,7 +1182,7 @@
         "message": "Simpan"
     },
     "auxiliaryEepromSaved": {
-        "message": "EEPROM <span class =\"message-positive\">disimpan</span>"
+        "message": "EEPROM <span class=\"message-positive\">disimpan</span>"
     },
     "adjustmentsHelp": {
         "message": "Mengkonfigurasi switch penyesuaian. Lihat manual bagian 'in-flight adjustments' untuk detilnya. Perubahan yang dilakukan fungsi penyesuaian tidak disimpan secara otomatis. Ada 4 slot. Setiap switch yang digunakan untuk secara bersamaan melakukan penyesuaian menggunakan sebuah slot."
@@ -1290,7 +1314,7 @@
         "message": "Simpan"
     },
     "adjustmentsEepromSaved": {
-        "message": "EEPROM <span class =\"message-positive\">disimpan</span>"
+        "message": "EEPROM <span class=\"message-positive\">disimpan</span>"
     },
     "transponderNotSupported": {
         "message": "Firmware flight controller anda tidak mendukung fungsi transponder."
@@ -1611,7 +1635,7 @@
         "message": "Unduh manual."
     },
     "firmwareFlasherTargetWarning": {
-        "message": "<span class =\"message-negative\">PENTING</span>: Pastikan Anda flashing berkas yang sesuai dengan target Anda. Flashing fw untuk target yang salah dapat menyebabkan sesuatu yg<span class =\"message-negative\"> buruk</span> terjadi."
+        "message": "<span class=\"message-negative\">PENTING</span>: Pastikan Anda memflash file yang sesuai untuk target Anda. Memflash binary untuk target yang salah dapat menyebabkan hal-hal <span class=\"message-negative\">buruk</span> terjadi."
     },
     "firmwareFlasherLoadFirmwareFile": {
         "message": "Silahkan pilih berkas firmware"
@@ -1647,7 +1671,7 @@
         "message": "Baud rate manual"
     },
     "firmwareFlasherManualBaudDescription": {
-        "message": "Pemilihan baud rate manual untuk FC yang tidak mendukung kecepatan default atau untuk flashing via bluetooth. <br/><span class = \"message-negative\"> Catatan: </span> Tidak digunakan saat flashing melalui USB DFU"
+        "message": "Pemilihan manual baud rate untuk board yang tidak mendukung kecepatan default atau untuk flashing via bluetooth.<br /><span class=\"message-negative\">Catatan:</span> Tidak digunakan saat flashing melalui USB DFU"
     },
     "firmwareFlasherShowDevelopmentReleases": {
         "message": "Tampilkan rilis yang belum stabil"
@@ -1701,13 +1725,13 @@
         "message": "Pesan:"
     },
     "firmwareFlasherWarningText": {
-        "message": "<span class =\"message-negative\">Jangan</span> coba flashing perangkat keras<strong> non-Emuflight</strong> dengan flasher firmware ini.<br /> <span class =\"message-negative\" >Jangan </span><strong>memutuskan</strong> sambungan ke FC atau<strong>mematikan</strong> komputer Anda saat flashing.<br /><br /><strong> Catatan: </strong> bootloader STM32 disimpan dalam ROM, tidak akan rusak. <br /><strong>Catatan:</strong><span class =\"message-negative\">Sambungan-otomatis</span> selalu dinonaktifkan saat Anda berada di dalam flasher firmware. <br /><strong>Catatan:</strong>Pastikan Anda memiliki backup; beberapa upgrade / downgrade akan menghapus konfigurasi anda. <br /><strong>Catatan:</strong>Jika Anda mengalami masalah flashing <strong>coba lepaskan semua kabel dari FC</strong>terlebih dulu, coba reboot, upgrade chrome, upgrade driver <br /><strong>Catatan: </strong>Saat flashing FC yang terhubung langsung dengan soket USB (FC generasi baru) pastikan Anda telah membaca bagian USB Flashing di manual Emuflight dan menginstal perangkat lunak dan driver yang benar"
+        "message": "Harap <span class=\"message-negative\">jangan</span> mencoba memflash hardware <strong>non-EmuFlight</strong> dengan firmware flasher ini.<br />Jangan <span class=\"message-negative\">cabut</span> board atau <strong>matikan</strong> komputer saat sedang memflash.<br /><br /><strong>Catatan: </strong>Bootloader STM32 tersimpan di ROM, tidak dapat di-brick.<br /><strong>Catatan: </strong><span class=\"message-negative\">Auto-Connect</span> selalu dinonaktifkan saat berada di firmware flasher.<br /><strong>Catatan: </strong>Pastikan Anda memiliki cadangan; beberapa pembaruan/penurunan versi akan menghapus konfigurasi Anda.<br /><strong>Catatan:</strong> Jika ada masalah memflash <strong>coba cabut semua kabel dari FC</strong> terlebih dahulu, coba reboot, perbarui Chrome, perbarui driver.<br /><strong>Catatan:</strong> Saat memflash board yang memiliki soket USB langsung (kebanyakan board yang lebih baru), pastikan Anda telah membaca bagian USB Flashing dari manual EmuFlight dan memiliki perangkat lunak serta driver yang benar"
     },
     "firmwareFlasherRecoveryHead": {
         "message": "<strong>Pemulihan / Komunikasi terputus</strong>"
     },
     "firmwareFlasherRecoveryText": {
-        "message": "Jika komunikasi terputus dengan FC anda, ikuti cara ini untuk memulihkan komunikasi: <ul><li>Matikan daya</li><li>Aktifkan 'Tanpa urutan reboot', aktifkan 'Penghapusan chip penuh'.</li><li>Pasang pin jumper BOOT atau tahan tombol BOOT.</li><li> Hidupkan daya (LED aktivitas TIDAK akan menyala jika di lakukan dengan benar).</li><li> Pasang semua driver STM32 dan Zadig jika diperlukan (lihat <a href=\"https://github.com/EmuFlight/EmuFlight/wiki\" target=\"_blank\">USB Flashing</a> bagian dari manual Emuflight).</li><li>Tutup configurator, Tutup semua proses Crome yang dijalankan, Tutup semua aplikasi Chrome, Restart Configurator.</li><li> Lepas tombol BOOT jika FC anda memilikinya.</li><li>Flash dengan firmware yang cocok (menggunakan nilai baud manual jika ditentukan dalam manual FC anda).</li><li>Matikan daya.</li><li>Lepas jumper BOOT.</li><li>Hidupkan daya (LED aktivitas seharusnya berkedip).</li><li>Hubungkan dengan normal.</li></ul>"
+        "message": "Jika Anda telah kehilangan komunikasi dengan board, ikuti langkah-langkah berikut untuk memulihkan komunikasi: <ul><li>Matikan daya.</li><li>Aktifkan 'Tanpa urutan reboot', aktifkan 'Hapus chip penuh'.</li><li>Jumper pin BOOT atau tahan tombol BOOT.</li><li>Nyalakan daya (LED aktivitas TIDAK akan berkedip jika dilakukan dengan benar).</li><li>Instal semua driver STM32 dan Zadig jika diperlukan (lihat bagian <a href=\"https://github.com/emuflight/EmuFlight/wiki/Installing-EmuFlight\" target=\"_blank\" rel=\"noopener noreferrer\">USB Flashing</a> manual EmuFlight).</li><li>Tutup configurator, tutup semua instance Chrome yang berjalan, tutup semua aplikasi Chrome, Mulai ulang Configurator.</li><li>Lepaskan tombol BOOT jika FC Anda memilikinya.</li><li>Flash dengan firmware yang benar (menggunakan baud rate manual jika ditentukan dalam manual FC Anda).</li><li>Matikan daya.</li><li>Lepaskan jumper BOOT.</li><li>Nyalakan daya (LED aktivitas seharusnya berkedip).</li><li>Hubungkan secara normal.</li></ul>"
     },
     "firmwareFlasherFirmwareNotLoaded": {
         "message": "Firmware tidak dimuat"
@@ -1725,10 +1749,10 @@
         "message": "<b>Belum ada firmware yang dipilih untuk dimuat</b>"
     },
     "firmwareFlasherNoValidPort": {
-        "message": "<span class = \"message-negative\">Silakan pilih port serial yang benar</span>"
+        "message": "<span class=\"message-negative\">Harap pilih port serial yang valid</span>"
     },
     "firmwareFlasherWritePermissions": {
-        "message": "Anda tidak memiliki <span class =\"message-negative\">izin tulis</span> untuk berkas ini"
+        "message": "Anda tidak memiliki <span class=\"message-negative\">izin tulis</span> untuk file ini"
     },
     "firmwareFlasherFlashTrigger": {
         "message": "Terdeteksi: <strong>$1</strong> - memulai flashing pada saat tersambung"
@@ -1759,7 +1783,7 @@
         "description": "In the LED STRIP, clear all leds"
     },
     "ledStripEepromSaved": {
-        "message": "EEPROM <span class =\"message-positive\">simpan</span>"
+        "message": "EEPROM <span class=\"message-positive\">disimpan</span>"
     },
     "ledStripVtxOverlay": {
         "message": "VTX (menggunakan frekuensi vtx untuk menetapkan warna)"
@@ -2015,7 +2039,7 @@
         "message": "Rotasi I Term"
     },
     "pidTuningItermRotationHelp": {
-        "message": "Memutar vektor I Term agar sesuai dengan sumbu lainnya ketika quad berputar dalam sumbu yaw secara kontinu, selama roll, dan ketika melakukan funnel atau trik lainnya. Sangat berguna bagi pilot acro LOS."
+        "message": "Memutar vektor I Term agar sesuai dengan sumbu lainnya ketika pesawat berputar dalam sumbu yaw secara kontinu, selama roll, dan ketika melakukan funnel atau trik lainnya. Sangat berguna bagi pilot acro LOS."
     },
     "pidTuningSmartFeedforwardHelp": {
         "message": "Mengurang efek F Term dari PID. Jika P Term dan F Term aktif bersamaan, hanya salah satu nilai terbesar yang akan digunakan, untuk menghindari overshoots tanpa perlu meningkatkan nilai D, tapi juga akan mengurangi efek respon dari F term ketika ditambahkan ke P."
@@ -2168,7 +2192,7 @@
         "message": "Simpan"
     },
     "powerFirmwareUpgradeRequired": {
-        "message": "Upgrade firmware <span class =\"message-negative\">wajib</span>. Konfigurasi Battery/Amperage/Voltage menggunakan API &lt; 1.33.0 (rilis Emuflight &lt; = 3.17) tidak didukung."
+        "message": "Pembaruan firmware <span class=\"message-negative\">diperlukan</span>. Konfigurasi Baterai/Ampere/Voltase menggunakan API &lt; 1.33.0 (rilis EmuFlight &lt;= 3.17) tidak didukung."
     },
     "powerBatteryVoltageMeterSource": {
         "message": "Sumber Meteran Tegangan"
@@ -2206,9 +2230,7 @@
     "powerVoltageHead": {
         "message": "Meteran Tegangan"
     },
-    "powerVoltageValue": {
-        "message": "$ 1 V"
-    },
+
     "powerVoltageId10": {
         "message": "Baterai"
     },
@@ -2285,16 +2307,13 @@
         "message": "<strong>Catatan:</strong> Tinjauan OSD mungkin tidak menampilkan bentuk huruf sebenarnya yang terpasang pada flight controller."
     },
     "osdSetupUnsupportedNote1": {
-        "message": "Flight controller anda tidak menanggapi ke perintah OSD. Mungkin FC anda tidak memiliki OSD Emuflight."
+        "message": "Flight controller anda tidak menanggapi ke perintah OSD. Mungkin FC anda tidak memiliki OSD EmuFlight."
     },
     "osdSetupUnsupportedNote2": {
-        "message": "Perhatikan bahwa beberapa flight controller sudah terpasang <a href=\"https://www.youtube.com/watch?v=ikKH_6SQ-Tk\" target=\"_blank\">MinimOSD</a> yang dapat dinyalakan dan dikonfigurasi dengan <a href=\"https://github.com/ShikOfTheRa/scarab-osd/releases/latest\" target=\"_blank\">scarab-osd</a>, namun MinimOSD tidak dapat di konfigurasi melalui antarmuka ini."
+        "message": "Perhatikan bahwa beberapa flight controller memiliki <a href=\"https://www.youtube.com/watch?v=ikKH_6SQ-Tk\" target=\"_blank\" rel=\"noopener noreferrer\">MinimOSD</a> bawaan yang dapat diflash dan dikonfigurasi dengan <a href=\"https://github.com/ShikOfTheRa/scarab-osd/releases/latest\" target=\"_blank\" rel=\"noopener noreferrer\">scarab-osd</a>, namun MinimOSD tidak dapat dikonfigurasi melalui antarmuka ini."
     },
     "osdSetupElementsTitle": {
         "message": "Elemen"
-    },
-    "osdSetupPreviewTitleTip": {
-        "message": "Tampilkan atau sembunyikan logo di jendela peninjauan. Ini tidak akan mengubah pengaturan apapun pada pengontrol penerbangan."
     },
     "osdSetupVideoFormatTitle": {
         "message": "Format Video"
@@ -2476,21 +2495,6 @@
     "osdDescElementArmedTime": {
         "message": "Waktu sejak model di arm"
     },
-    "osdDescElementWarnings": {
-        "message": "Tanda (misalnya baterai rendah), peringatan (misalnya alasan untuk tidak mempersenjatai, baterai rendah kritis) dan pager visual (4 tanda berkedip)."
-    },
-    "osdDescElementEscTemperature": {
-        "message": "Suhu yang dilaporkan oleh telemetry ESC"
-    },
-    "osdDescElementEscRpm": {
-        "message": "RPM dilaporkan oleh telemetri ESC"
-    },
-    "osdDescElementRtcDateTime": {
-        "message": "RTC tanggal / waktu"
-    },
-    "osdDescElementAdjustmentRange": {
-        "message": "Pengaturan dan nilai pengaturan penyesuaian aktif saat ini"
-    },
     "osdDescElementHomeDirection": {
         "message": "Panah menampilkan arah ke posisi rumah"
     },
@@ -2506,26 +2510,29 @@
     "osdDescElementCompassBar": {
         "message": "Kompas grafis yang menunjukkan arah depan model saat ini"
     },
-    "osdDescElementFlipArrow": {
-        "message": "Panah yang menandakan posisi motor yang berada di atas pada mode turtle"
+    "osdDescElementWarnings": {
+        "message": "Tanda (misalnya baterai rendah), peringatan (misalnya alasan untuk tidak mempersenjatai, baterai rendah kritis) dan pager visual (4 tanda berkedip)."
     },
-    "osdDescElementLinkQuality": {
-        "message": "Indikator alternatif untuk 'kualitas link' berdasarkan frame loss - gunakan dengan hati-hati"
+    "osdDescElementEscTemperature": {
+        "message": "Suhu yang dilaporkan oleh telemetry ESC"
     },
-    "osdDescElementFlightDist": {
-        "message": "Jarak tempuh pada penerbangan ini."
+    "osdDescElementEscRpm": {
+        "message": "RPM dilaporkan oleh telemetri ESC"
+    },
+    "osdDescElementRemainingTimeEstimate": {
+        "message": "Perkiraan waktu penerbangan yang tersisa"
+    },
+    "osdDescElementRtcDateTime": {
+        "message": "RTC tanggal / waktu"
+    },
+    "osdDescElementAdjustmentRange": {
+        "message": "Pengaturan dan nilai pengaturan penyesuaian aktif saat ini"
     },
     "osdDescElementTimer1": {
         "message": "Menunjukkan nilai timer 1"
     },
     "osdDescElementTimer2": {
         "message": "Menunjukkan nilai timer 2"
-    },
-    "osdDescElementRemaningTimeEstimate": {
-        "message": "Perkiraan waktu penerbangan yang tersisa"
-    },
-    "osdDescElementUnknown": {
-        "message": "Unsur tak dikenal (rincian akan di tambahkan dalam rilis yang akan datang)"
     },
     "osdDescElementCoreTemperature": {
         "message": "Suhu inti MCU STM32"
@@ -2541,6 +2548,18 @@
     },
     "osdDescElementLogStatus": {
         "message": "Nomor blackbox dan peringatan"
+    },
+    "osdDescElementFlipArrow": {
+        "message": "Panah yang menandakan posisi motor yang berada di atas pada mode turtle"
+    },
+    "osdDescElementLinkQuality": {
+        "message": "Indikator alternatif untuk 'kualitas link' berdasarkan frame loss - gunakan dengan hati-hati"
+    },
+    "osdDescElementFlightDist": {
+        "message": "Jarak tempuh pada penerbangan ini."
+    },
+    "osdDescElementUnknown": {
+        "message": "Unsur tak dikenal (rincian akan di tambahkan dalam rilis yang akan datang)"
     },
     "osdDescStatMaxSpeed": {
         "message": "Kecepatan maksimal terekam"
@@ -2663,7 +2682,7 @@
         "message": "Pengaturan OSD tersimpan"
     },
     "osdWritePermissions": {
-        "message": "Anda tidak memiliki <span class =\"message-negative\">izin tulis</span> untuk berkas ini"
+        "message": "Anda tidak memiliki <span class=\"message-negative\">izin tulis</span> untuk file ini"
     },
     "osdButtonSaved": {
         "message": "Disimpan"
@@ -2777,13 +2796,10 @@
         "message": "<b>Derivatif dari Kesalahan</b> memberikan respons stik langsung dan lebih sering digunakan untuk Racing.<br><br><b>Derivatif dari Pengukuran</b> memberikan respon stik yang lebih halus dan lebih berguna terbang freestyle"
     },
     "pidTuningPidControllerTip": {
-        "message": "<b>Legacy vs Emuflight (float):</b> PID scaling dan logika PID sama persis. Belum tentu butuh retune. Legacy adalah versi lama betaflight yg telah ditulis ulang, yg merupakan kontroler PID sederhana menggunakan perhitungan dalam bilangan bulat. Kontroler PID Emuflight menggunakan perhitungan desimal yg lebih presisi dan memiliki banyak fitur baru yg dirancang khusus untuk aplikasi multirotor <br><b>Koma vs Tanpa Koma:</b> scaling PID dan logika PID sama persis. Tidak butuh retune. FC F1 tidak memiliki FPU onboard dan perhitungan dengan tingkat presisi dalam koma meningkatkan beban CPU, bilangan tanpa koma akan memperbaiki kinerjanya, tapi perhitungan dalam koma mungkin akan sedikit lebih presisi."
-    },
-    "pidTuningPidTuningTip": {
-        "message": "<b>Proporsional:</b> Anda akan merasakan resistensi yang kuat saat mencoba memindahkan MutiRotor<br><b> Integral:</b> Meningkatkan kemampuan untuk mempertahankan posisi awal dan mengurangi drift, tetapi juga akan menambah waktu yang diperlukan untuk kembali ke posisi awal.<br><b>Derivatif:</b> Menambah kecepatan kembali ke posisi awal, tetapi meningkatkan noise<br><b>Rate dan Expo</b>: Tentukan respon stick anda berdasarkan parameter-parameter ini. Gunakan grafik dan model 3D yang berfungsi untuk menemukan pengaturan favorit anda"
+        "message": "<b>Legacy vs EmuFlight (float):</b> PID scaling dan logika PID sama persis. Belum tentu butuh retune. Legacy adalah versi lama BetaFlight yg telah ditulis ulang, yg merupakan kontroler PID sederhana menggunakan perhitungan dalam bilangan bulat. Kontroler PID EmuFlight menggunakan perhitungan desimal yg lebih presisi dan memiliki banyak fitur baru yg dirancang khusus untuk aplikasi pesawat <br><b>Float vs Integer:</b> scaling PID dan logika PID sama persis. Tidak butuh retune. FC F1 tidak memiliki FPU onboard dan perhitungan dengan tingkat presisi dalam koma meningkatkan beban CPU, bilangan tanpa koma akan memperbaiki kinerjanya, tapi perhitungan dalam koma mungkin akan sedikit lebih presisi."
     },
     "pidTuningPidTuningTipFeedforward": {
-        "message": "<b>Proporsional:</b> Anda akan merasakan resistensi yang kuat saat mencoba memindahkan MutiRotor<br><b>Integral:</b> Meningkatkan kemampuan untuk mempertahankan posisi awal dan mengurangi drift, tetapi juga akan menambah waktu yang diperlukan untuk kembali ke posisi awal.<br><b>Derivatif:</b> Menambah kecepatan kembali ke posisi awal, tetapi meningkatkan noise<br><b>Feedforward:</b> Umumnya pengaturan PID bereaksi terhadap error. Feedforward mengoreksi error berdasarkan masukan dari stick, menghasilkan quad yang responsif.<br><b>Rate dan Expo</b>: Tentukan respon stick anda berdasarkan parameter-parameter ini. Gunakan grafik dan model 3D yang berfungsi untuk menemukan pengaturan favorit anda"
+        "message": "<b>Proporsional:</b> Anda akan merasakan resistensi yang kuat saat mencoba memindahkan pesawat<br><b>Integral:</b> Meningkatkan kemampuan untuk mempertahankan posisi awal dan mengurangi drift, tetapi juga akan menambah waktu yang diperlukan untuk kembali ke posisi awal.<br><b>Derivatif:</b> Menambah kecepatan kembali ke posisi awal, tetapi meningkatkan noise<br><b>Feedforward:</b> Umumnya pengaturan PID bereaksi terhadap error. Feedforward mengoreksi error berdasarkan masukan dari stick, menghasilkan pesawat yang responsif.<br><b>Rate dan Expo</b>: Tentukan respon stick anda berdasarkan parameter-parameter ini. Gunakan grafik dan model 3D yang berfungsi untuk menemukan pengaturan favorit anda"
     },
     "pidTuningRatesTip": {
         "message": "Bermain dengan rate dan lihat pengaruhnya pada kurva stik"

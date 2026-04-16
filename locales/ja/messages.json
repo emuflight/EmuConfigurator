@@ -1,4 +1,7 @@
 {
+    "windowTitle": {
+        "message": "Emuflight コンフィグレータ"
+    },
     "error": {
         "message": "エラー: {{errorMessage}}"
     },
@@ -24,7 +27,7 @@
         "message": "接続"
     },
     "connecting": {
-        "message": "接続中"
+        "message": "接続中..."
     },
     "disconnect": {
         "message": "切断"
@@ -48,22 +51,28 @@
         "message": "自動接続: 無効 - ユーザが正しいシリアル ポートを選択し、別途 [接続] ボタンをクリックする必要があります。"
     },
     "expertMode": {
-        "message": "Expertモード 有効"
+        "message": "エキスパートモード"
     },
     "expertModeDescription": {
-        "message": "未リリース、未検証ビルド版を表示"
+        "message": "高度な設定項目を有効にします。"
     },
     "permanentExpertMode": {
-        "message": "Expertモード 常時有効"
+        "message": "エキスパートモード 常時有効"
     },
     "rememberLastTab": {
         "message": "接続時に前回のタブを開く"
     },
-    "userLanguageSelect": {
-        "message": "言語設定 (変更を有効にするにはConfiguratorを再起動して下さい)"
+    "language_changed": {
+        "message": "言語の変更が保存されました"
+    },
+    "language_choice_message": {
+        "message": "言語を変更:"
     },
     "language_default": {
         "message": "初期値"
+    },
+    "language_default_pretty": {
+        "message": "システムデフォルト ($t(detectedLanguage))"
     },
     "sensorDataFlashNotFound": {
         "message": "データ書込みできません<br>チップを確認しました",
@@ -74,25 +83,25 @@
         "description": "Text of the dataflash image in the header of the page."
     },
     "sensorStatusGyro": {
-        "message": "ジャイロスコープ"
+        "message": "Gyro"
     },
     "sensorStatusAccel": {
-        "message": "加速度センサー"
+        "message": "Accel"
     },
     "sensorStatusMag": {
-        "message": "コンパス"
+        "message": "Mag"
     },
     "sensorStatusBaro": {
-        "message": "気圧センサー"
+        "message": "Baro"
     },
     "sensorStatusSonar": {
-        "message": "超音波距離センサー"
+        "message": "ソナー"
     },
     "checkForConfiguratorUnstableVersions": {
         "message": "未検証バージョンの更新通知を表示"
     },
     "configuratorUpdateNotice": {
-        "message": "お使いの<b>Emuflight Configurator</b>は旧バージョンです。<br>Version <b>$1</b> が利用可能です。<a href=\"$2\" target=\"_blank\">リリースページ</a>から修正・機能向上した最新版をダウンロードしてインストールして下さい。<br>注: 更新する前にConfiguratorを閉じて下さい。"
+        "message": "お使いの<b>Emuflight Configurator</b>は旧バージョンです。<br>Version <b>$1</b> が利用可能です。<a href=\"$2\" target=\"_blank\" rel=\"noopener noreferrer\">リリースページ</a>から修正・機能向上した最新版をダウンロードしてインストールして下さい。<br>注: 更新する前にConfiguratorを閉じて下さい。"
     },
     "configuratorUpdateWebsite": {
         "message": "リリースサイトに移動"
@@ -119,10 +128,16 @@
         "message": "設定の移行成功、適用します: $1"
     },
     "tabFirmwareFlasher": {
-        "message": "ファームフラッシャー"
+        "message": "ファームウェア更新"
+    },
+    "tabMixerCalc": {
+        "message": "モーターミックス計算"
     },
     "tabLanding": {
         "message": "ようこそ"
+    },
+    "tabPrivacyPolicy": {
+        "message": "プライバシーポリシー"
     },
     "tabHelp": {
         "message": "マニュアル & サポート"
@@ -137,10 +152,10 @@
         "message": "基本設定"
     },
     "tabPorts": {
-        "message": "ポート"
+        "message": "ポート設定"
     },
     "tabPidTuning": {
-        "message": "PIDチューニング"
+        "message": "PID チューニング"
     },
     "tabReceiver": {
         "message": "受信機"
@@ -148,35 +163,26 @@
     "tabServos": {
         "message": "サーボ"
     },
-    "tabFailsafe": {
-        "message": "フェイルセーフ"
-    },
     "tabTransponder": {
         "message": "トランスポンダー"
     },
     "tabPower": {
-        "message": "電源・バッテリー"
+        "message": "電源とバッテリー"
     },
     "tabMotorTesting": {
         "message": "モーター"
     },
     "tabLedStrip": {
-        "message": "LEDストリップ"
+        "message": "LED ストリップ"
     },
     "tabRawSensorData": {
         "message": "センサー"
     },
-    "tabCLI": {
-        "message": "CLI コマンドライン"
-    },
     "tabLogging": {
-        "message": "テザーロギング"
-    },
-    "tabOnboardLogging": {
-        "message": "ブラックボックス"
+        "message": "リアルタイムログ"
     },
     "tabAdjustments": {
-        "message": "調整"
+        "message": "調整設定"
     },
     "tabAuxiliary": {
         "message": "モード"
@@ -186,12 +192,6 @@
     },
     "logActionShow": {
         "message": "ログ表示"
-    },
-    "serialPortOpened": {
-        "message": "ID: $1のシリアルポートへ<span class=\"message-positive\">正常</span>に接続しています"
-    },
-    "serialPortOpenFail": {
-        "message": "シリアルポートに<span class=\"message-negative\">接続できません</span>"
     },
     "serialPortClosedOk": {
         "message": "シリアルポートは<span class=\"message-positive\">正常</span>に切断しました"
@@ -247,6 +247,9 @@
     "stm32LocalErase": {
         "message": "ローカル消去を実行中 ..."
     },
+    "stm32InvalidHex": {
+        "message": "無効な16進数"
+    },
     "stm32Erase": {
         "message": "消去中..."
     },
@@ -298,6 +301,9 @@
     "firmwareTypeNotSupported": {
         "message": "CLIモードを除き、Cleanflight / Emuflight 以外のファームウェアは<span class=\"message-negative\">サポートされていません</span>。"
     },
+    "firmwareMSPNotSupported": {
+        "message": "MSP バージョンはサポートされていません。EmuConfigurator をアップグレードしてください。"
+    },
     "firmwareUpgradeRequired": {
         "message": "このデバイスのファームウェアは、新しいバージョンにアップグレードする必要があります。 書換えする前にCLIを使用してバックアップして下さい。 CLIのバックアップ / リストア手順はドキュメントに記載されています。<br />または、アップグレードする準備ができていない場合は、旧バージョンのConfiguratorをダウンロードして使用して下さい。"
     },
@@ -347,12 +353,6 @@
     "craftNameReceived": {
         "message": "機体名: <strong>$1</strong>"
     },
-    "armingDisabled": {
-        "message": "<strong>アーミング無効</strong>"
-    },
-    "armingEnabled": {
-        "message": "<strong>アーミング有効</strong>"
-    },
     "runawayTakeoffPreventionDisabled": {
         "message": "<strong>暴走離陸防止機能を一時的に無効</strong>"
     },
@@ -381,10 +381,10 @@
         "message": "I2C エラー:"
     },
     "statusbar_cycle_time": {
-        "message": "サイクル時間:"
+        "message": "サイクルタイム:"
     },
     "statusbar_cpu_load": {
-        "message": "CPU使用率: $1%"
+        "message": "CPU 負荷: $1%"
     },
     "dfu_connect_message": {
         "message": "DFUデバイスへのアクセスはファームフラッシャーを使用して下さい"
@@ -417,10 +417,10 @@
         "message": "Emuflightドキュメントは、リリースノートおよび wiki にてご利用いただけます。<br /><br />"
     },
     "defaultDocumentation1": {
-        "message": "Emuflight wiki はすばらしい情報リソースを<a href=\"https://github.com/betaflight/betafli<a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">ght/wiki\" target=\"_blank\">こちら</a>で検索・確認することができます。"
+        "message": "EmuFlightのwikiは素晴らしい情報源です。<a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\" rel=\"noopener noreferrer\">ここ</a>にあります。<br />ファームウェアのリリースノートは、GitHubのリリースページ（<a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\" rel=\"noopener noreferrer\">ここ</a>）で読むことができます。<br />"
     },
     "defaultDocumentation2": {
-        "message": "ファームウェア リリースノートは、GitHub リリースページの<a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\">こちら</a>で確認いただけます。"
+        "message": "EmuConfiguratorのwikiは<a href=\"https://github.com/emuflight/EmuConfigurator/wiki\" target=\"_blank\" rel=\"noopener noreferrer\">ここ</a>にあります。<br />コンフィグレータ（Configurator）のリリースノートは、GitHubのリリースページ（<a href=\"https://github.com/emuflight/EmuConfigurator/releases\" target=\"_blank\" rel=\"noopener noreferrer\">ここ</a>）で読むことができます。<br />"
     },
     "defaultSupportHead": {
         "message": "サポート"
@@ -435,13 +435,13 @@
         "message": "<span class=\"message-negative\">バックアップと復元の機能が無効です。</span>ファームウェアのAPIバージョンは<span class=\"message-negative\">$1</span>ですが、バックアップと復元には<span class=\"message-positive\">$2</span>が必要です。バックアップにはCLIをご利用下さい。方法についてはEmuflightドキュメントを参照して下さい。"
     },
     "initialSetupButtonCalibrateAccel": {
-        "message": "水平 キャリブレーション"
+        "message": "加速度計のキャリブレーション"
     },
     "initialSetupCalibrateAccelText": {
         "message": "<strong>水平な場所</strong>に機体を置き、キャリブレーションを実行して下さい。キャリブレーションが終了するまで動かさないで下さい。"
     },
     "initialSetupButtonCalibrateMag": {
-        "message": "コンパス キャリブレーション"
+        "message": "磁力計のキャリブレーション"
     },
     "initialSetupCalibrateMagText": {
         "message": "マルチローター機を最低でも<strong>360度</strong>、全ての軸にて回転させて下さい。これを行うのに30秒程度かかります。"
@@ -508,7 +508,7 @@
         "description": "Description of the NO GYRO arming disable flag"
     },
     "initialSetupArmingDisableFlagsTooltipFAILSAFE": {
-        "message": "フェイルセーフが有効です",
+        "message": "Failsafeが有効です",
         "description": "Description of the FAILSAFE arming disable flag"
     },
     "initialSetupArmingDisableFlagsTooltipRX_FAILSAFE": {
@@ -516,11 +516,11 @@
         "description": "Description of the RX_FAILSAFE arming disable flag"
     },
     "initialSetupArmingDisableFlagsTooltipBAD_RX_RECOVERY": {
-        "message": "受信機はフェイルセーフから回復したばかりですが、アームスイッチはオンのままです",
+        "message": "受信機はFailsafeから回復したばかりですが、アームスイッチはオンのままです",
         "description": "Description of the BAD_RX_RECOVERY arming disable flag"
     },
     "initialSetupArmingDisableFlagsTooltipBOXFAILSAFE": {
-        "message": "「フェイルセーフ」スイッチが有効です",
+        "message": "「Failsafe」スイッチが有効です",
         "description": "Description of the BOXFAILSAFE arming disable flag"
     },
     "initialSetupArmingDisableFlagsTooltipRUNAWAY_TAKEOFF": {
@@ -678,10 +678,10 @@
         "message": "この機能を有効にする前に、必ずバッテリーとプロペラを外して下さい。"
     },
     "featureBLACKBOX": {
-        "message": "ブラックボックス フライトデータレコーダー"
+        "message": "Blackbox フライトデータレコーダー"
     },
     "featureBLACKBOXTip": {
-        "message": "有効後 [ブラックボックス] タブで設定をして下さい。"
+        "message": "有効後 [Blackbox] タブで設定をして下さい。"
     },
     "featureRX_SPI": {
         "message": "SPI受信サポート"
@@ -720,16 +720,16 @@
         "message": "動的ジャイロ ノッチフィルター"
     },
     "featureFAILSAFE": {
-        "message": "フェイルセーフ ステージ2を有効"
+        "message": "Failsafe ステージ2を有効"
     },
     "featureFAILSAFEOld": {
-        "message": "フェイルセーフを有効"
+        "message": "Failsafeを有効"
     },
     "featureFAILSAFETip": {
         "message": "<strong>注: </strong>ステージ2を無効にすると、全てのフライトチャンネル (ロール、ピッチ、ヨー、スロットル) のユーザ設定ではなく、フォールバック設定の<strong>自動</strong>が適用されます。"
     },
     "featureFAILSAFEOldTip": {
-        "message": "受信信号損失時にフェイルセーフの設定を適用"
+        "message": "受信信号損失時にFailsafeの設定を適用"
     },
     "configurationFeatureEnabled": {
         "message": "有効"
@@ -788,9 +788,6 @@
     "configurationSensorAlignmentGyro": {
         "message": "Gyro アライメント"
     },
-    "configurationSensorGyroToUse": {
-        "message": "ジャイロ/加速度"
-    },
     "configurationSensorGyroToUseNotFound": {
         "message": "警告: ジャイロ/加速度センサーが確認できません"
     },
@@ -819,7 +816,7 @@
         "message": "デフォルト"
     },
     "configurationAccelTrims": {
-        "message": "加速度センサー トリム"
+        "message": "加速度計トリム"
     },
     "configurationAccelTrimRoll": {
         "message": "加速度センサー ロールトリム"
@@ -837,7 +834,7 @@
         "message": "コンパス偏位 [deg]"
     },
     "configurationReverseMotorSwitch": {
-        "message": "モーター回転方向を逆転"
+        "message": "モーター回転方向反転"
     },
     "configurationReverseMotorSwitchHelp": {
         "message": "このオプションは、モーター回転方向の構成を逆転させプロペラを回すよう、ミキサー設定を行います。\n<strong>注意:</strong> これはモーターそのもののの回転方向を逆転させるわけでありません。ESC設定ツールを使用するか、ESCモーターの配線順序を切り替えて構成変更して下さい。また、プロペラを用いモーターが上図に示す方向に回転していることを確認してから、アームを解除して下さい。"
@@ -873,25 +870,25 @@
         "message": "これは機体がディスアームされたときにESCに送信される値です。この値をモーターを停止させる値に設定して下さい。(殆どのESCは1000)"
     },
     "configurationDshotBeeper": {
-        "message": "Dshotビーコン設定"
+        "message": "DSHOTビーコン設定"
     },
     "configurationUseDshotBeeper": {
-        "message": "Dshotビーコンを使用 (ディスアーム時にモーターを使ってビープ音を鳴らす)"
+        "message": "DSHOTビーコンを使用 (ディスアーム時にモーターを使ってビープ音を鳴らす)"
     },
     "configurationDshotBeaconTone": {
-        "message": "ビーコントーン"
+        "message": "DSHOT ビーコントーン"
     },
     "configurationDshotBeaconHelp": {
-        "message": "Dshotビーコンは、ESCおよびモーターを使用してビーコン音を生成します。これは同時に、モーターが回転しているときにDshotビーコンを使用できないことを意味します。 Emuflight 3.4以降では、Dshotビーコンが有効な状態である時にアーミングを試みると、機体がアームされる前、最後に鳴らしたDshotビーコントーンの後に2秒の遅延が起こります。これはDshotビーコン機能が、アーミング中に送信されたDshotコマンドを妨害しないようにするためです。\n<br/><strong>注:</strong> Dshotビーコンは、有効な状態のときにモーターへ電流を流しているため、ビーコン強度が強すぎると過剰な熱の発生やモーター、ESCの損傷を招く場合があります。ビーコン強度を調整してテストするには、BLHeli ConfiguratorまたはBLHeli Suiteを使用して下さい。"
+        "message": "DSHOTビーコンは、ESCおよびモーターを使用してビーコン音を生成します。これは同時に、モーターが回転しているときにDSHOTビーコンを使用できないことを意味します。 Emuflight 3.4以降では、DSHOTビーコンが有効な状態である時にアーミングを試みると、機体がアームされる前、最後に鳴らしたDSHOTビーコントーンの後に2秒の遅延が起こります。これはDSHOTビーコン機能が、アーミング中に送信されたDSHOTコマンドを妨害しないようにするためです。\n<br/><strong>注:</strong> DSHOTビーコンは、有効な状態のときにモーターへ電流を流しているため、ビーコン強度が強すぎると過剰な熱の発生やモーター、ESCの損傷を招く場合があります。ビーコン強度を調整してテストするには、BLHeli ConfiguratorまたはBLHeli Suiteを使用して下さい。"
     },
     "configurationBeeper": {
         "message": "ビープ音 設定"
     },
     "beeperGYRO_CALIBRATED": {
-        "message": "Gyroキャリブレーションしたときのビープ音"
+        "message": "ジャイロ校正完了"
     },
     "beeperRX_LOST": {
-        "message": "送信機がオフ、または信号消失時のビープ音 (正常になるまでリピート)"
+        "message": "プロポ信号紛失"
     },
     "beeperRX_LOST_LANDING": {
         "message": "アーム時に送信機がオフ、または信号消失時のSOSビープ音 (自動着陸 / 自動ディスアーム)"
@@ -906,10 +903,10 @@
         "message": "FCボードを作動させGPSを修正したときの特別なビープ音"
     },
     "beeperBAT_CRIT_LOW": {
-        "message": "バッテリーが非常に少ないときの、より長い警告ビープ音 (リピート)"
+        "message": "バッテリー残量警告"
     },
     "beeperBAT_LOW": {
-        "message": "バッテリーが少ないときの警告ビープ音 (リピート)"
+        "message": "バッテリー残量少"
     },
     "beeperGPS_STATUS": {
         "message": "ビープ回数でGPS衛星の検出数を示す"
@@ -936,10 +933,10 @@
         "message": "FCボードに電源が入ったときの初期ビープ音"
     },
     "beeperUSB": {
-        "message": "フライトコントローラがUSBから給電されたときのビープ音 (機体作成時に鳴らしたくない場合はオフにする)"
+        "message": "USB ブザー"
     },
     "beeperBLACKBOX_ERASE": {
-        "message": "ブラックボックスログ消去が完了したときのビープ音"
+        "message": "Blackboxログ消去が完了したときのビープ音"
     },
     "beeperCRASH_FLIP": {
         "message": "クラッシュフリップモードをオンしたときのビープ音"
@@ -992,14 +989,11 @@
     "configurationGPSAutoConfig": {
         "message": "自動設定"
     },
-    "configurationGPSHelp": {
-        "message": "<strong>注:</strong> GPSを使う場合、シリアルポート ([ポート] タブ) の設定を忘れずに行って下さい。"
-    },
     "configurationSerialRX": {
-        "message": "シリアル受信プロトコル"
+        "message": "シリアル受信機"
     },
     "configurationSpiRX": {
-        "message": "SPIバス受信プロトコル"
+        "message": "SPI 受信機"
     },
     "configurationEepromSaved": {
         "message": "EEPROM <span class=\"message-positive\">保存しました</span>"
@@ -1011,7 +1005,7 @@
         "message": "識別子"
     },
     "portsConfiguration": {
-        "message": "設定 / MSP"
+        "message": "設定/MSP"
     },
     "portsSerialRx": {
         "message": "シリアル受信"
@@ -1041,7 +1035,7 @@
         "message": "シリアル受信"
     },
     "portsFunction_BLACKBOX": {
-        "message": "ブラックボックスログ"
+        "message": "Blackboxログ"
     },
     "portsFunction_RUNCAM_DEVICE_CONTROL": {
         "message": "カメラ (RunCamプロトコル)"
@@ -1080,6 +1074,9 @@
     },
     "pidTuningAntiGravityThres": {
         "message": "Anti Gravity 反重力 しきい値"
+    },
+    "pidTuningAntiGravityHelp": {
+        "message": "スロットルの急激な変化時に一過的に I-Term を増加させ、機体の安定性を向上させます。"
     },
     "pidTuningPidSettings": {
         "message": "PIDコントローラ設定"
@@ -1183,9 +1180,6 @@
     "pidTuningDtermSetpointTransitionHelp": {
         "message": "このパラメータを使用すると、D値セットポイントの影響力をスティック中央近くで減らすことができ、その結果フリップおよびロール時のエンドアクションがスムーズになります。<br> この値はスティック偏向点を表します。0-スティック中心、1-完全偏向です。スティックがその値を上回ると、設定値の影響力は一定に保たれます。スティックがその値以下に位置すると、設定値の影響力は比例して減少し、スティックの中心位置で0になります。<br> 1の値はスムージング効果を最大にし、0の値はスティック範囲全体にわたって設定値に固定します。"
     },
-    "pidTuningDtermSetpointHelp": {
-        "message": "このパラメータは、D値におけるスティック加速効果を決定します。<br> 0の値はD値がジャイロのみを追従した古い測定方式、1の値はジャイロとスティック操作範囲を追従した古いエラー検出方式と同一です。<br>低い値は、ゆっくり / スムースなスティックレスポンスに、高い値はスティック加速レスポンスとなります。<br>RC補間は、制御キックバックノイズを発生しないよう高めの値にすることを推奨します。"
-    },
     "pidTuningDtermSetpointTransitionWarning": {
         "message": "<span class=\"message-negative\"><strong>$t(warningTitle.message):</strong> 0より大きく0.1より小さいD値セットポイントの設定はしないで下さい。スティックが中心を横切るときに不安定となり、スティック応答性が低下する可能性があります。</span>"
     },
@@ -1194,6 +1188,9 @@
     },
     "pidTuningRatesPreview": {
         "message": "レートプレビュー"
+    },
+    "pidTuningRCRatesTypeHelp": {
+        "message": "レート計算の方式です (Betaflight, Raceflight, KISS など)"
     },
     "pidTuningTPABreakPoint": {
         "message": "TPA 区切り点"
@@ -1229,25 +1226,25 @@
         "message": "スロットル"
     },
     "pidTuningButtonSave": {
-        "message": "保存"
+        "message": "PID 設定を保存"
     },
     "pidTuningButtonRefresh": {
-        "message": "更新"
+        "message": "リフレッシュ"
     },
     "pidTuningControllerHead": {
         "message": "PIDコントローラ"
     },
     "pidTuningCopyProfile": {
-        "message": "Profileをコピー"
+        "message": "プロファイルをコピー"
     },
     "pidTuningCopyRateProfile": {
-        "message": "Rateprofileをコピー"
+        "message": "レートプロファイルをコピー"
     },
     "dialogCopyProfileText": {
-        "message": "現在のProfileをコピー"
+        "message": "現在のプロファイルをコピー"
     },
     "dialogCopyRateProfileText": {
-        "message": "現在のRateprofileをコピー"
+        "message": "現在のレートプロファイルをコピー"
     },
     "dialogCopyProfileTitle": {
         "message": "Profileをコピー"
@@ -1286,7 +1283,7 @@
         "message": "EEPROM <span class=\"message-positive\">保存しました</span>"
     },
     "receiverHelp": {
-        "message": "ドキュメントの [受信機] 章をお読み下さい。 シリアルポート(必要な場合)、受信機モード(シリアル / PPM /  PWM)、プロトコル(シリアル受信機の場合)、受信機のバインド、チャンネルマップの設定、送信機のチャンネルエンドポイント / 送信機の全てのチャンネルの1000～2000までのレンジ設定を確認および設定をして下さい。また中央値(デフォルト 1500)、トリムチャンネル 1500とし、スティックのデッドバンドを設定し、送信機がオフまたは範囲外のときの動作を指定します。<br /><span class=\"message-negative\">重要:</span> 飛行する前にドキュメントの [フェイルセーフ] 章を読み、フェイルセーフを設定して下さい。"
+        "message": "ドキュメントの [受信機] 章をお読み下さい。 シリアルポート(必要な場合)、受信機モード(シリアル / PPM /  PWM)、プロトコル(シリアル受信機の場合)、受信機のバインド、チャンネルマップの設定、送信機のチャンネルエンドポイント / 送信機の全てのチャンネルの1000～2000までのレンジ設定を確認および設定をして下さい。また中央値(デフォルト 1500)、トリムチャンネル 1500とし、スティックのデッドバンドを設定し、送信機がオフまたは範囲外のときの動作を指定します。<br /><span class=\"message-negative\">重要:</span> 飛行する前にドキュメントの [Failsafe] 章を読み、Failsafeを設定して下さい。"
     },
     "tuningHelp": {
         "message": "<b>チューニングTips</b><br /><span class=\"message-negative\">重要:</span> 最初のフライト中はモーターの温度を確認することが重要です。フィルター値が高くなるほど飛行が軽快となりますが、モーターにはより多くのノイズが発生します。<br>デフォルト値である100Hzが最適値となりますが、ノイズ低減設定ではD値フィルターを50Hzに、またはジャイロフィルターの値を下げてみて下さい。"
@@ -1294,32 +1291,26 @@
     "filterWarning": {
         "message": "<span class=\"message-negative\"><b>警告:</b></span> 現在適用されているフィルタリング量が非常に少ないです。これは機体制御が困難となる可能性があり、飛行中に大きく影響する可能性があります。<b>『ジャイロダイナミックローパス』または『ジャイロローパス 1』の少なくとも1つと『D値ダイナミックローパス』または『D値ローパス1』の少なくとも1つを有効とする</b>ことを強くお奨めします。"
     },
-    "receiverThrottleMid": {
-        "message": "スロットルMID"
-    },
-    "receiverThrottleExpo": {
-        "message": "スロットルEXPO"
-    },
     "receiverStickMin": {
-        "message": "スティック 低"
+        "message": "スティック最小値"
     },
     "receiverHelpStickMin": {
         "message": "スティックがコマンド入力の下 / 左として認識される (自身の) 最大値。(MIN_CHECK)"
     },
     "receiverStickCenter": {
-        "message": "スティック 中央"
+        "message": "スティック中央値"
     },
     "receiverHelpStickCenter": {
         "message": "スティックが中央にあるか否かを判断するための (自身の) 値。 (MID_RC)"
     },
     "receiverStickMax": {
-        "message": "スティック 高"
+        "message": "スティック最大値"
     },
     "receiverHelpStickMax": {
         "message": "スティックがコマンド入力の 上 / 右 として認識される (自身の) 最小値。(MAX_CHECK)"
     },
     "receiverDeadband": {
-        "message": "RC デッドバンド"
+        "message": "デッドバンド"
     },
     "receiverHelpDeadband": {
         "message": "この値は、設定値とRC入力がどのくらい差異を許容するかの (自身の) 値です。出力ジッタがある送信機の場合、RC入力がアイドル状態で揺らぎがある場合、この値を大きくしていきます。"
@@ -1343,7 +1334,7 @@
         "message": "初期値"
     },
     "receiverChannelMapTitle": {
-        "message": "ボックスをクリックする事で、独自のチャンネルマップを定義できます"
+        "message": "チャンネルマップ"
     },
     "receiverRssiChannel": {
         "message": "RSSI チャンネル"
@@ -1355,7 +1346,7 @@
         "message": "グラフ更新頻度"
     },
     "receiverButtonSave": {
-        "message": "保存"
+        "message": "受信機設定を保存"
     },
     "receiverButtonRefresh": {
         "message": "更新"
@@ -1376,10 +1367,10 @@
         "message": "コントロール有効"
     },
     "auxiliaryHelp": {
-        "message": "範囲の組み合わせや他のモードへのリンク (BF 4.0以降でサポートされているリンク) を用いて、ここでモードを設定します。送信機にあるスイッチと、対応するモード割り当てを定義するには、 <strong>範囲</strong> を使用します。受信機側チャンネルにて最小/最大範囲の間で反応を示す場合は、そのモードが有効となるでしょう。別のモードが有効になっているときに他のモードを有効にするには、 <strong>リンク</strong> を使用します。 <strong>例外:</strong> ARMは他モードとの間でリンクはできません。対象とするモードをリンクで設定されている他モード (チェーンリンク) にリンクすることはできません。複数の範囲/リンクを使用して任意のモードを有効にすることができます。もしモードに複数の範囲/リンクが定義されている場合は、それぞれを <strong>AND</strong> または <strong>OR</strong> に設定ができます。モードは次の場合に有効となります: <br />- ALL <strong>AND</strong> 範囲/リンクが有効です; OR<br /> -少なくとも1つの <strong>OR </strong> 範囲/リンクが有効です。<br /><br />保存ボタンを使用して、設定を保存してください。"
+        "message": "ここでは、範囲や他のモードへのリンクの組み合わせでモードを設定します（リンクはBF 4.0以降でサポート）。<strong>範囲</strong>を使って送信機のスイッチと対応するモード割り当てを定義します。受信機チャンネルの読み取り値が範囲の最小/最大内に入ると、そのモードが有効になります。<strong>リンク</strong>を使って別のモードが有効になったときにモードを有効にします。<strong>例外：</strong> ARMは他のモードとリンクできません。リンクが設定されたモードに別のモードをリンクすることもできません（チェーンリンク）。複数の範囲/リンクを使って任意のモードを有効にできます。モードに複数の範囲/リンクが定義されている場合、それぞれを<strong>AND</strong>または<strong>OR</strong>に設定できます。モードは次の場合に有効になります：<br />- すべての<strong>AND</strong>範囲/リンクがアクティブ；または<br />- 少なくとも1つの<strong>OR</strong>範囲/リンクがアクティブ。<br /><br />保存ボタンで設定を保存することを忘れずに。"
     },
     "auxiliaryToggleUnused": {
-        "message": "未使用なモードは非表示"
+        "message": "未使用のモードを非表示"
     },
     "auxiliaryMin": {
         "message": "最小"
@@ -1394,7 +1385,7 @@
         "message": "リンクを追加"
     },
     "auxiliaryButtonSave": {
-        "message": "保存"
+        "message": "モードを保存"
     },
     "auxiliaryEepromSaved": {
         "message": "EEPROM <span class=\"message-positive\">保存しました</span>"
@@ -1415,22 +1406,22 @@
         "message": "AUX4のスロット2と3ポジションスイッチを選択し、かつ同じチャンネルの3ポジションスイッチを使用することでRateprofile変更を有効にすることができます。"
     },
     "adjustmentsColumnEnable": {
-        "message": "有効 / 無効"
+        "message": "有効"
     },
     "adjustmentsColumnUsingSlot": {
         "message": "使用スロット"
     },
     "adjustmentsColumnWhenChannel": {
-        "message": "チャンネル"
+        "message": "チャンネルが"
     },
     "adjustmentsColumnIsInRange": {
-        "message": "有効範囲"
+        "message": "範囲内の時"
     },
     "adjustmentsColumnThenApplyFunction": {
-        "message": "適用設定"
+        "message": "関数を適用"
     },
     "adjustmentsColumnViaChannel": {
-        "message": "チャンネル"
+        "message": "対象チャンネル"
     },
     "adjustmentsSlot0": {
         "message": "スロット1"
@@ -1550,7 +1541,7 @@
         "message": "LEDプロファイルの選択"
     },
     "adjustmentsSave": {
-        "message": "保存"
+        "message": "調整を保存"
     },
     "adjustmentsEepromSaved": {
         "message": "EEPROM <span class=\"message-positive\">保存しました</span>"
@@ -1607,7 +1598,7 @@
         "message": "サーボはファームウェア &gt;= 1.10.0. が必要でありサポート対象です。"
     },
     "servosChangeDirection": {
-        "message": "一致する送信機のサーボ有効範囲の変更"
+        "message": "方向を反転"
     },
     "servosName": {
         "message": "サーボ"
@@ -1622,13 +1613,13 @@
         "message": "最大"
     },
     "servosDirectionAndRate": {
-        "message": "レート"
+        "message": "方向とレート"
     },
     "servosLiveMode": {
         "message": "Liveモード有効"
     },
     "servosButtonSave": {
-        "message": "保存"
+        "message": "サーボ設定を保存"
     },
     "servosEepromSave": {
         "message": "EEPROM <span class=\"message-positive\">保存しました</span>"
@@ -1643,31 +1634,25 @@
         "message": "GPS 3次元測位を取得中..."
     },
     "gps3dFix": {
-        "message": "3次元測位"
-    },
-    "gpsFixTrue": {
-        "message": "<span class=\"text\">True</span>"
-    },
-    "gpsFixFalse": {
-        "message": "<span class=\"text\">False</span>"
+        "message": "3D Fix"
     },
     "gpsAltitude": {
-        "message": "高度:"
+        "message": "高度"
     },
     "gpsLat": {
-        "message": "緯度:"
+        "message": "緯度"
     },
     "gpsLon": {
-        "message": "経度:"
+        "message": "経度"
     },
     "gpsSpeed": {
-        "message": "速度:"
+        "message": "速度"
     },
     "gpsSats": {
-        "message": "衛星数:"
+        "message": "衛星数"
     },
     "gpsDistToHome": {
-        "message": "ホームまでの距離:"
+        "message": "離陸地点からの距離"
     },
     "gpsSignalStrHead": {
         "message": "GPS強度"
@@ -1682,7 +1667,7 @@
         "message": "個数"
     },
     "motorsVoltage": {
-        "message": "電圧:"
+        "message": "電圧"
     },
     "motorsADrawing": {
         "message": "電流:"
@@ -1745,25 +1730,25 @@
         "message": "サーボ - 8"
     },
     "motorsResetMaximumButton": {
-        "message": "リセット"
+        "message": "最大値をリセット"
     },
     "motorsResetMaximum": {
         "message": "オーバータイム最大値をリセット"
     },
-    "motorsSensorGyroSelect": {
-        "message": "ジャイロ"
-    },
-    "motorsSensorAccelSelect": {
-        "message": "加速度センサー"
+    "motorsMaster": {
+        "message": "マスター (一括)"
     },
     "motorsNotice": {
         "message": "<strong>モーターテストモード / アーミングでの注意:</strong><br />スライダーを動かすか、又は送信機から機体をアームした場合、モーターが<strong>回転</strong>します。<br />事故防止のために、この機能を使用する前に<strong class=\"message-negative\">全てのプロペラ</strong>を取り外して下さい。<br />モーターテストモードを有効にする事により一時的に暴走離陸防止機能が無効になります。これはプロペラを外した状態でベンチテストする際に機体がディスアームするのを防止するためです。<br />"
     },
-    "motorsEnableControl": {
-        "message": "<strong>リスクを認識し</strong>、プロペラは全て外しました - モーター制御とアーミングを可能にし、暴走離陸防止機能を無効にします。"
+    "motorConfigNotice": {
+        "message": "モーター設定の注意"
+    },
+    "motorPoleCount": {
+        "message": "モーターの磁極数"
     },
     "sensorsInfo": {
-        "message": "更新周期を速く設定し、複数のグラフを同時にレンダリングすると、リソースが重くなりノートPC等を使用するとバッテリーを早く消費してしまう場合があるので注意して下さい。<br/>必要とするセンサーのグラフを、適正な更新周期でレンダリングすることをお勧めします。"
+        "message": "高速な更新間隔と複数グラフの同時描画はリソースを多く消費し、ノートパソコン使用時にはバッテリーを早く消費します。<br />必要なセンサーのグラフのみを適切な更新間隔で描画することを推奨します。"
     },
     "sensorsRefresh": {
         "message": "更新:"
@@ -1790,16 +1775,16 @@
         "message": "デバッグ"
     },
     "sensorsGyroTitle": {
-        "message": "ジャイロセンサー - deg/s"
+        "message": "Gyro"
     },
     "sensorsAccelTitle": {
-        "message": "加速度センサー - g"
+        "message": "Accel"
     },
     "sensorsMagTitle": {
-        "message": "コンパス - Ga"
+        "message": "Mag"
     },
     "sensorsBaroTitle": {
-        "message": "気圧センサー - meters"
+        "message": "Baro"
     },
     "sensorsSonarTitle": {
         "message": "ソナー - cm"
@@ -1808,10 +1793,10 @@
         "message": "デバッグ"
     },
     "cliInfo": {
-        "message": "<strong>注:</strong> CLI: コマンドライン タブを離れるか、切断を押すと<strong>自動的</strong>にFCボードへ \"<strong>exit</strong>\" 命令を送ります。最新ファームウェアでは、これによりコントローラが<strong>再起動</strong>し、保存していない設定変更はすべて<strong>失われます</strong>。<p><strong><span class=\"message-negative\">警告:</span></strong> CLIのコマンドによっては、モーター出力ピンに任意の信号が送信される場合があります。バッテリーが接続されていると、モーターが回転する可能性があります。したがって<strong>CLIでコマンドを入力する前に、バッテリーが接続されていないという確認</strong>を強くお勧めします。"
+        "message": "<strong>注意:</strong> CLIタブを離れるか、「切断」を押すと、<strong>自動的</strong>にボードに「<strong>exit</strong>」が送信されます。最新のファームウェアでは、これによりコントローラーが<strong>再起動</strong>し、保存されていない変更は<strong>失われます</strong>。<p><strong><span class=\"message-negative\">警告:</span></strong> CLIの一部のコマンドは、モーター出力ピンに任意の信号を送信する可能性があります。バッテリーが接続されている場合、モーターが回転する恐れがあります。そのため、<strong>CLIでコマンドを入力する前に、バッテリーが接続されていないことを確認すること</strong>を強くお勧めします。"
     },
     "cliInputPlaceholder": {
-        "message": "こちらにコマンドを書いて下さい"
+        "message": "ここにコマンドを入力..."
     },
     "cliEnter": {
         "message": "CLIモード検出"
@@ -1820,16 +1805,19 @@
         "message": "CLIリブート検出"
     },
     "cliSaveToFileBtn": {
-        "message": "ファイルへ保存"
+        "message": "ファイルに保存"
     },
     "cliClearOutputHistoryBtn": {
-        "message": "出力履歴を消去"
+        "message": "出力をクリア"
     },
     "cliCopyToClipboardBtn": {
         "message": "クリップボードにコピー"
     },
     "cliCopySuccessful": {
         "message": "コピー完了！"
+    },
+    "cliLoadFromFileBtn": {
+        "message": "ファイルから読込"
     },
     "loggingNote": {
         "message": "ログデータは<span class=\"message-negative\">このタブを選択している間のみ</span>記録されます。このタブから他へ切り替えると<span class=\"message-negative\">ログは停止</span>し、通常の<strong>Configurator</strong>の状態に戻ります。<br />また項目全体のログ更新期間を自由に選択できます。パフォーマンス上の理由から、<strong>1秒</strong>ごとにログファイルにデータが書き込まれます。"
@@ -1865,13 +1853,13 @@
         "message": "自動的に以前のログファイルをロード: <strong>$1</strong>"
     },
     "blackboxNotSupported": {
-        "message": "このフライトコントローラのファームウェアは、ブラックボックスによるログをサポートしていません。"
+        "message": "このフライトコントローラのファームウェアは、Blackboxによるログをサポートしていません。"
     },
     "blackboxMaybeSupported": {
-        "message": "このフライトコントローラのファームウェアは古すぎるか、あるいは [設定] タブでブラックボックス機能が無効になっているため、このタブは使えません。"
+        "message": "このフライトコントローラのファームウェアは古すぎるか、あるいは [設定] タブでBlackbox機能が無効になっているため、このタブは使えません。"
     },
     "blackboxConfiguration": {
-        "message": "ブラックボックス設定"
+        "message": "Blackbox設定"
     },
     "blackboxButtonSave": {
         "message": "保存して再起動"
@@ -1880,7 +1868,7 @@
         "message": "ログ無効"
     },
     "blackboxLoggingFlash": {
-        "message": "オンボードメモリ"
+        "message": "フラッシュメモリ"
     },
     "blackboxLoggingSdCard": {
         "message": "SDカード"
@@ -1922,7 +1910,7 @@
         "message": "フラッシュメモリを保存... (廃止予定)"
     },
     "dataflashSaveFileDepreciationHint": {
-        "message": "Emuflight Configuratorを使ってブラックボックスログを保存するのは、時間がかかり比較的エラーが発生しやすくなります。代わりに '<b>$t(onboardLoggingRebootMscText.message)</b>' (上記) を使用して大容量ストレージモードを有効にし、FCにアクセスしてログをダウンロードする記憶媒体とすることをお勧めします。"
+        "message": "Emuflight Configuratorを使ってBlackboxログを保存するのは、時間がかかり比較的エラーが発生しやすくなります。代わりに '<b>$t(onboardLoggingRebootMscText.message)</b>' (上記) を使用して大容量ストレージモードを有効にし、FCにアクセスしてログをダウンロードする記憶媒体とすることをお勧めします。"
     },
     "dataflashButtonErase": {
         "message": "データを消去"
@@ -1958,13 +1946,13 @@
         "message": "選択されたファイルへの書込みが失敗しました。フォルダの管理者権限を確認するか、別の場所を選択して下さい。"
     },
     "sdcardStatusNoCard": {
-        "message": "カードが挿入されていません"
+        "message": "カードなし"
     },
     "sdcardStatusReboot": {
         "message": "致命的なエラー<br>再起動して下さい"
     },
     "sdcardStatusReady": {
-        "message": "カード使用可能"
+        "message": "準備完了"
     },
     "sdcardStatusStarting": {
         "message": "カードを準備しています..."
@@ -2003,7 +1991,7 @@
         "message": "ファームウェアファイルを選択して下さい"
     },
     "firmwareFlasherNoReboot": {
-        "message": "再起動シーケンスなし"
+        "message": "自動再起動しない"
     },
     "firmwareFlasherOnlineSelectBuildType": {
         "message": "使用可能なFCボードを表示するには、ビルドタイプを選択します。"
@@ -2018,13 +2006,13 @@
         "message": "FCがBOOTモードの場合に有効とします。具体的にはブートローダーのピンをジャンパさせたり、BOOTボタンを押しながらFCの電源を入れた場合に有効とします。"
     },
     "firmwareFlasherFlashOnConnect": {
-        "message": "接続時に書込み"
+        "message": "接続時にフラッシュ"
     },
     "firmwareFlasherFlashOnConnectDescription": {
         "message": "FCボードへ自動的にフラッシュします。(新たに検出されたシリアルポートによって起動)"
     },
     "firmwareFlasherFullChipErase": {
-        "message": "チップメモリの完全消去"
+        "message": "全チップ消去"
     },
     "firmwareFlasherFullChipEraseDescription": {
         "message": "FCボードに現在保存されている全ての設定データを消去します。"
@@ -2042,10 +2030,10 @@
         "message": "伝送速度"
     },
     "firmwareFlasherShowDevelopmentReleases": {
-        "message": "未検証版リリースを表示"
+        "message": "開発版を表示"
     },
     "firmwareFlasherShowDevelopmentReleasesDescription": {
-        "message": "安定版リリースに加えRC版リリースも表示"
+        "message": "不安定な可能性がある開発中のバージョンを表示します。"
     },
     "firmwareFlasherOptionLoading": {
         "message": "ロード中..."
@@ -2105,7 +2093,7 @@
         "message": "<strong>リカバリー / 通信ロスト</strong>"
     },
     "firmwareFlasherRecoveryText": {
-        "message": "FCボードとの通信が切断された場合は、次の手順に従って通信を復元して下さい: <ul><li>電源をオフします。</li><li>[再起動シーケンスなし] を有効にし [チップメモリの完全消去] を有効にします。</li><li>BOOTピンをジャンパするか、またはBOOTボタンを押し続けます。</li><li>電源をオンします。 (正しく行われればアクティビティLEDは点滅しません) </li><li>必要に応じて、全てのSTM32ドライバとZadigをインストールします。 (Emuflightマニュアルの [<a href=\"https://github.com/EmuFlight/EmuFlight/wiki\"target=\"_blank\">USB Flashing</a>] 章を参照) </li><li>Configuratorを閉じ、全てのChromeアプリケーションを終了し、Configuratorを再起動します。</li><li>FCのBOOTボタン1つだけであれば、BOOTボタンを放して下さい。</li><li>正常なファームウェアをフラッシュして下さい。 (FCのマニュアルで指定されている場合は手動で伝送速度を調整して下さい) </li><li>電源をオフします。</li><li>BOOTピンのジャンパを取り外します。</li><li>電源をオンします。 (アクティビティLEDが点滅するはずです) </li><li>再度、通常通り接続して下さい。</li></ul>"
+        "message": "フライトコントローラーとの通信を失った場合は、以下の手順で通信を回復してください: <ul><li>電源を切る。</li><li>'$t(firmwareFlasherNoReboot.message)'を有効にし、'$t(firmwareFlasherFullChipErase.message)'を有効にする。</li><li>BOOTピンをジャンパーするか、BOOTボタンを押し続ける。</li><li>電源を入れる（正しく行われた場合、アクティビティLEDは点滅しません）。</li><li>必要に応じてすべてのSTM32ドライバとZadigをインストールする（Emuflightマニュアルの<a href=\"https://github.com/emuflight/EmuFlight/wiki/Installing-Emuflight\" target=\"_blank\" rel=\"noopener noreferrer\">USB Flashing</a>セクションを参照）。</li><li>コンフィギュレーターを閉じ、すべてのChromeインスタンスを閉じ、すべてのChromeアプリを閉じ、コンフィギュレーターを再起動する。</li><li>FCにBOOTボタンがある場合は放す。</li><li>正しいファームウェアでフラッシュする（FCのマニュアルにボーレートが指定されている場合はそれを使用）。</li><li>電源を切る。</li><li>BOOTジャンパーを外す。</li><li>電源を入れる（アクティビティLEDが点滅するはずです）。</li><li>通常通り接続する。</li></ul>"
     },
     "firmwareFlasherFirmwareNotLoaded": {
         "message": "ファームウェアが読込まれていません"
@@ -2212,14 +2200,6 @@
     },
     "ledStripModeColorsModeAngle": {
         "message": "アングル",
-        "description": "One of the modes in Color Mode in Led Strip"
-    },
-    "ledStripModeColorsModeMag": {
-        "message": "コンパス",
-        "description": "One of the modes in Color Mode in Led Strip"
-    },
-    "ledStripModeColorsModeBaro": {
-        "message": "気圧センサー",
         "description": "One of the modes in Color Mode in Led Strip"
     },
     "ledStripModesOrientationTitle": {
@@ -2479,9 +2459,6 @@
     "pidTuningItermRelaxType": {
         "message": "タイプ:"
     },
-    "pidTuningItermRelaxTypeOptionGyro": {
-        "message": "ジャイロ"
-    },
     "pidTuningItermRelaxTypeOptionSetpoint": {
         "message": "セットポイント"
     },
@@ -2507,7 +2484,7 @@
         "message": "横向き / 下向き / 任意な回転による取付けが可能なFCボードの回転角度です。外部センサーを使用する場合は、センサーのアライメント (Gyro、Accel、コンパス) を使用して、ボードの向きから独立したセンサー位置を定義します。 "
     },
     "failsafeFeaturesHelpNew": {
-        "message": "フェイルセーフには２つの段階があります。<strong>ステージ1</strong> [第1段階] は送受信間の信号が無効、もしくは不安定な場合、受信機がフェイルセーフ信号を出力した場合、または受信機からの信号が全くない場合に実行され、<span class=\"message-negative\">全てのチャンネル</span>にチャンネルフォールバック設定が適用、復旧可能と設定した時間の中で作動します。<strong>ステージ2</strong> [第2段階] は、機体が<span class=\"message-negative\">アーム</span>されている際、あらかじめ設定した復旧可能時間よりも長くかかると切り替わり、却下しない限り選択された手順により、全てのチャンネルが適用されたチャンネルフォールバック設定のままとなります。<br /><strong>注:</strong> ステージ1が作動する前に、チャンネルフォールバック設定は無効な信号になっている個々のAUXチャンネルにも適用されます。"
+        "message": "Failsafeには２つの段階があります。<strong>ステージ1</strong> [第1段階] は送受信間の信号が無効、もしくは不安定な場合、受信機がFailsafe信号を出力した場合、または受信機からの信号が全くない場合に実行され、<span class=\"message-negative\">全てのチャンネル</span>にチャンネルフォールバック設定が適用、復旧可能と設定した時間の中で作動します。<strong>ステージ2</strong> [第2段階] は、機体が<span class=\"message-negative\">アーム</span>されている際、あらかじめ設定した復旧可能時間よりも長くかかると切り替わり、却下しない限り選択された手順により、全てのチャンネルが適用されたチャンネルフォールバック設定のままとなります。<br /><strong>注:</strong> ステージ1が作動する前に、チャンネルフォールバック設定は無効な信号になっている個々のAUXチャンネルにも適用されます。"
     },
     "failsafePulsrangeTitle": {
         "message": "パルス有効範囲の設定"
@@ -2537,25 +2514,25 @@
         "message": "ステージ2 - 設定"
     },
     "failsafeDelayItem": {
-        "message": "信号損失後のステージ2 起動時保護時間 [1 = 0.1秒]"
+        "message": "Failsafe遅延"
     },
     "failsafeDelayHelp": {
-        "message": "ステージ1の回復を待つための時間"
+        "message": "信号喪失からFailsafe発動までの待機時間です。"
     },
     "failsafeThrottleLowItem": {
-        "message": "フェイルセーフ スロットル低遅延 [1 = 0.1 sec.]"
+        "message": "Failsafe スロットル低遅延 [1 = 0.1 sec.]"
     },
     "failsafeThrottleLowHelp": {
-        "message": "選択しているフェイルセーフを実行する代わりに、この時間の間スロットルが低かったとき機体をディスアームします。"
+        "message": "選択しているFailsafeを実行する代わりに、この時間の間スロットルが低かったとき機体をディスアームします。"
     },
     "failsafeThrottleItem": {
         "message": "着陸時に使用されるスロットル値"
     },
     "failsafeOffDelayItem": {
-        "message": "フェイルセーフ時にモーターをオフするための遅延時間 [1 = 0.1秒]"
+        "message": "Failsafe時にモーターをオフするための遅延時間 [1 = 0.1秒]"
     },
     "failsafeOffDelayHelp": {
-        "message": "モーターがオフになり、機体がディスアームされるまで着陸モードに留まる時間"
+        "message": "Failsafe発動からモーターが完全に停止するまでの時間です。"
     },
     "failsafeSubTitle1": {
         "message": "ステージ2 - フェイル セーフ手順"
@@ -2603,22 +2580,22 @@
         "message": "ON"
     },
     "failsafeGpsRescueItemSanityChecksFSOnly": {
-        "message": "フェイルセーフのみ"
+        "message": "Failsafeのみ"
     },
     "failsafeKillSwitchItem": {
-        "message": "フェイルセーフ 強制停止スイッチ ([モード] タブでフェイルセーフを設定)"
+        "message": "Failsafe 強制停止スイッチ ([モード] タブでFailsafeを設定)"
     },
     "failsafeKillSwitchHelp": {
-        "message": "このオプションを設定すると、フェイルセーフスイッチ ([モード] タブ内) で選択されたフェイルセーフの手順を省略し、直接強制停止スイッチとして機能させます。 <strong>注:</strong> フェイルセーフ強制停止スイッチがオンの状態では、アーミングはできません。"
+        "message": "このオプションを設定すると、Failsafeスイッチ ([モード] タブ内) で選択されたFailsafeの手順を省略し、直接強制停止スイッチとして機能させます。 <strong>注:</strong> Failsafe強制停止スイッチがオンの状態では、アーミングはできません。"
     },
     "failsafeSwitchTitle": {
-        "message": "フェイルセーフ スイッチ"
+        "message": "スイッチFailsafeモード"
     },
     "failsafeSwitchModeItem": {
-        "message": "フェイルセーフ スイッチ動作"
+        "message": "Failsafe スイッチ動作"
     },
     "failsafeSwitchModeHelp": {
-        "message": "このオプションは、フェイルセーフがAUXスイッチを介して有効となったときの動作を決定します。<br/><strong>ステージ1</strong> は、ステージ1のフェイルセーフをオンにします。 これは、フェイルセーフの動作をシミュレートする場合に便利な機能です。<br/><strong>ステージ2</strong> はステージ1をスキップし、すぐにステージ2をオンにします。<br/><strong>強制停止</strong> は、即座にディスアームします。 (クワッドコプターは墜落してしまいます)"
+        "message": "このオプションは、FailsafeがAUXスイッチを介して有効となったときの動作を決定します。<br/><strong>ステージ1</strong> は、ステージ1のFailsafeをオンにします。 これは、Failsafeの動作をシミュレートする場合に便利な機能です。<br/><strong>ステージ2</strong> はステージ1をスキップし、すぐにステージ2をオンにします。<br/><strong>強制停止</strong> は、即座にディスアームします。 (クワッドコプターは墜落してしまいます)"
     },
     "failsafeSwitchOptionStage1": {
         "message": "ステージ1"
@@ -2666,16 +2643,16 @@
         "message": "MSPセンサー / OSD予備"
     },
     "powerBatteryMinimum": {
-        "message": "1セルあたりの最小電圧"
+        "message": "最低セル電圧"
     },
     "powerBatteryMaximum": {
-        "message": "1セルあたりの最大電圧"
+        "message": "最高セル電圧"
     },
     "powerBatteryWarning": {
-        "message": "1セルあたりの警告電圧"
+        "message": "警告セル電圧"
     },
     "powerVoltageHead": {
-        "message": "電圧メーター"
+        "message": "バッテリー電圧"
     },
     "powerVoltageId10": {
         "message": "バッテリー"
@@ -2747,7 +2724,7 @@
         "message": "倍率値"
     },
     "powerAmperageHead": {
-        "message": "電流メーター"
+        "message": "バッテリー電流"
     },
     "powerAmperageId10": {
         "message": "バッテリー"
@@ -2807,7 +2784,7 @@
         "message": "電源状態"
     },
     "powerBatteryConnected": {
-        "message": "接続"
+        "message": "バッテリー接続済み"
     },
     "powerBatteryConnectedValueYes": {
         "message": "はい (セル: $1)"
@@ -2834,14 +2811,13 @@
         "message": "お使いのフライトコントローラはBetaFlight OSDに対応していないようです。"
     },
     "osdSetupUnsupportedNote2": {
-        "message": "いくつかのフライトコントローラにはオンボード<a href=\"https://www.youtube.com/watch?v=ikKH_6SQ-Tk\" target=\"_blank\">MinimOSD</a>があり、これを<a href=\"https://github.com/ShikOfTheRa/scarab-osd/releases/latest\" target='_blank'>scarab-osd</a>で設定および書込みができますが、MinimOSDはこのインターフェイスでは設定できません。"
+        "message": "いくつかのフライトコントローラにはオンボード<a href=\"https://www.youtube.com/watch?v=ikKH_6SQ-Tk\" target=\"_blank\" rel=\"noopener noreferrer\">MinimOSD</a>があり、これを<a href=\"https://github.com/ShikOfTheRa/scarab-osd/releases/latest\" target=\"_blank\" rel=\"noopener noreferrer\">scarab-osd</a>で設定および書込みができますが、MinimOSDはこのインターフェイスでは設定できません。"
     },
     "osdSetupProfilesTitle": {
-        "message": "OSDプロファイル番号",
-        "description": "Description of the header of the OSD elements column associated to each profile"
+        "message": "OSD プロファイル"
     },
     "osdSetupElementsTitle": {
-        "message": "構成要素"
+        "message": "OSD エレメント"
     },
     "osdSetupPreviewTitle": {
         "message": "ドラッグして位置を変更",
@@ -2863,11 +2839,8 @@
         "message": "OSDプロファイル {{profileNumber}}",
         "description": "Content of the selector for the OSD Profile in the preview"
     },
-    "osdSetupPreviewTitleTip": {
-        "message": "表示またはプレビューウィンドウでロゴを非表示にします。フライトコント ローラの設定は変わりません。"
-    },
     "osdSetupVideoFormatTitle": {
-        "message": "ビデオ形式"
+        "message": "ビデオフォーマット"
     },
     "osdSetupUnitsTitle": {
         "message": "単位"
@@ -2876,10 +2849,10 @@
         "message": "タイマー"
     },
     "osdSetupAlarmsTitle": {
-        "message": "アラーム"
+        "message": "OSD アラーム設定"
     },
     "osdSetupStatsTitle": {
-        "message": "フライト統計情報"
+        "message": "統計"
     },
     "osdSetupVtxTitle": {
         "message": "VTX設定"
@@ -2897,7 +2870,7 @@
         "message": "フォントプリセットを選択:"
     },
     "osdSetupOpenFont": {
-        "message": "フォントファイルを開く"
+        "message": "フォントマネージャーを開く"
     },
     "osdSetupCustomLogoTitle": {
         "message": "起動ロゴ:"
@@ -2924,7 +2897,7 @@
         "message": "画像に無効なピクセルが含まれています: RGB({{valueR}}, {{valueG}}, {{valueB}}) 座標 {{posX}}×{{posY}}"
     },
     "osdSetupUploadFont": {
-        "message": "フォントアップロード"
+        "message": "フォントをアップロード"
     },
     "osdSetupSave": {
         "message": "保存"
@@ -2986,9 +2959,6 @@
     "osdDescElementCraftName": {
         "message": "[設定] タブで設定した機体名"
     },
-    "osdDescElementDisplayName": {
-        "message": "CLIコマンド【display_name】で設定した表示名"
-    },
     "osdDescElementAltitude": {
         "message": "現在の高度 (アラーム値を超えると点滅)"
     },
@@ -3049,24 +3019,6 @@
     "osdDescElementArmedTime": {
         "message": "機体が最後にアームしてからの時間"
     },
-    "osdDescElementWarnings": {
-        "message": "アラート (例: 電池切れ)、警告 (例: アーミング不可理由、バッテリーが非常に低い)、ビジュアルビープ (4点滅LED)。"
-    },
-    "osdDescElementEscTemperature": {
-        "message": "温度レポート by ESCテレメトリー"
-    },
-    "osdDescElementEscRpm": {
-        "message": "回転数レポート by ESCテレメトリー"
-    },
-    "osdDescElementEscRpmFreq": {
-        "message": "回転数レポート by ESCテレメトリー"
-    },
-    "osdDescElementRtcDateTime": {
-        "message": "ハードウェアクロック 日付 / 時間"
-    },
-    "osdDescElementAdjustmentRange": {
-        "message": "調整タブで設定した現在有効となる値"
-    },
     "osdDescElementHomeDirection": {
         "message": "ホームポジション方向を示す矢印"
     },
@@ -3081,6 +3033,45 @@
     },
     "osdDescElementCompassBar": {
         "message": "現在のヘッディングを示すグラフィカルなコンパスバー"
+    },
+    "osdDescElementWarnings": {
+        "message": "アラート (例: 電池切れ)、警告 (例: アーミング不可理由、バッテリーが非常に低い)、ビジュアルビープ (4点滅LED)。"
+    },
+    "osdDescElementEscTemperature": {
+        "message": "温度レポート by ESCテレメトリー"
+    },
+    "osdDescElementEscRpm": {
+        "message": "回転数レポート by ESCテレメトリー"
+    },
+    "osdDescElementRemainingTimeEstimate": {
+        "message": "残り飛行時間の予測"
+    },
+    "osdDescElementRtcDateTime": {
+        "message": "ハードウェアクロック 日付 / 時間"
+    },
+    "osdDescElementAdjustmentRange": {
+        "message": "調整タブで設定した現在有効となる値"
+    },
+    "osdDescElementTimer1": {
+        "message": "タイマー1の値を表示"
+    },
+    "osdDescElementTimer2": {
+        "message": "タイマー2の値を表示"
+    },
+    "osdDescElementCoreTemperature": {
+        "message": "STM32 MCUコア温度"
+    },
+    "osdDescAntiGravity": {
+        "message": "Anti Gravity機能がオンの時、インジケーターを有効にします。"
+    },
+    "osdDescGForce": {
+        "message": "どのくらいのG値(加速度)が機体に負荷をかけているかを示す"
+    },
+    "osdDescElementMotorDiag": {
+        "message": "モーター毎の出力グラフを表示"
+    },
+    "osdDescElementLogStatus": {
+        "message": "Blackbox番号と警告"
     },
     "osdDescElementFlipArrow": {
         "message": "タートルモードでどのモーターが起動しているかを示す矢印"
@@ -3097,32 +3088,14 @@
     "osdDescElementStickOverlayRight": {
         "message": "送信機 右スティック ポジションをオーバーレイ表示"
     },
-    "osdDescElementTimer1": {
-        "message": "タイマー1の値を表示"
+    "osdDescElementDisplayName": {
+        "message": "CLIコマンド【display_name】で設定した表示名"
     },
-    "osdDescElementTimer2": {
-        "message": "タイマー2の値を表示"
-    },
-    "osdDescElementRemaningTimeEstimate": {
-        "message": "残り飛行時間の予測"
+    "osdDescElementEscRpmFreq": {
+        "message": "回転数レポート by ESCテレメトリー"
     },
     "osdDescElementUnknown": {
         "message": "不明な構成要素 (将来のリリースで追加される予定)"
-    },
-    "osdDescElementCoreTemperature": {
-        "message": "STM32 MCUコア温度"
-    },
-    "osdDescAntiGravity": {
-        "message": "Anti Gravity機能がオンの時、インジケーターを有効にします。"
-    },
-    "osdDescGForce": {
-        "message": "どのくらいのG値(加速度)が機体に負荷をかけているかを示す"
-    },
-    "osdDescElementMotorDiag": {
-        "message": "モーター毎の出力グラフを表示"
-    },
-    "osdDescElementLogStatus": {
-        "message": "ブラックボックス番号と警告"
     },
     "osdDescStatMaxSpeed": {
         "message": "記録された最大スピード"
@@ -3143,7 +3116,7 @@
         "message": "記録された最大高度"
     },
     "osdDescStatBlackbox": {
-        "message": "ブラックボックス合計使用率"
+        "message": "Blackbox合計使用率"
     },
     "osdDescStatEndBattery": {
         "message": "ディスアーム時バッテリー電圧"
@@ -3158,7 +3131,7 @@
         "message": "ホームロケーションからの最大距離"
     },
     "osdDescStatBlackboxLogNumber": {
-        "message": "飛行後のブラックボックスログ番号"
+        "message": "飛行後のBlackboxログ番号"
     },
     "osdDescStatTimer1": {
         "message": "ディスアーム時のタイマー1の値"
@@ -3200,13 +3173,10 @@
         "message": "タイマー精度を選択します。これは、時間情報がどれくらいの精度でレポートされるかを制御します。"
     },
     "osdTimerAlarm": {
-        "message": "アラーム:"
+        "message": "タイマーアラーム"
     },
     "osdTimerAlarmTooltip": {
         "message": "タイマーアラームのしきい値を分単位で選択します。時間がこの値を超えると、OSD表示にて点滅し、これを0に設定するとアラームが無効になります。"
-    },
-    "osdWarningUnknown": {
-        "message": "原因不明の警告 (詳細は今後のリリースで対応予定)"
     },
     "osdWarningArmingDisabled": {
         "message": "アーミングできない最も重大な理由を報告"
@@ -3236,7 +3206,7 @@
         "message": "RCスムージングの初期化に失敗した場合に警告"
     },
     "osdWarningFailsafe": {
-        "message": "フェイルセーフ発生時に警告"
+        "message": "Failsafe発生時に警告"
     },
     "osdWarningLaunchControl": {
         "message": "起動制御モードが有効となったときの警告"
@@ -3246,6 +3216,9 @@
     },
     "osdWarningGpsRescueDisabled": {
         "message": "GPS レスキューが無効な場合に警告"
+    },
+    "osdWarningUnknown": {
+        "message": "原因不明の警告 (詳細は今後のリリースで対応予定)"
     },
     "osdSectionHelpElements": {
         "message": "OSDを有効、または無効にします。"
@@ -3272,7 +3245,7 @@
         "message": "OSD設定を保存しました"
     },
     "osdWritePermissions": {
-        "message": "このファイルに対する<span class = \"message-negative\">書込み権限</span>がありません"
+        "message": "このファイルへの<span class=\"message-negative\">書き込み権限</span>がありません"
     },
     "osdButtonSaved": {
         "message": "保存しました"
@@ -3281,7 +3254,7 @@
         "message": "モーターアーミング"
     },
     "mainHelpFailsafe": {
-        "message": "フェイルセーフモード"
+        "message": "Failsafeモード"
     },
     "mainHelpLink": {
         "message": "シリアル接続状態"
@@ -3364,8 +3337,14 @@
     "configurationBatteryMultiwiiCurrent": {
         "message": "旧式 Multiwii MSP電流出力サポートを有効にする"
     },
+    "pidTuningProfile": {
+        "message": "プロファイル"
+    },
     "pidTuningProfileTip": {
         "message": "最大3つ (一部のコントローラでは2つ) の異なるPID Profileをフライトコントローラに保存できます。PID Profileには、このタブ内にあるPID、D値セットポイント、アングル / ホライゾンの設定が含まれます。飛行場等にいる場合、簡単なスティックコマンド (オンラインマニュアルを参照) を使用して、Profileを切り替えることができます。"
+    },
+    "pidTuningRateProfile": {
+        "message": "レートプロファイル"
     },
     "pidTuningRateProfileTip": {
         "message": "1つのProfileにつき最大3つの異なるRateprofileをフライトコントローラに保存することができます。Rateprofileには、RCレート、レート、RC Expo、スロットル、およびTPAの設定が含まれます。 [調整] タブの [Rateprofile選択] の3つのポジションスイッチを設定することで、Rateprofileの切り替えが可能です。"
@@ -3384,9 +3363,6 @@
     },
     "pidTuningPidControllerTip": {
         "message": "<b>Legacy vs Emuflight (float):</b> PIDスケーリングとPIDロジックはまったく同じ仕様です。必ずしも再調整は必要ありません。Legacyは、整数演算に基づく基本的なPIDコントローラである旧ベータ版の進化型演算方式です。 Emuflight PIDコントローラは浮動小数点演算を使用し、マルチローター用に特別に設計された多くの新機能を備えています。<br><b>Float vs Integer:</b> PIDスケーリングとPIDロジックはまったく同じ仕様です。再調整は必要ありません。F1ボードにはオンボードFPUがないため、浮動小数点演算によってCPU負荷が増加するため、整数演算にて性能が向上しますが、浮動小数点演算の方がわずかに精度が向上します。"
-    },
-    "pidTuningPidTuningTip": {
-        "message": "<b>Proportional [比例制御]:</b> マルチローターを飛行させた際の現在のエラー量に比例し、出力を制御するパラメータですが、値を高くすると非常に強い抵抗力も出てしまいます。<br><b>Integral [積分制御]:</b> P値が出す補正値を修正します。初期位置を保持し、ドリフトの低減効果を高めますが、値を高くした場合、機体の傾きが初期位置へ戻る際の遅延も増加させてしまいます。<br><b>Derivative [微分制御]:</b> P値、I値が出す補正値で修正できない場合、未来予測を含めて補正します。急激な挙動の追従をする際の偏差として値を高くした場合、偏差回復の速度は向上しますが、ノイズは増加してしまいます。<br><b>レート・Expo:</b> これらのパラメータに基づいて、スティックのフィーリングを決定します。グラフとLive 3Dモデルを使用して、お気に入りのレート設定を見つけましょう。"
     },
     "pidTuningPidTuningTipFeedforward": {
         "message": "<b>Proportional [比例制御]:</b> マルチローターを飛行させた際の現在のエラー量に比例し、出力を制御するパラメータですが、値を高くすると非常に強い抵抗力も出てしまいます。<br><b>Integral [積分制御]:</b> P値が出す補正値を修正します。初期位置を保持し、ドリフトの低減効果を高めますが、値を高くした場合、機体の傾きが初期位置へ戻る際の遅延も増加させてしまいます。<br><b>Derivative [微分制御]:</b> P値、I値が出す補正値で修正できない場合、未来予測を含めて補正します。急激な挙動の追従をする際の偏差として値を高くした場合、偏差回復の速度は向上しますが、ノイズは増加してしまいます。<br>"
@@ -3407,10 +3383,13 @@
         "message": "FPVカメラアングル [degrees]"
     },
     "onboardLoggingBlackbox": {
-        "message": "ブラックボックス ログデバイス"
+        "message": "Blackbox設定"
     },
     "onboardLoggingRateOfLogging": {
-        "message": "ブラックボックス ログレート"
+        "message": "記録レート"
+    },
+    "onboardLoggingDebugMode": {
+        "message": "デバッグモード"
     },
     "onboardLoggingSerialLogger": {
         "message": "外付 シリアルログデバイス"
@@ -3459,5 +3438,35 @@
     },
     "flashTab": {
         "message": "ファームウェアをアップデート"
+    },
+    "tabVtx": {
+        "message": "ビデオ送信機 (VTX)"
+    },
+    "vtxFrequencyChannel": {
+        "message": "VTX 周波数 (MHz)"
+    },
+    "vtxBand": {
+        "message": "バンド"
+    },
+    "vtxBandHelp": {
+        "message": "VTX の周波数バンドを選択します。"
+    },
+    "vtxChannel": {
+        "message": "チャンネル"
+    },
+    "vtxChannelHelp": {
+        "message": "VTX の送信チャンネルを選択します。"
+    },
+    "vtxPower": {
+        "message": "出力"
+    },
+    "vtxPitMode": {
+        "message": "ピットモード"
+    },
+    "vtxLowPowerDisarm": {
+        "message": "ディスアーム時に低出力化"
+    },
+    "vtxButtonSave": {
+        "message": "VTX 設定を保存"
     }
 }

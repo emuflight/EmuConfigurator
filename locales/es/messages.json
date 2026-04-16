@@ -1,4 +1,7 @@
 {
+    "windowTitle": {
+        "message": "Configurador Emuflight"
+    },
     "warningTitle": {
         "message": "Advertencia"
     },
@@ -18,7 +21,7 @@
         "message": "Conectar"
     },
     "connecting": {
-        "message": "Conectando"
+        "message": "Conectando..."
     },
     "disconnect": {
         "message": "Desconectar"
@@ -45,7 +48,7 @@
         "message": "Modo Experto"
     },
     "expertModeDescription": {
-        "message": "Mostrar versiones no publicadas y potencialmente inestables"
+        "message": "Habilita ajustes avanzados."
     },
     "permanentExpertMode": {
         "message": "Activar permanentemente el Modo Experto"
@@ -53,11 +56,17 @@
     "rememberLastTab": {
         "message": "Recordar última pestaña al conectar"
     },
-    "userLanguageSelect": {
-        "message": "Idioma (hay que reiniciar la aplicación para que el cambio sea efectivo)"
+    "language_changed": {
+        "message": "Cambio de idioma guardado"
+    },
+    "language_choice_message": {
+        "message": "Cambiar idioma:"
     },
     "language_default": {
         "message": "Predeterminado"
+    },
+    "language_default_pretty": {
+        "message": "Por Defecto del Sistema ($t(detectedLanguage))"
     },
     "sensorDataFlashNotFound": {
         "message": "Memoria flash<br>no disponible",
@@ -70,16 +79,8 @@
     "sensorStatusGyro": {
         "message": "Giroscopio"
     },
-    "sensorStatusGyroShort": {
-        "message": "Giro",
-        "description": "Text of the image in the top sensors icons. Please keep it short."
-    },
     "sensorStatusAccel": {
         "message": "Acelerómetro"
-    },
-    "sensorStatusAccelShort": {
-        "message": "Acel",
-        "description": "Text of the image in the top sensors icons. Please keep it short."
     },
     "sensorStatusMag": {
         "message": "Magnetómetro"
@@ -88,13 +89,13 @@
         "message": "Barómetro"
     },
     "sensorStatusSonar": {
-        "message": "Sonar / Telémetro"
+        "message": "Sonar"
     },
     "checkForConfiguratorUnstableVersions": {
         "message": "Mostrar notificaciones de actualizaciones para versiones no estables del configurador"
     },
     "configuratorUpdateNotice": {
-        "message": "Estás utilizando una versión desactualizada de <b>Emuflight Configurator</b>.<br>La versión <b>$1</b> está disponible, por favor visita <a href=\"$2\" target=\"_blank\">la página de versiones</a> para descargar e instalar la última versión con correcciones y mejoras.<br>Por favor, cierra la ventana del configurador antes de actualizar."
+        "message": "Estás utilizando una versión desactualizada de <b>Emuflight Configurator</b>.<br>La versión <b>$1</b> está disponible, por favor visita <a href=\"$2\" target=\"_blank\" rel=\"noopener noreferrer\">la página de versiones</a> para descargar e instalar la última versión con correcciones y mejoras.<br>Por favor, cierra la ventana del configurador antes de actualizar."
     },
     "configuratorUpdateWebsite": {
         "message": "Ir a la Web de Versiones"
@@ -121,16 +122,22 @@
         "message": "Migración de configuración completada, migraciones aplicadas: $1"
     },
     "tabFirmwareFlasher": {
-        "message": "Instalar Firmware"
+        "message": "Instalador de Firmware"
+    },
+    "tabMixerCalc": {
+        "message": "Cálculo de Mezcla de Motores"
     },
     "tabLanding": {
         "message": "Bienvenido"
+    },
+    "tabPrivacyPolicy": {
+        "message": "Política de Privacidad"
     },
     "tabHelp": {
         "message": "Documentación y Soporte"
     },
     "tabSetup": {
-        "message": "Ajuste"
+        "message": "Configuración Inicial"
     },
     "tabSetupOSD": {
         "message": "Configurar OSD"
@@ -142,13 +149,10 @@
         "message": "Puertos"
     },
     "tabPidTuning": {
-        "message": "Ajustar PID"
+        "message": "Ajuste PID"
     },
     "tabReceiver": {
         "message": "Receptor"
-    },
-    "tabFailsafe": {
-        "message": "Modo de Seguridad"
     },
     "tabTransponder": {
         "message": "Transpondedor de Carrera"
@@ -160,19 +164,16 @@
         "message": "Motores"
     },
     "tabLedStrip": {
-        "message": "Tiras LED"
+        "message": "Tira LED"
     },
     "tabRawSensorData": {
         "message": "Sensores"
     },
     "tabLogging": {
-        "message": "Registro Conectado"
-    },
-    "tabOnboardLogging": {
-        "message": "Caja Negra"
+        "message": "Registro"
     },
     "tabAdjustments": {
-        "message": "Correcciones"
+        "message": "Ajustes"
     },
     "tabAuxiliary": {
         "message": "Modos"
@@ -182,12 +183,6 @@
     },
     "logActionShow": {
         "message": "Mostrar registro"
-    },
-    "serialPortOpened": {
-        "message": "Puerto serie abierto <span class=\"message-positive\">correctamente</span> con ID: $1"
-    },
-    "serialPortOpenFail": {
-        "message": "<span class=\"message-negative\">Error</span> abriendo puerto serie"
     },
     "serialPortClosedOk": {
         "message": "Puerto serie cerrado <span class=\"message-positive\">correctamente</span>"
@@ -243,6 +238,9 @@
     "stm32LocalErase": {
         "message": "Ejecutando borrado local ..."
     },
+    "stm32InvalidHex": {
+        "message": "Hexadecimal inválido"
+    },
     "stm32Erase": {
         "message": "Borrando ..."
     },
@@ -294,6 +292,9 @@
     "firmwareTypeNotSupported": {
         "message": "No - Cleanflight/Emuflight firmware <span class=\"message-negative\"> no soportado</span>, excepto modo CLI."
     },
+    "firmwareMSPNotSupported": {
+        "message": "La versión MSP no es compatible. Actualice EmuConfigurator."
+    },
     "firmwareUpgradeRequired": {
         "message": "El firmware de este dispositivo necesita actualizarse a una nueva versión. Use CLI para hacer una copia de seguridad antes de flashear. El proceso de copia/restauración con CLI está en la documentación.<br />Alternativamente puede descargar y usar una versión anterior del configurador si no está preparado para actualizar."
     },
@@ -343,12 +344,6 @@
     "craftNameReceived": {
         "message": "Nombre aeronave: <strong>$1</strong>"
     },
-    "armingDisabled": {
-        "message": "<strong>Armado Desactivado</strong>"
-    },
-    "armingEnabled": {
-        "message": "<strong>Armado Activado</strong>"
-    },
     "runawayTakeoffPreventionDisabled": {
         "message": "<strong>Protección de Despegue Incontrolado temporalmente Desactivada</strong>"
     },
@@ -380,7 +375,7 @@
         "message": "Paquetes con error:"
     },
     "statusbar_cycle_time": {
-        "message": "Tiempo de Ciclo:"
+        "message": "Tiempo de ciclo:"
     },
     "statusbar_cpu_load": {
         "message": "Carga de CPU: $1%"
@@ -416,10 +411,10 @@
         "message": "La documentación de Emuflight está disponible en las notas de la versión y en la wiki.<br /><br />"
     },
     "defaultDocumentation1": {
-        "message": "La wiki de Emuflight es un gran recurso de información, puedes encontrarla <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">aquí</a>."
+        "message": "La wiki de EmuFlight es un gran recurso de información, se puede encontrar <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\" rel=\"noopener noreferrer\">aquí</a>.<br />Las notas de la versión del firmware se pueden leer en la página de lanzamientos de GitHub, <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\" rel=\"noopener noreferrer\">aquí</a>.<br />"
     },
     "defaultDocumentation2": {
-        "message": "Las notas de la versión del firmware pueden leerse en la página de versiones de GitHub, <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\">aquí</a>."
+        "message": "La wiki de EmuConfigurator se puede encontrar <a href=\"https://github.com/emuflight/EmuConfigurator/wiki\" target=\"_blank\" rel=\"noopener noreferrer\">aquí</a>.<br />Las notas de la versión del Configurador se pueden leer en la página de lanzamientos de GitHub, <a href=\"https://github.com/emuflight/EmuConfigurator/releases\" target=\"_blank\" rel=\"noopener noreferrer\">aquí</a>.<br />"
     },
     "defaultSupportHead": {
         "message": "Soporte"
@@ -443,7 +438,7 @@
         "message": "Calibrar Magnetómetro"
     },
     "initialSetupCalibrateMagText": {
-        "message": "Mueve el multirotor al menos <strong>360</strong> grados en todos los ejes de rotación, dispones de 30 segundos para realizar esta tarea"
+        "message": "Mueve la aeronave al menos <strong>360</strong> grados en todos los ejes de rotación, dispones de 30 segundos para realizar esta tarea"
     },
     "initialSetupButtonCalibratingText": {
         "message": "Calibrando..."
@@ -781,9 +776,6 @@
     "configurationSensorAlignmentGyro": {
         "message": "Alineación GIRO"
     },
-    "configurationSensorGyroToUse": {
-        "message": "Giro/Acel"
-    },
     "configurationSensorGyroToUseNotFound": {
         "message": "Atención: Giro/Acel no encontrado"
     },
@@ -812,7 +804,7 @@
         "message": "Predeterminado"
     },
     "configurationAccelTrims": {
-        "message": "Trimado Acelerómetro"
+        "message": "Ajustes de Acelerómetro"
     },
     "configurationAccelTrimRoll": {
         "message": "Trimado Roll Acelerómetro"
@@ -830,7 +822,7 @@
         "message": "Declinación Magnetómetro [grad]"
     },
     "configurationReverseMotorSwitch": {
-        "message": "Dirección de los motores invertida"
+        "message": "Sentido de giro del motor"
     },
     "configurationReverseMotorSwitchHelp": {
         "message": "Esta opción configura el mezclador para esperar que la dirección de los motores esté invertida y las hélices estén colocadas en consecuencia. <strong>AVISO:</strong> esto no invierte la dirección del motor. Usa la herramienta de configuración para tus ESCs o modifica el orden del cableado entre los ESC y los motores para lograrlo. Además, verifica sin las hélices que los motores giran en la dirección que se muestra en el diagrama de arriba antes de intentar armar."
@@ -866,25 +858,25 @@
         "message": "Este es el valor que se envía a los ESC cuando la aeronave está desarmada. Ajústalo a un valor que haga que los motores estén parados (1000 para la mayoría de ESCs)."
     },
     "configurationDshotBeeper": {
-        "message": "Configuración de Baliza Dshot"
+        "message": "Configuración de Baliza DSHOT"
     },
     "configurationUseDshotBeeper": {
-        "message": "Usar baliza Dshot (usa los motores para emitir avisos cuando está desarmado)"
+        "message": "Usar baliza DSHOT (usa los motores para emitir avisos cuando está desarmado)"
     },
     "configurationDshotBeaconTone": {
-        "message": "Tono de la Baliza"
+        "message": "Tono de la señal acústica DSHOT"
     },
     "configurationDshotBeaconHelp": {
-        "message": "La baliza Dshot usa los ESCs y motores para producir sonido. Esto implica que la baliza Dshot no puede ser usada cuando los motores están girando. En Emuflight 3.4 y posterior, cuando se intenta armar mientras la baliza Dshot está activa, hay una pausa de 2 segundos después del último tono de la baliza Dshot antes de realizar el armado. Esto se hace así para evitar que la funcionalidad de baliza Dshot interfiera con los comandos Dshot que se envían al armar.<br/><strong>Atención:</strong> Como la baliza Dshot envía corriente a los motores mientras está activa, puede producir un exceso de calor y dañar los motores y / o los ESCs si la fuerza de la baliza está configurada muy alta. Usa BLHeli Configurator o BLHeli Suite para ajustar y testear la fuerza de la baliza."
+        "message": "La baliza DSHOT usa los ESCs y motores para producir sonido. Esto implica que la baliza DSHOT no puede ser usada cuando los motores están girando. En Emuflight 3.4 y posterior, cuando se intenta armar mientras la baliza DSHOT está activa, hay una pausa de 2 segundos después del último tono de la baliza DSHOT antes de realizar el armado. Esto se hace así para evitar que la funcionalidad de baliza DSHOT interfiera con los comandos DSHOT que se envían al armar.<br/><strong>Atención:</strong> Como la baliza DSHOT envía corriente a los motores mientras está activa, puede producir un exceso de calor y dañar los motores y / o los ESCs si la fuerza de la baliza está configurada muy alta. Usa BLHeli Configurator o BLHeli Suite para ajustar y testear la fuerza de la baliza."
     },
     "configurationBeeper": {
         "message": "Configuración de Avisos Acústicos"
     },
     "beeperGYRO_CALIBRATED": {
-        "message": "Pita cuando el giro ha sido calibrado"
+        "message": "Giroscopio calibrado"
     },
     "beeperRX_LOST": {
-        "message": "Pita cuando el TX está apagado o se ha perdido la señal (repite hasta que TX correcto)"
+        "message": "Señal de radio perdida"
     },
     "beeperRX_LOST_LANDING": {
         "message": "Pita SOS cuando está armado y el TX está apagado o se ha perdido la señal (aterrizaje/desarmado automáticos)"
@@ -899,10 +891,10 @@
         "message": "Pita con un tono especial al armar la placa y el GPS está fijado"
     },
     "beeperBAT_CRIT_LOW": {
-        "message": "Pitidos de aviso más largos cuando la batería está crítica (repite)"
+        "message": "Batería crítica"
     },
     "beeperBAT_LOW": {
-        "message": "Pitidos de aviso cuando la batería está baja (repite)"
+        "message": "Batería baja"
     },
     "beeperGPS_STATUS": {
         "message": "Usa el número de pitidos para indicar cuantos satélites se han encontrado"
@@ -929,7 +921,7 @@
         "message": "Pitidos de inicialización cuando la placa se enciende"
     },
     "beeperUSB": {
-        "message": "Pita cuando el controlador de vuelo se alimenta desde el USB. Desactiva esto si no quieres pitidos en tu banco de trabajo"
+        "message": "Pitido USB"
     },
     "beeperBLACKBOX_ERASE": {
         "message": "Pita cuando el borrado de la caja negra finaliza"
@@ -985,14 +977,11 @@
     "configurationGPSAutoConfig": {
         "message": "Configuración Auto"
     },
-    "configurationGPSHelp": {
-        "message": "<strong>Nota:</strong> Recuerda configurar un Puerto Serie (en el apartado Puertos) cuando uses la funcionalidad GPS."
-    },
     "configurationSerialRX": {
-        "message": "Proveedor del Receptor Serie"
+        "message": "Receptor Serie"
     },
     "configurationSpiRX": {
-        "message": "Proveedor del Receptor Bus SPI"
+        "message": "Receptor SPI"
     },
     "configurationEepromSaved": {
         "message": "EEPROM <span class=\"message-positive\">guardada</span>"
@@ -1086,6 +1075,9 @@
     "pidTuningAntiGravityThres": {
         "message": "Umbral Anti Gravedad"
     },
+    "pidTuningAntiGravityHelp": {
+        "message": "Aumenta temporalmente el I-Term durante cambios rápidos en el Acelerador para mejorar la estabilidad del dron."
+    },
     "pidTuningPidSettings": {
         "message": "Ajustes del Controlador PID"
     },
@@ -1176,9 +1168,6 @@
     "pidTuningDtermSetpointTransitionHelp": {
         "message": "Con este parámetro, el Punto de Ajuste de Peso de D puede reducirse cuando las palancas están cerca del centro, lo cual provoca que el final de los flips y rolls sea más suave.<br>El valor representa un punto del movimiento de la palanca: 0 - palanca centrada, 1 - completamente desplazada. Cuando la palanca está por encima de ese punto, el Punto de Ajuste de Peso se mantiene constante en el valor configurado. Cuando la palanca se sitúa por debajo de ese punto, el Punto de Ajuste de Peso se reduce proporcionalmente, llegando a 0 en la posición central de la palanca. <br> El valor de 1 da el máximo efecto de suavizado, mientras que el valor de 0 mantiene el Punto de Ajuste de Peso fijo en su valor configurado sobre el rango completo de la palanca."
     },
-    "pidTuningDtermSetpointHelp": {
-        "message": "Este parámetro determina el efecto de aceleración de la palanca dentro del componente derivativo.<br> Un valor de 0 es igual al antiguo método de Medición donde D sólo sigue al giro, mientras 1 es igual al antiguo método de Error con seguimiento igual a giro y a radio de la palanca.<br> Un valor más bajo es igual a una respuesta de palanca más lenta y suave, mientras que valores más altos proporcionan más aceleración en la respuesta a la palanca.<br> Ten en cuenta que se recomienda activar Interpolación de RC con valores altos para evitar el ruido por golpes en el control."
-    },
     "pidTuningDtermSetpointTransitionWarning": {
         "message": "<span class=\"message-negative\"><strong>$t(warningTitle.message):</strong> El uso de un Punto de Ajuste de Transición de D mayor que 0 y menor que 0.1 está altamente desaconsejado. Puede causar inestabilidad y reducir la respuesta de los controles al cruzar el punto central.</span>"
     },
@@ -1211,6 +1200,9 @@
     },
     "pidTuningRcExpo": {
         "message": "Expo RC"
+    },
+    "pidTuningRCRatesTypeHelp": {
+        "message": "Estilo de definición de los Rates (Betaflight, Raceflight, KISS, etc.)"
     },
     "pidTuningTPABreakPoint": {
         "message": "Punto de corte del TPA"
@@ -1246,7 +1238,7 @@
         "message": "Acelerador"
     },
     "pidTuningButtonSave": {
-        "message": "Guardar"
+        "message": "Guardar ajustes PID"
     },
     "pidTuningButtonRefresh": {
         "message": "Refrescar"
@@ -1255,10 +1247,10 @@
         "message": "Controlador PID"
     },
     "pidTuningCopyProfile": {
-        "message": "Copiar perfil"
+        "message": "Copia de Perfil"
     },
     "pidTuningCopyRateProfile": {
-        "message": "Copiar perfil de tasas"
+        "message": "Copia de Perfil de Rates"
     },
     "dialogCopyProfileText": {
         "message": "Copiar valores del perfil actual al"
@@ -1311,38 +1303,32 @@
     "filterWarning": {
         "message": "<span class=\"message-negative\"><b>Atención:</b></span> La cantidad de filtrado que estás usando es peligrosamente baja. Esto puede hacer que la aeronave sea difícil de controlar, y puede que se vaya volando. Es altamente recomendable que <b>actives al menos uno de los Giro Paso Bajo Dinámico o el Giro Paso Bajo 1 y al menos uno de los D Term Paso Bajo 1 Dinámico o D Term Paso Bajo 1</b>."
     },
-    "receiverThrottleMid": {
-        "message": "Acelerador MED"
-    },
-    "receiverThrottleExpo": {
-        "message": "Acelerador EXPO"
-    },
     "receiverStickMin": {
-        "message": "Umbral 'Palanca Baja'"
+        "message": "Palanca Mínima"
     },
     "receiverHelpStickMin": {
         "message": "El valor máximo (en us) para que una palanca se reconozca como baja / izquierda en la entrada de comandos (MIN_CHECK)."
     },
     "receiverStickCenter": {
-        "message": "Palanca Centro"
+        "message": "Palanca Central"
     },
     "receiverHelpStickCenter": {
         "message": "El valor (en us) usado para determinar si una palanca esta centrada (MID_RC)."
     },
     "receiverStickMax": {
-        "message": "Umbral 'Palanca Alta'"
+        "message": "Palanca Máxima"
     },
     "receiverHelpStickMax": {
         "message": "El valor mínimo (en us) para que una palanca se reconozca como alta / derecha en la entrada de comandos (MAX_CHECK)."
     },
     "receiverDeadband": {
-        "message": "Banda muerta RC"
+        "message": "Deadband (Banda Muerta)"
     },
     "receiverHelpDeadband": {
         "message": "Esto son valores (en us) de cuanto debe ser diferente una entrada RC antes de que sea considerada válida. Para transmisores con inestabilidad en las salidas, este valor puede ser incrementado si las entradas de rc se mueven estando en reposo."
     },
     "receiverYawDeadband": {
-        "message": "Banda muerta Yaw"
+        "message": "Yaw Deadband (Banda Muerta)"
     },
     "receiverHelpYawDeadband": {
         "message": "Esto son valores (en us) de cuanto debe ser diferente una entrada RC antes de que sea considerada válida. Para transmisores con inestabilidad en las salidas, este valor puede ser incrementado si las entradas de rc se mueven estando en reposo. <strong>Este ajuste es sólo para el Yaw.</strong>"
@@ -1360,7 +1346,7 @@
         "message": "Predeterminado"
     },
     "receiverChannelMapTitle": {
-        "message": "Puedes definir tu propio mapa de canales pulsando dentro del cuadro"
+        "message": "Mapa de Canales"
     },
     "receiverRssiChannel": {
         "message": "Canal RSSI"
@@ -1372,7 +1358,7 @@
         "message": "Tasa de refresco del gráfico"
     },
     "receiverButtonSave": {
-        "message": "Guardar"
+        "message": "Guardar Receptor"
     },
     "receiverButtonRefresh": {
         "message": "Refrescar"
@@ -1393,7 +1379,7 @@
         "message": "Activar controles"
     },
     "auxiliaryHelp": {
-        "message": "Configura aquí los modos usando una combinación de rangos y/o enlaces con otros modos (enlaces sólo para Emuflight 4.0 y posterior). Usa <strong>rangos</strong> para definir los interruptores en tu emisora y la asignación al modo correspondiente. Un canal receptor que dé una lectura entre un rango mínimo/máximo activará el modo. Usa un <strong>enlace</strong> para activar un modo cuando otro modo está activado. <strong>Excepciones:</strong> modo ARMAR no puede ser enlazado hacia o desde otro modo, los modos no pueden ser enlazados con otros modos que tengan configurados enlaces (enlaces encadenados). Múltiples rangos/enlaces pueden ser utilizados para activar cualquier modo. Si hay más de un rango/enlace definido para un modo, cada uno de ellos puede ser configurado como <strong>Y</strong> o como <strong>O</strong>. Un modo será activado cuando:<br />-TODOS los rangos/enlaces <strong>Y</strong> están activos; O<br />- al menos uno de los rangos/enlaces <strong>O</strong> está activo.<br /><br />Recuerda guardar tus ajustes pulsando el botón Guardar."
+        "message": "Configura los modos aquí usando una combinación de rangos y/o enlaces a otros modos (enlaces disponibles a partir de BF 4.0). Usa <strong>rangos</strong> para definir los interruptores de tu transmisor y las asignaciones de modo correspondientes. Un canal del receptor que dé una lectura entre el mínimo y el máximo del rango activará el modo. Usa un <strong>enlace</strong> para activar un modo cuando se activa otro. <strong>Excepciones:</strong> ARM no puede estar enlazado a ni desde otro modo, los modos no pueden enlazarse a otros modos configurados con un enlace (enlaces encadenados). Se pueden usar múltiples rangos/enlaces para activar cualquier modo. Si hay más de un rango/enlace definido para un modo, cada uno se puede configurar como <strong>Y</strong> o <strong>O</strong>. Un modo se activará cuando:<br />- TODOS los rangos/enlaces <strong>Y</strong> estén activos; O<br />- al menos un rango/enlace <strong>O</strong> esté activo.<br /><br />Recuerda guardar tu configuración con el botón Guardar."
     },
     "auxiliaryToggleUnused": {
         "message": "Ocultar modos no usados"
@@ -1411,7 +1397,7 @@
         "message": "Añadir Enlace"
     },
     "auxiliaryButtonSave": {
-        "message": "Guardar"
+        "message": "Guardar Modos"
     },
     "auxiliaryEepromSaved": {
         "message": "EEPROM <span class=\"message-positive\">guardada</span>"
@@ -1432,22 +1418,22 @@
         "message": "Usa Ranura 2 y un interruptor de 3POS en AUX4 para activar la Selección de Perfil de Tasas a través del mismo interruptor de 3POS en el mismo canal."
     },
     "adjustmentsColumnEnable": {
-        "message": "Si activado"
+        "message": "Habilitar"
     },
     "adjustmentsColumnUsingSlot": {
         "message": "usando ranura"
     },
     "adjustmentsColumnWhenChannel": {
-        "message": "cuando canal"
+        "message": "Cuando el Canal"
     },
     "adjustmentsColumnIsInRange": {
-        "message": "está en rango"
+        "message": "Está en el Rango"
     },
     "adjustmentsColumnThenApplyFunction": {
-        "message": "entonces aplicar"
+        "message": "Entonces Aplicar Función"
     },
     "adjustmentsColumnViaChannel": {
-        "message": "vía canal"
+        "message": "Vía Canal"
     },
     "adjustmentsSlot0": {
         "message": "Ranura 1"
@@ -1567,7 +1553,7 @@
         "message": "Selección de Perfil LED"
     },
     "adjustmentsSave": {
-        "message": "Guardar"
+        "message": "Guardar Ajustes"
     },
     "adjustmentsEepromSaved": {
         "message": "EEPROM <span class=\"message-positive\">guardada</span>"
@@ -1624,7 +1610,7 @@
         "message": "Servos requieren firmware &gt;= 1.10.0 y que la placa lo soporte."
     },
     "servosChangeDirection": {
-        "message": "Cambiar dirección en TX para Igualar"
+        "message": "Cambiar dirección"
     },
     "servosName": {
         "message": "Nombre"
@@ -1639,13 +1625,13 @@
         "message": "MÁX"
     },
     "servosDirectionAndRate": {
-        "message": "Dirección y tasa"
+        "message": "Dirección y Tasa"
     },
     "servosLiveMode": {
         "message": "Activar modo en vivo"
     },
     "servosButtonSave": {
-        "message": "Guardar"
+        "message": "Guardar Servos"
     },
     "servosEepromSave": {
         "message": "EEPROM <span class=\"message-positive\">guardada</span>"
@@ -1660,7 +1646,7 @@
         "message": "Esperando posición GPS 3D..."
     },
     "gps3dFix": {
-        "message": "Posición 3D:"
+        "message": "Fijación 3D"
     },
     "gpsFixTrue": {
         "message": "<span class=\"fixtrue\">Verdadero</span>"
@@ -1669,22 +1655,22 @@
         "message": "<span class=\"fixfalse\">Falso</span>"
     },
     "gpsAltitude": {
-        "message": "Altitud:"
+        "message": "Altitud"
     },
     "gpsLat": {
-        "message": "Latitud:"
+        "message": "Latitud"
     },
     "gpsLon": {
-        "message": "Longitud:"
+        "message": "Longitud"
     },
     "gpsSpeed": {
-        "message": "Velocidad:"
+        "message": "Velocidad"
     },
     "gpsSats": {
-        "message": "Satélites:"
+        "message": "Satélites"
     },
     "gpsDistToHome": {
-        "message": "Dist. a Casa:"
+        "message": "Distancia a Casa"
     },
     "gpsSignalStrHead": {
         "message": "Fuerza Señal GPS"
@@ -1699,7 +1685,7 @@
         "message": "Cantidad"
     },
     "motorsVoltage": {
-        "message": "Voltaje:"
+        "message": "Voltaje"
     },
     "motorsADrawing": {
         "message": "Amperaje:"
@@ -1711,25 +1697,22 @@
         "message": "Motores"
     },
     "motorsResetMaximumButton": {
-        "message": "Reinicio"
+        "message": "Restablecer valores máximos"
     },
     "motorsResetMaximum": {
         "message": "Reiniciar valor máximo en el tiempo"
     },
-    "motorsSensorGyroSelect": {
-        "message": "giro"
-    },
-    "motorsSensorAccelSelect": {
-        "message": "acel"
-    },
     "motorsMaster": {
-        "message": "Maestro"
+        "message": "Maestro (Todos)"
     },
     "motorsNotice": {
         "message": "<strong>Aviso Modo Test de Motor / Armado:</strong><br />Mover los controles deslizantes o armar la aeronave con el transmisor provocará que los motores <strong>giren</strong>.<br />Para evitar lesiones <strong class=\"message-negative\">quita TODAS las hélices</strong> antes de utilizar esta funcionalidad.<br />Activar el modo test de motor también desactivará temporalmente la Protección de Despegue Incontrolado, para evitar que desarme la aeronave mientras está en el banco de pruebas sin hélices.<br />"
     },
-    "motorsEnableControl": {
-        "message": "<strong>Entiendo los riesgos</strong>, las hélices están quitadas - activar control de motor y armado y desactivar la Protección de Despegue Incontrolado."
+    "motorConfigNotice": {
+        "message": "Nota de configuración del motor"
+    },
+    "motorPoleCount": {
+        "message": "Número de polos del motor"
     },
     "sensorsInfo": {
         "message": "Ten en mente que usar períodos rápidos de actualización y dibujar múltiples gráficas al mismo tiempo consume muchos recursos y agotará tu batería más rápido si usas un portátil.<br />Te recomendamos dibujar sólo las gráficas de los sensores en los que estés interesado y usar tiempos de actualización razonables."
@@ -1753,22 +1736,22 @@
         "message": "Barómetro"
     },
     "sensorsGyroTitle": {
-        "message": "Giroscopio - grad/s"
+        "message": "Gyro"
     },
     "sensorsAccelTitle": {
-        "message": "Acelerómetro - g"
+        "message": "Accel"
     },
     "sensorsMagTitle": {
-        "message": "Magnetómetro - Ga"
+        "message": "Mag"
     },
     "sensorsBaroTitle": {
-        "message": "Barómetro - metros"
+        "message": "Baro"
     },
     "cliInfo": {
-        "message": "<strong>Nota:</strong> Abandonar la pestaña CLI o pulsar Desconectar enviará \"<strong>exit</strong>\" <strong>automáticamente</strong> a la placa. En los últimos firmwares esto hace que el controlador <strong>reinicie</strong> y los cambios no salvados se <strong>perderán</strong>. <p><strong><span class=\"message-negative\">Atención:</span></strong> En CLI algunos comandos pueden resultar en señales arbitrarias enviadas a los pines de salida de motores. Esto puede provocar que los motores giren si la batería está conectada. Por lo tanto es altamente recomendable asegurarse de que <strong>no hay ninguna batería conectada antes de introducir comandos en CLI</strong>."
+        "message": "<strong>Nota:</strong> Salir de la pestaña CLI o presionar Desconectar enviará <strong>automáticamente</strong> \"<strong>exit</strong>\" a la placa. Con el último firmware, esto hará que el controlador se <strong>reinicie</strong> y los cambios no guardados se <strong>perderán</strong>.<p><strong><span class=\"message-negative\">Aviso:</span></strong> Algunos comandos en el CLI pueden resultar en señales arbitrarias enviadas a los pines de salida de los motores. Esto puede causar que los motores giren si hay una batería conectada. Por lo tanto, se recomienda encarecidamente asegurarse de que <strong>no haya ninguna batería conectada antes de introducir comandos en el CLI</strong>."
     },
     "cliInputPlaceholder": {
-        "message": "Escribe tu comando aquí"
+        "message": "Escriba un comando aquí..."
     },
     "cliEnter": {
         "message": "Detectado modo CLI"
@@ -1777,16 +1760,19 @@
         "message": "Detectado reinicio CLI"
     },
     "cliSaveToFileBtn": {
-        "message": "Guardar en Archivo"
+        "message": "Guardar a archivo"
     },
     "cliClearOutputHistoryBtn": {
-        "message": "Limpiar historial de salida"
+        "message": "Limpiar salida"
     },
     "cliCopyToClipboardBtn": {
         "message": "Copiar al portapapeles"
     },
     "cliCopySuccessful": {
         "message": "¡Copiado!"
+    },
+    "cliLoadFromFileBtn": {
+        "message": "Cargar desde archivo"
     },
     "loggingNote": {
         "message": "Los datos se registran <span class=\"message-negative\">sólamente</span> en este apartado, abandonar el apartado <span class=\"message-negative\">cancelará</span> el registro y la aplicación volverá al estado normal del <strong>\"configurator\"</strong>.<br /> Puedes elegir cualquier período de actualización global, los datos se almacenarán en el archivo de log cada <strong>1</strong> segundo por razones de rendimiento."
@@ -1837,7 +1823,7 @@
         "message": "No registrar"
     },
     "blackboxLoggingFlash": {
-        "message": "Flash Integrada"
+        "message": "Memoria Flash"
     },
     "blackboxLoggingSdCard": {
         "message": "Tarjeta SD"
@@ -1915,13 +1901,13 @@
         "message": "Error al escribir en el archivo seleccionado, ¿los permisos de la carpeta son correctos?"
     },
     "sdcardStatusNoCard": {
-        "message": "No hay tarjeta SD"
+        "message": "SIN TARJETA"
     },
     "sdcardStatusReboot": {
         "message": "Error fatal<br>Reinicia para reintentar"
     },
     "sdcardStatusReady": {
-        "message": "Tarjeta disponible"
+        "message": "Listo"
     },
     "sdcardStatusStarting": {
         "message": "Iniciando tarjeta..."
@@ -1966,7 +1952,7 @@
         "message": "Por favor, carga el archivo con el firmware"
     },
     "firmwareFlasherNoReboot": {
-        "message": "No reiniciar"
+        "message": "Sin reinicio automático"
     },
     "firmwareFlasherOnlineSelectBuildType": {
         "message": "Selecciona el tipo de versión para ver las placas disponibles."
@@ -1981,7 +1967,7 @@
         "message": "Activar si tu FC está en modo boot. Por ej. si arrancaste el FC con los pins del gestor de arranque unidos o mientras pulsabas el botón BOOT."
     },
     "firmwareFlasherFlashOnConnect": {
-        "message": "Instalar al conectar"
+        "message": "Flash al conectar"
     },
     "firmwareFlasherFlashOnConnectDescription": {
         "message": "Intentar instalar el firmware automáticamente (se ejecuta al detectar un nuevo puerto serie)."
@@ -2005,10 +1991,10 @@
         "message": "Velocidad de Transmisión"
     },
     "firmwareFlasherShowDevelopmentReleases": {
-        "message": "Mostrar versiones inestables"
+        "message": "Mostrar versiones de desarrollo"
     },
     "firmwareFlasherShowDevelopmentReleasesDescription": {
-        "message": "Mostrar versiones candidatas además de versiones estables"
+        "message": "Muestra versiones en desarrollo y potencialmente inestables."
     },
     "firmwareFlasherOptionLoading": {
         "message": "Cargando ..."
@@ -2065,7 +2051,7 @@
         "message": "<strong>Recuperación / Pérdida de comunicación</strong>"
     },
     "firmwareFlasherRecoveryText": {
-        "message": "Si has perdido la comunicación con tu placa sigue estos pasos para restaurar la comunicación: <ul><li>Apagar.</li><li>Activar 'No reiniciar', activar 'Borrado completo del chip'.</li><li>Unir los pins BOOT o pulsar el botón BOOT.</li><li>Encender (el LED de actividad NO parpadeará si se hace correctamente).</li><li>Instalar todos los drivers para STM32 y Zadig si es necesario (ver sección <a href=\"https://github.com/EmuFlight/EmuFlight/wiki\"target=\"_blank\">Instalación por USB</a> del manual).</li><li>Cerrar el Configurator, cerrar todas las instancias en ejecución de Chrome, cerrar todas las aplicaciones Chrome, reiniciar el Configurator.</li><li>Soltar botón BOOT si tu FC tiene uno.</li><li>Instalar el firmware correcto (configurando la velocidad de transmisión si viene especificada en el manual de tu FC).</li><li>Apagar.</li><li>Liberar pins BOOT.</li><li>Encender (el LED de actividad debe parpadear).</li><li>Conectar normalmente.</li></ul>"
+        "message": "Si has perdido la comunicación con tu placa, sigue estos pasos para restaurarla: <ul><li>Apaga.</li><li>Activa 'Sin reinicio automático', activa 'Borrado completo del chip'.</li><li>Puentea los pines BOOT o mantén pulsado el botón BOOT.</li><li>Enciende (el LED de actividad NO debe parpadear si se hace correctamente).</li><li>Instala todos los controladores STM32 y Zadig si es necesario (consulta la sección <a href=\"https://github.com/emuflight/EmuFlight/wiki/Installing-Emuflight\" target=\"_blank\" rel=\"noopener noreferrer\">USB Flashing</a> del manual de Emuflight).</li><li>Cierra el configurador, cierra todas las instancias de Chrome, cierra todas las aplicaciones Chrome, reinicia el Configurador.</li><li>Suelta el botón BOOT si tu FC lo tiene.</li><li>Flashea con el firmware correcto (usa la velocidad de baudios manual si se especifica en el manual de tu FC).</li><li>Apaga.</li><li>Retira el puente BOOT.</li><li>Enciende (el LED de actividad debe parpadear).</li><li>Conecta normalmente.</li></ul>"
     },
     "firmwareFlasherFirmwareNotLoaded": {
         "message": "Firmware no cargado"
@@ -2423,9 +2409,6 @@
     "pidTuningItermRelaxType": {
         "message": "Tipo:"
     },
-    "pidTuningItermRelaxTypeOptionGyro": {
-        "message": "Giro"
-    },
     "pidTuningItermRelaxTypeOptionSetpoint": {
         "message": "Valor objetivo"
     },
@@ -2481,10 +2464,10 @@
         "message": "Etapa 2 - Ajustes"
     },
     "failsafeDelayItem": {
-        "message": "Tiempo de guarda para activación de etapa 2 después de perder la señal [1 = 0.1 seg]"
+        "message": "Retraso de Failsafe"
     },
     "failsafeDelayHelp": {
-        "message": "Tiempo a esperar en etapa 1 para recuperación"
+        "message": "Tiempo de espera antes de activar el Failsafe tras perder la señal."
     },
     "failsafeThrottleLowItem": {
         "message": "Retardo Acelerador Bajo Modo de Seguridad [1 = 0.1 seg]"
@@ -2499,7 +2482,7 @@
         "message": "Retraso para apagar los motores en caso de fallo [1 = 0.1 seg.]"
     },
     "failsafeOffDelayHelp": {
-        "message": "Tiempo para permanecer en modo aterrizaje, hasta que los motores se apaguen y se desarmen"
+        "message": "Tiempo que los motores siguen girando antes del corte de emergencia."
     },
     "failsafeSubTitle1": {
         "message": "Etapa 2 - Procedimiento de seguridad"
@@ -2556,7 +2539,7 @@
         "message": "Ajustar esta opción para usar un interruptor de modo de seguridad o FAILSAFE (apartado Modos). Actúa como un conmutador directo, saltando el procedimiento del modo de seguridad seleccionado. <strong>Nota:</strong> El armado está bloqueado cuando el modo de seguridad está en la posición ENCENDIDO"
     },
     "failsafeSwitchTitle": {
-        "message": "Interruptor Modo de Seguridad"
+        "message": "Modo Failsafe de Interruptor"
     },
     "failsafeSwitchModeItem": {
         "message": "Acción Interruptor Modo de Seguridad"
@@ -2607,16 +2590,16 @@
         "message": "Sensor MSP/OSD Esclavo"
     },
     "powerBatteryMinimum": {
-        "message": "Mínimo Voltaje por Celda"
+        "message": "Voltaje Mínimo de la Celda"
     },
     "powerBatteryMaximum": {
-        "message": "Máximo Voltaje por Celda"
+        "message": "Voltaje Máximo de la Celda"
     },
     "powerBatteryWarning": {
-        "message": "Aviso Voltaje por Celda"
+        "message": "Voltaje de Aviso de la Celda"
     },
     "powerVoltageHead": {
-        "message": "Medidor de Voltaje"
+        "message": "Voltaje de la Batería"
     },
     "powerVoltageId10": {
         "message": "Batería"
@@ -2652,7 +2635,7 @@
         "message": "Valor Multiplicador"
     },
     "powerAmperageHead": {
-        "message": "Medidor de Amperaje"
+        "message": "Amperaje de la Batería"
     },
     "powerAmperageId10": {
         "message": "Batería"
@@ -2670,10 +2653,10 @@
         "message": "Batería"
     },
     "powerStateHead": {
-        "message": "Estado de Energía"
+        "message": "Estado de la energía"
     },
     "powerBatteryConnected": {
-        "message": "Conectado"
+        "message": "Batería Conectada"
     },
     "powerBatteryConnectedValueYes": {
         "message": "Si (Celdas: $1)"
@@ -2697,14 +2680,13 @@
         "message": "Tu controlador de vuelo no está respondiendo a los comandos OSD. Esto probablemente significa que no tiene un OSD Emuflight integrado."
     },
     "osdSetupUnsupportedNote2": {
-        "message": "Ten en cuenta que algunos controladores de vuelo tienen un <a href=\"https://www.youtube.com/watch?v=ikKH_6SQ-Tk\" target=\"_blank\">MinimOSD</a> integrado que puede ser flasheado y configurado con <a href=\"https://github.com/ShikOfTheRa/scarab-osd/releases/latest\" target='_blank'>scarab-osd</a>, sin embargo el MinimOSD no puede ser configurado desde esta interfaz."
+        "message": "Ten en cuenta que algunos controladores de vuelo tienen un <a href=\"https://www.youtube.com/watch?v=ikKH_6SQ-Tk\" target=\"_blank\" rel=\"noopener noreferrer\">MinimOSD</a> integrado que puede ser flasheado y configurado con <a href=\"https://github.com/ShikOfTheRa/scarab-osd/releases/latest\" target=\"_blank\" rel=\"noopener noreferrer\">scarab-osd</a>, sin embargo el MinimOSD no puede ser configurado desde esta interfaz."
     },
     "osdSetupProfilesTitle": {
-        "message": "Número de Perfil OSD",
-        "description": "Description of the header of the OSD elements column associated to each profile"
+        "message": "Perfiles del OSD"
     },
     "osdSetupElementsTitle": {
-        "message": "Elementos"
+        "message": "Elementos del OSD"
     },
     "osdSetupPreviewTitle": {
         "message": "Arrastra los elementos para cambiar su posición",
@@ -2726,11 +2708,8 @@
         "message": "Perfil OSD {{profileNumber}}",
         "description": "Content of the selector for the OSD Profile in the preview"
     },
-    "osdSetupPreviewTitleTip": {
-        "message": "Muestra u oculta el logo en la ventana de vista previa. Esto no cambiar ningún ajuste en el controlador de vuelo."
-    },
     "osdSetupVideoFormatTitle": {
-        "message": "Formato de Video"
+        "message": "Formato de vídeo"
     },
     "osdSetupUnitsTitle": {
         "message": "Unidades"
@@ -2739,10 +2718,10 @@
         "message": "Temporizadores"
     },
     "osdSetupAlarmsTitle": {
-        "message": "Alarmas"
+        "message": "Alarmas del OSD"
     },
     "osdSetupStatsTitle": {
-        "message": "Estadísticas Post Vuelo"
+        "message": "Estadísticas"
     },
     "osdSetupVtxTitle": {
         "message": "Ajustes VTX"
@@ -2763,7 +2742,7 @@
         "message": "o"
     },
     "osdSetupOpenFont": {
-        "message": "Abrir Archivo de Fuente"
+        "message": "Abrir gestor de fuentes"
     },
     "osdSetupCustomLogoTitle": {
         "message": "Logo inicial:"
@@ -2790,7 +2769,7 @@
         "message": "La imagen contiene un pixel inválido: rgb({{valueR}}, {{valueG}}, {{valueB}}) en las coordenadas {{posX}}×{{posY}}"
     },
     "osdSetupUploadFont": {
-        "message": "Cargar Fuente"
+        "message": "Subir fuente"
     },
     "osdSetupSave": {
         "message": "Guardar"
@@ -2845,9 +2824,6 @@
     },
     "osdDescElementCraftName": {
         "message": "Nombre de la aeronave tal como está en el apartado Configuración"
-    },
-    "osdDescElementDisplayName": {
-        "message": "Mostrar nombre configurado con el comando cli \"display_name\""
     },
     "osdDescElementAltitude": {
         "message": "Altitud actual (parpadea por encima del umbral de alarma)"
@@ -2909,24 +2885,6 @@
     "osdDescElementArmedTime": {
         "message": "Tiempo desde que la aeronave fue armada por última vez"
     },
-    "osdDescElementWarnings": {
-        "message": "Alertas (p.ej. batería baja), avisos (p.ej. razones para no armar, batería baja crítica) y pitido visual (4 asteriscos parpadeando)."
-    },
-    "osdDescElementEscTemperature": {
-        "message": "Temperatura reportada por la telemetría de los ESC"
-    },
-    "osdDescElementEscRpm": {
-        "message": "RPM reportadas por la telemetría de los ESC"
-    },
-    "osdDescElementEscRpmFreq": {
-        "message": "Frecuencia RPM reportada por la telemetría de los ESC"
-    },
-    "osdDescElementRtcDateTime": {
-        "message": "Fecha / Hora en tiempo real"
-    },
-    "osdDescElementAdjustmentRange": {
-        "message": "Rango y valor del elemento y ajuste activo actualmente"
-    },
     "osdDescElementHomeDirection": {
         "message": "Flecha mostrando la dirección hacia la posición casa"
     },
@@ -2941,6 +2899,45 @@
     },
     "osdDescElementCompassBar": {
         "message": "Barra gráfica con una brújula mostrando la dirección actual"
+    },
+    "osdDescElementWarnings": {
+        "message": "Alertas (p.ej. batería baja), avisos (p.ej. razones para no armar, batería baja crítica) y pitido visual (4 asteriscos parpadeando)."
+    },
+    "osdDescElementEscTemperature": {
+        "message": "Temperatura reportada por la telemetría de los ESC"
+    },
+    "osdDescElementEscRpm": {
+        "message": "RPM reportadas por la telemetría de los ESC"
+    },
+    "osdDescElementRemainingTimeEstimate": {
+        "message": "Tiempo estimado de vuelo restante"
+    },
+    "osdDescElementRtcDateTime": {
+        "message": "Fecha / Hora en tiempo real"
+    },
+    "osdDescElementAdjustmentRange": {
+        "message": "Rango y valor del elemento y ajuste activo actualmente"
+    },
+    "osdDescElementTimer1": {
+        "message": "Muestra el valor del temporizador 1"
+    },
+    "osdDescElementTimer2": {
+        "message": "Muestra el valor del temporizador 2"
+    },
+    "osdDescElementCoreTemperature": {
+        "message": "Temperatura del núcleo del MCU STM32"
+    },
+    "osdDescAntiGravity": {
+        "message": "Activa un indicador cuando la anti gravedad está activa"
+    },
+    "osdDescGForce": {
+        "message": "Muestra cuánta Fuerza G está experimentando la aeronave"
+    },
+    "osdDescElementMotorDiag": {
+        "message": "Muestra un gráfico con la salida de cada motor"
+    },
+    "osdDescElementLogStatus": {
+        "message": "Número de caja negra y avisos"
     },
     "osdDescElementFlipArrow": {
         "message": "Flecha que indica que lado tiene los motores arriba en modo tortuga"
@@ -2957,32 +2954,14 @@
     "osdDescElementStickOverlayRight": {
         "message": "Superposición de la posición del mando derecho del transmisor."
     },
-    "osdDescElementTimer1": {
-        "message": "Muestra el valor del temporizador 1"
+    "osdDescElementDisplayName": {
+        "message": "Mostrar nombre configurado con el comando cli \"display_name\""
     },
-    "osdDescElementTimer2": {
-        "message": "Muestra el valor del temporizador 2"
-    },
-    "osdDescElementRemaningTimeEstimate": {
-        "message": "Tiempo estimado de vuelo restante"
+    "osdDescElementEscRpmFreq": {
+        "message": "Frecuencia RPM reportada por la telemetría de los ESC"
     },
     "osdDescElementUnknown": {
         "message": "Elemento desconocido (los detalles se añadirán en una futura versión)"
-    },
-    "osdDescElementCoreTemperature": {
-        "message": "Temperatura del núcleo del MCU STM32"
-    },
-    "osdDescAntiGravity": {
-        "message": "Activa un indicador cuando la anti gravedad está activa"
-    },
-    "osdDescGForce": {
-        "message": "Muestra cuánta Fuerza G está experimentando la aeronave"
-    },
-    "osdDescElementMotorDiag": {
-        "message": "Muestra un gráfico con la salida de cada motor"
-    },
-    "osdDescElementLogStatus": {
-        "message": "Número de caja negra y avisos"
     },
     "osdDescStatMaxSpeed": {
         "message": "Máxima velocidad registrada"
@@ -3060,13 +3039,10 @@
         "message": "Elige la precisión del temporizador, esto controla la precisión con la que el tiempo es reportado"
     },
     "osdTimerAlarm": {
-        "message": "Alarma:"
+        "message": "Alarma de tiempo"
     },
     "osdTimerAlarmTooltip": {
         "message": "Elige el umbral de alarma del temporizador en minutos, cuando el tiempo excede este valor el elemento del OSD parpadeará, indicando 0 se desactiva la alarma"
-    },
-    "osdWarningUnknown": {
-        "message": "Aviso desconocido (los detalles se añadirán en una futura versión)"
     },
     "osdWarningArmingDisabled": {
         "message": "Avisa de la razón más importante para no armar"
@@ -3106,6 +3082,9 @@
     },
     "osdWarningGpsRescueDisabled": {
         "message": "Avisa cuando el Rescate GPS está desactivado"
+    },
+    "osdWarningUnknown": {
+        "message": "Aviso desconocido (los detalles se añadirán en una futura versión)"
     },
     "osdSectionHelpElements": {
         "message": "Activa o desactiva elementos del OSD"
@@ -3231,7 +3210,7 @@
         "message": "Hasta 3 (2 para algunos controladores) perfiles diferentes pueden ser almacenados en el controlador de vuelo. El perfil de pid incluye pid, punto de ajuste de d y los ajustes de ángulo/horizonte de este apartado. Una vez en el campo, se pueden usar simples comandos de palanca (mirar instrucciones online) para cambiar entre perfiles."
     },
     "pidTuningRateProfile": {
-        "message": "Perfil de Tasas"
+        "message": "Perfil de Rates"
     },
     "pidTuningRateProfileTip": {
         "message": "Hasta 3 Perfiles de Tasas diferentes por perfil pueden ser almacenados en el controlador de vuelo. Los perfiles de tasas incluyen ajustes para 'Tasa RC', 'Tasa', 'Expo RC', 'Acelerador' y 'TPA'. Cambiar entre perfiles de tasas es posible en vuelo, configurando un interruptor de 3 posiciones como 'Selección de Perfil de Tasas' en el apartado de ' Ajustes'."
@@ -3246,13 +3225,10 @@
         "message": "<b>Derivativo desde Error</b> proporciona una respuesta más directa del stick y se prefiere para Carreras.<br><br><b>Derivativo desde Medida</b> proporciona una respuesta del stick más suave lo cual es más útil para freestyle"
     },
     "pidTuningPidControllerTip": {
-        "message": "<b>Tradicional vs Emuflight (flotante):</b> La escala y la lógica del PID son exactamente las mismas. No se necesita reajustar. Tradicional es el antiguo betaflight evolucionado a rewrite, que es controlador PID básico basado en matemáticas de enteros. El controlador PID de Emuflight PID usa matemáticas en punto flotante y tiene muchas nuevas funcionalidades especialmente diseñadas para aplicaciones multirotor<br> <b>Flotante vs Entero:</b> La escala y la lógica del PID son exactamente las mismas. No se necesita reajustar. Las placas F1 no tienen FPU integrada y el cálculo en punto flotante incrementa la carga de CPU y la matemática entera mejoraría el rendimiento, pero la matemática en punto flotante puede dar algo más de precisión."
-    },
-    "pidTuningPidTuningTip": {
-        "message": "<b>Proporcional:</b> Notarás una fuerte resistencia a cualquier intento de mover el MultiRotor<br><b>Integral:</b> Incrementa la habilidad de mantener la posición inicial general y reduce la deriva, pero también incrementa el retraso para volver a la posición inicial.<br><b>Derivativo:</b> Mejora la velocidad a la que se recuperan las desviaciones, pero incrementa el ruido<br><b>Tasas y Expo</b>: Determina las sensaciones con las palancas basadas en estos parámetros. Usa el gráfico y el modelo 3D en vivo para encontrar tus ajustes de tasas favorito"
+        "message": "<b>Tradicional vs Emuflight (flotante):</b> La escala y la lógica del PID son exactamente las mismas. No se necesita reajustar. Tradicional es el antiguo betaflight evolucionado a rewrite, que es controlador PID básico basado en matemáticas de enteros. El controlador PID de Emuflight PID usa matemáticas en punto flotante y tiene muchas nuevas funcionalidades especialmente diseñadas para aplicaciones de aeronave<br> <b>Flotante vs Entero:</b> La escala y la lógica del PID son exactamente las mismas. No se necesita reajustar. Las placas F1 no tienen FPU integrada y el cálculo en punto flotante incrementa la carga de CPU y la matemática entera mejoraría el rendimiento, pero la matemática en punto flotante puede dar algo más de precisión."
     },
     "pidTuningPidTuningTipFeedforward": {
-        "message": "<b>Proporcional:</b> Notarás una fuerte resistencia a cualquier intento de mover el MultiRotor<br><b>Integral:</b> Incrementa la habilidad de mantener la posición inicial general y reduce la deriva, pero también incrementa el retraso para volver a la posición inicial.<br><b>Derivativo:</b> Mejora la velocidad a la que se recuperan las desviaciones, pero incrementa el ruido<br><b>Prealimentación:</b> Normalmente el controlador PID reacciona al error. La Prealimentación anticipa el error basándose en la entrada de los mandos, mejorando el tiempo de respuesta del quad.<br><b>Tasas y Expo</b>: Determina las sensaciones con las palancas basadas en estos parámetros. Usa el gráfico y el modelo 3D en vivo para encontrar tus ajustes de tasas favorito"
+        "message": "<b>Proporcional:</b> Notarás una fuerte resistencia a cualquier intento de mover la aeronave<br><b>Integral:</b> Incrementa la habilidad de mantener la posición inicial general y reduce la deriva, pero también incrementa el retraso para volver a la posición inicial.<br><b>Derivativo:</b> Mejora la velocidad a la que se recuperan las desviaciones, pero incrementa el ruido<br><b>Prealimentación:</b> Normalmente el controlador PID reacciona al error. La Prealimentación anticipa el error basándose en la entrada de los mandos, mejorando el tiempo de respuesta de la aeronave.<br><b>Tasas y Expo</b>: Determina las sensaciones con las palancas basadas en estos parámetros. Usa el gráfico y el modelo 3D en vivo para encontrar tus ajustes de tasas favorito"
     },
     "pidTuningRatesTip": {
         "message": "Juega con las tasas y mira como afectan a la curva de las palancas"
@@ -3270,10 +3246,13 @@
         "message": "Ángulo Cámara FPV [grados]"
     },
     "onboardLoggingBlackbox": {
-        "message": "Dispositivo de caja negra"
+        "message": "Configuración de Caja Negra"
     },
     "onboardLoggingRateOfLogging": {
-        "message": "Frecuencia de muestreo"
+        "message": "Tasa de registro"
+    },
+    "onboardLoggingDebugMode": {
+        "message": "Modo de depuración"
     },
     "onboardLoggingSerialLogger": {
         "message": "Dispositivo de registro externo"
@@ -3322,5 +3301,35 @@
     },
     "flashTab": {
         "message": "Actualizar Firmware"
+    },
+    "tabVtx": {
+        "message": "Transmisor de Vídeo (VTX)"
+    },
+    "vtxFrequencyChannel": {
+        "message": "Frecuencia VTX"
+    },
+    "vtxBand": {
+        "message": "Banda"
+    },
+    "vtxBandHelp": {
+        "message": "Selecciona la banda de frecuencia del VTX."
+    },
+    "vtxChannel": {
+        "message": "Canal"
+    },
+    "vtxChannelHelp": {
+        "message": "Selecciona el canal de radio del VTX."
+    },
+    "vtxPower": {
+        "message": "Potencia"
+    },
+    "vtxPitMode": {
+        "message": "Modo Pit"
+    },
+    "vtxLowPowerDisarm": {
+        "message": "Baja potencia al desarmar"
+    },
+    "vtxButtonSave": {
+        "message": "Guardar ajustes VTX"
     }
 }

@@ -1,4 +1,7 @@
 {
+    "windowTitle": {
+        "message": "Emuflight konfigurētājs"
+    },
     "error": {
         "message": "Kļūda: {{errorMessage}}"
     },
@@ -59,11 +62,17 @@
     "rememberLastTab": {
         "message": "Atvērt pēdējo cilni pie pieslēgšanās"
     },
-    "userLanguageSelect": {
-        "message": "Valoda (nepieciešams pārstartēt programmu, lai izmaiņas stātos spēkā)"
+    "language_changed": {
+        "message": "Valodas maiņa tika saglabāta"
+    },
+    "language_choice_message": {
+        "message": "Mainīt valodu:"
     },
     "language_default": {
         "message": "Noklusējuma"
+    },
+    "language_default_pretty": {
+        "message": "Sistēmas noklusējums ($t(detectedLanguage))"
     },
     "sensorDataFlashNotFound": {
         "message": "Datu atmiņas <br>čips nav atrasts",
@@ -76,16 +85,8 @@
     "sensorStatusGyro": {
         "message": "Žiroskops"
     },
-    "sensorStatusGyroShort": {
-        "message": "Žiro",
-        "description": "Text of the image in the top sensors icons. Please keep it short."
-    },
     "sensorStatusAccel": {
         "message": "Akselerometrs"
-    },
-    "sensorStatusAccelShort": {
-        "message": "Aksel",
-        "description": "Text of the image in the top sensors icons. Please keep it short."
     },
     "sensorStatusMag": {
         "message": "Magnetometrs"
@@ -100,7 +101,7 @@
         "message": "Rādīt atjauninājumu paziņojumus priekš konfiguratora nestabilajām versijām"
     },
     "configuratorUpdateNotice": {
-        "message": "Jūs lietojat novecojušu <b>Emuflight Konfiguratora</b> versiju.<br>Versija <b>$1</b> ir pieejama, lūdzu apmeklējiet <a href=\"$2\" target=\"_blank\">relīžu lapu</a>, lai lejupielādētu un uzstādītu jaunāko versiju ar labojumiem un uzlabojumiem.<br>Lūdzu aizveriet konfiguratora logu pirms atjaunināšanās."
+        "message": "Jūs lietojat novecojušu <b>Emuflight Konfiguratora</b> versiju.<br>Versija <b>$1</b> ir pieejama, lūdzu apmeklējiet <a href=\"$2\" target=\"_blank\" rel=\"noopener noreferrer\">relīžu lapu</a>, lai lejupielādētu un uzstādītu jaunāko versiju ar labojumiem un uzlabojumiem.<br>Lūdzu aizveriet konfiguratora logu pirms atjaunināšanās."
     },
     "configuratorUpdateWebsite": {
         "message": "Dodieties uz relīzes vietni"
@@ -129,8 +130,14 @@
     "tabFirmwareFlasher": {
         "message": "Programmators"
     },
+    "tabMixerCalc": {
+        "message": "Motora maisīšanas kalkulators"
+    },
     "tabLanding": {
         "message": "Laipni lūgti"
+    },
+    "tabPrivacyPolicy": {
+        "message": "Privātuma politika"
     },
     "tabHelp": {
         "message": "Dokumentācija & Atbalsts"
@@ -167,9 +174,6 @@
     },
     "tabLogging": {
         "message": "Piesaistītā žurnalēšana"
-    },
-    "tabOnboardLogging": {
-        "message": "Melnā kaste"
     },
     "tabAdjustments": {
         "message": "Korekcijas"
@@ -243,6 +247,9 @@
     "stm32LocalErase": {
         "message": "Izpilda lokālo dzēšanu..."
     },
+    "stm32InvalidHex": {
+        "message": "Nederīgs heksadecimāls"
+    },
     "stm32Erase": {
         "message": "Notiek dzēšana..."
     },
@@ -293,6 +300,9 @@
     },
     "firmwareTypeNotSupported": {
         "message": "Programmas, kas nav Cleanflight/Emuflight <span class=\"message-negative\">netiek atbalstītas</span>, izņemot CLI režīmu."
+    },
+    "firmwareMSPNotSupported": {
+        "message": "MSP versija nav atbalstīta. Lūdzu, atjauniniet EmuConfigurator."
     },
     "firmwareUpgradeRequired": {
         "message": "Šai programmatūrai uz šīs iekārtas nepieciešama atjaunināšana uz jaunāku versiju. Izmantojiet CLI, lai dublētu datus pirms programmēšanas. CLI dublēšanas/atjaunošanas procedūras ir dokumentācijā. <br />Alternatīva ir lejupielādēt un lietot veco konfiguratora versiju, ja jūs neesat gatavs atjaunināt."
@@ -422,10 +432,10 @@
         "message": "Emuflight dokumentācija ir pieejama relīzes dokumentācijā un wiki.<br /><br />"
     },
     "defaultDocumentation1": {
-        "message": "Emuflight wiki ir lielisks informācijas avots, to var atrast <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\">šeit</a>."
+        "message": "EmuFlight wiki ir lielisks informācijas avots, to var atrast <a href=\"https://github.com/emuflight/EmuFlight/wiki\" target=\"_blank\" rel=\"noopener noreferrer\">šeit</a>.<br />Programmatūras versijas piezīmes var lasīt GitHub izlaidumu lapā, <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\" rel=\"noopener noreferrer\">šeit</a>.<br />"
     },
     "defaultDocumentation2": {
-        "message": "Programmatūras relīzes dokumentācija ir pieejama GitHub relīžu lapā <a href=\"https://github.com/Emuflight/EmuFlight/releases\" target=\"_blank\">šeit</a>."
+        "message": "EmuConfigurator wiki var atrast <a href=\"https://github.com/emuflight/EmuConfigurator/wiki\" target=\"_blank\" rel=\"noopener noreferrer\">šeit</a>.<br />Konfiguratora izlaidumu piezīmes var lasīt GitHub izlaidumu lapā, <a href=\"https://github.com/emuflight/EmuConfigurator/releases\" target=\"_blank\" rel=\"noopener noreferrer\">šeit</a>.<br />"
     },
     "defaultSupportHead": {
         "message": "Atbalsts"
@@ -787,9 +797,6 @@
     "configurationSensorAlignmentGyro": {
         "message": "ŽIRO centrēšana"
     },
-    "configurationSensorGyroToUse": {
-        "message": "ŽIRO/AKSEL"
-    },
     "configurationSensorGyroToUseNotFound": {
         "message": "Brīdinājums: Žiro/Aksel nav atrasts"
     },
@@ -872,16 +879,16 @@
         "message": "Šī ir vērtība, kas tiek sūtīta uz ESC, kad gaisa kuģis ir deaktivēts. Uzstādi vērtību pie kura motori ir apstājušies (1000 priekš lielākās ESC daļas)."
     },
     "configurationDshotBeeper": {
-        "message": "Dshot Beacon konfigurācija"
+        "message": "DSHOT Beacon konfigurācija"
     },
     "configurationUseDshotBeeper": {
-        "message": "Lieto Dshot beacon (lietot motorus, lai atskaņotu pīkstienus, kad deaktivē)"
+        "message": "Lieto DSHOT beacon (lietot motorus, lai atskaņotu pīkstienus, kad deaktivē)"
     },
     "configurationDshotBeaconTone": {
         "message": "Skaņas signāla tonis"
     },
     "configurationDshotBeaconHelp": {
-        "message": "Dshot beacon izmanto ESC un motorus lai atskaņotu skaņas. Tas nozīmē, ka Dshot beacon nevar tikt izmantots kamēr motori griežas. Emuflight 3.4 un jaunākos, ja mēģina aktivizēt gaisa kuģi kamēr Dshot beacon ir aktīvs, būs 2 sekunžu aizture pēc pēdēja Dshot beacon skaņas signāla, pirms gaisa kuģa aktivizēšanās. Tas novērš Dshot beacon funkcionalitātes interferenci ar Dshot komandām kas tiek sūtītas kad notiek aktivizēšana. <br/><strong>Brīdinājums:</strong> Tā kā Dshot beacon savas aktivitātes laikā caur motoru laiž ievērojamu strāvu, tas var novēst pie pārmērīgas siltumizdales un bojāt motorus un / vai ESC ja \"beacon strength\" ir uzstādīts pārāk augstu. Izmantojiet BLHeli Configurator vai BLHeli Suite lai pieregulētu \"beacon strength\"."
+        "message": "DSHOT beacon izmanto ESC un motorus lai atskaņotu skaņas. Tas nozīmē, ka DSHOT beacon nevar tikt izmantots kamēr motori griežas. Emuflight 3.4 un jaunākos, ja mēģina aktivizēt gaisa kuģi kamēr DSHOT beacon ir aktīvs, būs 2 sekunžu aizture pēc pēdēja DSHOT beacon skaņas signāla, pirms gaisa kuģa aktivizēšanās. Tas novērš DSHOT beacon funkcionalitātes interferenci ar DSHOT komandām kas tiek sūtītas kad notiek aktivizēšana. <br/><strong>Brīdinājums:</strong> Tā kā DSHOT beacon savas aktivitātes laikā caur motoru laiž ievērojamu strāvu, tas var novēst pie pārmērīgas siltumizdales un bojāt motorus un / vai ESC ja \"beacon strength\" ir uzstādīts pārāk augstu. Izmantojiet BLHeli Configurator vai BLHeli Suite lai pieregulētu \"beacon strength\"."
     },
     "configurationBeeper": {
         "message": "Pīkstuļa konfigurācija"
@@ -1302,12 +1309,6 @@
     "tuningHelp": {
         "message": "<b>Ieregulēšanas ieteikumi </b><br /><span class=\"message-negative\">SVARĪGI:</span> Ir svarīgi pārbaudīt motoru temperatūras pirmā lidojuma laikā. Jo lielākas filtru vērtības, jo labāk iespējams tas lidos, bet jūs iegūsiet lielāku trokšņu līmeni motoros. <br>Noklusētā vērtība 100Hz ir optimāla, bet pie trokšņainākām konstrukcijām, jūs varat mēģināt samazināt Dterm filtru uz 50Hz un iespējams arī žiroskopa filtru."
     },
-    "receiverThrottleMid": {
-        "message": "Droseles vidus"
-    },
-    "receiverThrottleExpo": {
-        "message": "Droseles EKSPO"
-    },
     "receiverStickMin": {
         "message": "'svira lejā' slieksnis"
     },
@@ -1710,12 +1711,6 @@
     "motorsResetMaximum": {
         "message": "Atiestatīt maksimālo laiku"
     },
-    "motorsSensorGyroSelect": {
-        "message": "žiro"
-    },
-    "motorsSensorAccelSelect": {
-        "message": "aksel"
-    },
     "motorsMaster": {
         "message": "Galvenais"
     },
@@ -2068,7 +2063,7 @@
         "message": "<strong>Atkopšanas / Zaudēja komunikāciju</strong>"
     },
     "firmwareFlasherRecoveryText": {
-        "message": "Ja jums pazuda savienojums ar plati veiciet šos soļus, lai atjaunotu savienojumu: <ul><li>Atvienojiet no barošanas avota</li><li>Ieslēdziet 'Nepielietot restartu', Ieslēdziet 'Pilnīga kontroliera dzēšana'.</li><li>Savienojiet ielādes kontaktus vai turiet ielādes pogu.</li><li>Pieslēdziet barošanas avotam (LED aktīvi NEmirgos, ja viss ir izdarīts pareizi).</li><li>Ieinstalējiet visus STM32 draiverus un Zadig ja nepieciešams (skatīt <a href=\"https://github.com/EmuFlight/EmuFlight/wiki\"target=\"_blank\">USB Programmēšana</a> Emuflight manuāla sadaļā).</li><li>Aizveriet konfiguratoru, aizveriet visas Chrome ejošās instances, aizveriet visas Chrome aplikācijas, Pārstartējiet konfiguratoru.</li><li>Atlaidiet ielādes pogu ja tāda platei ir.</li><li> Saprogrammējiet ar pareizo programmatūru (pielietojiet specifisku datu ātrumu ja tāds ir norādīts plates manuāli).</li><li>Atvienojiet no barošanas avota.</li><li>Noņemiet ielādes savienotāju.</li><li>Pieslēdziet barošanas avotam (LED vajadzētu aktīvi mirgot).</li><li>Savienojieties kā parasti.</li></ul>"
+        "message": "Ja zaudēta saziņa ar plati, izpildiet šīs darbības, lai atjaunotu saziņu: <ul><li>Izslēdziet barošanu.</li><li>Aktivizējiet 'Nav atsāknēšanas secības', aktivizējiet 'Pilna mikroshēmas dzēšana'.</li><li>Savienojiet BOOT kontaktus ar džemperi vai turiet nospiestu BOOT pogu.</li><li>Ieslēdziet barošanu (aktivitātes LED nedrīkst mirgot, ja viss izdarīts pareizi).</li><li>Instalējiet visus STM32 draiverus un Zadig, ja nepieciešams (skatiet Emuflight rokasgrāmatas sadaļu <a href=\"https://github.com/emuflight/EmuFlight/wiki/Installing-Emuflight\" target=\"_blank\" rel=\"noopener noreferrer\">USB Flashing</a>).</li><li>Aizveriet konfiguratoru, aizveriet visus Chrome gadījumus, aizveriet visas Chrome aplikācijas, restartējiet konfiguratoru.</li><li>Atlaist BOOT pogu, ja platei tāda ir.</li><li>Ierakstiet pareizo programmatūru (izmantojiet manuālo pārraides ātrumu, ja norādīts FC rokasgrāmatā).</li><li>Izslēdziet barošanu.</li><li>Noņemiet BOOT džemperi.</li><li>Ieslēdziet barošanu (aktivitātes LED vajadzētu mirgot).</li><li>Savienojieties normāli.</li></ul>"
     },
     "firmwareFlasherFirmwareNotLoaded": {
         "message": "Programmatūra nav ielādēta"
@@ -2437,9 +2432,6 @@
     "pidTuningItermRelaxType": {
         "message": "Tips:"
     },
-    "pidTuningItermRelaxTypeOptionGyro": {
-        "message": "Žiro"
-    },
     "pidTuningItermRelaxTypeOptionSetpoint": {
         "message": "Iestatījums"
     },
@@ -2786,7 +2778,7 @@
         "message": "Jūsu lidojuma kontrolieris neatbild uz OSD komandām. Visdrīzāk tas nozīmē to, ka tam nav integrēta BetaFlight OSD."
     },
     "osdSetupUnsupportedNote2": {
-        "message": "Ņemiet vēra to ka dažiem lidojuma kontrolieriem uz plates ir <a href=\"https://www.youtube.com/watch?v=ikKH_6SQ-Tk\" target=\"_blank\">MinimOSD</a>, kas var būt saprogrammēts un konfigurēts ar <a href=\"https://github.com/ShikOfTheRa/scarab-osd/releases/latest\" target='_blank'>scarab-osd</a>, toties MinimOSD nevar nokonfigurēt caur šo interfeisu."
+        "message": "Ņemiet vēra to ka dažiem lidojuma kontrolieriem uz plates ir <a href=\"https://www.youtube.com/watch?v=ikKH_6SQ-Tk\" target=\"_blank\" rel=\"noopener noreferrer\">MinimOSD</a>, kas var būt saprogrammēts un konfigurēts ar <a href=\"https://github.com/ShikOfTheRa/scarab-osd/releases/latest\" target=\"_blank\" rel=\"noopener noreferrer\">scarab-osd</a>, toties MinimOSD nevar nokonfigurēt caur šo interfeisu."
     },
     "osdSetupProfilesTitle": {
         "message": "OSD Profila numurs",
@@ -2814,9 +2806,6 @@
     "osdSetupPreviewSelectProfileElement": {
         "message": "OSD profils {{profileNumber}}",
         "description": "Content of the selector for the OSD Profile in the preview"
-    },
-    "osdSetupPreviewTitleTip": {
-        "message": "Rādīt vai slēpt logotipu priekšskatījuma logā. Šis nemainīs nekādus iestatījumus lidojuma kontrolierī."
     },
     "osdSetupVideoFormatTitle": {
         "message": "Video Formāts"
@@ -2941,9 +2930,6 @@
     "osdDescElementCraftName": {
         "message": "Konfigurācijas cilnē iestatītais gaisa kuģa vārds"
     },
-    "osdDescElementDisplayName": {
-        "message": "Rādīt vārdu kas uzstādīts ar CLI komandu \"display_name\""
-    },
     "osdDescElementAltitude": {
         "message": "Patreizējais augstums (mirgo, ja ir virs trauksmes sliekšņa)"
     },
@@ -3004,24 +2990,6 @@
     "osdDescElementArmedTime": {
         "message": "Laiks kopš gaisa kuģis pēdējo reizi tika aktivizēts"
     },
-    "osdDescElementWarnings": {
-        "message": "Trauksmes (piem. zems akumulatora līmenis), brīdinājumi (piem. iemesls kāpēc neaktivējas, kritiski zems akumulatora līmenis) un vizuālais pīkstulis (4 mirgojoša zvaigznītes)."
-    },
-    "osdDescElementEscTemperature": {
-        "message": "ESC telemetrijas ziņotā temperatūra"
-    },
-    "osdDescElementEscRpm": {
-        "message": "ESC telemetrijas ziņotais RPM"
-    },
-    "osdDescElementEscRpmFreq": {
-        "message": "ESC telemetrijas ziņotā RPM frekvence"
-    },
-    "osdDescElementRtcDateTime": {
-        "message": "Reālā laika pulksteņa datums / laiks"
-    },
-    "osdDescElementAdjustmentRange": {
-        "message": "Patreiz aktīvā pieregulējamā diapazona konfigurācija un vērtība"
-    },
     "osdDescElementHomeDirection": {
         "message": "Bulta, kas norāda virzienu uz mājām"
     },
@@ -3036,6 +3004,45 @@
     },
     "osdDescElementCompassBar": {
         "message": "Kompasa grafiskā josla, kas norāda patreizējo debespusi"
+    },
+    "osdDescElementWarnings": {
+        "message": "Trauksmes (piem. zems akumulatora līmenis), brīdinājumi (piem. iemesls kāpēc neaktivējas, kritiski zems akumulatora līmenis) un vizuālais pīkstulis (4 mirgojoša zvaigznītes)."
+    },
+    "osdDescElementEscTemperature": {
+        "message": "ESC telemetrijas ziņotā temperatūra"
+    },
+    "osdDescElementEscRpm": {
+        "message": "ESC telemetrijas ziņotais RPM"
+    },
+    "osdDescElementRemainingTimeEstimate": {
+        "message": "Paredzamais atlikušais lidojuma laiks"
+    },
+    "osdDescElementRtcDateTime": {
+        "message": "Reālā laika pulksteņa datums / laiks"
+    },
+    "osdDescElementAdjustmentRange": {
+        "message": "Patreiz aktīvā pieregulējamā diapazona konfigurācija un vērtība"
+    },
+    "osdDescElementTimer1": {
+        "message": "Rādīt taimera 1 vērtību"
+    },
+    "osdDescElementTimer2": {
+        "message": "Rādīt taimera 2 vērtību"
+    },
+    "osdDescElementCoreTemperature": {
+        "message": "STM32 MCU kodola temperatūra"
+    },
+    "osdDescAntiGravity": {
+        "message": "Ieslēdz indikatoru, ja antigravitācija ir aktīva"
+    },
+    "osdDescGForce": {
+        "message": "Parādīt cik lielu G-Spēku piedzīvo gaisa kuģis"
+    },
+    "osdDescElementMotorDiag": {
+        "message": "Parādīt katra motora izejas grafisko joslu"
+    },
+    "osdDescElementLogStatus": {
+        "message": "Melnā kastes numurs un brīdinājumi"
     },
     "osdDescElementFlipArrow": {
         "message": "Bultiņa parāda kurā pusē motori ir bruņurupuča režīmā"
@@ -3052,32 +3059,14 @@
     "osdDescElementStickOverlayRight": {
         "message": "Raidītāja labās vadības sviras pozīcijas overlais."
     },
-    "osdDescElementTimer1": {
-        "message": "Rādīt taimera 1 vērtību"
+    "osdDescElementDisplayName": {
+        "message": "Rādīt vārdu kas uzstādīts ar CLI komandu \"display_name\""
     },
-    "osdDescElementTimer2": {
-        "message": "Rādīt taimera 2 vērtību"
-    },
-    "osdDescElementRemaningTimeEstimate": {
-        "message": "Paredzamais atlikušais lidojuma laiks"
+    "osdDescElementEscRpmFreq": {
+        "message": "ESC telemetrijas ziņotā RPM frekvence"
     },
     "osdDescElementUnknown": {
         "message": "Nezināms elements (informācija tiks pievienota nākamajā relīzē)"
-    },
-    "osdDescElementCoreTemperature": {
-        "message": "STM32 MCU kodola temperatūra"
-    },
-    "osdDescAntiGravity": {
-        "message": "Ieslēdz indikatoru, ja antigravitācija ir aktīva"
-    },
-    "osdDescGForce": {
-        "message": "Parādīt cik lielu G-Spēku piedzīvo gaisa kuģis"
-    },
-    "osdDescElementMotorDiag": {
-        "message": "Parādīt katra motora izejas grafisko joslu"
-    },
-    "osdDescElementLogStatus": {
-        "message": "Melnā kastes numurs un brīdinājumi"
     },
     "osdDescStatMaxSpeed": {
         "message": "Maksimālais piefiksētais ātrums"
@@ -3157,9 +3146,6 @@
     "osdTimerAlarmTooltip": {
         "message": "Izvēlēties taimera trauksmes slieksni minūtēs, kad tiks sasniegta šī vērtība, OSD elements sāks mirgot, uzstādiet 0, lai atslēgtu trauksmi"
     },
-    "osdWarningUnknown": {
-        "message": "Nezināms brīdinājums (detaļas tiks pievienotas nākotnes relīzēs)"
-    },
     "osdWarningArmingDisabled": {
         "message": "Ziņo par visiespējamāko iemeslu kāpēc neaktivizējas"
     },
@@ -3198,6 +3184,9 @@
     },
     "osdWarningGpsRescueDisabled": {
         "message": "Brīdināt, kad GPS glābšana ir atslēgta"
+    },
+    "osdWarningUnknown": {
+        "message": "Nezināms brīdinājums (detaļas tiks pievienotas nākotnes relīzēs)"
     },
     "osdSectionHelpElements": {
         "message": "Ieslēgt vai izslēgt OSD elementus."
@@ -3342,9 +3331,6 @@
     },
     "pidTuningPidControllerTip": {
         "message": "<b>Mantojuma vs Emuflight (peldošais):</b> PID mērogošana un PID loģika ir tāda pati. Nav obligāti nepieciešama atkārtota pieregulēšana. Mantojums ir vecais betaflight, kura pamata PID kontrolieris balstīts uz veselo skaitļu matemātikas. Emuflight PID kontrolieris pielieto peldošā punkta matemātiku un tas dod daudz jaunu iespēju, īpaši izstrādātu priekš multirotoriem<br> <b>Peldošais vs veselais:</b> PID mērogošana un PID loģika ir tāda pati. Nav nepieciešama atkārtota pieregulēšana. F1 platēm nav integrēta FPU un peldoša punkta matemātika ievērojami palielina CPU noslodzi un veselo skaitļu matemātika uzlabo ātrdarbību, bet samazina precizitāti."
-    },
-    "pidTuningPidTuningTip": {
-        "message": "<b>Proportional:</b> Jūs jutīsiet ļoti spēcīgu pretestību pie visiem mēģinājumiem kustināt multirotoru<br><b>Integral:</b> Palielina spēju noturēt sākotnējo pozīciju un samazina dreifēšanu, bet arī palielina laiku, kas nepieciešams nonākšanai sākotnējā pozīcijā.<br><b>Derivative:</b> Uzlabo laiku, kurā novirze tiek labota, bet palielina trokšņus<br><b>Ātrumi un Ekspo </b>: Šie parametri nosaka cik jūtīgas būs vadības sviras. Pielietojiet ātrumu līknes un 3D modeli, lai atrastu jums visatbilstošākos ātruma iestatījumus"
     },
     "pidTuningPidTuningTipFeedforward": {
         "message": "<b>Proportional:</b> Jūs jutīsiet ļoti spēcīgu pretestību pie visiem mēģinājumiem kustināt multirotoru<br><b>Integral:</b> Palielina spēju noturēt sākotnējo pozīciju un samazina dreifēšanu, bet arī palielina laiku, kas nepieciešams nonākšanai sākotnējā pozīcijā.<br><b>Derivative:</b> Uzlabo laiku, kurā novirze tiek labota, bet palielina trokšņus<br><b>Feedforward:</b> Parasti PID kontrolieris reaģē uz kļūdām. Feedforward paredz kļūdu balstoties un vadības sviru ievadi, dodot atsaucīgāku multirotoru. <br><b>Ātrumi un Ekspo </b>: Šie parametri nosaka cik jūtīgas būs vadības sviras. Pielietojiet ātrumu līknes un 3D modeli, lai atrastu jums visatbilstošākos ātruma iestatījumus"
