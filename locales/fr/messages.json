@@ -1475,16 +1475,16 @@
         "message": "Chiffres hexadécimaux uniquement, 0-9, A-F"
     },
     "transponderHelp1": {
-        "message": "Configurez votre code transpondeur ici. Remarque: Seuls les codes valides seront reconnus par les systèmes de chronométrage de course. Les codes de transpondeur valides peuvent être obtenus auprès de <a href=\"http://seriouslypro.com/transponder-codes\" target=\"_blank\"> Seriously Pro </a>."
+        "message": "Configurez votre code transpondeur ici. Remarque: Seuls les codes valides seront reconnus par les systèmes de chronométrage de course. Les codes de transpondeur valides peuvent être obtenus auprès de <a href=\"http://seriouslypro.com/transponder-codes\" target=\"_blank\" rel=\"noopener noreferrer\" rel=\"noopener noreferrer\"> Seriously Pro </a>."
     },
     "transponderHelp2": {
-        "message": "Pour plus d'informations, rendez vous sur le site <a href=\"http://www.arcitimer.com/\" title=\"aRCiTimer\" target=\"_blank\">aRCiTimer site</a>"
+        "message": "Pour plus d'informations, rendez vous sur le site <a href=\"http://www.arcitimer.com/\" title=\"aRCiTimer\" target=\"_blank\" rel=\"noopener noreferrer\" rel=\"noopener noreferrer\">aRCiTimer site</a>"
     },
     "transponderDataHelp3": {
         "message": "Choisissez l'ID du ERLT 0-63"
     },
     "transponderHelp3": {
-        "message": "Pour plus d'informations, rendez-vous sur le site <a href=\"https://github.com/polyvision/EasyRaceLapTimer\" title=\"aRCiTimer\" target=\"_blank\">EasyRaceLapTimer</a>"
+        "message": "Pour plus d'informations, rendez-vous sur le site <a href=\"https://github.com/polyvision/EasyRaceLapTimer\" title=\"aRCiTimer\" target=\"_blank\" rel=\"noopener noreferrer\" rel=\"noopener noreferrer\">EasyRaceLapTimer</a>"
     },
     "transponderButtonSave": {
         "message": "Enregistrer "

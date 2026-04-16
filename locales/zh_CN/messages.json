@@ -3126,7 +3126,7 @@
         "message": "由CLI命令\"display_name\"设置的显示名称"
     },
     "osdDescElementEscRpmFreq": {
-        "message": "电调回传电机转速频率"
+        "message": "ESC 回传电机转速频率"
     },
     "osdDescElementUnknown": {
         "message": "未知参数"
@@ -3477,7 +3477,7 @@
         "message": "视频发射器 (VTX)"
     },
     "vtxFrequencyChannel": {
-        "message": "VTX 通道"
+        "message": "VTX 频率通道"
     },
     "vtxBand": {
         "message": "频段"

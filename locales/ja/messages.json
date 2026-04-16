@@ -3443,7 +3443,7 @@
         "message": "ビデオ送信機 (VTX)"
     },
     "vtxFrequencyChannel": {
-        "message": "VTX チャンネル"
+        "message": "VTX 周波数 (MHz)"
     },
     "vtxBand": {
         "message": "バンド"

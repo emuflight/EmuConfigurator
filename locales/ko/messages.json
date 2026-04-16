@@ -82,18 +82,6 @@
         "message": "데이터플래시: 여유 공간",
         "description": "Text of the dataflash image in the header of the page."
     },
-    "sensorStatusGyro": {
-        "message": "Gyro"
-    },
-    "sensorStatusAccel": {
-        "message": "Accel"
-    },
-    "sensorStatusMag": {
-        "message": "Mag"
-    },
-    "sensorStatusBaro": {
-        "message": "Baro"
-    },
     "sensorStatusSonar": {
         "message": "소나"
     },
@@ -1808,7 +1796,7 @@
         "message": "스케일:"
     },
     "sensorsGyroSelect": {
-        "message": "자이로"
+        "message": "Gyro"
     },
     "sensorsAccelSelect": {
         "message": "가속도계"
@@ -1826,7 +1814,7 @@
         "message": "디버그"
     },
     "sensorsGyroTitle": {
-        "message": "자이로"
+        "message": "Gyro"
     },
     "sensorsAccelTitle": {
         "message": "가속도계"
@@ -2607,10 +2595,10 @@
         "message": "단계 2 - 설정"
     },
     "failsafeDelayItem": {
-        "message": "페일세이프 지연"
+        "message": "Failsafe 지연"
     },
     "failsafeDelayHelp": {
-        "message": "신호 예기치 않은 단절 후 페일세이프가 발동될 때까지의 대기 시간입니다."
+        "message": "신호 예기치 않은 단절 후 Failsafe가 발동될 때까지의 대기 시간입니다."
     },
     "failsafeThrottleLowItem": {
         "message": "페일세이프 스로틀 낮춤 딜레이 [1 = 0.1초]"
@@ -2625,7 +2613,7 @@
         "message": "페일세이프 동안 모터를 끄기 위한 지연 [1 = 0.1초]"
     },
     "failsafeOffDelayHelp": {
-        "message": "페일세이프 발동 후 모터가 완전히 정지하기 전까지의 대기 시간입니다."
+        "message": "Failsafe 발동 후 모터가 완전히 정지하기 전까지의 대기 시간입니다."
     },
     "failsafeSubTitle1": {
         "message": "단계 2 - 페일세이프 절차"
@@ -2682,7 +2670,7 @@
         "message": "페일 세이프 스위치 (모드 탭)가 선택한 페일 세이프 절차를 우회하여 직접적인 강제 종료 스위치로 작동하게 하려면 이 옵션을 설정하십시오. <strong>노트:</strong> 페일세이프 킬 스위치가 ON 위치에 있을 때 아밍이 차단됩니다."
     },
     "failsafeSwitchTitle": {
-        "message": "스위치 페일세이프 모드"
+        "message": "스위치 Failsafe 모드"
     },
     "failsafeSwitchModeItem": {
         "message": "페일세이프 스위치 동작"

@@ -82,18 +82,6 @@
         "message": "DataFlash: spazio libero",
         "description": "Text of the dataflash image in the header of the page."
     },
-    "sensorStatusGyro": {
-        "message": "Gyro"
-    },
-    "sensorStatusAccel": {
-        "message": "Accel"
-    },
-    "sensorStatusMag": {
-        "message": "Mag"
-    },
-    "sensorStatusBaro": {
-        "message": "Baro"
-    },
     "sensorStatusSonar": {
         "message": "Sonar"
     },
@@ -163,7 +151,6 @@
     "tabServos": {
         "message": "Servi"
     },
-
     "tabPower": {
         "message": "Energia e Batteria"
     },
@@ -793,7 +780,7 @@
         "message": "Configurazione dei Beep"
     },
     "beeperGYRO_CALIBRATED": {
-        "message": "Giroscopio calibrato"
+        "message": "Gyro calibrato"
     },
     "beeperRX_LOST": {
         "message": "Segnale radio perso"
@@ -1164,7 +1151,7 @@
         "message": "EEPROM <span class=\"message-positive\">salvata</span>"
     },
     "receiverHelp": {
-        "message": "Leggere il capitolo sul ricevitore nella documentazione. Configurare la porta seriale (se necessario), modalità ricevitore (seriale/ppm/pwm), provider (per ricevitori seriali), associare il ricevitore, impostare la mappa dei canali, configurare gli endpoint/range dei canali sul TX in modo che tutti i canali vadano da ~1000 a ~2000. Impostare il punto medio (default 1500), trimmare i canali a 1500, configurare il deadband degli stick, verificare il comportamento quando il TX è spento o fuori portata.<br /><span class=\"message-negative\">IMPORTANTE:</span> Prima di volare leggere il capitolo sul failsafe nella documentazione e configurare il failsafe."
+        "message": "Leggere il capitolo sul ricevitore nella documentazione. Configurare la porta seriale (se necessario), modalità ricevitore (seriale/ppm/pwm), provider (per ricevitori seriali), associare il ricevitore, impostare la mappa dei canali, configurare gli endpoint/range dei canali sul TX in modo che tutti i canali vadano da ~1000 a ~2000. Impostare il punto medio (default 1500), trimmare i canali a 1500, configurare il deadband degli stick, verificare il comportamento quando il TX è spento o fuori portata.<br /><span class=\"message-negative\">IMPORTANTE:</span> Prima di volare leggere il capitolo sul Failsafe nella documentazione e configurare il Failsafe."
     },
     "tuningHelp": {
         "message": "<b>Suggerimento per la messa a punto</b><br /><span class=\"message-negative\">IMPORTANTE:</span> E' importante verificare la temperatura del motore durante il primo volo. Più alto è il valore del filtro, più dovrebbe volare meglio, ma avrai anche più rumore nei motori. <br>Il valore predefinito di 100Hz è ottimale, ma per setup più rumorosi puoi provare ad abbassare il filtro Dterm a 50Hz e possibilmente anche il filtro del giroscopio."
@@ -2893,7 +2880,6 @@
     "osdWarningEscFail": {
         "message": "Mostra una lista degli ESC/motori che hanno problemi (giri/min o temperatura fuori dala soglia configurata)"
     },
-
     "osdSectionHelpElements": {
         "message": "Abilita o disabilita gli elementi OSD"
     },
