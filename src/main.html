@@ -117,7 +117,7 @@
         }
 
         try {
-            window.marked = require('marked');
+            window.marked = require('marked').marked;
             console.log('[OK] marked loaded');
         } catch(e) {
             console.error('ERROR: Failed to load marked:', e.message);
