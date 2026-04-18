@@ -484,6 +484,12 @@ TABS.onboard_logging.initialize = function (callback) {
                 return;
             }
             
+            // Handle user cancellation or missing fileEntry
+            if (!fileEntry) {
+                console.log('File dialog cancelled by user');
+                return;
+            }
+            
             // echo/console log path specified
             chrome.fileSystem.getDisplayPath(fileEntry, function(path) {
                 console.log('Dataflash dump file path: ' + path);
