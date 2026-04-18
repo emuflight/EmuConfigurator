@@ -83,7 +83,7 @@
     "del": "^6.0.0",
     "electron": "41.0.3",
     "eslint": "^8.57.0",
-    "follow-redirects": "^1.15.6",
+    "follow-redirects": "^1.16.0",
     "fs-extra": "^9.1.0",
     "makensis": "^0.23.4",
     "os": "^0.1.2",
