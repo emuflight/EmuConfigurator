@@ -100,14 +100,24 @@ STM32_protocol.prototype.connect = function (port, baud, hex, options, callback)
                 serial.send(bufferOut, function () {
                     serial.disconnect(function (result) {
                         if (result) {
-                            // delay to allow board to boot in bootloader mode
-                            // required to detect if a DFU device appears
-                            setTimeout(function() {
-                                // refresh device list
+                            // Poll for DFU device after reboot. A single fixed delay is
+                            // insufficient on slow systems (Windows VMs, installed packages)
+                            // where USB re-enumeration takes longer than 1 second.
+                            // Poll every 250ms for up to 5 seconds before falling back.
+                            var dfuPollAttempt = 0;
+                            var DFU_POLL_INTERVAL = 250;
+                            var DFU_POLL_MAX = 20;
+
+                            function pollForDFU() {
+                                dfuPollAttempt++;
                                 PortHandler.check_usb_devices(function(dfu_available) {
-                                    if(dfu_available) {
+                                    if (dfu_available) {
+                                        console.log('STM32 - DFU detected after ' + (dfuPollAttempt * DFU_POLL_INTERVAL) + 'ms');
                                         STM32DFU.connect(usbDevices, hex, options, self.callback);
+                                    } else if (dfuPollAttempt < DFU_POLL_MAX) {
+                                        setTimeout(pollForDFU, DFU_POLL_INTERVAL);
                                     } else {
+                                        console.log('STM32 - DFU not detected after ' + (DFU_POLL_MAX * DFU_POLL_INTERVAL) + 'ms, trying serial...');
                                         serial.connect(port, {bitrate: self.baud, parityBit: 'even', stopBits: 'one'}, function (openInfo) {
                                             if (openInfo) {
                                                 self.initialize();
@@ -118,7 +128,10 @@ STM32_protocol.prototype.connect = function (port, baud, hex, options, callback)
                                         });
                                     }
                                 });
-                            }, 1000);
+                            }
+
+                            // Initial 500ms delay for the board to begin re-enumeration
+                            setTimeout(pollForDFU, 500);
                         } else {
                             GUI.connect_lock = false;
                         }
