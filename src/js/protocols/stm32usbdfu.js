@@ -850,6 +850,7 @@ STM32DFU_protocol.prototype.upload_procedure = function (step) {
 
                                             if(page == erase_pages.length) {
                                                 console.log("Erase: complete");
+                                                AudioFeedback.playEraseComplete();
                                                 GUI.log(i18n.getMessage('dfu_erased_kilobytes', (total_erased / 1024).toString()));
                                                 self.upload_procedure(4);
                                             }
@@ -1020,6 +1021,7 @@ STM32DFU_protocol.prototype.upload_procedure = function (step) {
 
                         if (verify) {
                             console.log('Programming: SUCCESSFUL');
+                            AudioFeedback.playFlashComplete();
                             // update progress bar
                             TABS.firmware_flasher.flashingMessage(i18n.getMessage('stm32ProgrammingSuccessful'), TABS.firmware_flasher.FLASH_MESSAGE_TYPES.VALID);
 
@@ -1027,6 +1029,7 @@ STM32DFU_protocol.prototype.upload_procedure = function (step) {
                             self.upload_procedure(6);
                         } else {
                             console.log('Programming: FAILED');
+                            AudioFeedback.playVerificationFailed();
                             // update progress bar
                             TABS.firmware_flasher.flashingMessage(i18n.getMessage('stm32ProgrammingFailed'), TABS.firmware_flasher.FLASH_MESSAGE_TYPES.INVALID);
 

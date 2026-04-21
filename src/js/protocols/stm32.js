@@ -450,6 +450,7 @@ STM32_protocol.prototype.upload_procedure = function (step) {
                             self.send( [0xFF, 0xFF, 0x00], 1, function (reply) { 
                                 if (self.verify_response(self.status.ACK, reply)) {
                                     console.log('Executing global chip extended erase: done');
+                                    AudioFeedback.playEraseComplete();
                                     self.upload_procedure(5);
                                 }
                             });
@@ -496,6 +497,7 @@ STM32_protocol.prototype.upload_procedure = function (step) {
                             self.send(buff, 1, function (reply) {
                                 if (self.verify_response(self.status.ACK, reply)) {
                                     console.log('Erasing: done');
+                                    AudioFeedback.playEraseComplete();
                                     // proceed to next step
                                     self.upload_procedure(5);
                                 }
@@ -518,6 +520,7 @@ STM32_protocol.prototype.upload_procedure = function (step) {
                         self.send([0xFF, 0x00], 1, function (reply) {
                             if (self.verify_response(self.status.ACK, reply)) {
                                 console.log('Erasing: done');
+                                AudioFeedback.playEraseComplete();
                                 // proceed to next step
                                 self.upload_procedure(5);
                             }
@@ -549,6 +552,7 @@ STM32_protocol.prototype.upload_procedure = function (step) {
                         self.send(buff, 1, function (reply) {
                             if (self.verify_response(self.status.ACK, reply)) {
                                 console.log('Erasing: done');
+                                AudioFeedback.playEraseComplete();
                                 // proceed to next step
                                 self.upload_procedure(5);
                             }
@@ -622,6 +626,7 @@ STM32_protocol.prototype.upload_procedure = function (step) {
                     } else {
                         // all blocks flashed
                         console.log('Writing: done');
+                        AudioFeedback.playFlashComplete();
 
                         // proceed to next step
                         self.upload_procedure(6);
