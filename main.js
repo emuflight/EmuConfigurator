@@ -992,15 +992,9 @@ function createWindow() {
     win.webContents.setZoomLevel(savedZoom);
   });
   
-  // Save zoom level when it changes (e.g., Ctrl+Plus, Ctrl+Minus, Ctrl+0)
+  // Save zoom level when it changes (e.g., mouse-wheel / pinch zoom)
   win.webContents.on('zoom-changed', (_event, _direction) => {
-    const newLevel = win.webContents.getZoomLevel();
-    const clampedLevel = clampZoom(newLevel);
-    if (newLevel !== clampedLevel) {
-      win.webContents.setZoomLevel(clampedLevel);
-    }
-    _currentZoom = clampedLevel;
-    saveZoomLevel(clampedLevel);
+    applyZoom(win, win.webContents.getZoomLevel());
   });
 
   // Intercept new window requests (e.g., target="_blank" links) and open in system browser
@@ -1014,7 +1008,7 @@ function createWindow() {
     return { action: 'deny' };
   });
 
-  // Clear all timers on window close to prevent lingering references
+  // Clear all timers and release window reference on close
   win.on('closed', () => {
     if (_resizeZoomTimer) {
       clearTimeout(_resizeZoomTimer);
@@ -1023,6 +1017,9 @@ function createWindow() {
     if (_devtoolsZoomTimer) {
       clearTimeout(_devtoolsZoomTimer);
       _devtoolsZoomTimer = null;
+    }
+    if (mainWindow === win) {
+      mainWindow = null;
     }
   });
 
@@ -1117,12 +1114,6 @@ function createWindow() {
   });
 
   mainWindow = win;
-
-  win.on('closed', () => {
-    if (mainWindow === win) {
-      mainWindow = null;
-    }
-  });
 }
 
 // Attempt to acquire single-instance lock with retry logic for dev mode.
