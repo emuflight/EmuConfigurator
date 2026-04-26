@@ -251,11 +251,6 @@ function saveZoomLevel(level) {
   }
 }
 
-// Update in-memory zoom state.
-function updateZoomState(level) {
-  _currentZoom = level;
-}
-
 // Apply zoom to webContents.
 function setWebContentsZoom(win, level) {
   if (!win || win.isDestroyed() || !win.webContents) return false;
@@ -264,11 +259,12 @@ function setWebContentsZoom(win, level) {
 }
 
 // Apply and persist a zoom change: clamps, updates in-memory state, sets webContents level, saves to disk.
+// All zoom mutations must go through this function to keep _currentZoom consistent.
 function applyZoom(win, level) {
   if (!win || win.isDestroyed() || !win.webContents) return;
   const previous = _currentZoom;
   const clamped = clampZoom(level);
-  updateZoomState(clamped);
+  _currentZoom = clamped;
   setWebContentsZoom(win, clamped);
   if (clamped !== previous) {
     saveZoomLevel(clamped);
@@ -967,7 +963,11 @@ function createWindow() {
   const debouncedZoomReapply = () => {
     if (_resizeZoomTimer) clearTimeout(_resizeZoomTimer);
     _resizeZoomTimer = setTimeout(() => {
-      if (!win.isDestroyed() && win.webContents.getZoomLevel() !== _currentZoom) {
+      if (!win || win.isDestroyed() || !win.webContents) {
+        _resizeZoomTimer = null;
+        return;
+      }
+      if (win.webContents.getZoomLevel() !== _currentZoom) {
         win.webContents.setZoomLevel(_currentZoom);
       }
       _resizeZoomTimer = null;
@@ -1002,9 +1002,7 @@ function createWindow() {
     }
     
     // Load saved zoom level or use default (Ctrl+0 actual size)
-    const savedZoom = clampZoom(loadZoomLevel());
-    _currentZoom = savedZoom;
-    win.webContents.setZoomLevel(savedZoom);
+    applyZoom(win, loadZoomLevel());
   });
   
   // Save zoom level when it changes (e.g., mouse-wheel / pinch zoom)
