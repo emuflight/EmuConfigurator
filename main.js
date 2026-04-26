@@ -960,7 +960,7 @@ function createWindow() {
   });
   
   // Save zoom level when it changes (e.g., Ctrl+Plus, Ctrl+Minus, Ctrl+0)
-  win.webContents.on('zoom-changed', (event, direction) => {
+  win.webContents.on('zoom-changed', (_event, direction) => {
     const newLevel = win.webContents.getZoomLevel();
     const clampedLevel = Math.max(MIN_ZOOM_LEVEL, Math.min(MAX_ZOOM_LEVEL, newLevel));
     if (newLevel !== clampedLevel) {
