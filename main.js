@@ -948,8 +948,8 @@ function createWindow() {
     }
     // Re-apply saved zoom: Chromium can silently reset zoom level when window resizes
     if (_resizeZoomTimer) clearTimeout(_resizeZoomTimer);
-      _resizeZoomTimer = setTimeout(() => {
-        if (!win.isDestroyed()) {
+    _resizeZoomTimer = setTimeout(() => {
+      if (!win.isDestroyed()) {
         const savedZoom = clampZoom(loadZoomLevel());
         if (win.webContents.getZoomLevel() !== savedZoom) {
           win.webContents.setZoomLevel(savedZoom);
