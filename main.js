@@ -918,11 +918,22 @@ function createWindow() {
   });
 
   // Active enforcement: if window size falls below minimum after any resize, restore it
+  let _resizeZoomTimer = null;
   win.on('resize', () => {
     const [width, height] = win.getSize();
     if (width < MIN_WINDOW_WIDTH || height < MIN_WINDOW_HEIGHT) {
       win.setSize(Math.max(width, MIN_WINDOW_WIDTH), Math.max(height, MIN_WINDOW_HEIGHT));
     }
+    // Re-apply saved zoom: Chromium can silently reset zoom level when window resizes
+    if (_resizeZoomTimer) clearTimeout(_resizeZoomTimer);
+      _resizeZoomTimer = setTimeout(() => {
+        if (!win.isDestroyed()) {
+        const savedZoom = Math.max(MIN_ZOOM_LEVEL, Math.min(MAX_ZOOM_LEVEL, loadZoomLevel()));
+        if (win.webContents.getZoomLevel() !== savedZoom) {
+          win.webContents.setZoomLevel(savedZoom);
+        }
+      }
+    }, 150);
   });
 
   // Also prevent moves that would resize
@@ -965,25 +976,6 @@ function createWindow() {
       shell.openExternal(url);
       return { action: 'deny' }; // Prevent Electron from opening its own window
     }
-  });
-
-  // Window resize zoom restoration timer
-  let _resizeZoomTimer = null;
-  win.on('resize', () => {
-    const [width, height] = win.getSize();
-    if (width < MIN_WINDOW_WIDTH || height < MIN_WINDOW_HEIGHT) {
-      win.setSize(Math.max(width, MIN_WINDOW_WIDTH), Math.max(height, MIN_WINDOW_HEIGHT));
-    }
-    // Re-apply saved zoom: Chromium can silently reset zoom level when window resizes
-    if (_resizeZoomTimer) clearTimeout(_resizeZoomTimer);
-    _resizeZoomTimer = setTimeout(() => {
-      if (!win.isDestroyed()) {
-        const savedZoom = Math.max(MIN_ZOOM_LEVEL, Math.min(MAX_ZOOM_LEVEL, loadZoomLevel()));
-        if (win.webContents.getZoomLevel() !== savedZoom) {
-          win.webContents.setZoomLevel(savedZoom);
-        }
-      }
-    }, 150);
   });
 
   // Clear resize timer on window close to prevent lingering references
