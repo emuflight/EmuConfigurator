@@ -1048,23 +1048,20 @@ function createWindow() {
   // variants work reliably. event.preventDefault() suppresses the menu role accelerator
   // so only this handler fires for keyboard-triggered zoom changes.
   win.webContents.on('before-input-event', (event, input) => {
-    if (input.type !== 'keyDown' || !input.control || input.shift || input.alt) return;
+    if (input.type !== 'keyDown' || !(input.control || input.meta) || input.shift || input.alt) return;
     const code = input.code;
     if (code === 'Equal' || code === 'NumpadAdd') {
       event.preventDefault();
       const level = clampZoom(win.webContents.getZoomLevel() + 1);
       win.webContents.setZoomLevel(level);
-      saveZoomLevel(level);
     } else if (code === 'Minus' || code === 'NumpadSubtract') {
       event.preventDefault();
       const level = clampZoom(win.webContents.getZoomLevel() - 1);
       win.webContents.setZoomLevel(level);
-      saveZoomLevel(level);
     } else if (code === 'Digit0' || code === 'Numpad0') {
       event.preventDefault();
       const level = clampZoom(DEFAULT_ZOOM_LEVEL);
       win.webContents.setZoomLevel(level);
-      saveZoomLevel(level);
     }
   });
 
