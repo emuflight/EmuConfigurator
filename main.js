@@ -188,6 +188,8 @@ const PREFERRED_WINDOW_HEIGHT = 1080;
 const CONFIG_DIR = path.join(app.getPath('userData'), 'config');
 const APP_CONFIG_FILE = path.join(CONFIG_DIR, 'config.json');
 const DEFAULT_ZOOM_LEVEL = 0; // Ctrl+0 actual size
+const MIN_ZOOM_LEVEL = -9;
+const MAX_ZOOM_LEVEL = 9;
 
 // Ensure config directory exists
 function ensureConfigDir() {
@@ -937,7 +939,7 @@ function createWindow() {
     if (_resizeZoomTimer) clearTimeout(_resizeZoomTimer);
     _resizeZoomTimer = setTimeout(() => {
       if (!win.isDestroyed()) {
-        const savedZoom = loadConfig().zoomLevel;
+        const savedZoom = Math.max(MIN_ZOOM_LEVEL, Math.min(MAX_ZOOM_LEVEL, loadConfig().zoomLevel));
         if (win.webContents.getZoomLevel() !== savedZoom) {
           win.webContents.setZoomLevel(savedZoom);
         }
@@ -964,14 +966,18 @@ function createWindow() {
     }
     
     // Load saved zoom level or use default (Ctrl+0 actual size)
-    const savedZoom = loadConfig().zoomLevel;
+    const savedZoom = Math.max(MIN_ZOOM_LEVEL, Math.min(MAX_ZOOM_LEVEL, loadConfig().zoomLevel));
     win.webContents.setZoomLevel(savedZoom);
   });
   
   // Save zoom level when it changes via mouse wheel
   win.webContents.on('zoom-changed', (event, direction) => {
     const newLevel = win.webContents.getZoomLevel();
-    saveConfig({ zoomLevel: newLevel });
+    const clampedLevel = Math.max(MIN_ZOOM_LEVEL, Math.min(MAX_ZOOM_LEVEL, newLevel));
+    if (newLevel !== clampedLevel) {
+      win.webContents.setZoomLevel(clampedLevel);
+    }
+    saveConfig({ zoomLevel: clampedLevel });
   });
 
   // Intercept new window requests (e.g., target="_blank" links) and open in system browser
@@ -992,14 +998,14 @@ function createWindow() {
   win.webContents.on('devtools-opened', () => {
     setTimeout(() => {
       if (!win.isDestroyed()) {
-        win.webContents.setZoomLevel(loadConfig().zoomLevel);
+        win.webContents.setZoomLevel(Math.max(MIN_ZOOM_LEVEL, Math.min(MAX_ZOOM_LEVEL, loadConfig().zoomLevel)));
       }
     }, 150);
   });
 
   win.webContents.on('devtools-closed', () => {
     if (!win.isDestroyed()) {
-      win.webContents.setZoomLevel(loadConfig().zoomLevel);
+      win.webContents.setZoomLevel(Math.max(MIN_ZOOM_LEVEL, Math.min(MAX_ZOOM_LEVEL, loadConfig().zoomLevel)));
     }
   });
 
@@ -1011,18 +1017,19 @@ function createWindow() {
     const code = input.code;
     if (code === 'Equal' || code === 'NumpadAdd') {
       event.preventDefault();
-      const level = win.webContents.getZoomLevel() + 1;
+      const level = Math.min(MAX_ZOOM_LEVEL, win.webContents.getZoomLevel() + 1);
       win.webContents.setZoomLevel(level);
       saveConfig({ zoomLevel: level });
     } else if (code === 'Minus' || code === 'NumpadSubtract') {
       event.preventDefault();
-      const level = win.webContents.getZoomLevel() - 1;
+      const level = Math.max(MIN_ZOOM_LEVEL, win.webContents.getZoomLevel() - 1);
       win.webContents.setZoomLevel(level);
       saveConfig({ zoomLevel: level });
     } else if (code === 'Digit0' || code === 'Numpad0') {
       event.preventDefault();
-      win.webContents.setZoomLevel(DEFAULT_ZOOM_LEVEL);
-      saveConfig({ zoomLevel: DEFAULT_ZOOM_LEVEL });
+      const level = Math.max(MIN_ZOOM_LEVEL, Math.min(MAX_ZOOM_LEVEL, DEFAULT_ZOOM_LEVEL));
+      win.webContents.setZoomLevel(level);
+      saveConfig({ zoomLevel: level });
     }
   });
 
