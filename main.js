@@ -958,6 +958,15 @@ function createWindow() {
     saveZoomLevel(clampedLevel);
   });
 
+  // Intercept new window requests (e.g., target="_blank" links) and open in system browser
+  win.webContents.setWindowOpenHandler(({ url }) => {
+    // Open external links in the system default browser
+    if (url.startsWith('http://') || url.startsWith('https://')) {
+      shell.openExternal(url);
+      return { action: 'deny' }; // Prevent Electron from opening its own window
+    }
+  });
+
   // Window resize zoom restoration timer
   let _resizeZoomTimer = null;
   win.on('resize', () => {
