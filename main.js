@@ -237,7 +237,8 @@ function loadZoomLevel() {
 
 // Clamp zoom level to valid range [MIN_ZOOM_LEVEL, MAX_ZOOM_LEVEL]
 function clampZoom(level) {
-  return Math.max(MIN_ZOOM_LEVEL, Math.min(MAX_ZOOM_LEVEL, Number(level) || DEFAULT_ZOOM_LEVEL));
+  const n = Number(level);
+  return Math.max(MIN_ZOOM_LEVEL, Math.min(MAX_ZOOM_LEVEL, Number.isNaN(n) ? DEFAULT_ZOOM_LEVEL : n));
 }
 
 // Save zoom level to config file
