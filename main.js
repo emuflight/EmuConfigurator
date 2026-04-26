@@ -253,7 +253,7 @@ function saveZoomLevel(level) {
 
 // Apply and persist a zoom change: clamps, updates in-memory state, sets webContents level, saves to disk.
 function applyZoom(win, level) {
-  if (!win || win.isDestroyed()) return;
+  if (!win || win.isDestroyed() || !win.webContents) return;
   const previous = _currentZoom;
   const clamped = clampZoom(level);
   _currentZoom = clamped;
