@@ -7,6 +7,16 @@ TABS.firmware_flasher = {
 };
 
 TABS.firmware_flasher.initialize = function (callback) {
+
+    function extractTarget(filename) {
+        var parts = filename.split('_');
+        if (parts.length >= 3) {
+            var targetPart = parts[2];
+            // Remove extension if present
+            return targetPart.split('.')[0];
+        }
+        return 'unknown';
+    }
     var self = this;
 
     if (GUI.active_tab != 'firmware_flasher') {
@@ -57,8 +67,7 @@ TABS.firmware_flasher.initialize = function (callback) {
                         FirmwareCache.put(summary, intel_hex);
                     }
 
-                    var displayFilename = summary.file.length > 20 ? '...' + summary.file.slice(-17) : summary.file;
-                    self.flashingMessage('<a class="save_firmware" href="#" title="Save Firmware">' + displayFilename + ' (' + parsed_hex.bytes_total + ' bytes)' + '</a>',
+                    self.flashingMessage('<a class="save_firmware" href="#" title="Save Firmware">' + summary.target + ' (' + parsed_hex.bytes_total + ' bytes)' + '</a>',
                                          self.FLASH_MESSAGE_TYPES.NEUTRAL);
 
                     self.enableFlashing(true);
@@ -410,8 +419,8 @@ TABS.firmware_flasher.initialize = function (callback) {
                                         self.enableFlashing(true);
 
                                         var filename = path.split(/[/\\]/).pop();
-                                        var displayFilename = filename.length > 20 ? '...' + filename.slice(-17) : filename;
-                                        self.flashingMessage(displayFilename + ' (' + parsed_hex.bytes_total + ' bytes)', self.FLASH_MESSAGE_TYPES.NEUTRAL);
+                                        var target = extractTarget(filename);
+                                        self.flashingMessage(target + ' (' + parsed_hex.bytes_total + ' bytes)', self.FLASH_MESSAGE_TYPES.NEUTRAL);
                                         // Reset online selects to placeholder; no trigger to preserve loaded firmware state
                                         $('select[name="board"]').val('0');
                                         $('select[name="firmware_version"]').empty()
