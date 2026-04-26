@@ -184,9 +184,9 @@ const MIN_WINDOW_HEIGHT = 550;
 const PREFERRED_WINDOW_WIDTH = 1700;
 const PREFERRED_WINDOW_HEIGHT = 1080;
 
-// Zoom level persistence
+// App config persistence (zoom level, last dialog folder, etc.)
 const CONFIG_DIR = path.join(app.getPath('userData'), 'config');
-const ZOOM_CONFIG_FILE = path.join(CONFIG_DIR, 'zoom.json');
+const APP_CONFIG_FILE = path.join(CONFIG_DIR, 'config.json');
 const DEFAULT_ZOOM_LEVEL = 0; // Ctrl+0 actual size
 
 // Ensure config directory exists
@@ -196,27 +196,31 @@ function ensureConfigDir() {
   }
 }
 
-// Load zoom level from config file
-function loadZoomLevel() {
+// Load app config from config.json.
+function loadConfig() {
   try {
-    if (fs.existsSync(ZOOM_CONFIG_FILE)) {
-      const data = fs.readFileSync(ZOOM_CONFIG_FILE, 'utf8');
+    if (fs.existsSync(APP_CONFIG_FILE)) {
+      const data = fs.readFileSync(APP_CONFIG_FILE, 'utf8');
       const config = JSON.parse(data);
-      return typeof config.zoomLevel === 'number' ? config.zoomLevel : DEFAULT_ZOOM_LEVEL;
+      return {
+        zoomLevel: typeof config.zoomLevel === 'number' ? config.zoomLevel : DEFAULT_ZOOM_LEVEL,
+        lastDialogFolder: typeof config.lastDialogFolder === 'string' ? config.lastDialogFolder : '',
+      };
     }
   } catch (e) {
-    console.error('Failed to load zoom config:', e);
+    console.error('Failed to load app config:', e);
   }
-  return DEFAULT_ZOOM_LEVEL;
+  return { zoomLevel: DEFAULT_ZOOM_LEVEL, lastDialogFolder: '' };
 }
 
-// Save zoom level to config file
-function saveZoomLevel(level) {
+// Save a partial patch into app config (merges with existing config).
+function saveConfig(patch) {
   try {
     ensureConfigDir();
-    fs.writeFileSync(ZOOM_CONFIG_FILE, JSON.stringify({ zoomLevel: level }, null, 2));
+    const existing = loadConfig();
+    fs.writeFileSync(APP_CONFIG_FILE, JSON.stringify({ ...existing, ...patch }, null, 2));
   } catch (e) {
-    console.error('Failed to save zoom config:', e);
+    console.error('Failed to save app config:', e);
   }
 }
 
@@ -782,23 +786,39 @@ const { dialog } = require('electron');
 // IPC: show save file dialog
 ipcMain.handle('dialog:choose-entry', async (event, options) => {
   const { type, suggestedName, accepts } = options;
+  const name = typeof suggestedName === 'string' && suggestedName ? suggestedName : undefined;
+
+  const cfg = loadConfig();
+  const lastFolder = cfg.lastDialogFolder;
+  const defaultPath = lastFolder && name ? path.join(lastFolder, name)
+                    : lastFolder            ? lastFolder
+                    : name                  ? name
+                    : undefined;
 
   if (type === 'saveFile') {
     const filters = accepts ? accepts.map(a => ({ name: a.description, extensions: a.extensions })) : [];
-    return await dialog.showSaveDialog({
-      defaultPath: suggestedName,
+    const result = await dialog.showSaveDialog({
+      defaultPath,
       filters: filters.length > 0 ? filters : undefined,
     });
+    if (!result.canceled && result.filePath) {
+      saveConfig({ lastDialogFolder: path.dirname(result.filePath) });
+    }
+    return result;
   } else if (type === 'openFile') {
     const openFilters = accepts
       ? accepts.filter(a => Array.isArray(a.extensions) && a.extensions.length > 0)
                .map(a => ({ name: a.description, extensions: a.extensions }))
       : [];
-    return await dialog.showOpenDialog({
-      defaultPath: suggestedName,
+    const result = await dialog.showOpenDialog({
+      defaultPath,
       filters: openFilters,
       properties: ['openFile'],
     });
+    if (!result.canceled && result.filePaths && result.filePaths.length > 0) {
+      saveConfig({ lastDialogFolder: path.dirname(result.filePaths[0]) });
+    }
+    return result;
   }
   return { canceled: true };
 });
@@ -898,28 +918,31 @@ function createWindow() {
 
   // Register F12 as global shortcut to toggle DevTools while preserving zoom
   globalShortcut.register('F12', () => {
-    // Store current zoom before toggling DevTools (DevTools toggle can reset zoom)
-    const currentZoom = win.webContents.getZoomLevel();
-    
     if (win.webContents.isDevToolsOpened()) {
       win.webContents.closeDevTools();
     } else {
       win.webContents.openDevTools();
     }
-    
-    // Restore zoom level after toggling DevTools
-    setTimeout(() => {
-      win.webContents.setZoomLevel(currentZoom);
-      saveZoomLevel(currentZoom); // Persist the zoom level
-    }, 150);
+    // zoom restoration is handled by the devtools-opened / devtools-closed events
   });
 
   // Active enforcement: if window size falls below minimum after any resize, restore it
+  let _resizeZoomTimer = null;
   win.on('resize', () => {
     const [width, height] = win.getSize();
     if (width < MIN_WINDOW_WIDTH || height < MIN_WINDOW_HEIGHT) {
       win.setSize(Math.max(width, MIN_WINDOW_WIDTH), Math.max(height, MIN_WINDOW_HEIGHT));
     }
+    // Re-apply saved zoom: Chromium can silently reset zoom level when window resizes
+    if (_resizeZoomTimer) clearTimeout(_resizeZoomTimer);
+    _resizeZoomTimer = setTimeout(() => {
+      if (!win.isDestroyed()) {
+        const savedZoom = loadConfig().zoomLevel;
+        if (win.webContents.getZoomLevel() !== savedZoom) {
+          win.webContents.setZoomLevel(savedZoom);
+        }
+      }
+    }, 150);
   });
 
   // Also prevent moves that would resize
@@ -941,14 +964,14 @@ function createWindow() {
     }
     
     // Load saved zoom level or use default (Ctrl+0 actual size)
-    const savedZoom = loadZoomLevel();
+    const savedZoom = loadConfig().zoomLevel;
     win.webContents.setZoomLevel(savedZoom);
   });
   
-  // Save zoom level when it changes (e.g., Ctrl+Plus, Ctrl+Minus, Ctrl+0)
+  // Save zoom level when it changes via mouse wheel
   win.webContents.on('zoom-changed', (event, direction) => {
     const newLevel = win.webContents.getZoomLevel();
-    saveZoomLevel(newLevel);
+    saveConfig({ zoomLevel: newLevel });
   });
 
   // Intercept new window requests (e.g., target="_blank" links) and open in system browser
@@ -965,15 +988,41 @@ function createWindow() {
     win.webContents.openDevTools();
   }
 
-  // Re-apply zoom level when DevTools closes (Electron resets zoom on DevTools open/close)
+  // Re-apply saved zoom when DevTools opens/closes (Electron/Chromium can reset zoom on DevTools operations)
+  win.webContents.on('devtools-opened', () => {
+    setTimeout(() => {
+      if (!win.isDestroyed()) {
+        win.webContents.setZoomLevel(loadConfig().zoomLevel);
+      }
+    }, 150);
+  });
+
+  win.webContents.on('devtools-closed', () => {
+    if (!win.isDestroyed()) {
+      win.webContents.setZoomLevel(loadConfig().zoomLevel);
+    }
+  });
+
+  // Handle zoom keyboard shortcuts via before-input-event so numpad keys and no-shift
+  // variants work reliably. event.preventDefault() suppresses the menu role accelerator
+  // so only this handler fires for keyboard-triggered zoom changes.
   win.webContents.on('before-input-event', (event, input) => {
-    // F12 or Ctrl+Shift+I opens/closes DevTools; re-apply zoom persistently
-    if ((input.key === 'F12') || 
-        (input.control && input.shift && input.key.toLowerCase() === 'i')) {
-      setTimeout(() => {
-        const savedZoom = loadZoomLevel();
-        win.webContents.setZoomLevel(savedZoom); // Reapply zoom after DevTools toggle
-      }, 100);
+    if (input.type !== 'keyDown' || !input.control || input.shift || input.alt) return;
+    const code = input.code;
+    if (code === 'Equal' || code === 'NumpadAdd') {
+      event.preventDefault();
+      const level = win.webContents.getZoomLevel() + 1;
+      win.webContents.setZoomLevel(level);
+      saveConfig({ zoomLevel: level });
+    } else if (code === 'Minus' || code === 'NumpadSubtract') {
+      event.preventDefault();
+      const level = win.webContents.getZoomLevel() - 1;
+      win.webContents.setZoomLevel(level);
+      saveConfig({ zoomLevel: level });
+    } else if (code === 'Digit0' || code === 'Numpad0') {
+      event.preventDefault();
+      win.webContents.setZoomLevel(DEFAULT_ZOOM_LEVEL);
+      saveConfig({ zoomLevel: DEFAULT_ZOOM_LEVEL });
     }
   });
 

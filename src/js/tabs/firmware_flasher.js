@@ -124,8 +124,11 @@ TABS.firmware_flasher.initialize = function (callback) {
 
             chrome.storage.local.get('selected_board', function (result) {
                 if (result.selected_board) {
-                    var boardBuilds = builds[result.selected_board]
+                    var boardBuilds = builds[result.selected_board];
                     $('select[name="board"]').val(boardBuilds ? result.selected_board : 0).trigger('change');
+                } else {
+                    $('select[name="firmware_version"]').empty()
+                        .append($('<option value="0">{0}</option>'.format(i18n.getMessage('firmwareFlasherOptionLabelSelectFirmwareVersion'))));
                 }
             });
         }
@@ -224,8 +227,11 @@ TABS.firmware_flasher.initialize = function (callback) {
 
                 chrome.storage.local.get('selected_board', function (result) {
                     if (result.selected_board) {
-                        var boardReleases = releases[result.selected_board]
+                        var boardReleases = releases[result.selected_board];
                         $('select[name="board"]').val(boardReleases ? result.selected_board : 0).trigger('change');
+                    } else {
+                        $('select[name="firmware_version"]').empty()
+                            .append($('<option value="0">{0}</option>'.format(i18n.getMessage('firmwareFlasherOptionLabelSelectFirmwareVersion'))));
                     }
                 });
             }
@@ -328,21 +334,23 @@ TABS.firmware_flasher.initialize = function (callback) {
                 } else {
                     versions_e.append($("<option value='0'>{0} {1}</option>".format(i18n.getMessage('firmwareFlasherOptionLabelSelectFirmwareVersionFor'), target)));
 
-                    TABS.firmware_flasher.releases[target].forEach(function(descriptor) {
-                        var select_e =
-                                $("<option value='{0}'>{0} - {1} - {2}</option>".format(
-                                        descriptor.version,
-                                        descriptor.target,
-                                        descriptor.date
-                                ))
-                                .css("font-weight", FirmwareCache.has(descriptor)
-                                        ? "bold"
-                                        : "normal"
-                                )
-                                .data('summary', descriptor);
+                    if (TABS.firmware_flasher.releases && TABS.firmware_flasher.releases[target]) {
+                        TABS.firmware_flasher.releases[target].forEach(function(descriptor) {
+                            var select_e =
+                                    $('<option value="{0}">{0} - {1} - {2}</option>'.format(
+                                            descriptor.version,
+                                            descriptor.target,
+                                            descriptor.date
+                                    ))
+                                    .css('font-weight', FirmwareCache.has(descriptor)
+                                            ? 'bold'
+                                            : 'normal'
+                                    )
+                                    .data('summary', descriptor);
 
-                        versions_e.append(select_e);
-                    });
+                            versions_e.append(select_e);
+                        });
+                    }
                 }
 
                 // Assume flashing latest, so default to it.
@@ -397,7 +405,12 @@ TABS.firmware_flasher.initialize = function (callback) {
                                     if (parsed_hex) {
                                         self.enableFlashing(true);
 
-                                        self.flashingMessage(i18n.getMessage('firmwareFlasherFirmwareLocalLoaded', parsed_hex.bytes_total), self.FLASH_MESSAGE_TYPES.NEUTRAL);
+                                        var filename = path.split(/[/\\]/).pop();
+                                        self.flashingMessage(filename + ' (' + parsed_hex.bytes_total + ' bytes)', self.FLASH_MESSAGE_TYPES.NEUTRAL);
+                                        // Reset online selects to placeholder; no trigger to preserve loaded firmware state
+                                        $('select[name="board"]').val('0');
+                                        $('select[name="firmware_version"]').empty()
+                                            .append($('<option value="0">' + i18n.getMessage('firmwareFlasherOptionLabelSelectFirmwareVersion') + '</option>'));
                                     } else {
                                         self.flashingMessage('firmwareFlasherHexCorrupted', self.FLASH_MESSAGE_TYPES.INVALID);
                                     }
@@ -423,8 +436,8 @@ TABS.firmware_flasher.initialize = function (callback) {
 
             let release = $("option:selected", evt.target).data("summary");
             let isCached = FirmwareCache.has(release);
-            if (evt.target.value == "0") {
-                $("a.load_remote_file").addClass('disabled');
+            if (evt.target.value == '0' || $('select[name="board"]').val() == '0') {
+                $('a.load_remote_file').addClass('disabled');
             } else if (isCached) {
                 FirmwareCache.get(release, cached => {
                     console.info("Release found in cache: " + release.file);
