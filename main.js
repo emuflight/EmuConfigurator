@@ -927,8 +927,10 @@ function createWindow() {
     
     // Restore zoom level after toggling DevTools
     setTimeout(() => {
-      win.webContents.setZoomLevel(currentZoom);
-      saveZoomLevel(currentZoom); // Persist the zoom level
+      if (win.isDestroyed()) return;
+      const safeZoom = clampZoom(currentZoom);
+      win.webContents.setZoomLevel(safeZoom);
+      saveZoomLevel(safeZoom); // Persist the zoom level
     }, 150);
     
     // Clear the zoom cache flag after debounce so normal devtools handlers resume
@@ -980,7 +982,7 @@ function createWindow() {
   });
   
   // Save zoom level when it changes (e.g., Ctrl+Plus, Ctrl+Minus, Ctrl+0)
-  win.webContents.on('zoom-changed', (_event, direction) => {
+  win.webContents.on('zoom-changed', (_event, _direction) => {
     const newLevel = win.webContents.getZoomLevel();
     const clampedLevel = clampZoom(newLevel);
     if (newLevel !== clampedLevel) {
@@ -1000,12 +1002,17 @@ function createWindow() {
     return { action: 'deny' };
   });
 
-  // Clear resize timer on window close to prevent lingering references
+  // Clear all timers and flags on window close to prevent lingering references
   win.on('closed', () => {
     if (_resizeZoomTimer) {
       clearTimeout(_resizeZoomTimer);
       _resizeZoomTimer = null;
     }
+    if (_zoomCacheTimer) {
+      clearTimeout(_zoomCacheTimer);
+      _zoomCacheTimer = null;
+    }
+    _zoomRecentlySaved = false;
   });
 
   // Re-apply saved zoom when DevTools opens/closes (Electron/Chromium can reset zoom on DevTools operations)
