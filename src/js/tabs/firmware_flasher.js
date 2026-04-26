@@ -425,6 +425,8 @@ TABS.firmware_flasher.initialize = function (callback) {
                                         $('select[name="board"]').val('0');
                                         $('select[name="firmware_version"]').empty()
                                             .append($('<option value="0">' + i18n.getMessage('firmwareFlasherOptionLabelSelectFirmwareVersion') + '</option>'));
+                                        // Hide release info since we're now using local firmware
+                                        $('div.release_info').slideUp();
                                     } else {
                                         self.flashingMessage('firmwareFlasherHexCorrupted', self.FLASH_MESSAGE_TYPES.INVALID);
                                     }
