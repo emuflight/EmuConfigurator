@@ -254,10 +254,13 @@ function saveZoomLevel(level) {
 // Apply and persist a zoom change: clamps, updates in-memory state, sets webContents level, saves to disk.
 function applyZoom(win, level) {
   if (!win || win.isDestroyed()) return;
+  const previous = _currentZoom;
   const clamped = clampZoom(level);
   _currentZoom = clamped;
   win.webContents.setZoomLevel(clamped);
-  saveZoomLevel(clamped);
+  if (clamped !== previous) {
+    saveZoomLevel(clamped);
+  }
 }
 
 function getInitialWindowBounds() {
@@ -939,6 +942,7 @@ function createWindow() {
   // Register F12 as global shortcut to toggle DevTools.
   // Zoom is preserved by the devtools-opened/devtools-closed handlers via _currentZoom.
   globalShortcut.register('F12', () => {
+    if (!win || win.isDestroyed() || !win.webContents) return;
     if (win.webContents.isDevToolsOpened()) {
       win.webContents.closeDevTools();
     } else {
