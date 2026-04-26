@@ -191,11 +191,47 @@ const DEFAULT_ZOOM_LEVEL = 0; // Ctrl+0 actual size
 const MIN_ZOOM_LEVEL = -9;
 const MAX_ZOOM_LEVEL = 9;
 
+let cachedConfig = null;
+
 // Ensure config directory exists
 function ensureConfigDir() {
   if (!fs.existsSync(CONFIG_DIR)) {
     fs.mkdirSync(CONFIG_DIR, { recursive: true });
   }
+}
+
+// Load app config from cachedConfig (initialized once at startup).
+function loadConfig() {
+  if (cachedConfig === null) {
+    try {
+      if (fs.existsSync(APP_CONFIG_FILE)) {
+        const data = fs.readFileSync(APP_CONFIG_FILE, 'utf8');
+        const config = JSON.parse(data);
+        cachedConfig = {
+          zoomLevel: typeof config.zoomLevel === 'number' ? config.zoomLevel : DEFAULT_ZOOM_LEVEL,
+          lastDialogFolder: typeof config.lastDialogFolder === 'string' ? config.lastDialogFolder : '',
+        };
+      } else {
+        cachedConfig = { zoomLevel: DEFAULT_ZOOM_LEVEL, lastDialogFolder: '' };
+      }
+    } catch (e) {
+      console.error('Failed to load app config:', e);
+      cachedConfig = { zoomLevel: DEFAULT_ZOOM_LEVEL, lastDialogFolder: '' };
+    }
+  }
+  return cachedConfig;
+}
+
+// Save a partial patch into app config (merges with existing config).
+function saveConfig(patch) {
+  try {
+    ensureConfigDir();
+    cachedConfig = { ...loadConfig(), ...patch };
+    fs.writeFileSync(APP_CONFIG_FILE, JSON.stringify(cachedConfig, null, 2));
+  } catch (e) {
+    console.error('Failed to save app config:', e);
+  }
+}
 }
 
 // Load app config from config.json.
@@ -928,8 +964,9 @@ function createWindow() {
     // zoom restoration is handled by the devtools-opened / devtools-closed events
   });
 
-  // Active enforcement: if window size falls below minimum after any resize, restore it
   let _resizeZoomTimer = null;
+
+  // Active enforcement: if window size falls below minimum after any resize, restore it
   win.on('resize', () => {
     const [width, height] = win.getSize();
     if (width < MIN_WINDOW_WIDTH || height < MIN_WINDOW_HEIGHT) {
@@ -945,6 +982,14 @@ function createWindow() {
         }
       }
     }, 150);
+  });
+
+  // Clear resize timer on window close to prevent lingering references
+  win.on('closed', () => {
+    if (_resizeZoomTimer) {
+      clearTimeout(_resizeZoomTimer);
+      _resizeZoomTimer = null;
+    }
   });
 
   // Also prevent moves that would resize
@@ -998,14 +1043,22 @@ function createWindow() {
   win.webContents.on('devtools-opened', () => {
     setTimeout(() => {
       if (!win.isDestroyed()) {
-        win.webContents.setZoomLevel(Math.max(MIN_ZOOM_LEVEL, Math.min(MAX_ZOOM_LEVEL, loadConfig().zoomLevel)));
+        const currentZoom = win.webContents.getZoomLevel();
+        const targetZoom = loadConfig().zoomLevel;
+        if (currentZoom !== targetZoom) {
+          win.webContents.setZoomLevel(Math.max(MIN_ZOOM_LEVEL, Math.min(MAX_ZOOM_LEVEL, targetZoom)));
+        }
       }
     }, 150);
   });
 
   win.webContents.on('devtools-closed', () => {
     if (!win.isDestroyed()) {
-      win.webContents.setZoomLevel(Math.max(MIN_ZOOM_LEVEL, Math.min(MAX_ZOOM_LEVEL, loadConfig().zoomLevel)));
+      const currentZoom = win.webContents.getZoomLevel();
+      const targetZoom = loadConfig().zoomLevel;
+      if (currentZoom !== targetZoom) {
+        win.webContents.setZoomLevel(Math.max(MIN_ZOOM_LEVEL, Math.min(MAX_ZOOM_LEVEL, targetZoom)));
+      }
     }
   });
 
