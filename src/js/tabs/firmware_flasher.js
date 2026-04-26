@@ -57,7 +57,8 @@ TABS.firmware_flasher.initialize = function (callback) {
                         FirmwareCache.put(summary, intel_hex);
                     }
 
-                    self.flashingMessage('<a class="save_firmware" href="#" title="Save Firmware">' + i18n.getMessage('firmwareFlasherFirmwareOnlineLoaded', parsed_hex.bytes_total) + '</a>',
+                    var displayFilename = summary.file.length > 20 ? '...' + summary.file.slice(-17) : summary.file;
+                    self.flashingMessage('<a class="save_firmware" href="#" title="Save Firmware">' + displayFilename + ' (' + parsed_hex.bytes_total + ' bytes)' + '</a>',
                                          self.FLASH_MESSAGE_TYPES.NEUTRAL);
 
                     self.enableFlashing(true);
@@ -409,7 +410,8 @@ TABS.firmware_flasher.initialize = function (callback) {
                                         self.enableFlashing(true);
 
                                         var filename = path.split(/[/\\]/).pop();
-                                        self.flashingMessage(filename + ' (' + parsed_hex.bytes_total + ' bytes)', self.FLASH_MESSAGE_TYPES.NEUTRAL);
+                                        var displayFilename = filename.length > 20 ? '...' + filename.slice(-17) : filename;
+                                        self.flashingMessage(displayFilename + ' (' + parsed_hex.bytes_total + ' bytes)', self.FLASH_MESSAGE_TYPES.NEUTRAL);
                                         // Reset online selects to placeholder; no trigger to preserve loaded firmware state
                                         $('select[name="board"]').val('0');
                                         $('select[name="firmware_version"]').empty()
