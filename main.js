@@ -252,6 +252,34 @@ function saveZoomLevel(level) {
   } catch (e) {
     console.error('Failed to save zoom config:', e);
   }
+
+// Load unified app config (zoom level, last dialog folder, etc.)
+function loadConfig() {
+  try {
+    if (fs.existsSync(APP_CONFIG_FILE)) {
+      const data = fs.readFileSync(APP_CONFIG_FILE, 'utf8');
+      const config = JSON.parse(data);
+      return {
+        zoomLevel: typeof config.zoomLevel === 'number' ? config.zoomLevel : DEFAULT_ZOOM_LEVEL,
+        lastDialogFolder: typeof config.lastDialogFolder === 'string' ? config.lastDialogFolder : '',
+      };
+    }
+  } catch (e) {
+    console.error('Failed to load app config:', e);
+  }
+  return { zoomLevel: DEFAULT_ZOOM_LEVEL, lastDialogFolder: '' };
+}
+
+// Save unified app config (merges with existing config)
+function saveConfig(patch) {
+  try {
+    ensureConfigDir();
+    const existing = loadConfig();
+    fs.writeFileSync(APP_CONFIG_FILE, JSON.stringify({ ...existing, ...patch }, null, 2));
+  } catch (e) {
+    console.error('Failed to save app config:', e);
+  }
+}
 }
 
 // Apply zoom to webContents.
