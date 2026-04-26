@@ -1011,27 +1011,30 @@ function createWindow() {
     win.webContents.openDevTools();
   }
 
+  function applySavedZoom(win) {
+    const currentZoom = win.webContents.getZoomLevel();
+    const targetZoom = loadConfig().zoomLevel;
+    const clampedZoom = Math.max(MIN_ZOOM_LEVEL, Math.min(MAX_ZOOM_LEVEL, targetZoom));
+    if (currentZoom !== clampedZoom) {
+      win.webContents.setZoomLevel(clampedZoom);
+    }
+  }
+
   // Re-apply saved zoom when DevTools opens/closes (Electron/Chromium can reset zoom on DevTools operations)
   win.webContents.on('devtools-opened', () => {
     setTimeout(() => {
       if (!win.isDestroyed()) {
-        const currentZoom = win.webContents.getZoomLevel();
-        const targetZoom = loadConfig().zoomLevel;
-        if (currentZoom !== targetZoom) {
-          win.webContents.setZoomLevel(Math.max(MIN_ZOOM_LEVEL, Math.min(MAX_ZOOM_LEVEL, targetZoom)));
-        }
+        applySavedZoom(win);
       }
     }, 150);
   });
 
   win.webContents.on('devtools-closed', () => {
-    if (!win.isDestroyed()) {
-      const currentZoom = win.webContents.getZoomLevel();
-      const targetZoom = loadConfig().zoomLevel;
-      if (currentZoom !== targetZoom) {
-        win.webContents.setZoomLevel(Math.max(MIN_ZOOM_LEVEL, Math.min(MAX_ZOOM_LEVEL, targetZoom)));
+    setTimeout(() => {
+      if (!win.isDestroyed()) {
+        applySavedZoom(win);
       }
-    }
+    }, 150);
   });
 
   // Handle zoom keyboard shortcuts via before-input-event so numpad keys and no-shift

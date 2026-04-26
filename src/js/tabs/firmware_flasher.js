@@ -9,13 +9,12 @@ TABS.firmware_flasher = {
 TABS.firmware_flasher.initialize = function (callback) {
 
     function extractTarget(filename) {
-        var parts = filename.split('_');
-        if (parts.length >= 3) {
-            var targetPart = parts[2];
-            // Remove extension if present
-            return targetPart.split('.')[0];
+        var targetFromFilenameExpression = /EmuFlight_([\d.]+)?_?(\w+)(\-.*)?\.(.*)/;
+        var match = targetFromFilenameExpression.exec(filename);
+        if (match) {
+            return match[2];
         }
-        return 'unknown';
+        return filename.split('.')[0];
     }
     var self = this;
 
