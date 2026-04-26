@@ -80,6 +80,7 @@ module.exports = {
         options: {
           maintainer: 'EmuFlight',
           homepage: 'https://github.com/EmuFlight/EmuConfigurator',
+          icon: path.resolve(__dirname, 'assets/linux/icon/emu_icon_128.png'),
         },
       },
     },
@@ -89,6 +90,7 @@ module.exports = {
       config: {
         options: {
           homepage: 'https://github.com/EmuFlight/EmuConfigurator',
+          icon: path.resolve(__dirname, 'assets/linux/icon/emu_icon_128.png'),
         },
       },
     },
