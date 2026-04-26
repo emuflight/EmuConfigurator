@@ -117,14 +117,14 @@ function setupMenu(buildMode) {
           label: 'Actual Size',
           click: () => {
             const w = BrowserWindow.getFocusedWindow();
-            applyZoom(w, DEFAULT_ZOOM_LEVEL);
+            if (w) applyZoom(w, DEFAULT_ZOOM_LEVEL);
           }
         },
         {
           label: 'Zoom In',
           click: () => {
             const w = BrowserWindow.getFocusedWindow();
-            applyZoom(w, _currentZoom + 1);
+            if (w) applyZoom(w, _currentZoom + 1);
           }
         },
         {
@@ -237,7 +237,7 @@ function loadZoomLevel() {
 
 // Clamp zoom level to valid range [MIN_ZOOM_LEVEL, MAX_ZOOM_LEVEL]
 function clampZoom(level) {
-  return Math.max(MIN_ZOOM_LEVEL, Math.min(MAX_ZOOM_LEVEL, level));
+  return Math.max(MIN_ZOOM_LEVEL, Math.min(MAX_ZOOM_LEVEL, Number(level) || DEFAULT_ZOOM_LEVEL));
 }
 
 // Save zoom level to config file
@@ -251,13 +251,25 @@ function saveZoomLevel(level) {
   }
 }
 
+// Update in-memory zoom state.
+function updateZoomState(level) {
+  _currentZoom = level;
+}
+
+// Apply zoom to webContents.
+function setWebContentsZoom(win, level) {
+  if (!win || win.isDestroyed() || !win.webContents) return false;
+  win.webContents.setZoomLevel(level);
+  return true;
+}
+
 // Apply and persist a zoom change: clamps, updates in-memory state, sets webContents level, saves to disk.
 function applyZoom(win, level) {
   if (!win || win.isDestroyed() || !win.webContents) return;
   const previous = _currentZoom;
   const clamped = clampZoom(level);
-  _currentZoom = clamped;
-  win.webContents.setZoomLevel(clamped);
+  updateZoomState(clamped);
+  setWebContentsZoom(win, clamped);
   if (clamped !== previous) {
     saveZoomLevel(clamped);
   }
@@ -952,20 +964,23 @@ function createWindow() {
 
   // Active enforcement: if window size falls below minimum after any resize, restore it
   let _resizeZoomTimer = null;
+  const debouncedZoomReapply = () => {
+    if (_resizeZoomTimer) clearTimeout(_resizeZoomTimer);
+    _resizeZoomTimer = setTimeout(() => {
+      if (!win.isDestroyed() && win.webContents.getZoomLevel() !== _currentZoom) {
+        win.webContents.setZoomLevel(_currentZoom);
+      }
+      _resizeZoomTimer = null;
+    }, 150);
+  };
+  
   win.on('resize', () => {
     const [width, height] = win.getSize();
     if (width < MIN_WINDOW_WIDTH || height < MIN_WINDOW_HEIGHT) {
       win.setSize(Math.max(width, MIN_WINDOW_WIDTH), Math.max(height, MIN_WINDOW_HEIGHT));
     }
     // Re-apply current zoom: Chromium can silently reset zoom level when window resizes
-    if (_resizeZoomTimer) clearTimeout(_resizeZoomTimer);
-    _resizeZoomTimer = setTimeout(() => {
-      if (!win.isDestroyed()) {
-        if (win.webContents.getZoomLevel() !== _currentZoom) {
-          win.webContents.setZoomLevel(_currentZoom);
-        }
-      }
-    }, 150);
+    debouncedZoomReapply();
   });
 
   // Also prevent moves that would resize
