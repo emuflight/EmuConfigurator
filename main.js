@@ -212,11 +212,16 @@ function loadZoomLevel() {
   return DEFAULT_ZOOM_LEVEL;
 }
 
+// Clamp zoom level to valid range [MIN_ZOOM_LEVEL, MAX_ZOOM_LEVEL]
+function clampZoom(level) {
+  return Math.max(MIN_ZOOM_LEVEL, Math.min(MAX_ZOOM_LEVEL, level));
+}
+
 // Save zoom level to config file
 function saveZoomLevel(level) {
   try {
     ensureConfigDir();
-    const clampedLevel = Math.max(MIN_ZOOM_LEVEL, Math.min(MAX_ZOOM_LEVEL, level));
+    const clampedLevel = clampZoom(level);
     fs.writeFileSync(ZOOM_CONFIG_FILE, JSON.stringify({ zoomLevel: clampedLevel }, null, 2));
   } catch (e) {
     console.error('Failed to save zoom config:', e);
@@ -928,7 +933,7 @@ function createWindow() {
     if (_resizeZoomTimer) clearTimeout(_resizeZoomTimer);
       _resizeZoomTimer = setTimeout(() => {
         if (!win.isDestroyed()) {
-        const savedZoom = Math.max(MIN_ZOOM_LEVEL, Math.min(MAX_ZOOM_LEVEL, loadZoomLevel()));
+        const savedZoom = clampZoom(loadZoomLevel());
         if (win.webContents.getZoomLevel() !== savedZoom) {
           win.webContents.setZoomLevel(savedZoom);
         }
@@ -955,14 +960,14 @@ function createWindow() {
     }
     
     // Load saved zoom level or use default (Ctrl+0 actual size)
-    const savedZoom = Math.max(MIN_ZOOM_LEVEL, Math.min(MAX_ZOOM_LEVEL, loadZoomLevel()));
+    const savedZoom = clampZoom(loadZoomLevel());
     win.webContents.setZoomLevel(savedZoom);
   });
   
   // Save zoom level when it changes (e.g., Ctrl+Plus, Ctrl+Minus, Ctrl+0)
   win.webContents.on('zoom-changed', (_event, direction) => {
     const newLevel = win.webContents.getZoomLevel();
-    const clampedLevel = Math.max(MIN_ZOOM_LEVEL, Math.min(MAX_ZOOM_LEVEL, newLevel));
+    const clampedLevel = clampZoom(newLevel);
     if (newLevel !== clampedLevel) {
       win.webContents.setZoomLevel(clampedLevel);
     }
@@ -976,6 +981,8 @@ function createWindow() {
       shell.openExternal(url);
       return { action: 'deny' }; // Prevent Electron from opening its own window
     }
+    // Deny all other URLs (file://, app://, etc.) to avoid Electron's "response must be an object" console error
+    return { action: 'deny' };
   });
 
   // Clear resize timer on window close to prevent lingering references
@@ -992,7 +999,7 @@ function createWindow() {
       if (!win.isDestroyed()) {
         const currentZoom = win.webContents.getZoomLevel();
         const targetZoom = loadZoomLevel();
-        const clampedZoom = Math.max(MIN_ZOOM_LEVEL, Math.min(MAX_ZOOM_LEVEL, targetZoom));
+        const clampedZoom = clampZoom(targetZoom);
         if (currentZoom !== clampedZoom) {
           win.webContents.setZoomLevel(clampedZoom);
         }
@@ -1005,7 +1012,7 @@ function createWindow() {
       if (!win.isDestroyed()) {
         const currentZoom = win.webContents.getZoomLevel();
         const targetZoom = loadZoomLevel();
-        const clampedZoom = Math.max(MIN_ZOOM_LEVEL, Math.min(MAX_ZOOM_LEVEL, targetZoom));
+        const clampedZoom = clampZoom(targetZoom);
         if (currentZoom !== clampedZoom) {
           win.webContents.setZoomLevel(clampedZoom);
         }
@@ -1021,17 +1028,17 @@ function createWindow() {
     const code = input.code;
     if (code === 'Equal' || code === 'NumpadAdd') {
       event.preventDefault();
-      const level = Math.min(MAX_ZOOM_LEVEL, win.webContents.getZoomLevel() + 1);
+      const level = clampZoom(win.webContents.getZoomLevel() + 1);
       win.webContents.setZoomLevel(level);
       saveZoomLevel(level);
     } else if (code === 'Minus' || code === 'NumpadSubtract') {
       event.preventDefault();
-      const level = Math.max(MIN_ZOOM_LEVEL, win.webContents.getZoomLevel() - 1);
+      const level = clampZoom(win.webContents.getZoomLevel() - 1);
       win.webContents.setZoomLevel(level);
       saveZoomLevel(level);
     } else if (code === 'Digit0' || code === 'Numpad0') {
       event.preventDefault();
-      const level = Math.max(MIN_ZOOM_LEVEL, Math.min(MAX_ZOOM_LEVEL, DEFAULT_ZOOM_LEVEL));
+      const level = clampZoom(DEFAULT_ZOOM_LEVEL);
       win.webContents.setZoomLevel(level);
       saveZoomLevel(level);
     }
