@@ -113,9 +113,27 @@ function setupMenu(buildMode) {
         { role: 'forceReload' },
         { type: 'separator' },
         { role: 'togglefullscreen' },
-        { role: 'resetZoom' },
-        { role: 'zoomIn' },
-        { role: 'zoomOut' },
+        {
+          label: 'Actual Size',
+          click: () => {
+            const w = BrowserWindow.getFocusedWindow();
+            applyZoom(w, DEFAULT_ZOOM_LEVEL);
+          }
+        },
+        {
+          label: 'Zoom In',
+          click: () => {
+            const w = BrowserWindow.getFocusedWindow();
+            applyZoom(w, _currentZoom + 1);
+          }
+        },
+        {
+          label: 'Zoom Out',
+          click: () => {
+            const w = BrowserWindow.getFocusedWindow();
+            applyZoom(w, _currentZoom - 1);
+          }
+        },
         ...(showDevTools ? [
           { type: 'separator' },
           { role: 'toggleDevTools', label: 'Toggle Developer Tools' }
@@ -194,6 +212,7 @@ const MAX_ZOOM_LEVEL = 9;
 // In-memory zoom level — single source of truth; avoids disk reads on resize
 // and eliminates races between the F12 handler and devtools-opened/closed handlers.
 let _currentZoom = DEFAULT_ZOOM_LEVEL;
+let _devtoolsZoomTimer = null; // shared timer for devtools-opened/closed zoom restore (prevents timer leaks)
 
 // Ensure config directory exists
 function ensureConfigDir() {
@@ -230,6 +249,15 @@ function saveZoomLevel(level) {
   } catch (e) {
     console.error('Failed to save zoom config:', e);
   }
+}
+
+// Apply and persist a zoom change: clamps, updates in-memory state, sets webContents level, saves to disk.
+function applyZoom(win, level) {
+  if (!win || win.isDestroyed()) return;
+  const clamped = clampZoom(level);
+  _currentZoom = clamped;
+  win.webContents.setZoomLevel(clamped);
+  saveZoomLevel(clamped);
 }
 
 function getInitialWindowBounds() {
@@ -908,25 +936,14 @@ function createWindow() {
   // Enforce minimum window size multiple ways for cross-platform compatibility
   win.setMinimumSize(MIN_WINDOW_WIDTH, MIN_WINDOW_HEIGHT);
 
-  // Register F12 as global shortcut to toggle DevTools while preserving zoom
+  // Register F12 as global shortcut to toggle DevTools.
+  // Zoom is preserved by the devtools-opened/devtools-closed handlers via _currentZoom.
   globalShortcut.register('F12', () => {
-    // Store current zoom before toggling DevTools (DevTools toggle can reset zoom)
-    const currentZoom = win.webContents.getZoomLevel();
-    
     if (win.webContents.isDevToolsOpened()) {
       win.webContents.closeDevTools();
     } else {
       win.webContents.openDevTools();
     }
-    
-    // Restore zoom level after toggling DevTools
-    setTimeout(() => {
-      if (win.isDestroyed()) return;
-      const safeZoom = clampZoom(currentZoom);
-      _currentZoom = safeZoom;
-      win.webContents.setZoomLevel(safeZoom);
-      saveZoomLevel(safeZoom); // Persist the zoom level
-    }, 150);
   });
 
   // Active enforcement: if window size falls below minimum after any resize, restore it
@@ -993,57 +1010,52 @@ function createWindow() {
     return { action: 'deny' };
   });
 
-  // Clear resize timer on window close to prevent lingering references
+  // Clear all timers on window close to prevent lingering references
   win.on('closed', () => {
     if (_resizeZoomTimer) {
       clearTimeout(_resizeZoomTimer);
       _resizeZoomTimer = null;
     }
+    if (_devtoolsZoomTimer) {
+      clearTimeout(_devtoolsZoomTimer);
+      _devtoolsZoomTimer = null;
+    }
   });
 
   // Re-apply current zoom when DevTools opens/closes (Electron/Chromium can reset zoom on DevTools operations)
+  // Both events share _devtoolsZoomTimer so rapid open/close doesn't leak multiple timers.
   win.webContents.on('devtools-opened', () => {
-    setTimeout(() => {
-      if (!win.isDestroyed() && win.webContents.getZoomLevel() !== _currentZoom) {
-        win.webContents.setZoomLevel(_currentZoom);
-      }
+    if (_devtoolsZoomTimer) clearTimeout(_devtoolsZoomTimer);
+    _devtoolsZoomTimer = setTimeout(() => {
+      applyZoom(win, _currentZoom);
     }, 150);
   });
 
   win.webContents.on('devtools-closed', () => {
-    setTimeout(() => {
-      if (!win.isDestroyed() && win.webContents.getZoomLevel() !== _currentZoom) {
-        win.webContents.setZoomLevel(_currentZoom);
-      }
+    if (_devtoolsZoomTimer) clearTimeout(_devtoolsZoomTimer);
+    _devtoolsZoomTimer = setTimeout(() => {
+      applyZoom(win, _currentZoom);
     }, 150);
   });
 
-  // Handle zoom keyboard shortcuts via before-input-event so numpad keys and no-shift
-  // variants work reliably. event.preventDefault() suppresses the menu role accelerator
-  // so only this handler fires for keyboard-triggered zoom changes.
+  // Handle zoom keyboard shortcuts via before-input-event so numpad keys and Shift+Equal
+  // (Ctrl++ on US keyboards) work reliably. event.preventDefault() suppresses the menu
+  // accelerator so only this handler fires for keyboard-triggered zoom changes.
+  // Note: setZoomLevel() does NOT emit 'zoom-changed'; applyZoom() handles _currentZoom
+  // update and saveZoomLevel() directly so persistence and resize-recovery work correctly.
   win.webContents.on('before-input-event', (event, input) => {
-    if (input.type !== 'keyDown' || !(input.control || input.meta) || input.shift || input.alt) return;
+    if (input.type !== 'keyDown' || !(input.control || input.meta) || input.alt) return;
     const code = input.code;
-    // Note: setZoomLevel() does NOT emit 'zoom-changed', so we must update _currentZoom
-    // and call saveZoomLevel() here directly for persistence and resize-recovery to work.
     if (code === 'Equal' || code === 'NumpadAdd') {
+      // Accepts Ctrl+= and Ctrl++ (Shift+Equal) for zoom in
       event.preventDefault();
-      const level = clampZoom(win.webContents.getZoomLevel() + 1);
-      win.webContents.setZoomLevel(level);
-      _currentZoom = level;
-      saveZoomLevel(level);
+      applyZoom(win, _currentZoom + 1);
     } else if (code === 'Minus' || code === 'NumpadSubtract') {
       event.preventDefault();
-      const level = clampZoom(win.webContents.getZoomLevel() - 1);
-      win.webContents.setZoomLevel(level);
-      _currentZoom = level;
-      saveZoomLevel(level);
+      applyZoom(win, _currentZoom - 1);
     } else if (code === 'Digit0' || code === 'Numpad0') {
       event.preventDefault();
-      const level = clampZoom(DEFAULT_ZOOM_LEVEL);
-      win.webContents.setZoomLevel(level);
-      _currentZoom = level;
-      saveZoomLevel(level);
+      applyZoom(win, DEFAULT_ZOOM_LEVEL);
     }
   });
 
