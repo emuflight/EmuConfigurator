@@ -191,6 +191,11 @@ const DEFAULT_ZOOM_LEVEL = 0; // Ctrl+0 actual size
 const MIN_ZOOM_LEVEL = -9;
 const MAX_ZOOM_LEVEL = 9;
 
+// Zoom cache coordination: prevents race between F12 handler and devtools-opened/closed handlers
+let _zoomRecentlySaved = false;     // Flag indicating F12 handler just saved zoom
+let _cachedZoom = DEFAULT_ZOOM_LEVEL; // Cached zoom from F12 handler
+let _zoomCacheTimer = null;         // Timer to clear the cache flag after debounce
+
 // Ensure config directory exists
 function ensureConfigDir() {
   if (!fs.existsSync(CONFIG_DIR)) {
@@ -909,6 +914,11 @@ function createWindow() {
     // Store current zoom before toggling DevTools (DevTools toggle can reset zoom)
     const currentZoom = win.webContents.getZoomLevel();
     
+    // Signal to devtools handlers that we're managing zoom to avoid race condition
+    _zoomRecentlySaved = true;
+    _cachedZoom = currentZoom;
+    if (_zoomCacheTimer) clearTimeout(_zoomCacheTimer);
+    
     if (win.webContents.isDevToolsOpened()) {
       win.webContents.closeDevTools();
     } else {
@@ -920,6 +930,11 @@ function createWindow() {
       win.webContents.setZoomLevel(currentZoom);
       saveZoomLevel(currentZoom); // Persist the zoom level
     }, 150);
+    
+    // Clear the zoom cache flag after debounce so normal devtools handlers resume
+    _zoomCacheTimer = setTimeout(() => {
+      _zoomRecentlySaved = false;
+    }, 250);
   });
 
   // Active enforcement: if window size falls below minimum after any resize, restore it
@@ -997,8 +1012,9 @@ function createWindow() {
   win.webContents.on('devtools-opened', () => {
     setTimeout(() => {
       if (!win.isDestroyed()) {
+        // If F12 handler recently saved zoom, use cached value instead of loading from disk
         const currentZoom = win.webContents.getZoomLevel();
-        const targetZoom = loadZoomLevel();
+        const targetZoom = _zoomRecentlySaved ? _cachedZoom : loadZoomLevel();
         const clampedZoom = clampZoom(targetZoom);
         if (currentZoom !== clampedZoom) {
           win.webContents.setZoomLevel(clampedZoom);
@@ -1010,8 +1026,9 @@ function createWindow() {
   win.webContents.on('devtools-closed', () => {
     setTimeout(() => {
       if (!win.isDestroyed()) {
+        // If F12 handler recently saved zoom, use cached value instead of loading from disk
         const currentZoom = win.webContents.getZoomLevel();
-        const targetZoom = loadZoomLevel();
+        const targetZoom = _zoomRecentlySaved ? _cachedZoom : loadZoomLevel();
         const clampedZoom = clampZoom(targetZoom);
         if (currentZoom !== clampedZoom) {
           win.webContents.setZoomLevel(clampedZoom);
