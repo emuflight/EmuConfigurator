@@ -354,7 +354,10 @@ TABS.firmware_flasher.initialize = function (callback) {
                 }
 
                 // Assume flashing latest, so default to it.
-                versions_e.prop("selectedIndex", 1).change();
+                var firstOption = versions_e.find('option[value!="0"]').first();
+                if (firstOption.length > 0) {
+                    versions_e.val(firstOption.val()).change();
+                }
             }
             chrome.storage.local.set({'selected_board': target});
         });
