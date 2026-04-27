@@ -837,26 +837,41 @@ ipcMain.handle('usb-reset-device', async (event, deviceKey) => {
 // --- File system dialog IPC bridge ---
 const { dialog } = require('electron');
 
-// IPC: show save file dialog
+// IPC: show open/save file dialog; persists last-used folder across sessions
 ipcMain.handle('dialog:choose-entry', async (event, options) => {
   const { type, suggestedName, accepts } = options;
+  const { lastDialogFolder } = loadConfig();
 
   if (type === 'saveFile') {
     const filters = accepts ? accepts.map(a => ({ name: a.description, extensions: a.extensions })) : [];
-    return await dialog.showSaveDialog({
-      defaultPath: suggestedName,
+    // Prefer last-used folder; fall back to suggestedName (which may itself be a filename only)
+    const defaultPath = lastDialogFolder
+      ? path.join(lastDialogFolder, suggestedName || '')
+      : suggestedName;
+    const result = await dialog.showSaveDialog({
+      defaultPath,
       filters: filters.length > 0 ? filters : undefined,
     });
+    if (!result.canceled && result.filePath) {
+      saveConfig({ lastDialogFolder: path.dirname(result.filePath) });
+    }
+    return result;
   } else if (type === 'openFile') {
     const openFilters = accepts
       ? accepts.filter(a => Array.isArray(a.extensions) && a.extensions.length > 0)
                .map(a => ({ name: a.description, extensions: a.extensions }))
       : [];
-    return await dialog.showOpenDialog({
-      defaultPath: suggestedName,
+    // Use last-used folder as defaultPath; suggestedName is rarely set for openFile
+    const defaultPath = lastDialogFolder || suggestedName;
+    const result = await dialog.showOpenDialog({
+      defaultPath,
       filters: openFilters,
       properties: ['openFile'],
     });
+    if (!result.canceled && result.filePaths && result.filePaths[0]) {
+      saveConfig({ lastDialogFolder: path.dirname(result.filePaths[0]) });
+    }
+    return result;
   }
   return { canceled: true };
 });
