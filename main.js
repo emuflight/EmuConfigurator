@@ -204,6 +204,8 @@ const MIN_WINDOW_WIDTH = 1024;
 const MIN_WINDOW_HEIGHT = 550;
 const PREFERRED_WINDOW_WIDTH = 1700;
 const PREFERRED_WINDOW_HEIGHT = 1080;
+const MIN_VISIBLE_HORIZONTAL_OVERLAP = 200; // px required on-screen so the user can grab/move the window
+const MIN_TITLE_BAR_GRAB_HEIGHT = 30;       // px of title bar that must be within the workArea
 
 // Zoom level persistence
 const CONFIG_DIR = path.join(app.getPath('userData'), 'config');
@@ -318,11 +320,13 @@ function isValidWindowBounds(bounds) {
   }
   return screen.getAllDisplays().some(display => {
     const wa = display.workArea;
-    // Title bar must be within the display's work area vertically
-    const titleBarVisible = bounds.y >= wa.y && bounds.y < wa.y + wa.height;
+    // Enough of the title bar must be within the workArea to be grabbable
+    const titleBarVisible =
+      bounds.y >= wa.y &&
+      bounds.y + MIN_TITLE_BAR_GRAB_HEIGHT <= wa.y + wa.height;
     // Window must have meaningful horizontal overlap (not just a sliver)
     const horizontalOverlap =
-      Math.min(bounds.x + bounds.width, wa.x + wa.width) - Math.max(bounds.x, wa.x) > 200;
+      Math.min(bounds.x + bounds.width, wa.x + wa.width) - Math.max(bounds.x, wa.x) > MIN_VISIBLE_HORIZONTAL_OVERLAP;
     return titleBarVisible && horizontalOverlap;
   });
 }
@@ -1099,13 +1103,12 @@ function createWindow() {
     return { action: 'deny' };
   });
 
-  // Save window bounds and maximized state before the window is destroyed.
+  // Save window bounds and maximized state on close.
+  // 'close' fires before the window is destroyed, so getNormalBounds() is always safe here.
   // getNormalBounds() returns the pre-maximize size so restoring normal bounds
   // works correctly even when closing while maximized.
   win.on('close', () => {
-    if (!win.isDestroyed()) {
-      saveConfig({ isMaximized: win.isMaximized(), windowBounds: win.getNormalBounds() });
-    }
+    saveConfig({ isMaximized: win.isMaximized(), windowBounds: win.getNormalBounds() });
   });
 
   // Clear all timers, unregister shortcuts, and release window reference on close
