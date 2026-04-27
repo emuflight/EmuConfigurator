@@ -208,7 +208,6 @@ const PREFERRED_WINDOW_HEIGHT = 1080;
 // Zoom level persistence
 const CONFIG_DIR = path.join(app.getPath('userData'), 'config');
 const APP_CONFIG_FILE = path.join(CONFIG_DIR, 'config.json');  // unified config: zoom, lastDialogFolder, etc.
-const ZOOM_CONFIG_FILE = path.join(CONFIG_DIR, 'zoom.json');  // deprecated; kept for backward compatibility
 const DEFAULT_ZOOM_LEVEL = 0; // Ctrl+0 actual size
 const MIN_ZOOM_LEVEL = -9;
 const MAX_ZOOM_LEVEL = 9;
@@ -231,7 +230,6 @@ function clampZoom(level) {
 }
 
 // Load unified app config (zoom level, last dialog folder, etc.)
-// On first run after migration from zoom.json, reads legacy ZOOM_CONFIG_FILE to preserve saved zoom level.
 function loadConfig() {
   try {
     if (fs.existsSync(APP_CONFIG_FILE)) {
@@ -240,15 +238,6 @@ function loadConfig() {
       return {
         zoomLevel: typeof config.zoomLevel === 'number' ? config.zoomLevel : DEFAULT_ZOOM_LEVEL,
         lastDialogFolder: typeof config.lastDialogFolder === 'string' ? config.lastDialogFolder : '',
-      };
-    }
-    // Migration path: config.json not yet written — recover zoom level from legacy zoom.json if present
-    if (fs.existsSync(ZOOM_CONFIG_FILE)) {
-      const data = fs.readFileSync(ZOOM_CONFIG_FILE, 'utf8');
-      const legacy = JSON.parse(data);
-      return {
-        zoomLevel: typeof legacy.zoomLevel === 'number' ? legacy.zoomLevel : DEFAULT_ZOOM_LEVEL,
-        lastDialogFolder: '',
       };
     }
   } catch (e) {
