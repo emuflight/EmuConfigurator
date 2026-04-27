@@ -207,7 +207,7 @@ const PREFERRED_WINDOW_HEIGHT = 1080;
 
 // Zoom level persistence
 const CONFIG_DIR = path.join(app.getPath('userData'), 'config');
-const ZOOM_CONFIG_FILE = path.join(CONFIG_DIR, 'zoom.json');
+const APP_CONFIG_FILE = path.join(CONFIG_DIR, 'config.json');  // unified config: zoom, lastDialogFolder, etc.
 const DEFAULT_ZOOM_LEVEL = 0; // Ctrl+0 actual size
 const MIN_ZOOM_LEVEL = -9;
 const MAX_ZOOM_LEVEL = 9;
@@ -223,42 +223,45 @@ function ensureConfigDir() {
   }
 }
 
-// Load zoom level from config file
-function loadZoomLevel() {
-  try {
-    if (fs.existsSync(ZOOM_CONFIG_FILE)) {
-      const data = fs.readFileSync(ZOOM_CONFIG_FILE, 'utf8');
-      const config = JSON.parse(data);
-      return typeof config.zoomLevel === 'number' ? config.zoomLevel : DEFAULT_ZOOM_LEVEL;
-    }
-  } catch (e) {
-    console.error('Failed to load zoom config:', e);
-  }
-  return DEFAULT_ZOOM_LEVEL;
-}
-
 // Clamp zoom level to valid range [MIN_ZOOM_LEVEL, MAX_ZOOM_LEVEL]
 function clampZoom(level) {
   const n = Number(level);
   return Math.max(MIN_ZOOM_LEVEL, Math.min(MAX_ZOOM_LEVEL, Number.isNaN(n) ? DEFAULT_ZOOM_LEVEL : n));
 }
 
-// Save zoom level to config file
-function saveZoomLevel(level) {
+// Load unified app config (zoom level, last dialog folder, etc.)
+function loadConfig() {
   try {
-    ensureConfigDir();
-    const clampedLevel = clampZoom(level);
-    fs.writeFileSync(ZOOM_CONFIG_FILE, JSON.stringify({ zoomLevel: clampedLevel }, null, 2));
+    if (fs.existsSync(APP_CONFIG_FILE)) {
+      const data = fs.readFileSync(APP_CONFIG_FILE, 'utf8');
+      const config = JSON.parse(data);
+      return {
+        zoomLevel: typeof config.zoomLevel === 'number' ? config.zoomLevel : DEFAULT_ZOOM_LEVEL,
+        lastDialogFolder: typeof config.lastDialogFolder === 'string' ? config.lastDialogFolder : '',
+      };
+    }
   } catch (e) {
-    console.error('Failed to save zoom config:', e);
+    console.error('Failed to load app config:', e);
   }
+  return { zoomLevel: DEFAULT_ZOOM_LEVEL, lastDialogFolder: '' };
 }
 
-// Apply zoom to webContents.
-function setWebContentsZoom(win, level) {
-  if (!win || win.isDestroyed() || !win.webContents) return false;
-  win.webContents.setZoomLevel(level);
-  return true;
+// Save unified app config (sanitizes known fields, merges with existing config)
+function saveConfig(patch) {
+  try {
+    ensureConfigDir();
+    const sanitizedPatch = {};
+    if ('zoomLevel' in patch) {
+      sanitizedPatch.zoomLevel = clampZoom(patch.zoomLevel);
+    }
+    if ('lastDialogFolder' in patch) {
+      sanitizedPatch.lastDialogFolder = typeof patch.lastDialogFolder === 'string' ? patch.lastDialogFolder : '';
+    }
+    const existing = loadConfig();
+    fs.writeFileSync(APP_CONFIG_FILE, JSON.stringify({ ...existing, ...sanitizedPatch }, null, 2));
+  } catch (e) {
+    console.error('Failed to save app config:', e);
+  }
 }
 
 // Apply and persist a zoom change: clamps, updates in-memory state, sets webContents level, saves to disk.
@@ -268,9 +271,9 @@ function applyZoom(win, level) {
   const previous = _currentZoom;
   const clamped = clampZoom(level);
   _currentZoom = clamped;
-  setWebContentsZoom(win, clamped);
+  win.webContents.setZoomLevel(clamped);
   if (clamped !== previous) {
-    saveZoomLevel(clamped);
+    saveConfig({ zoomLevel: clamped });
   }
 }
 
@@ -833,26 +836,41 @@ ipcMain.handle('usb-reset-device', async (event, deviceKey) => {
 // --- File system dialog IPC bridge ---
 const { dialog } = require('electron');
 
-// IPC: show save file dialog
+// IPC: show open/save file dialog; persists last-used folder across sessions
 ipcMain.handle('dialog:choose-entry', async (event, options) => {
   const { type, suggestedName, accepts } = options;
+  const { lastDialogFolder } = loadConfig();
 
   if (type === 'saveFile') {
     const filters = accepts ? accepts.map(a => ({ name: a.description, extensions: a.extensions })) : [];
-    return await dialog.showSaveDialog({
-      defaultPath: suggestedName,
+    // Prefer last-used folder; fall back to suggestedName (which may itself be a filename only)
+    const defaultPath = lastDialogFolder
+      ? path.join(lastDialogFolder, suggestedName || '')
+      : suggestedName;
+    const result = await dialog.showSaveDialog({
+      defaultPath,
       filters: filters.length > 0 ? filters : undefined,
     });
+    if (!result.canceled && result.filePath) {
+      saveConfig({ lastDialogFolder: path.dirname(result.filePath) });
+    }
+    return result;
   } else if (type === 'openFile') {
     const openFilters = accepts
       ? accepts.filter(a => Array.isArray(a.extensions) && a.extensions.length > 0)
                .map(a => ({ name: a.description, extensions: a.extensions }))
       : [];
-    return await dialog.showOpenDialog({
-      defaultPath: suggestedName,
+    // Use last-used folder as defaultPath; suggestedName is rarely set for openFile
+    const defaultPath = lastDialogFolder || suggestedName;
+    const result = await dialog.showOpenDialog({
+      defaultPath,
       filters: openFilters,
       properties: ['openFile'],
     });
+    if (!result.canceled && result.filePaths && result.filePaths[0]) {
+      saveConfig({ lastDialogFolder: path.dirname(result.filePaths[0]) });
+    }
+    return result;
   }
   return { canceled: true };
 });
@@ -1009,7 +1027,7 @@ function createWindow() {
     }
     
     // Load saved zoom level or use default (Ctrl+0 actual size)
-    applyZoom(win, loadZoomLevel());
+    applyZoom(win, loadConfig().zoomLevel);
   });
   
   // Save zoom level when it changes (e.g., mouse-wheel / pinch zoom)
@@ -1064,7 +1082,7 @@ function createWindow() {
   // (Ctrl++ on US keyboards) work reliably. event.preventDefault() suppresses the menu
   // accelerator so only this handler fires for keyboard-triggered zoom changes.
   // Note: setZoomLevel() does NOT emit 'zoom-changed'; applyZoom() handles _currentZoom
-  // update and saveZoomLevel() directly so persistence and resize-recovery work correctly.
+  // update and saveConfig() directly so persistence and resize-recovery work correctly.
   win.webContents.on('before-input-event', (event, input) => {
     if (input.type !== 'keyDown' || !(input.control || input.meta) || input.alt) return;
     const code = input.code;
