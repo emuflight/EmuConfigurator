@@ -229,21 +229,25 @@ function clampZoom(level) {
   return Math.max(MIN_ZOOM_LEVEL, Math.min(MAX_ZOOM_LEVEL, Number.isNaN(n) ? DEFAULT_ZOOM_LEVEL : n));
 }
 
-// Load unified app config (zoom level, last dialog folder, etc.)
+// Load unified app config (zoom level, last dialog folder, window bounds, etc.)
 function loadConfig() {
   try {
     if (fs.existsSync(APP_CONFIG_FILE)) {
       const data = fs.readFileSync(APP_CONFIG_FILE, 'utf8');
       const config = JSON.parse(data);
+      const wb = config.windowBounds;
       return {
         zoomLevel: typeof config.zoomLevel === 'number' ? config.zoomLevel : DEFAULT_ZOOM_LEVEL,
         lastDialogFolder: typeof config.lastDialogFolder === 'string' ? config.lastDialogFolder : '',
+        windowBounds: (wb && typeof wb.x === 'number' && typeof wb.y === 'number' &&
+                       typeof wb.width === 'number' && typeof wb.height === 'number') ? wb : null,
+        isMaximized: typeof config.isMaximized === 'boolean' ? config.isMaximized : false,
       };
     }
   } catch (e) {
     console.error('Failed to load app config:', e);
   }
-  return { zoomLevel: DEFAULT_ZOOM_LEVEL, lastDialogFolder: '' };
+  return { zoomLevel: DEFAULT_ZOOM_LEVEL, lastDialogFolder: '', windowBounds: null, isMaximized: false };
 }
 
 // Save unified app config (sanitizes known fields, merges with existing config)
@@ -256,6 +260,17 @@ function saveConfig(patch) {
     }
     if ('lastDialogFolder' in patch) {
       sanitizedPatch.lastDialogFolder = typeof patch.lastDialogFolder === 'string' ? patch.lastDialogFolder : '';
+    }
+    if ('windowBounds' in patch) {
+      const b = patch.windowBounds;
+      if (b && typeof b.x === 'number' && typeof b.y === 'number' &&
+          typeof b.width === 'number' && typeof b.height === 'number' &&
+          b.width >= MIN_WINDOW_WIDTH && b.height >= MIN_WINDOW_HEIGHT) {
+        sanitizedPatch.windowBounds = { x: b.x, y: b.y, width: b.width, height: b.height };
+      }
+    }
+    if ('isMaximized' in patch) {
+      sanitizedPatch.isMaximized = Boolean(patch.isMaximized);
     }
     const existing = loadConfig();
     fs.writeFileSync(APP_CONFIG_FILE, JSON.stringify({ ...existing, ...sanitizedPatch }, null, 2));
@@ -289,6 +304,36 @@ function getInitialWindowBounds() {
     x: workArea.x + Math.max(0, Math.floor((workArea.width - width) / 2)),
     y: workArea.y + Math.max(0, Math.floor((workArea.height - height) / 2)),
   };
+}
+
+// Returns true if the given bounds have sufficient overlap with at least one display
+// to ensure the window is visible and grabbable after a monitor configuration change.
+function isValidWindowBounds(bounds) {
+  if (!bounds || typeof bounds.x !== 'number' || typeof bounds.y !== 'number' ||
+      typeof bounds.width !== 'number' || typeof bounds.height !== 'number') {
+    return false;
+  }
+  if (bounds.width < MIN_WINDOW_WIDTH || bounds.height < MIN_WINDOW_HEIGHT) {
+    return false;
+  }
+  return screen.getAllDisplays().some(display => {
+    const wa = display.workArea;
+    const overlapX = Math.max(0, Math.min(bounds.x + bounds.width, wa.x + wa.width) - Math.max(bounds.x, wa.x));
+    const overlapY = Math.max(0, Math.min(bounds.y + bounds.height, wa.y + wa.height) - Math.max(bounds.y, wa.y));
+    // Require enough overlap so the title bar is reachable
+    return overlapX >= 100 && overlapY >= 50;
+  });
+}
+
+// Returns startup bounds: saved position/size if valid, otherwise full work area (first launch).
+function getStartupWindowBounds(config) {
+  if (config.windowBounds && isValidWindowBounds(config.windowBounds)) {
+    return config.windowBounds;
+  }
+  // First launch or invalid saved bounds: fill the available work area
+  const display = screen.getDisplayNearestPoint(screen.getCursorScreenPoint());
+  const workArea = display.workArea;
+  return { x: workArea.x, y: workArea.y, width: workArea.width, height: workArea.height };
 }
 
 function resetWindowToPreferredBounds(win) {
@@ -946,7 +991,8 @@ ipcMain.handle('dialog:truncate-file', async (event, filePath, size) => {
 function createWindow() {
   const buildMode = getBuildMode();
   setupMenu(buildMode);
-  const initialBounds = getInitialWindowBounds();
+  const startupConfig = loadConfig();
+  const initialBounds = getStartupWindowBounds(startupConfig);
 
   const windowIconPath = getWindowIconPath();
 
@@ -964,6 +1010,11 @@ function createWindow() {
     },
     icon: windowIconPath,
   });
+
+  // Restore maximized state from last session
+  if (startupConfig.isMaximized) {
+    win.maximize();
+  }
 
   // Enforce minimum window size multiple ways for cross-platform compatibility
   win.setMinimumSize(MIN_WINDOW_WIDTH, MIN_WINDOW_HEIGHT);
@@ -1044,6 +1095,15 @@ function createWindow() {
     }
     // Deny all other URLs (file://, app://, etc.) to avoid Electron's "response must be an object" console error
     return { action: 'deny' };
+  });
+
+  // Save window bounds and maximized state before the window is destroyed.
+  // getNormalBounds() returns the pre-maximize size so restoring normal bounds
+  // works correctly even when closing while maximized.
+  win.on('close', () => {
+    if (!win.isDestroyed()) {
+      saveConfig({ isMaximized: win.isMaximized(), windowBounds: win.getNormalBounds() });
+    }
   });
 
   // Clear all timers, unregister shortcuts, and release window reference on close
