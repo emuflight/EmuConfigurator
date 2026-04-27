@@ -131,7 +131,7 @@ function setupMenu(buildMode) {
           label: 'Zoom Out',
           click: () => {
             const w = BrowserWindow.getFocusedWindow();
-            applyZoom(w, _currentZoom - 1);
+            if (w) applyZoom(w, _currentZoom - 1);
           }
         },
         ...(showDevTools ? [
@@ -212,7 +212,6 @@ const MAX_ZOOM_LEVEL = 9;
 // In-memory zoom level — single source of truth; avoids disk reads on resize
 // and eliminates races between the F12 handler and devtools-opened/closed handlers.
 let _currentZoom = DEFAULT_ZOOM_LEVEL;
-let _devtoolsZoomTimer = null; // shared timer for devtools-opened/closed zoom restore (prevents timer leaks)
 
 // Ensure config directory exists
 function ensureConfigDir() {
@@ -961,6 +960,7 @@ function createWindow() {
 
   // Active enforcement: if window size falls below minimum after any resize, restore it
   let _resizeZoomTimer = null;
+  let _devtoolsZoomTimer = null; // shared between devtools-opened/closed to prevent timer leaks
   const debouncedZoomReapply = () => {
     if (_resizeZoomTimer) clearTimeout(_resizeZoomTimer);
     _resizeZoomTimer = setTimeout(() => {
