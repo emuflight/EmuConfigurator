@@ -115,6 +115,7 @@ function setupMenu(buildMode) {
         { role: 'togglefullscreen' },
         {
           label: 'Actual Size',
+          accelerator: 'CmdOrCtrl+0',
           click: () => {
             const w = BrowserWindow.getFocusedWindow();
             if (w) applyZoom(w, DEFAULT_ZOOM_LEVEL);
@@ -122,6 +123,7 @@ function setupMenu(buildMode) {
         },
         {
           label: 'Zoom In',
+          accelerator: 'CmdOrCtrl+Plus',
           click: () => {
             const w = BrowserWindow.getFocusedWindow();
             if (w) applyZoom(w, _currentZoom + 1);
@@ -129,6 +131,7 @@ function setupMenu(buildMode) {
         },
         {
           label: 'Zoom Out',
+          accelerator: 'CmdOrCtrl+-',
           click: () => {
             const w = BrowserWindow.getFocusedWindow();
             if (w) applyZoom(w, _currentZoom - 1);
