@@ -76,7 +76,7 @@ function getWindowIconPath() {
 }
 
 // Build modes (set by npm scripts in package.json):
-//   'dev'           - `yarn dev` sets NODE_ENV=development → devtools auto-open + menu item
+//   'dev'           - `yarn dev` sets NODE_ENV=development → devtools menu item (no auto-open)
 //   'dev-release'   - `yarn make:debug` sets EMUCFG_BUILD_MODE=dev-release → all menu items including toggle devtools
 //   'release'       - `yarn make` (default) → all menu items except toggle devtools (inspect only)
 function getBuildMode() {
@@ -948,7 +948,10 @@ function createWindow() {
   win.setMinimumSize(MIN_WINDOW_WIDTH, MIN_WINDOW_HEIGHT);
 
   // Register F12 as global shortcut to toggle DevTools.
+  // Unregister first: if createWindow() is called again (e.g. macOS activate after last window closed),
+  // re-registration would fail silently and the old handler would reference a destroyed window.
   // Zoom is preserved by the devtools-opened/devtools-closed handlers via _currentZoom.
+  globalShortcut.unregister('F12');
   globalShortcut.register('F12', () => {
     if (!win || win.isDestroyed() || !win.webContents) return;
     if (win.webContents.isDevToolsOpened()) {
@@ -1022,8 +1025,9 @@ function createWindow() {
     return { action: 'deny' };
   });
 
-  // Clear all timers and release window reference on close
+  // Clear all timers, unregister shortcuts, and release window reference on close
   win.on('closed', () => {
+    globalShortcut.unregister('F12');
     if (_resizeZoomTimer) {
       clearTimeout(_resizeZoomTimer);
       _resizeZoomTimer = null;
