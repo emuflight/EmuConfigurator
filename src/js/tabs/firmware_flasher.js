@@ -345,8 +345,8 @@ TABS.firmware_flasher.initialize = function (callback) {
                     });
                 }
 
-                // Assume flashing latest, so default to it.
-                versions_e.prop("selectedIndex", 1).change();
+                // Default to first real version for a valid target; keep placeholder (index 0) when no target selected.
+                versions_e.prop("selectedIndex", target == 0 ? 0 : 1).change();
             }
             chrome.storage.local.set({'selected_board': target});
         });
@@ -375,8 +375,13 @@ TABS.firmware_flasher.initialize = function (callback) {
                     return;
                 }
 
-                // hide github info (if it exists)
-                $('div.git_info').slideUp();
+                // Reset board to placeholder; cascades to clear version, hide release info, disable load online.
+                // Snapshot the current board so storage preference survives the local-file session.
+                var savedBoard = $('select[name="board"]').val();
+                $('select[name="board"]').val('0').trigger('change');
+                if (savedBoard && savedBoard !== '0') {
+                    chrome.storage.local.set({'selected_board': savedBoard});
+                }
 
                 chrome.fileSystem.getDisplayPath(fileEntry, function (path) {
                     console.log('Loading file from: ' + path);
