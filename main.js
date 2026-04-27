@@ -252,6 +252,7 @@ function saveZoomLevel(level) {
   } catch (e) {
     console.error('Failed to save zoom config:', e);
   }
+}
 
 // Load unified app config (zoom level, last dialog folder, etc.)
 function loadConfig() {
