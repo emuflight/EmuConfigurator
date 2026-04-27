@@ -207,7 +207,8 @@ const PREFERRED_WINDOW_HEIGHT = 1080;
 
 // Zoom level persistence
 const CONFIG_DIR = path.join(app.getPath('userData'), 'config');
-const ZOOM_CONFIG_FILE = path.join(CONFIG_DIR, 'zoom.json');
+const APP_CONFIG_FILE = path.join(CONFIG_DIR, 'config.json');  // unified config: zoom, lastDialogFolder, etc.
+const ZOOM_CONFIG_FILE = path.join(CONFIG_DIR, 'zoom.json');  // deprecated; kept for backward compatibility
 const DEFAULT_ZOOM_LEVEL = 0; // Ctrl+0 actual size
 const MIN_ZOOM_LEVEL = -9;
 const MAX_ZOOM_LEVEL = 9;
@@ -280,7 +281,6 @@ function saveConfig(patch) {
   } catch (e) {
     console.error('Failed to save app config:', e);
   }
-}
 }
 
 // Apply zoom to webContents.
