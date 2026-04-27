@@ -318,10 +318,12 @@ function isValidWindowBounds(bounds) {
   }
   return screen.getAllDisplays().some(display => {
     const wa = display.workArea;
-    const overlapX = Math.max(0, Math.min(bounds.x + bounds.width, wa.x + wa.width) - Math.max(bounds.x, wa.x));
-    const overlapY = Math.max(0, Math.min(bounds.y + bounds.height, wa.y + wa.height) - Math.max(bounds.y, wa.y));
-    // Require enough overlap so the title bar is reachable
-    return overlapX >= 100 && overlapY >= 50;
+    // Title bar must be within the display's work area vertically
+    const titleBarVisible = bounds.y >= wa.y && bounds.y < wa.y + wa.height;
+    // Window must have meaningful horizontal overlap (not just a sliver)
+    const horizontalOverlap =
+      Math.min(bounds.x + bounds.width, wa.x + wa.width) - Math.max(bounds.x, wa.x) > 200;
+    return titleBarVisible && horizontalOverlap;
   });
 }
 
