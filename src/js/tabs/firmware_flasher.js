@@ -182,7 +182,7 @@ TABS.firmware_flasher.initialize = function (callback) {
                         }
 
                         var date = new Date(release.published_at);
-                        var formattedDate = date.getFullYear() + "-" + ("0"+(date.getMonth()+1)).slice(-2) + "-" + ("0" + date.getDate()).slice(-2) + " " + ("0" + date.getHours()).slice(-2) + ":" + ("0" + date.getMinutes()).slice(-2);
+                        var formattedDate = date.getUTCFullYear() + "-" + ("0"+(date.getUTCMonth()+1)).slice(-2) + "-" + ("0" + date.getUTCDate()).slice(-2) + " " + ("0" + date.getUTCHours()).slice(-2) + ":" + ("0" + date.getUTCMinutes()).slice(-2);
 
                         var displayVersion = (skipVersionFilter && match[1]) ? match[1] : version;
                         var descriptor = {
