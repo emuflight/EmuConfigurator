@@ -70,6 +70,8 @@ module.exports = {
     // Rebuilding it fails on Linux/macOS (node-gyp) and on Windows with the
     // windows-2025 runner (MSVC C2664: string literals passed as char* rejected).
     // It provides icon extraction only; maker-wix degrades gracefully without it.
+    // Versions 1.0.9 and 1.0.10 both fail; no upstream fix yet.
+    // Track: https://github.com/bitdisaster/exe-icon-extractor
     ignoreModules: [
       '@bitdisaster/exe-icon-extractor',
       ...(process.platform === 'linux' ? ['usb'] : []),
