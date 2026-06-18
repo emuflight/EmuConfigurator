@@ -182,18 +182,19 @@ TABS.firmware_flasher.initialize = function (callback) {
                         }
 
                         var date = new Date(release.published_at);
-                        var formattedDate = ("0" + date.getDate()).slice(-2) + "-" + ("0"+(date.getMonth()+1)).slice(-2) + "-" + date.getFullYear() + " " + ("0" + date.getHours()).slice(-2) + ":" + ("0" + date.getMinutes()).slice(-2);
+                        var formattedDate = date.getFullYear() + "-" + ("0"+(date.getMonth()+1)).slice(-2) + "-" + ("0" + date.getDate()).slice(-2) + " " + ("0" + date.getHours()).slice(-2) + ":" + ("0" + date.getMinutes()).slice(-2);
 
                         var displayVersion = (skipVersionFilter && match[1]) ? match[1] : version;
                         var descriptor = {
-                            "releaseUrl": release.html_url,
-                            "name"      : displayVersion,
-                            "version"   : displayVersion,
-                            "url"       : asset.browser_download_url,
-                            "file"      : asset.name,
-                            "target"    : target,
-                            "date"      : formattedDate,
-                            "notes"     : release.body
+                            "releaseUrl"  : release.html_url,
+                            "name"        : displayVersion,
+                            "version"     : displayVersion,
+                            "url"         : asset.browser_download_url,
+                            "file"        : asset.name,
+                            "target"      : target,
+                            "date"        : formattedDate,
+                            "published_at": release.published_at,
+                            "notes"       : release.body
                         };
 
                         // DO NOT LIST FIRMWARE >= 1.0.0
@@ -335,7 +336,9 @@ TABS.firmware_flasher.initialize = function (callback) {
                 } else {
                     versions_e.append($("<option value='0'>{0} {1}</option>".format(i18n.getMessage('firmwareFlasherOptionLabelSelectFirmwareVersionFor'), target)));
 
-                    TABS.firmware_flasher.releases[target].forEach(function(descriptor) {
+                    TABS.firmware_flasher.releases[target].slice().sort(function(a, b) {
+                        return new Date(b.published_at) - new Date(a.published_at);
+                    }).forEach(function(descriptor) {
                         var select_e =
                                 $("<option value='{0}'>{0} - {1} - {2}</option>".format(
                                         descriptor.version,
