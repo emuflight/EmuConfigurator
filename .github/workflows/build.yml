@@ -31,10 +31,10 @@ jobs:
             artifact-suffix: macos-arm64
           - os: macos-26-intel
             artifact-suffix: macos-x86_64
-          - os: windows-2025
+          - os: windows-2022
             artifact-suffix: windows-x64
             arch: x64
-          - os: windows-2025
+          - os: windows-2022
             artifact-suffix: windows-ia32
             arch: ia32
     outputs:
