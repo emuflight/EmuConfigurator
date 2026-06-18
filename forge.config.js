@@ -66,10 +66,14 @@ module.exports = {
     // glibc symbol not exported on Debian glibc 2.34+. Skip the rebuild so node-gyp-build
     // falls through to the clean prebuilt at runtime. usb is NAPI so no ABI concern.
     //
-    // exe-icon-extractor is a Windows-only native module pulled in by maker-wix.
-    // Rebuilding it on Linux/macOS fails node-gyp; skip it on non-Windows.
+    // exe-icon-extractor is an optionalDependency of electron-wix-msi (maker-wix).
+    // Rebuilding it fails on Linux/macOS (node-gyp) and on Windows with the
+    // windows-2025 runner (MSVC C2664: string literals passed as char* rejected).
+    // It provides icon extraction only; maker-wix degrades gracefully without it.
+    // Versions 1.0.9 and 1.0.10 both fail; no upstream fix yet.
+    // Track: https://github.com/bitdisaster/exe-icon-extractor
     ignoreModules: [
-      ...(process.platform !== 'win32' ? ['@bitdisaster/exe-icon-extractor'] : []),
+      '@bitdisaster/exe-icon-extractor',
       ...(process.platform === 'linux' ? ['usb'] : []),
     ],
   },
