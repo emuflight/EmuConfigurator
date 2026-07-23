@@ -1115,7 +1115,7 @@
     "receiverHelpYawDeadband": {
         "message": "Ini adalah nilai (dalam us) dengan berapa banyak masukan RC yang bisa berbeda sebelum dianggap valid. Untuk pemancar dengan jitter pada output, nilai ini dapat ditingkatkan jika input rc berkedut saat idle.<strong>Pengaturan ini hanya untuk Yaw.</strong>"
     },
-    "recevier3dDeadbandThrottle": {
+    "receiver3dDeadbandThrottle": {
         "message": "Deadband Throttle 3D"
     },
     "receiverHelp3dDeadbandThrottle": {

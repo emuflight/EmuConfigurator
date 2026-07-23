@@ -1300,7 +1300,7 @@
     "receiverHelpYawDeadband": {
         "message": "Estes valores (em us) indicam quanto a entrada do RC pode variar antes de ser considerada válida. Para transmissores com saídas instáveis, este valor pode ser aumentado se as entradas RC variam enquanto parado. <strong> Esta configuração afeta somente o Yaw.</strong>"
     },
-    "recevier3dDeadbandThrottle": {
+    "receiver3dDeadbandThrottle": {
         "message": "Zona morta do Acelerador 3D"
     },
     "receiverHelp3dDeadbandThrottle": {

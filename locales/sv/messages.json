@@ -1300,7 +1300,7 @@
     "receiverHelpYawDeadband": {
         "message": "Dessa är värden (i μs) som anger hur mycket RC-input kan förändras innan det anses giltigt. För sändare med brus kan detta värde ökas om RC-inputvärdena rör sig fast reglagen inte används.<strong>Denna inställning gäller endast Gir.</strong>"
     },
-    "recevier3dDeadbandThrottle": {
+    "receiver3dDeadbandThrottle": {
         "message": "3D-trottel dödband"
     },
     "receiverHelp3dDeadbandThrottle": {

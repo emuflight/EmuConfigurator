@@ -1312,7 +1312,7 @@
     "receiverHelpYawDeadband": {
         "message": "この値は、設定値とRC入力がどのくらい差異を許容するかの (自身の) 値です。出力ジッタがある送信機の場合、RC入力がアイドル状態で揺らぎがある場合、この値を大きくしていきます。<strong>この設定はヨー専用です。</strong>"
     },
-    "recevier3dDeadbandThrottle": {
+    "receiver3dDeadbandThrottle": {
         "message": "3Dスロットル デッドバンド"
     },
     "receiverHelp3dDeadbandThrottle": {

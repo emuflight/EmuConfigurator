@@ -1241,7 +1241,7 @@
     "receiverHelpYawDeadband": {
         "message": "Das ist der Bereich (in µs) in dem das Kommando der Funke streuen kann, bevor es als \"echt\" erkannt wird. Der Wert kann vergrößert werden, wenn die übertragenen Werte im Ruhezustand zu sehr zittern. <strong>Betrifft nur die YAW Achse.</strong>"
     },
-    "recevier3dDeadbandThrottle": {
+    "receiver3dDeadbandThrottle": {
         "message": "3D Gas Totzone"
     },
     "receiverHelp3dDeadbandThrottle": {

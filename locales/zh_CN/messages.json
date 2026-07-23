@@ -1321,7 +1321,7 @@
     "receiverHelpYawDeadband": {
         "message": "遥控方向通道输入多少才被飞控认为是有效值，对于输入有抖动的遥控器，可以增加这个值。<strong>这个数值只对方向摇杆有效</strong>"
     },
-    "recevier3dDeadbandThrottle": {
+    "receiver3dDeadbandThrottle": {
         "message": "3D 油门死区"
     },
     "receiverHelp3dDeadbandThrottle": {

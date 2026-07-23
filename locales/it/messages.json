@@ -1177,7 +1177,7 @@
     "receiverHelpYawDeadband": {
         "message": "questi sono i valori (in us) entro cui l'ingresso RC può variare prima che sia considerato valido. Per trasmittenti che hanno valori leggermente altalenanti in uscita, questo valore può essere aumentato se l'ingresso RC si muove troppo quando il comando relativo è fermo. <strong>Questa impostazione è solo per il comando di coda.</strong>"
     },
-    "recevier3dDeadbandThrottle": {
+    "receiver3dDeadbandThrottle": {
         "message": "Punto morto Gas 3D"
     },
     "receiverHelp3dDeadbandThrottle": {

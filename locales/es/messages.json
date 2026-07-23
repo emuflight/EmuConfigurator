@@ -1321,7 +1321,7 @@
     "receiverHelpYawDeadband": {
         "message": "Esto son valores (en us) de cuanto debe ser diferente una entrada RC antes de que sea considerada válida. Para transmisores con inestabilidad en las salidas, este valor puede ser incrementado si las entradas de rc se mueven estando en reposo. <strong>Este ajuste es sólo para el Yaw.</strong>"
     },
-    "recevier3dDeadbandThrottle": {
+    "receiver3dDeadbandThrottle": {
         "message": "Banda Muerta 3D Acelerador"
     },
     "receiverHelp3dDeadbandThrottle": {

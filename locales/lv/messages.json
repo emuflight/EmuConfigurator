@@ -1330,7 +1330,7 @@
     "receiverHelpYawDeadband": {
         "message": "Šīs ir vērtības (us) cik ļoti RC ievade var atšķirties pirms tā var tikt uzskatīta par derīgu. Priekš raidītājiem ar raustītu izvadi, šī vērtība var tikt palielināta, ja rc izvade raustas miera stāvoklī.<strong>Šie iestatījumi ir tikai priekš Yaw.</strong>"
     },
-    "recevier3dDeadbandThrottle": {
+    "receiver3dDeadbandThrottle": {
         "message": "3D droseles neaktīvā josla"
     },
     "receiverHelp3dDeadbandThrottle": {

@@ -1291,7 +1291,7 @@
     "receiverHelpYawDeadband": {
         "message": "Estes son valores (en us) por canta entrada de RC pode ser diferente antes de que se considere válido. Para os transmisores con jitter nas saídas, este valor pódese aumentar cando as entradas rc se contraen mentres está inactivo. <strong> Esta configuración só é para Yaw. </strong>"
     },
-    "recevier3dDeadbandThrottle": {
+    "receiver3dDeadbandThrottle": {
         "message": "Progreso 3D Throttle"
     },
     "receiverHelp3dDeadbandThrottle": {

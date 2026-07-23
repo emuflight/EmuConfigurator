@@ -1300,7 +1300,7 @@
     "receiverHelpYawDeadband": {
         "message": "Ove vrijednosti (u us) određuju koliko RC ulaz mora biti promjenjen da bi se smatrao ispravim. Za stanice koje imaju probleme s trzanjem, ova vrijednost bi trebala biti povećana dok trzaji ne prestanu. <strong>Ova postavka je samo za Yaw</strong>"
     },
-    "recevier3dDeadbandThrottle": {
+    "receiver3dDeadbandThrottle": {
         "message": "3D Gas/Throttle mrtva-zona"
     },
     "receiverHelp3dDeadbandThrottle": {

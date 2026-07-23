@@ -1730,7 +1730,7 @@
     "receiverHelpYawDeadband": {
         "message": "These are values (in us) by how much RC input can be different before it's considered valid. For transmitters with jitter on outputs, this value can be increased if rc inputs twitch while idle. <strong>This setting is for Yaw only.</strong>"
     },
-    "recevier3dDeadbandThrottle": {
+    "receiver3dDeadbandThrottle": {
         "message": "3D Throttle Deadband"
     },
     "receiverHelp3dDeadbandThrottle": {
