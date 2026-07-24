@@ -51,6 +51,7 @@
     "bluebird": "^3.7.2",
     "configstore": "^5.0.1",
     "dot-prop": "^6.0.1",
+    "form-data": "2.5.5",
     "i18next": "^26.3.6",
     "i18next-xhr-backend": "^3.2.2",
     "inflection": "3.0.2",
