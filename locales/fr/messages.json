@@ -3017,42 +3017,6 @@
     "configurationSmallAngleHelp": {
         "message": "L'engin ne sera pas armé s'il est incliné plus que le nombre spécifié en degrés. Ne s'applique que si l'accéléromètre est activé. Le réglage sur 180 désactive le contrôle"
     },
-    "configurationBatteryVoltage": {
-        "message": "Tension batterie"
-    },
-    "configurationBatteryCurrent": {
-        "message": "Courant batterie"
-    },
-    "configurationBatteryMeterType": {
-        "message": "Type de compteur batterie"
-    },
-    "configurationBatteryMinimum": {
-        "message": "Tension minimum des éléments"
-    },
-    "configurationBatteryMaximum": {
-        "message": "Tension maximum des éléments"
-    },
-    "configurationBatteryWarning": {
-        "message": "Avertissement Tension batterie"
-    },
-    "configurationBatteryScale": {
-        "message": "Echelle de Tension"
-    },
-    "configurationCurrentMeterType": {
-        "message": "Type de capteur de courant"
-    },
-    "configurationCurrent": {
-        "message": "Capteur de courant"
-    },
-    "configurationCurrentScale": {
-        "message": "Mettre à l'échelle la tension de sortie en milliampères [1 / 10ème mV / A]"
-    },
-    "configurationCurrentOffset": {
-        "message": "Décalage en millivolt [mV]"
-    },
-    "configurationBatteryMultiwiiCurrent": {
-        "message": "Activer la prise en charge de la sortie de courant MSP Multiwii"
-    },
     "pidTuningProfile": {
         "message": "Profil"
     },

@@ -3066,42 +3066,6 @@
     "configurationSmallAngleHelp": {
         "message": "A aeronave não irá ARMAR se estiver inclinada além do limite de graus especificado. Isto somente será utilizado se o acelerômetro estiver habilitado. Definir um angulo de 180 irá efetivamente desativar esta verificação"
     },
-    "configurationBatteryVoltage": {
-        "message": "Voltagem da Bateria"
-    },
-    "configurationBatteryCurrent": {
-        "message": "Corrente da Bateria"
-    },
-    "configurationBatteryMeterType": {
-        "message": "Tipo de medidor da bateria"
-    },
-    "configurationBatteryMinimum": {
-        "message": "Voltagem mínima da célula"
-    },
-    "configurationBatteryMaximum": {
-        "message": "Voltagem máxima da célula"
-    },
-    "configurationBatteryWarning": {
-        "message": "Voltagem de alerta da célula"
-    },
-    "configurationBatteryScale": {
-        "message": "Escala da voltagem"
-    },
-    "configurationCurrentMeterType": {
-        "message": "Tipo de medidor de corrente"
-    },
-    "configurationCurrent": {
-        "message": "Sensor de corrente"
-    },
-    "configurationCurrentScale": {
-        "message": "Escalar a voltagem de saída para miliamperes [1/10 mV/A]"
-    },
-    "configurationCurrentOffset": {
-        "message": "Offset em passos de milivolts"
-    },
-    "configurationBatteryMultiwiiCurrent": {
-        "message": "Habilitar suporte para saída de corrente Multiwii MSP legado"
-    },
     "pidTuningProfile": {
         "message": "Perfil"
     },

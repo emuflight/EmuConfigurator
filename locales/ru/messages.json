@@ -3240,42 +3240,6 @@
     "configurationSmallAngleHelp": {
         "message": "Коптер не заармится, если он наклонён сильнее, чем указанное значение. Это условие применяется, если включён акселерометр. Значение 180 фактически отключает эту проверку"
     },
-    "configurationBatteryVoltage": {
-        "message": "Напряжение батареи"
-    },
-    "configurationBatteryCurrent": {
-        "message": "Ток батареи"
-    },
-    "configurationBatteryMeterType": {
-        "message": "Tип вольтметра"
-    },
-    "configurationBatteryMinimum": {
-        "message": "Минимальное напряжение элемента"
-    },
-    "configurationBatteryMaximum": {
-        "message": "Максимальное напряжение элемента"
-    },
-    "configurationBatteryWarning": {
-        "message": "Предупредительное напряжение ячейки"
-    },
-    "configurationBatteryScale": {
-        "message": "Шкала напряжения"
-    },
-    "configurationCurrentMeterType": {
-        "message": "Тип датчика тока"
-    },
-    "configurationCurrent": {
-        "message": "Датчик тока"
-    },
-    "configurationCurrentScale": {
-        "message": "Соотношение вых. напряжения и тока [1/10th mV/A]"
-    },
-    "configurationCurrentOffset": {
-        "message": "Смещение в миливольтных шагах"
-    },
-    "configurationBatteryMultiwiiCurrent": {
-        "message": "Включить поддержку для старых Multiwii MSP текущего выхода"
-    },
     "pidTuningProfile": {
         "message": "Профиль"
     },

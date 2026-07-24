@@ -3039,42 +3039,6 @@
     "configurationSmallAngleHelp": {
         "message": "Letjelica se neće Armirati ako je nagnuta više od zadanog broja stupnjeva. Primjenjuje se samo ako je akcelerometar omogućen. Postavljanje ove brojke na 180 će onemogućiti ovu provjeru"
     },
-    "configurationBatteryVoltage": {
-        "message": "Napon baterije"
-    },
-    "configurationBatteryCurrent": {
-        "message": "Struja baterije"
-    },
-    "configurationBatteryMeterType": {
-        "message": "Vrsta mjerača baterije"
-    },
-    "configurationBatteryMinimum": {
-        "message": "Minimalni napon čelije"
-    },
-    "configurationBatteryMaximum": {
-        "message": "Maksimalni napon čelije"
-    },
-    "configurationBatteryWarning": {
-        "message": "Upozorenje napona čelije"
-    },
-    "configurationBatteryScale": {
-        "message": "Skaliranje napona"
-    },
-    "configurationCurrentMeterType": {
-        "message": "Vrsta mjerača struje"
-    },
-    "configurationCurrent": {
-        "message": "Senzor struje"
-    },
-    "configurationCurrentScale": {
-        "message": "Skaliranje izlaznog napona u miliamperima [1/10 mV/A]"
-    },
-    "configurationCurrentOffset": {
-        "message": "Pomak u milivolt koracima"
-    },
-    "configurationBatteryMultiwiiCurrent": {
-        "message": "Omogući podršku za stari Multiwii MSP izlaz za struju"
-    },
     "pidTuningProfile": {
         "message": "Profil"
     },
