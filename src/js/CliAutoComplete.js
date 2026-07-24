@@ -418,12 +418,7 @@ CliAutoComplete._initTextcomplete = function() {
             match: /^(\s*resource\s+)(\w*)$/i,
             search:  function(term, callback, _match) {
                 sendOnEnter = false;
-                var arr = cache.resources;
-                if (semver.gte(CONFIG.flightControllerVersion, "0.0.1")) {
-                    arr = ['show'].concat(arr);
-                } else {
-                    arr = ['list'].concat(arr);
-                }
+                var arr = ['show'].concat(cache.resources);
                 searcher(term, callback, arr, 1);
             },
             replace: function(value) {
@@ -531,16 +526,14 @@ CliAutoComplete._initTextcomplete = function() {
         })
     ]);
 
-    if (semver.gte(CONFIG.flightControllerVersion, "0.0.1")) {
-        $textarea.textcomplete('register', [
-            strategy({ // "resource show all", from BF 4.0.0 onwards
-                match: /^(\s*resource\s+show\s+)(\w*)$/i,
-                search:  function(term, callback, _matches) {
-                    sendOnEnter = true;
-                    searcher(term, callback, ['all'], 1, true);
-                },
-                template: highlighterPrefix
-            }),
-        ]);
-    }
+    $textarea.textcomplete('register', [
+        strategy({ // "resource show all", from BF 4.0.0 onwards
+            match: /^(\s*resource\s+show\s+)(\w*)$/i,
+            search:  function(term, callback, _matches) {
+                sendOnEnter = true;
+                searcher(term, callback, ['all'], 1, true);
+            },
+            template: highlighterPrefix
+        }),
+    ]);
 };
