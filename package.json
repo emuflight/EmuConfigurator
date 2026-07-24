@@ -81,7 +81,7 @@
     "@electron-forge/plugin-fuses": "7.11.2",
     "@electron/fuses": "^1.0.0",
     "command-exists": "^1.2.9",
-    "cross-env": "^7.0.3",
+    "cross-env": "^10.1.0",
     "del": "^8.0.1",
     "electron": "42.3.3",
     "eslint": "^8.57.0",
