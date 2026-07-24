@@ -23,6 +23,7 @@
     "package": "yarn install --check-files && node scripts/build.js && electron-forge package",
     "package:debug": "yarn install --check-files && node scripts/build.js && cross-env EMUCFG_BUILD_MODE=dev-release electron-forge package",
     "build": "node scripts/build.js",
+    "verify:cross-env": "cross-env EMUCFG_VERIFY_CROSS_ENV=cross-env-ok node -e \"if (process.env.EMUCFG_VERIFY_CROSS_ENV !== 'cross-env-ok') { console.error('cross-env failed to propagate environment variable'); process.exit(1); } console.log('cross-env OK:', process.env.EMUCFG_VERIFY_CROSS_ENV);\"",
     "lint": "eslint .",
     "commands": "node .commands.js"
   },
