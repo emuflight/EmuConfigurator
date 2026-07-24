@@ -243,6 +243,7 @@ TABS.pid_tuning.initialize = function(callback) {
 
         $('.NEWANGLEUI').hide();
         $('.OLDANGLEUI').hide();
+        $('.stableAngleNote').hide();
         $('.pid_tuning input[name="angleLimit"]').val(ADVANCED_TUNING.levelAngleLimit);
             $('.angleLimit').show();
             console.log('show angle limit');
@@ -264,6 +265,7 @@ TABS.pid_tuning.initialize = function(callback) {
                     $('.pid_tuning input[name="horizon_transition"]').val(ADVANCED_TUNING.horizonTransition);
                     $('.OLDANGLEUI').hide();
                     $('.NEWANGLEUI').show();
+                    $('.stableAngleNote').show();
                     $('.pid_optional').show();
                     //removes 5th column which is Feedforward
                     //$('#pid_main .pid_titlebar2 th').attr('colspan', 4);
