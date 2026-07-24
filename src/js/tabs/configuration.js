@@ -94,21 +94,11 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
     }
 
     function load_battery() {
-        var next_callback = load_current;
-        if (semver.gte(CONFIG.flightControllerVersion, "0.0.1")) {
-            MSP.send_message(MSPCodes.MSP_VOLTAGE_METER_CONFIG, false, false, next_callback);
-        } else {
-            next_callback();
-        }
+        MSP.send_message(MSPCodes.MSP_VOLTAGE_METER_CONFIG, false, false, load_current);
     }
 
     function load_current() {
-        var next_callback = load_rx_config;
-        if (semver.gte(CONFIG.flightControllerVersion, "0.0.1")) {
-            MSP.send_message(MSPCodes.MSP_CURRENT_METER_CONFIG, false, false, next_callback);
-        } else {
-            next_callback();
-        }
+        MSP.send_message(MSPCodes.MSP_CURRENT_METER_CONFIG, false, false, load_rx_config);
     }
 
     function load_rx_config() {
@@ -491,7 +481,7 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
 
         serialRXtypes.push('IBUS');
 
-        if ((CONFIG.flightControllerIdentifier === 'EMUF' && semver.gte(CONFIG.flightControllerVersion, "0.0.1"))) {
+        if (CONFIG.flightControllerIdentifier === 'EMUF') {
             serialRXtypes.push('JETIEXBUS');
         }
 
@@ -616,25 +606,21 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
 
         // fill battery
         if (self.SHOW_OLD_BATTERY_CONFIG) {
-            if (semver.gte(CONFIG.flightControllerVersion, "0.0.1")) {
-                var batteryMeterTypes = [
-                    'Onboard ADC',
-                    'ESC Sensor'
-                ];
+            var batteryMeterTypes = [
+                'Onboard ADC',
+                'ESC Sensor'
+            ];
 
-                var batteryMeterType_e = $('select.batterymetertype');
-                for (i = 0; i < batteryMeterTypes.length; i++) {
-                    batteryMeterType_e.append('<option value="' + i + '">' + batteryMeterTypes[i] + '</option>');
-                }
-
-                batteryMeterType_e.change(function () {
-                    MISC.batterymetertype = parseInt($(this).val());
-                    checkUpdateVbatControls();
-                });
-                batteryMeterType_e.val(MISC.batterymetertype).change();
-            } else {
-                $('div.batterymetertype').hide();
+            var batteryMeterType_e = $('select.batterymetertype');
+            for (i = 0; i < batteryMeterTypes.length; i++) {
+                batteryMeterType_e.append('<option value="' + i + '">' + batteryMeterTypes[i] + '</option>');
             }
+
+            batteryMeterType_e.change(function () {
+                MISC.batterymetertype = parseInt($(this).val());
+                checkUpdateVbatControls();
+            });
+            batteryMeterType_e.val(MISC.batterymetertype).change();
 
             $('input[name="mincellvoltage"]').val(MISC.vbatmincellvoltage);
             $('input[name="maxcellvoltage"]').val(MISC.vbatmaxcellvoltage);
@@ -648,9 +634,7 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
                 'Virtual'
             ];
 
-            if (semver.gte(CONFIG.flightControllerVersion, "0.0.1")) {
-                currentMeterTypes.push('ESC Sensor');
-            }
+            currentMeterTypes.push('ESC Sensor');
 
             var currentMeterType_e = $('select.currentmetertype');
             for (i = 0; i < currentMeterTypes.length; i++) {
@@ -674,14 +658,10 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
             if (FEATURE_CONFIG.features.isEnabled('VBAT')) {
                 $('.vbatmonitoring').show();
 
-                if (semver.gte(CONFIG.flightControllerVersion, "0.0.1")) {
-                     $('select.batterymetertype').show();
+                $('select.batterymetertype').show();
 
-                    if (MISC.batterymetertype !== 0) {
-                        $('.vbatCalibration').hide();
-                     }
-                } else {
-                    $('select.batterymetertype').hide();
+                if (MISC.batterymetertype !== 0) {
+                    $('.vbatCalibration').hide();
                 }
             } else {
                 $('.vbatmonitoring').hide();
@@ -996,21 +976,11 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
             }
 
             function save_battery() {
-                var next_callback = save_current;
-                if (semver.gte(CONFIG.flightControllerVersion, "0.0.1")) {
-                    MSP.send_message(MSPCodes.MSP_SET_VOLTAGE_METER_CONFIG, mspHelper.crunch(MSPCodes.MSP_SET_VOLTAGE_METER_CONFIG), false, next_callback);
-                } else {
-                    next_callback();
-                }
+                MSP.send_message(MSPCodes.MSP_SET_VOLTAGE_METER_CONFIG, mspHelper.crunch(MSPCodes.MSP_SET_VOLTAGE_METER_CONFIG), false, save_current);
             }
 
             function save_current() {
-                var next_callback = save_rx_config;
-                if (semver.gte(CONFIG.flightControllerVersion, "0.0.1")) {
-                    MSP.send_message(MSPCodes.MSP_SET_CURRENT_METER_CONFIG, mspHelper.crunch(MSPCodes.MSP_SET_CURRENT_METER_CONFIG), false, next_callback);
-                } else {
-                    next_callback();
-                }
+                MSP.send_message(MSPCodes.MSP_SET_CURRENT_METER_CONFIG, mspHelper.crunch(MSPCodes.MSP_SET_CURRENT_METER_CONFIG), false, save_rx_config);
             }
 
             function save_rx_config() {
