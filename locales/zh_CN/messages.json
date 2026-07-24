@@ -3281,42 +3281,6 @@
     "configurationSmallAngleHelp": {
         "message": "如果飞机倾斜的角度大于指定的允许解锁角度，飞控将会不允许解锁。只有启用了加速度计该功能才能工作。设置为180度相当于关闭了倾斜角度检测。"
     },
-    "configurationBatteryVoltage": {
-        "message": "电池电压"
-    },
-    "configurationBatteryCurrent": {
-        "message": "电池电流"
-    },
-    "configurationBatteryMeterType": {
-        "message": "电池计类型"
-    },
-    "configurationBatteryMinimum": {
-        "message": "最低单芯电压"
-    },
-    "configurationBatteryMaximum": {
-        "message": "最高单芯电压"
-    },
-    "configurationBatteryWarning": {
-        "message": "单芯警告电压"
-    },
-    "configurationBatteryScale": {
-        "message": "电压计比例"
-    },
-    "configurationCurrentMeterType": {
-        "message": "电流计类型"
-    },
-    "configurationCurrent": {
-        "message": "电流传感器"
-    },
-    "configurationCurrentScale": {
-        "message": "按比例 [1/10 mV/A] 将电压缩放到毫安"
-    },
-    "configurationCurrentOffset": {
-        "message": "补偿（单位毫伏）"
-    },
-    "configurationBatteryMultiwiiCurrent": {
-        "message": "启用对传统 Multiwii MSP 电流计输出的支持"
-    },
     "pidTuningProfile": {
         "message": "配置档案"
     },

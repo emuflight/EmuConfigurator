@@ -2941,42 +2941,6 @@
     "configurationSmallAngleHelp": {
         "message": "Das Fluggerät wird nicht armen wenn dieser Wert überschritten ist. Nur möglich bei aktiviertem Accelerometer (accel). Ein Wert von 180 deaktiviert diese Funktion"
     },
-    "configurationBatteryVoltage": {
-        "message": "Batterie Spannung"
-    },
-    "configurationBatteryCurrent": {
-        "message": "Batterie Strom"
-    },
-    "configurationBatteryMeterType": {
-        "message": "Typ des Spannungssensors"
-    },
-    "configurationBatteryMinimum": {
-        "message": "Minimale Zellspannung"
-    },
-    "configurationBatteryMaximum": {
-        "message": "Maximale Zellspannung"
-    },
-    "configurationBatteryWarning": {
-        "message": "Zellspannung ab der eine Warnung erzeugt wird"
-    },
-    "configurationBatteryScale": {
-        "message": "Skalierung des Spannungssensors"
-    },
-    "configurationCurrentMeterType": {
-        "message": "Stromsensor Typ"
-    },
-    "configurationCurrent": {
-        "message": "Skalierung des Stromsensors"
-    },
-    "configurationCurrentScale": {
-        "message": "Skalierung der Spannung nach Milliampere (1/10 mV/A)"
-    },
-    "configurationCurrentOffset": {
-        "message": "Abweichung in Millivolt Schritten"
-    },
-    "configurationBatteryMultiwiiCurrent": {
-        "message": "Aktieviere den nativen Support für die Messung des Stromflusses über Multiwii MSP"
-    },
     "pidTuningProfile": {
         "message": "Profil"
     },

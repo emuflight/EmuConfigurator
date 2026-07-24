@@ -2695,42 +2695,6 @@
     "configurationSmallAngleHelp": {
         "message": "Model tidak dapat arming jika dimiringkan lebih dari jumlah derajat yang ditentukan. Hanya berlaku jika accelerometer diaktifkan. mengatur ke 180 akan secara efektif menonaktifkan fungsi ini"
     },
-    "configurationBatteryVoltage": {
-        "message": "Voltase Baterai"
-    },
-    "configurationBatteryCurrent": {
-        "message": "Arus pada Baterai"
-    },
-    "configurationBatteryMeterType": {
-        "message": "Tipe Pengukur Baterai"
-    },
-    "configurationBatteryMinimum": {
-        "message": "Voltase Sel Minimum"
-    },
-    "configurationBatteryMaximum": {
-        "message": "Voltase Sel Maksimum"
-    },
-    "configurationBatteryWarning": {
-        "message": "Peringatan Voltase Sel"
-    },
-    "configurationBatteryScale": {
-        "message": "Skala Voltase"
-    },
-    "configurationCurrentMeterType": {
-        "message": "Tipe Pengukur Arus"
-    },
-    "configurationCurrent": {
-        "message": "Sensor Arus"
-    },
-    "configurationCurrentScale": {
-        "message": "Sesuaikan output arus menjadi milliampere [1 / 10th mV / A]"
-    },
-    "configurationCurrentOffset": {
-        "message": "Offset dalam langkah millivolt"
-    },
-    "configurationBatteryMultiwiiCurrent": {
-        "message": "Aktifkan dukungan untuk output arus Multiwii MSP"
-    },
     "pidTuningProfile": {
         "message": "Profil"
     },

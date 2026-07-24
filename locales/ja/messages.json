@@ -3247,42 +3247,6 @@
     "configurationSmallAngleHelp": {
         "message": "指定された角度以上に傾斜していると機体はアームできません。 加速度センサーが有効な場合にのみ適用されます。180に設定すると有効チェックが無効になります。"
     },
-    "configurationBatteryVoltage": {
-        "message": "バッテリー電圧"
-    },
-    "configurationBatteryCurrent": {
-        "message": "バッテリー電流"
-    },
-    "configurationBatteryMeterType": {
-        "message": "バッテリーメータータイプ"
-    },
-    "configurationBatteryMinimum": {
-        "message": "1セルあたりの最小電圧"
-    },
-    "configurationBatteryMaximum": {
-        "message": "1セルあたりの最大電圧"
-    },
-    "configurationBatteryWarning": {
-        "message": "1セルあたりの警告電圧"
-    },
-    "configurationBatteryScale": {
-        "message": "電圧補正値"
-    },
-    "configurationCurrentMeterType": {
-        "message": "電流メーターの種類"
-    },
-    "configurationCurrent": {
-        "message": "電流センサー"
-    },
-    "configurationCurrentScale": {
-        "message": "出力電圧をミリアンペアにスケーリング表示 [1/10 mV/A]"
-    },
-    "configurationCurrentOffset": {
-        "message": "ミリボルト単位のオフセット値"
-    },
-    "configurationBatteryMultiwiiCurrent": {
-        "message": "旧式 Multiwii MSP電流出力サポートを有効にする"
-    },
     "pidTuningProfile": {
         "message": "プロファイル"
     },

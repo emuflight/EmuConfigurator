@@ -2922,42 +2922,6 @@
     "configurationSmallAngleHelp": {
         "message": "Il modello non si armerà se inclinato oltre un numero impostato di gradi. Si applica solo se l'accelerometro è abilitato. Impostandolo a 180 il controllo verrà disabilitato."
     },
-    "configurationBatteryVoltage": {
-        "message": "Tensione Batteria"
-    },
-    "configurationBatteryCurrent": {
-        "message": "Corrente Batteria"
-    },
-    "configurationBatteryMeterType": {
-        "message": "Tipo di Misuratore Batteria"
-    },
-    "configurationBatteryMinimum": {
-        "message": "Tensione minima per Cella"
-    },
-    "configurationBatteryMaximum": {
-        "message": "Tensione massima per Cella"
-    },
-    "configurationBatteryWarning": {
-        "message": "Avviso Tensione Cella"
-    },
-    "configurationBatteryScale": {
-        "message": "Scala Voltaggio"
-    },
-    "configurationCurrentMeterType": {
-        "message": "Tipo di Misuratore di Corrente"
-    },
-    "configurationCurrent": {
-        "message": "Sensore di Corrente"
-    },
-    "configurationCurrentScale": {
-        "message": "Scala la tensione di uscita in milliampere (1/10th mV/A)"
-    },
-    "configurationCurrentOffset": {
-        "message": "Offset in passi da un millivolt"
-    },
-    "configurationBatteryMultiwiiCurrent": {
-        "message": "Abilita il supporto per i vecchi uscite di corrente MSP Multiwii"
-    },
     "pidTuningProfile": {
         "message": "Profilo"
     },

@@ -3056,42 +3056,6 @@
     "configurationSmallAngleHelp": {
         "message": "A aeronave non se armará si está ladeada máis que o número de graos especificados. Só aplica si o acelerómetro está activado. Axustalo a 180 desactiva esta comprobación"
     },
-    "configurationBatteryVoltage": {
-        "message": "Voltaxe da LIPO"
-    },
-    "configurationBatteryCurrent": {
-        "message": "Corrente da LIPO"
-    },
-    "configurationBatteryMeterType": {
-        "message": "Tipo de medidor de batería"
-    },
-    "configurationBatteryMinimum": {
-        "message": "Voltaxe Mínimo por Celda"
-    },
-    "configurationBatteryMaximum": {
-        "message": "Voltaxe Máximo por Celda"
-    },
-    "configurationBatteryWarning": {
-        "message": "Aviso de Voltaxe por Celda"
-    },
-    "configurationBatteryScale": {
-        "message": "Escala do Voltaxe"
-    },
-    "configurationCurrentMeterType": {
-        "message": "Tipo de Medidor de Corrente"
-    },
-    "configurationCurrent": {
-        "message": "Sensor de Corrente"
-    },
-    "configurationCurrentScale": {
-        "message": "Escala o voltaxe da saída a miliamperios [1/10 mV/A]"
-    },
-    "configurationCurrentOffset": {
-        "message": "Desplazamento en pasos de milivoltio"
-    },
-    "configurationBatteryMultiwiiCurrent": {
-        "message": "Activa soporte para la salida de corriente heredada MSP Multiwii"
-    },
     "pidTuningProfile": {
         "message": "Perfil"
     },

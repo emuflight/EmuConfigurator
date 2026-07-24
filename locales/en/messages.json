@@ -4878,42 +4878,6 @@
     "configurationSmallAngleHelp": {
         "message": "Craft will not ARM if tilted more than specified number of degrees. Only applies if accelerometer is enabled. Setting to 180 will effectivly disable check"
     },
-    "configurationBatteryVoltage": {
-        "message": "Battery Voltage"
-    },
-    "configurationBatteryCurrent": {
-        "message": "Battery Current"
-    },
-    "configurationBatteryMeterType": {
-        "message": "Battery Meter Type"
-    },
-    "configurationBatteryMinimum": {
-        "message": "Minimum Cell Voltage"
-    },
-    "configurationBatteryMaximum": {
-        "message": "Maximum Cell Voltage"
-    },
-    "configurationBatteryWarning": {
-        "message": "Warning Cell Voltage"
-    },
-    "configurationBatteryScale": {
-        "message": "Voltage Scale"
-    },
-    "configurationCurrentMeterType": {
-        "message": "Current Meter Type"
-    },
-    "configurationCurrent": {
-        "message": "Current Sensor"
-    },
-    "configurationCurrentScale": {
-        "message": "Scale the output voltage to milliamps [1/10th mV/A]"
-    },
-    "configurationCurrentOffset": {
-        "message": "Offset in millivolt steps"
-    },
-    "configurationBatteryMultiwiiCurrent": {
-        "message": "Enable support for legacy Multiwii MSP current output"
-    },
     "pidTuningProfile": {
         "message": "Profile"
     },

@@ -3212,42 +3212,6 @@
     "configurationSmallAngleHelp": {
         "message": "Gaisa kuģi netiks aktivizēts, ja norādītais leņķis tiks pārsniegts. Darbojas tikai tad, ja akselerometrs ir ieslēgts. Uzstādot 180 pārbaude tiks atslēgta"
     },
-    "configurationBatteryVoltage": {
-        "message": "Akumulatora spriegums"
-    },
-    "configurationBatteryCurrent": {
-        "message": "Akumulatora strāva"
-    },
-    "configurationBatteryMeterType": {
-        "message": "Voltmetra tips"
-    },
-    "configurationBatteryMinimum": {
-        "message": "Šūnas minimālais spriegums"
-    },
-    "configurationBatteryMaximum": {
-        "message": "Šūnas maksimālais spriegums"
-    },
-    "configurationBatteryWarning": {
-        "message": "Šūnas brīdinājuma spriegums"
-    },
-    "configurationBatteryScale": {
-        "message": "Sprieguma skala"
-    },
-    "configurationCurrentMeterType": {
-        "message": "Ampērmetra tips"
-    },
-    "configurationCurrent": {
-        "message": "Strāvas sensors"
-    },
-    "configurationCurrentScale": {
-        "message": "Izejas sprieguma mērogs pret miliampēriem [1/10th mV/A]"
-    },
-    "configurationCurrentOffset": {
-        "message": "Nobīde ar milivolta soli"
-    },
-    "configurationBatteryMultiwiiCurrent": {
-        "message": "Ieslēgt mantoto Multiwii MSP atbalstu uz patreizējo izvadi"
-    },
     "pidTuningProfile": {
         "message": "Profils"
     },

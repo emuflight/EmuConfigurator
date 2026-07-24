@@ -3328,42 +3328,6 @@
     "configurationSmallAngleHelp": {
         "message": "지정된 각도 이상으로 기울이면 기체가 아밍상태가 되지 않습니다. 가속도계가 활성화된 경우에만 적용됩니다. 180도로 설정하면 점검을 효과적으로 비활성화합니다."
     },
-    "configurationBatteryVoltage": {
-        "message": "배터리 전압"
-    },
-    "configurationBatteryCurrent": {
-        "message": "배터리 전류"
-    },
-    "configurationBatteryMeterType": {
-        "message": "배터리 측정 형식"
-    },
-    "configurationBatteryMinimum": {
-        "message": "최소 셀 전압"
-    },
-    "configurationBatteryMaximum": {
-        "message": "최대 셀 전압"
-    },
-    "configurationBatteryWarning": {
-        "message": "셀 전압 경고"
-    },
-    "configurationBatteryScale": {
-        "message": "전압 크기"
-    },
-    "configurationCurrentMeterType": {
-        "message": "전류 측정 형식"
-    },
-    "configurationCurrent": {
-        "message": "전류 센서"
-    },
-    "configurationCurrentScale": {
-        "message": "출력 전압을 mA로 스케일 [1/10th mV/A]"
-    },
-    "configurationCurrentOffset": {
-        "message": "오프셋 [mV 단위]"
-    },
-    "configurationBatteryMultiwiiCurrent": {
-        "message": "레거시 Multiwii MSP 전류 출력 지원"
-    },
     "pidTuningProfile": {
         "message": "프로필"
     },

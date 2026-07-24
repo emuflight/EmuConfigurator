@@ -2370,42 +2370,6 @@
     "configurationSmallAngleHelp": {
         "message": "L'aeronau no armarà si està inclinada certs graus. Només aplica si l'acceleròmetre està habilitat. Posar-ho a 180º deshabilitarà la comprovació."
     },
-    "configurationBatteryVoltage": {
-        "message": "Voltatge de Bateria"
-    },
-    "configurationBatteryCurrent": {
-        "message": "Corrent de la bateria"
-    },
-    "configurationBatteryMeterType": {
-        "message": "Tipus de mesurador de bateria"
-    },
-    "configurationBatteryMinimum": {
-        "message": "Voltatge Mínim de Ceŀla"
-    },
-    "configurationBatteryMaximum": {
-        "message": "Voltatge Màxim de Ceŀla"
-    },
-    "configurationBatteryWarning": {
-        "message": "Voltatge d'Avís de Ceŀla"
-    },
-    "configurationBatteryScale": {
-        "message": "Escala de Voltatge"
-    },
-    "configurationCurrentMeterType": {
-        "message": "Tipus de Mesurador de Corrent"
-    },
-    "configurationCurrent": {
-        "message": "Sensor de Corrent"
-    },
-    "configurationCurrentScale": {
-        "message": "Escala el voltatge de sortida a miliampers [1/10 mV/A]"
-    },
-    "configurationCurrentOffset": {
-        "message": "Offset en passos de millivolts"
-    },
-    "configurationBatteryMultiwiiCurrent": {
-        "message": "Habilita el suport de llegat per a la sortida de corrent de Multiwii MSP"
-    },
     "pidTuningProfile": {
         "message": "Perfil"
     },

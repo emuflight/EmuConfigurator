@@ -3015,42 +3015,6 @@
     "configurationSmallAngleHelp": {
         "message": "Farkosten kommer inte att aktiveras om den lutar mer än det angivna antalet grader. Detta gäller bara om accelerometer är aktiverad. Sätt värdet till 180 för att stänga av funktionen"
     },
-    "configurationBatteryVoltage": {
-        "message": "Batterispänning"
-    },
-    "configurationBatteryCurrent": {
-        "message": "Batteriström"
-    },
-    "configurationBatteryMeterType": {
-        "message": "Batterimätartyp"
-    },
-    "configurationBatteryMinimum": {
-        "message": "Minsta cellspänning"
-    },
-    "configurationBatteryMaximum": {
-        "message": "Högsta cellspänning"
-    },
-    "configurationBatteryWarning": {
-        "message": "Varnings-cellspänning"
-    },
-    "configurationBatteryScale": {
-        "message": "Spänningsskala"
-    },
-    "configurationCurrentMeterType": {
-        "message": "Strömmätartyp"
-    },
-    "configurationCurrent": {
-        "message": "Strömsensor"
-    },
-    "configurationCurrentScale": {
-        "message": "Skala utspänningen till milliampere [1/10-dels mV/A]"
-    },
-    "configurationCurrentOffset": {
-        "message": "Offset i millivolt-steg"
-    },
-    "configurationBatteryMultiwiiCurrent": {
-        "message": "Aktivera stöd för äldre Multiwii MSP strömutmatning"
-    },
     "pidTuningProfile": {
         "message": "Profil"
     },
