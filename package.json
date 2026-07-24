@@ -86,7 +86,7 @@
     "eslint": "^8.57.0",
     "follow-redirects": "^1.16.0",
     "fs-extra": "^9.1.0",
-    "makensis": "^0.23.4",
+    "makensis": "^3.0.5",
     "os": "^0.1.2",
     "rpm-builder": "^1.2.1",
     "targz": "^1.0.1",
