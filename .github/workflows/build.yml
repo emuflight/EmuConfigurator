@@ -88,6 +88,9 @@ jobs:
       - name: Lint
         run: yarn lint
 
+      - name: Verify cross-env
+        run: yarn verify:cross-env
+
       - name: Make Packages
         env:
           APPLE_SIGNING_ENTITLEMENTS: ./sign/entitlements.plist
