@@ -418,13 +418,13 @@ CliAutoComplete._initTextcomplete = function() {
             match: /^(\s*resource\s+)(\w*)$/i,
             search:  function(term, callback, _match) {
                 sendOnEnter = false;
-                var arr = ['show'].concat(cache.resources);
+                var arr = ['list'].concat(cache.resources);
                 searcher(term, callback, arr, 1);
             },
             replace: function(value) {
                 if (value in cache.resourcesCount) {
                     self.openLater();
-                } else if (value == 'list' || value == 'show') {
+                } else if (value == 'list') {
                     sendOnEnter = true;
                 }
                 return basicReplacer(value);
@@ -524,16 +524,5 @@ CliAutoComplete._initTextcomplete = function() {
                 searcher(term, callback, cache.mixers, 1);
             }
         })
-    ]);
-
-    $textarea.textcomplete('register', [
-        strategy({ // "resource show all", from BF 4.0.0 onwards
-            match: /^(\s*resource\s+show\s+)(\w*)$/i,
-            search:  function(term, callback, _matches) {
-                sendOnEnter = true;
-                searcher(term, callback, ['all'], 1, true);
-            },
-            template: highlighterPrefix
-        }),
     ]);
 };
