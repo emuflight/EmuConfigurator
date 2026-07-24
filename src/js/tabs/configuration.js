@@ -464,7 +464,7 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
 
         serialRXtypes.push('IBUS');
 
-        if ((CONFIG.flightControllerIdentifier === 'EMUF' && semver.gte(CONFIG.flightControllerVersion, "0.0.1"))) {
+        if (CONFIG.flightControllerIdentifier === 'EMUF') {
             serialRXtypes.push('JETIEXBUS');
         }
 

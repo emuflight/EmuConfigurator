@@ -1458,15 +1458,13 @@ TABS.pid_tuning.initialize = function(callback) {
             rc_yaw_expo: RC_tuning.RC_YAW_EXPO,
             rc_rate_pitch: RC_tuning.rcPitchRate,
             rc_pitch_expo: RC_tuning.RC_PITCH_EXPO,
-            superexpo: FEATURE_CONFIG.features.isEnabled('SUPEREXPO_RATES'),
+            superexpo: true, // Betaflight-style rate handler always applies the superexpo curve; no live FEATURE_CONFIG bit exists to gate it
             deadband: RC_DEADBAND_CONFIG.deadband,
             yawDeadband: RC_DEADBAND_CONFIG.yaw_deadband,
             roll_rate_limit: RC_tuning.roll_rate_limit,
             pitch_rate_limit: RC_tuning.pitch_rate_limit,
             yaw_rate_limit: RC_tuning.yaw_rate_limit
         };
-
-        self.currentRates.superexpo = true;
 
         $('.pid_tuning input[name="sensitivity"]').hide();
         $('.pid_tuning .levelSensitivityHeader').empty();
@@ -2402,8 +2400,13 @@ TABS.pid_tuning.initialize = function(callback) {
                     throttleExpoE = $('.throttle input[name="expo"]'),
                     mid = parseFloat(throttleMidE.val()),
                     expo = parseFloat(throttleExpoE.val()),
-                    throttleCurve = $('.throttle .throttle_curve canvas').get(0),
-                    context = throttleCurve.getContext("2d");
+                    throttleCurve = $('.throttle .throttle_curve canvas').get(0);
+
+                if (!throttleCurve) { // tab may have reinitialized before this deferred callback fired
+                    return;
+                }
+
+                var context = throttleCurve.getContext("2d");
 
                 // local validation to deal with input event
                 if (mid >= parseFloat(throttleMidE.prop('min')) &&
