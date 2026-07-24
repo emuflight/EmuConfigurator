@@ -779,6 +779,9 @@
     "configurationSensorAlignmentGyro": {
         "message": "Положение Гиро."
     },
+    "configurationSensorGyroToUseNotFound": {
+        "message": "Предупреждение: Гироскоп/Акселерометр не обнаружены"
+    },
     "configurationSensorAlignmentGyro1": {
         "message": "Первый ГИРО"
     },
