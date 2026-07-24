@@ -124,13 +124,6 @@
         }
 
         try {
-            window.ShortUniqueId = require('short-unique-id');
-            console.log('[OK] short-unique-id loaded');
-        } catch(e) {
-            console.error('ERROR: Failed to load short-unique-id:', e.message);
-        }
-
-        try {
             window.objectHash = require('object-hash');
             console.log('[OK] object-hash loaded');
         } catch(e) {

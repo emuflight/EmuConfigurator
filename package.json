@@ -65,7 +65,6 @@
     "object-hash": "^3.0.0",
     "request": "^2.88.2",
     "serialport": "^13.0.0",
-    "short-unique-id": "^4.3.3",
     "tslib": "^2.1.0",
     "universal-ga": "^1.2.0",
     "usb": "^2.17.0"
