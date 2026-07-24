@@ -2933,7 +2933,7 @@
         "message": "Maximum angle allowed in Angle Mode."
     },
     "stableAngleNote": {
-        "message": "<b>Angle / Horizon mode — frame size guidance</b><br />Default values (Roll/Pitch Low P = 100, Angle Feed-Forward = 70) are sized for 1–2 inch whoops. On larger frames these can cause motor saturation during aggressive inputs, producing unintended climb. Suggested starting points:<br />• 1–2\" whoop: P 100, FF 70<br />• 3–4\": P 70–80, FF 40–50<br />• 5–6\": P 55–65, FF 25–35<br />• 7–10\"+: P 50–60, FF 20–30<br />• GPS Rescue: P 60–80, FF 40–50 (prioritise stability)<br />Reducing Roll/Pitch Low P softens the self-levelling snap; tune to taste."
+        "message": "<b>Angle / Horizon mode — frame size guidance</b><br />Default values (Roll/Pitch Low P = 100, Angle Feed-Forward = 70) are sized for 1–2 inch whoops. On larger frames these can cause motor saturation during aggressive inputs, producing unintended climb. Suggested starting points:<br />• 1–2\" whoop: P 100, FF 70<br />• 3–4\": P 70–80, FF 40–50<br />• 5–6\": P 55–65, FF 25–35<br />• 7–10\"+: P 50–60, FF 20–30<br />Reducing Roll/Pitch Low P softens the self-levelling snap; tune to taste."
     },
     "pidTuningAngleHigh": {
         "message": "Roll/Pitch High"
