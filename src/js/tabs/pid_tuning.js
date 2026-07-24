@@ -2402,8 +2402,13 @@ TABS.pid_tuning.initialize = function(callback) {
                     throttleExpoE = $('.throttle input[name="expo"]'),
                     mid = parseFloat(throttleMidE.val()),
                     expo = parseFloat(throttleExpoE.val()),
-                    throttleCurve = $('.throttle .throttle_curve canvas').get(0),
-                    context = throttleCurve.getContext("2d");
+                    throttleCurve = $('.throttle .throttle_curve canvas').get(0);
+
+                if (!throttleCurve) { // tab may have reinitialized before this deferred callback fired
+                    return;
+                }
+
+                var context = throttleCurve.getContext("2d");
 
                 // local validation to deal with input event
                 if (mid >= parseFloat(throttleMidE.prop('min')) &&
