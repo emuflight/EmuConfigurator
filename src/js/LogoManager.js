@@ -192,7 +192,15 @@ LogoManager.openImage = function () {
                     .catch(error => reject(error));
             };
             img.onerror = error => reject(error);
-            fileEntry.file(file => img.src = "file://" + file.path);
+            // fileEntry.file() resolves to a Blob (Electron dialog shim), not a
+            // filesystem-backed File with a .path — read it via FileReader instead
+            // of constructing a file:// URL.
+            fileEntry.file(file => {
+                var reader = new FileReader();
+                reader.onload = () => { img.src = reader.result; };
+                reader.onerror = error => reject(error);
+                reader.readAsDataURL(file);
+            });
         });
     });
 };
@@ -270,11 +278,33 @@ LogoManager.replaceLogoInFont = function (img) {
 
 /**
  * Draw the logo using the loaded font data.
+ *
+ * Composites every tile onto one canvas and displays a single image, rather
+ * than appending one <img> per tile and relying on inline-wrap to reconstruct
+ * the grid — 96 separately laid-out/composited elements only need a single
+ * sub-pixel rounding difference between two of them to visibly misalign.
  */
 LogoManager.drawPreview = function () {
-    var $el = this.elements.$preview.empty();
-    for (var i = this.logoStartIndex, I = this.font.constants.MAX_CHAR_COUNT; i < I; i++) {
-        var url = this.font.data.character_image_urls[i];
-        $el.append('<img src="' + url + '" title="0x' + i.toString(16) + '"></img>');
+    var charWidth = this.font.constants.SIZES.CHAR_WIDTH,
+        charHeight = this.font.constants.SIZES.CHAR_HEIGHT,
+        horiz = this.constants.TILES_NUM_HORIZ,
+        vert = this.constants.TILES_NUM_VERT,
+        canvas = document.createElement('canvas'),
+        ctx = canvas.getContext('2d');
+    canvas.width = this.constraints.imageSize.expectedWidth;
+    canvas.height = this.constraints.imageSize.expectedHeight;
+    for (var row = 0; row < vert; row++) {
+        for (var col = 0; col < horiz; col++) {
+            var charAddr = this.logoStartIndex + (row * horiz) + col,
+                bits = this.font.data.characters[charAddr];
+            for (var y = 0; y < charHeight; y++) {
+                for (var x = 0; x < charWidth; x++) {
+                    var v = bits ? bits[(y * charWidth) + x] : 1;
+                    ctx.fillStyle = this.font.constants.COLORS[v];
+                    ctx.fillRect((col * charWidth) + x, (row * charHeight) + y, 1, 1);
+                }
+            }
+        }
     }
+    this.elements.$preview.empty().append($('<img>', { src: canvas.toDataURL('image/png') }));
 };
