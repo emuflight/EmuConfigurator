@@ -111,10 +111,18 @@ LogoManager.init = function (font, logoStartIndex) {
     Object.keys(this.constraints).forEach(key => {
         this.constraints[key].$el = $(this.constraints[key].el);
     });
-    // resize logo preview area to match tile size
+    // Resize logo preview area to match tile size and pin tiles to an explicit
+    // grid: with plain inline <img> tags, wrapping to the next row depends on
+    // 24 tiles happening to add up to exactly one row width, so a single
+    // sub-pixel rounding difference between tiles shifts the wrap point and
+    // shears the reconstructed image into diagonal stripes.
     this.elements.$preview
         .width(this.constraints.imageSize.expectedWidth)
-        .height(this.constraints.imageSize.expectedHeight);
+        .height(this.constraints.imageSize.expectedHeight)
+        .css({
+            display: "grid",
+            gridTemplateColumns: "repeat(" + this.constants.TILES_NUM_HORIZ + ", " + font.constants.SIZES.CHAR_WIDTH + "px)",
+        });
     this.resetImageInfo();
 };
 
@@ -192,7 +200,15 @@ LogoManager.openImage = function () {
                     .catch(error => reject(error));
             };
             img.onerror = error => reject(error);
-            fileEntry.file(file => img.src = "file://" + file.path);
+            // fileEntry.file() resolves to a Blob (Electron dialog shim), not a
+            // filesystem-backed File with a .path — read it via FileReader instead
+            // of constructing a file:// URL.
+            fileEntry.file(file => {
+                var reader = new FileReader();
+                reader.onload = () => { img.src = reader.result; };
+                reader.onerror = error => reject(error);
+                reader.readAsDataURL(file);
+            });
         });
     });
 };
