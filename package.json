@@ -59,7 +59,7 @@
     "jquery-textcomplete": "^1.8.5",
     "jquery-throttle-debounce": "^1.0.0",
     "jquery-ui-npm": "1.12.0",
-    "marked": "^18.0.3",
+    "marked": "^18.0.9",
     "object-hash": "^3.0.0",
     "serialport": "^13.0.0",
     "usb": "^2.17.0"
