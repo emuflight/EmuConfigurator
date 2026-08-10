@@ -593,47 +593,40 @@ ipcMain.handle('tcp-allocate', async () => {
 const _usbOpenDevices = new Map();
 
 function usbKeyFromDevice(device) {
-  return `${device.busNumber}:${device.deviceAddress}`;
+  return device.handle;
 }
 
-function findUsbDeviceByKey(key) {
+async function findUsbDeviceByKey(key) {
   const { usb } = require('usb');
-  return usb.getDeviceList().find((d) => usbKeyFromDevice(d) === key) || null;
+  const devices = await usb.getDevices();
+  return devices.find((d) => usbKeyFromDevice(d) === key) || null;
 }
 
-function ensureUsbDeviceOpen(key) {
-  let device = _usbOpenDevices.get(key) || findUsbDeviceByKey(key);
+async function ensureUsbDeviceOpen(key) {
+  let device = _usbOpenDevices.get(key);
+  if (!device) {
+    device = await findUsbDeviceByKey(key);
+  }
   if (!device) {
     throw new Error(`USB device not found: ${key}`);
   }
-  if (!device.interfaces) {
-    device.open();
+  if (!device.opened) {
+    await device.open();
   }
   _usbOpenDevices.set(key, device);
   return device;
 }
 
-function toBmRequestType(direction, requestType, recipient) {
-  let bm = 0;
-  if (direction === 'in') {
-    bm |= 0x80;
-  }
+// usb@3.x defaults every native transfer to a 1000ms timeout unless an
+// explicit timeout is passed — far too short for a large-sector flash erase,
+// which can leave the device silent past that window while genuinely busy.
+const USB_NATIVE_TRANSFER_TIMEOUT_MS = 10000;
 
-  if (requestType === 'class') {
-    bm |= 0x20;
-  } else if (requestType === 'vendor') {
-    bm |= 0x40;
+function usbTransferBuffer(result) {
+  if (!result.data) {
+    return Buffer.alloc(0);
   }
-
-  if (recipient === 'interface') {
-    bm |= 0x01;
-  } else if (recipient === 'endpoint') {
-    bm |= 0x02;
-  } else if (recipient === 'other') {
-    bm |= 0x03;
-  }
-
-  return bm;
+  return Buffer.from(result.data.buffer, result.data.byteOffset, result.data.byteLength);
 }
 
 ipcMain.handle('usb-list-dfu', async () => {
@@ -644,15 +637,13 @@ ipcMain.handle('usb-list-dfu', async () => {
       { vendorId: 0x2DAE, productId: 0x0003 },
     ];
 
-    return usb.getDeviceList()
-      .filter((d) => {
-        const desc = d.deviceDescriptor || {};
-        return DFU_IDS.some((id) => id.vendorId === desc.idVendor && id.productId === desc.idProduct);
-      })
+    const devices = await usb.getDevices();
+    return devices
+      .filter((d) => DFU_IDS.some((id) => id.vendorId === d.vendorId && id.productId === d.productId))
       .map((d) => ({
         device: usbKeyFromDevice(d),
-        vendorId: d.deviceDescriptor.idVendor,
-        productId: d.deviceDescriptor.idProduct,
+        vendorId: d.vendorId,
+        productId: d.productId,
         serialNumber: '',
         manufacturer: '',
         product: '',
@@ -665,7 +656,7 @@ ipcMain.handle('usb-list-dfu', async () => {
 
 ipcMain.handle('usb-open-device', async (event, deviceKey) => {
   try {
-    ensureUsbDeviceOpen(deviceKey);
+    await ensureUsbDeviceOpen(deviceKey);
     return { success: true };
   } catch (e) {
     console.error('usb-open-device error:', e.message);
@@ -676,8 +667,8 @@ ipcMain.handle('usb-open-device', async (event, deviceKey) => {
 ipcMain.handle('usb-close-device', async (event, deviceKey) => {
   try {
     const device = _usbOpenDevices.get(deviceKey);
-    if (device && device.interfaces) {
-      device.close();
+    if (device && device.opened) {
+      await device.close();
     }
     _usbOpenDevices.delete(deviceKey);
     return { success: true };
@@ -689,9 +680,8 @@ ipcMain.handle('usb-close-device', async (event, deviceKey) => {
 
 ipcMain.handle('usb-claim-interface', async (event, deviceKey, interfaceNumber) => {
   try {
-    const device = ensureUsbDeviceOpen(deviceKey);
-    const iface = device.interface(interfaceNumber);
-    iface.claim();
+    const device = await ensureUsbDeviceOpen(deviceKey);
+    await device.claimInterface(interfaceNumber);
     return { success: true };
   } catch (e) {
     console.error('usb-claim-interface error:', e.message);
@@ -701,11 +691,8 @@ ipcMain.handle('usb-claim-interface', async (event, deviceKey, interfaceNumber) 
 
 ipcMain.handle('usb-release-interface', async (event, deviceKey, interfaceNumber) => {
   try {
-    const device = ensureUsbDeviceOpen(deviceKey);
-    const iface = device.interface(interfaceNumber);
-    await new Promise((resolve, reject) => {
-      iface.release(true, (err) => (err ? reject(err) : resolve()));
-    });
+    const device = await ensureUsbDeviceOpen(deviceKey);
+    await device.releaseInterface(interfaceNumber);
     return { success: true };
   } catch (e) {
     console.error('usb-release-interface error:', e.message);
@@ -715,17 +702,19 @@ ipcMain.handle('usb-release-interface', async (event, deviceKey, interfaceNumber
 
 ipcMain.handle('usb-get-configuration', async (event, deviceKey) => {
   try {
-    const device = ensureUsbDeviceOpen(deviceKey);
-    const configDescriptor = device.configDescriptor || {};
+    const device = await ensureUsbDeviceOpen(deviceKey);
+    const configuration = device.configuration || {};
     // Flatten ALL interface alternate settings — mirrors Chrome USB API config.interfaces
     // e.g. STM32 DFU has interface 0 with 4 alt settings (Internal Flash, Option Bytes, OTP, Device Info)
     const interfaces = [];
-    ((configDescriptor.interfaces) || []).forEach((altSettings) => {
-      altSettings.forEach((altSetting) => {
+    (configuration.interfaces || []).forEach((iface) => {
+      (iface.alternates || []).forEach((alt) => {
         interfaces.push({
-          interfaceNumber: altSetting.bInterfaceNumber,
-          alternateSetting: altSetting.bAlternateSetting,
-          endpoints: (altSetting.endpoints || []).map((ep) => ({ address: ep.bEndpointAddress })),
+          interfaceNumber: iface.interfaceNumber,
+          alternateSetting: alt.alternateSetting,
+          endpoints: (alt.endpoints || []).map((ep) => ({
+            address: ep.endpointNumber | (ep.direction === 'in' ? 0x80 : 0),
+          })),
         });
       });
     });
@@ -733,7 +722,7 @@ ipcMain.handle('usb-get-configuration', async (event, deviceKey) => {
     console.log('usb-get-configuration: found', interfaces.length, 'interface alt settings');
     return {
       resultCode: 0,
-      configurationValue: configDescriptor.bConfigurationValue || 1,
+      configurationValue: configuration.configurationValue || 1,
       interfaces,
     };
   } catch (e) {
@@ -744,53 +733,50 @@ ipcMain.handle('usb-get-configuration', async (event, deviceKey) => {
 
 ipcMain.handle('usb-control-transfer', async (event, deviceKey, options) => {
   try {
-    const device = ensureUsbDeviceOpen(deviceKey);
-    const bmRequestType = toBmRequestType(options.direction, options.requestType, options.recipient);
-    const bRequest = options.request;
-    const wValue = options.value || 0;
-    const wIndex = options.index || 0;
+    const device = await ensureUsbDeviceOpen(deviceKey);
+    const setup = {
+      requestType: options.requestType || 'standard',
+      recipient: options.recipient || 'device',
+      request: options.request,
+      value: options.value || 0,
+      index: options.index || 0,
+    };
 
     if (options.direction === 'in') {
       const length = options.length || 0;
-      const data = await new Promise((resolve, reject) => {
-        const timeoutId = setTimeout(() => {
-          reject(new Error('USB control transfer timeout'));
-        }, 10000);
-
-        device.controlTransfer(bmRequestType, bRequest, wValue, wIndex, length, (err, inData) => {
-          clearTimeout(timeoutId);
-          if (err) {
-            reject(err);
-            return;
-          }
-          resolve(inData || Buffer.alloc(0));
-        });
-      });
-
+      const result = await withTimeout(
+        device.controlTransferIn(setup, length, USB_NATIVE_TRANSFER_TIMEOUT_MS),
+        12000, 'USB control transfer timeout',
+      );
+      if (result.status === 'stall') {
+        console.warn('usb-control-transfer: device stalled (expected during DFU error recovery)');
+        return { resultCode: 1, bytesTransferred: 0, data: [] };
+      }
+      if (result.status !== 'ok') {
+        throw new Error(`USB control transfer failed: ${result.status}`);
+      }
+      const data = usbTransferBuffer(result);
       return { resultCode: 0, bytesTransferred: data.length, data: Array.from(data) };
     }
 
     const outData = options.data ? Buffer.from(options.data) : Buffer.alloc(0);
-    await new Promise((resolve, reject) => {
-      const timeoutId = setTimeout(() => {
-        reject(new Error('USB control transfer timeout'));
-      }, 10000);
-
-      device.controlTransfer(bmRequestType, bRequest, wValue, wIndex, outData, (err) => {
-        clearTimeout(timeoutId);
-        if (err) {
-          reject(err);
-          return;
-        }
-        resolve();
-      });
-    });
-
-    return { resultCode: 0, bytesTransferred: outData.length };
+    const result = await withTimeout(
+      device.controlTransferOut(setup, outData, USB_NATIVE_TRANSFER_TIMEOUT_MS),
+      12000, 'USB control transfer timeout',
+    );
+    if (result.status === 'stall') {
+      console.warn('usb-control-transfer: device stalled (expected during DFU error recovery)');
+      return { resultCode: 1, bytesTransferred: 0, data: [] };
+    }
+    if (result.status !== 'ok') {
+      throw new Error(`USB control transfer failed: ${result.status}`);
+    }
+    return { resultCode: 0, bytesTransferred: result.bytesWritten };
   } catch (e) {
-    if (e.message && e.message.includes('LIBUSB_TRANSFER_STALL')) {
+    if (e.message && e.message.toLowerCase().includes('stall')) {
       // STALL is a valid DFU device response (device in dfuERROR, protocol
-      // clears it via DFU_CLRSTATUS). Not a fatal error — demote to warn.
+      // clears it via DFU_CLRSTATUS). usb@3.x rejects on stall rather than
+      // resolving {status: 'stall'} as its own type contract documents.
       console.warn('usb-control-transfer: device stalled (expected during DFU error recovery)');
     } else {
       console.error('usb-control-transfer error:', e.message);
@@ -801,84 +787,38 @@ ipcMain.handle('usb-control-transfer', async (event, deviceKey, options) => {
 
 ipcMain.handle('usb-bulk-transfer', async (event, deviceKey, options) => {
   try {
-    const device = ensureUsbDeviceOpen(deviceKey);
-    const interfaceNumber = options.interfaceNumber !== undefined ? options.interfaceNumber : 0;
-    const iface = device.interfaces[interfaceNumber];
-    if (!iface) {
-      throw new Error(`Interface ${interfaceNumber} not found on device`);
-    }
+    const device = await ensureUsbDeviceOpen(deviceKey);
     const endpointNumber = options.endpoint || 1;
-    const endpointAddress = options.direction === 'in' ? (endpointNumber | 0x80) : endpointNumber;
-    const endpoint = (iface.endpoints || []).find((ep) => ep.address === endpointAddress);
+    const direction = options.direction === 'in' ? 'in' : 'out';
 
-    if (!endpoint) {
-      return { resultCode: 1, bytesTransferred: 0, data: [] };
-    }
-
-    const withTransferTimeout = (transferPromiseFactory, timeoutMessage) => {
-      return new Promise((resolve, reject) => {
-        const timeoutId = setTimeout(() => {
-          try {
-            if (typeof endpoint.stopPoll === 'function') {
-              endpoint.stopPoll(() => {});
-            }
-          } catch {
-            // ignore endpoint stopPoll errors during timeout recovery
-          }
-
-          try {
-            if (typeof endpoint.clearHalt === 'function') {
-              endpoint.clearHalt(() => {});
-            }
-          } catch {
-            // ignore endpoint clearHalt errors during timeout recovery
-          }
-
-          reject(new Error(timeoutMessage));
-        }, 10000);
-
-        transferPromiseFactory()
-          .then((result) => {
-            clearTimeout(timeoutId);
-            resolve(result);
-          })
-          .catch((err) => {
-            clearTimeout(timeoutId);
-            reject(err);
-          });
+    const clearHaltOnTimeout = () => {
+      device.clearHalt(direction, endpointNumber).catch(() => {
+        // best-effort recovery only — original error already propagates
       });
     };
 
-    if (options.direction === 'in') {
-      const data = await withTransferTimeout(() => {
-        return new Promise((resolve, reject) => {
-          endpoint.transfer(options.length || 64, (err, inData) => {
-            if (err) {
-              reject(err);
-              return;
-            }
-            resolve(inData || Buffer.alloc(0));
-          });
-        });
-      }, 'USB bulk IN transfer timeout');
-
+    if (direction === 'in') {
+      const length = options.length || 64;
+      const result = await withTimeout(
+        device.transferIn(endpointNumber, length, USB_NATIVE_TRANSFER_TIMEOUT_MS),
+        12000, 'USB bulk IN transfer timeout',
+      ).catch((err) => { clearHaltOnTimeout(); throw err; });
+      if (result.status !== 'ok') {
+        throw new Error(`USB bulk transfer failed: ${result.status}`);
+      }
+      const data = usbTransferBuffer(result);
       return { resultCode: 0, bytesTransferred: data.length, data: Array.from(data) };
     }
 
     const outData = options.data ? Buffer.from(options.data) : Buffer.alloc(0);
-    await withTransferTimeout(() => {
-      return new Promise((resolve, reject) => {
-        endpoint.transfer(outData, (err) => {
-          if (err) {
-            reject(err);
-            return;
-          }
-          resolve();
-        });
-      });
-    }, 'USB bulk OUT transfer timeout');
-
-    return { resultCode: 0, bytesTransferred: outData.length };
+    const result = await withTimeout(
+      device.transferOut(endpointNumber, outData, USB_NATIVE_TRANSFER_TIMEOUT_MS),
+      12000, 'USB bulk OUT transfer timeout',
+    ).catch((err) => { clearHaltOnTimeout(); throw err; });
+    if (result.status !== 'ok') {
+      throw new Error(`USB bulk transfer failed: ${result.status}`);
+    }
+    return { resultCode: 0, bytesTransferred: result.bytesWritten };
   } catch (e) {
     console.error('usb-bulk-transfer error:', e.message);
     return { resultCode: 1, bytesTransferred: 0, data: [] };
@@ -887,10 +827,8 @@ ipcMain.handle('usb-bulk-transfer', async (event, deviceKey, options) => {
 
 ipcMain.handle('usb-reset-device', async (event, deviceKey) => {
   try {
-    const device = ensureUsbDeviceOpen(deviceKey);
-    await new Promise((resolve, reject) => {
-      device.reset((err) => (err ? reject(err) : resolve()));
-    });
+    const device = await ensureUsbDeviceOpen(deviceKey);
+    await device.reset();
     return { success: true, resultCode: 0 };
   } catch (e) {
     console.error('usb-reset-device error:', e.message);
@@ -1295,39 +1233,23 @@ async function cleanupConnectionsBeforeQuit() {
   const usbCleanupPromises = [];
 
   for (const [, device] of _usbOpenDevices) {
-    const cleanupOneDevice = withTimeout(new Promise((resolve) => {
-      let completed = false;
-      const finish = () => {
-        if (!completed) {
-          completed = true;
-          resolve();
-        }
-      };
-
-      const closeDevice = () => {
-        try {
-          device.close(() => finish());
-        } catch {
-          try {
-            device.close();
-          } catch {
-            // ignore close errors
-          }
-          finish();
-        }
-      };
-
+    const cleanupOneDevice = withTimeout((async () => {
       try {
         // DFU_CLRSTATUS (USB class request): bmRequestType=0x21, bRequest=0x00,
         // wValue=0, wIndex=0, wLength=0 — clears DFU status bits and returns
         // the device to dfuIDLE so it can be safely closed.
-        device.controlTransfer(0x21, 0x00, 0, 0, 0, () => {
-          closeDevice();
+        await device.controlTransferOut({
+          requestType: 'class', recipient: 'interface', request: 0x00, value: 0, index: 0,
         });
       } catch {
-        closeDevice();
+        // device may already be detached or in a state that rejects this — still attempt close
       }
-    }), 2000, 'USB cleanup timeout').catch((error) => {
+      try {
+        await device.close();
+      } catch {
+        // ignore close errors
+      }
+    })(), 2000, 'USB cleanup timeout').catch((error) => {
       console.error('USB cleanup error:', error.message);
     });
 
