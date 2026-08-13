@@ -190,9 +190,11 @@ LogoManager.openImage = function () {
         chrome.fileSystem.chooseEntry(dialogOptions, fileEntry => {
             if (chrome.runtime.lastError) {
                 console.error(chrome.runtime.lastError.message);
+                reject(chrome.runtime.lastError);
                 return;
             }
             if (!fileEntry) {
+                resolve(null);
                 return;
             }
             // load and validate selected image
