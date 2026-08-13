@@ -343,6 +343,7 @@ TABS.onboard_logging.initialize = function (callback) {
         }
 
         $(".dataflash-saving").addClass("done");
+        AudioFeedback.playSuccess();
     }
     
     function flash_update_summary(onDone) {
@@ -485,6 +486,7 @@ TABS.onboard_logging.initialize = function (callback) {
             if (CONFIGURATOR.connectionValid && !eraseCancelled) {
                 if (DATAFLASH.ready) {
                     $(".dataflash-confirm-erase")[0].close();
+                    AudioFeedback.playSuccess();
                 } else {
                     setTimeout(poll_for_erase_completion, 500);
                 }
