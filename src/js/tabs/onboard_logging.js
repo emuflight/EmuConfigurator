@@ -408,7 +408,11 @@ TABS.onboard_logging.initialize = function (callback) {
                                 fileWriter.write(blob);
                             } else {
                                 // A zero-byte block indicates end-of-file, so we're done
-                                mark_saving_dialog_done(startTime, nextAddress, totalBytesCompressed);
+                                if (saveCancelled) {
+                                    dismiss_saving_dialog();
+                                } else {
+                                    mark_saving_dialog_done(startTime, nextAddress, totalBytesCompressed);
+                                }
                             }
                         } else {
                             // There was an error with the received block (address didn't match the one we asked for), retry
