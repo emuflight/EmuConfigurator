@@ -75,7 +75,7 @@
     "@electron-forge/plugin-fuses": "7.11.2",
     "@electron/fuses": "^1.0.0",
     "cross-env": "^10.1.0",
-    "electron": "42.3.3",
+    "electron": "43.3.0",
     "eslint": "^8.57.0",
     "fs-extra": "^11.4.0"
   },
