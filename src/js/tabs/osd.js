@@ -245,6 +245,7 @@ FONT.upload = function ($progress) {
 
             console.log('Uploaded all ' + FONT.data.characters.length + ' characters');
             GUI.log(i18n.getMessage('osdSetupUploadingFontEnd', {length: FONT.data.characters.length}));
+            AudioFeedback.playSuccess();
 
             OSD.GUI.fontManager.close();
 

@@ -343,6 +343,7 @@ TABS.onboard_logging.initialize = function (callback) {
         }
 
         $(".dataflash-saving").addClass("done");
+        AudioFeedback.playSuccess();
     }
     
     function flash_update_summary(onDone) {
@@ -370,7 +371,8 @@ TABS.onboard_logging.initialize = function (callback) {
                 prepare_file(function(fileWriter) {
                     var nextAddress = 0;
                     var totalBytesCompressed = 0;
-                    
+
+                    self.writeError = false;
                     show_saving_dialog();
                     
                     function onChunkRead(chunkAddress, chunkDataView, bytesCompressed) {
@@ -390,7 +392,7 @@ TABS.onboard_logging.initialize = function (callback) {
                                 
                                 fileWriter.onwriteend = function(e) {
                                     if (saveCancelled || nextAddress >= maxBytes) {
-                                        if (saveCancelled) {
+                                        if (saveCancelled || self.writeError) {
                                             dismiss_saving_dialog();
                                         } else {
                                             mark_saving_dialog_done(startTime, nextAddress, totalBytesCompressed);
@@ -407,7 +409,11 @@ TABS.onboard_logging.initialize = function (callback) {
                                 fileWriter.write(blob);
                             } else {
                                 // A zero-byte block indicates end-of-file, so we're done
-                                mark_saving_dialog_done(startTime, nextAddress, totalBytesCompressed);
+                                if (saveCancelled) {
+                                    dismiss_saving_dialog();
+                                } else {
+                                    mark_saving_dialog_done(startTime, nextAddress, totalBytesCompressed);
+                                }
                             }
                         } else {
                             // There was an error with the received block (address didn't match the one we asked for), retry
@@ -485,6 +491,7 @@ TABS.onboard_logging.initialize = function (callback) {
             if (CONFIGURATOR.connectionValid && !eraseCancelled) {
                 if (DATAFLASH.ready) {
                     $(".dataflash-confirm-erase")[0].close();
+                    AudioFeedback.playSuccess();
                 } else {
                     setTimeout(poll_for_erase_completion, 500);
                 }
