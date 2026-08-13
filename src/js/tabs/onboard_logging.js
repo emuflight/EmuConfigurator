@@ -371,7 +371,8 @@ TABS.onboard_logging.initialize = function (callback) {
                 prepare_file(function(fileWriter) {
                     var nextAddress = 0;
                     var totalBytesCompressed = 0;
-                    
+
+                    self.writeError = false;
                     show_saving_dialog();
                     
                     function onChunkRead(chunkAddress, chunkDataView, bytesCompressed) {
@@ -391,7 +392,7 @@ TABS.onboard_logging.initialize = function (callback) {
                                 
                                 fileWriter.onwriteend = function(e) {
                                     if (saveCancelled || nextAddress >= maxBytes) {
-                                        if (saveCancelled) {
+                                        if (saveCancelled || self.writeError) {
                                             dismiss_saving_dialog();
                                         } else {
                                             mark_saving_dialog_done(startTime, nextAddress, totalBytesCompressed);
