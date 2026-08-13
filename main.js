@@ -901,43 +901,56 @@ ipcMain.handle('usb-reset-device', async (event, deviceKey) => {
 // --- File system dialog IPC bridge ---
 const { dialog } = require('electron');
 
+// Native dialogs opened without a parent window are non-modal, so a second
+// IPC call before the first resolves (double-click, double-triggered handler)
+// spawns a second OS dialog instead of focusing the existing one.
+let dialogChooseEntryInProgress = false;
+
 // IPC: show open/save file dialog; persists last-used folder across sessions
 ipcMain.handle('dialog:choose-entry', async (event, options) => {
-  const { type, suggestedName, accepts } = options;
-  const { lastDialogFolder } = loadConfig();
-
-  if (type === 'saveFile') {
-    const filters = accepts ? accepts.map(a => ({ name: a.description, extensions: a.extensions })) : [];
-    // Prefer last-used folder; fall back to suggestedName (which may itself be a filename only)
-    const defaultPath = lastDialogFolder
-      ? path.join(lastDialogFolder, suggestedName || '')
-      : suggestedName;
-    const result = await dialog.showSaveDialog({
-      defaultPath,
-      filters: filters.length > 0 ? filters : undefined,
-    });
-    if (!result.canceled && result.filePath) {
-      saveConfig({ lastDialogFolder: path.dirname(result.filePath) });
-    }
-    return result;
-  } else if (type === 'openFile') {
-    const openFilters = accepts
-      ? accepts.filter(a => Array.isArray(a.extensions) && a.extensions.length > 0)
-               .map(a => ({ name: a.description, extensions: a.extensions }))
-      : [];
-    // Use last-used folder as defaultPath; suggestedName is rarely set for openFile
-    const defaultPath = lastDialogFolder || suggestedName;
-    const result = await dialog.showOpenDialog({
-      defaultPath,
-      filters: openFilters,
-      properties: ['openFile'],
-    });
-    if (!result.canceled && result.filePaths && result.filePaths[0]) {
-      saveConfig({ lastDialogFolder: path.dirname(result.filePaths[0]) });
-    }
-    return result;
+  if (dialogChooseEntryInProgress) {
+    return { canceled: true };
   }
-  return { canceled: true };
+  dialogChooseEntryInProgress = true;
+  try {
+    const { type, suggestedName, accepts } = options;
+    const { lastDialogFolder } = loadConfig();
+
+    if (type === 'saveFile') {
+      const filters = accepts ? accepts.map(a => ({ name: a.description, extensions: a.extensions })) : [];
+      // Prefer last-used folder; fall back to suggestedName (which may itself be a filename only)
+      const defaultPath = lastDialogFolder
+        ? path.join(lastDialogFolder, suggestedName || '')
+        : suggestedName;
+      const result = await dialog.showSaveDialog({
+        defaultPath,
+        filters: filters.length > 0 ? filters : undefined,
+      });
+      if (!result.canceled && result.filePath) {
+        saveConfig({ lastDialogFolder: path.dirname(result.filePath) });
+      }
+      return result;
+    } else if (type === 'openFile') {
+      const openFilters = accepts
+        ? accepts.filter(a => Array.isArray(a.extensions) && a.extensions.length > 0)
+                 .map(a => ({ name: a.description, extensions: a.extensions }))
+        : [];
+      // Use last-used folder as defaultPath; suggestedName is rarely set for openFile
+      const defaultPath = lastDialogFolder || suggestedName;
+      const result = await dialog.showOpenDialog({
+        defaultPath,
+        filters: openFilters,
+        properties: ['openFile'],
+      });
+      if (!result.canceled && result.filePaths && result.filePaths[0]) {
+        saveConfig({ lastDialogFolder: path.dirname(result.filePaths[0]) });
+      }
+      return result;
+    }
+    return { canceled: true };
+  } finally {
+    dialogChooseEntryInProgress = false;
+  }
 });
 
 // IPC: write binary content to file (preserves binary data)

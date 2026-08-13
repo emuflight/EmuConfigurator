@@ -560,6 +560,9 @@ TABS.firmware_flasher.initialize = function (callback) {
                     console.error(chrome.runtime.lastError.message);
                     return;
                 }
+                if (!fileEntry) {
+                    return;
+                }
 
                 chrome.fileSystem.getDisplayPath(fileEntry, function (path) {
                     console.log('Saving firmware to: ' + path);
