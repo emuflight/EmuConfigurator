@@ -192,6 +192,9 @@ LogoManager.openImage = function () {
                 console.error(chrome.runtime.lastError.message);
                 return;
             }
+            if (!fileEntry) {
+                return;
+            }
             // load and validate selected image
             var img = new Image();
             img.onload = () => {

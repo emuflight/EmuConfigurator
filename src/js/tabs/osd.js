@@ -165,11 +165,14 @@ FONT.parseMCMFontFile = function (data) {
 FONT.openFontFile = function (fontPreviewElement) {
     return new Promise(function (resolve) {
         chrome.fileSystem.chooseEntry({ type: 'openFile', accepts: [{ description: 'MCM files', extensions: ['mcm'] }] }, function (fileEntry) {
-            FONT.data.loaded_font_file = fileEntry.name;
             if (chrome.runtime.lastError) {
                 console.error(chrome.runtime.lastError.message);
                 return;
             }
+            if (!fileEntry) {
+                return;
+            }
+            FONT.data.loaded_font_file = fileEntry.name;
             fileEntry.file(function (file) {
                 var reader = new FileReader();
                 reader.onloadend = function (e) {
@@ -2885,6 +2888,9 @@ TABS.osd.initialize = function (callback) {
             chrome.fileSystem.chooseEntry({ type: 'saveFile', suggestedName: 'baseflight', accepts: [{ description: 'MCM files', extensions: ['mcm'] }] }, function (fileEntry) {
                 if (chrome.runtime.lastError) {
                     console.error(chrome.runtime.lastError.message);
+                    return;
+                }
+                if (!fileEntry) {
                     return;
                 }
 
