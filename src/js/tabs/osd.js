@@ -179,7 +179,12 @@ FONT.openFontFile = function (fontPreviewElement) {
                 var reader = new FileReader();
                 reader.onloadend = function (e) {
                     if (e.total != 0 && e.total == e.loaded) {
-                        FONT.parseMCMFontFile(e.target.result);
+                        try {
+                            FONT.parseMCMFontFile(e.target.result);
+                        } catch (err) {
+                            reject(err);
+                            return;
+                        }
                         resolve(fileEntry);
                     }
                     else {
@@ -187,7 +192,12 @@ FONT.openFontFile = function (fontPreviewElement) {
                         reject(new Error('could not load whole font file'));
                     }
                 };
+                reader.onerror = function (e) {
+                    reject(e.target.error);
+                };
                 reader.readAsText(file);
+            }, function (err) {
+                reject(err);
             });
         });
     });

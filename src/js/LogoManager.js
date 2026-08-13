@@ -213,7 +213,7 @@ LogoManager.openImage = function () {
                 reader.onload = () => { img.src = reader.result; };
                 reader.onerror = error => reject(error);
                 reader.readAsDataURL(file);
-            });
+            }, error => reject(error));
         });
     });
 };
