@@ -34,6 +34,7 @@ const AudioFeedback = {
         }
     },
 
-    playFlashVerified:      function() { AudioFeedback.playBlip(AudioFeedback.BLIP_SOUND); },
+    playSuccess:            function() { AudioFeedback.playBlip(AudioFeedback.BLIP_SOUND); },
+    playFlashVerified:      function() { AudioFeedback.playSuccess(); },
     playVerificationFailed: function() { AudioFeedback.playBlip(AudioFeedback.BLIP_SOUND_ERROR); }
 };
