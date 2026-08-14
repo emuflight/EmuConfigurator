@@ -522,8 +522,14 @@ TABS.firmware_flasher.initialize = function (callback) {
                         };
 
                         if (String($('div#port-picker #port').val()) != 'DFU') {
-                            if (String($('div#port-picker #port').val()) != '0') {
-                                var port = String($('div#port-picker #port').val()), baud;
+                            // Manual entry's picker value is the literal string 'manual' --
+                            // substitute the typed override path, matching the same
+                            // isManual handling serial_backend.js uses for the Connect button.
+                            var isManualPortSelected = $('div#port-picker #port option:selected').data('isManual');
+                            var port = isManualPortSelected ? $('#port-override').val().trim() : String($('div#port-picker #port').val());
+
+                            if (port != '0' && port != '') {
+                                var baud;
                                 baud = 115200;
 
                                 if ($('input.updating').is(':checked')) {
