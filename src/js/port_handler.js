@@ -8,9 +8,11 @@ var usbDevices = { filters: [
     {'vendorId': 12619, 'productId': 262} // APM32 DFU Bootloader
 ] };
 
-// Device paths that can never be a flight controller's USB-serial re-enumeration --
-// excluded from auto-connect/auto-select candidates so an unrelated device (e.g. a
-// Bluetooth RFCOMM service registering mid-reboot) never gets picked over the FC.
+// Linux Bluetooth RFCOMM device paths -- excluded from auto-connect/auto-select
+// candidates so a Bluetooth service registering mid-reboot (the confirmed repro
+// in emuflight/EmuConfigurator#638, e.g. /dev/rfcomm0) never gets picked over
+// the FC. Linux-specific: does not cover macOS/Windows Bluetooth SPP device
+// naming, which isn't distinguishable from a real FC port by path alone.
 var NON_FC_PORT_PATTERN = /^\/dev\/rfcomm\d+$/i;
 
 var PortHandler = new function () {
@@ -231,9 +233,9 @@ PortHandler.absorb_resolved_ports = function (new_ports, fc_candidates, unambigu
     }
 };
 
-// Excludes device paths that can't be the FC (see NON_FC_PORT_PATTERN) from a
-// newly-appeared port list, so an unrelated device never gets auto-selected in
-// place of the FC re-enumerating after a reboot.
+// Excludes known non-FC device paths (see NON_FC_PORT_PATTERN) from a
+// newly-appeared port list, so a Bluetooth RFCOMM device never gets
+// auto-selected in place of the FC re-enumerating after a reboot.
 PortHandler.resolve_fc_candidates = function (new_ports) {
     var fc_candidates = new_ports.filter(function (port) {
         return !NON_FC_PORT_PATTERN.test(port);
