@@ -155,8 +155,13 @@ PortHandler.check = function () {
             if (unambiguous_candidate && GUI.auto_connect && !GUI.connecting_to && !GUI.connected_to) {
                 // we need firmware flasher protection over here
                 if (GUI.active_tab != 'firmware_flasher') {
+                    var detected_candidate = fc_candidates[0];
                     GUI.timeout_add('auto-connect_timeout', function () {
                         // Re-validate state: 1s may have passed and conditions can change.
+                        // Also require the port picker to still show the exact candidate
+                        // this timeout was scheduled for -- otherwise the user changed the
+                        // selection (e.g. to manual entry) or a later poll cycle updated it,
+                        // and this stale timeout must not connect to a different port.
                         var connectBtn = $('div#port-picker a.connect');
                         var selectedPort = $('div#port-picker #port').val();
                         var stateValid = GUI.auto_connect
@@ -164,7 +169,7 @@ PortHandler.check = function () {
                             && !GUI.connecting_to
                             && GUI.active_tab != 'firmware_flasher'
                             && connectBtn.length > 0
-                            && selectedPort && selectedPort !== '0';
+                            && selectedPort === detected_candidate;
                         if (stateValid) {
                             connectBtn.click();
                         }

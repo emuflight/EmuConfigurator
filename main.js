@@ -1372,8 +1372,8 @@ async function cleanupConnectionsBeforeQuit() {
   await Promise.allSettled(usbCleanupPromises);
   _usbOpenDevices.clear();
 
+  ++_serialGen; // invalidate any serial-connect still in flight during shutdown, even if _serialPort isn't assigned yet
   if (_serialPort && _serialPort.isOpen) {
-    ++_serialGen; // invalidate any serial-connect still in flight during shutdown
     try {
       const currentPort = _serialPort;
       await withTimeout(new Promise((resolve) => {
