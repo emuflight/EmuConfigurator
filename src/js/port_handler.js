@@ -136,7 +136,7 @@ PortHandler.check = function () {
             self.update_port_select(current_ports);
 
             var fc_candidates = self.resolve_fc_candidates(new_ports);
-            var unambiguous_candidate = (fc_candidates.length == 1);
+            var unambiguous_candidate = (fc_candidates.length === 1);
 
             // select / highlight new port, if connected -> select connected port
             if (!GUI.connected_to) {
