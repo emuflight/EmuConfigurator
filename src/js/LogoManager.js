@@ -190,6 +190,11 @@ LogoManager.openImage = function () {
         chrome.fileSystem.chooseEntry(dialogOptions, fileEntry => {
             if (chrome.runtime.lastError) {
                 console.error(chrome.runtime.lastError.message);
+                reject(chrome.runtime.lastError);
+                return;
+            }
+            if (!fileEntry) {
+                resolve(null);
                 return;
             }
             // load and validate selected image
@@ -208,7 +213,7 @@ LogoManager.openImage = function () {
                 reader.onload = () => { img.src = reader.result; };
                 reader.onerror = error => reject(error);
                 reader.readAsDataURL(file);
-            });
+            }, error => reject(error));
         });
     });
 };

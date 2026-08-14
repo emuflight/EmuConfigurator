@@ -163,25 +163,41 @@ FONT.parseMCMFontFile = function (data) {
 };
 
 FONT.openFontFile = function (fontPreviewElement) {
-    return new Promise(function (resolve) {
+    return new Promise(function (resolve, reject) {
         chrome.fileSystem.chooseEntry({ type: 'openFile', accepts: [{ description: 'MCM files', extensions: ['mcm'] }] }, function (fileEntry) {
-            FONT.data.loaded_font_file = fileEntry.name;
             if (chrome.runtime.lastError) {
                 console.error(chrome.runtime.lastError.message);
+                reject(chrome.runtime.lastError);
                 return;
             }
+            if (!fileEntry) {
+                resolve(null);
+                return;
+            }
+            FONT.data.loaded_font_file = fileEntry.name;
             fileEntry.file(function (file) {
                 var reader = new FileReader();
                 reader.onloadend = function (e) {
                     if (e.total != 0 && e.total == e.loaded) {
-                        FONT.parseMCMFontFile(e.target.result);
-                        resolve();
+                        try {
+                            FONT.parseMCMFontFile(e.target.result);
+                        } catch (err) {
+                            reject(err);
+                            return;
+                        }
+                        resolve(fileEntry);
                     }
                     else {
                         console.error('could not load whole font file');
+                        reject(new Error('could not load whole font file'));
                     }
                 };
+                reader.onerror = function (e) {
+                    reject(e.target.error);
+                };
                 reader.readAsText(file);
+            }, function (err) {
+                reject(err);
             });
         });
     });
@@ -2846,7 +2862,10 @@ TABS.osd.initialize = function (callback) {
 
 
         $('button.load_font_file').click(function () {
-            FONT.openFontFile().then(function () {
+            FONT.openFontFile().then(function (fileEntry) {
+                if (!fileEntry) {
+                    return;
+                }
                 FONT.preview(fontPreviewElement);
                 LogoManager.drawPreview();
                 updateOsdView();
@@ -2874,6 +2893,9 @@ TABS.osd.initialize = function (callback) {
             }
             LogoManager.openImage()
                 .then(ctx => {
+                    if (!ctx) {
+                        return;
+                    }
                     LogoManager.replaceLogoInFont(ctx);
                     LogoManager.drawPreview();
                     LogoManager.showUploadHint();
@@ -2885,6 +2907,9 @@ TABS.osd.initialize = function (callback) {
             chrome.fileSystem.chooseEntry({ type: 'saveFile', suggestedName: 'baseflight', accepts: [{ description: 'MCM files', extensions: ['mcm'] }] }, function (fileEntry) {
                 if (chrome.runtime.lastError) {
                     console.error(chrome.runtime.lastError.message);
+                    return;
+                }
+                if (!fileEntry) {
                     return;
                 }
 

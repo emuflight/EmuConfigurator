@@ -77,7 +77,7 @@
     "cross-env": "^10.1.0",
     "electron": "42.3.3",
     "eslint": "^8.57.0",
-    "fs-extra": "^9.1.0"
+    "fs-extra": "^11.4.0"
   },
   "resolutions": {
     "yauzl": "3.3.2"
