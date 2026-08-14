@@ -8,6 +8,13 @@ var usbDevices = { filters: [
     {'vendorId': 12619, 'productId': 262} // APM32 DFU Bootloader
 ] };
 
+// Linux Bluetooth RFCOMM device paths -- excluded from auto-connect/auto-select
+// candidates so a Bluetooth service registering mid-reboot (the confirmed repro
+// in emuflight/EmuConfigurator#638, e.g. /dev/rfcomm0) never gets picked over
+// the FC. Linux-specific: does not cover macOS/Windows Bluetooth SPP device
+// naming, which isn't distinguishable from a real FC port by path alone.
+var NON_FC_PORT_PATTERN = /^\/dev\/rfcomm\d+$/i;
+
 var PortHandler = new function () {
     this.initial_ports = false;
     this.port_detected_callbacks = [];
@@ -120,21 +127,41 @@ PortHandler.check = function () {
                 console.log('PortHandler - Found: ' + new_ports[0]);
             }
 
+            // update_port_select() rebuilds the <option> list from scratch, which
+            // drops the current selection unless something re-sets it below --
+            // capture it first so a non-candidate/ambiguous poll can restore it
+            // instead of silently falling back to the browser's first-option default.
+            var previously_selected_port = $('div#port-picker #port').val();
+
             self.update_port_select(current_ports);
+
+            var fc_candidates = self.resolve_fc_candidates(new_ports);
+            var unambiguous_candidate = (fc_candidates.length === 1);
 
             // select / highlight new port, if connected -> select connected port
             if (!GUI.connected_to) {
-                $('div#port-picker #port').val(new_ports[0]);
+                if (unambiguous_candidate) {
+                    $('div#port-picker #port').val(fc_candidates[0]);
+                } else {
+                    // No FC-shaped candidate, or more than one -- leave the user's
+                    // prior selection alone instead of guessing which device is the FC.
+                    $('div#port-picker #port').val(previously_selected_port);
+                }
             } else {
                 $('div#port-picker #port').val(GUI.connected_to);
             }
 
             // start connect procedure (if statement is valid)
-            if (GUI.auto_connect && !GUI.connecting_to && !GUI.connected_to) {
+            if (unambiguous_candidate && GUI.auto_connect && !GUI.connecting_to && !GUI.connected_to) {
                 // we need firmware flasher protection over here
                 if (GUI.active_tab != 'firmware_flasher') {
+                    var detected_candidate = fc_candidates[0];
                     GUI.timeout_add('auto-connect_timeout', function () {
                         // Re-validate state: 1s may have passed and conditions can change.
+                        // Also require the port picker to still show the exact candidate
+                        // this timeout was scheduled for -- otherwise the user changed the
+                        // selection (e.g. to manual entry) or a later poll cycle updated it,
+                        // and this stale timeout must not connect to a different port.
                         var connectBtn = $('div#port-picker a.connect');
                         var selectedPort = $('div#port-picker #port').val();
                         var stateValid = GUI.auto_connect
@@ -142,7 +169,7 @@ PortHandler.check = function () {
                             && !GUI.connecting_to
                             && GUI.active_tab != 'firmware_flasher'
                             && connectBtn.length > 0
-                            && selectedPort && selectedPort !== '0';
+                            && selectedPort === detected_candidate;
                         if (stateValid) {
                             connectBtn.click();
                         }
@@ -150,22 +177,27 @@ PortHandler.check = function () {
                 }
             }
 
-            // trigger callbacks
-            for (var i = (self.port_detected_callbacks.length - 1); i >= 0; i--) {
-                var obj = self.port_detected_callbacks[i];
+            // trigger callbacks only once the new-port set resolves to exactly one
+            // FC-shaped candidate; leave them registered otherwise so a later poll
+            // (once the ambiguity clears) can still resolve them (see port_detected's
+            // ignore_timeout usage in firmware_flasher.js's flash_on_connect).
+            if (unambiguous_candidate) {
+                for (var i = (self.port_detected_callbacks.length - 1); i >= 0; i--) {
+                    var obj = self.port_detected_callbacks[i];
 
-                // remove timeout
-                clearTimeout(obj.timer);
+                    // remove timeout
+                    clearTimeout(obj.timer);
 
-                // trigger callback
-                obj.code(new_ports);
+                    // trigger callback
+                    obj.code(fc_candidates);
 
-                // remove object from array
-                var index = self.port_detected_callbacks.indexOf(obj);
-                if (index > -1) self.port_detected_callbacks.splice(index, 1);
+                    // remove object from array
+                    var index = self.port_detected_callbacks.indexOf(obj);
+                    if (index > -1) self.port_detected_callbacks.splice(index, 1);
+                }
             }
 
-            self.initial_ports = current_ports;
+            self.absorb_resolved_ports(new_ports, fc_candidates, unambiguous_candidate, current_ports);
         }
 
         self.check_usb_devices();
@@ -193,6 +225,40 @@ PortHandler.check = function () {
             self.check();
         }, TIMEOUT_CHECK);
     });
+};
+
+// Folds resolved new ports into initial_ports so they stop being re-flagged as
+// "new". An unambiguous candidate (already handled above) or pure noise (no FC
+// candidates at all) is fully adopted. An ambiguous FC-candidate set is only
+// partially adopted -- the candidates themselves are kept OUT of initial_ports
+// so array_difference() re-surfaces them on the next poll and the ambiguity is
+// re-evaluated instead of being silently adopted and never resolved.
+PortHandler.absorb_resolved_ports = function (new_ports, fc_candidates, unambiguous_candidate, current_ports) {
+    if (unambiguous_candidate || fc_candidates.length === 0) {
+        this.initial_ports = current_ports;
+        return;
+    }
+
+    for (var i = 0; i < new_ports.length; i++) {
+        if (fc_candidates.indexOf(new_ports[i]) === -1) {
+            this.initial_ports.push(new_ports[i]);
+        }
+    }
+};
+
+// Excludes known non-FC device paths (see NON_FC_PORT_PATTERN) from a
+// newly-appeared port list, so a Bluetooth RFCOMM device never gets
+// auto-selected in place of the FC re-enumerating after a reboot.
+PortHandler.resolve_fc_candidates = function (new_ports) {
+    var fc_candidates = new_ports.filter(function (port) {
+        return !NON_FC_PORT_PATTERN.test(port);
+    });
+
+    if (fc_candidates.length > 1) {
+        console.log('PortHandler - ambiguous new ports, skipping auto-select: ' + fc_candidates);
+    }
+
+    return fc_candidates;
 };
 
 PortHandler.check_usb_devices = function (callback) {

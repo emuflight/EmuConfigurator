@@ -376,6 +376,11 @@ function resetWindowToPreferredBounds(win) {
 
 // --- Serial port IPC bridge ---
 let _serialPort = null; // active serialport instance
+// Bumped by every serial-connect/serial-disconnect call. A connect in flight across an
+// `await` re-checks its captured generation before touching `_serialPort` or attaching
+// listeners, so a concurrent disconnect/reconnect (e.g. a flash's reboot-and-reenumerate
+// handshake) can't race it into using a stale/nulled port instance.
+let _serialGen = 0;
 
 // IPC: list serial ports from main process
 ipcMain.handle('serial-list-ports', async () => {
@@ -398,6 +403,8 @@ ipcMain.handle('serial-list-ports', async () => {
 
 // IPC: open serial port
 ipcMain.handle('serial-connect', async (event, portPath, options) => {
+  const myGen = ++_serialGen;
+  let port;
   try {
     const { SerialPort } = require('serialport');
     if (_serialPort && _serialPort.isOpen) {
@@ -406,43 +413,59 @@ ipcMain.handle('serial-connect', async (event, portPath, options) => {
         resolve();
       }));
     }
-    _serialPort = new SerialPort({
+    if (myGen !== _serialGen) return null; // superseded while closing the previous port
+
+    port = new SerialPort({
       path: portPath,
       baudRate: options.bitrate || 115200,
       autoOpen: false,
     });
     await new Promise((resolve, reject) => {
-      _serialPort.open((err) => err ? reject(err) : resolve());
+      port.open((err) => err ? reject(err) : resolve());
     });
+    if (myGen !== _serialGen) {
+      // A later serial-connect/serial-disconnect superseded this call while open() was pending.
+      try { port.close(() => {}); } catch (closeErr) { console.warn('main.js: error closing superseded port:', closeErr.message); }
+      return null;
+    }
+
+    _serialPort = port;
     // Forward incoming data to renderer
-    _serialPort.on('data', (data) => {
+    port.on('data', (data) => {
+      if (myGen !== _serialGen) return; // listener from a superseded connect
       safeSendToRenderer(event.sender, 'serial-data', data.buffer.slice(data.byteOffset, data.byteOffset + data.byteLength));
     });
     // Enhanced error handler to prevent uncaught exceptions
-    _serialPort.on('error', (err) => {
+    port.on('error', (err) => {
+      if (myGen !== _serialGen) return;
       console.error('main.js serialport error:', err.message);
       safeSendToRenderer(event.sender, 'serial-error', err.message);
       // Attempt graceful recovery
-      if (_serialPort && _serialPort.isOpen) {
-        _serialPort.close((err) => {
+      if (_serialPort === port && port.isOpen) {
+        port.close((err) => {
           if (err) console.error('main.js: error closing serial port after error:', err.message);
           else console.log('main.js: closed serial port after error');
         });
       }
     });
-    _serialPort.on('close', () => {
+    port.on('close', () => {
+      if (myGen !== _serialGen) return;
       safeSendToRenderer(event.sender, 'serial-close');
     });
     return { connectionId: 1, bitrate: options.bitrate || 115200 };
   } catch (e) {
     console.error('main.js: serial-connect failed:', e.message);
+    if (port && port.isOpen) {
+      try { port.close(() => {}); } catch (closeErr) { console.warn('main.js: error closing port after connect failure:', closeErr.message); }
+    }
     return null;
   }
 });
 
 // IPC: send data over serial port
 ipcMain.handle('serial-send', async (event, bufferData) => {
-  if (!_serialPort || !_serialPort.isOpen) return { bytesSent: 0, error: 'not_connected' };
+  const port = _serialPort; // capture: a concurrent disconnect/reconnect must not redirect this write
+  if (!port || !port.isOpen) return { bytesSent: 0, error: 'not_connected' };
   const buf = Buffer.from(bufferData);
   return new Promise((resolve) => {
     let settled = false;
@@ -456,7 +479,7 @@ ipcMain.handle('serial-send', async (event, bufferData) => {
     }, 10000);
 
     try {
-      _serialPort.write(buf, (err) => {
+      port.write(buf, (err) => {
         if (settled) return;
         if (err) {
           settled = true;
@@ -483,27 +506,26 @@ ipcMain.handle('serial-send', async (event, bufferData) => {
 
 // IPC: close serial port
 ipcMain.handle('serial-disconnect', async () => {
-  if (!_serialPort || !_serialPort.isOpen) {
-    _serialPort = null;
+  ++_serialGen; // invalidate any serial-connect currently in flight
+  const port = _serialPort;
+  _serialPort = null;
+  if (!port || !port.isOpen) {
     return true;
   }
   return new Promise((resolve) => {
     const timeoutId = setTimeout(() => {
       console.error('main.js: serial-disconnect timeout, forcing cleanup');
-      _serialPort = null;
       resolve(false);
     }, 5000);
 
     try {
-      _serialPort.close((err) => {
+      port.close((err) => {
         clearTimeout(timeoutId);
-        _serialPort = null;
         resolve(!err);
       });
     } catch (e) {
       clearTimeout(timeoutId);
       console.error('main.js: serial-disconnect exception:', e.message);
-      _serialPort = null;
       resolve(false);
     }
   });
@@ -1350,6 +1372,7 @@ async function cleanupConnectionsBeforeQuit() {
   await Promise.allSettled(usbCleanupPromises);
   _usbOpenDevices.clear();
 
+  ++_serialGen; // invalidate any serial-connect still in flight during shutdown, even if _serialPort isn't assigned yet
   if (_serialPort && _serialPort.isOpen) {
     try {
       const currentPort = _serialPort;

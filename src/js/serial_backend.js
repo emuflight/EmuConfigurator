@@ -292,6 +292,10 @@ function onOpen(openInfo) {
         console.log('Failed to open serial port');
         GUI.log(i18n.getMessage('serialPortOpenFail'));
 
+        // Without this, a failed/superseded open leaves connecting_to set forever,
+        // permanently blocking PortHandler's auto-connect gate (!GUI.connecting_to).
+        GUI.connecting_to = false;
+
         $('div#connectbutton a.connect_state').text(i18n.getMessage('connect'));
         $('div#connectbutton a.connect').removeClass('active');
 
