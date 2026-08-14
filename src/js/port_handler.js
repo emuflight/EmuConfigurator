@@ -8,6 +8,11 @@ var usbDevices = { filters: [
     {'vendorId': 12619, 'productId': 262} // APM32 DFU Bootloader
 ] };
 
+// Device paths that can never be a flight controller's USB-serial re-enumeration --
+// excluded from auto-connect/auto-select candidates so an unrelated device (e.g. a
+// Bluetooth RFCOMM service registering mid-reboot) never gets picked over the FC.
+var NON_FC_PORT_PATTERN = /^\/dev\/rfcomm\d+$/i;
+
 var PortHandler = new function () {
     this.initial_ports = false;
     this.port_detected_callbacks = [];
@@ -122,15 +127,22 @@ PortHandler.check = function () {
 
             self.update_port_select(current_ports);
 
+            var fc_candidates = self.resolve_fc_candidates(new_ports);
+            var unambiguous_candidate = (fc_candidates.length == 1);
+
             // select / highlight new port, if connected -> select connected port
             if (!GUI.connected_to) {
-                $('div#port-picker #port').val(new_ports[0]);
+                if (unambiguous_candidate) {
+                    $('div#port-picker #port').val(fc_candidates[0]);
+                }
+                // else: no FC-shaped candidate, or more than one -- leave the port
+                // picker as-is instead of guessing which device is the FC.
             } else {
                 $('div#port-picker #port').val(GUI.connected_to);
             }
 
             // start connect procedure (if statement is valid)
-            if (GUI.auto_connect && !GUI.connecting_to && !GUI.connected_to) {
+            if (unambiguous_candidate && GUI.auto_connect && !GUI.connecting_to && !GUI.connected_to) {
                 // we need firmware flasher protection over here
                 if (GUI.active_tab != 'firmware_flasher') {
                     GUI.timeout_add('auto-connect_timeout', function () {
@@ -150,19 +162,24 @@ PortHandler.check = function () {
                 }
             }
 
-            // trigger callbacks
-            for (var i = (self.port_detected_callbacks.length - 1); i >= 0; i--) {
-                var obj = self.port_detected_callbacks[i];
+            // trigger callbacks only once the new-port set resolves to exactly one
+            // FC-shaped candidate; leave them registered otherwise so a later poll
+            // (once the ambiguity clears) can still resolve them (see port_detected's
+            // ignore_timeout usage in firmware_flasher.js's flash_on_connect).
+            if (unambiguous_candidate) {
+                for (var i = (self.port_detected_callbacks.length - 1); i >= 0; i--) {
+                    var obj = self.port_detected_callbacks[i];
 
-                // remove timeout
-                clearTimeout(obj.timer);
+                    // remove timeout
+                    clearTimeout(obj.timer);
 
-                // trigger callback
-                obj.code(new_ports);
+                    // trigger callback
+                    obj.code(fc_candidates);
 
-                // remove object from array
-                var index = self.port_detected_callbacks.indexOf(obj);
-                if (index > -1) self.port_detected_callbacks.splice(index, 1);
+                    // remove object from array
+                    var index = self.port_detected_callbacks.indexOf(obj);
+                    if (index > -1) self.port_detected_callbacks.splice(index, 1);
+                }
             }
 
             self.initial_ports = current_ports;
@@ -193,6 +210,21 @@ PortHandler.check = function () {
             self.check();
         }, TIMEOUT_CHECK);
     });
+};
+
+// Excludes device paths that can't be the FC (see NON_FC_PORT_PATTERN) from a
+// newly-appeared port list, so an unrelated device never gets auto-selected in
+// place of the FC re-enumerating after a reboot.
+PortHandler.resolve_fc_candidates = function (new_ports) {
+    var fc_candidates = new_ports.filter(function (port) {
+        return !NON_FC_PORT_PATTERN.test(port);
+    });
+
+    if (fc_candidates.length > 1) {
+        console.log('PortHandler - ambiguous new ports, skipping auto-select: ' + fc_candidates);
+    }
+
+    return fc_candidates;
 };
 
 PortHandler.check_usb_devices = function (callback) {
