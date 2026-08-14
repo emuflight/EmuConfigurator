@@ -132,6 +132,7 @@ PortHandler.check = function () {
             // capture it first so a non-candidate/ambiguous poll can restore it
             // instead of silently falling back to the browser's first-option default.
             var previously_selected_port = $('div#port-picker #port').val();
+            var manual_was_selected = (previously_selected_port === 'manual');
 
             self.update_port_select(current_ports);
 
@@ -140,7 +141,11 @@ PortHandler.check = function () {
 
             // select / highlight new port, if connected -> select connected port
             if (!GUI.connected_to) {
-                if (unambiguous_candidate) {
+                if (manual_was_selected) {
+                    // User explicitly chose manual entry -- a new port enumerating
+                    // must not silently discard that selection.
+                    $('div#port-picker #port').val('manual');
+                } else if (unambiguous_candidate) {
                     $('div#port-picker #port').val(fc_candidates[0]);
                 } else {
                     // No FC-shaped candidate, or more than one -- leave the user's
