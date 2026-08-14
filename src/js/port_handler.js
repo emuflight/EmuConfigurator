@@ -127,6 +127,12 @@ PortHandler.check = function () {
                 console.log('PortHandler - Found: ' + new_ports[0]);
             }
 
+            // update_port_select() rebuilds the <option> list from scratch, which
+            // drops the current selection unless something re-sets it below --
+            // capture it first so a non-candidate/ambiguous poll can restore it
+            // instead of silently falling back to the browser's first-option default.
+            var previously_selected_port = $('div#port-picker #port').val();
+
             self.update_port_select(current_ports);
 
             var fc_candidates = self.resolve_fc_candidates(new_ports);
@@ -136,9 +142,11 @@ PortHandler.check = function () {
             if (!GUI.connected_to) {
                 if (unambiguous_candidate) {
                     $('div#port-picker #port').val(fc_candidates[0]);
+                } else {
+                    // No FC-shaped candidate, or more than one -- leave the user's
+                    // prior selection alone instead of guessing which device is the FC.
+                    $('div#port-picker #port').val(previously_selected_port);
                 }
-                // else: no FC-shaped candidate, or more than one -- leave the port
-                // picker as-is instead of guessing which device is the FC.
             } else {
                 $('div#port-picker #port').val(GUI.connected_to);
             }

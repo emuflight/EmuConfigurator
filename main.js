@@ -425,7 +425,7 @@ ipcMain.handle('serial-connect', async (event, portPath, options) => {
     });
     if (myGen !== _serialGen) {
       // A later serial-connect/serial-disconnect superseded this call while open() was pending.
-      port.close(() => {});
+      try { port.close(() => {}); } catch (closeErr) { console.warn('main.js: error closing superseded port:', closeErr.message); }
       return null;
     }
 
@@ -455,7 +455,9 @@ ipcMain.handle('serial-connect', async (event, portPath, options) => {
     return { connectionId: 1, bitrate: options.bitrate || 115200 };
   } catch (e) {
     console.error('main.js: serial-connect failed:', e.message);
-    if (port && port.isOpen) port.close(() => {});
+    if (port && port.isOpen) {
+      try { port.close(() => {}); } catch (closeErr) { console.warn('main.js: error closing port after connect failure:', closeErr.message); }
+    }
     return null;
   }
 });
@@ -1371,6 +1373,7 @@ async function cleanupConnectionsBeforeQuit() {
   _usbOpenDevices.clear();
 
   if (_serialPort && _serialPort.isOpen) {
+    ++_serialGen; // invalidate any serial-connect still in flight during shutdown
     try {
       const currentPort = _serialPort;
       await withTimeout(new Promise((resolve) => {
