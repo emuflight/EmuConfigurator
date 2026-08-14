@@ -182,7 +182,7 @@ PortHandler.check = function () {
                 }
             }
 
-            self.initial_ports = current_ports;
+            self.absorb_resolved_ports(new_ports, fc_candidates, unambiguous_candidate, current_ports);
         }
 
         self.check_usb_devices();
@@ -210,6 +210,25 @@ PortHandler.check = function () {
             self.check();
         }, TIMEOUT_CHECK);
     });
+};
+
+// Folds resolved new ports into initial_ports so they stop being re-flagged as
+// "new". An unambiguous candidate (already handled above) or pure noise (no FC
+// candidates at all) is fully adopted. An ambiguous FC-candidate set is only
+// partially adopted -- the candidates themselves are kept OUT of initial_ports
+// so array_difference() re-surfaces them on the next poll and the ambiguity is
+// re-evaluated instead of being silently adopted and never resolved.
+PortHandler.absorb_resolved_ports = function (new_ports, fc_candidates, unambiguous_candidate, current_ports) {
+    if (unambiguous_candidate || fc_candidates.length === 0) {
+        this.initial_ports = current_ports;
+        return;
+    }
+
+    for (var i = 0; i < new_ports.length; i++) {
+        if (fc_candidates.indexOf(new_ports[i]) === -1) {
+            this.initial_ports.push(new_ports[i]);
+        }
+    }
 };
 
 // Excludes device paths that can't be the FC (see NON_FC_PORT_PATTERN) from a
