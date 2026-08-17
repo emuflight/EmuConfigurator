@@ -533,12 +533,11 @@ TABS.firmware_flasher.initialize = function (callback) {
                             const port = (rawPort === null || rawPort === undefined) ? '' : String(rawPort).trim();
 
                             if (port === 'DFU') {
-                                // A manual override typed as the literal string 'DFU' is not a
-                                // real DFU-mode selection (that's the outer picker-value check
-                                // above) -- treat it the same way the Connect button does instead
-                                // of handing the literal string to STM32.connect() as a port path.
-                                flashComplete();
-                                GUI.log(i18n.getMessage('dfu_connect_message'));
+                                // A manual override typed as the literal string 'DFU' means the
+                                // same thing as picking the real DFU option -- attempt the same
+                                // USB DFU handshake instead of handing the literal string to
+                                // STM32.connect() as a serial port path.
+                                STM32DFU.connect(usbDevices, parsed_hex, options, flashComplete);
                             } else if (port !== '0' && port !== '') {
                                 var baud;
                                 baud = 115200;
