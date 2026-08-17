@@ -525,12 +525,12 @@ TABS.firmware_flasher.initialize = function (callback) {
                             // Manual entry's picker value is the literal string 'manual' --
                             // substitute the typed override path, matching the same
                             // isManual handling serial_backend.js uses for the Connect button.
-                            var isManualPortSelected = $('div#port-picker #port option:selected').data('isManual');
-                            var rawPort = isManualPortSelected ? $('#port-override').val() : $('div#port-picker #port').val();
+                            const isManualPortSelected = $('div#port-picker #port option:selected').data('isManual');
+                            const rawPort = isManualPortSelected ? $('#port-override').val() : $('div#port-picker #port').val();
                             // .val() can return null (no option selected); String(null) would
                             // otherwise become the literal string "null", which passes the
                             // '0'/'' sentinel checks below and gets handed to STM32.connect().
-                            var port = (rawPort === null || rawPort === undefined) ? '' : String(rawPort).trim();
+                            const port = (rawPort === null || rawPort === undefined) ? '' : String(rawPort).trim();
 
                             if (port === 'DFU') {
                                 // A manual override typed as the literal string 'DFU' is not a
