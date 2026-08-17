@@ -522,8 +522,24 @@ TABS.firmware_flasher.initialize = function (callback) {
                         };
 
                         if (String($('div#port-picker #port').val()) != 'DFU') {
-                            if (String($('div#port-picker #port').val()) != '0') {
-                                var port = String($('div#port-picker #port').val()), baud;
+                            // Manual entry's picker value is the literal string 'manual' --
+                            // substitute the typed override path, matching the same
+                            // isManual handling serial_backend.js uses for the Connect button.
+                            const isManualPortSelected = $('div#port-picker #port option:selected').data('isManual');
+                            const rawPort = isManualPortSelected ? $('#port-override').val() : $('div#port-picker #port').val();
+                            // .val() can return null (no option selected); String(null) would
+                            // otherwise become the literal string "null", which passes the
+                            // '0'/'' sentinel checks below and gets handed to STM32.connect().
+                            const port = (rawPort === null || rawPort === undefined) ? '' : String(rawPort).trim();
+
+                            if (port === 'DFU') {
+                                // A manual override typed as the literal string 'DFU' means the
+                                // same thing as picking the real DFU option -- attempt the same
+                                // USB DFU handshake instead of handing the literal string to
+                                // STM32.connect() as a serial port path.
+                                STM32DFU.connect(usbDevices, parsed_hex, options, flashComplete);
+                            } else if (port !== '0' && port !== '') {
+                                var baud;
                                 baud = 115200;
 
                                 if ($('input.updating').is(':checked')) {
