@@ -532,7 +532,14 @@ TABS.firmware_flasher.initialize = function (callback) {
                             // '0'/'' sentinel checks below and gets handed to STM32.connect().
                             var port = (rawPort === null || rawPort === undefined) ? '' : String(rawPort).trim();
 
-                            if (port !== '0' && port !== '') {
+                            if (port === 'DFU') {
+                                // A manual override typed as the literal string 'DFU' is not a
+                                // real DFU-mode selection (that's the outer picker-value check
+                                // above) -- treat it the same way the Connect button does instead
+                                // of handing the literal string to STM32.connect() as a port path.
+                                flashComplete();
+                                GUI.log(i18n.getMessage('dfu_connect_message'));
+                            } else if (port !== '0' && port !== '') {
                                 var baud;
                                 baud = 115200;
 
