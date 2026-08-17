@@ -132,16 +132,6 @@ PortHandler.check = function () {
             // capture it first so a non-candidate/ambiguous poll can restore it
             // instead of silently falling back to the browser's first-option default.
             var previously_selected_port = $('div#port-picker #port').val();
-            // 'manual' can be selected two ways: the user deliberately chose it and
-            // typed an override path, or it's simply the only <option> update_port_select()
-            // ever appends when no real port exists yet (incidental, not a real choice).
-            // Only the former should survive a new port enumerating -- otherwise a genuine
-            // single FC candidate could never be offered again once nothing was plugged in
-            // at some earlier poll. Mirrors the same isManual + typed-override check used
-            // for connect-button gating further down in this function.
-            var manual_was_selected = $('div#port-picker #port option:selected').data('isManual')
-                && $('#port-override').val().trim() !== ''
-                && $('#port-override').val().trim() !== '0';
 
             self.update_port_select(current_ports);
 
@@ -150,11 +140,7 @@ PortHandler.check = function () {
 
             // select / highlight new port, if connected -> select connected port
             if (!GUI.connected_to) {
-                if (manual_was_selected) {
-                    // User has a manual override path typed in -- a new port enumerating
-                    // must not silently discard that selection.
-                    $('div#port-picker #port').val('manual');
-                } else if (unambiguous_candidate) {
+                if (unambiguous_candidate) {
                     $('div#port-picker #port').val(fc_candidates[0]);
                 } else {
                     // No FC-shaped candidate, or more than one -- leave the user's
