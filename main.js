@@ -229,7 +229,9 @@ const MAX_ZOOM_LEVEL = 9;
 // Maps a renderer-supplied dialogId to its own remembered-folder config key. An id not listed
 // here (or omitted) falls back to 'lastDialogFolder'. loadConfig/saveConfig derive their
 // whitelist from FOLDER_MEMORY_KEYS below, so adding a bucket here is the only step required.
-const DIALOG_FOLDER_KEYS = { firmware: 'lastFirmwareFolder' };
+// Null-prototype so a dialogId like 'toString' or 'constructor' can't resolve to an inherited
+// Object.prototype member instead of falling through to the shared key.
+const DIALOG_FOLDER_KEYS = { __proto__: null, firmware: 'lastFirmwareFolder' };
 const FOLDER_MEMORY_KEYS = ['lastDialogFolder', ...new Set(Object.values(DIALOG_FOLDER_KEYS))];
 
 // In-memory zoom level — single source of truth; avoids disk reads on resize
