@@ -226,6 +226,14 @@ const DEFAULT_ZOOM_LEVEL = 0; // Ctrl+0 actual size
 const MIN_ZOOM_LEVEL = -9;
 const MAX_ZOOM_LEVEL = 9;
 
+// Maps a renderer-supplied dialogId to its own remembered-folder config key. An id not listed
+// here (or omitted) falls back to 'lastDialogFolder'. loadConfig/saveConfig derive their
+// whitelist from FOLDER_MEMORY_KEYS below, so adding a bucket here is the only step required.
+// Null-prototype so a dialogId like 'toString' or 'constructor' can't resolve to an inherited
+// Object.prototype member instead of falling through to the shared key.
+const DIALOG_FOLDER_KEYS = { __proto__: null, firmware: 'lastFirmwareFolder' };
+const FOLDER_MEMORY_KEYS = ['lastDialogFolder', ...new Set(Object.values(DIALOG_FOLDER_KEYS))];
+
 // In-memory zoom level — single source of truth; avoids disk reads on resize
 // and eliminates races between the F12 handler and devtools-opened/closed handlers.
 let _currentZoom = DEFAULT_ZOOM_LEVEL;
@@ -250,9 +258,13 @@ function loadConfig() {
       const data = fs.readFileSync(APP_CONFIG_FILE, 'utf8');
       const config = JSON.parse(data);
       const wb = config.windowBounds;
+      const folders = {};
+      for (const key of FOLDER_MEMORY_KEYS) {
+        folders[key] = typeof config[key] === 'string' ? config[key] : '';
+      }
       return {
         zoomLevel: typeof config.zoomLevel === 'number' ? config.zoomLevel : DEFAULT_ZOOM_LEVEL,
-        lastDialogFolder: typeof config.lastDialogFolder === 'string' ? config.lastDialogFolder : '',
+        ...folders,
         windowBounds: (wb && typeof wb.x === 'number' && typeof wb.y === 'number' &&
                        typeof wb.width === 'number' && typeof wb.height === 'number') ? wb : null,
         isMaximized: typeof config.isMaximized === 'boolean' ? config.isMaximized : false,
@@ -261,7 +273,12 @@ function loadConfig() {
   } catch (e) {
     console.error('Failed to load app config:', e);
   }
-  return { zoomLevel: DEFAULT_ZOOM_LEVEL, lastDialogFolder: '', windowBounds: null, isMaximized: false };
+  return {
+    zoomLevel: DEFAULT_ZOOM_LEVEL,
+    ...Object.fromEntries(FOLDER_MEMORY_KEYS.map(key => [key, ''])),
+    windowBounds: null,
+    isMaximized: false,
+  };
 }
 
 // Save unified app config (sanitizes known fields, merges with existing config)
@@ -272,8 +289,10 @@ function saveConfig(patch) {
     if ('zoomLevel' in patch) {
       sanitizedPatch.zoomLevel = clampZoom(patch.zoomLevel);
     }
-    if ('lastDialogFolder' in patch) {
-      sanitizedPatch.lastDialogFolder = typeof patch.lastDialogFolder === 'string' ? patch.lastDialogFolder : '';
+    for (const key of FOLDER_MEMORY_KEYS) {
+      if (key in patch) {
+        sanitizedPatch[key] = typeof patch[key] === 'string' ? patch[key] : '';
+      }
     }
     if ('windowBounds' in patch) {
       const b = patch.windowBounds;
@@ -935,21 +954,24 @@ ipcMain.handle('dialog:choose-entry', async (event, options) => {
   }
   dialogChooseEntryInProgress = true;
   try {
-    const { type, suggestedName, accepts } = options;
-    const { lastDialogFolder } = loadConfig();
+    const { type, suggestedName, accepts, dialogId } = options;
+    const folderKey = DIALOG_FOLDER_KEYS[dialogId] || 'lastDialogFolder';
+    const config = loadConfig();
+    // Fall back to the shared folder until this bucket has its own stored value.
+    const lastFolder = config[folderKey] || config.lastDialogFolder;
 
     if (type === 'saveFile') {
       const filters = accepts ? accepts.map(a => ({ name: a.description, extensions: a.extensions })) : [];
       // Prefer last-used folder; fall back to suggestedName (which may itself be a filename only)
-      const defaultPath = lastDialogFolder
-        ? path.join(lastDialogFolder, suggestedName || '')
+      const defaultPath = lastFolder
+        ? path.join(lastFolder, suggestedName || '')
         : suggestedName;
       const result = await dialog.showSaveDialog({
         defaultPath,
         filters: filters.length > 0 ? filters : undefined,
       });
       if (!result.canceled && result.filePath) {
-        saveConfig({ lastDialogFolder: path.dirname(result.filePath) });
+        saveConfig({ [folderKey]: path.dirname(result.filePath) });
       }
       return result;
     } else if (type === 'openFile') {
@@ -958,14 +980,14 @@ ipcMain.handle('dialog:choose-entry', async (event, options) => {
                  .map(a => ({ name: a.description, extensions: a.extensions }))
         : [];
       // Use last-used folder as defaultPath; suggestedName is rarely set for openFile
-      const defaultPath = lastDialogFolder || suggestedName;
+      const defaultPath = lastFolder || suggestedName;
       const result = await dialog.showOpenDialog({
         defaultPath,
         filters: openFilters,
         properties: ['openFile'],
       });
       if (!result.canceled && result.filePaths && result.filePaths[0]) {
-        saveConfig({ lastDialogFolder: path.dirname(result.filePaths[0]) });
+        saveConfig({ [folderKey]: path.dirname(result.filePaths[0]) });
       }
       return result;
     }
