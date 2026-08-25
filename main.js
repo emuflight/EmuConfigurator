@@ -1292,11 +1292,11 @@ async function cleanupConnectionsBeforeQuit() {
   for (const [, device] of _usbOpenDevices) {
     const cleanupOneDevice = withTimeout((async () => {
       try {
-        // DFU_CLRSTATUS (USB class request): bmRequestType=0x21, bRequest=0x00,
+        // DFU_CLRSTATUS (USB class request): bmRequestType=0x21, bRequest=0x04,
         // wValue=0, wIndex=0, wLength=0 — clears DFU status bits and returns
         // the device to dfuIDLE so it can be safely closed.
         await device.controlTransferOut({
-          requestType: 'class', recipient: 'interface', request: 0x00, value: 0, index: 0,
+          requestType: 'class', recipient: 'interface', request: 0x04, value: 0, index: 0,
         });
       } catch {
         // device may already be detached or in a state that rejects this — still attempt close
