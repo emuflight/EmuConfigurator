@@ -94,10 +94,10 @@ function updateControlPositions() {
                 gimbalSize = $(gimbalElem).width(),
                 stickElem = $(".control-stick", gimbalElem);
             
-            if (gimbal[0] == stickName) {
+            if (gimbal[0] === stickName) {
                 stickElem.css('top', (1.0 - channelValueToStickPortion(stickValue)) * gimbalSize + "px");
                 break;
-            } else if (gimbal[1] == stickName) {
+            } else if (gimbal[1] === stickName) {
                 stickElem.css('left', channelValueToStickPortion(stickValue) * gimbalSize + "px");
                 break;
             }
@@ -150,7 +150,7 @@ $(document).ready(function() {
     
     gimbalElems.each(function(gimbalIndex) {
         $(this).on('mousedown', {gimbalIndex: gimbalIndex}, function(e) {
-            if (e.which == 1) { // Only move sticks on left mouse button
+            if (e.which === 1) { // Only move sticks on left mouse button
                 handleGimbalMouseDrag(e);
                 
                 $(window).on('mousemove', {gimbalIndex: gimbalIndex}, handleGimbalMouseDrag);

@@ -24,7 +24,7 @@ TABS.motors.initialize = function (callback) {
     self.armed = false;
     self.escProtocolIsDshot = false;
 
-    if (GUI.active_tab != 'motors') {
+    if (GUI.active_tab !== 'motors') {
         GUI.active_tab = 'motors';
     }
 
@@ -560,7 +560,7 @@ TABS.motors.initialize = function (callback) {
                 if (MOTOR_DATA[i] > 0) {
                     sliders.eq(i).val(MOTOR_DATA[i]);
 
-                    if (master_value != MOTOR_DATA[i]) {
+                    if (master_value !== MOTOR_DATA[i]) {
                         master_value = false;
                     }
                 }
@@ -625,7 +625,7 @@ TABS.motors.initialize = function (callback) {
             //keep the following here so at least we get a visual cue of our motor setup
             update_arm_status();
 
-            if (previousArmState != self.armed) {
+            if (previousArmState !== self.armed) {
                 console.log('arm state change detected');
 
                 $('#motorsEnableTestMode').change();

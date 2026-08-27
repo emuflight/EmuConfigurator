@@ -23,7 +23,7 @@ function lookupTableBandChan(band,chan) {
 function lookupTableFreq(freq) {
     for (let i = 0; i < vtxTable.length; i++) {
         for (let j = 0; j < vtxTable[i].length; j++) {
-            if (freq == vtxTable[i][j]) {
+            if (parseInt(freq, 10) === vtxTable[i][j]) {
                 return [i+1,j+1];
             }
         }
@@ -40,7 +40,7 @@ TABS.vtx.getVtxTypeString = function() {
 TABS.vtx.initialize = function(callback) {
     //console.log('enter TABS.vtx.initialize()');
     var self = this;
-    if (GUI.active_tab != 'vtx') {
+    if (GUI.active_tab !== 'vtx') {
         GUI.active_tab = 'vtx';
     }
     this.supported = true; //since EmuF 0.1.0 (BF 3.3.0), MSP 1.40+ always available
