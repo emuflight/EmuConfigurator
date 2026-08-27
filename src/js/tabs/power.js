@@ -54,26 +54,27 @@ TABS.power.initialize = function (callback) {
 
     load_status();
 
-    function updateDisplay(voltageDataSource, currentDataSource) {
-        // voltage meters
-
+    function updateVoltageConfigVisibility() {
         if (BATTERY_CONFIG.voltageMeterSource == 0) {
             $('.boxVoltageConfiguration').hide();
         } else {
             $('.boxVoltageConfiguration').show();
         }
+    }
 
-        if (!voltageDataSource) {
-            voltageDataSource = [];
-            for (var index = 0; index < VOLTAGE_METER_CONFIGS.length; index++) {
-                voltageDataSource[index] = {
-                    vbatscale: parseInt($('input[name="vbatscale-' + index + '"]').val()),
-                    vbatresdivval: parseInt($('input[name="vbatresdivval-' + index + '"]').val()),
-                    vbatresdivmultiplier: parseInt($('input[name="vbatresdivmultiplier-' + index + '"]').val())
-                };
-            }
+    function buildVoltageDataSource() {
+        var voltageDataSource = [];
+        for (var index = 0; index < VOLTAGE_METER_CONFIGS.length; index++) {
+            voltageDataSource[index] = {
+                vbatscale: parseInt($('input[name="vbatscale-' + index + '"]').val()),
+                vbatresdivval: parseInt($('input[name="vbatresdivval-' + index + '"]').val()),
+                vbatresdivmultiplier: parseInt($('input[name="vbatresdivmultiplier-' + index + '"]').val())
+            };
         }
+        return voltageDataSource;
+    }
 
+    function renderVoltageMeters() {
         var template = $('#tab-power-templates .voltage-meters .voltage-meter');
         var destination = $('.tab-power .voltage-meters');
         destination.empty();
@@ -91,7 +92,9 @@ TABS.power.initialize = function (callback) {
                 meterElement.show();
             }
         }
+    }
 
+    function renderVoltageMeterConfigs(voltageDataSource) {
         var template = $('#tab-power-templates .voltage-configuration');
         for (var index = 0; index < VOLTAGE_METER_CONFIGS.length; index++) {
             var destination = $('#voltage-meter-' + index + ' .configuration');
@@ -107,23 +110,28 @@ TABS.power.initialize = function (callback) {
             $('input[name="vbatresdivval-' + index + '"]').val(voltageDataSource[index].vbatresdivval);
             $('input[name="vbatresdivmultiplier-' + index + '"]').val(voltageDataSource[index].vbatresdivmultiplier);
         }
+    }
 
-        // amperage meters
+    function updateAmperageConfigVisibility() {
         if (BATTERY_CONFIG.currentMeterSource == 0) {
             $('.boxAmperageConfiguration').hide();
         } else {
             $('.boxAmperageConfiguration').show();
         }
+    }
 
-        if (!currentDataSource) {
-            currentDataSource = [];
-            for (var index = 0; index < CURRENT_METER_CONFIGS.length; index++) {
-                currentDataSource[index] = {
-                    scale: parseInt($('input[name="amperagescale-' + index + '"]').val()),
-                    offset: parseInt($('input[name="amperageoffset-' + index + '"]').val())
-                };
-            }
+    function buildCurrentDataSource() {
+        var currentDataSource = [];
+        for (var index = 0; index < CURRENT_METER_CONFIGS.length; index++) {
+            currentDataSource[index] = {
+                scale: parseInt($('input[name="amperagescale-' + index + '"]').val()),
+                offset: parseInt($('input[name="amperageoffset-' + index + '"]').val())
+            };
         }
+        return currentDataSource;
+    }
+
+    function renderCurrentMeters() {
         var template = $('#tab-power-templates .amperage-meters .amperage-meter');
         var destination = $('.tab-power .amperage-meters');
         destination.empty();
@@ -142,7 +150,9 @@ TABS.power.initialize = function (callback) {
                 meterElement.show();
             }
         }
+    }
 
+    function renderCurrentMeterConfigs(currentDataSource) {
         var template = $('#tab-power-templates .amperage-configuration');
         for (var index = 0; index < CURRENT_METER_CONFIGS.length; index++) {
             var destination = $('#amperage-meter-' + index + ' .configuration');
@@ -157,12 +167,32 @@ TABS.power.initialize = function (callback) {
             $('input[name="amperagescale-' + index + '"]').val(currentDataSource[index].scale);
             $('input[name="amperageoffset-' + index + '"]').val(currentDataSource[index].offset);
         }
+    }
 
+    function updateCalibrationVisibility() {
         if(BATTERY_CONFIG.voltageMeterSource == 1 || BATTERY_CONFIG.currentMeterSource == 1 || BATTERY_CONFIG.currentMeterSource == 2) {
             $('.calibration').show();
         } else {
             $('.calibration').hide();
         }
+    }
+
+    function updateDisplay(voltageDataSource, currentDataSource) {
+        updateVoltageConfigVisibility();
+        if (!voltageDataSource) {
+            voltageDataSource = buildVoltageDataSource();
+        }
+        renderVoltageMeters();
+        renderVoltageMeterConfigs(voltageDataSource);
+
+        updateAmperageConfigVisibility();
+        if (!currentDataSource) {
+            currentDataSource = buildCurrentDataSource();
+        }
+        renderCurrentMeters();
+        renderCurrentMeterConfigs(currentDataSource);
+
+        updateCalibrationVisibility();
     }
 
     function initDisplay() {
