@@ -576,6 +576,38 @@ STM32DFU_protocol.prototype.verify_flash = function (first_array, second_array) 
     return true;
 };
 
+// pages to erase: full chip if self.options.erase_chip, else only pages overlapping self.hex.data
+STM32DFU_protocol.prototype.getErasePages = function () {
+    var self = this;
+    var erase_pages = [];
+    for (var i = 0; i < self.flash_layout.sectors.length; i++) {
+        for (var j = 0; j < self.flash_layout.sectors[i].num_pages; j++) {
+            if (self.options.erase_chip) {
+                // full chip erase
+                erase_pages.push({'sector': i, 'page': j});
+            } else {
+                // local erase
+                var page_start = self.flash_layout.sectors[i].start_address + j * self.flash_layout.sectors[i].page_size;
+                var page_end = page_start + self.flash_layout.sectors[i].page_size - 1;
+                for (var k = 0; k < self.hex.data.length; k++) {
+                    var starts_in_page = self.hex.data[k].address >= page_start && self.hex.data[k].address <= page_end;
+                    var end_address = self.hex.data[k].address + self.hex.data[k].bytes - 1;
+                    var ends_in_page = end_address >= page_start && end_address <= page_end;
+                    var spans_page = self.hex.data[k].address < page_start && end_address > page_end;
+                    if (starts_in_page || ends_in_page || spans_page) {
+                        var idx = erase_pages.findIndex(function (element, index, array) {
+                            return element.sector == i && element.page == j;
+                        });
+                        if (idx == -1)
+                            { erase_pages.push({'sector': i, 'page': j}); }
+                    }
+                }
+            }
+        }
+    }
+    return erase_pages;
+};
+
 STM32DFU_protocol.prototype.upload_procedure = function (step) {
     var self = this;
 
@@ -786,34 +818,8 @@ STM32DFU_protocol.prototype.upload_procedure = function (step) {
             break;
         case 2:
             // erase
-                // find out which pages to erase
-                var erase_pages = [];
-                for (var i = 0; i < self.flash_layout.sectors.length; i++) {
-                    for (var j = 0; j < self.flash_layout.sectors[i].num_pages; j++) {
-                        if (self.options.erase_chip) {
-                            // full chip erase
-                            erase_pages.push({'sector': i, 'page': j});
-                        } else {
-                            // local erase
-                        var page_start = self.flash_layout.sectors[i].start_address + j * self.flash_layout.sectors[i].page_size;
-                        var page_end = page_start + self.flash_layout.sectors[i].page_size - 1;
-                        for (var k = 0; k < self.hex.data.length; k++) {
-                            var starts_in_page = self.hex.data[k].address >= page_start && self.hex.data[k].address <= page_end;
-                            var end_address = self.hex.data[k].address + self.hex.data[k].bytes - 1;
-                            var ends_in_page = end_address >= page_start && end_address <= page_end;
-                            var spans_page = self.hex.data[k].address < page_start && end_address > page_end;
-                            if (starts_in_page || ends_in_page || spans_page) {
-                                var idx = erase_pages.findIndex(function (element, index, array) {
-                                    return element.sector == i && element.page == j;
-                                });
-                                if (idx == -1)
-                                    { erase_pages.push({'sector': i, 'page': j}); }
-                            }
-                        }
-                    }
-                  }
-                }
-                
+                var erase_pages = self.getErasePages();
+
                 if (erase_pages.length === 0) {
                     console.log('Aborting, No flash pages to erase');
                     TABS.firmware_flasher.flashingMessage(i18n.getMessage('stm32InvalidHex'), TABS.firmware_flasher.FLASH_MESSAGE_TYPES.INVALID);
