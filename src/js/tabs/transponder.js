@@ -327,5 +327,5 @@ TABS.transponder.initialize = function(callback, scrollPosition) {
 };
 
 TABS.transponder.cleanup = function(callback) {
-    if ( callback ) callback();
+    if ( callback ) { callback(); }
 };

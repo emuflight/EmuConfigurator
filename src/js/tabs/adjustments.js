@@ -268,7 +268,7 @@ TABS.adjustments.initialize = function (callback) {
 };
 
 TABS.adjustments.cleanup = function (callback) {
-    if (callback) callback();
+    if (callback) { callback(); }
 };
 
 TABS.adjustments.adjust_template = function () {

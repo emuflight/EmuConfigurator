@@ -329,5 +329,5 @@ TABS.setup.cleanup = function (callback) {
         this.model = null;
     }
 
-    if (callback) callback();
+    if (callback) { callback(); }
 };

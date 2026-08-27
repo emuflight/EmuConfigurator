@@ -350,12 +350,12 @@ TABS.cli.history.add = function (str) {
 };
 
 TABS.cli.history.prev = function () {
-    if (this.index > 0) this.index -= 1;
+    if (this.index > 0) { this.index -= 1; }
     return this.history[this.index];
 };
 
 TABS.cli.history.next = function () {
-    if (this.index < this.history.length) this.index += 1;
+    if (this.index < this.history.length) { this.index += 1; }
     return this.history[this.index - 1];
 };
 
@@ -492,7 +492,7 @@ TABS.cli.read = function (readInfo) {
 
     if (!CliAutoComplete.isEnabled())
         // fallback to native autocomplete
-        setPrompt(removePromptHash(this.cliBuffer));
+        { setPrompt(removePromptHash(this.cliBuffer)); }
 };
 
 TABS.cli.sendLine = function (line, callback) {

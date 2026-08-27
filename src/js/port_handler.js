@@ -5,7 +5,7 @@ const TIMEOUT_CHECK = 500; // With 250 it seems that it produces a memory leak a
 var usbDevices = { filters: [
     {'vendorId': 1155, 'productId': 57105},
     {'vendorId': 10473, 'productId': 393},
-    {'vendorId': 12619, 'productId': 262} // APM32 DFU Bootloader
+    { 'vendorId': 12619, 'productId': 262 } // APM32 DFU Bootloader
 ] };
 
 // Linux Bluetooth RFCOMM device paths -- excluded from auto-connect/auto-select
@@ -73,7 +73,7 @@ PortHandler.check = function () {
 
                     // remove object from array
                     var index = self.port_removed_callbacks.indexOf(obj);
-                    if (index > -1) self.port_removed_callbacks.splice(index, 1);
+                    if (index > -1) { self.port_removed_callbacks.splice(index, 1); }
                 }
             }
 
@@ -193,7 +193,7 @@ PortHandler.check = function () {
 
                     // remove object from array
                     var index = self.port_detected_callbacks.indexOf(obj);
-                    if (index > -1) self.port_detected_callbacks.splice(index, 1);
+                    if (index > -1) { self.port_detected_callbacks.splice(index, 1); }
                 }
             }
 
@@ -281,7 +281,7 @@ PortHandler.check_usb_devices = function (callback) {
                 self.dfu_available = false;
             }
 
-            if(callback) callback(self.dfu_available);
+            if(callback) { callback(self.dfu_available); }
         });
     } else {
         // Log warning only once when USB API is first detected as unavailable
@@ -291,7 +291,7 @@ PortHandler.check_usb_devices = function (callback) {
             this.usb_api_available = false;
         }
         this.dfu_available = false;
-        if(callback) callback(this.dfu_available);
+        if(callback) { callback(this.dfu_available); }
     }
 };
 
@@ -320,7 +320,7 @@ PortHandler.port_detected = function(name, code, timeout, ignore_timeout) {
 
             // remove object from array
             var index = self.port_detected_callbacks.indexOf(obj);
-            if (index > -1) self.port_detected_callbacks.splice(index, 1);
+            if (index > -1) { self.port_detected_callbacks.splice(index, 1); }
         }, (timeout) ? timeout : 10000);
     } else {
         obj.timer = false;
@@ -345,7 +345,7 @@ PortHandler.port_removed = function (name, code, timeout, ignore_timeout) {
 
             // remove object from array
             var index = self.port_removed_callbacks.indexOf(obj);
-            if (index > -1) self.port_removed_callbacks.splice(index, 1);
+            if (index > -1) { self.port_removed_callbacks.splice(index, 1); }
         }, (timeout) ? timeout : 10000);
     } else {
         obj.timer = false;
@@ -379,14 +379,14 @@ PortHandler.flush_callbacks = function () {
     var killed = 0;
 
     for (var i = this.port_detected_callbacks.length - 1; i >= 0; i--) {
-        if (this.port_detected_callbacks[i].timer) clearTimeout(this.port_detected_callbacks[i].timer);
+        if (this.port_detected_callbacks[i].timer) { clearTimeout(this.port_detected_callbacks[i].timer); }
         this.port_detected_callbacks.splice(i, 1);
 
         killed++;
     }
 
     for (var i = this.port_removed_callbacks.length - 1; i >= 0; i--) {
-        if (this.port_removed_callbacks[i].timer) clearTimeout(this.port_removed_callbacks[i].timer);
+        if (this.port_removed_callbacks[i].timer) { clearTimeout(this.port_removed_callbacks[i].timer); }
         this.port_removed_callbacks.splice(i, 1);
 
         killed++;

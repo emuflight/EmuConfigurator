@@ -38,8 +38,8 @@ const SRC_EXCLUDE_DIRS = [
 
 function srcFilter(src) {
   const rel = path.relative(path.join(ROOT, 'src'), src);
-  if (SRC_EXCLUDE_FILES.some(f => rel === f || rel === f.replace(/\//g, path.sep))) return false;
-  if (SRC_EXCLUDE_DIRS.some(d => rel.startsWith(d + path.sep) || rel === d)) return false;
+  if (SRC_EXCLUDE_FILES.some(f => rel === f || rel === f.replace(/\//g, path.sep))) { return false; }
+  if (SRC_EXCLUDE_DIRS.some(d => rel.startsWith(d + path.sep) || rel === d)) { return false; }
   return true;
 }
 

@@ -612,7 +612,7 @@ TABS.receiver.cleanup = function (callback) {
         this.model = null;
     }
 
-    if (callback) callback();
+    if (callback) { callback(); }
 };
 
 TABS.receiver.updateRcInterpolationParameters = function () {

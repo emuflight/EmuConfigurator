@@ -212,5 +212,5 @@ RateCurve.prototype.draw = function (rate, rcRate, rcExpo, superExpoActive, dead
 
 RateCurve.prototype.cleanup = function (callback) {
     this.keepRendering = false;
-    if (callback) callback();
+    if (callback) { callback(); }
 };

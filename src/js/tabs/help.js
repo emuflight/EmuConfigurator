@@ -16,5 +16,5 @@ TABS.help.initialize = function (callback) {
 };
 
 TABS.help.cleanup = function (callback) {
-    if (callback) callback();
+    if (callback) { callback(); }
 };

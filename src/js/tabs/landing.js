@@ -51,5 +51,5 @@ TABS.landing.initialize = function (callback) {
 };
 
 TABS.landing.cleanup = function (callback) {
-    if (callback) callback();
+    if (callback) { callback(); }
 };

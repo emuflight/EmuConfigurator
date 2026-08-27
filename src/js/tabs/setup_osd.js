@@ -65,5 +65,5 @@ TABS.setup_osd.initialize = function (callback) {
 };
 
 TABS.setup_osd.cleanup = function (callback) {
-    if (callback) callback();
+    if (callback) { callback(); }
 };

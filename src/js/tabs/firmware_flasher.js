@@ -758,7 +758,7 @@ TABS.firmware_flasher.cleanup = function (callback) {
     $('div#flashbutton a.flash_state').removeClass('active');
     $('div#flashbutton a.flash').removeClass('active');
 
-    if (callback) callback();
+    if (callback) { callback(); }
 };
 
 TABS.firmware_flasher.enableFlashing = function (enabled) {

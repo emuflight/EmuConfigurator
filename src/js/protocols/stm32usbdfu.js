@@ -95,7 +95,7 @@ STM32DFU_protocol.prototype.connect = function (device, hex, options, callback) 
         if (self.checkChromeError() || !result) {
             console.log('USB DFU: getDevices error or no result');
             GUI.connect_lock = false;
-            if (self.callback) self.callback();
+            if (self.callback) { self.callback(); }
             return;
         }
         if (result.length) {
@@ -106,7 +106,7 @@ STM32DFU_protocol.prototype.connect = function (device, hex, options, callback) 
             console.log('USB DFU not found');
             GUI.log(i18n.getMessage('stm32UsbDfuNotFound'));
             GUI.connect_lock = false;
-            if (self.callback) self.callback();
+            if (self.callback) { self.callback(); }
         }
     });
 };
@@ -114,9 +114,9 @@ STM32DFU_protocol.prototype.connect = function (device, hex, options, callback) 
 STM32DFU_protocol.prototype.checkChromeError = function() {
     if (chrome.runtime.lastError) {
         if(chrome.runtime.lastError.message)
-            console.log('reporting chrome error: ' + chrome.runtime.lastError.message);
+            { console.log('reporting chrome error: ' + chrome.runtime.lastError.message); }
         else
-            console.log('reporting chrome error: ' + chrome.runtime.lastError);
+            { console.log('reporting chrome error: ' + chrome.runtime.lastError); }
 
         return true;
     }
@@ -135,7 +135,7 @@ STM32DFU_protocol.prototype.openDevice = function (device) {
                 GUI.log(i18n.getMessage('usbDeviceUdevNotice'));
             }
             GUI.connect_lock = false;
-            if (self.callback) self.callback();
+            if (self.callback) { self.callback(); }
             return;
         }
 
@@ -161,7 +161,7 @@ STM32DFU_protocol.prototype.closeDevice = function (callback) {
 
         self.handle = null;
 
-        if (callback) callback();
+        if (callback) { callback(); }
     });
 };
 
@@ -197,7 +197,7 @@ STM32DFU_protocol.prototype.resetDevice = function (callback) {
     chrome.usb.resetDevice(this.handle, function (result) {
         console.log('Reset Device: ' + result);
 
-        if (callback) callback();
+        if (callback) { callback(); }
     });
 };
 
@@ -472,7 +472,7 @@ STM32DFU_protocol.prototype.controlTransfer = function (direction, request, valu
             if(self.checkChromeError()) {
                 console.log('USB controlTransfer IN failed for request ' + request + '!');
             }
-            if (result.resultCode) console.log('USB transfer result code: ' + result.resultCode);
+            if (result.resultCode) { console.log('USB transfer result code: ' + result.resultCode); }
 
             var buf = new Uint8Array(result.data);
             callback(buf, result.resultCode);
@@ -500,7 +500,7 @@ STM32DFU_protocol.prototype.controlTransfer = function (direction, request, valu
             if(self.checkChromeError()) {
                 console.log('USB controlTransfer OUT failed for request ' + request + '!');
             }
-            if (result.resultCode) console.log('USB transfer result code: ' + result.resultCode);
+            if (result.resultCode) { console.log('USB transfer result code: ' + result.resultCode); }
 
             callback(result);
         });
@@ -807,7 +807,7 @@ STM32DFU_protocol.prototype.upload_procedure = function (step) {
                                     return element.sector == i && element.page == j;
                                 });
                                 if (idx == -1)
-                                    erase_pages.push({'sector': i, 'page': j});
+                                    { erase_pages.push({'sector': i, 'page': j}); }
                             }
                         }
                     }
@@ -854,7 +854,7 @@ STM32DFU_protocol.prototype.upload_procedure = function (step) {
                                                 self.upload_procedure(4);
                                             }
                                             else
-                                                erase_page();
+                                                { erase_page(); }
                                         } else {
                                             console.log('Failed to erase page 0x' + page_addr.toString(16));
                                             self.upload_procedure(99);
@@ -1015,7 +1015,7 @@ STM32DFU_protocol.prototype.upload_procedure = function (step) {
                         for (var i = 0; i <= blocks; i++) {
                             verify = self.verify_flash(self.hex.data[i].data, self.verify_hex[i]);
 
-                            if (!verify) break;
+                            if (!verify) { break; }
                         }
 
                         if (verify) {

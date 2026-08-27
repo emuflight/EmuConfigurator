@@ -82,7 +82,7 @@ STM32_protocol.prototype.connect = function (port, baud, hex, options, callback)
                 self.initialize();
             } else {
                 GUI.log(i18n.getMessage('serialPortOpenFail'));
-                if (self.callback) self.callback();
+                if (self.callback) { self.callback(); }
             }
         });
     } else {
@@ -125,7 +125,7 @@ STM32_protocol.prototype.connect = function (port, baud, hex, options, callback)
                                             } else {
                                                 GUI.connect_lock = false;
                                                 GUI.log(i18n.getMessage('serialPortOpenFail'));
-                                                if (self.callback) self.callback();
+                                                if (self.callback) { self.callback(); }
                                             }
                                         });
                                     }
@@ -137,13 +137,13 @@ STM32_protocol.prototype.connect = function (port, baud, hex, options, callback)
                         } else {
                             console.log('STM32 - serial.disconnect failed after reboot command');
                             GUI.connect_lock = false;
-                            if (self.callback) self.callback();
+                            if (self.callback) { self.callback(); }
                         }
                     });
                 });
             } else {
                 GUI.log(i18n.getMessage('serialPortOpenFail'));
-                if (self.callback) self.callback();
+                if (self.callback) { self.callback(); }
             }
         });
     }
@@ -707,7 +707,7 @@ STM32_protocol.prototype.upload_procedure = function (step) {
                         for (var i = 0; i <= blocks; i++) {
                             verify = self.verify_flash(self.hex.data[i].data, self.verify_hex[i]);
 
-                            if (!verify) break;
+                            if (!verify) { break; }
                         }
 
                         if (verify) {

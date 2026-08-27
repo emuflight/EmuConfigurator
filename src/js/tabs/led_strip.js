@@ -205,12 +205,12 @@ TABS.led_strip.initialize = function (callback, scrollPosition) {
             for (var colorIndex = 0; colorIndex < 16; colorIndex++) {
                 colorButtons.removeClass('btnOn');
                 if (selectedModeColor == undefined)
-                    $('.ui-selected').removeClass('color-' + colorIndex);
+                    { $('.ui-selected').removeClass('color-' + colorIndex); }
 
                 if ($(that).is('.color-' + colorIndex)) {
                     selectedColorIndex = colorIndex;
                     if (selectedModeColor == undefined)
-                        $('.ui-selected').addClass('color-' + colorIndex);
+                        { $('.ui-selected').addClass('color-' + colorIndex); }
                 }
             }
 
@@ -403,12 +403,14 @@ TABS.led_strip.initialize = function (callback, scrollPosition) {
 
             var mode = Number($(that).val());
             $('.mode_colors').find('button').each(function() {
-                for (var i = 0; i < 6; i++)
-                    for (var j = 0; j < 6; j++)
+                for (var i = 0; i < 6; i++) {
+                    for (var j = 0; j < 6; j++) {
                         if ($(this).hasClass('mode_color-' + i + '-' + j)) {
                             $(this).removeClass('mode_color-' + i + '-' + j);
                             $(this).addClass('mode_color-' + mode + '-' + j);
                         }
+                    }
+                }
             });
 
             $('.mode_colors').each(function() { setModeBackgroundColor($(this)); });
@@ -429,27 +431,34 @@ TABS.led_strip.initialize = function (callback, scrollPosition) {
                                 case 't':
                                 case 'o':
                                 case 's':
-                                    if (areModifiersActive('function-' + f))
+                                    if (areModifiersActive('function-' + f)) {
                                         p.addClass('function-' + letter);
+                                    }
                                     break;
                                 case 'b':
                                 case 'n':
-                                    if (areBlinkersActive('function-' + f))
+                                    if (areBlinkersActive('function-' + f)) {
                                         p.addClass('function-' + letter);
+                                    }
                                     break;
                                 case 'i':
-                                    if (areOverlaysActive('function-' + f))
+                                    if (areOverlaysActive('function-' + f)) {
                                         p.addClass('function-' + letter);
+                                    }
                                     break;
                                 case 'w':
-                                    if (areOverlaysActive('function-' + f))
-                                        if (isWarningActive('function-' + f))
+                                    if (areOverlaysActive('function-' + f)) {
+                                        if (isWarningActive('function-' + f)) {
                                             p.addClass('function-' + letter);
+                                        }
+                                    }
                                     break;
                                 case 'v':
-                                    if (areOverlaysActive('function-' + f))
-                                        if (isVtxActive('function-' + f))
+                                    if (areOverlaysActive('function-' + f)) {
+                                        if (isVtxActive('function-' + f)) {
                                             p.addClass('function-' + letter);
+                                        }
+                                    }
                                     break;
                                 }
                             }
@@ -599,7 +608,7 @@ TABS.led_strip.initialize = function (callback, scrollPosition) {
                 var gridNumber = ($(this).index() + 1);
                 var row = Math.ceil(gridNumber / 16) - 1;
                 var col = gridNumber/16 % 1 * 16 - 1;
-                if (col < 0) {col = 15;}
+                if (col < 0) { col = 15; }
 
                 var wireNumber = $(this).find('.wire').html();
                 var functions = '';
@@ -782,19 +791,19 @@ TABS.led_strip.initialize = function (callback, scrollPosition) {
         $('.vtxOverlay').hide();
 
         if (areOverlaysActive(activeFunction))
-            $('.overlays').show();
+            { $('.overlays').show(); }
 
         if (areModifiersActive(activeFunction))
-            $('.modifiers').show();
+            { $('.modifiers').show(); }
 
         if (areBlinkersActive(activeFunction))
-            $('.blinkers').show();
+            { $('.blinkers').show(); }
 
         if (isWarningActive(activeFunction))
-            $('.warningOverlay').show();
+            { $('.warningOverlay').show(); }
 
         if (isVtxActive(activeFunction))
-            $('.vtxOverlay').show();
+            { $('.vtxOverlay').show(); }
 
 
 
@@ -802,7 +811,7 @@ TABS.led_strip.initialize = function (callback, scrollPosition) {
         // set mode colors visibility
 
         if (activeFunction == "function-f")
-            $('.mode_colors').show();
+            { $('.mode_colors').show(); }
 
         // set special colors visibility
         $('.special_colors').show();
@@ -852,7 +861,7 @@ TABS.led_strip.initialize = function (callback, scrollPosition) {
 
                 $('.ui-selected').find('.wire').each(function() {
                     if ($(this).text() != "")
-                        $(this).parent().addClass('function-' + letter);
+                        { $(this).parent().addClass('function-' + letter); }
                 });
 
                 unselectOverlays(letter);
@@ -938,7 +947,7 @@ TABS.led_strip.initialize = function (callback, scrollPosition) {
         $('.special_colors').each(function() { setModeBackgroundColor($(this)); });
 
         if (change)
-            updateBulkCmd();
+            { updateBulkCmd(); }
     }
 
     function drawColorBoxesInColorLedPoints() {
@@ -953,7 +962,7 @@ TABS.led_strip.initialize = function (callback, scrollPosition) {
                         $(this).find('.overlay-color').css('background-color', HsvToColor(LED_COLORS[colorIndex]))
                     } else {
                         if ($(this).find('.overlay-color').is('.' + className))
-                            $(this).find('.overlay-color').removeClass(className);
+                            { $(this).find('.overlay-color').removeClass(className); }
                     }
                 }
             } else {
@@ -968,7 +977,7 @@ TABS.led_strip.initialize = function (callback, scrollPosition) {
         var change = false;
 
         if (!LED_COLORS[colorIndex])
-            return;
+            { return; }
 
         if (LED_COLORS[colorIndex].h != Number(sliders.eq(0).val())) {
             sliders.eq(0).val(LED_COLORS[colorIndex].h);
@@ -990,18 +999,18 @@ TABS.led_strip.initialize = function (callback, scrollPosition) {
 
         // only fire events when all values are set
         if (change)
-            sliders.trigger('input');
+            { sliders.trigger('input'); }
 
     }
 
     function HsvToColor(input) {
         if (input == undefined)
-            return "";
+            { return ""; }
 
         var HSV = { h:Number(input.h), s:Number(input.s), v:Number(input.v) };
 
         if (HSV.s == 0 && HSV.v == 0)
-            return "";
+            { return ""; }
 
         HSV = { h:HSV.h, s:1 - HSV.s / 255, v:HSV.v / 255 };
 
@@ -1018,7 +1027,7 @@ TABS.led_strip.initialize = function (callback, scrollPosition) {
         for (var i = 0; i < LED_MODE_COLORS.length; i++) {
             var mc = LED_MODE_COLORS[i];
             if (mc.mode == mode && mc.direction == dir)
-                return mc.color;
+                { return mc.color; }
         }
         return "";
     }
@@ -1047,5 +1056,5 @@ TABS.led_strip.initialize = function (callback, scrollPosition) {
 };
 
 TABS.led_strip.cleanup = function (callback) {
-    if (callback) callback();
+    if (callback) { callback(); }
 };
