@@ -572,7 +572,7 @@ function isExpertModeEnabled() {
     return $('input[name="expertModeCheckbox"]').is(':checked');
 }
 
-function updateTabList(features) {
+function updateExpertModeConnectedTabs() {
     if (isExpertModeEnabled()) {
         $('#tabs ul.mode-connected li.tab_failsafe').show();
         $('#tabs ul.mode-connected li.tab_adjustments').show();
@@ -586,36 +586,42 @@ function updateTabList(features) {
         $('#tabs ul.mode-connected li.tab_sensors').hide();
         $('#tabs ul.mode-connected li.tab_logging').hide();
     }
+}
 
+function updateGpsTabVisibility(features) {
     if (features.isEnabled('GPS') && isExpertModeEnabled()) {
         $('#tabs ul.mode-connected li.tab_gps').show();
     } else {
         $('#tabs ul.mode-connected li.tab_gps').hide();
     }
+}
 
+function updateLedStripTabVisibility(features) {
     if (features.isEnabled('LED_STRIP')) {
         $('#tabs ul.mode-connected li.tab_led_strip').show();
     } else {
         $('#tabs ul.mode-connected li.tab_led_strip').hide();
     }
+}
 
+function updateTransponderTabVisibility(features) {
     if (features.isEnabled('TRANSPONDER')) {
         $('#tabs ul.mode-connected li.tab_transponder').show();
     } else {
         $('#tabs ul.mode-connected li.tab_transponder').hide();
     }
+}
 
+function updateOsdTabVisibility(features) {
     if (features.isEnabled('OSD')) {
         $('#tabs ul.mode-connected li.tab_osd').show();
     } else {
         $('#tabs ul.mode-connected li.tab_osd').hide();
     }
+}
 
-    $('#tabs ul.mode-connected li.tab_power').show();
-
-    $('#tabs ul.mode-connected li.tab_vtx').show();
-
-    //experimental: show/hide with expert-mode
+//experimental: show/hide with expert-mode
+function updateGyroDtermLpfLabels() {
     if (semver.gte(CONFIG.apiVersion, "1.44.0")) {
         if (!isExpertModeEnabled()) {
             $('.LPFPit').hide();
@@ -633,8 +639,10 @@ function updateTabList(features) {
             $('#pid-tuning .dtermLowpass2FrequencyAxis .LPFRol').text(i18n.getMessage("dtermLowpass2FrequencyRoll"));
         }
     }
+}
 
-    //experimental: show/hide with expert-mode
+//experimental: show/hide with expert-mode
+function updateImufQVisibility() {
     if (!isExpertModeEnabled()) {
         $('.IMUFQroll').show();
         $('.IMUFQpitch').hide();
@@ -646,8 +654,10 @@ function updateTabList(features) {
         $('.IMUFQyaw').show();
         $('#pid-tuning .IMUFQroll').text(i18n.getMessage("pidTuningImufRollQ"));
     }
+}
 
-    //experimental: show/hide with expert-mode
+//experimental: show/hide with expert-mode
+function updateImufLpfVisibility() {
     if (CONFIG.boardIdentifier == "HESP" || CONFIG.boardIdentifier == "SX10" || CONFIG.boardIdentifier == "FLUX") {
         if (!isExpertModeEnabled()) {
         $('.IMUFLPFroll').show();
@@ -669,7 +679,9 @@ function updateTabList(features) {
         $('.IMUFLPFyaw').hide();
         console.log("non-Helio hide IMUF LPF");
     }
+}
 
+function updateExpertModeMiscVisibility() {
     //experimental: show/hide with expert-mode
     if (isExpertModeEnabled()) {
         $('.isexpertmode').show(); //show everything but turn off things per MSP below
@@ -718,6 +730,23 @@ function updateTabList(features) {
         }
     }
     //end MSP 1.51
+}
+
+function updateTabList(features) {
+    updateExpertModeConnectedTabs();
+    updateGpsTabVisibility(features);
+    updateLedStripTabVisibility(features);
+    updateTransponderTabVisibility(features);
+    updateOsdTabVisibility(features);
+
+    $('#tabs ul.mode-connected li.tab_power').show();
+
+    $('#tabs ul.mode-connected li.tab_vtx').show();
+
+    updateGyroDtermLpfLabels();
+    updateImufQVisibility();
+    updateImufLpfVisibility();
+    updateExpertModeMiscVisibility();
 } //end updateTabList
 
 function zeroPad(value, width) {
