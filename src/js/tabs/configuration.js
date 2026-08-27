@@ -7,7 +7,7 @@ TABS.configuration = {
 TABS.configuration.initialize = function (callback, scrollPosition) {
     var self = this;
 
-    if (GUI.active_tab != 'configuration') {
+    if (GUI.active_tab !== 'configuration') {
         GUI.active_tab = 'configuration';
         GUI.configuration_loaded = true;
     }
@@ -120,7 +120,7 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
             MIXER_CONFIG.reverseMotorDir = $(this).prop('checked') ? 1 : 0;
             refreshMixerPreview();
         });
-        reverseMotorSwitch_e.prop('checked', MIXER_CONFIG.reverseMotorDir != 0).change();
+        reverseMotorSwitch_e.prop('checked', MIXER_CONFIG.reverseMotorDir !== 0).change();
 
         mixer_list_e.change(function () {
             var mixerValue = parseInt($(this).val());
@@ -428,8 +428,8 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
 
         gps_protocol_e.val(GPS_CONFIG.provider);
 
-        $('input[name="gps_auto_baud"]').prop('checked', GPS_CONFIG.auto_baud == 1);
-        $('input[name="gps_auto_config"]').prop('checked', GPS_CONFIG.auto_config == 1);
+        $('input[name="gps_auto_baud"]').prop('checked', GPS_CONFIG.auto_baud === 1);
+        $('input[name="gps_auto_config"]').prop('checked', GPS_CONFIG.auto_config === 1);
         $('.select.gps_auto_baud').show();
         $('.select.gps_auto_config').show();
 

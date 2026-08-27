@@ -90,7 +90,7 @@ function copyToClipboard(text, nwGui) {
 TABS.cli.initialize = function (callback, nwGui) {
     var self = this;
 
-    if (GUI.active_tab != 'cli') {
+    if (GUI.active_tab !== 'cli') {
         GUI.active_tab = 'cli';
     }
 
@@ -269,7 +269,7 @@ TABS.cli.initialize = function (callback, nwGui) {
         // `keypress`/`keyup` happens too late, as `textarea` will have already lost focus.
         textarea.keydown(function (event) {
             const tabKeyCode = 9;
-            if (event.which == tabKeyCode) {
+            if (event.which === tabKeyCode) {
                 // prevent default tabbing behaviour
                 event.preventDefault();
 
@@ -291,7 +291,7 @@ TABS.cli.initialize = function (callback, nwGui) {
         });
 
         textarea.keypress(function (event) {
-            if (event.which == enterKeyCode) {
+            if (event.which === enterKeyCode) {
                 event.preventDefault(); // prevent the adding of new line
 
                 if (CliAutoComplete.isBuilding()) {
@@ -411,7 +411,7 @@ TABS.cli.read = function (readInfo) {
 
         const escapeSequenceCode = 27;
         const escapeSequenceCharLength = 3;
-        if (data[i] == escapeSequenceCode && !sequenceCharsToSkip) { // ESC + other
+        if (data[i] === escapeSequenceCode && !sequenceCharsToSkip) { // ESC + other
             sequenceCharsToSkip = escapeSequenceCharLength;
         }
 
@@ -453,7 +453,7 @@ TABS.cli.read = function (readInfo) {
             this.outputHistory += currentChar;
         }
 
-        if (this.cliBuffer == 'Rebooting') {
+        if (this.cliBuffer === 'Rebooting') {
             CONFIGURATOR.cliActive = false;
             CONFIGURATOR.cliValid = false;
             GUI.log(i18n.getMessage('cliReboot'));

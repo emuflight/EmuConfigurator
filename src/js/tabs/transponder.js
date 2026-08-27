@@ -109,7 +109,7 @@ TABS.transponder.initialize = function(callback, scrollPosition) {
     };
     /////////////////////////////////////////////
 
-    if ( GUI.active_tab != 'transponder' ) {
+    if ( GUI.active_tab !== 'transponder' ) {
         GUI.active_tab = 'transponder';
     }
     // transponder supported added in MSP API Version 1.16.0
@@ -256,7 +256,7 @@ TABS.transponder.initialize = function(callback, scrollPosition) {
 
         TRANSPONDER.provider = $(this).val();
         let defaultProvider = $(this).attr('data-defaultValue');
-        if ( defaultProvider == $(this).val() ) {
+        if ( defaultProvider === $(this).val() ) {
             $('.save_reboot').hide();
             $('.save_no_reboot').show();
         } else {
@@ -266,7 +266,7 @@ TABS.transponder.initialize = function(callback, scrollPosition) {
 
         let clearValue = true;
         buildDataBlockForTransponderProviders(TRANSPONDER.providers.find(function(provider) {
-            return provider.id == TRANSPONDER.provider;
+            return provider.id === parseInt(TRANSPONDER.provider, 10);
         }), bytesToHex(TRANSPONDER.data), clearValue);
     }
 
@@ -282,7 +282,7 @@ TABS.transponder.initialize = function(callback, scrollPosition) {
 
             fillByTransponderProviders(TRANSPONDER.providers, TRANSPONDER.provider, toggleTransponderType);
             buildDataBlockForTransponderProviders(TRANSPONDER.providers.find(function(provider) {
-                return provider.id == TRANSPONDER.provider;
+                return provider.id === parseInt(TRANSPONDER.provider, 10);
             }), bytesToHex(TRANSPONDER.data));
 
 
@@ -308,7 +308,7 @@ TABS.transponder.initialize = function(callback, scrollPosition) {
                 }
 
                 if (TRANSPONDER.provider !== "0" && TRANSPONDER.data.length !== TRANSPONDER.providers.find(function(provider) {
-                        return provider.id == TRANSPONDER.provider;
+                        return provider.id === parseInt(TRANSPONDER.provider, 10);
                     }).dataLength ) {
                     GUI.log(i18n.getMessage('transponderDataInvalid'));
                 } else {

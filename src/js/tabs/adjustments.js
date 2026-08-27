@@ -83,7 +83,7 @@ TABS.adjustments.initialize = function (callback) {
             };
 
         var rangeValues = [1300, 1700];
-        if (adjustmentRange.range != undefined) {
+        if (adjustmentRange.range != null) {
             rangeValues = [adjustmentRange.range.start, adjustmentRange.range.end];
         }
 
@@ -124,7 +124,7 @@ TABS.adjustments.initialize = function (callback) {
                 $(adjustmentElement).find('.channel-slider').removeAttr("disabled");
                 var rangeElement = $(adjustmentElement).find('.range .channel-slider');
                 var range = $(rangeElement).val();
-                if (range[0] == range[1]) {
+                if (range[0] === range[1]) {
                     var defaultRangeValues = [1300, 1700];
                     $(rangeElement).val(defaultRangeValues);
                 }
@@ -137,7 +137,7 @@ TABS.adjustments.initialize = function (callback) {
             $(this).prop("disabled", false);
         });
         
-        var isEnabled = (adjustmentRange.range.start != adjustmentRange.range.end); 
+        var isEnabled = (adjustmentRange.range.start !== adjustmentRange.range.end);
         $(enableElement).prop("checked", isEnabled).change();
         
         return newAdjustment;
@@ -231,7 +231,7 @@ TABS.adjustments.initialize = function (callback) {
             
             $('.adjustments .adjustment').each( function () {
                 var auxChannelCandidateIndex = $(this).find('.channel').val();
-                if (auxChannelCandidateIndex != auxChannelIndex) {
+                if (parseInt(auxChannelCandidateIndex, 10) !== auxChannelIndex) {
                     return;
                 }
                 

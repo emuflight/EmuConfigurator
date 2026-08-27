@@ -10,7 +10,7 @@ TABS.receiver = {
 TABS.receiver.initialize = function (callback) {
     var tab = this;
 
-    if (GUI.active_tab != 'receiver') {
+    if (GUI.active_tab !== 'receiver') {
         GUI.active_tab = 'receiver';
     }
 
@@ -102,7 +102,7 @@ TABS.receiver.initialize = function (callback) {
                     <li class="meter">\
                         <div class="meter-bar">\
                             <div class="label"></div>\
-                            <div class="fill' + (RC.active_channels == 0 ? 'disabled' : '') + '">\
+                            <div class="fill' + (RC.active_channels === 0 ? 'disabled' : '') + '">\
                                 <div class="label"></div>\
                             </div>\
                         </div>\
@@ -172,7 +172,7 @@ TABS.receiver.initialize = function (callback) {
                 strBuffer = val.split(''),
                 duplicityBuffer = [];
 
-            if (val.length != 8) {
+            if (val.length !== 8) {
                 $(this).val(last_valid);
                 return false;
             }
@@ -298,7 +298,7 @@ TABS.receiver.initialize = function (callback) {
             }, function(createdWindow) {
                 // Give the window a callback it can use to send the channels (otherwise it can't see those objects)
                 createdWindow.contentWindow.setRawRx = function(channels) {
-                    if (CONFIGURATOR.connectionValid && GUI.active_tab != 'cli') {
+                    if (CONFIGURATOR.connectionValid && GUI.active_tab !== 'cli') {
                         mspHelper.setRawRx(channels);
                         return true;
                     } else {
@@ -333,17 +333,17 @@ TABS.receiver.initialize = function (callback) {
         $('.tab-receiver .rcSmoothing-input-cutoff').show();
         $('select[name="rcSmoothing-input-manual-select"]').val("1");
         $('.tab-receiver .rc-smoothing-input-blank').hide();
-        if (RX_CONFIG.rcSmoothingInputCutoff == 0) {
+        if (RX_CONFIG.rcSmoothingInputCutoff === 0) {
             $('.tab-receiver .rcSmoothing-input-cutoff').hide();
             $('select[name="rcSmoothing-input-manual-select"]').val("0");
             $('.tab-receiver .rc-smoothing-input-blank').show();
         }
         $('select[name="rcSmoothing-input-manual-select"]').change(function () {
-            if ($(this).val() == 0) {
+            if (parseInt($(this).val(), 10) === 0) {
                 RX_CONFIG.rcSmoothingInputCutoff = 0;
                 $('.tab-receiver .rcSmoothing-input-cutoff').hide();
             }
-            if ($(this).val() == 1) {
+            if (parseInt($(this).val(), 10) === 1) {
                 rcSmoothingnNumberElement.val(RX_CONFIG.rcSmoothingInputCutoff);
                 $('.tab-receiver .rcSmoothing-input-cutoff').show();
             }
@@ -352,17 +352,17 @@ TABS.receiver.initialize = function (callback) {
         $('.tab-receiver .rcSmoothing-derivative-cutoff').show();
         $('select[name="rcSmoothing-input-derivative-select"]').val("1");
         $('.tab-receiver .rc-smoothing-derivative-blank').hide();
-        if (RX_CONFIG.rcSmoothingDerivativeCutoff == 0) {
+        if (RX_CONFIG.rcSmoothingDerivativeCutoff === 0) {
             $('select[name="rcSmoothing-input-derivative-select"]').val("0");
             $('.tab-receiver .rcSmoothing-derivative-cutoff').hide();
             $('.tab-receiver .rc-smoothing-derivative-blank').show();
         }
         $('select[name="rcSmoothing-input-derivative-select"]').change(function () {
-            if ($(this).val() == 0) {
+            if (parseInt($(this).val(), 10) === 0) {
                 $('.tab-receiver .rcSmoothing-derivative-cutoff').hide();
                 RX_CONFIG.rcSmoothingDerivativeCutoff = 0;
             }
-            if ($(this).val() == 1) {
+            if (parseInt($(this).val(), 10) === 1) {
                 $('.tab-receiver .rcSmoothing-derivative-cutoff').show();
                 rcSmoothingnDerivativeNumberElement.val(RX_CONFIG.rcSmoothingDerivativeCutoff);
             }
