@@ -54,12 +54,12 @@ var GUI_control = function () {
     this.allowedTabs = this.defaultAllowedTabsWhenDisconnected;
 
     // check which operating system is user running
-    if (navigator.appVersion.indexOf("Win") != -1)          this.operating_system = "Windows";
-    else if (navigator.appVersion.indexOf("Mac") != -1)     this.operating_system = "MacOS";
-    else if (navigator.appVersion.indexOf("CrOS") != -1)    this.operating_system = "ChromeOS";
-    else if (navigator.appVersion.indexOf("Linux") != -1)   this.operating_system = "Linux";
-    else if (navigator.appVersion.indexOf("X11") != -1)     this.operating_system = "UNIX";
-    else this.operating_system = "Unknown";
+    if (navigator.appVersion.indexOf("Win") != -1)          { this.operating_system = "Windows"; }
+    else if (navigator.appVersion.indexOf("Mac") != -1)     { this.operating_system = "MacOS"; }
+    else if (navigator.appVersion.indexOf("CrOS") != -1)    { this.operating_system = "ChromeOS"; }
+    else if (navigator.appVersion.indexOf("Linux") != -1)   { this.operating_system = "Linux"; }
+    else if (navigator.appVersion.indexOf("X11") != -1)     { this.operating_system = "UNIX"; }
+    else { this.operating_system = "Unknown"; }
 
     // Check the method of execution
     this.nwGui = null;
@@ -203,7 +203,7 @@ GUI_control.prototype.timeout_add = function (name, code, timeout) {
 
         // remove object from array
         var index = self.timeout_array.indexOf(data);
-        if (index > -1) self.timeout_array.splice(index, 1);
+        if (index > -1) { self.timeout_array.splice(index, 1); }
     }, timeout);
 
     this.timeout_array.push(data); // push to primary timeout array
@@ -372,7 +372,7 @@ GUI_control.prototype.content_ready = function (callback) {
     });
 
 
-    if (callback) callback();
+    if (callback) { callback(); }
 }
 
 GUI_control.prototype.selectDefaultTabWhenConnected = function() {

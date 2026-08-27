@@ -128,7 +128,7 @@ function initializeSerialBackend() {
             } else {
                 $('input.auto_connect, span.auto_connect').prop('title', i18n.getMessage('autoConnectDisabled'));
 
-                if (!GUI.connected_to && !GUI.connecting_to) $('select#baud').prop('disabled', false);
+                if (!GUI.connected_to && !GUI.connecting_to) { $('select#baud').prop('disabled', false); }
             }
 
             ConfigStorage.set({'auto_connect': GUI.auto_connect});
@@ -159,7 +159,7 @@ function finishClose(finishedCallback) {
 
     // unlock port select & baud
     $('div#port-picker #port').prop('disabled', false);
-    if (!GUI.auto_connect) $('div#port-picker #baud').prop('disabled', false);
+    if (!GUI.auto_connect) { $('div#port-picker #baud').prop('disabled', false); }
 
     // reset connect / disconnect button
     $('div.connect_controls a.connect').removeClass('active');
@@ -572,30 +572,33 @@ function update_live_status() {
 
     for (var i = 0; i < AUX_CONFIG.length; i++) {
        if (AUX_CONFIG[i] == 'ARM') {
-               if (bit_check(CONFIG.mode, i))
+               if (bit_check(CONFIG.mode, i)) {
                        $(".armedicon").css({
                                'background-image': 'url(images/icons/cf_icon_armed_active.svg)'
                            });
-               else
+               } else {
                        $(".armedicon").css({
                                'background-image': 'url(images/icons/cf_icon_armed_grey.svg)'
                            });
+               }
        }
        if (AUX_CONFIG[i] == 'FAILSAFE') {
-               if (bit_check(CONFIG.mode, i))
+               if (bit_check(CONFIG.mode, i)) {
                        $(".failsafeicon").css({
                                'background-image': 'url(images/icons/cf_icon_failsafe_active.svg)'
                            });
-               else
+               } else {
                        $(".failsafeicon").css({
                                'background-image': 'url(images/icons/cf_icon_failsafe_grey.svg)'
                            });
+               }
        }
     }
     if (ANALOG != undefined) {
     var nbCells = Math.floor(ANALOG.voltage / BATTERY_CONFIG.vbatmaxcellvoltage) + 1;
-    if (ANALOG.voltage == 0)
+    if (ANALOG.voltage == 0) {
            nbCells = 1;
+    }
 
        var min = BATTERY_CONFIG.vbatmincellvoltage * nbCells;
        var max = BATTERY_CONFIG.vbatmaxcellvoltage * nbCells;

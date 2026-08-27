@@ -479,7 +479,7 @@ TABS.power.initialize = function (callback) {
 };
 
 TABS.power.cleanup = function (callback) {
-    if (callback) callback();
+    if (callback) { callback(); }
 
     if (GUI.calibrationManager) {
         GUI.calibrationManager.destroy();

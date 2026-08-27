@@ -148,7 +148,7 @@ var serial = {
 
                 console.log('SERIAL: Connection opened with ID: ' + connectionInfo.connectionId + ', Baud: ' + connectionInfo.bitrate);
 
-                if (callback) callback(connectionInfo);
+                if (callback) { callback(connectionInfo); }
             } else if (connectionInfo && self.openCanceled) {
                 // connection opened, but this connect sequence was canceled
                 // we will disconnect without triggering any callbacks
@@ -160,7 +160,7 @@ var serial = {
                     self.openRequested = false;
                     self.openCanceled = false;
                     self.disconnect(function resetUI() {
-                        if (callback) callback(false);
+                        if (callback) { callback(false); }
                     });
                 }, 150);
             } else if (self.openCanceled) {
@@ -168,11 +168,11 @@ var serial = {
                 console.log('SERIAL: Connection didn\'t open and request was canceled');
                 self.openRequested = false;
                 self.openCanceled = false;
-                if (callback) callback(false);
+                if (callback) { callback(false); }
             } else {
                 self.openRequested = false;
                 console.log('SERIAL: Failed to open serial port');
-                if (callback) callback(false);
+                if (callback) { callback(false); }
             }
         });
     },
@@ -216,12 +216,12 @@ var serial = {
                             console.log(self.logHead + 'Failed to setNoDelay');
                         }
                         self.onReceive.addListener(function log_bytesReceived(info) {
-                            if (info.socketId != self.connectionId) return;
+                            if (info.socketId != self.connectionId) { return; }
                             self.bytesReceived += info.data.byteLength;
                         });
                         self.onReceiveError.addListener(function watch_for_on_receive_errors(info) {
                             console.error(info);
-                            if (info.socketId != self.connectionId) return;
+                            if (info.socketId != self.connectionId) { return; }
 
                             // TODO: better error handle
                             // error code: https://cs.chromium.org/chromium/src/net/base/net_error_list.h?sq=package:chromium&l=124
@@ -239,12 +239,12 @@ var serial = {
                         });
 
                         console.log(self.logHead + 'Connection opened with ID: ' + createInfo.socketId + ', url: ' + self.connectionIP + ':' + self.connectionPort);
-                        if (callback) callback(createInfo);
+                        if (callback) { callback(createInfo); }
                     });
                 } else {
                     self.openRequested = false;
                     console.log(self.logHead + 'Failed to connect');
-                    if (callback) callback(false);
+                    if (callback) { callback(false); }
                 }
 
             });
@@ -282,7 +282,7 @@ var serial = {
                 self.connectionId = false;
                 self.bitrate = 0;
 
-                if (callback) callback(result);
+                if (callback) { callback(result); }
             });
         } else {
             // connection wasn't opened, so we won't try to close anything
@@ -304,10 +304,10 @@ var serial = {
         chromeType.getInfo(this.connectionId, callback);
     },
     getControlSignals: function (callback) {
-        if (this.connectionType == 'serial') chrome.serial.getControlSignals(this.connectionId, callback);
+        if (this.connectionType == 'serial') { chrome.serial.getControlSignals(this.connectionId, callback); }
     },
     setControlSignals: function (signals, callback) {
-        if (this.connectionType == 'serial') chrome.serial.setControlSignals(this.connectionId, signals, callback);
+        if (this.connectionType == 'serial') { chrome.serial.setControlSignals(this.connectionId, signals, callback); }
     },
     send: function (data, callback) {
         var self = this;
@@ -320,10 +320,12 @@ var serial = {
 
             if (!self.connected) {
                 console.log('attempting to send when disconnected');
-                if (callback) callback({
-                    bytesSent: 0,
-                    error: 'undefined'
-               });
+                if (callback) {
+                    callback({
+                        bytesSent: 0,
+                        error: 'undefined'
+                    });
+                }
                return;
             }
 
@@ -331,10 +333,12 @@ var serial = {
             sendFn(self.connectionId, data, function (sendInfo) {
                 if (sendInfo === undefined) {
                     console.log('undefined send error');
-                    if (callback) callback({
-                        bytesSent: 0,
-                        error: 'undefined'
-                   });
+                    if (callback) {
+                        callback({
+                            bytesSent: 0,
+                            error: 'undefined'
+                        });
+                    }
                    return;
                 }
 
@@ -351,10 +355,12 @@ var serial = {
                             break;
 
                     }
-                    if (callback) callback({
-                         bytesSent: 0,
-                         error: error
-                    });
+                    if (callback) {
+                        callback({
+                            bytesSent: 0,
+                            error: error
+                        });
+                    }
                     return;
                 }
 
@@ -362,7 +368,7 @@ var serial = {
                 self.bytesSent += sendInfo.bytesSent;
 
                 // fire callback
-                if (callback) callback(sendInfo);
+                if (callback) { callback(sendInfo); }
 
                 // remove data for current transmission form the buffer
                 self.outputBuffer.shift();

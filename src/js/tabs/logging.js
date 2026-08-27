@@ -283,7 +283,7 @@ TABS.logging.initialize = function (callback) {
                 console.error(e);
 
                 // stop logging if the procedure was/is still running
-                if ($('a.logging').data('clicks')) $('a.logging').click();
+                if ($('a.logging').data('clicks')) { $('a.logging').click(); }
             };
 
             fileWriter.onwriteend = function () {
@@ -318,5 +318,5 @@ TABS.logging.initialize = function (callback) {
 };
 
 TABS.logging.cleanup = function (callback) {
-    if (callback) callback();
+    if (callback) { callback(); }
 };

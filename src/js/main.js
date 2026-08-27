@@ -31,7 +31,7 @@ var HttpClient = function() {
         var anHttpRequest = new XMLHttpRequest();
         anHttpRequest.onreadystatechange = function() {
             if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
-                aCallback(anHttpRequest.responseText);
+                { aCallback(anHttpRequest.responseText); }
         }
 
         anHttpRequest.open('GET', aUrl, true);

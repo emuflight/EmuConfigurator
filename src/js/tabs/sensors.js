@@ -471,5 +471,5 @@ TABS.sensors.initialize = function (callback) {
 TABS.sensors.cleanup = function (callback) {
     serial.emptyOutputBuffer();
 
-    if (callback) callback();
+    if (callback) { callback(); }
 };

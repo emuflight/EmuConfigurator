@@ -10,7 +10,7 @@ TABS.motors = {
         sensorAccelScale: 2,
         sensorSelectValues: {
             "gyroScale": {"50":50,"100":100,"200":200,"300":300,"400":400,"500":500,"1000":1000,"2000":2000},
-            "accelScale": {"0.05":0.05,"0.1":0.1,"0.2":0.2,"0.3":0.3,"0.4":0.4,"0.5":0.5,"1":1,"2":2}
+            "accelScale": { "0.05":0.05,"0.1":0.1,"0.2":0.2,"0.3":0.3,"0.4":0.4,"0.5":0.5,"1":1,"2":2 }
         },
         // These are translated into proper Dshot values on the flight controller
         DSHOT_DISARMED_VALUE: 1000,
@@ -335,7 +335,7 @@ TABS.motors.initialize = function (callback) {
                 samples_accel_i = addSampleToData(accel_data, samples_accel_i, accel_with_offset);
                 drawGraph(accel_helpers, accel_data, samples_accel_i);
                 for (var i = 0; i < 3; i++) {
-                    if (Math.abs(accel_with_offset[i]) > Math.abs(accel_max_read[i])) accel_max_read[i] = accel_with_offset[i];
+                    if (Math.abs(accel_with_offset[i]) > Math.abs(accel_max_read[i])) { accel_max_read[i] = accel_with_offset[i]; }
                 }
                 computeAndUpdate(accel_with_offset, accel_data, accel_max_read);
 
@@ -352,7 +352,7 @@ TABS.motors.initialize = function (callback) {
                 samples_gyro_i = addSampleToData(gyro_data, samples_gyro_i, gyro);
                 drawGraph(gyro_helpers, gyro_data, samples_gyro_i);
                 for (var i = 0; i < 3; i++) {
-                    if (Math.abs(gyro[i]) > Math.abs(gyro_max_read[i])) gyro_max_read[i] = gyro[i];
+                    if (Math.abs(gyro[i]) > Math.abs(gyro_max_read[i])) { gyro_max_read[i] = gyro[i]; }
                 }
                 computeAndUpdate(gyro, gyro_data, gyro_max_read);
             }
@@ -645,5 +645,5 @@ TABS.motors.cleanup = function (callback) {
         GUI.log(i18n.getMessage('deviceRebooting'));
         MSP.send_message(MSPCodes.MSP_SET_REBOOT, false, false);
     }
-    if (callback) callback();
+    if (callback) { callback(); }
 };

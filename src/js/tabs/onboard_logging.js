@@ -37,7 +37,7 @@ TABS.onboard_logging.initialize = function (callback) {
     
     function gcd(a, b) {
         if (b === 0)
-            return a;
+            { return a; }
 
         return gcd(b, a % b);
     }

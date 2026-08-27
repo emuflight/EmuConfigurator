@@ -154,7 +154,7 @@ LogoManager.hideUploadHint = function () {
 /**
  * Show a file open dialog and resolve to an Image object.
  * 
- * @returns {Promise}
+ * @returns { Promise }
  */
 LogoManager.openImage = function () {
     return new Promise((resolve, reject) => {
@@ -246,7 +246,7 @@ LogoManager.replaceLogoInFont = function (img) {
         if (char.length < fieldSize) {
             var pad = this.constants.MCM_COLORMAP['default'].repeat(4);
             for (var i = 0, I = fieldSize - char.length; i < I; i++)
-                char.push(pad);
+                { char.push(pad); }
         }
         return char;
     };

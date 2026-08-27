@@ -229,7 +229,7 @@ function configuration_backup(callback) {
                                 }
 
                                 console.log('Write SUCCESSFUL');
-                                if (callback) callback();
+                                if (callback) { callback(); }
                             };
 
                             writer.write(blob);
@@ -608,7 +608,7 @@ function configuration_restore(callback) {
                     {mode: 0, value: 1500},
                     {mode: 0, value: 1500},
                     {mode: 0, value: 1500},
-                    {mode: 0, value: 875}
+                    { mode: 0, value: 875 }
                 ];
 
                 for (var i = 0; i < 14; i++) {
@@ -860,7 +860,7 @@ function configuration_restore(callback) {
                 GUI.timeout_add('waiting_for_bootup', function waiting_for_bootup() {
                     MSP.send_message(MSPCodes.MSP_STATUS, false, false, function() {
                         GUI.log(i18n.getMessage('deviceReady'));
-                        if (callback) callback();
+                        if (callback) { callback(); }
                     });
                 }, 1500); // 1500 ms seems to be just the right amount of delay to prevent data request timeouts
             }

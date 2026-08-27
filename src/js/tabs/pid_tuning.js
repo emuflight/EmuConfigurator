@@ -2696,7 +2696,7 @@ TABS.pid_tuning.renderModel = function() {
 
         this.model.rotateBy(-degToRad(pitch), -degToRad(yaw), -degToRad(roll));
 
-        if (this.checkRC()) this.updateRatesLabels(); // has the RC data changed ?
+        if (this.checkRC()) { this.updateRatesLabels(); } // has the RC data changed ?
     }
 };
 
@@ -2736,7 +2736,7 @@ TABS.pid_tuning.cleanup = function(callback) {
         self.model = null;
     }
 
-    if (callback) callback();
+    if (callback) { callback(); }
 };
 
 TABS.pid_tuning.refresh = function(callback) {
@@ -2880,8 +2880,8 @@ TABS.pid_tuning.updateRatesLabels = function() {
             // adjust the coordinates for determine where the balloon background should be drawn
             x += ((align == 'right') ? -(width + DEFAULT_OFFSET) : 0) + ((align == 'left') ? DEFAULT_OFFSET : 0);
             y -= (height / 2);
-            if (y < 0) y = 0;
-            else if (y > context.height) y = context.height; // prevent balloon from going out of canvas
+            if (y < 0) { y = 0; }
+            else if (y > context.height) { y = context.height; } // prevent balloon from going out of canvas
 
             // check that the balloon does not already overlap
             for (var i = 0; i < dirty.length; i++) {
@@ -3051,7 +3051,7 @@ TABS.pid_tuning.updateRatesLabels = function() {
                 });
             }
             // then display them on the chart
-            for (var i = 0; i < balloons.length; i++) balloons[i].balloon();
+            for (var i = 0; i < balloons.length; i++) { balloons[i].balloon(); }
 
             stickContext.restore();
         }

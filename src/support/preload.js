@@ -79,7 +79,7 @@ const chromeSerial = {
     },
 
     setPaused: function (connectionId, paused, callback) {
-        if (callback) callback();
+        if (callback) { callback(); }
     },
 
     getControlSignals: function (connectionId, callback) {
@@ -87,7 +87,7 @@ const chromeSerial = {
     },
 
     setControlSignals: function (connectionId, signals, callback) {
-        if (callback) callback(true);
+        if (callback) { callback(true); }
     },
 
     // Event emitters — same interface chrome.serial.onReceive / onReceiveError
@@ -97,7 +97,7 @@ const chromeSerial = {
             addListener: function (fn) { listeners.push(fn); },
             removeListener: function (fn) {
                 const i = listeners.indexOf(fn);
-                if (i !== -1) listeners.splice(i, 1);
+                if (i !== -1) { listeners.splice(i, 1); }
             },
             dispatch: function (info) { listeners.forEach(function (fn) { fn(info); }); },
         };
@@ -109,7 +109,7 @@ const chromeSerial = {
             addListener: function (fn) { listeners.push(fn); },
             removeListener: function (fn) {
                 const i = listeners.indexOf(fn);
-                if (i !== -1) listeners.splice(i, 1);
+                if (i !== -1) { listeners.splice(i, 1); }
             },
             dispatch: function (info) { listeners.forEach(function (fn) { fn(info); }); },
         };
@@ -120,7 +120,7 @@ const chromeSerial = {
 
 const chromeSockets = {
     tcp: {
-        _socketHandlers: new Map(), // Map socketId → {dataHandler, errorHandler, closeHandler}
+        _socketHandlers: new Map(), // Map socketId → { dataHandler, errorHandler, closeHandler }
 
         create: function (props, callback) {
             ipcRenderer.invoke('tcp-allocate').then(function (id) {
@@ -142,15 +142,15 @@ const chromeSockets = {
 
             // Define handlers for this specific socket
             const dataHandler = function (event, id, arrayBuffer) {
-                if (id !== socketId) return;
+                if (id !== socketId) { return; }
                 chromeSockets.tcp.onReceive.dispatch({ socketId: id, data: arrayBuffer });
             };
             const errorHandler = function (event, id, msg) {
-                if (id !== socketId) return;
+                if (id !== socketId) { return; }
                 chromeSockets.tcp.onReceiveError.dispatch({ socketId: id, resultCode: -1, message: msg });
             };
             const closeHandler = function (event, id) {
-                if (id !== socketId) return;
+                if (id !== socketId) { return; }
                 // Clean up listeners and the handler entry before dispatching so
                 // retries with the same socketId do not accumulate handlers.
                 cleanupSocketHandlers(socketId);
@@ -194,13 +194,13 @@ const chromeSockets = {
                 chromeSockets.tcp._socketHandlers.delete(socketId);
             }
             ipcRenderer.invoke('tcp-disconnect', socketId).then(function () {
-                if (callback) callback();
-            }).catch(function () { if (callback) callback(); });
+                if (callback) { callback(); }
+            }).catch(function () { if (callback) { callback(); } });
         },
 
         setNoDelay: function (socketId, delay, callback) {
             // setNoDelay is applied in main.js at socket creation; ack immediately
-            if (callback) callback(0);
+            if (callback) { callback(0); }
         },
 
         onReceive: (function () {
@@ -209,7 +209,7 @@ const chromeSockets = {
                 addListener: function (fn) { listeners.push(fn); },
                 removeListener: function (fn) {
                     const i = listeners.indexOf(fn);
-                    if (i !== -1) listeners.splice(i, 1);
+                    if (i !== -1) { listeners.splice(i, 1); }
                 },
                 dispatch: function (info) { listeners.forEach(function (fn) { fn(info); }); },
             };
@@ -221,7 +221,7 @@ const chromeSockets = {
                 addListener: function (fn) { listeners.push(fn); },
                 removeListener: function (fn) {
                     const i = listeners.indexOf(fn);
-                    if (i !== -1) listeners.splice(i, 1);
+                    if (i !== -1) { listeners.splice(i, 1); }
                 },
                 dispatch: function (info) { listeners.forEach(function (fn) { fn(info); }); },
             };
@@ -276,16 +276,16 @@ const chromeStorageLocal = {
         Object.keys(items).forEach(function (k) {
             localStorage.setItem(k, JSON.stringify(items[k]));
         });
-        if (callback) callback();
+        if (callback) { callback(); }
     },
     remove: function (keys, callback) {
         const keyList = Array.isArray(keys) ? keys : [keys];
         keyList.forEach(function (k) { localStorage.removeItem(k); });
-        if (callback) callback();
+        if (callback) { callback(); }
     },
     clear: function (callback) {
         localStorage.clear();
-        if (callback) callback();
+        if (callback) { callback(); }
     },
 };
 
@@ -297,7 +297,7 @@ const chromeUsb = {
 
     getDevices: function (filters, callback) {
         ipcRenderer.invoke('usb-list-dfu').then(function (devices) {
-            // devices is array of {device, vendorId, productId, ...}
+            // devices is array of { device, vendorId, productId, ... }
             callback(devices);
         }).catch(function () { callback([]); });
     },
@@ -319,13 +319,13 @@ const chromeUsb = {
             const device = chromeUsb._openHandles[handle.handle];
             ipcRenderer.invoke('usb-close-device', device.device).then(function () {
                 delete chromeUsb._openHandles[handle.handle];
-                if (callback) callback();
+                if (callback) { callback(); }
             }).catch(function (err) {
                 console.error('usb-close-device error:', err);
-                if (callback) callback();
+                if (callback) { callback(); }
             });
         } else {
-            if (callback) callback();
+            if (callback) { callback(); }
         }
     },
 
@@ -333,13 +333,13 @@ const chromeUsb = {
         if (handle && chromeUsb._openHandles[handle.handle]) {
             const device = chromeUsb._openHandles[handle.handle];
             ipcRenderer.invoke('usb-claim-interface', device.device, interfaceNumber).then(function () {
-                if (callback) callback();
+                if (callback) { callback(); }
             }).catch(function (err) {
                 console.error('usb-claim-interface error:', err);
-                if (callback) callback();
+                if (callback) { callback(); }
             });
         } else {
-            if (callback) callback();
+            if (callback) { callback(); }
         }
     },
 
@@ -347,13 +347,13 @@ const chromeUsb = {
         if (handle && chromeUsb._openHandles[handle.handle]) {
             const device = chromeUsb._openHandles[handle.handle];
             ipcRenderer.invoke('usb-release-interface', device.device, interfaceNumber).then(function () {
-                if (callback) callback();
+                if (callback) { callback(); }
             }).catch(function (err) {
                 console.error('usb-release-interface error:', err);
-                if (callback) callback();
+                if (callback) { callback(); }
             });
         } else {
-            if (callback) callback();
+            if (callback) { callback(); }
         }
     },
 
@@ -375,13 +375,13 @@ const chromeUsb = {
                         result.data = new Uint8Array(0).buffer;
                     }
                 }
-                if (callback) callback(result);
+                if (callback) { callback(result); }
             }).catch(function (err) {
                 console.error('usb-control-transfer error:', err);
-                if (callback) callback({ error: 'controlTransfer_error' });
+                if (callback) { callback({ error: 'controlTransfer_error' }); }
             });
         } else {
-            if (callback) callback({ error: 'device_not_open' });
+            if (callback) { callback({ error: 'device_not_open' }); }
         }
     },
 
@@ -402,13 +402,13 @@ const chromeUsb = {
                         result.data = new Uint8Array(0).buffer;
                     }
                 }
-                if (callback) callback(result);
+                if (callback) { callback(result); }
             }).catch(function (err) {
                 console.error('usb-bulk-transfer error:', err);
-                if (callback) callback({ error: 'bulkTransfer_error' });
+                if (callback) { callback({ error: 'bulkTransfer_error' }); }
             });
         } else {
-            if (callback) callback({ error: 'device_not_open' });
+            if (callback) { callback({ error: 'device_not_open' }); }
         }
     },
 
@@ -416,13 +416,13 @@ const chromeUsb = {
         if (handle && chromeUsb._openHandles[handle.handle]) {
             const device = chromeUsb._openHandles[handle.handle];
             ipcRenderer.invoke('usb-reset-device', device.device).then(function (result) {
-                if (callback) callback(result);
+                if (callback) { callback(result); }
             }).catch(function (err) {
                 console.error('usb-reset-device error:', err);
-                if (callback) callback({ error: 'reset_error' });
+                if (callback) { callback({ error: 'reset_error' }); }
             });
         } else {
-            if (callback) callback({ error: 'device_not_open' });
+            if (callback) { callback({ error: 'device_not_open' }); }
         }
     },
 
@@ -503,9 +503,9 @@ const chromeFileSystem = {
                             ipcRenderer.invoke('dialog:truncate-file', filePath, sz).then(truncatedSize => {
                                 writer.length = truncatedSize || sz;
                                 writer.position = 0;
-                                if (writer.onwriteend) writer.onwriteend();
+                                if (writer.onwriteend) { writer.onwriteend(); }
                             }).catch(err => {
-                                if (writer.onerror) writer.onerror(err);
+                                if (writer.onerror) { writer.onerror(err); }
                             });
                         },
                         write: (blob) => {
@@ -524,21 +524,21 @@ const chromeFileSystem = {
                                     writer.length = Math.max(writer.length, writeEnd);
                                     writer.position = writeEnd;
                                     writer.readyState = 2; // DONE
-                                    if (writer.onwriteend) writer.onwriteend();
+                                    if (writer.onwriteend) { writer.onwriteend(); }
                                     writer.readyState = 0; // INIT — ready for next write
                                 }).catch(err => {
                                     writer.readyState = 0;
-                                    if (writer.onerror) writer.onerror(err);
+                                    if (writer.onerror) { writer.onerror(err); }
                                 });
                             }).catch(err => {
                                 writer.readyState = 0;
-                                if (writer.onerror) writer.onerror(err);
+                                if (writer.onerror) { writer.onerror(err); }
                             });
                         },
                     };
                     onWriter(writer);
                 }).catch(err => {
-                    if (onError) onError(err);
+                    if (onError) { onError(err); }
                 });
             },
             file: (callback, _onError) => {
@@ -546,7 +546,7 @@ const chromeFileSystem = {
                     const blob = new Blob([buffer], { type: 'application/octet-stream' });
                     callback(blob);
                 }).catch(err => {
-                    if (_onError) _onError(err);
+                    if (_onError) { _onError(err); }
                 });
             },
         };
@@ -602,7 +602,7 @@ if (typeof window.chrome === 'undefined' || !window.chrome.fileSystem) {
 
 // Ctrl+mousewheel zoom: intercept before Chromium's own fractional zoom kicks in
 window.addEventListener('wheel', function (event) {
-    if (!(event.ctrlKey || event.metaKey) || event.deltaY === 0) return;
+    if (!(event.ctrlKey || event.metaKey) || event.deltaY === 0) { return; }
     event.preventDefault();
     ipcRenderer.invoke('zoom-step', event.deltaY < 0 ? 1 : -1);
 }, { passive: false, capture: true });
