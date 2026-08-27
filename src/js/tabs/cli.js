@@ -462,6 +462,14 @@ TABS.cli.read = function (readInfo) {
 
     }
 
+    this.handleCliModeEntry(validateText);
+
+    if (!CliAutoComplete.isEnabled())
+        // fallback to native autocomplete
+        { setPrompt(removePromptHash(this.cliBuffer)); }
+};
+
+TABS.cli.handleCliModeEntry = function (validateText) {
     if (!CONFIGURATOR.cliValid && validateText.indexOf('CLI') !== -1) {
         GUI.log(i18n.getMessage('cliEnter'));
         CONFIGURATOR.cliValid = true;
@@ -489,10 +497,6 @@ TABS.cli.read = function (readInfo) {
             CliAutoComplete.builderStart();
         }
     }
-
-    if (!CliAutoComplete.isEnabled())
-        // fallback to native autocomplete
-        { setPrompt(removePromptHash(this.cliBuffer)); }
 };
 
 TABS.cli.sendLine = function (line, callback) {
