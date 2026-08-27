@@ -612,7 +612,7 @@ MspHelper.prototype.process_data = function(dataHandler) {
                 CONFIG.buildInfo = String.fromCharCode.apply(null, buff);
                 break;
 
-            case MSPCodes.MSP_BOARD_INFO:
+            case MSPCodes.MSP_BOARD_INFO: {
                 var identifier = '';
                 for (var i = 0; i < 4; i++) {
                     identifier += String.fromCharCode(data.readU8());
@@ -651,6 +651,7 @@ MspHelper.prototype.process_data = function(dataHandler) {
                 }
                 //End MSP 1.54
                 break;
+            }
 
             case MSPCodes.MSP_NAME:
                 CONFIG.name = '';
@@ -800,7 +801,7 @@ MspHelper.prototype.process_data = function(dataHandler) {
                 }
                 break;
 
-            case MSPCodes.MSP_ADVANCED_CONFIG:
+            case MSPCodes.MSP_ADVANCED_CONFIG: {
                 PID_ADVANCED_CONFIG.gyro_sync_denom = data.readU8();
                 PID_ADVANCED_CONFIG.pid_process_denom = data.readU8();
                 PID_ADVANCED_CONFIG.use_unsyncedPwm = data.readU8();
@@ -815,6 +816,7 @@ MspHelper.prototype.process_data = function(dataHandler) {
                 }
                 //End MSP 1.54
                 break;
+            }
 
             case MSPCodes.MSP_FILTER_CONFIG:
                 if (semver.lt(CONFIG.apiVersion, "1.44.0")) {
@@ -1649,7 +1651,7 @@ MspHelper.prototype.crunch = function(code) {
                   .push8(SENSOR_ALIGNMENT.align_mag);
             break;
 
-        case MSPCodes.MSP_SET_ADVANCED_CONFIG:
+        case MSPCodes.MSP_SET_ADVANCED_CONFIG: {
             buffer.push8(PID_ADVANCED_CONFIG.gyro_sync_denom)
                   .push8(PID_ADVANCED_CONFIG.pid_process_denom)
                   .push8(PID_ADVANCED_CONFIG.use_unsyncedPwm)
@@ -1664,6 +1666,7 @@ MspHelper.prototype.crunch = function(code) {
             }
             //End MSP 1.54
             break;
+        }
 
         case MSPCodes.MSP_SET_FILTER_CONFIG:
             if (semver.lt(CONFIG.apiVersion, "1.44.0")) {
