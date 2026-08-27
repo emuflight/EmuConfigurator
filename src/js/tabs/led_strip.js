@@ -706,7 +706,6 @@ TABS.led_strip.initialize = function (callback, scrollPosition) {
             case "function-a":
             case "function-f":
                 return true;
-            break;
         }
         return false;
     }
@@ -723,7 +722,6 @@ TABS.led_strip.initialize = function (callback, scrollPosition) {
             case "function-o":
             case "function-g":
                 return true;
-            break;
         }
         return false;
     }
@@ -734,7 +732,6 @@ TABS.led_strip.initialize = function (callback, scrollPosition) {
             case "function-a":
             case "function-f":
                 return true;
-            break;
         }
         return false;
     }
@@ -745,13 +742,11 @@ TABS.led_strip.initialize = function (callback, scrollPosition) {
             case "function-s":
             case "function-g":
                 return false;
-                break;
             case "function-r":
             case "function-b":
                 return true;
             default:
                 return true;
-            break;
         }
     }
 
@@ -762,10 +757,8 @@ TABS.led_strip.initialize = function (callback, scrollPosition) {
             case "function-a":
             case "function-f":
                 return true;
-            break;
             default:
                 return false;
-            break;
         }
     }
 
