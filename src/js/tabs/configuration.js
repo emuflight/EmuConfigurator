@@ -212,80 +212,86 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
         orientation_acc_e.val(SENSOR_ALIGNMENT.align_acc);
         orientation_mag_e.val(SENSOR_ALIGNMENT.align_mag);
 
-        // ESC protocols
-        var escprotocols = [
-            'PWM',
-            'ONESHOT125',
-            'ONESHOT42',
-            'MULTISHOT'
-        ];
+        function setupEscProtocol() {
+            // ESC protocols
+            var escprotocols = [
+                'PWM',
+                'ONESHOT125',
+                'ONESHOT42',
+                'MULTISHOT'
+            ];
 
-        escprotocols.push('BRUSHED');
-        escprotocols.push('DSHOT150');
-        escprotocols.push('DSHOT300');
-        escprotocols.push('DSHOT600');
-        escprotocols.push('DSHOT1200');
-        if (semver.gte(CONFIG.apiVersion, "1.48.0")) {
-            escprotocols.push('DSHOT2400');
-            escprotocols.push('DSHOT4800');
-        }
-        escprotocols.push('PROSHOT1000');
+            escprotocols.push('BRUSHED');
+            escprotocols.push('DSHOT150');
+            escprotocols.push('DSHOT300');
+            escprotocols.push('DSHOT600');
+            escprotocols.push('DSHOT1200');
+            if (semver.gte(CONFIG.apiVersion, "1.48.0")) {
+                escprotocols.push('DSHOT2400');
+                escprotocols.push('DSHOT4800');
+            }
+            escprotocols.push('PROSHOT1000');
 
-        var esc_protocol_e = $('select.escprotocol');
+            var esc_protocol_e = $('select.escprotocol');
 
-        for (var i = 0; i < escprotocols.length; i++) {
-            esc_protocol_e.append('<option value="' + (i + 1) + '">'+ escprotocols[i] + '</option>');
-        }
+            for (var i = 0; i < escprotocols.length; i++) {
+                esc_protocol_e.append('<option value="' + (i + 1) + '">'+ escprotocols[i] + '</option>');
+            }
 
-        $("input[id='unsyncedPWMSwitch']").change(function() {
-            if ($(this).is(':checked')) {
-                $('div.unsyncedpwmfreq').show();
+            $("input[id='unsyncedPWMSwitch']").change(function() {
+                if ($(this).is(':checked')) {
+                    $('div.unsyncedpwmfreq').show();
+                } else {
+                    $('div.unsyncedpwmfreq').hide();
+                }
+            });
+
+            $('input[id="unsyncedPWMSwitch"]').prop('checked', PID_ADVANCED_CONFIG.use_unsyncedPwm !== 0).change();
+            $('input[name="unsyncedpwmfreq"]').val(PID_ADVANCED_CONFIG.motor_pwm_rate);
+            $('input[name="digitalIdlePercent"]').val(PID_ADVANCED_CONFIG.digitalIdlePercent);
+
+            //MSP 1.54
+            if (semver.gte(CONFIG.apiVersion, "1.54.0")) {
+                $('input[name="motorPoleCount"]').val(PID_ADVANCED_CONFIG.motorPoleCount);
+                $('div.motorPoleCount').show();
             } else {
-                $('div.unsyncedpwmfreq').hide();
+                $('div.motorPoleCount').hide();
             }
-        });
+            //End MSP 1.54
 
-        $('input[id="unsyncedPWMSwitch"]').prop('checked', PID_ADVANCED_CONFIG.use_unsyncedPwm !== 0).change();
-        $('input[name="unsyncedpwmfreq"]').val(PID_ADVANCED_CONFIG.motor_pwm_rate);
-        $('input[name="digitalIdlePercent"]').val(PID_ADVANCED_CONFIG.digitalIdlePercent);
+            esc_protocol_e.val(PID_ADVANCED_CONFIG.fast_pwm_protocol + 1);
+            esc_protocol_e.change(function () {
+                var escProtocolValue = parseInt($(this).val()) - 1;
 
-        //MSP 1.54
-        if (semver.gte(CONFIG.apiVersion, "1.54.0")) {
-            $('input[name="motorPoleCount"]').val(PID_ADVANCED_CONFIG.motorPoleCount);
-            $('div.motorPoleCount').show();
-        } else {
-            $('div.motorPoleCount').hide();
+                var newValue;
+                if (escProtocolValue !== PID_ADVANCED_CONFIG.fast_pwm_protocol) {
+                    newValue = $(this).find('option:selected').text();
+                }
+                //hide not used setting for DSHOT protocol
+                if (escProtocolValue >= self.DSHOT_PROTOCOL_MIN_VALUE) {
+                    $('div.minthrottle').hide();
+                    $('div.maxthrottle').hide();
+                    $('div.mincommand').hide();
+                    $('div.checkboxPwm').hide();
+                    $('div.unsyncedpwmfreq').hide();
+
+                    $('div.digitalIdlePercent').show();
+                } else {
+                    $('div.minthrottle').show();
+                    $('div.maxthrottle').show();
+                    $('div.mincommand').show();
+                    $('div.checkboxPwm').show();
+                    //trigger change unsyncedPWMSwitch to show/hide Motor PWM freq input
+                    $("input[id='unsyncedPWMSwitch']").change();
+
+                    $('div.digitalIdlePercent').hide();
+                }
+            }).change();
+
+            return esc_protocol_e;
         }
-        //End MSP 1.54
 
-        esc_protocol_e.val(PID_ADVANCED_CONFIG.fast_pwm_protocol + 1);
-        esc_protocol_e.change(function () {
-            var escProtocolValue = parseInt($(this).val()) - 1;
-
-            var newValue;
-            if (escProtocolValue !== PID_ADVANCED_CONFIG.fast_pwm_protocol) {
-                newValue = $(this).find('option:selected').text();
-            }
-            //hide not used setting for DSHOT protocol
-            if (escProtocolValue >= self.DSHOT_PROTOCOL_MIN_VALUE) {
-                $('div.minthrottle').hide();
-                $('div.maxthrottle').hide();
-                $('div.mincommand').hide();
-                $('div.checkboxPwm').hide();
-                $('div.unsyncedpwmfreq').hide();
-
-                $('div.digitalIdlePercent').show();
-            } else {
-                $('div.minthrottle').show();
-                $('div.maxthrottle').show();
-                $('div.mincommand').show();
-                $('div.checkboxPwm').show();
-                //trigger change unsyncedPWMSwitch to show/hide Motor PWM freq input
-                $("input[id='unsyncedPWMSwitch']").change();
-
-                $('div.digitalIdlePercent').hide();
-            }
-        }).change();
+        var esc_protocol_e = setupEscProtocol();
 
 
         // Gyro and PID update
