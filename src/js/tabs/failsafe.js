@@ -5,7 +5,7 @@ TABS.failsafe = {};
 TABS.failsafe.initialize = function (callback, scrollPosition) {
     var self = this;
 
-    if (GUI.active_tab != 'failsafe') {
+    if (GUI.active_tab !== 'failsafe') {
         GUI.active_tab = 'failsafe';
     }
 
@@ -108,7 +108,7 @@ TABS.failsafe.initialize = function (callback, scrollPosition) {
             for (var modeRangeIndex = 0; modeRangeIndex < MODE_RANGES.length; modeRangeIndex++) {
                 var modeRange = MODE_RANGES[modeRangeIndex];
 
-                if (modeRange.id != modeId) {
+                if (modeRange.id !== modeId) {
                     continue;
                 }
 
@@ -190,7 +190,7 @@ TABS.failsafe.initialize = function (callback, scrollPosition) {
             var currentMode = parseInt($(this).val());
             var i = parseInt($(this).prop("id"));
             RXFAIL_CONFIG[i].mode = currentMode;
-            if (currentMode == 2) {
+            if (currentMode === 2) {
                 channel_value_array[i].prop("disabled", false);
                 channel_value_array[i].show();
             } else {

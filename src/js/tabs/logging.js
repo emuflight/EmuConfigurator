@@ -4,7 +4,7 @@ TABS.logging = {};
 TABS.logging.initialize = function (callback) {
     var self = this;
 
-    if (GUI.active_tab != 'logging') {
+    if (GUI.active_tab !== 'logging') {
         GUI.active_tab = 'logging';
     }
 
@@ -67,7 +67,7 @@ TABS.logging.initialize = function (callback) {
                             GUI.interval_add('log_data_poll', log_data_poll, parseInt($('select.speed').val()), true); // refresh rate goes here
                             GUI.interval_add('write_data', function write_data() {
                                 if (log_buffer.length) { // only execute when there is actual data to write
-                                    if (fileWriter.readyState == 0 || fileWriter.readyState == 2) {
+                                    if (fileWriter.readyState === 0 || fileWriter.readyState === 2) {
                                         append_to_file(log_buffer.join('\n'));
 
                                         $('.samples').text(samples += log_buffer.length);

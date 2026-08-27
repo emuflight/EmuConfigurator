@@ -4,7 +4,7 @@ TABS.servos = {};
 TABS.servos.initialize = function (callback) {
     var self = this;
 
-    if (GUI.active_tab != 'servos') {
+    if (GUI.active_tab !== 'servos') {
         GUI.active_tab = 'servos';
     }
 
@@ -116,7 +116,7 @@ TABS.servos.initialize = function (callback) {
 
                 var selection = $('.channel input', this);
                 var channelIndex = parseInt(selection.index(selection.filter(':checked')));
-                if (channelIndex == -1) {
+                if (channelIndex === -1) {
                     channelIndex = undefined;
                 }
                 

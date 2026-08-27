@@ -4,7 +4,7 @@ TABS.sensors = {};
 TABS.sensors.initialize = function (callback) {
     var self = this;
 
-    if (GUI.active_tab != 'sensors') {
+    if (GUI.active_tab !== 'sensors') {
         GUI.active_tab = 'sensors';
     }
 
@@ -187,7 +187,7 @@ TABS.sensors.initialize = function (callback) {
         var checkboxes = $('.tab-sensors .info .checkboxes input');
         checkboxes.parent().show();
         
-        if (CONFIG.boardType == 0 || CONFIG.boardType == 2) { 
+        if (CONFIG.boardType === 0 || CONFIG.boardType === 2) {
             if (!have_sensor(CONFIG.activeSensors, 'acc')) {
                 checkboxes.eq(1).prop('disabled', true);
             }

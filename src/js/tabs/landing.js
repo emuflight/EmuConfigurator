@@ -4,7 +4,7 @@ TABS.landing = {};
 TABS.landing.initialize = function (callback) {
   var self = this;
 
-  if (GUI.active_tab != 'landing') {
+  if (GUI.active_tab !== 'landing') {
     GUI.active_tab = 'landing';
   }
 
@@ -14,7 +14,7 @@ TABS.landing.initialize = function (callback) {
       bottomSection.find('a').each(function(index) {
         var element = $(this);
         var languageSelected = element.attr('lang');
-        if (newLang == languageSelected) {
+        if (newLang === languageSelected) {
           element.removeClass('selected_language');
           element.addClass('selected_language');
         } else {
@@ -35,7 +35,7 @@ TABS.landing.initialize = function (callback) {
         var element = $(this);
         var languageSelected = element.attr('lang');
         if (!languageSelected) { return; }
-        if (i18n.selectedLanguage != languageSelected) {
+        if (i18n.selectedLanguage !== languageSelected) {
           i18n.changeLanguage(languageSelected);
           showLang(languageSelected);
         }

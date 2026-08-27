@@ -137,7 +137,7 @@ TABS.onboard_logging.initialize = function (callback) {
                 }
             }).change();
 
-            if ((SDCARD.supported && deviceSelect.val() == 2) || (DATAFLASH.supported && deviceSelect.val() == 1)) {
+            if ((SDCARD.supported && parseInt(deviceSelect.val(), 10) === 2) || (DATAFLASH.supported && parseInt(deviceSelect.val(), 10) === 1)) {
 
                 $(".tab-onboard_logging")
                     .toggleClass("msc-supported", true);
@@ -196,7 +196,7 @@ TABS.onboard_logging.initialize = function (callback) {
         ];
 
         $.each(loggingRates, function(index, item) {
-            if (pidRate >= item.hz || item.hz == 0) {
+            if (pidRate >= item.hz || item.hz === 0) {
                 loggingRatesSelect.append(new Option(item.text, item.p_denom));
             }
         });
