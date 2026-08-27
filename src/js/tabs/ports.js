@@ -84,7 +84,7 @@ TABS.ports.initialize = function (callback, scrollPosition) {
 
     var columns = ['configuration', 'peripherals', 'sensors', 'telemetry', 'rx'];
 
-    if (GUI.active_tab != 'ports') {
+    if (GUI.active_tab !== 'ports') {
         GUI.active_tab = 'ports';
     }
 
@@ -194,7 +194,7 @@ TABS.ports.initialize = function (callback, scrollPosition) {
                     var functionRule = functionRules[i];
                     var functionName = functionRule.name;
 
-                    if (functionRule.groups.indexOf(column) == -1) {
+                    if (functionRule.groups.indexOf(column) === -1) {
                         continue;
                     }
 
@@ -208,7 +208,7 @@ TABS.ports.initialize = function (callback, scrollPosition) {
                             checkbox_e.prop("checked", true);
                         }
 
-                        if (serialPort.identifier == VCP_PORT_IDENTIFIER && functionName == "MSP") {
+                        if (serialPort.identifier === VCP_PORT_IDENTIFIER && functionName === "MSP") {
                             var checkbox_e = functions_e.find('#' + checkboxId);
                             checkbox_e.prop("checked", true);
                             checkbox_e.prop("disabled", true);
@@ -219,7 +219,7 @@ TABS.ports.initialize = function (callback, scrollPosition) {
                         var selectElementSelector = 'select[name=' + selectElementName + ']';
                         select_e = functions_e.find(selectElementSelector);
 
-                        if (select_e.length == 0) {
+                        if (select_e.length === 0) {
                             functions_e.prepend('<span class="function"><select name="' + selectElementName + '" /></span>');
                             select_e = functions_e.find(selectElementSelector);
                             var disabledText = i18n.getMessage('portsTelemetryDisabled');

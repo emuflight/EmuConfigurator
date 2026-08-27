@@ -7,7 +7,7 @@ TABS.setup = {
 TABS.setup.initialize = function (callback) {
     var self = this;
 
-    if (GUI.active_tab != 'setup') {
+    if (GUI.active_tab !== 'setup') {
         GUI.active_tab = 'setup';
     }
 
@@ -224,7 +224,7 @@ TABS.setup.initialize = function (callback) {
                     arming_disable_flags_e.append('<span id="initialSetupArmingDisableFlags' + i + '" class="cf_tip disarm-flag" title="' + i18n.getMessage('initialSetupArmingDisableFlagsTooltip' + disarmFlagElements[i]) + '" style="display: none;">' + disarmFlagElements[i] + '</span>');
 
                 // The ARM_SWITCH, always the last element
-                } else if (i == CONFIG.armingDisableCount - 1) {
+                } else if (i === CONFIG.armingDisableCount - 1) {
                     arming_disable_flags_e.append('<span id="initialSetupArmingDisableFlags' + i + '" class="cf_tip disarm-flag" title="' + i18n.getMessage('initialSetupArmingDisableFlagsTooltipARM_SWITCH') + '" style="display: none;">ARM_SWITCH</span>');
 
                 // Unknown disarm flags
@@ -240,10 +240,10 @@ TABS.setup.initialize = function (callback) {
 
             MSP.send_message(MSPCodes.MSP_STATUS, false, false, function() {
 
-                $('#initialSetupArmingAllowed').toggle(CONFIG.armingDisableFlags == 0);
+                $('#initialSetupArmingAllowed').toggle(CONFIG.armingDisableFlags === 0);
 
                 for (var i = 0; i < CONFIG.armingDisableCount; i++) {
-                    $('#initialSetupArmingDisableFlags'+i).css('display',(CONFIG.armingDisableFlags & (1 << i)) == 0 ? 'none':'inline-block');
+                    $('#initialSetupArmingDisableFlags'+i).css('display',(CONFIG.armingDisableFlags & (1 << i)) === 0 ? 'none':'inline-block');
                 }
 
             });
