@@ -83,7 +83,7 @@ TABS.adjustments.initialize = function (callback) {
             };
 
         var rangeValues = [1300, 1700];
-        if (adjustmentRange.range !== undefined) {
+        if (adjustmentRange.range != null) {
             rangeValues = [adjustmentRange.range.start, adjustmentRange.range.end];
         }
 
