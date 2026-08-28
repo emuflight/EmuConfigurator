@@ -56,7 +56,7 @@ TABS.auxiliary.initialize = function (callback) {
         $(newMode).find('a.addLink').data('modeElement', newMode);
 
         // hide link button for ARM
-        if (modeId == 0) {
+        if (modeId === 0) {
             $(newMode).find('.addLink').hide();
         }
 
@@ -137,7 +137,7 @@ TABS.auxiliary.initialize = function (callback) {
             };
         
         var rangeValues = [1300, 1700]; // matches MultiWii default values for the old checkbox MID range.
-        if (range != undefined) {
+        if (range !== undefined) {
             rangeValues = [range.start, range.end];
         }
 
@@ -147,9 +147,9 @@ TABS.auxiliary.initialize = function (callback) {
         rangeElement.attr('id', 'mode-' + modeIndex + '-range-' + rangeIndex);
         modeRanges.append(rangeElement);
 
-        if (rangeIndex == 0) {
+        if (rangeIndex === 0) {
             $(rangeElement).find('.logic').hide();
-        } else if (rangeIndex == 1) {
+        } else if (rangeIndex === 1) {
             modeRanges.children().eq(0).find('.logic').show();
         }
         
@@ -187,7 +187,7 @@ TABS.auxiliary.initialize = function (callback) {
     
             var siblings = $(modeElement).find('.ranges').children();
     
-            if (siblings.length == 1) {
+            if (siblings.length === 1) {
                 siblings.eq(0).find('.logic').hide();
             }
         });
@@ -207,9 +207,9 @@ TABS.auxiliary.initialize = function (callback) {
         linkElement.attr('id', 'mode-' + modeIndex + '-link-' + linkIndex);
         modeRanges.append(linkElement);
 
-        if (linkIndex == 0) {
+        if (linkIndex === 0) {
             $(linkElement).find('.logic').hide();
-        } else if (linkIndex == 1) {
+        } else if (linkIndex === 1) {
             modeRanges.children().eq(0).find('.logic').show();
         }
 
@@ -228,7 +228,7 @@ TABS.auxiliary.initialize = function (callback) {
     
             var siblings = $(modeElement).find('.ranges').children();
     
-            if (siblings.length == 1) {
+            if (siblings.length === 1) {
                 siblings.eq(0).find('.logic').hide();
             }
         });
@@ -261,11 +261,11 @@ TABS.auxiliary.initialize = function (callback) {
                     linkedTo: 0
                 };
                 
-                if (modeRange.id != modeId || modeRangeExtra.id != modeId) {
+                if (modeRange.id !== modeId || modeRangeExtra.id !== modeId) {
                     continue;
                 }
 
-                if (modeId == 0 || modeRangeExtra.linkedTo == 0) {
+                if (modeId === 0 || modeRangeExtra.linkedTo === 0) {
                     var range = modeRange.range;
                     if (!(range.start < range.end)) {
                         continue; // invalid!
@@ -335,7 +335,7 @@ TABS.auxiliary.initialize = function (callback) {
                 $(modeElement).find('.link').each(function() {
                     var linkedToSelection = parseInt($(this).find('.linkedTo').val());
 
-                    if (linkedToSelection == 0) {
+                    if (linkedToSelection === 0) {
                         $(this).remove();
                     } else {
                         var modeRange = {
@@ -404,7 +404,7 @@ TABS.auxiliary.initialize = function (callback) {
             
             $('.modes .ranges .range').each( function () {
                 var auxChannelCandidateIndex = $(this).find('.channel').val();
-                if (auxChannelCandidateIndex != auxChannelIndex) {
+                if (parseInt(auxChannelCandidateIndex, 10) !== auxChannelIndex) {
                     return;
                 }
                 
@@ -421,7 +421,7 @@ TABS.auxiliary.initialize = function (callback) {
             let hasUsedMode = false;
             for (let i = 0; i < AUX_CONFIG.length; i++) {
                 let modeElement = $('#mode-' + i);
-                if (modeElement.find(' .range').length == 0 && modeElement.find(' .link').length == 0) {
+                if (modeElement.find(' .range').length === 0 && modeElement.find(' .link').length === 0) {
                     // if the mode is unused, skip it
                     modeElement.removeClass('off').removeClass('on');
                     continue;
@@ -438,7 +438,7 @@ TABS.auxiliary.initialize = function (callback) {
             let hideUnused = hideUnusedModes && hasUsedMode;
             for (let i = 0; i < AUX_CONFIG.length; i++) {
                 let modeElement = $('#mode-' + i);
-                if (modeElement.find(' .range').length == 0 && modeElement.find(' .link').length == 0) {
+                if (modeElement.find(' .range').length === 0 && modeElement.find(' .link').length === 0) {
                     modeElement.toggle(!hideUnused);
                 }
             }    
@@ -484,7 +484,7 @@ TABS.auxiliary.initialize = function (callback) {
             if (largest < 100) { return fillPrevChannelsValues(); }
 
             var indexOfMaxValue = diff_array.indexOf(largest);
-            if (indexOfMaxValue >= 4 && indexOfMaxValue != RSSI_channel - 1){ //set channel
+            if (indexOfMaxValue >= 4 && indexOfMaxValue !== RSSI_channel - 1){ //set channel
                 auto_option.parent().val(indexOfMaxValue - 4);
             }
 
