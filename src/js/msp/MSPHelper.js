@@ -199,7 +199,7 @@ MspHelper.prototype.process_data = function(dataHandler) {
 
                 for (var i = 0; i < voltage_meter_count; i++) {
                     var subframe_length = data.readU8();
-                    if (subframe_length != 5) {
+                    if (subframe_length !== 5) {
                         for (var j = 0; j < subframe_length; j++) {
                             data.readU8();
                         }
@@ -222,7 +222,7 @@ MspHelper.prototype.process_data = function(dataHandler) {
                     var currentMeterConfig = {};
                     var subframe_length = data.readU8();
 
-                    if (subframe_length != 6) {
+                    if (subframe_length !== 6) {
                         for (var j = 0; j < subframe_length; j++) {
                             data.readU8();
                         }
@@ -382,7 +382,7 @@ MspHelper.prototype.process_data = function(dataHandler) {
                 var buff = [];
                 for (var i = 0; i < data.byteLength; i++) {
                     var char = data.readU8();
-                    if (char == 0x3B) { // ; (delimeter char)
+                    if (char === 0x3B) { // ; (delimeter char)
                         AUX_CONFIG.push(String.fromCharCode.apply(null, buff)); // convert bytes into ASCII and save as strings
 
                         // empty buffer
@@ -398,7 +398,7 @@ MspHelper.prototype.process_data = function(dataHandler) {
                 var buff = [];
                 for (var i = 0; i < data.byteLength; i++) {
                     var char = data.readU8();
-                    if (char == 0x3B) { // ; (delimeter char)
+                    if (char === 0x3B) { // ; (delimeter char)
                         PID_names.push(String.fromCharCode.apply(null, buff)); // convert bytes into ASCII and save as strings
 
                         // empty buffer
@@ -421,7 +421,7 @@ MspHelper.prototype.process_data = function(dataHandler) {
 
             case MSPCodes.MSP_SERVO_CONFIGURATIONS:
                 SERVO_CONFIG = []; // empty the array as new data is coming in
-                if (data.byteLength % 12 == 0) {
+                if (data.byteLength % 12 === 0) {
                     for (var i = 0; i < data.byteLength; i += 12) {
                         var arr = {
                             'min':                      data.readU16(),
@@ -831,7 +831,7 @@ MspHelper.prototype.process_data = function(dataHandler) {
 
                 if (semver.eq(CONFIG.apiVersion, "1.43.0")) {
                     FILTER_CONFIG.dterm_dyn_lpf = data.readU16();
-                    if (CONFIG.boardIdentifier != "HESP" && CONFIG.boardIdentifier != "SX10" && CONFIG.boardIdentifier != "FLUX") {
+                    if (CONFIG.boardIdentifier !== "HESP" && CONFIG.boardIdentifier !== "SX10" && CONFIG.boardIdentifier !== "FLUX") {
                         FILTER_CONFIG.gyro_dyn_lpf = data.readU16();
                     }
                 }
@@ -1071,7 +1071,7 @@ MspHelper.prototype.process_data = function(dataHandler) {
                         var functionId = (mask >> 8) & 0xF;
                         var functions = [];
                         for (var baseFunctionLetterIndex = 0; baseFunctionLetterIndex < ledBaseFunctionLetters.length; baseFunctionLetterIndex++) {
-                            if (functionId == baseFunctionLetterIndex) {
+                            if (functionId === baseFunctionLetterIndex) {
                                 functions.push(ledBaseFunctionLetters[baseFunctionLetterIndex]);
                                 break;
                             }
@@ -1145,8 +1145,8 @@ MspHelper.prototype.process_data = function(dataHandler) {
             case MSPCodes.MSP_DATAFLASH_SUMMARY:
                 if (data.byteLength >= 13) {
                     var flags = data.readU8();
-                    DATAFLASH.ready = (flags & 1) != 0;
-                    DATAFLASH.supported = (flags & 2) != 0;
+                    DATAFLASH.ready = (flags & 1) !== 0;
+                    DATAFLASH.supported = (flags & 2) !== 0;
                     DATAFLASH.sectors = data.readU32();
                     DATAFLASH.totalSize = data.readU32();
                     DATAFLASH.usedSize = data.readU32();
@@ -1171,7 +1171,7 @@ MspHelper.prototype.process_data = function(dataHandler) {
 
             case MSPCodes.MSP_SDCARD_SUMMARY:
                 var flags = data.readU8();
-                SDCARD.supported = (flags & 0x01) != 0;
+                SDCARD.supported = (flags & 0x01) !== 0;
                 SDCARD.state = data.readU8();
                 SDCARD.filesystemLastError = data.readU8();
                 SDCARD.freeSizeKB = data.readU32();
@@ -1179,7 +1179,7 @@ MspHelper.prototype.process_data = function(dataHandler) {
                 break;
 
             case MSPCodes.MSP_BLACKBOX_CONFIG:
-                BLACKBOX.supported = (data.readU8() & 1) != 0;
+                BLACKBOX.supported = (data.readU8() & 1) !== 0;
                 BLACKBOX.blackboxDevice = data.readU8();
                 BLACKBOX.blackboxRateNum = data.readU8();
                 BLACKBOX.blackboxRateDenom = data.readU8();
@@ -1362,7 +1362,7 @@ MspHelper.prototype.process_data = function(dataHandler) {
 
     // trigger callbacks, cleanup/remove callback after trigger
     for (var i = dataHandler.callbacks.length - 1; i >= 0; i--) { // itterating in reverse because we use .splice which modifies array length
-        if (dataHandler.callbacks[i].code == code) {
+        if (dataHandler.callbacks[i].code === code) {
             // save callback reference
             var callback = dataHandler.callbacks[i].callback;
             var callbackOnError = dataHandler.callbacks[i].callbackOnError;
@@ -1681,7 +1681,7 @@ MspHelper.prototype.crunch = function(code) {
 
             if (semver.eq(CONFIG.apiVersion, "1.43.0")) {
                 buffer.push16(FILTER_CONFIG.dterm_dyn_lpf);
-                if (CONFIG.boardIdentifier != "HESP" && CONFIG.boardIdentifier != "SX10" && CONFIG.boardIdentifier != "FLUX") {
+                if (CONFIG.boardIdentifier !== "HESP" && CONFIG.boardIdentifier !== "SX10" && CONFIG.boardIdentifier !== "FLUX") {
                     buffer.push16(FILTER_CONFIG.gyro_dyn_lpf);
                 }
             }
@@ -2004,13 +2004,15 @@ MspHelper.prototype.dataflashRead = function(address, blockSize, onDataCallback)
             var dataSize = response.data.readU16();
             var dataCompressionType = response.data.readU8();
             // Verify that the address of the memory returned matches what the caller asked for and there was not a CRC error
-            if (chunkAddress == address) {
+            if (chunkAddress === address &&
+                dataSize !== null &&
+                (dataCompressionType === 0 || dataCompressionType === 1)) {
                 /* Strip that address off the front of the reply and deliver it separately so the caller doesn't have to
                  * figure out the reply format:
                  */
-                if (dataCompressionType == 0) {
+                if (dataCompressionType === 0) {
                     onDataCallback(address, new DataView(response.data.buffer, response.data.byteOffset + headerSize, dataSize));
-                } else if (dataCompressionType == 1) {
+                } else if (dataCompressionType === 1) {
                     // Read compressed char count to avoid decoding stray bit sequences as bytes
                     var compressedCharCount = response.data.readU16();
 
@@ -2021,8 +2023,8 @@ MspHelper.prototype.dataflashRead = function(address, blockSize, onDataCallback)
                     onDataCallback(address, new DataView(decompressedArray.buffer), dataSize);
                 }
             } else {
-                // Report address error
-                console.log('Expected address ' + address + ' but received ' + chunkAddress + ' - retrying');
+                // Report malformed response
+                console.log('Invalid dataflash response for address ' + address + ' - retrying');
                 onDataCallback(address, null);  // returning null to the callback forces a retry
             }
         } else {
@@ -2037,7 +2039,7 @@ MspHelper.prototype.sendServoConfigurations = function(onCompleteCallback) {
     var nextFunction = send_next_servo_configuration;
 
     var servoIndex = 0;
-    if (SERVO_CONFIG.length == 0) {
+    if (SERVO_CONFIG.length === 0) {
         onCompleteCallback();
     } else {
         nextFunction();
@@ -2055,7 +2057,7 @@ MspHelper.prototype.sendServoConfigurations = function(onCompleteCallback) {
               .push8(servoConfiguration.rate);
 
         var out = servoConfiguration.indexOfChannelToForward;
-        if (out == undefined) {
+        if (out === undefined) {
             out = 255; // Cleanflight defines "CHANNEL_FORWARDING_DISABLED" as "(uint8_t)0xFF"
         }
         buffer.push8(out)
@@ -2063,7 +2065,7 @@ MspHelper.prototype.sendServoConfigurations = function(onCompleteCallback) {
 
         // prepare for next iteration
         servoIndex++;
-        if (servoIndex == SERVO_CONFIG.length) {
+        if (servoIndex === SERVO_CONFIG.length) {
             nextFunction = onCompleteCallback;
         }
         MSP.send_message(MSPCodes.MSP_SET_SERVO_CONFIGURATION, buffer, false, nextFunction);
@@ -2073,7 +2075,7 @@ MspHelper.prototype.sendServoConfigurations = function(onCompleteCallback) {
 MspHelper.prototype.sendModeRanges = function(onCompleteCallback) {
     var nextFunction = send_next_mode_range;
     var modeRangeIndex = 0;
-    if (MODE_RANGES.length == 0) {
+    if (MODE_RANGES.length === 0) {
         onCompleteCallback();
     } else {
         send_next_mode_range();
@@ -2090,7 +2092,7 @@ MspHelper.prototype.sendModeRanges = function(onCompleteCallback) {
 
         // prepare for next iteration
         modeRangeIndex++;
-        if (modeRangeIndex == MODE_RANGES.length) {
+        if (modeRangeIndex === MODE_RANGES.length) {
             nextFunction = onCompleteCallback;
         }
         MSP.send_message(MSPCodes.MSP_SET_MODE_RANGE, buffer, false, nextFunction);
@@ -2100,7 +2102,7 @@ MspHelper.prototype.sendModeRanges = function(onCompleteCallback) {
 MspHelper.prototype.sendAdjustmentRanges = function(onCompleteCallback) {
     var nextFunction = send_next_adjustment_range;
     var adjustmentRangeIndex = 0;
-    if (ADJUSTMENT_RANGES.length == 0) {
+    if (ADJUSTMENT_RANGES.length === 0) {
         onCompleteCallback();
     } else {
         send_next_adjustment_range();
@@ -2118,7 +2120,7 @@ MspHelper.prototype.sendAdjustmentRanges = function(onCompleteCallback) {
 
         // prepare for next iteration
         adjustmentRangeIndex++;
-        if (adjustmentRangeIndex == ADJUSTMENT_RANGES.length) {
+        if (adjustmentRangeIndex === ADJUSTMENT_RANGES.length) {
             nextFunction = onCompleteCallback;
 
         }
@@ -2130,7 +2132,7 @@ MspHelper.prototype.sendVoltageConfig = function(onCompleteCallback) {
 
     var nextFunction = send_next_voltage_config;
     var configIndex = 0;
-    if (VOLTAGE_METER_CONFIGS.length == 0) {
+    if (VOLTAGE_METER_CONFIGS.length === 0) {
         onCompleteCallback();
     } else {
         send_next_voltage_config();
@@ -2143,7 +2145,7 @@ MspHelper.prototype.sendVoltageConfig = function(onCompleteCallback) {
               .push8(VOLTAGE_METER_CONFIGS[configIndex].vbatresdivmultiplier);
         // prepare for next iteration
         configIndex++;
-        if (configIndex == VOLTAGE_METER_CONFIGS.length) {
+        if (configIndex === VOLTAGE_METER_CONFIGS.length) {
             nextFunction = onCompleteCallback;
         }
         MSP.send_message(MSPCodes.MSP_SET_VOLTAGE_METER_CONFIG, buffer, false, nextFunction);
@@ -2154,7 +2156,7 @@ MspHelper.prototype.sendCurrentConfig = function(onCompleteCallback) {
 
     var nextFunction = send_next_current_config;
     var configIndex = 0;
-    if (CURRENT_METER_CONFIGS.length == 0) {
+    if (CURRENT_METER_CONFIGS.length === 0) {
         onCompleteCallback();
     } else {
         send_next_current_config();
@@ -2167,7 +2169,7 @@ MspHelper.prototype.sendCurrentConfig = function(onCompleteCallback) {
 
         // prepare for next iteration
         configIndex++;
-        if (configIndex == CURRENT_METER_CONFIGS.length) {
+        if (configIndex === CURRENT_METER_CONFIGS.length) {
             nextFunction = onCompleteCallback;
         }
         MSP.send_message(MSPCodes.MSP_SET_CURRENT_METER_CONFIG, buffer, false, nextFunction);
@@ -2181,7 +2183,7 @@ MspHelper.prototype.sendLedStripConfig = function(onCompleteCallback) {
 
     var ledIndex = 0;
 
-    if (LED_STRIP.length == 0) {
+    if (LED_STRIP.length === 0) {
         onCompleteCallback();
     } else {
         send_next_led_strip_config();
@@ -2226,7 +2228,7 @@ MspHelper.prototype.sendLedStripConfig = function(onCompleteCallback) {
 
         // prepare for next iteration
         ledIndex++;
-        if (ledIndex == LED_STRIP.length) {
+        if (ledIndex === LED_STRIP.length) {
             nextFunction = onCompleteCallback;
         }
 
@@ -2235,7 +2237,7 @@ MspHelper.prototype.sendLedStripConfig = function(onCompleteCallback) {
 }
 
 MspHelper.prototype.sendLedStripColors = function(onCompleteCallback) {
-    if (LED_COLORS.length == 0) {
+    if (LED_COLORS.length === 0) {
         onCompleteCallback();
     } else {
         var buffer = [];
@@ -2256,7 +2258,7 @@ MspHelper.prototype.sendLedStripModeColors = function(onCompleteCallback) {
     var nextFunction = send_next_led_strip_mode_color;
     var index = 0;
 
-    if (LED_MODE_COLORS.length == 0) {
+    if (LED_MODE_COLORS.length === 0) {
         onCompleteCallback();
     } else {
         send_next_led_strip_mode_color();
@@ -2273,7 +2275,7 @@ MspHelper.prototype.sendLedStripModeColors = function(onCompleteCallback) {
 
         // prepare for next iteration
         index++;
-        if (index == LED_MODE_COLORS.length) {
+        if (index === LED_MODE_COLORS.length) {
             nextFunction = onCompleteCallback;
         }
 
@@ -2316,7 +2318,7 @@ MspHelper.prototype.sendRxFailConfig = function(onCompleteCallback) {
 
     var rxFailIndex = 0;
 
-    if (RXFAIL_CONFIG.length == 0) {
+    if (RXFAIL_CONFIG.length === 0) {
         onCompleteCallback();
     } else {
         send_next_rxfail_config();
@@ -2332,7 +2334,7 @@ MspHelper.prototype.sendRxFailConfig = function(onCompleteCallback) {
               .push16(rxFail.value);
         // prepare for next iteration
         rxFailIndex++;
-        if (rxFailIndex == RXFAIL_CONFIG.length) {
+        if (rxFailIndex === RXFAIL_CONFIG.length) {
             nextFunction = onCompleteCallback;
 
         }
