@@ -36,7 +36,7 @@ function initializeSerialBackend() {
     });
 
     $('div.connect_controls a.connect').click(function () {
-        if (GUI.connect_lock != true) { // GUI control overrides the user control
+        if (GUI.connect_lock !== true) { // GUI control overrides the user control
 
             var thisElement = $(this);
             var clicks = thisElement.data('clicks');
@@ -54,7 +54,7 @@ function initializeSerialBackend() {
             if (selected_port === 'DFU') {
                 GUI.log(i18n.getMessage('dfu_connect_message'));
             }
-            else if (selected_port != '0') {
+            else if (selected_port !== '0') {
                 if (!clicks) {
                     console.log('Connecting to: ' + selected_port);
                     GUI.connecting_to = selected_port;
@@ -192,7 +192,7 @@ function onOpen(openInfo) {
         // save selected port with chrome.storage if the port differs
         ConfigStorage.get('last_used_port', function (result) {
             if (result.last_used_port) {
-                if (result.last_used_port != GUI.connected_to) {
+                if (result.last_used_port !== GUI.connected_to) {
                     // last used port doesn't match the one found in local db, we will store the new one
                     ConfigStorage.set({'last_used_port': GUI.connected_to});
                 }
@@ -369,7 +369,7 @@ function onConnect() {
             }
         });
 
-        if (CONFIG.boardType == 0) {
+        if (CONFIG.boardType === 0) {
             if (classes.indexOf("osd-required") >= 0) {
                 found = false;
             }
@@ -390,7 +390,7 @@ function onConnect() {
         MSP.send_message(MSPCodes.MSP_STATUS_EX, false, false);
         MSP.send_message(MSPCodes.MSP_DATAFLASH_SUMMARY, false, false);
 
-        if (CONFIG.boardType == 0 || CONFIG.boardType == 2) {
+        if (CONFIG.boardType === 0 || CONFIG.boardType === 2) {
             startLiveDataRefreshTimer();
         }
     }
@@ -472,7 +472,7 @@ function sensor_status(sensors_detected) {
     }
 
     // update UI (if necessary)
-    if (sensor_status.previous_sensors_detected == sensors_detected) {
+    if (sensor_status.previous_sensors_detected === sensors_detected) {
         return;
     }
 
@@ -490,7 +490,7 @@ function sensor_status(sensors_detected) {
         $('.accicon', e_sensor_status).removeClass('active');
     }
 
-    if ((CONFIG.boardType == 0 || CONFIG.boardType == 2) && have_sensor(sensors_detected, 'gyro')) {
+    if ((CONFIG.boardType === 0 || CONFIG.boardType === 2) && have_sensor(sensors_detected, 'gyro')) {
         $('.gyro', e_sensor_status).addClass('on');
         $('.gyroicon', e_sensor_status).addClass('active');
     } else {
@@ -562,7 +562,7 @@ function update_live_status() {
        display: 'inline-block'
     });
 
-    if (GUI.active_tab != 'cli') {
+    if (GUI.active_tab !== 'cli') {
         MSP.send_message(MSPCodes.MSP_BOXNAMES, false, false);
         MSP.send_message(MSPCodes.MSP_STATUS_EX, false, false);
         MSP.send_message(MSPCodes.MSP_ANALOG, false, false);
@@ -571,7 +571,7 @@ function update_live_status() {
     var active = ((Date.now() - ANALOG.last_received_timestamp) < 300);
 
     for (var i = 0; i < AUX_CONFIG.length; i++) {
-       if (AUX_CONFIG[i] == 'ARM') {
+       if (AUX_CONFIG[i] === 'ARM') {
                if (bit_check(CONFIG.mode, i)) {
                        $(".armedicon").css({
                                'background-image': 'url(images/icons/cf_icon_armed_active.svg)'
@@ -582,7 +582,7 @@ function update_live_status() {
                            });
                }
        }
-       if (AUX_CONFIG[i] == 'FAILSAFE') {
+       if (AUX_CONFIG[i] === 'FAILSAFE') {
                if (bit_check(CONFIG.mode, i)) {
                        $(".failsafeicon").css({
                                'background-image': 'url(images/icons/cf_icon_failsafe_active.svg)'
@@ -594,9 +594,9 @@ function update_live_status() {
                }
        }
     }
-    if (ANALOG != undefined) {
+    if (ANALOG != null) {
     var nbCells = Math.floor(ANALOG.voltage / BATTERY_CONFIG.vbatmaxcellvoltage) + 1;
-    if (ANALOG.voltage == 0) {
+    if (ANALOG.voltage === 0) {
            nbCells = 1;
     }
 
@@ -638,7 +638,7 @@ function specificByte(num, pos) {
 }
 
 function bit_check(num, bit) {
-    return ((num >> bit) % 2 != 0);
+    return ((num >> bit) % 2 !== 0);
 }
 
 function bit_set(num, bit) {
