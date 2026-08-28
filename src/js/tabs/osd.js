@@ -123,7 +123,7 @@ FONT.parseMCMFontFile = function (data) {
     // reset logo image info when font data is changed
     LogoManager.resetImageInfo();
     // make sure the font file is valid
-    if (data.shift().trim() != 'MAX7456') {
+    if (data.shift().trim() !== 'MAX7456') {
         var msg = 'that font file doesnt have the MAX7456 header, giving up';
         console.debug(msg);
         Promise.reject(msg);
@@ -134,7 +134,7 @@ FONT.parseMCMFontFile = function (data) {
     FONT.data.hexstring = [];
     var pushChar = function () {
         // Only push full characters onto the stack.
-        if (character_bytes.length != FONT.constants.SIZES.MAX_NVM_FONT_CHAR_FIELD_SIZE) {
+        if (character_bytes.length !== FONT.constants.SIZES.MAX_NVM_FONT_CHAR_FIELD_SIZE) {
             return;
         }
         FONT.data.characters_bytes.push(character_bytes);
@@ -148,7 +148,7 @@ FONT.parseMCMFontFile = function (data) {
         // hexstring is for debugging
         FONT.data.hexstring.push('0x' + parseInt(line, 2).toString(16));
         // every 64 bytes (line) is a char, we're counting chars though, which are 2 bits
-        if (character_bits.length == FONT.constants.SIZES.MAX_NVM_FONT_CHAR_FIELD_SIZE * (8 / 2)) {
+        if (character_bits.length === FONT.constants.SIZES.MAX_NVM_FONT_CHAR_FIELD_SIZE * (8 / 2)) {
             pushChar()
         }
         for (var y = 0; y < 8; y = y + 2) {
@@ -178,7 +178,7 @@ FONT.openFontFile = function (fontPreviewElement) {
             fileEntry.file(function (file) {
                 var reader = new FileReader();
                 reader.onloadend = function (e) {
-                    if (e.total != 0 && e.total == e.loaded) {
+                    if (e.total !== 0 && e.total === e.loaded) {
                         try {
                             FONT.parseMCMFontFile(e.target.result);
                         } catch (err) {
@@ -286,7 +286,7 @@ FONT.preview = function ($el) {
 };
 
 FONT.symbol = function (hexVal) {
-    return (hexVal == '' || hexVal == null)? '' : String.fromCharCode(hexVal);
+    return (hexVal === '' || hexVal == null)? '' : String.fromCharCode(hexVal);
 };
 
 var OSD = OSD || {};
@@ -365,7 +365,7 @@ OSD.generateTemperaturePreview = function (osd_data, temperature) {
 
 OSD.generateCraftName = function (osd_data) {
     var preview = 'CRAFT_NAME';
-    if (CONFIG.name != '') {
+    if (CONFIG.name !== '') {
         preview = CONFIG.name.toUpperCase();
     }
     return preview;
@@ -373,7 +373,7 @@ OSD.generateCraftName = function (osd_data) {
 
 OSD.generateDisplayName = function(osd_data) {
   var preview = 'DISPLAY_NAME';
-  if (CONFIG.displayName != '')
+  if (CONFIG.displayName !== '')
       { preview = CONFIG.displayName.toUpperCase(); }
   return preview;
 }
@@ -829,7 +829,7 @@ OSD.loadDisplayFields = function() {
                         var element;
 
                         // Blank char to mark the size of the element
-                        if (j != 4) {
+                        if (j !== 4) {
                             element = { x: i, y: j, sym: SYM.BLANK };
 
                             // Sample of horizon
@@ -1523,7 +1523,7 @@ OSD.loadDisplayFields = function() {
 OSD.searchLimitsElement = function (arrayElements) {
     // Search minimum and maximum
     var limits = { minX: 0, maxX: 0, minY: 0, maxY: 0 };
-    if (arrayElements.length == 0) {
+    if (arrayElements.length === 0) {
         return limits;
     }
 
@@ -1706,14 +1706,14 @@ OSD.chooseFields = function () {
 
 OSD.updateDisplaySize = function () {
     var video_type = OSD.constants.VIDEO_TYPES[OSD.data.video_system];
-    if (video_type == 'AUTO') {
+    if (video_type === 'AUTO') {
         video_type = 'PAL';
     }
 
-    $('.third_left').toggleClass('preview_hd_side', video_type == 'HD');
-    $('.third_center').toggleClass('preview_hd', video_type == 'HD');
-    $('.preview').toggleClass('preview_hd', video_type == 'HD');
-    $('.third_right').toggleClass('preview_hd_side', video_type == 'HD');
+    $('.third_left').toggleClass('preview_hd_side', video_type === 'HD');
+    $('.third_center').toggleClass('preview_hd', video_type === 'HD');
+    $('.preview').toggleClass('preview_hd', video_type === 'HD');
+    $('.third_right').toggleClass('preview_hd_side', video_type === 'HD');
 
     // compute the size
     OSD.data.display_size = {
@@ -1911,7 +1911,7 @@ OSD.msp = {
         }
 
         d.state = {};
-        d.state.haveSomeOsd = (d.flags != 0)
+        d.state.haveSomeOsd = (d.flags !== 0)
         d.state.haveMax7456Video = bit_check(d.flags, 4);
         d.state.haveOsdFeature = bit_check(d.flags, 0);
         d.state.isOsdSlave = bit_check(d.flags, 1);
@@ -1931,7 +1931,7 @@ OSD.msp = {
 
         // Parse statistics display enable
         var expectedStatsCount = view.readU8();
-        if (expectedStatsCount != OSD.constants.STATISTIC_FIELDS.length) {
+        if (expectedStatsCount !== OSD.constants.STATISTIC_FIELDS.length) {
             console.error("Firmware is transmitting a different number of statistics (" + expectedStatsCount + ") to what the configurator is expecting (" + OSD.constants.STATISTIC_FIELDS.length + ")");
         }
 
@@ -1978,7 +1978,7 @@ OSD.msp = {
         var warningCount = OSD.constants.WARNINGS.length;
         var warningFlags = view.readU16();
         for (var i = 0; i < warningCount; i++) {
-            d.warnings.push($.extend(OSD.constants.WARNINGS[i], { enabled: (warningFlags & (1 << i)) != 0 }));
+            d.warnings.push($.extend(OSD.constants.WARNINGS[i], { enabled: (warningFlags & (1 << i)) !== 0 }));
         }
 
         // OSD profiles
@@ -2153,7 +2153,7 @@ TABS.osd = {};
 TABS.osd.initialize = function (callback) {
     var self = this;
 
-    if (GUI.active_tab != 'osd') {
+    if (GUI.active_tab !== 'osd') {
         GUI.active_tab = 'osd';
     }
 
@@ -2237,7 +2237,7 @@ TABS.osd.initialize = function (callback) {
         }
 
         function insertOrdered(fieldList, field) {
-            if (field.name == 'UNKNOWN') {
+            if (field.name === 'UNKNOWN') {
                 fieldList.append(field);
             } else {
                 let added = false;
@@ -2265,7 +2265,7 @@ TABS.osd.initialize = function (callback) {
 
                     OSD.msp.decode(info);
 
-                    if (OSD.data.state.haveSomeOsd == 0) {
+                    if (OSD.data.state.haveSomeOsd === false) {
                         $('.unsupported').fadeIn();
                         return;
                     }
@@ -2497,7 +2497,7 @@ TABS.osd.initialize = function (callback) {
 
                     // Header for the switches
                     let headerSwitches_e = $('.elements').find('.osd-profiles-header');
-                    if (headerSwitches_e.children().length == 0) {
+                    if (headerSwitches_e.children().length === 0) {
                         for (let profileNumber = 0; profileNumber < numberOfProfiles; profileNumber++) {
                             headerSwitches_e.append('<span class="profileOsdHeader">' + (profileNumber + 1) + '</span>');
                         }
@@ -2506,7 +2506,7 @@ TABS.osd.initialize = function (callback) {
                     // Populate the profiles selector preview and current active
                     let osdProfileSelector_e = $('.osdprofile-selector');
                     let osdProfileActive_e = $('.osdprofile-active');
-                    if (osdProfileSelector_e.children().length == 0) {
+                    if (osdProfileSelector_e.children().length === 0) {
                         for (let profileNumber = 0; profileNumber < numberOfProfiles; profileNumber++) {
                             let optionText = i18n.getMessage('osdSetupPreviewSelectProfileElement', {profileNumber : (profileNumber + 1)});
                             osdProfileSelector_e.append(new Option(optionText, profileNumber));
@@ -2528,7 +2528,7 @@ TABS.osd.initialize = function (callback) {
                     // Populate the fonts selector preview
                     let osdFontSelector_e = $('.osdfont-selector');
                     let osdFontPresetsSelector_e = $('.fontpresets');
-                    if (osdFontSelector_e.children().length == 0) {
+                    if (osdFontSelector_e.children().length === 0) {
 
                         // Custom font selected by the user
                         var option = $('<option>', {
@@ -2557,7 +2557,7 @@ TABS.osd.initialize = function (callback) {
                     // Select the same element than the Font Manager window
                     osdFontSelector_e.val(osdFontPresetsSelector_e.val() != null ? osdFontPresetsSelector_e.val() : -1);
                     // Hide custom if not used
-                    $('.osdfont-selector option[value=-1]').toggle(osdFontSelector_e.val() == -1);
+                    $('.osdfont-selector option[value=-1]').toggle(parseInt(osdFontSelector_e.val(), 10) === -1);
 
                     // display fields on/off and position
                     var $displayFields = $('#element-fields').empty();
@@ -2772,7 +2772,7 @@ TABS.osd.initialize = function (callback) {
                         else {
                         }
                         $row.append($img);
-                        if (++i % OSD.data.display_size.x == 0) {
+                        if (++i % OSD.data.display_size.x === 0) {
                             $preview.append($row);
                             $row = $('<div class="row"/>');
                         }
@@ -2952,7 +2952,7 @@ TABS.osd.initialize = function (callback) {
         });
 
         $(document).keypress(function (e) {
-            if (e.which == 13) { // enter
+            if (e.which === 13) { // enter
                 // Trigger regular Flashing sequence
                 $('a.flash_font').click();
             }
