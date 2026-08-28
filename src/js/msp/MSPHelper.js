@@ -2004,7 +2004,9 @@ MspHelper.prototype.dataflashRead = function(address, blockSize, onDataCallback)
             var dataSize = response.data.readU16();
             var dataCompressionType = response.data.readU8();
             // Verify that the address of the memory returned matches what the caller asked for and there was not a CRC error
-            if (chunkAddress === address) {
+            if (chunkAddress === address &&
+                dataSize !== null &&
+                (dataCompressionType === 0 || dataCompressionType === 1)) {
                 /* Strip that address off the front of the reply and deliver it separately so the caller doesn't have to
                  * figure out the reply format:
                  */
@@ -2021,8 +2023,8 @@ MspHelper.prototype.dataflashRead = function(address, blockSize, onDataCallback)
                     onDataCallback(address, new DataView(decompressedArray.buffer), dataSize);
                 }
             } else {
-                // Report address error
-                console.log('Expected address ' + address + ' but received ' + chunkAddress + ' - retrying');
+                // Report malformed response
+                console.log('Invalid dataflash response for address ' + address + ' - retrying');
                 onDataCallback(address, null);  // returning null to the callback forces a retry
             }
         } else {
