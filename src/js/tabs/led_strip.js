@@ -618,7 +618,7 @@ TABS.led_strip.initialize = function (callback, scrollPosition) {
 
                 var match = $(this).attr("class").match(/(^|\s)color-([0-9]+)(\s|$)/);
                 if (match) {
-                    colorIndex = match[2];
+                    colorIndex = Number(match[2]);
                 }
 
                 TABS.led_strip.baseFuncs.forEach(function(letter){
