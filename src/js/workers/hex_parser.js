@@ -7,7 +7,7 @@ function read_hex_file(data) {
     data = data.split("\n");
 
     // check if there is an empty line in the end of hex file, if there is, remove it
-    if (data[data.length - 1] == "") {
+    if (data[data.length - 1] === "") {
         data.pop();
     }
 
@@ -33,7 +33,7 @@ function read_hex_file(data) {
 
         switch (record_type) {
             case 0x00: // data record
-                if (address != next_address || next_address == 0) {
+                if (address !== next_address || next_address === 0) {
                     result.data.push({'address': extended_linear_address + address, 'bytes': 0, 'data': []});
                 }
 
@@ -57,7 +57,7 @@ function read_hex_file(data) {
                 crc = (~crc + 1) & 0xFF;
 
                 // verify
-                if (crc != checksum) {
+                if (crc !== checksum) {
                     hexfile_valid = false;
                 }
                 break;
@@ -66,13 +66,13 @@ function read_hex_file(data) {
                 break;
             case 0x02: // extended segment address record
                 // not implemented
-                if (parseInt(content, 16) != 0) { // ignore if segment is 0
+                if (parseInt(content, 16) !== 0) { // ignore if segment is 0
                     console.log('extended segment address record found - NOT IMPLEMENTED !!!');
                 }
                 break;
             case 0x03: // start segment address record
                 // not implemented
-                if (parseInt(content, 16) != 0) { // ignore if segment is 0
+                if (parseInt(content, 16) !== 0) { // ignore if segment is 0
                     console.log('start segment address record found - NOT IMPLEMENTED !!!');
                 }
                 break;

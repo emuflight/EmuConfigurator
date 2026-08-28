@@ -54,11 +54,11 @@ var GUI_control = function () {
     this.allowedTabs = this.defaultAllowedTabsWhenDisconnected;
 
     // check which operating system is user running
-    if (navigator.appVersion.indexOf("Win") != -1)          { this.operating_system = "Windows"; }
-    else if (navigator.appVersion.indexOf("Mac") != -1)     { this.operating_system = "MacOS"; }
-    else if (navigator.appVersion.indexOf("CrOS") != -1)    { this.operating_system = "ChromeOS"; }
-    else if (navigator.appVersion.indexOf("Linux") != -1)   { this.operating_system = "Linux"; }
-    else if (navigator.appVersion.indexOf("X11") != -1)     { this.operating_system = "UNIX"; }
+    if (navigator.appVersion.indexOf("Win") !== -1)          { this.operating_system = "Windows"; }
+    else if (navigator.appVersion.indexOf("Mac") !== -1)     { this.operating_system = "MacOS"; }
+    else if (navigator.appVersion.indexOf("CrOS") !== -1)    { this.operating_system = "ChromeOS"; }
+    else if (navigator.appVersion.indexOf("Linux") !== -1)   { this.operating_system = "Linux"; }
+    else if (navigator.appVersion.indexOf("X11") !== -1)     { this.operating_system = "UNIX"; }
     else { this.operating_system = "Unknown"; }
 
     // Check the method of execution
@@ -95,7 +95,7 @@ const GUI_Modes = {
 GUI_control.prototype.interval_add = function (name, code, interval, first) {
     var data = {'name': name, 'timer': null, 'code': code, 'interval': interval, 'fired': 0, 'paused': false};
 
-    if (first == true) {
+    if (first === true) {
         code(); // execute code
 
         data.fired++; // increment counter
@@ -115,7 +115,7 @@ GUI_control.prototype.interval_add = function (name, code, interval, first) {
 // name = string
 GUI_control.prototype.interval_remove = function (name) {
     for (var i = 0; i < this.interval_array.length; i++) {
-        if (this.interval_array[i].name == name) {
+        if (this.interval_array[i].name === name) {
             clearInterval(this.interval_array[i].timer); // stop timer
 
             this.interval_array.splice(i, 1); // remove element/object from array
@@ -130,7 +130,7 @@ GUI_control.prototype.interval_remove = function (name) {
 // name = string
 GUI_control.prototype.interval_pause = function (name) {
     for (var i = 0; i < this.interval_array.length; i++) {
-        if (this.interval_array[i].name == name) {
+        if (this.interval_array[i].name === name) {
             clearInterval(this.interval_array[i].timer);
             this.interval_array[i].paused = true;
 
@@ -144,7 +144,7 @@ GUI_control.prototype.interval_pause = function (name) {
 // name = string
 GUI_control.prototype.interval_resume = function (name) {
     for (var i = 0; i < this.interval_array.length; i++) {
-        if (this.interval_array[i].name == name && this.interval_array[i].paused) {
+        if (this.interval_array[i].name === name && this.interval_array[i].paused) {
             var obj = this.interval_array[i];
 
             obj.timer = setInterval(function() {
@@ -172,7 +172,7 @@ GUI_control.prototype.interval_kill_all = function (keep_array) {
         var keep = false;
         if (keep_array) { // only run through the array if it exists
             keep_array.forEach(function (name) {
-                if (self.interval_array[i].name == name) {
+                if (self.interval_array[i].name === name) {
                     keep = true;
                 }
             });
@@ -214,7 +214,7 @@ GUI_control.prototype.timeout_add = function (name, code, timeout) {
 // name = string
 GUI_control.prototype.timeout_remove = function (name) {
     for (var i = 0; i < this.timeout_array.length; i++) {
-        if (this.timeout_array[i].name == name) {
+        if (this.timeout_array[i].name === name) {
             clearTimeout(this.timeout_array[i].timer); // stop timer
 
             this.timeout_array.splice(i, 1); // remove element/object from array
@@ -379,7 +379,7 @@ GUI_control.prototype.selectDefaultTabWhenConnected = function() {
     ConfigStorage.get(['rememberLastTab', 'lastTab'], function (result) {
         if (!(result.rememberLastTab
                 && !!result.lastTab
-                && result.lastTab.substring(4) != "cli")) {
+                && result.lastTab.substring(4) !== "cli")) {
             $('#tabs ul.mode-connected .tab_setup a').click();
             return;
         }
@@ -388,16 +388,16 @@ GUI_control.prototype.selectDefaultTabWhenConnected = function() {
 };
 
 GUI_control.prototype.isChromeApp = function () {
-  return this.Mode == GUI_Modes.ChromeApp;
+  return this.Mode === GUI_Modes.ChromeApp;
 }
 GUI_control.prototype.isNWJS = function () {
-  return this.Mode == GUI_Modes.NWJS;
+  return this.Mode === GUI_Modes.NWJS;
 }
 GUI_control.prototype.isElectron = function () {
-  return this.Mode == GUI_Modes.Electron;
+  return this.Mode === GUI_Modes.Electron;
 }
 GUI_control.prototype.isOther = function () {
-  return this.Mode == GUI_Modes.Other;
+  return this.Mode === GUI_Modes.Other;
 }
 
 

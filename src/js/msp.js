@@ -242,7 +242,7 @@ var MSP = {
         });
     },
     listen: function(listener) {
-        if (this.listeners.indexOf(listener) == -1) {
+        if (this.listeners.indexOf(listener) === -1) {
             this.listeners.push(listener);
         }
     },
@@ -340,7 +340,7 @@ var MSP = {
 
         var requestExists = false;
         for (var i = 0; i < MSP.callbacks.length; i++) {
-            if (MSP.callbacks[i].code == code) {
+            if (MSP.callbacks[i].code === code) {
                 // request already exist, we will just attach
                 requestExists = true;
                 break;
@@ -360,7 +360,7 @@ var MSP = {
         // always send messages with data payload (even when there is a message already in the queue)
         if (data || !requestExists) {
             serial.send(bufferOut, function (sendInfo) {
-                if (sendInfo.bytesSent == bufferOut.byteLength) {
+                if (sendInfo.bytesSent === bufferOut.byteLength) {
                     if (callback_sent) {
                         callback_sent();
                     }

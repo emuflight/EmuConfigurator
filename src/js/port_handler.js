@@ -40,7 +40,7 @@ PortHandler.check = function () {
         if (self.array_difference(self.initial_ports, current_ports).length > 0 || !self.initial_ports) {
             var removed_ports = self.array_difference(self.initial_ports, current_ports);
 
-            if (self.initial_ports != false) {
+            if (self.initial_ports !== false) {
                 if (removed_ports.length > 1) {
                     console.log('PortHandler - Removed: ' + removed_ports);
                 } else {
@@ -52,7 +52,7 @@ PortHandler.check = function () {
             // Keep in mind that this routine can not fire during atmega32u4 reboot procedure !!!
             if (GUI.connected_to) {
                 for (var i = 0; i < removed_ports.length; i++) {
-                    if (removed_ports[i] == GUI.connected_to) {
+                    if (removed_ports[i] === GUI.connected_to) {
                         $('div#port-picker a.connect').click();
                     }
                 }
@@ -87,7 +87,7 @@ PortHandler.check = function () {
                         // if last_used_port was set, we try to select it
                         if (result.last_used_port) {
                             current_ports.forEach(function(port) {
-                                if (port == result.last_used_port) {
+                                if (port === result.last_used_port) {
                                     console.log('Selecting last used port: ' + result.last_used_port);
 
                                     $('div#port-picker #port').val(result.last_used_port);
@@ -154,7 +154,7 @@ PortHandler.check = function () {
             // start connect procedure (if statement is valid)
             if (unambiguous_candidate && GUI.auto_connect && !GUI.connecting_to && !GUI.connected_to) {
                 // we need firmware flasher protection over here
-                if (GUI.active_tab != 'firmware_flasher') {
+                if (GUI.active_tab !== 'firmware_flasher') {
                     var detected_candidate = fc_candidates[0];
                     GUI.timeout_add('auto-connect_timeout', function () {
                         // Re-validate state: 1s may have passed and conditions can change.
@@ -167,7 +167,7 @@ PortHandler.check = function () {
                         var stateValid = GUI.auto_connect
                             && !GUI.connected_to
                             && !GUI.connecting_to
-                            && GUI.active_tab != 'firmware_flasher'
+                            && GUI.active_tab !== 'firmware_flasher'
                             && connectBtn.length > 0
                             && selectedPort === detected_candidate;
                         if (stateValid) {
@@ -367,7 +367,7 @@ PortHandler.array_difference = function (firstArray, secondArray) {
     }
 
     for (var i = 0; i < secondArray.length; i++) {
-        if (cloneArray.indexOf(secondArray[i]) != -1) {
+        if (cloneArray.indexOf(secondArray[i]) !== -1) {
             cloneArray.splice(cloneArray.indexOf(secondArray[i]), 1);
         }
     }

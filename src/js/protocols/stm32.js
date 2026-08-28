@@ -201,7 +201,7 @@ STM32_protocol.prototype.read = function (readInfo) {
     }
 
     // routine that fetches data from buffer if statement is true
-    if (this.receive_buffer.length >= this.bytes_to_read && this.bytes_to_read != 0) {
+    if (this.receive_buffer.length >= this.bytes_to_read && this.bytes_to_read !== 0) {
         var data = this.receive_buffer.slice(0, this.bytes_to_read); // bytes requested
         this.receive_buffer.splice(0, this.bytes_to_read); // remove read bytes
 
@@ -256,7 +256,7 @@ STM32_protocol.prototype.send = function (Array, bytes_to_read, callback) {
 STM32_protocol.prototype.verify_response = function (val, data) {
     var self = this;
     
-    if (val != data[0]) {
+    if (val !== data[0]) {
         var message = 'STM32 Communication failed, wrong response, expected: ' + val + ' (0x' + val.toString(16) + ') received: ' + data[0] + ' (0x' + data[0].toString(16) + ')';
         console.error(message);
         TABS.firmware_flasher.flashingMessage(i18n.getMessage('stm32WrongResponse',[val, val.toString(16), data[0], data[0].toString(16)]), TABS.firmware_flasher.FLASH_MESSAGE_TYPES.INVALID);
@@ -353,7 +353,7 @@ STM32_protocol.prototype.verify_chip_signature = function (signature) {
 // result = true/false
 STM32_protocol.prototype.verify_flash = function (first_array, second_array) {
     for (var i = 0; i < first_array.length; i++) {
-        if (first_array[i] != second_array[i]) {
+        if (first_array[i] !== second_array[i]) {
             console.log('Verification failed on byte: ' + i + ' expected: 0x' + first_array[i].toString(16) + ' received: 0x' + second_array[i].toString(16));
             return false;
         }
@@ -376,7 +376,7 @@ STM32_protocol.prototype.upload_procedure = function (step) {
             var send_counter = 0;
             GUI.interval_add('stm32_initialize_mcu', function () { // 200 ms interval (just in case mcu was already initialized), we need to break the 2 bytes command requirement
                 self.send([0x7F], 1, function (reply) {
-                    if (reply[0] == 0x7F || reply[0] == self.status.ACK || reply[0] == self.status.NACK) {
+                    if (reply[0] === 0x7F || reply[0] === self.status.ACK || reply[0] === self.status.NACK) {
                         GUI.interval_remove('stm32_initialize_mcu');
                         console.log('STM32 - Serial interface initialized on the MCU side');
 
@@ -413,7 +413,7 @@ STM32_protocol.prototype.upload_procedure = function (step) {
                     self.retrieve(data[1] + 1 + 1, function (data) { // data[1] = number of bytes that will follow [– 1 except current and ACKs]
                         console.log('STM32 - Bootloader version: ' + (parseInt(data[0].toString(16)) / 10).toFixed(1)); // convert dec to hex, hex to dec and add floating point
 
-                        self.useExtendedErase = (data[7] == self.command.extended_erase);
+                        self.useExtendedErase = (data[7] === self.command.extended_erase);
 
                         // proceed to next step
                         self.upload_procedure(3);
