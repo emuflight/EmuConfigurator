@@ -17,7 +17,7 @@ TABS.led_strip.initialize = function (callback, scrollPosition) {
 
     TABS.led_strip.wireMode = false;
 
-    if (GUI.active_tab != 'led_strip') {
+    if (GUI.active_tab !== 'led_strip') {
         GUI.active_tab = 'led_strip';
     }
 
@@ -161,7 +161,7 @@ TABS.led_strip.initialize = function (callback, scrollPosition) {
                         // select the color button
                         for (var colorIndex = 0; colorIndex < 16; colorIndex++) {
                             var className = '.color-' + colorIndex;
-                            if (colorIndex == getModeColor(mc.mode, mc.direction)) {
+                            if (colorIndex === Number(getModeColor(mc.mode, mc.direction))) {
                                 $(className).addClass('btnOn');
                                 selectedColorIndex = colorIndex;
                                 setColorSliders(colorIndex);
@@ -204,12 +204,12 @@ TABS.led_strip.initialize = function (callback, scrollPosition) {
 
             for (var colorIndex = 0; colorIndex < 16; colorIndex++) {
                 colorButtons.removeClass('btnOn');
-                if (selectedModeColor == undefined)
+                if (selectedModeColor == null)
                     { $('.ui-selected').removeClass('color-' + colorIndex); }
 
                 if ($(that).is('.color-' + colorIndex)) {
                     selectedColorIndex = colorIndex;
-                    if (selectedModeColor == undefined)
+                    if (selectedModeColor == null)
                         { $('.ui-selected').addClass('color-' + colorIndex); }
                 }
             }
@@ -262,7 +262,7 @@ TABS.led_strip.initialize = function (callback, scrollPosition) {
         $('.funcWireClearSelect').click(function() {
             $('.ui-selected').each(function() {
                 var thisWire = $(this).find('.wire');
-                if (thisWire.html() != '') {
+                if (thisWire.html() !== '') {
                     thisWire.html('');
                 }
                 updateBulkCmd();
@@ -289,18 +289,18 @@ TABS.led_strip.initialize = function (callback, scrollPosition) {
 
                     var nextWireNumber = 0;
                     for (var nextWireNumber = 0; nextWireNumber < usedWireNumbers.length; nextWireNumber++) {
-                        if (usedWireNumbers[nextWireNumber] != nextWireNumber) {
+                        if (usedWireNumbers[nextWireNumber] !== nextWireNumber) {
                             break;
                         }
                     }
 
                     if (TABS.led_strip.wireMode) {
-                        if ($(this).find('.wire').html() == '' && nextWireNumber < LED_STRIP.length) {
+                        if ($(this).find('.wire').html() === '' && nextWireNumber < LED_STRIP.length) {
                             $(this).find('.wire').html(nextWireNumber);
                         }
                     }
 
-                    if ($(this).find('.wire').text() != '') {
+                    if ($(this).find('.wire').text() !== '') {
 
                         that = this;
 
@@ -360,7 +360,7 @@ TABS.led_strip.initialize = function (callback, scrollPosition) {
 
                         var newVal = ($(uiSelectedLast).is('.function-' + letter));
 
-                        if (feature_o.is(':checked') != newVal) {
+                        if (feature_o.is(':checked') !== newVal) {
                             feature_o.prop('checked', newVal);
                             feature_o.change();
                         }
@@ -420,7 +420,7 @@ TABS.led_strip.initialize = function (callback, scrollPosition) {
         {
             if ($(that).is(':checked')) {
                 $('.ui-selected').find('.wire').each(function() {
-                    if ($(this).text() != "") {
+                    if ($(this).text() !== "") {
 
                         var p = $(this).parent();
 
@@ -486,11 +486,11 @@ TABS.led_strip.initialize = function (callback, scrollPosition) {
                             var cbb = $('.checkbox .function-b'); // blink
 
                             if (ret) {
-                                if (letter == 'b' && cbn.is(':checked')) {
+                                if (letter === 'b' && cbn.is(':checked')) {
                                     cbn.prop('checked', false);
                                     cbn.change();
                                     toggleSwitch(cbn, 'n');
-                                } else if (letter == 'n' && cbb.is(':checked')) {
+                                } else if (letter === 'n' && cbb.is(':checked')) {
                                     cbb.prop('checked', false);
                                     cbb.change();
                                     toggleSwitch(cbb, 'b');
@@ -528,7 +528,7 @@ TABS.led_strip.initialize = function (callback, scrollPosition) {
             var ledIndex = ledResult.index;
             var led = ledResult.led;
 
-            if (led.functions[0] == 'c' && led.functions.length == 1 && led.directions.length == 0 && led.color == 0 && led.x == 0 && led.y == 0) {
+            if (led.functions[0] === 'c' && led.functions.length === 1 && led.directions.length === 0 && led.color === 0 && led.x === 0 && led.y === 0) {
                 return;
             }
 
@@ -590,7 +590,7 @@ TABS.led_strip.initialize = function (callback, scrollPosition) {
     function findLed(x, y) {
         for (var ledIndex = 0; ledIndex < LED_STRIP.length; ledIndex++) {
             var led = LED_STRIP[ledIndex];
-            if (led.x == x && led.y == y) {
+            if (led.x === x && led.y === y) {
                 return { index: ledIndex, led: led };
             }
         }
@@ -638,7 +638,7 @@ TABS.led_strip.initialize = function (callback, scrollPosition) {
                     }
                 });
 
-                if (wireNumber != '') {
+                if (wireNumber !== '') {
                     var led = {
                         x: col,
                         y: row,
@@ -803,7 +803,7 @@ TABS.led_strip.initialize = function (callback, scrollPosition) {
         $('.mode_colors').hide();
         // set mode colors visibility
 
-        if (activeFunction == "function-f")
+        if (activeFunction === "function-f")
             { $('.mode_colors').show(); }
 
         // set special colors visibility
@@ -849,11 +849,11 @@ TABS.led_strip.initialize = function (callback, scrollPosition) {
         var activeFunction = $('select.functionSelect').val();
         TABS.led_strip.baseFuncs.forEach(function(letter) {
 
-            if (activeFunction == 'function-' + letter) {
+            if (activeFunction === 'function-' + letter) {
                 $('select.functionSelect').addClass('function-' + letter);
 
                 $('.ui-selected').find('.wire').each(function() {
-                    if ($(this).text() != "")
+                    if ($(this).text() !== "")
                         { $(this).parent().addClass('function-' + letter); }
                 });
 
@@ -864,7 +864,7 @@ TABS.led_strip.initialize = function (callback, scrollPosition) {
                 $('.ui-selected').removeClass('function-' + letter);
             }
 
-            if (activeFunction == '') {
+            if (activeFunction === '') {
                 unselectOverlays(activeFunction);
             }
 
@@ -873,13 +873,13 @@ TABS.led_strip.initialize = function (callback, scrollPosition) {
 
     function unselectOverlays(letter) {
         // MSP 1.20
-        if (letter == 'r' || letter == '') {
+        if (letter === 'r' || letter === '') {
             unselectOverlay(letter, 'o');
             unselectOverlay(letter, 'b');
             unselectOverlay(letter, 'n');
             unselectOverlay(letter, 't');
         }
-        if (letter == 'l' || letter == 'g' || letter == 's') {
+        if (letter === 'l' || letter === 'g' || letter === 's') {
             unselectOverlay(letter, 'w');
             unselectOverlay(letter, 'v');
             unselectOverlay(letter, 't');
@@ -893,7 +893,7 @@ TABS.led_strip.initialize = function (callback, scrollPosition) {
         $('input.function-' + overlay).prop('checked', false);
         $('input.function-' + overlay).change();
         $('.ui-selected').each(function() {
-            if (func == '' || $(this).is('.function-' + func)) {
+            if (func === '' || $(this).is('.function-' + func)) {
                 $(this).removeClass('function-' + overlay);
             }
         });
@@ -908,21 +908,21 @@ TABS.led_strip.initialize = function (callback, scrollPosition) {
         if ($(className).hasClass('btnOn')) {
             switch (hsvIndex) {
                 case 0:
-                    if (LED_COLORS[selectedColorIndex].h != value) {
+                    if (LED_COLORS[selectedColorIndex].h !== value) {
                         LED_COLORS[selectedColorIndex].h = value;
                         $('.colorDefineSliderValue.Hvalue').text(LED_COLORS[selectedColorIndex].h);
                         change = true
                     }
                     break;
                 case 1:
-                    if (LED_COLORS[selectedColorIndex].s != value) {
+                    if (LED_COLORS[selectedColorIndex].s !== value) {
                         LED_COLORS[selectedColorIndex].s = value;
                         $('.colorDefineSliderValue.Svalue').text(LED_COLORS[selectedColorIndex].s);
                         change = true
                     }
                     break;
                 case 2:
-                    if (LED_COLORS[selectedColorIndex].v != value) {
+                    if (LED_COLORS[selectedColorIndex].v !== value) {
                         LED_COLORS[selectedColorIndex].v = value;
                         $('.colorDefineSliderValue.Vvalue').text(LED_COLORS[selectedColorIndex].v);
                         change = true
@@ -972,19 +972,19 @@ TABS.led_strip.initialize = function (callback, scrollPosition) {
         if (!LED_COLORS[colorIndex])
             { return; }
 
-        if (LED_COLORS[colorIndex].h != Number(sliders.eq(0).val())) {
+        if (LED_COLORS[colorIndex].h !== Number(sliders.eq(0).val())) {
             sliders.eq(0).val(LED_COLORS[colorIndex].h);
             $('.colorDefineSliderValue.Hvalue').text(LED_COLORS[colorIndex].h);
             change = true;
         }
 
-        if (LED_COLORS[colorIndex].s != Number(sliders.eq(1).val())) {
+        if (LED_COLORS[colorIndex].s !== Number(sliders.eq(1).val())) {
             sliders.eq(1).val(LED_COLORS[colorIndex].s);
             $('.colorDefineSliderValue.Svalue').text(LED_COLORS[colorIndex].s);
             change = true;
         }
 
-        if (LED_COLORS[colorIndex].v != Number(sliders.eq(2).val())) {
+        if (LED_COLORS[colorIndex].v !== Number(sliders.eq(2).val())) {
             sliders.eq(2).val(LED_COLORS[colorIndex].v);
             $('.colorDefineSliderValue.Vvalue').text(LED_COLORS[colorIndex].v);
             change = true;
@@ -997,12 +997,12 @@ TABS.led_strip.initialize = function (callback, scrollPosition) {
     }
 
     function HsvToColor(input) {
-        if (input == undefined)
+        if (input === undefined)
             { return ""; }
 
         var HSV = { h:Number(input.h), s:Number(input.s), v:Number(input.v) };
 
-        if (HSV.s == 0 && HSV.v == 0)
+        if (HSV.s === 0 && HSV.v === 0)
             { return ""; }
 
         HSV = { h:HSV.h, s:1 - HSV.s / 255, v:HSV.v / 255 };
@@ -1019,7 +1019,7 @@ TABS.led_strip.initialize = function (callback, scrollPosition) {
     function getModeColor(mode, dir) {
         for (var i = 0; i < LED_MODE_COLORS.length; i++) {
             var mc = LED_MODE_COLORS[i];
-            if (mc.mode == mode && mc.direction == dir)
+            if (mc.mode === mode && mc.direction === dir)
                 { return mc.color; }
         }
         return "";
@@ -1028,7 +1028,7 @@ TABS.led_strip.initialize = function (callback, scrollPosition) {
     function setModeColor(mode, dir, color) {
         for (var i = 0; i < LED_MODE_COLORS.length; i++) {
             var mc = LED_MODE_COLORS[i];
-            if (mc.mode == mode && mc.direction == dir) {
+            if (mc.mode === mode && mc.direction === dir) {
                 mc.color = color;
                 return 1;
             }
