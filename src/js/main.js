@@ -30,7 +30,7 @@ var HttpClient = function() {
     this.get = function(aUrl, aCallback) {
         var anHttpRequest = new XMLHttpRequest();
         anHttpRequest.onreadystatechange = function() {
-            if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+            if (anHttpRequest.readyState === 4 && anHttpRequest.status === 200)
                 { aCallback(anHttpRequest.responseText); }
         }
 
@@ -164,7 +164,7 @@ function startProcess() {
 
     var ui_tabs = $('#tabs > ul');
     $('a', ui_tabs).click(function () {
-        if ($(this).parent().hasClass('active') == false && !GUI.tab_switch_in_progress) { // only initialize when the tab isn't already active
+        if ($(this).parent().hasClass('active') === false && !GUI.tab_switch_in_progress) { // only initialize when the tab isn't already active
             var self = this,
                 tabClass = $(self).parent().prop('class');
 
@@ -183,7 +183,7 @@ function startProcess() {
                 return;
             }
 
-            if (GUI.allowedTabs.indexOf(tab) < 0 && tabName == "Firmware Flasher") {
+            if (GUI.allowedTabs.indexOf(tab) < 0 && tabName === "Firmware Flasher") {
                 if (GUI.connected_to || GUI.connecting_to) {
                     $('a.connect').click();
                 } else {
@@ -331,7 +331,7 @@ function startProcess() {
                     }).change();
 
                 function close_and_cleanup(e) {
-                    if (e.type == 'click' && !$.contains($('div#options-window')[0], e.target) || e.type == 'keyup' && e.keyCode == 27) {
+                    if (e.type === 'click' && !$.contains($('div#options-window')[0], e.target) || e.type === 'keyup' && e.keyCode === 27) {
                         $(document).unbind('click keyup', close_and_cleanup);
 
                         $('div#options-window').slideUp(250, function () {
@@ -368,7 +368,7 @@ function startProcess() {
             37, 38, 39, 40, 13 // arrows and enter
         ];
 
-        if (whitelist.indexOf(e.keyCode) == -1) {
+        if (whitelist.indexOf(e.keyCode) === -1) {
             e.preventDefault();
         }
     });
@@ -417,7 +417,7 @@ function startProcess() {
 
             if (val % 1 === 0) {
                 element.val(val.toFixed(decimal_places));
-            } else if (String(val).split('.')[1].length != decimal_places) {
+            } else if (String(val).split('.')[1].length !== decimal_places) {
                 element.val(val.toFixed(decimal_places));
             }
         }
@@ -658,7 +658,7 @@ function updateImufQVisibility() {
 
 //experimental: show/hide with expert-mode
 function updateImufLpfVisibility() {
-    if (CONFIG.boardIdentifier == "HESP" || CONFIG.boardIdentifier == "SX10" || CONFIG.boardIdentifier == "FLUX") {
+    if (CONFIG.boardIdentifier === "HESP" || CONFIG.boardIdentifier === "SX10" || CONFIG.boardIdentifier === "FLUX") {
         if (!isExpertModeEnabled()) {
         $('.IMUFLPFroll').show();
         $('.IMUFLPFpitch').hide();

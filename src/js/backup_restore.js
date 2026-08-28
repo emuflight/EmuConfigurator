@@ -286,7 +286,7 @@ function configuration_restore(callback) {
             };
 
             reader.onloadend = function (e) {
-                if (e.total != 0 && e.total == e.loaded) {
+                if (e.total !== 0 && e.total === e.loaded) {
                     console.log('Read SUCCESSFUL');
 
                     try { // check if string provided is a valid JSON
@@ -323,7 +323,7 @@ function configuration_restore(callback) {
     });
 
     function compareVersions(generated, required) {
-        if (generated == undefined) {
+        if (generated == null) {
             return false;
         }
         return semver.gte(generated, required);
@@ -404,7 +404,7 @@ function configuration_restore(callback) {
             appliedMigrationsCount++;
         }
 
-        if (configuration.apiVersion == undefined) {
+        if (configuration.apiVersion == null) {
             configuration.apiVersion = "1.0.0" // a guess that will satisfy the rest of the code
         }
         // apiVersion previously stored without patchlevel
@@ -463,13 +463,13 @@ function configuration_restore(callback) {
         if (compareVersions(migratedVersion, '0.63.0') && !compareVersions(configuration.apiVersion, '1.8.0')) {
             // api 1.8 exposes looptime and arming config
 
-            if (configuration.FC_CONFIG == undefined) {
+            if (configuration.FC_CONFIG == null) {
                 configuration.FC_CONFIG = {
                     loopTime: 3500
                 };
             }
 
-            if (configuration.ARMING_CONFIG == undefined) {
+            if (configuration.ARMING_CONFIG == null) {
                 configuration.ARMING_CONFIG = {
                     auto_disarm_delay:      5,
                     disarm_kill_switch:     1
@@ -482,7 +482,7 @@ function configuration_restore(callback) {
 
         if (compareVersions(migratedVersion, '0.63.0')) {
             // backups created with 0.63.0 for firmwares with api < 1.8 were saved with incorrect looptime
-            if (configuration.FC_CONFIG.loopTime == 0) {
+            if (Number(configuration.FC_CONFIG.loopTime) === 0) {
                 //reset it to the default
                 configuration.FC_CONFIG.loopTime = 3500;
             }
@@ -543,7 +543,7 @@ function configuration_restore(callback) {
         if (compareVersions(migratedVersion, '0.66.0') && !compareVersions(configuration.apiVersion, '1.14.0')) {
             // api 1.14 exposes 3D configuration
 
-            if (configuration.MOTOR_3D_CONFIG == undefined) {
+            if (configuration.MOTOR_3D_CONFIG == null) {
                 configuration.MOTOR_3D_CONFIG = {
                     deadband3d_low:         1406,
                     deadband3d_high:        1514,
@@ -562,7 +562,7 @@ function configuration_restore(callback) {
 
 
             for (var profileIndex = 0; profileIndex < configuration.profiles.length; profileIndex++) {
-                 if (configuration.profiles[profileIndex].RCdeadband == undefined) {
+                 if (configuration.profiles[profileIndex].RCdeadband == null) {
                     configuration.profiles[profileIndex].RCdeadband = {
                     deadband:                0,
                     yaw_deadband:            0,
@@ -570,7 +570,7 @@ function configuration_restore(callback) {
                     };
                 }
             }
-            if (configuration.SENSOR_ALIGNMENT == undefined) {
+            if (configuration.SENSOR_ALIGNMENT == null) {
                     configuration.SENSOR_ALIGNMENT = {
                     align_gyro:              0,
                     align_acc:               0,
@@ -580,7 +580,7 @@ function configuration_restore(callback) {
 
             // api 1.15 exposes RX_CONFIG, FAILSAFE_CONFIG and RXFAIL_CONFIG configuration
 
-            if (configuration.RX_CONFIG == undefined) {
+            if (configuration.RX_CONFIG == null) {
                 configuration.RX_CONFIG = {
                     serialrx_provider:      0,
                     spektrum_sat_bind:      0,
@@ -592,7 +592,7 @@ function configuration_restore(callback) {
                 };
             }
 
-            if (configuration.FAILSAFE_CONFIG == undefined) {
+            if (configuration.FAILSAFE_CONFIG == null) {
                 configuration.FAILSAFE_CONFIG = {
                     failsafe_delay:                 10,
                     failsafe_off_delay:             200,
@@ -603,7 +603,7 @@ function configuration_restore(callback) {
                 };
             }
 
-            if (configuration.RXFAIL_CONFIG == undefined) {
+            if (configuration.RXFAIL_CONFIG == null) {
                 configuration.RXFAIL_CONFIG = [
                     {mode: 0, value: 1500},
                     {mode: 0, value: 1500},

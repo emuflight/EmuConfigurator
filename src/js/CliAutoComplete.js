@@ -17,11 +17,11 @@ CliAutoComplete.isEnabled = function() {
     // state='done':  cache built, suggestions available
     // state='fail':  gave up — disable entirely
     // isBuilding():  currently fetching help/dump — suppress raw output
-    return this.isBuilding() || (this.configEnabled && CONFIG.flightControllerIdentifier == "EMUF" && this.builder.state != 'fail');
+    return this.isBuilding() || (this.configEnabled && CONFIG.flightControllerIdentifier === "EMUF" && this.builder.state !== 'fail');
 };
 
 CliAutoComplete.isBuilding = function() {
-    return this.builder.state != 'reset' && this.builder.state != 'done' && this.builder.state != 'fail';
+    return this.builder.state !== 'reset' && this.builder.state !== 'done' && this.builder.state !== 'fail';
 };
 
 CliAutoComplete.isOpen = function() {
@@ -41,7 +41,7 @@ CliAutoComplete.openLater = function(force) {
 };
 
 CliAutoComplete.setEnabled = function(enable) {
-    if (this.configEnabled != enable) {
+    if (this.configEnabled !== enable) {
         this.configEnabled = enable;
 
         if (CONFIGURATOR.cliActive && CONFIGURATOR.cliValid) {
@@ -111,7 +111,7 @@ CliAutoComplete.builderStart = function() {
     if (!CONFIGURATOR.cliActive || !CONFIGURATOR.cliValid) {
         return;
     }
-    if (this.builder.state == 'reset') {
+    if (this.builder.state === 'reset') {
         this.cache = {
             commands: [],
             resources: [],
@@ -246,7 +246,7 @@ CliAutoComplete._initTextcomplete = function() {
 
         callback(res);
 
-        if (self.forceOpen && res.length == 1) {
+        if (self.forceOpen && res.length === 1) {
             // hacky: if we came here because of Tab and there's only one match
             // trigger Tab again, so that textcomplete should immediately select the only result
             // instead of showing the menu
@@ -256,7 +256,7 @@ CliAutoComplete._initTextcomplete = function() {
 
     var contexter = function(text) {
         var val = $textarea.val();
-        if (val.length == text.length || val[text.length].match(/\s/)) {
+        if (val.length === text.length || val[text.length].match(/\s/)) {
             return true;
         }
         return false; // do not show autocomplete if in the middle of a word
@@ -277,7 +277,7 @@ CliAutoComplete._initTextcomplete = function() {
             onKeydown: function(e) {
                 // some strategies may set sendOnEnter only at the replace stage, thus we call with timeout
                 // since this handler [onKeydown] is triggered before replace()
-                if (e.which == 13) {
+                if (e.which === 13) {
                     setTimeout(function() {
                         if (sendOnEnter) {
                             // fake "enter" to run the textarea's handler
@@ -424,7 +424,7 @@ CliAutoComplete._initTextcomplete = function() {
             replace: function(value) {
                 if (value in cache.resourcesCount) {
                     self.openLater();
-                } else if (value == 'list') {
+                } else if (value === 'list') {
                     sendOnEnter = true;
                 }
                 return basicReplacer(value);
@@ -471,13 +471,13 @@ CliAutoComplete._initTextcomplete = function() {
                 }
             },
             template: function(value, term) {
-                if (value == 'none') {
+                if (value === 'none') {
                     return highlighterPrefix(value, term);
                 }
                 return value;
             },
             replace: function(value) {
-                if (value == 'none') {
+                if (value === 'none') {
                     sendOnEnter = true;
                     return '$1none ';
                 }
@@ -508,7 +508,7 @@ CliAutoComplete._initTextcomplete = function() {
                 searcher(term, callback, arr, 1);
             },
             replace: function(value) {
-                if (value == '-') {
+                if (value === '-') {
                     self.openLater(true);
                     return '$1-';
                 }
