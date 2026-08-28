@@ -52,8 +52,8 @@ LogoManager.init = function (font, logoStartIndex) {
              */
             test: img => {
                 var constraint = this.constraints.imageSize;
-                if (img.width != constraint.expectedWidth
-                    || img.height != constraint.expectedHeight) {
+                if (img.width !== constraint.expectedWidth
+                    || img.height !== constraint.expectedHeight) {
                     GUI.log(i18n.getMessage("osdSetupCustomLogoImageSizeError", {
                         width: img.width,
                         height: img.height,
@@ -237,7 +237,7 @@ LogoManager.replaceLogoInFont = function (img) {
                 colorKey = rgbPixel.join("-");
             line += this.constants.MCM_COLORMAP[colorKey]
                 || this.constants.MCM_COLORMAP['default'];
-            if (line.length == 8) {
+            if (line.length === 8) {
                 char.push(line);
                 line = "";
             }

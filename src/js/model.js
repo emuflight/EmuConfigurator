@@ -51,7 +51,7 @@ var Model = function (wrapper, canvas) {
     var model_file = useWebGLRenderer ? mixerList[MIXER_CONFIG.mixer - 1].model : 'fallback';
 
     // Temporary workaround for 'custom' model until akfreak's custom model is merged.
-    if (model_file == 'custom') { model_file = 'fallback'; }
+    if (model_file === 'custom') { model_file = 'fallback'; }
 
     // setup scene
     this.scene = new THREE.Scene();

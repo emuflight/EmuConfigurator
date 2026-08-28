@@ -6,7 +6,7 @@ TABS.setup_osd = {
 TABS.setup_osd.initialize = function (callback) {
     var self = this;
 
-    if (GUI.active_tab != 'setup_osd') {
+    if (GUI.active_tab !== 'setup_osd') {
         GUI.active_tab = 'setup_osd';
     }
 

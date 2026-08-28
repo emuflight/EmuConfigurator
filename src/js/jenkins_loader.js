@@ -89,7 +89,7 @@ JenkinsLoader.prototype.loadBuilds = function (jobName, callback) {
                 GUI.log(i18n.getMessage('buildServerLoaded', [jobName]));
 
                 // filter successful builds
-                var builds = buildsInfo.builds.filter(build => build.result == 'SUCCESS')
+                var builds = buildsInfo.builds.filter(build => build.result === 'SUCCESS')
                     .map(build => ({
                         number: build.number,
                         artifacts: build.artifacts.map(artifact => artifact.relativePath),

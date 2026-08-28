@@ -266,7 +266,7 @@ var defaultHuffmanLenIndex = function()
     var result = Array(defaultHuffmanTree.length).fill(-1);
 
     for (var i = 0; i < defaultHuffmanTree.length; ++i) {
-        if (result[defaultHuffmanTree[i].codeLen] == -1) {
+        if (result[defaultHuffmanTree[i].codeLen] === -1) {
             result[defaultHuffmanTree[i].codeLen] = i;
         }
     }

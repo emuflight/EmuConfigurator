@@ -31,7 +31,7 @@ var DarkTheme = {
 };
 
 DarkTheme.setConfig = function(result) {
-    if (this.configEnabled != result) {
+    if (this.configEnabled !== result) {
         this.configEnabled = result;
 
         if (this.configEnabled) {

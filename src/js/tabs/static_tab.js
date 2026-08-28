@@ -4,7 +4,7 @@ TABS.staticTab = {};
 TABS.staticTab.initialize = function (staticTabName, callback) {
     var self = this;
 
-    if (GUI.active_tab != staticTabName) {
+    if (GUI.active_tab !== staticTabName) {
         GUI.active_tab = staticTabName;
     }
     var tabFile = './tabs/' + staticTabName + '.html';

@@ -65,7 +65,7 @@ var RateCurve = function (useLegacyCurve) {
 
         var currentValue = this.rcCommandRawToDegreesPerSecond(rcData, rate, rcRate, rcExpo, superExpoActive, deadband, limit);
 
-        if(rcData!=undefined) {
+        if(rcData != null) {
             context.save();
             context.fillStyle = stickColor || '#000000';
 

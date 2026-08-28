@@ -33,7 +33,7 @@ class VtxDeviceStatusSmartAudio extends VtxDeviceStatus {
                 result = i18n.getMessage("vtxType_255");
         }
 
-        if (16 == this._mode) {
+        if (16 === this._mode) {
             result = i18n.getMessage("vtxSmartAudioUnlocked", {"version": result});
         }
 
