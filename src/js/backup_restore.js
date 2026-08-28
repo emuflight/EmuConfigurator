@@ -482,7 +482,7 @@ function configuration_restore(callback) {
 
         if (compareVersions(migratedVersion, '0.63.0')) {
             // backups created with 0.63.0 for firmwares with api < 1.8 were saved with incorrect looptime
-            if (configuration.FC_CONFIG.loopTime === 0) {
+            if (Number(configuration.FC_CONFIG.loopTime) === 0) {
                 //reset it to the default
                 configuration.FC_CONFIG.loopTime = 3500;
             }
