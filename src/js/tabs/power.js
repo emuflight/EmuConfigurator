@@ -7,7 +7,7 @@ TABS.power = {
 TABS.power.initialize = function (callback) {
     var self = this;
 
-    if (GUI.active_tab != 'power') {
+    if (GUI.active_tab !== 'power') {
         GUI.active_tab = 'power';
     }
 
@@ -55,7 +55,7 @@ TABS.power.initialize = function (callback) {
     load_status();
 
     function updateVoltageConfigVisibility() {
-        if (BATTERY_CONFIG.voltageMeterSource == 0) {
+        if (BATTERY_CONFIG.voltageMeterSource === 0) {
             $('.boxVoltageConfiguration').hide();
         } else {
             $('.boxVoltageConfiguration').show();
@@ -87,8 +87,8 @@ TABS.power.initialize = function (callback) {
             destination.append(meterElement);
 
             meterElement.hide();
-            if ((BATTERY_CONFIG.voltageMeterSource == 1 && VOLTAGE_METERS[index].id == 10)  // TODO: replace hardcoded constants
-                || (BATTERY_CONFIG.voltageMeterSource == 2 && VOLTAGE_METERS[index].id >= 50)) {
+            if ((BATTERY_CONFIG.voltageMeterSource === 1 && VOLTAGE_METERS[index].id === 10)  // TODO: replace hardcoded constants
+                || (BATTERY_CONFIG.voltageMeterSource === 2 && VOLTAGE_METERS[index].id >= 50)) {
                 meterElement.show();
             }
         }
@@ -113,7 +113,7 @@ TABS.power.initialize = function (callback) {
     }
 
     function updateAmperageConfigVisibility() {
-        if (BATTERY_CONFIG.currentMeterSource == 0) {
+        if (BATTERY_CONFIG.currentMeterSource === 0) {
             $('.boxAmperageConfiguration').hide();
         } else {
             $('.boxAmperageConfiguration').show();
@@ -144,9 +144,9 @@ TABS.power.initialize = function (callback) {
             destination.append(meterElement);
 
             meterElement.hide();
-            if ((BATTERY_CONFIG.currentMeterSource == 1 && CURRENT_METERS[index].id == 10)              // TODO: replace constants
-                || (BATTERY_CONFIG.currentMeterSource == 2 && CURRENT_METERS[index].id == 80)
-                || (BATTERY_CONFIG.currentMeterSource == 3 && CURRENT_METERS[index].id >= 50 && CURRENT_METERS[index].id < 80)) {
+            if ((BATTERY_CONFIG.currentMeterSource === 1 && CURRENT_METERS[index].id === 10)              // TODO: replace constants
+                || (BATTERY_CONFIG.currentMeterSource === 2 && CURRENT_METERS[index].id === 80)
+                || (BATTERY_CONFIG.currentMeterSource === 3 && CURRENT_METERS[index].id >= 50 && CURRENT_METERS[index].id < 80)) {
                 meterElement.show();
             }
         }
@@ -170,7 +170,7 @@ TABS.power.initialize = function (callback) {
     }
 
     function updateCalibrationVisibility() {
-        if(BATTERY_CONFIG.voltageMeterSource == 1 || BATTERY_CONFIG.currentMeterSource == 1 || BATTERY_CONFIG.currentMeterSource == 2) {
+        if(BATTERY_CONFIG.voltageMeterSource === 1 || BATTERY_CONFIG.currentMeterSource === 1 || BATTERY_CONFIG.currentMeterSource === 2) {
             $('.calibration').show();
         } else {
             $('.calibration').hide();
@@ -344,17 +344,17 @@ TABS.power.initialize = function (callback) {
         });
 
         $('a.calibrationmanager').click(function() {
-            if (BATTERY_CONFIG.voltageMeterSource == 1 && BATTERY_STATE.voltage > 0.1){
+            if (BATTERY_CONFIG.voltageMeterSource === 1 && BATTERY_STATE.voltage > 0.1){
                 $('.vbatcalibration').show();
             } else {
                 $('.vbatcalibration').hide();
             }
-            if ((BATTERY_CONFIG.currentMeterSource == 1 || BATTERY_CONFIG.currentMeterSource == 2) && BATTERY_STATE.amperage > 0.1) {
+            if ((BATTERY_CONFIG.currentMeterSource === 1 || BATTERY_CONFIG.currentMeterSource === 2) && BATTERY_STATE.amperage > 0.1) {
                 $('.amperagecalibration').show();
             } else {
                 $('.amperagecalibration').hide();
             }
-            if (BATTERY_STATE.cellCount == 0) {
+            if (BATTERY_STATE.cellCount === 0) {
                 $('.vbatcalibration').hide();
                 $('.amperagecalibration').hide();
                 $('.calibrate').hide();
@@ -380,9 +380,9 @@ TABS.power.initialize = function (callback) {
         var vbatscalechanged = false;
         var amperagescalechanged = false;
         $('a.calibrate').click(function() {
-            if (BATTERY_CONFIG.voltageMeterSource == 1) {
+            if (BATTERY_CONFIG.voltageMeterSource === 1) {
                 var vbatcalibration = parseFloat($('input[name="vbatcalibration"]').val());
-                if (vbatcalibration != 0) {
+                if (vbatcalibration !== 0) {
                     var vbatnewscale = Math.round(VOLTAGE_METER_CONFIGS[0].vbatscale * (vbatcalibration / VOLTAGE_METERS[0].voltage));
                     if (vbatnewscale >= 10 && vbatnewscale <= 255) {
                         VOLTAGE_METER_CONFIGS[0].vbatscale = vbatnewscale;
@@ -391,14 +391,14 @@ TABS.power.initialize = function (callback) {
                 }
             }
             var ampsource = BATTERY_CONFIG.currentMeterSource;
-            if (ampsource == 1 || ampsource == 2) {
+            if (ampsource === 1 || ampsource === 2) {
                 var amperagecalibration = parseFloat($('input[name="amperagecalibration"]').val());
                 var amperageoffset = CURRENT_METER_CONFIGS[ampsource - 1].offset / 1000;
-                if (amperagecalibration != 0) {
-                    if (CURRENT_METERS[ampsource - 1].amperage != amperageoffset && amperagecalibration != amperageoffset) {
+                if (amperagecalibration !== 0) {
+                    if (CURRENT_METERS[ampsource - 1].amperage !== amperageoffset && amperagecalibration !== amperageoffset) {
                         var amperagenewscale = Math.round(CURRENT_METER_CONFIGS[ampsource - 1].scale *
                             ((CURRENT_METERS[ampsource - 1].amperage -  amperageoffset) / (amperagecalibration - amperageoffset)));
-                        if (amperagenewscale > -16000 && amperagenewscale < 16000 && amperagenewscale != 0) {
+                        if (amperagenewscale > -16000 && amperagenewscale < 16000 && amperagenewscale !== 0) {
                             CURRENT_METER_CONFIGS[ampsource - 1].scale = amperagenewscale;
                             amperagescalechanged = true;
                         }
