@@ -1252,7 +1252,7 @@ TABS.pid_tuning.initialize = function(callback) {
                 ADVANCED_TUNING.feedforwardYaw = parseInt($('.pid_tuning .YAW input[name="f"]').val());
                 ADVANCED_TUNING.feedforwardTransition = parseInt($('input[name="feedforwardTransition-number"]').val() * 100);
             }
-            if (semver.lte(CONFIG.apiVersion, "1.47.0")) { // was removed in 0.3.0
+            if (semver.lt(CONFIG.apiVersion, "1.47.0")) { // was removed in 0.3.0
                 ADVANCED_TUNING.antiGravityMode = $('select[id="antiGravityMode"]').val();
             }
 
