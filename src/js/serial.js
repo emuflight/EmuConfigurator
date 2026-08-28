@@ -203,7 +203,7 @@ var serial = {
                 }
 
                 console.log('onConnectedCallback', result)
-                if(result == 0) {
+                if(result === 0) {
                     self.connected = true;
                     chrome.sockets.tcp.setNoDelay(createInfo.socketId, true, function (noDelayResult){
                         if (chrome.runtime.lastError) {
@@ -211,17 +211,17 @@ var serial = {
                         }
 
                         console.log('setNoDelay', noDelayResult)
-                        if(noDelayResult != 0) {
+                        if(noDelayResult !== 0) {
                             self.openRequested = false;
                             console.log(self.logHead + 'Failed to setNoDelay');
                         }
                         self.onReceive.addListener(function log_bytesReceived(info) {
-                            if (info.socketId != self.connectionId) { return; }
+                            if (info.socketId !== self.connectionId) { return; }
                             self.bytesReceived += info.data.byteLength;
                         });
                         self.onReceiveError.addListener(function watch_for_on_receive_errors(info) {
                             console.error(info);
-                            if (info.socketId != self.connectionId) { return; }
+                            if (info.socketId !== self.connectionId) { return; }
 
                             // TODO: better error handle
                             // error code: https://cs.chromium.org/chromium/src/net/base/net_error_list.h?sq=package:chromium&l=124
@@ -266,13 +266,13 @@ var serial = {
                 self.onReceiveError.removeListener(self.onReceiveError.listeners[i]);
             }
 
-            var disconnectFn = (self.connectionType == 'serial') ? chrome.serial.disconnect : chrome.sockets.tcp.close;
+            var disconnectFn = (self.connectionType === 'serial') ? chrome.serial.disconnect : chrome.sockets.tcp.close;
             disconnectFn(this.connectionId, function (result) {
                 if (chrome.runtime.lastError) {
                     console.error(chrome.runtime.lastError.message);
                 }
 
-                result = result || self.connectionType == 'tcp'
+                result = result || self.connectionType === 'tcp'
                 if (result) {
                     console.log(self.logHead + 'Connection with ID: ' + self.connectionId + ' closed, Sent: ' + self.bytesSent + ' bytes, Received: ' + self.bytesReceived + ' bytes');
                 } else {
@@ -300,14 +300,14 @@ var serial = {
         });
     },
     getInfo: function (callback) {
-        var chromeType = (this.connectionType == 'serial') ? chrome.serial : chrome.sockets.tcp;
+        var chromeType = (this.connectionType === 'serial') ? chrome.serial : chrome.sockets.tcp;
         chromeType.getInfo(this.connectionId, callback);
     },
     getControlSignals: function (callback) {
-        if (this.connectionType == 'serial') { chrome.serial.getControlSignals(this.connectionId, callback); }
+        if (this.connectionType === 'serial') { chrome.serial.getControlSignals(this.connectionId, callback); }
     },
     setControlSignals: function (signals, callback) {
-        if (this.connectionType == 'serial') { chrome.serial.setControlSignals(this.connectionId, signals, callback); }
+        if (this.connectionType === 'serial') { chrome.serial.setControlSignals(this.connectionId, signals, callback); }
     },
     send: function (data, callback) {
         var self = this;
@@ -329,7 +329,7 @@ var serial = {
                return;
             }
 
-            var sendFn = (self.connectionType == 'serial') ? chrome.serial.send : chrome.sockets.tcp.send;
+            var sendFn = (self.connectionType === 'serial') ? chrome.serial.send : chrome.sockets.tcp.send;
             sendFn(self.connectionId, data, function (sendInfo) {
                 if (sendInfo === undefined) {
                     console.log('undefined send error');
@@ -343,7 +343,7 @@ var serial = {
                 }
 
                 // tcp send error
-                if (self.connectionType == 'tcp' && sendInfo.resultCode < 0) {
+                if (self.connectionType === 'tcp' && sendInfo.resultCode < 0) {
                     var error = 'system_error';
 
                     // TODO: better error handle
@@ -403,14 +403,14 @@ var serial = {
         listeners: [],
 
         addListener: function (function_reference) {
-            var chromeType = (serial.connectionType == 'serial') ? chrome.serial : chrome.sockets.tcp;
+            var chromeType = (serial.connectionType === 'serial') ? chrome.serial : chrome.sockets.tcp;
             chromeType.onReceive.addListener(function_reference);
             this.listeners.push(function_reference);
         },
         removeListener: function (function_reference) {
-            var chromeType = (serial.connectionType == 'serial') ? chrome.serial : chrome.sockets.tcp;
+            var chromeType = (serial.connectionType === 'serial') ? chrome.serial : chrome.sockets.tcp;
             for (var i = (this.listeners.length - 1); i >= 0; i--) {
-                if (this.listeners[i] == function_reference) {
+                if (this.listeners[i] === function_reference) {
                     chromeType.onReceive.removeListener(function_reference);
 
                     this.listeners.splice(i, 1);
@@ -423,14 +423,14 @@ var serial = {
         listeners: [],
 
         addListener: function (function_reference) {
-            var chromeType = (serial.connectionType == 'serial') ? chrome.serial : chrome.sockets.tcp;
+            var chromeType = (serial.connectionType === 'serial') ? chrome.serial : chrome.sockets.tcp;
             chromeType.onReceiveError.addListener(function_reference);
             this.listeners.push(function_reference);
         },
         removeListener: function (function_reference) {
-            var chromeType = (serial.connectionType == 'serial') ? chrome.serial : chrome.sockets.tcp;
+            var chromeType = (serial.connectionType === 'serial') ? chrome.serial : chrome.sockets.tcp;
             for (var i = (this.listeners.length - 1); i >= 0; i--) {
-                if (this.listeners[i] == function_reference) {
+                if (this.listeners[i] === function_reference) {
                     chromeType.onReceiveError.removeListener(function_reference);
 
                     this.listeners.splice(i, 1);
