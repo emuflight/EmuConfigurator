@@ -55,7 +55,7 @@ TABS.pid_tuning.initialize = function(callback) {
     //MSP 1.51
     }).then(function() {
         if (semver.gte(CONFIG.apiVersion, "1.51.0")) {
-            if (CONFIG.boardIdentifier == "HESP" || CONFIG.boardIdentifier == "SX10" || CONFIG.boardIdentifier == "FLUX") {
+            if (CONFIG.boardIdentifier === "HESP" || CONFIG.boardIdentifier === "SX10" || CONFIG.boardIdentifier === "FLUX") {
                 return MSP.promise(MSPCodes.MSP_IMUF_INFO);
             }
         }
@@ -306,7 +306,7 @@ TABS.pid_tuning.initialize = function(callback) {
                 if (checked) {
                     $('.antigravity input[name="itermAcceleratorGain"]').val(Math.max(ADVANCED_TUNING.itermAcceleratorGain / 1000, 1.1));
                     $('.antigravity .suboption').show();
-                    if (ADVANCED_TUNING.antiGravityMode == 0) {
+                    if (parseInt(ADVANCED_TUNING.antiGravityMode, 10) === 0) {
                         $('.antigravity .antiGravityThres').hide();
                     }
                     $('.antigravity .antiGravityMode').show();
@@ -775,7 +775,7 @@ TABS.pid_tuning.initialize = function(callback) {
                     var antiGravityModeValue = $('.antigravity select[id="antiGravityMode"]').val();
 
                     // Smooth
-                    if (antiGravityModeValue == 0) {
+                    if (parseInt(antiGravityModeValue, 10) === 0) {
                         $('.antiGravityThres').hide();
                     } else {
                         $('.antiGravityThres').show();
@@ -947,7 +947,7 @@ TABS.pid_tuning.initialize = function(callback) {
             var cutoff = parseInt($(".pid_filter input[name='" + cutoffName + "']").val());
 
             // Change the max and refresh the value if needed
-            var maxCutoff = frecuency == 0 ? 0 : frecuency - 1;
+            var maxCutoff = frecuency === 0 ? 0 : frecuency - 1;
             $(".pid_filter input[name='" + cutoffName + "']").attr("max", maxCutoff);
             if (cutoff >= frecuency) {
                 $(".pid_filter input[name='" + cutoffName + "']").val(maxCutoff);
@@ -967,21 +967,21 @@ TABS.pid_tuning.initialize = function(callback) {
         }).change();
 
         // Initial state of the filters: enabled or disabled
-        $('input[id="gyroNotch1Enabled"]').prop('checked', FILTER_CONFIG.gyro_notch_hz != 0).change();
-        $('input[id="gyroNotch2Enabled"]').prop('checked', FILTER_CONFIG.gyro_notch2_hz != 0).change();
+        $('input[id="gyroNotch1Enabled"]').prop('checked', FILTER_CONFIG.gyro_notch_hz !== 0).change();
+        $('input[id="gyroNotch2Enabled"]').prop('checked', FILTER_CONFIG.gyro_notch2_hz !== 0).change();
 
         if (semver.lt(CONFIG.apiVersion, "1.44.0")) {
-            $('input[id="dTermNotchEnabled"]').prop('checked', FILTER_CONFIG.dterm_notch_hz != 0).change();
-            $('input[id="gyroLowpassEnabled"]').prop('checked', FILTER_CONFIG.gyro_lowpass_hz != 0).change();
-            $('input[id="dtermLowpassEnabled"]').prop('checked', FILTER_CONFIG.dterm_lowpass_hz != 0).change();
-            $('input[id="dtermLowpass2Enabled"]').prop('checked', FILTER_CONFIG.dterm_lowpass2_hz != 0).change();
-            $('input[id="gyroLowpass2Enabled"]').prop('checked', FILTER_CONFIG.gyro_lowpass2_hz != 0).change();
-            $('input[id="yawLowpassEnabled"]').prop('checked', FILTER_CONFIG.yaw_lowpass_hz != 0).change();
+            $('input[id="dTermNotchEnabled"]').prop('checked', FILTER_CONFIG.dterm_notch_hz !== 0).change();
+            $('input[id="gyroLowpassEnabled"]').prop('checked', FILTER_CONFIG.gyro_lowpass_hz !== 0).change();
+            $('input[id="dtermLowpassEnabled"]').prop('checked', FILTER_CONFIG.dterm_lowpass_hz !== 0).change();
+            $('input[id="dtermLowpass2Enabled"]').prop('checked', FILTER_CONFIG.dterm_lowpass2_hz !== 0).change();
+            $('input[id="gyroLowpass2Enabled"]').prop('checked', FILTER_CONFIG.gyro_lowpass2_hz !== 0).change();
+            $('input[id="yawLowpassEnabled"]').prop('checked', FILTER_CONFIG.yaw_lowpass_hz !== 0).change();
         } else {
-            $('input[id="gyroLowpassEnabled"]').prop('checked', FILTER_CONFIG.gyro_lowpass_hz_pitch != 0).change();
-            $('input[id="dtermLowpassEnabled"]').prop('checked', FILTER_CONFIG.dterm_lowpass_hz_pitch != 0).change();
-            $('input[id="dtermLowpass2Enabled"]').prop('checked', FILTER_CONFIG.dterm_lowpass2_hz_pitch != 0).change();
-            $('input[id="gyroLowpass2Enabled"]').prop('checked', FILTER_CONFIG.gyro_lowpass2_hz_pitch != 0).change();
+            $('input[id="gyroLowpassEnabled"]').prop('checked', FILTER_CONFIG.gyro_lowpass_hz_pitch !== 0).change();
+            $('input[id="dtermLowpassEnabled"]').prop('checked', FILTER_CONFIG.dterm_lowpass_hz_pitch !== 0).change();
+            $('input[id="dtermLowpass2Enabled"]').prop('checked', FILTER_CONFIG.dterm_lowpass2_hz_pitch !== 0).change();
+            $('input[id="gyroLowpass2Enabled"]').prop('checked', FILTER_CONFIG.gyro_lowpass2_hz_pitch !== 0).change();
         }
 
         // MSP 1.51
@@ -1508,7 +1508,7 @@ TABS.pid_tuning.initialize = function(callback) {
             }
             for (const name of names) {
                 const el = $('.tab-pid_tuning .subtab-' + name);
-                el[name == subtabName ? 'show' : 'hide']();
+                el[name === subtabName ? 'show' : 'hide']();
             }
             $('.tab-pid_tuning .tab_container td').removeClass('active');
             $('.tab-pid_tuning .tab_container .' + subtabName).addClass('active');
@@ -1644,7 +1644,7 @@ TABS.pid_tuning.initialize = function(callback) {
         $('.tab-pid_tuning select[name="preset"]').change(function() {
             var presetSelected = $('.tab-pid_tuning select[name="preset"]').val();
 
-            if (presetSelected == "default") {
+            if (presetSelected === "default") {
                 //resetProfile(); //old dev
                 //pid_and_rc_to_form();  //prior way
                 $('a.refresh').click(); //refresh UI (show dynamic filter fields) //MSP 1.51 way
@@ -1665,7 +1665,7 @@ TABS.pid_tuning.initialize = function(callback) {
                 $('#pid-tuning .presetBuild').html(presetMessage);
 
                 // TODO not working need to fix
-                if ( (presetSelected == "Default") || semver.lt(CONFIG.apiVersion, "1.46.0") ) {
+                if ( (presetSelected === "Default") || semver.lt(CONFIG.apiVersion, "1.46.0") ) {
                     $('#pid-tuning .presetBuild').hide();
                 } else {
                     $('#pid-tuning .presetBuild').show();
@@ -1717,11 +1717,11 @@ TABS.pid_tuning.initialize = function(callback) {
                     $('.pid_filter input[name="gyroLowpass2Frequency"]').val(presetJson[presetSelected]['gyro_lowpass2_hz']);
                 }
 
-                if (presetJson[presetSelected]['gyro_lowpass_enabled'] == "OFF") {
+                if (presetJson[presetSelected]['gyro_lowpass_enabled'] === "OFF") {
                     $('input[id="gyroLowpassEnabled"]').change(); //force internal logic to set 0's when disabled //preExisting bugfix
                 }
 
-                if (presetJson[presetSelected]['gyro_lowpass2_enabled'] == "OFF") {
+                if (presetJson[presetSelected]['gyro_lowpass2_enabled'] === "OFF") {
                     $('input[id="gyroLowpass2Enabled"]').change(); //force internal logic to set 0's when disabled //preExisting bugfix
                 }
 
@@ -1749,11 +1749,11 @@ TABS.pid_tuning.initialize = function(callback) {
                     $('.pid_filter input[name="dtermLowpass2Frequency"]').val(presetJson[presetSelected]['dterm_lowpass2_hz']);
                 }
 
-                if (presetJson[presetSelected]['dterm_lowpass_enabled'] == "OFF") {
+                if (presetJson[presetSelected]['dterm_lowpass_enabled'] === "OFF") {
                     $('input[id="dtermLowpassEnabled"]').change(); //force internal logic to set 0's when disabled //preExisting bugfix
                 }
 
-                if (presetJson[presetSelected]['dterm_lowpass2_enabled'] == "OFF") {
+                if (presetJson[presetSelected]['dterm_lowpass2_enabled'] === "OFF") {
                     $('input[id="dtermLowpass2Enabled"]').change(); //force internal logic to set 0's when disabled //preExisting bugfix
                 }
 
@@ -2027,7 +2027,7 @@ TABS.pid_tuning.initialize = function(callback) {
                     //Dynamic Gyro Notch Q
                     if (typeof presetJson[presetSelected]['dynamic_gyro_notch_q'] === 'undefined' || presetJson[presetSelected]['dynamic_gyro_notch_q'] === null) {
                         // variable is undefined or null (non-exist)
-                        if (CONFIG.boardIdentifier == "HESP" || CONFIG.boardIdentifier == "SX10" || CONFIG.boardIdentifier == "FLUX") {
+                        if (CONFIG.boardIdentifier === "HESP" || CONFIG.boardIdentifier === "SX10" || CONFIG.boardIdentifier === "FLUX") {
                             $('input[name="DynamicNotchQ"]').val('400');  //helio default
                         } else {
                             $('input[name="DynamicNotchQ"]').val('350');  //non-helio default
@@ -2123,47 +2123,47 @@ TABS.pid_tuning.initialize = function(callback) {
                     // Assign each value
                     searchRow.each(function(indexInput) {
                         // roll values
-                        if (indexPid == 0) {
-                            if (indexInput == 0) {
+                        if (indexPid === 0) {
+                            if (indexInput === 0) {
                                 $(this).val(presetJson[presetSelected]['p_roll']);
                             }
-                            if (indexInput == 1) {
+                            if (indexInput === 1) {
                                 $(this).val(presetJson[presetSelected]['i_roll']);
                             }
-                            if (indexInput == 2) {
+                            if (indexInput === 2) {
                                 $(this).val(presetJson[presetSelected]['d_roll']);
                             }
-                            if (indexInput == 3) {
+                            if (indexInput === 3) {
                                 $(this).val(presetJson[presetSelected]['f_roll']);
                             }
                         }
                         //pitch values
-                        if (indexPid == 1) {
-                            if (indexInput == 0) {
+                        if (indexPid === 1) {
+                            if (indexInput === 0) {
                                 $(this).val(presetJson[presetSelected]['p_pitch']);
                             }
-                            if (indexInput == 1) {
+                            if (indexInput === 1) {
                                 $(this).val(presetJson[presetSelected]['i_pitch']);
                             }
-                            if (indexInput == 2) {
+                            if (indexInput === 2) {
                                 $(this).val(presetJson[presetSelected]['d_pitch']);
                             }
-                            if (indexInput == 3) {
+                            if (indexInput === 3) {
                                 $(this).val(presetJson[presetSelected]['f_pitch']);
                             }
                         }
                         // yaw values
-                        if (indexPid == 2) {
-                            if (indexInput == 0) {
+                        if (indexPid === 2) {
+                            if (indexInput === 0) {
                                 $(this).val(presetJson[presetSelected]['p_yaw']);
                             }
-                            if (indexInput == 1) {
+                            if (indexInput === 1) {
                                 $(this).val(presetJson[presetSelected]['i_yaw']);
                             }
-                            if (indexInput == 2) {
+                            if (indexInput === 2) {
                                 $(this).val(presetJson[presetSelected]['d_yaw']);
                             }
-                            if (indexInput == 3) {
+                            if (indexInput === 3) {
                                 $(this).val(presetJson[presetSelected]['f_yaw']);
                             }
                         }
@@ -2563,11 +2563,11 @@ TABS.pid_tuning.initialize = function(callback) {
                 }).then(function() {
                     return MSP.promise(MSPCodes.MSP_SET_EMUF, mspHelper.crunch(MSPCodes.MSP_SET_EMUF));
                 }).then(function() {
-                    if (save_and_reboot == true) {
+                    if (save_and_reboot === true) {
                         return MSP.promise(MSPCodes.MSP_SET_ADVANCED_CONFIG, mspHelper.crunch(MSPCodes.MSP_SET_ADVANCED_CONFIG));
                     }
                 }).then(function() {
-                    if (save_and_reboot == true) {
+                    if (save_and_reboot === true) {
                         return MSP.promise(MSPCodes.MSP_SET_FEATURE_CONFIG, mspHelper.crunch(MSPCodes.MSP_SET_FEATURE_CONFIG));
                     }
                 }).then(function() {
@@ -2597,7 +2597,7 @@ TABS.pid_tuning.initialize = function(callback) {
                     //end MSP 1.51 Experimental - Preset Dynamic_Filter toggle
                 }).then(function() {
                     //GUI.log(i18n.getMessage('configurationEepromSaved'));
-                    if (save_and_reboot == true) {
+                    if (save_and_reboot === true) {
                         GUI.tab_switch_cleanup(function() {
 
                             MSP.send_message(MSPCodes.MSP_SET_REBOOT, false, false);
@@ -2826,7 +2826,7 @@ TABS.pid_tuning.checkRC = function() {
     // Monitor RC.channels and detect change of value;
     var rateCurveUpdateRequired = false;
     for (var i = 0; i < this.oldRC.length; i++) { // has the value changed ?
-        if (this.oldRC[i] != RC.channels[i]) {
+        if (this.oldRC[i] !== RC.channels[i]) {
             this.oldRC[i] = RC.channels[i];
             rateCurveUpdateRequired = true; // yes, then an update of the values displayed on the rate curve graph is required
         }
@@ -2878,7 +2878,7 @@ TABS.pid_tuning.updateRatesLabels = function() {
             x *= context.canvas.clientWidth / context.canvas.clientHeight;
 
             // adjust the coordinates for determine where the balloon background should be drawn
-            x += ((align == 'right') ? -(width + DEFAULT_OFFSET) : 0) + ((align == 'left') ? DEFAULT_OFFSET : 0);
+            x += ((align === 'right') ? -(width + DEFAULT_OFFSET) : 0) + ((align === 'left') ? DEFAULT_OFFSET : 0);
             y -= (height / 2);
             if (y < 0) { y = 0; }
             else if (y > context.height) { y = context.height; } // prevent balloon from going out of canvas
@@ -2912,7 +2912,7 @@ TABS.pid_tuning.updateRatesLabels = function() {
             context.lineTo(x + width - DEFAULT_RADIUS, y);
             context.quadraticCurveTo(x + width, y, x + width, y + DEFAULT_RADIUS);
 
-            if (align == 'right') { // point is to the right
+            if (align === 'right') { // point is to the right
                 context.lineTo(x + width, y + DEFAULT_RADIUS + pointerLength);
                 context.lineTo(x + width + DEFAULT_OFFSET, pointerY); // point
                 context.lineTo(x + width, y + height - DEFAULT_RADIUS - pointerLength);
@@ -2923,7 +2923,7 @@ TABS.pid_tuning.updateRatesLabels = function() {
             context.lineTo(x + DEFAULT_RADIUS, y + height);
             context.quadraticCurveTo(x, y + height, x, y + height - DEFAULT_RADIUS);
 
-            if (align == 'left') { // point is to the left
+            if (align === 'left') { // point is to the left
                 context.lineTo(x, y + height - DEFAULT_RADIUS - pointerLength);
                 context.lineTo(x - DEFAULT_OFFSET, pointerY); // point
                 context.lineTo(x, y + DEFAULT_RADIUS - pointerLength);
@@ -3064,7 +3064,7 @@ TABS.pid_tuning.updateFilterWarning = function() {
     var dtermLowpass1Enabled = $('input[id="dtermLowpassEnabled"]').is(':checked');
     var warning_e = $('#pid-tuning .filterWarning');
     if (!(gyroDynamicLowpassEnabled || gyroLowpass1Enabled) || !dtermLowpass1Enabled) {
-        if (CONFIG.boardIdentifier == "HESP" || CONFIG.boardIdentifier == "SX10" || CONFIG.boardIdentifier == "FLUX") {
+        if (CONFIG.boardIdentifier === "HESP" || CONFIG.boardIdentifier === "SX10" || CONFIG.boardIdentifier === "FLUX") {
             warning_e.hide();
         } else {
             warning_e.show();
