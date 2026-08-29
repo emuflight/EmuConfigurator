@@ -67,7 +67,7 @@ function transmitChannels() {
     // Callback given to us by the window creator so we can have it send data over MSP for us:
     if (!window.setRawRx(channelValues)) {
         // MSP connection has gone away
-        chrome.app.window.current().close();
+        window.close();
     }
 }
 
@@ -137,9 +137,7 @@ $(document).ready(function() {
             shrinkHeight = $(".warning").height();
         
         $(".warning").slideUp("short", function() {
-            chrome.app.window.current().innerBounds.minHeight -= shrinkHeight;
-            chrome.app.window.current().innerBounds.height -= shrinkHeight;
-            chrome.app.window.current().innerBounds.maxHeight -= shrinkHeight;
+            window.resizeBy(0, -shrinkHeight);
         });
         
         enableTX = true;

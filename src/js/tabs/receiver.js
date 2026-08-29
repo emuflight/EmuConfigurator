@@ -283,29 +283,17 @@ TABS.receiver.initialize = function (callback) {
         });
 
         $("a.sticks").click(function() {
-            var
-                windowWidth = 370,
-                windowHeight = 510;
+            var createdWindow = window.open('tabs/receiver_msp.html', 'receiver_msp', 'width=370,height=510,resizable=no');
 
-            chrome.app.window.create("/tabs/receiver_msp.html", {
-                id: "receiver_msp",
-                innerBounds: {
-                    minWidth: windowWidth, minHeight: windowHeight,
-                    width: windowWidth, height: windowHeight,
-                    maxWidth: windowWidth, maxHeight: windowHeight
-                },
-                alwaysOnTop: true
-            }, function(createdWindow) {
-                // Give the window a callback it can use to send the channels (otherwise it can't see those objects)
-                createdWindow.contentWindow.setRawRx = function(channels) {
-                    if (CONFIGURATOR.connectionValid && GUI.active_tab !== 'cli') {
-                        mspHelper.setRawRx(channels);
-                        return true;
-                    } else {
-                        return false;
-                    }
+            // Give the window a callback it can use to send the channels (otherwise it can't see those objects)
+            createdWindow.setRawRx = function(channels) {
+                if (CONFIGURATOR.connectionValid && GUI.active_tab !== 'cli') {
+                    mspHelper.setRawRx(channels);
+                    return true;
+                } else {
+                    return false;
                 }
-            });
+            };
         });
 
         // RC Smoothing

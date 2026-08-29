@@ -1,6 +1,7 @@
 const { app, BrowserWindow, ipcMain, Menu, nativeImage, screen, shell, globalShortcut } = require('electron');
 const path = require('path');
 const fs = require('fs');
+const { pathToFileURL } = require('url');
 
 // Register signal handlers at the very top to catch Ctrl+C/SIGTERM before anything else.
 // In dev mode (yarn dev), these ensure the process exits without leaving
@@ -1107,12 +1108,29 @@ function createWindow() {
     applyZoom(win, win.webContents.getZoomLevel());
   });
 
+  const receiverMspUrl = pathToFileURL(path.join(__dirname, 'dist', 'tabs', 'receiver_msp.html')).href;
+
   // Intercept new window requests (e.g., target="_blank" links) and open in system browser
   win.webContents.setWindowOpenHandler(({ url }) => {
     // Open external links in the system default browser
     if (url.startsWith('http://') || url.startsWith('https://')) {
       shell.openExternal(url);
       return { action: 'deny' }; // Prevent Electron from opening its own window
+    }
+    if (url === receiverMspUrl) {
+      return {
+        action: 'allow',
+        overrideBrowserWindowOptions: {
+          width: 370,
+          height: 510,
+          minWidth: 370,
+          minHeight: 510,
+          maxWidth: 370,
+          maxHeight: 510,
+          resizable: false,
+          alwaysOnTop: true,
+        },
+      };
     }
     // Deny all other URLs (file://, app://, etc.) to avoid Electron's "response must be an object" console error
     return { action: 'deny' };
