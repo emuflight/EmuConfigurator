@@ -165,7 +165,7 @@ Features.prototype.findFeatureByBit = function (bit) {
     var self = this;
 
     for (var i = 0; i < self._features.length; i++) {
-        if (self._features[i].bit == bit) {
+        if (self._features[i].bit === bit) {
             return self._features[i];
         }
     }
@@ -175,7 +175,7 @@ Features.prototype.findFeatureByName = function (name) {
     var self = this;
 
     for (var i = 0; i < self._features.length; i++) {
-        if (self._features[i].name == name) {
+        if (self._features[i].name === name) {
             return self._features[i];
         }
     }
@@ -185,7 +185,7 @@ Features.prototype.findBitValueByName = function (name) {
     var self = this;
 
     for (var i = 0; i < self._features.length; i++) {
-        if (self._features[i].name == name) {
+        if (self._features[i].name === name) {
             return self._features[i].bit;
         }
     }

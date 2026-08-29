@@ -4,7 +4,7 @@ TABS.help = {};
 TABS.help.initialize = function (callback) {
     var self = this;
 
-    if (GUI.active_tab != 'help') {
+    if (GUI.active_tab !== 'help') {
         GUI.active_tab = 'help';
     }
 

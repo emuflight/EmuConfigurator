@@ -83,7 +83,7 @@ Beepers.prototype.generateElements = function (template, destination) {
             input_e.attr('id', 'beeper-' + i);
             input_e.attr('name', self._beepers[i].name);
             input_e.attr('title', self._beepers[i].name);
-            input_e.prop('checked', bit_check(self._beeperMask, self._beepers[i].bit) == 0);
+            input_e.prop('checked', bit_check(self._beeperMask, self._beepers[i].bit) === false);
             input_e.data('bit', self._beepers[i].bit);
 
             label_e.attr('for', 'beeper-' + i);

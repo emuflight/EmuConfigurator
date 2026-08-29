@@ -11,13 +11,13 @@ function huffmanDecodeBuf(inBuf, inBufCharacterCount, huffmanTree, huffmanLenInd
     var eof = false;
     var outBuf = [];
 
-    while (!eof && inBuf.byteLength != 0) {
-        if (outBuf.length == inBufCharacterCount) {
+    while (!eof && inBuf.byteLength !== 0) {
+        if (outBuf.length === inBufCharacterCount) {
             // we've exhausted the input stream, discard any odd bits on the end
             break;
         }
 
-        if (inBuf.byteLength == 0) {
+        if (inBuf.byteLength === 0) {
             throw new Error('unexpected');
         }
 
@@ -28,20 +28,20 @@ function huffmanDecodeBuf(inBuf, inBufCharacterCount, huffmanTree, huffmanLenInd
             code |= 0x01;
         }
         testBit >>= 1;
-        if (testBit == 0) {
+        if (testBit === 0) {
             testBit = 0x80;
             inBuf = inBuf.subarray(1);
         }
 
         // check if the code is a leaf node or an interior node
-        if (huffmanLenIndex[codeLen] != -1) {
+        if (huffmanLenIndex[codeLen] !== -1) {
             // look for the code in the tree, only leaf nodes are stored in the tree
-            for (var i = huffmanLenIndex[codeLen]; (i < huffmanTree.length) && (huffmanTree[i].codeLen == codeLen); ++i) {
-                if (huffmanTree[i].code == code) {
+            for (var i = huffmanLenIndex[codeLen]; (i < huffmanTree.length) && (huffmanTree[i].codeLen === codeLen); ++i) {
+                if (huffmanTree[i].code === code) {
                     // we've found the code, so it is a leaf node
                     var value = huffmanTree[i].value;
 
-                    if (value == HUFFMAN_EOF) {
+                    if (value === HUFFMAN_EOF) {
                         eof = true;
                     } else {
                         // output the value
