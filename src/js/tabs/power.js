@@ -221,9 +221,9 @@ TABS.power.initialize = function (callback) {
         var element = template.clone();
         destination.append(element);
 
-        $('input[name="mincellvoltage"]').val(BATTERY_CONFIG.vbatmincellvoltage);
-        $('input[name="maxcellvoltage"]').val(BATTERY_CONFIG.vbatmaxcellvoltage);
-        $('input[name="warningcellvoltage"]').val(BATTERY_CONFIG.vbatwarningcellvoltage);
+        $('input[name="mincellvoltage"]').val(BATTERY_CONFIG.vbatmincellvoltage.toFixed(1));
+        $('input[name="maxcellvoltage"]').val(BATTERY_CONFIG.vbatmaxcellvoltage.toFixed(1));
+        $('input[name="warningcellvoltage"]').val(BATTERY_CONFIG.vbatwarningcellvoltage.toFixed(1));
         $('input[name="capacity"]').val(BATTERY_CONFIG.capacity);
 
         var haveFc = (CONFIG.boardType === 0 || CONFIG.boardType === 2);
