@@ -286,14 +286,16 @@ TABS.receiver.initialize = function (callback) {
             var createdWindow = window.open('tabs/receiver_msp.html', 'receiver_msp', 'width=370,height=510,resizable=no');
 
             // Give the window a callback it can use to send the channels (otherwise it can't see those objects)
-            createdWindow.setRawRx = function(channels) {
-                if (CONFIGURATOR.connectionValid && GUI.active_tab !== 'cli') {
-                    mspHelper.setRawRx(channels);
-                    return true;
-                } else {
-                    return false;
-                }
-            };
+            if (createdWindow) {
+                createdWindow.setRawRx = function(channels) {
+                    if (CONFIGURATOR.connectionValid && GUI.active_tab !== 'cli') {
+                        mspHelper.setRawRx(channels);
+                        return true;
+                    } else {
+                        return false;
+                    }
+                };
+            }
         });
 
         // RC Smoothing
