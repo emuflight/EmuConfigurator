@@ -109,12 +109,6 @@
     "deviceReady": {
         "message": "Uređaj - <span class=\"message-positive\">Spreman</span>"
     },
-    "backupFileIncompatible": {
-        "message": "Ova backup datoteka je generirana za prijašnju verziju i nije kompatibilna s ovom verzijom konfiguratora"
-    },
-    "backupFileUnmigratable": {
-        "message": "Ova backup datoteka je generirana u prošloj verziji konfiguratora i nije ju moguće migrirati."
-    },
     "configMigrationFrom": {
         "message": "Migriracijska konfiguracijska datoteka generirana: $1"
     },
@@ -452,26 +446,11 @@
     "initialSetupResetText": {
         "message": "Vraća sve postavke na <strong>zadane</strong>"
     },
-    "initialSetupButtonBackup": {
-        "message": "Stvori sigurnosnu kopiju"
-    },
-    "initialSetupButtonRestore": {
-        "message": "Vrati sigurnosnu kopiju"
-    },
     "initialSetupButtonRebootBootloader": {
         "message": "Aktiviraj Boot Loader / DFU"
     },
-    "initialSetupBackupRestoreText": {
-        "message": "Stvorite <strong>sigurnosnu kopiju</strong> vaše konfiguracije kako bi spriječili njihov gubitak, <strong>CLI</strong> postavke <span class=\"message-negative\">nisu uključene</span>, za te postavke koristite komandu 'diff all' u CLI sučelju."
-    },
     "initialSetupRebootBootloaderText": {
         "message": "Ponovno pokreni u <strong> boot loader / DFU </strong> načinu rada."
-    },
-    "initialSetupBackupSuccess": {
-        "message": "Sigurnosna kopija spremljena <span class=\"message-positive\">uspješno</span>"
-    },
-    "initialSetupRestoreSuccess": {
-        "message": "Sigurnosna kopija učitana <span class=\"message-positive\">uspješno</span>"
     },
     "initialSetupButtonResetZaxis": {
         "message": "Resetiraj Z os, pomak: 0 stupnjeva"

@@ -112,12 +112,6 @@
     "deviceReady": {
         "message": "Устройство - <span class=\"message-positive\">Готово</span>"
     },
-    "backupFileIncompatible": {
-        "message": "Файл резервной копии был сгенерирован для предыдущей версии и несовместимым с этой версией конфигуратора. Извините"
-    },
-    "backupFileUnmigratable": {
-        "message": "Файл резервной копии был сгенерирован старой версией конфигуратора и не является мигрируемым для этой версии конфигуратора. Сожалеем."
-    },
     "configMigrationFrom": {
         "message": "Миграция файла конфигурации была сгенерирована конфигуратором версии: $1"
     },
@@ -446,26 +440,11 @@
     "initialSetupResetText": {
         "message": "Сбросить настройки <strong>до заводских</strong>"
     },
-    "initialSetupButtonBackup": {
-        "message": "Сохранить"
-    },
-    "initialSetupButtonRestore": {
-        "message": "Восстановить"
-    },
     "initialSetupButtonRebootBootloader": {
         "message": "Активировать загрузчик / DFU"
     },
-    "initialSetupBackupRestoreText": {
-        "message": "<strong>Резервное копирование</strong> вашей конфигурации в случае аварии, <strong>CLI</strong> настройки <span class=\"message-negative\">не</span> включены - используете команду «diff all» в CLI для этого."
-    },
     "initialSetupRebootBootloaderText": {
         "message": "Перезагрузить в режим <strong>загрузчика/ DFU</strong>."
-    },
-    "initialSetupBackupSuccess": {
-        "message": "Конфигурация <span class=\"message-positive\">успешно</span> сохранена"
-    },
-    "initialSetupRestoreSuccess": {
-        "message": "Конфигурация <span class=\"message-positive\">успешно</span> восстановлена"
     },
     "initialSetupButtonResetZaxis": {
         "message": "Сбросить ось Z (ось вращения), смещение: 0 град"

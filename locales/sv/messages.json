@@ -100,12 +100,6 @@
     "deviceReady": {
         "message": "Enhet - <span class=\"message-positive\">Redo</span>"
     },
-    "backupFileIncompatible": {
-        "message": "Den försedda backup-filen är skapad för en tidigare version av konfiguratorn och är inte kompatibel med den här versionen av konfiguratorn. Tyvärr"
-    },
-    "backupFileUnmigratable": {
-        "message": "Den försedda backup-filen är skapad av en tidigare version av konfiguratorn och är inte möjlig att migrera. Tyvärr"
-    },
     "configMigrationFrom": {
         "message": "Migrerar konfigurationsfil genererad av konfigurator: $1"
     },
@@ -446,26 +440,11 @@
     "initialSetupResetText": {
         "message": "Återställ till <strong>standardinställningarna</strong>"
     },
-    "initialSetupButtonBackup": {
-        "message": "Säkerhetskopiera"
-    },
-    "initialSetupButtonRestore": {
-        "message": "Återställ"
-    },
     "initialSetupButtonRebootBootloader": {
         "message": "Aktivera Boot Loader / DFU"
     },
-    "initialSetupBackupRestoreText": {
-        "message": "<strong>Säkerhetskopiera</strong> din konfiguration i händelse av ett missöde, <strong>CLI</strong>-inställningar inkluderas <span class=\"message-negative\">inte</span> - använd kommandot 'diff all' i CLI för detta."
-    },
     "initialSetupRebootBootloaderText": {
         "message": "Starta om i <strong>boot loader / DFU</strong>-läge."
-    },
-    "initialSetupBackupSuccess": {
-        "message": "Säkerhetskopiering <span class=\"message-positive\">lyckades</span>"
-    },
-    "initialSetupRestoreSuccess": {
-        "message": "Återställning av konfiguration <span class=\"message-positive\">lyckades</span>"
     },
     "initialSetupButtonResetZaxis": {
         "message": "Återställ Z-axel, offset: 0 grader"

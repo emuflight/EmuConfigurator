@@ -100,12 +100,6 @@
     "deviceReady": {
         "message": "飞控 - <span class=\"message-positive\">就绪</span>"
     },
-    "backupFileIncompatible": {
-        "message": "上一版本地面站生成的备份文件和当前版本的地面站不兼容"
-    },
-    "backupFileUnmigratable": {
-        "message": "上一版本地面站生成的备份文件不能移植到当前版本的地面站"
-    },
     "configMigrationFrom": {
         "message": "正在移植地面站设置文件: $1"
     },
@@ -452,26 +446,11 @@
     "initialSetupResetText": {
         "message": "恢复<strong>默认</strong>设置"
     },
-    "initialSetupButtonBackup": {
-        "message": "备份"
-    },
-    "initialSetupButtonRestore": {
-        "message": "恢复"
-    },
     "initialSetupButtonRebootBootloader": {
         "message": "激活启动加载程序/DFU"
     },
-    "initialSetupBackupRestoreText": {
-        "message": "在 CLI 命令行中使用 'dump' 命令来<strong>备份</strong>你的设置以防意外丢失，注意<strong>CLI命令行</strong>设置 <span class=\"message-negative\">没有</span> 包括在内"
-    },
     "initialSetupRebootBootloaderText": {
         "message": "重新启动到 <strong>引导加载程序/DFU</strong> 模式。"
-    },
-    "initialSetupBackupSuccess": {
-        "message": "备份保存<span class=\"message-positive\">成功</span>"
-    },
-    "initialSetupRestoreSuccess": {
-        "message": "配置恢复<span class=\"message-positive\">成功</span>"
     },
     "initialSetupButtonResetZaxis": {
         "message": "重置Z 轴，补偿: 0 度"
