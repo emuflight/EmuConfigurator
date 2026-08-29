@@ -2750,7 +2750,7 @@ TABS.osd.initialize = function (callback) {
                             var x = OSD.data.preview[i][2];
                             var y = OSD.data.preview[i][3];
                         }
-                        var $img = $('<div class="char" draggable><img src=' + FONT.draw(charCode) + '></img></div>')
+                        var $img = $('<div class="char"><img src=' + FONT.draw(charCode) + '></img></div>')
                             .on('mouseenter', OSD.GUI.preview.onMouseEnter)
                             .on('mouseleave', OSD.GUI.preview.onMouseLeave)
                             .on('dragover', OSD.GUI.preview.onDragOver)
