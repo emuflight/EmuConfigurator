@@ -4,46 +4,53 @@ var
     CHANNEL_MIN_VALUE = 1000,
     CHANNEL_MID_VALUE = 1500,
     CHANNEL_MAX_VALUE = 2000,
-    
+
+    // Same fallback the Receiver tab's own channel bars use (receiver.js num_bars).
+    AUX_COUNT = Math.max(0, ((opener.RC && opener.RC.active_channels > 0) ? opener.RC.active_channels : 8) - 4),
+
     // What's the index of each channel in the MSP channel list?
     channelMSPIndexes = {
         Roll: 0,
         Pitch: 1,
         Throttle: 2,
         Yaw: 3,
-        Aux1: 4,
-        Aux2: 5,
-        Aux3: 6,
-        Aux4: 7,
     },
-    
-    // Set reasonable initial stick positions (Mode 2)
-    stickValues = {
+
+    // Set reasonable initial/safe stick positions (Mode 2); also what Disable resets to.
+    DEFAULT_STICK_VALUES = {
         Throttle: CHANNEL_MIN_VALUE,
         Pitch: CHANNEL_MID_VALUE,
         Roll: CHANNEL_MID_VALUE,
         Yaw: CHANNEL_MID_VALUE,
-        Aux1: CHANNEL_MIN_VALUE,
-        Aux2: CHANNEL_MIN_VALUE,
-        Aux3: CHANNEL_MIN_VALUE,
-        Aux4: CHANNEL_MIN_VALUE
     },
-    
+
+    stickValues,
+
     // First the vertical axis, then the horizontal:
     gimbals = [
         ["Throttle", "Yaw"],
         ["Pitch", "Roll"],
     ],
-    
+
     gimbalElems,
     sliderElems,
-    
+
     enableTX = false;
+
+for (var auxIndex = 1; auxIndex <= AUX_COUNT; auxIndex++) {
+    channelMSPIndexes["Aux" + auxIndex] = 3 + auxIndex;
+    DEFAULT_STICK_VALUES["Aux" + auxIndex] = CHANNEL_MIN_VALUE;
+}
+stickValues = Object.assign({}, DEFAULT_STICK_VALUES);
 
 // This is a hack to get the i18n var of the parent, but the localizePage not works
 const i18n = opener.i18n;
 
 $(document).ready(function () {
+    // Match the main window's current light/dark theme; this popup doesn't
+    // get its own DarkTheme.js instance to react to later toggles.
+    document.getElementById('mainDarkCss').disabled = !(opener.DarkTheme && opener.DarkTheme.configEnabled);
+
     $('[i18n]:not(.i18n-replaced)').each(function() {
         var element = $(this);
 
@@ -52,20 +59,24 @@ $(document).ready(function () {
     });
 })
 
-function transmitChannels() {
-    var 
-        channelValues = [0, 0, 0, 0, 0, 0, 0, 0];
+function buildChannelValues() {
+    var
+        channelValues = new Array(4 + AUX_COUNT).fill(0);
 
-    if (!enableTX) {
-        return;
-    }
-    
     for (var stickName in stickValues) {
         channelValues[channelMSPIndexes[stickName]] = stickValues[stickName];
     }
-    
+
+    return channelValues;
+}
+
+function transmitChannels() {
+    if (!enableTX) {
+        return;
+    }
+
     // Callback given to us by the window creator so we can have it send data over MSP for us:
-    if (!window.setRawRx(channelValues)) {
+    if (!window.setRawRx(buildChannelValues())) {
         // MSP connection has gone away
         window.close();
     }
@@ -126,26 +137,41 @@ function localizeAxisNames() {
         $(".gimbal-label-horz", gimbal).text(i18n.getMessage("controlAxis" + gimbals[gimbalIndex][1]));
     }
     
-    for (var sliderIndex = 0; sliderIndex < 4; sliderIndex++) {
+    for (var sliderIndex = 0; sliderIndex < AUX_COUNT; sliderIndex++) {
         $(".slider-label", sliderElems.get(sliderIndex)).text(i18n.getMessage("controlAxisAux" + (sliderIndex + 1)));
     }
 }
 
+function setButtonLabel(enabled) {
+    $(".button-enable .btn").text(i18n.getMessage(enabled ? "receiverMspDisableButton" : "receiverMspEnableButton"));
+}
+
 $(document).ready(function() {
     $(".button-enable .btn").click(function() {
-        var
-            shrinkHeight = $(".warning").height();
-        
-        $(".warning").slideUp("short", function() {
-            window.resizeBy(0, -shrinkHeight);
-        });
-        
-        enableTX = true;
+        if (enableTX) {
+            // Disable: reset to safe defaults and push one final frame before we stop sending.
+            stickValues = Object.assign({}, DEFAULT_STICK_VALUES);
+            updateControlPositions();
+            $(".slider", sliderElems).each(function(sliderIndex) {
+                $(this).val(CHANNEL_MIN_VALUE);
+                $(".tooltip", this).text(CHANNEL_MIN_VALUE);
+            });
+            window.setRawRx(buildChannelValues());
+            enableTX = false;
+        } else {
+            enableTX = true;
+        }
+        setButtonLabel(enableTX);
     });
-    
+
+    var slidersContainer = $(".control-sliders");
+    for (var sliderCount = 0; sliderCount < AUX_COUNT; sliderCount++) {
+        slidersContainer.append('<div class="control-slider"><div class="slider"><span class="slider-label"></span></div></div>');
+    }
+
     gimbalElems = $(".control-gimbal");
     sliderElems = $(".control-slider");
-    
+
     gimbalElems.each(function(gimbalIndex) {
         $(this).on('mousedown', {gimbalIndex: gimbalIndex}, function(e) {
             if (e.which === 1) { // Only move sticks on left mouse button

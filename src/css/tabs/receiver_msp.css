@@ -1,7 +1,8 @@
 body {
     font-family: 'Segoe UI', Tahoma, sans-serif;
     font-size: 12px;
-    color: #303030;
+    color: var(--defaultText);
+    background-color: var(--sideBackground);
     margin: 10px;
     overflow: hidden;
 }
@@ -122,7 +123,7 @@ a:hover {
     margin-left: 0px;
     background-color: var(--accent);
     border-radius: 3px;
-    border: 1px solid #4c8829;
+    border: 1px solid #2297eb;
     color: #fff;
     float: left;
     font-family: 'open_sansbold', Arial;
@@ -138,11 +139,14 @@ a:hover {
 }
 
 .button-enable a:hover {
-    background-color: #6ac435;
+    background-color: #6edbff;
+    color: #000;
+    text-shadow: 0px 1px rgba(255, 255, 255, 0.25);
     transition: all ease 0.2s;
 }
 .button-enable a:active {
-    background-color: #4d9324;
+    background-color: #6edbff;
+    color: #000;
     transition: all ease 0.0s;
     box-shadow: inset 0px 1px 5px rgba(0, 0, 0, 0.35);
 }

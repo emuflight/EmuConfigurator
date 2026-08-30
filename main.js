@@ -1009,6 +1009,15 @@ ipcMain.handle('zoom-step', (_event, delta) => {
   }
 });
 
+const RECEIVER_MSP_URL = pathToFileURL(path.join(__dirname, 'dist', 'tabs', 'receiver_msp.html')).href;
+let receiverMspWindowPending = false;
+
+app.on('browser-window-created', (_event, win) => {
+  if (!receiverMspWindowPending) { return; }
+  receiverMspWindowPending = false;
+  win.setMenu(null); // this popup has no menu bar
+});
+
 function createWindow() {
   const buildMode = getBuildMode();
   setupMenu(buildMode);
@@ -1108,26 +1117,28 @@ function createWindow() {
     applyZoom(win, win.webContents.getZoomLevel());
   });
 
-  const receiverMspUrl = pathToFileURL(path.join(__dirname, 'dist', 'tabs', 'receiver_msp.html')).href;
-
   // Intercept new window requests (e.g., target="_blank" links) and open in system browser
-  win.webContents.setWindowOpenHandler(({ url }) => {
+  win.webContents.setWindowOpenHandler(({ url, features }) => {
     // Open external links in the system default browser
     if (url.startsWith('http://') || url.startsWith('https://')) {
       shell.openExternal(url);
       return { action: 'deny' }; // Prevent Electron from opening its own window
     }
-    if (url === receiverMspUrl) {
+    if (url === RECEIVER_MSP_URL) {
+      receiverMspWindowPending = true;
+      // receiver.js computes this from the connected FC's actual channel count
+      // (more AUX channels needs a taller popup); fall back to a sane default.
+      const requestedHeightMatch = /(?:^|,)height=(\d+)/.exec(features || '');
+      const height = requestedHeightMatch ? Math.max(500, parseInt(requestedHeightMatch[1], 10)) : 700;
       return {
         action: 'allow',
         overrideBrowserWindowOptions: {
           width: 370,
-          height: 510,
+          height,
           minWidth: 370,
-          minHeight: 510,
           maxWidth: 370,
-          maxHeight: 510,
-          resizable: false,
+          minHeight: 500, // user can still resize taller if this guess runs short
+          resizable: true,
           alwaysOnTop: true,
         },
       };
