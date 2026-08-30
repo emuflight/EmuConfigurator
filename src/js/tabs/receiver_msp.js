@@ -156,7 +156,10 @@ $(document).ready(function() {
                 $(this).val(CHANNEL_MIN_VALUE);
                 $(".tooltip", this).text(CHANNEL_MIN_VALUE);
             });
-            window.setRawRx(buildChannelValues());
+            if (!window.setRawRx(buildChannelValues())) {
+                // MSP connection has gone away
+                window.close();
+            }
             enableTX = false;
         } else {
             enableTX = true;
