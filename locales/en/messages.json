@@ -1724,6 +1724,9 @@
     "receiverButtonRefresh": {
         "message": "Refresh"
     },
+    "receiverDataRefreshed": {
+        "message": "Receiver data <strong>refreshed</strong>"
+    },
     "receiverButtonSticks": {
         "message": "Control sticks"
     },

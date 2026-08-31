@@ -214,7 +214,9 @@ TABS.receiver.initialize = function (callback) {
 
         // UI Hooks
         $('a.refresh').click(function () {
-	    // Todo: refresh data here
+            tab.refresh(function () {
+                GUI.log(i18n.getMessage('receiverDataRefreshed'));
+            });
         });
 
         $('a.update').click(function () {
@@ -534,6 +536,16 @@ TABS.receiver.initialize = function (callback) {
 
         GUI.content_ready(callback);
     }
+};
+
+TABS.receiver.refresh = function (callback) {
+    var self = this;
+    GUI.tab_switch_cleanup(function () {
+        self.initialize();
+        if (callback) {
+            callback();
+        }
+    });
 };
 
 TABS.receiver.getReceiverData = function () {
