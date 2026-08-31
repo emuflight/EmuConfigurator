@@ -112,12 +112,6 @@
     "deviceReady": {
         "message": "Dispositivo - <span class=\"message-positive\"> Pronto</span>"
     },
-    "backupFileIncompatible": {
-        "message": "O arquivo de backup fornecido foi gerado para uma versão antiga do configurador e é incompatível com esta versão. Lamentamos"
-    },
-    "backupFileUnmigratable": {
-        "message": "O arquivo de backup fornecido foi gerado por uma versão antiga do configurador e não é possível importar. Lamentamos."
-    },
     "configMigrationFrom": {
         "message": "Migrando o arquivo de configuração gerado pelo configurador: $1"
     },
@@ -446,23 +440,11 @@
     "initialSetupResetText": {
         "message": "Restaura as configurações para o <strong>padrão</strong>"
     },
-    "initialSetupButtonRestore": {
-        "message": "Restaurar"
-    },
     "initialSetupButtonRebootBootloader": {
         "message": "Ativar Boot Loader / DFU"
     },
-    "initialSetupBackupRestoreText": {
-        "message": "Faz um <strong>backup</strong> das configurações, as configurações feitas pela <strong>Linha de comandos (CLI)</strong> <span class=\"message-negative\">não</span> são salvas - para isso, use o comando 'diff all' na linha de comandos."
-    },
     "initialSetupRebootBootloaderText": {
         "message": "Reiniciar no modo <strong>boot loader / DFU</strong>."
-    },
-    "initialSetupBackupSuccess": {
-        "message": "Backup salvo com <span class=\"message-positive\">sucesso</span>"
-    },
-    "initialSetupRestoreSuccess": {
-        "message": "Configuração restaurada <span class=\"message-positive\"> com sucesso</span>"
     },
     "initialSetupButtonResetZaxis": {
         "message": "Redefinir eixo Z, offset: 0 graus"

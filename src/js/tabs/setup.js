@@ -146,29 +146,6 @@ TABS.setup.initialize = function (callback) {
             console.log('YAW reset to 0 deg, fix: ' + self.yaw_fix + ' deg');
         });
 
-        $('#content .backup').click(function () {
-            if ($(this).hasClass('disabled')) {
-                return;
-            }
-
-            configuration_backup(function () {
-                GUI.log(i18n.getMessage('initialSetupBackupSuccess'));
-            });
-        });
-
-        $('#content .restore').click(function () {
-            if ($(this).hasClass('disabled')) {
-                return;
-            }
-
-            configuration_restore(function () {
-                // get latest settings
-                TABS.setup.initialize();
-
-                GUI.log(i18n.getMessage('initialSetupRestoreSuccess'));
-            });
-        });
-
         // cached elements
         var bat_voltage_e = $('.bat-voltage'),
             bat_mah_drawn_e = $('.bat-mah-drawn'),

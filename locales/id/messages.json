@@ -97,12 +97,6 @@
     "deviceReady": {
         "message": "Perangkat - <span class=\"message-positive\">Siap</span>"
     },
-    "backupFileIncompatible": {
-        "message": "Backup dibuat untuk versi lama EmuFlight dan tidak sesuai dengan versi EmuFlight ini. Maaf"
-    },
-    "backupFileUnmigratable": {
-        "message": "Backup dibuat oleh versi lama EmuFlight dan tidak dapat di migrasi ke versi EmuFlight yg lebih baru. Maaf."
-    },
     "configMigrationFrom": {
         "message": "Migrasi berkas konfigurasi yang dihasilkan oleh EmuFlight: $1"
     },
@@ -431,17 +425,8 @@
     "initialSetupButtonRebootBootloader": {
         "message": "Aktifkan Boot Loader / DFU"
     },
-    "initialSetupBackupRestoreText": {
-        "message": "<strong>Backup</strong> konfigurasi anda jika terjadi kecelakaan, pengaturan <strong>CLI</strong> <span class=\"message-negative\">tidak</span> termasuk - gunakan perintah 'diff all' pada CLI."
-    },
     "initialSetupRebootBootloaderText": {
         "message": "Reboot ke mode <strong>boot loader / DFU</strong>."
-    },
-    "initialSetupBackupSuccess": {
-        "message": "Backup disimpan <span class=\"message-positive\">berhasil</span>"
-    },
-    "initialSetupRestoreSuccess": {
-        "message": "Restore konfigurasi <span class=\"message-positive\">berhasil</span>"
     },
     "initialSetupButtonResetZaxis": {
         "message": "Reset sumbu Z, offset: 0 derajat"
