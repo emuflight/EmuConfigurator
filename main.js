@@ -1015,7 +1015,10 @@ let receiverMspWindowPending = false;
 app.on('browser-window-created', (_event, win) => {
   if (!receiverMspWindowPending) { return; }
   receiverMspWindowPending = false;
-  win.setMenu(null); // this popup has no menu bar
+  // Hide the menu bar rather than detaching it (setMenu(null)): on Linux/GTK, a window with
+  // no menu at all loses the accelerator table, so Ctrl+R (Reload) stops working while this
+  // popup has focus. autoHideMenuBar keeps accelerators live while hiding the bar itself.
+  win.setAutoHideMenuBar(true);
 });
 
 function createWindow() {
