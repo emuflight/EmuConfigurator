@@ -248,7 +248,7 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
 
             $('input[id="unsyncedPWMSwitch"]').prop('checked', PID_ADVANCED_CONFIG.use_unsyncedPwm !== 0).change();
             $('input[name="unsyncedpwmfreq"]').val(PID_ADVANCED_CONFIG.motor_pwm_rate);
-            $('input[name="digitalIdlePercent"]').val(PID_ADVANCED_CONFIG.digitalIdlePercent);
+            $('input[name="digitalIdlePercent"]').val(PID_ADVANCED_CONFIG.digitalIdlePercent.toFixed(2));
 
             //MSP 1.54
             if (semver.gte(CONFIG.apiVersion, "1.54.0")) {

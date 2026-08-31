@@ -297,14 +297,14 @@ TABS.pid_tuning.initialize = function(callback) {
         if (FEATURE_CONFIG.features.isEnabled('ANTI_GRAVITY') &&
                     ( semver.lt(CONFIG.flightControllerVersion, "0.3.0") || semver.lt(CONFIG.apiVersion, "1.47.0"))) { //was removed in 0.3.0
             $('.antigravity input[name="itermThrottleThreshold"]').val(ADVANCED_TUNING.itermThrottleThreshold);
-            $('.antigravity input[name="itermAcceleratorGain"]').val(ADVANCED_TUNING.itermAcceleratorGain / 1000);
+            $('.antigravity input[name="itermAcceleratorGain"]').val((ADVANCED_TUNING.itermAcceleratorGain / 1000).toFixed(1));
 
             var antiGravitySwitch = $('#antiGravitySwitch');
             antiGravitySwitch.prop('checked', ADVANCED_TUNING.itermAcceleratorGain !== 1000);
             antiGravitySwitch.change(function() {
                 var checked = $(this).is(':checked');
                 if (checked) {
-                    $('.antigravity input[name="itermAcceleratorGain"]').val(Math.max(ADVANCED_TUNING.itermAcceleratorGain / 1000, 1.1));
+                    $('.antigravity input[name="itermAcceleratorGain"]').val(Math.max(ADVANCED_TUNING.itermAcceleratorGain / 1000, 1.1).toFixed(1));
                     $('.antigravity .suboption').show();
                     if (parseInt(ADVANCED_TUNING.antiGravityMode, 10) === 0) {
                         $('.antigravity .antiGravityThres').hide();
@@ -312,7 +312,7 @@ TABS.pid_tuning.initialize = function(callback) {
                     $('.antigravity .antiGravityMode').show();
                 } else {
                     $('.antigravity select[id="antiGravityMode"]').val(0);
-                    $('.antigravity input[name="itermAcceleratorGain"]').val(1);
+                    $('.antigravity input[name="itermAcceleratorGain"]').val((1).toFixed(1));
                     $('.antigravity .suboption').hide();
                 }
             });
@@ -652,7 +652,7 @@ TABS.pid_tuning.initialize = function(callback) {
                 $('.pid_tuning .PITCH input[name="f"]').val(ADVANCED_TUNING.feedforwardPitch);
                 $('.pid_tuning .YAW input[name="f"]').val(ADVANCED_TUNING.feedforwardYaw);
                 var feedforwardTransitionNumberElement = $('input[name="feedforwardTransition-number"]');
-                feedforwardTransitionNumberElement.val(ADVANCED_TUNING.feedforwardTransition / 100);
+                feedforwardTransitionNumberElement.val((ADVANCED_TUNING.feedforwardTransition / 100).toFixed(2));
                 //adds 5th column which is Feedforward
                 $('#pid_main').attr('colspan', 5);
                 $('#pid_main .feedforward').show();
@@ -766,7 +766,7 @@ TABS.pid_tuning.initialize = function(callback) {
             }
             //end MSP 1.51
             var feedforwardTransitionNumberElement = $('input[name="feedforwardTransition-number"]');
-            feedforwardTransitionNumberElement.val(ADVANCED_TUNING.feedforwardTransition / 100);
+            feedforwardTransitionNumberElement.val((ADVANCED_TUNING.feedforwardTransition / 100).toFixed(2));
 
             // AntiGravity Mode
             if (semver.lt(CONFIG.apiVersion, "1.47.0")) {
