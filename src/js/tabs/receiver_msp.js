@@ -72,6 +72,12 @@ function buildChannelValues() {
 
 function transmitChannels() {
     if (!enableTX) {
+        // Not transmitting, so setRawRx (which would also re-arm the FC's RC override)
+        // is never called here -- check the connection directly instead, so a stale,
+        // disabled popup still closes itself if the FC disconnects.
+        if (opener.CONFIGURATOR && !opener.CONFIGURATOR.connectionValid) {
+            window.close();
+        }
         return;
     }
 
