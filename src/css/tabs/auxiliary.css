@@ -26,7 +26,6 @@
 }
 
 .tab-auxiliary .mode.off .info {
-    background: #cb4747;
     background: #828885;
     color: white;
 }
@@ -41,7 +40,6 @@
 }
 
 .tab-auxiliary .mode.off:nth-child(odd) .info {
-    background: #cb4747;
     background: #828885;
 }
 
