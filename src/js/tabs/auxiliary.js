@@ -423,14 +423,28 @@ TABS.auxiliary.initialize = function (callback) {
                 let modeElement = $('#mode-' + i);
                 if (modeElement.find(' .range').length === 0 && modeElement.find(' .link').length === 0) {
                     // if the mode is unused, skip it
-                    modeElement.removeClass('off').removeClass('on');
+                    modeElement.removeClass('off').removeClass('on').removeClass('disabled');
                     continue;
                 }
-                
+
                 if (bit_check(CONFIG.mode, i)) {
-                    $('.mode .name').eq(i).data('modeElement').addClass('on').removeClass('off');
+                    $('.mode .name').eq(i).data('modeElement').addClass('on').removeClass('off').removeClass('disabled');
+                    if (i === 0) {
+                        $('.mode .name').eq(i).text(AUX_CONFIG[i]);
+                    }
+                } else if (i === 0 && CONFIG.armingDisableCount > 0
+                        && (CONFIG.armingDisableFlags & (1 << (CONFIG.armingDisableCount - 1))) > 0) {
+                    // ARM_SWITCH is the highest arming-disable bit: arm switch is on but arming is blocked
+                    $('.mode .name').eq(i).data('modeElement').removeClass('on').removeClass('off').addClass('disabled');
+                    $('.mode .name').eq(i).empty()
+                        .append(document.createTextNode(AUX_CONFIG[i]))
+                        .append(document.createElement('br'))
+                        .append(document.createTextNode(i18n.getMessage('auxiliaryDisabled')));
                 } else {
-                    $('.mode .name').eq(i).data('modeElement').removeClass('on').addClass('off');
+                    $('.mode .name').eq(i).data('modeElement').removeClass('on').removeClass('disabled').addClass('off');
+                    if (i === 0) {
+                        $('.mode .name').eq(i).text(AUX_CONFIG[i]);
+                    }
                 }
                 hasUsedMode = true;
             }

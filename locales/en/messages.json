@@ -1754,6 +1754,9 @@
     "auxiliaryModeLogicOR": {
         "message": "OR"
     },
+    "auxiliaryDisabled": {
+        "message": "(DISABLED)"
+    },
     "adjustmentsHelp": {
         "message": "Configure adjustment switches. See the 'in-flight adjustments' section of the manual for details. The changes that adjustment functions make are not saved automatically."
     },
