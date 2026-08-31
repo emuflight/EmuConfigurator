@@ -112,12 +112,6 @@
     "deviceReady": {
         "message": "Dispositivo -  <span class=\"message-positive\">Preparado</span>"
     },
-    "backupFileIncompatible": {
-        "message": "O arquivo de resgardo facilitado foi creado para unha versión anterior do configurador polo que e incompatible coa versión. Sentímolo"
-    },
-    "backupFileUnmigratable": {
-        "message": "Este arquivo de copia de seguridad foi xerado cunha versión anterior do configurador e non se pode migrar. Sentímolo."
-    },
     "configMigrationFrom": {
         "message": "Migrando arquivo de configuración xerado por: $1"
     },
@@ -461,23 +455,11 @@
     "initialSetupResetText": {
         "message": "Reiniciar axustes a valores por <strong>defecto</strong>"
     },
-    "initialSetupButtonRestore": {
-        "message": "Restaurar"
-    },
     "initialSetupButtonRebootBootloader": {
         "message": "Activar o cargador de arranque / DFU"
     },
-    "initialSetupBackupRestoreText": {
-        "message": "<strong>Copia seguridade</strong> da súa configuración en caso de accidente,<strong>CLI</strong>ten opcións<span class=\"message-negative\">non</span>incluídas - usa o comando 'diff all' en CLI para isto."
-    },
     "initialSetupRebootBootloaderText": {
         "message": "Reinicia en modo<strong>cargador de arranque / DFU </strong>."
-    },
-    "initialSetupBackupSuccess": {
-        "message": "Backup gardado <span class=\"message-positive\">exitosamente</span>"
-    },
-    "initialSetupRestoreSuccess": {
-        "message": "Configuración restaurada <span class=\"message-positive\">correctamente</span>"
     },
     "initialSetupButtonResetZaxis": {
         "message": "Reiniciar eixo Z, offset: 0 º"

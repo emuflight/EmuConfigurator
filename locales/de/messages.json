@@ -101,12 +101,6 @@
     "deviceReady": {
         "message": "Gerät - <span class=\"message-positive\">Bereit</span>"
     },
-    "backupFileIncompatible": {
-        "message": "Die Backupdatei wurde mit einer älteren Version erstellt und ist leider nicht mit dem neuen Konfigurator kompatibel. Das tut uns leid :("
-    },
-    "backupFileUnmigratable": {
-        "message": "Die Backupdatei wurde mit einer älteren Version erstellt und kann leider nicht automatisch migriert werden."
-    },
     "configMigrationFrom": {
         "message": "Migriere die Konfigurationsdatei von Konfigurator: $1"
     },
@@ -429,23 +423,11 @@
     "initialSetupResetText": {
         "message": "Auf Werkseinstellungen <strong>zurücksetzen</strong>"
     },
-    "initialSetupButtonRestore": {
-        "message": "Wiederherstellen"
-    },
     "initialSetupButtonRebootBootloader": {
         "message": "Boot-Loader/DFU aktivieren"
     },
-    "initialSetupBackupRestoreText": {
-        "message": "<strong>Sichere</strong> deine Einstellungen für den Fall der Fälle. <strong>CLI-Einstellungen</strong> sind <span class=\"message-negative\">nicht</span> enthalten. Siehe den \"diff\" CLI-Befehl."
-    },
     "initialSetupRebootBootloaderText": {
         "message": "Starte im <strong>Boot-Loader/DFU Modus</strong>."
-    },
-    "initialSetupBackupSuccess": {
-        "message": "Backup <span class=\"message-positive\">erfolgreich</span> gespeichert"
-    },
-    "initialSetupRestoreSuccess": {
-        "message": "Konfiguration <span class=\"message-positive\">erfolgreich</span> wieder hergestellt"
     },
     "initialSetupButtonResetZaxis": {
         "message": "Z Achse zurücksetzen, Abweichung: 0 Grad"

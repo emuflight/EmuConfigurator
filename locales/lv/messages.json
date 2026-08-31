@@ -112,12 +112,6 @@
     "deviceReady": {
         "message": "Ierīce - <span class=\"message-positive\">Gatava</span>"
     },
-    "backupFileIncompatible": {
-        "message": "Rezerves kopijas fails tika uzģenerēts iepriekšējajai konfiguratora versijai un nav saderīgs ar šo konfiguratora versiju. Piedodiet"
-    },
-    "backupFileUnmigratable": {
-        "message": "Rezerves kopijas failu uzģenerēja iepriekšējās versijas konfigurators un tas nav migrējams. Piedodiet."
-    },
     "configMigrationFrom": {
         "message": "Migrēšanas konfigurācijas failu uzģenerēja konfigurators: $1"
     },
@@ -461,26 +455,11 @@
     "initialSetupResetText": {
         "message": "Atjaunot <strong>noklusējuma</strong> iestatījumus"
     },
-    "initialSetupButtonBackup": {
-        "message": "Dublēt"
-    },
-    "initialSetupButtonRestore": {
-        "message": "Atjaunot"
-    },
     "initialSetupButtonRebootBootloader": {
         "message": "Aktivizēt ielādētāju / DFU"
     },
-    "initialSetupBackupRestoreText": {
-        "message": "Veikt jūsu konfigurācijas <strong>dublēšanu</strong>, ja notiek kas negaidīts, <strong>CLI</strong> konfigurācija <span class=\"message-negative\">netiek</span> iekļauta - izmantot komandu 'diff all' iekš CLI."
-    },
     "initialSetupRebootBootloaderText": {
         "message": "Pārstartēties <strong>ielādētāja / DFU</strong> režīmā."
-    },
-    "initialSetupBackupSuccess": {
-        "message": "Rezerves kopija <span class=\"message-positive\">veiksmīgi saglabāta</span>"
-    },
-    "initialSetupRestoreSuccess": {
-        "message": "Konfigurācija atjaunota <span class=\"message-positive\">veiksmīgi</span>"
     },
     "initialSetupButtonResetZaxis": {
         "message": "Atiestatīt Z asi, nobīde: 0 grādi"

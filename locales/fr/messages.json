@@ -106,12 +106,6 @@
     "deviceReady": {
         "message": "Périphérique - <span class=\"message-positive\">Prêt</span>"
     },
-    "backupFileIncompatible": {
-        "message": "Ce fichier de sauvegarde a été généré avec une version précédente du configurateur et n'est pas compatible. Désolé."
-    },
-    "backupFileUnmigratable": {
-        "message": "Ce fichier de sauvegarde a été généré à partir d'une version précédente du configurateur et ne peut pas être migré. Désolé."
-    },
     "configMigrationFrom": {
         "message": "Fichier de configuration de migration généré par le configurateur: $1"
     },
@@ -428,26 +422,11 @@
     "initialSetupResetText": {
         "message": "Restaurer les réglages par <strong>défaut</strong>"
     },
-    "initialSetupButtonBackup": {
-        "message": "Sauvegarder"
-    },
-    "initialSetupButtonRestore": {
-        "message": "Restaurer"
-    },
     "initialSetupButtonRebootBootloader": {
         "message": "Activer le Boot Loader / DFU"
     },
-    "initialSetupBackupRestoreText": {
-        "message": "<strong>Sauvegardez</strong> votre configuration, les paramètres <strong>CLI</strong> ne seront <span class=\"message-negative\">pas</span> inclus - utilisez la commande CLI 'diff all' afin de les sauver."
-    },
     "initialSetupRebootBootloaderText": {
         "message": "Redémarrer en mode <strong>boot loader / DFU</strong>."
-    },
-    "initialSetupBackupSuccess": {
-        "message": "Sauvegarde <span class=\"message-positive\">réussie</span>"
-    },
-    "initialSetupRestoreSuccess": {
-        "message": "Configuration restaurée <span class=\"message-positive\">avec succès</span>"
     },
     "initialSetupButtonResetZaxis": {
         "message": "Réinitialiser l'axe Z, écart: 0 deg"

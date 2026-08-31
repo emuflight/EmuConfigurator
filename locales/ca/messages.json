@@ -100,12 +100,6 @@
     "deviceReady": {
         "message": "Dispositiu - <span class=\"message-positive\">Preparat</span>"
     },
-    "backupFileIncompatible": {
-        "message": "La còpia de seguretat va ser generada amb versions antigues del configurador i és incompatible. Perdona"
-    },
-    "backupFileUnmigratable": {
-        "message": "La còpia de seguretat va ser generada amb versions antigues del configurador i no és migrable. Perdona"
-    },
     "configMigrationFrom": {
         "message": "Migrant l'arxiu de configuració generada pel configurador: $1"
     },
@@ -417,18 +411,6 @@
     },
     "initialSetupResetText": {
         "message": "Restaurar ajustos per <strong>defecte</strong>"
-    },
-    "initialSetupButtonBackup": {
-        "message": "Còpia de Seguretat"
-    },
-    "initialSetupButtonRestore": {
-        "message": "Restaurar"
-    },
-    "initialSetupBackupSuccess": {
-        "message": "Còpia de seguretat desada <span class=\"message-positive\">correctament</span>"
-    },
-    "initialSetupRestoreSuccess": {
-        "message": "Configuració restaurada <span class=\"message-positive\">correctament</span>"
     },
     "initialSetupButtonResetZaxis": {
         "message": "Resetejar eix Z, offset: 0 graus"

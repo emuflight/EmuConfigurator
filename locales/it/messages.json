@@ -100,12 +100,6 @@
     "deviceReady": {
         "message": "Dispositivo - <span class=\"message-positive\">Pronto</span>"
     },
-    "backupFileIncompatible": {
-        "message": "I file di backup sono per una versione precedente del software. Ci dispiace ma non sono compatibili"
-    },
-    "backupFileUnmigratable": {
-        "message": "I file di backup sono per una versione precedente del software e non sono trasferibili."
-    },
     "configMigrationFrom": {
         "message": "Migrazione dei file di configurazione generato dal configuratore: $1"
     },
@@ -428,20 +422,11 @@
     "initialSetupResetText": {
         "message": "Ripristina i settaggi <strong>predefiniti</strong>"
     },
-    "initialSetupButtonRestore": {
-        "message": "Ripristina"
-    },
     "initialSetupButtonRebootBootloader": {
         "message": "Attiva Boot Loader / DFU"
     },
     "initialSetupRebootBootloaderText": {
         "message": "Riavvia in modalità <strong>boot loader / DFU</strong>."
-    },
-    "initialSetupBackupSuccess": {
-        "message": "Backup salvato <span class=\"message-positive\">correttamente</span>"
-    },
-    "initialSetupRestoreSuccess": {
-        "message": "Configurazione ripristinata<span class=\"message-positive\">correttamente</span>"
     },
     "initialSetupButtonResetZaxis": {
         "message": "Reset asse Z, offset: 0 gradi"

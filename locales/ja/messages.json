@@ -112,12 +112,6 @@
     "deviceReady": {
         "message": "デバイス - <span class=\"message-positive\">準備完了</span>"
     },
-    "backupFileIncompatible": {
-        "message": "申し訳ありませんが、指定されたバックアップファイルは以前のバージョンで作成されているため、このバージョンと互換性がありません。"
-    },
-    "backupFileUnmigratable": {
-        "message": "申し訳ありませんが、指定されたバックアップファイルは以前のバージョンで作成されているため、移行できません。"
-    },
     "configMigrationFrom": {
         "message": "Configuratorによって作られた設定ファイルの移行: $1"
     },
@@ -446,26 +440,11 @@
     "initialSetupResetText": {
         "message": "<strong>デフォルト</strong>設定に戻します。"
     },
-    "initialSetupButtonBackup": {
-        "message": "バックアップ"
-    },
-    "initialSetupButtonRestore": {
-        "message": "リストア"
-    },
     "initialSetupButtonRebootBootloader": {
         "message": "ブートローダー / DFU を有効化"
     },
-    "initialSetupBackupRestoreText": {
-        "message": "不測の事態に備え必ず設定の<strong>バックアップ</strong>を行って下さい。<strong>CLI</strong>設定は<span class=\"message-negative\">自動バックアップされません</span>。- CLIコマンドの [diff all] をご利用下さい。"
-    },
     "initialSetupRebootBootloaderText": {
         "message": "<strong>ブートローダー / DFU</strong> モードで再起動します。"
-    },
-    "initialSetupBackupSuccess": {
-        "message": "バックアップが<span class=\"message-positive\">正常</span>に保存されました"
-    },
-    "initialSetupRestoreSuccess": {
-        "message": "設定のリストアが<span class=\"message-positive\">成功</span>しました"
     },
     "initialSetupButtonResetZaxis": {
         "message": "リセット Z 軸、オフセット: 0 度"
