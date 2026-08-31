@@ -670,55 +670,55 @@
   dependencies:
     cross-spawn "^7.0.1"
 
-"@node-usb/usb-darwin-arm64@3.0.1":
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/@node-usb/usb-darwin-arm64/-/usb-darwin-arm64-3.0.1.tgz#de278cdb026c0691ddbc52cf9356dc2296d8d0b1"
-  integrity sha512-GB+MGKaXvEtaDOWng7nCPxWvnXWhZtbFL0FW9ncDmGYtFl3OW+xfLZGhd5Y9VKG6GXXIYS3x1FsBI+zkcxVMhA==
+"@node-usb/usb-darwin-arm64@3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@node-usb/usb-darwin-arm64/-/usb-darwin-arm64-3.1.0.tgz#aa1e9fdb87b66263d486a8ef2f88910016b431e5"
+  integrity sha512-GgdbwzNZMpMJNAFrwwOmWsDPrQ+9zOCig8ZXIuEyfblMSUeI3kfr95/6QfpWClpsyn49xx1jKG2FpbSEAFCJgQ==
 
-"@node-usb/usb-darwin-x64@3.0.1":
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/@node-usb/usb-darwin-x64/-/usb-darwin-x64-3.0.1.tgz#8c9fc14ce76cc5df9184f6c62f364afcbf92c0fa"
-  integrity sha512-oTY8vLoigjYFwNft1nZNNje0zAXjSQy9u3swe+pcCfZp6qQbEoSLegLEBr94arEgQloQabaq4VA2JZVA8cUQqQ==
+"@node-usb/usb-darwin-x64@3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@node-usb/usb-darwin-x64/-/usb-darwin-x64-3.1.0.tgz#74e12ff2d20f1d97e14067df48ec8f94ae4b8cd9"
+  integrity sha512-zyqPgeDGOSENA3v98WMThreHyIR87G1zeh6dQhw5+rmYv13Q788mZiaF2llcKb4BZDIRDyQUWCxFRW6rOlq5Pw==
 
-"@node-usb/usb-linux-arm-gnueabihf@3.0.1":
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/@node-usb/usb-linux-arm-gnueabihf/-/usb-linux-arm-gnueabihf-3.0.1.tgz#38b85e62b9df7ab76195f4e5a91f04f523c97b2a"
-  integrity sha512-GN5dTxc/FhjmC9NP7Xx1esGAhpIhnNvAf02kk/0i7Cz0w1VaJ/I0XbIVAYIJ5zhDg/oSYkhdILHbOS9+mlWCRQ==
+"@node-usb/usb-linux-arm-gnueabihf@3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@node-usb/usb-linux-arm-gnueabihf/-/usb-linux-arm-gnueabihf-3.1.0.tgz#dbd8dae4fc427669af015e598822f4f91ffa62c7"
+  integrity sha512-XiIHZLErfAkYVGQ9hnZBGWO+BN1ZkU3n4LR7PECS1v82kGlaGjdmRe70IVKzgV+wwYZk3Xo5Ic+EeGMtoIRdpA==
 
-"@node-usb/usb-linux-arm64-gnu@3.0.1":
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/@node-usb/usb-linux-arm64-gnu/-/usb-linux-arm64-gnu-3.0.1.tgz#0ae08a0170cba3e3157ee4168297c5534753cb90"
-  integrity sha512-7cL85qb/yrBXvssZwL3k62duBxT/LaCY/Vcfv/Du9MLFdHhqU0zdYX5fLch/zaW5euYXQE0gmCoTfimfAjlxGQ==
+"@node-usb/usb-linux-arm64-gnu@3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@node-usb/usb-linux-arm64-gnu/-/usb-linux-arm64-gnu-3.1.0.tgz#086952c2409509d08e3eb8a8ee6b7f1ada56d6d2"
+  integrity sha512-WnyzM4/L8ypAbJ8l2MRT329gCYVV+P1MIr23ZIGkrYCBaPK2F/Lr/7ph/L4WiJhsOEaBd3kpdDVXkbyR15UKRQ==
 
-"@node-usb/usb-linux-arm64-musl@3.0.1":
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/@node-usb/usb-linux-arm64-musl/-/usb-linux-arm64-musl-3.0.1.tgz#ee90a0dd93e171c8e849a08d71c052c9bf5c2ea9"
-  integrity sha512-EweA4HeTwzLiRHsU2DRFflJ3vx0shB5Z9Lt5/P/bkoUtSNt8uGjFCmsCjqoO068ul9oejsBMJg22rNLD3+iFqQ==
+"@node-usb/usb-linux-arm64-musl@3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@node-usb/usb-linux-arm64-musl/-/usb-linux-arm64-musl-3.1.0.tgz#60d6a79dfe16d57e9c0c207bb0577ba11493a510"
+  integrity sha512-+To+hIl6WesjCcJNTSobKPhwtePjDokElrBj2JIHiGesvOWEoMw1hFRZFJYAbn+hUvI0XKpXT82GIU+iY7foGw==
 
-"@node-usb/usb-linux-x64-gnu@3.0.1":
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/@node-usb/usb-linux-x64-gnu/-/usb-linux-x64-gnu-3.0.1.tgz#0ef65148967fe351f4b1636cf3dab105ccb987ec"
-  integrity sha512-cEE7GyMhtfq5OM/MXZn3RmYBqPvId0CMuoBx7biazPvlnf0iEWYjpma0WvVMWad/f1QIcC45WgrazHaVv6gAPw==
+"@node-usb/usb-linux-x64-gnu@3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@node-usb/usb-linux-x64-gnu/-/usb-linux-x64-gnu-3.1.0.tgz#c32f9a5581528367e910399eafd395a041dd98c9"
+  integrity sha512-OLaSMqaQi/mw9x44RPVfccKUlNVjSL2CTNeZF5IjckWcya29zw0Z9t/TWhZpYCP1IakSE7FT+aSit0N1Fw23xw==
 
-"@node-usb/usb-linux-x64-musl@3.0.1":
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/@node-usb/usb-linux-x64-musl/-/usb-linux-x64-musl-3.0.1.tgz#122a11005ecbe4550b8ded5fb956e88a5e0e4aeb"
-  integrity sha512-zGWlk1mzElTPO4wxlRcd1C7xd7xDxzgpOXbQfE+NbClOUJ71NkbnahWN2ef2LcJvFESYg/CV9Dv/ULKSpJWEEw==
+"@node-usb/usb-linux-x64-musl@3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@node-usb/usb-linux-x64-musl/-/usb-linux-x64-musl-3.1.0.tgz#87799116354b59d007dda5e1f24d200a46c2df7e"
+  integrity sha512-ocZ1gB84wvBfTEC+jocYu+GEnBRlS9mMsw99RA2Vhd+eWV2obj+HBKOpVQ/V+P3lUh6WWlmVIyj3bDUI588U3A==
 
-"@node-usb/usb-win32-arm64-msvc@3.0.1":
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/@node-usb/usb-win32-arm64-msvc/-/usb-win32-arm64-msvc-3.0.1.tgz#248b6ec97430d199adbd0c770402cc2107088dd8"
-  integrity sha512-ayXNeb+KvdkZLXzTWyttNONUPG8/x9PwuP+GvUeiYCQuyLMqmbGeMsO7IiuBWTnxLFtCdep+UBpcL8XMcYdTiA==
+"@node-usb/usb-win32-arm64-msvc@3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@node-usb/usb-win32-arm64-msvc/-/usb-win32-arm64-msvc-3.1.0.tgz#072a2b199b29ff2e1722f703c7f7e88da9efd68e"
+  integrity sha512-IokoKA7Fgga5DWB8N/PMqeLAPC5x23WkpiRbLoyQH1TjOHvu1CSpdx94LLqRqwMpMeuXaAm1VPvw6OooK0hnww==
 
-"@node-usb/usb-win32-ia32-msvc@3.0.1":
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/@node-usb/usb-win32-ia32-msvc/-/usb-win32-ia32-msvc-3.0.1.tgz#c8f90e5b6acfd27e2ea10b87ae3751997064577d"
-  integrity sha512-U5281i6yY7gtoTwLom8nLF2o+ILI/g4OFpbAJBr4GbVPOTu+CSNF2Ea+dLEAG30148mp8v79NEsIiAbWXS/1aw==
+"@node-usb/usb-win32-ia32-msvc@3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@node-usb/usb-win32-ia32-msvc/-/usb-win32-ia32-msvc-3.1.0.tgz#7996c577756bee1cb77d14d97cb6be5811ed4387"
+  integrity sha512-w1kQmcnpqVAEjgSGNPJygDNWJGfi3+3npMBW4zrCwPe+KKOjim/5YiUBJpSIQWON8QEh3gOgStOegF0EaXb+Bg==
 
-"@node-usb/usb-win32-x64-msvc@3.0.1":
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/@node-usb/usb-win32-x64-msvc/-/usb-win32-x64-msvc-3.0.1.tgz#8af801b4ebdd5c9a88a4e1ddd2fb62cc1b0ec234"
-  integrity sha512-T1jzCBwgnA6E5otxJS/j44b//6fGzHSDmLQtNN1fX6JvdQIisgtbf2+iKD/YI7E247j6Yi9Ixt+MKjHt64hugA==
+"@node-usb/usb-win32-x64-msvc@3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@node-usb/usb-win32-x64-msvc/-/usb-win32-x64-msvc-3.1.0.tgz#ac0fb4107450cf3fc9dc2046ea9bdf1f0db5d1da"
+  integrity sha512-0PaaDyE5LnDmjAOCZvnGkP1H3VQmKXQG2ytiA2+VSo1mMMTLylu0XaW7bSUqozpxCrzByP3mByK+2DeFLmbiRQ==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
@@ -4111,23 +4111,23 @@ uri-js@^4.2.2:
   dependencies:
     punycode "^2.1.0"
 
-usb@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/usb/-/usb-3.0.1.tgz#d6c0ca3ba260c07a8ac1453092e474321e77615b"
-  integrity sha512-IQIi5EraqmKssMNcXe7afKhriHFAE5WdfykhvgkOschJyHBkJXtk/PDx/DzVNyfI7qdr+BUbmLziXA+I3z02lw==
+usb@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/usb/-/usb-3.1.0.tgz#953cb439c10369bee01be52ef67d480300ed9382"
+  integrity sha512-G84NF5Y4/Mpj86peENkp29Qby/JS5bSiVEq5V9iH53g3FoDD7Z/loi7P78hs/nboGhe2SQ3Pc094vRAG+1wvag==
   dependencies:
     "@types/w3c-web-usb" "^1.0.14"
   optionalDependencies:
-    "@node-usb/usb-darwin-arm64" "3.0.1"
-    "@node-usb/usb-darwin-x64" "3.0.1"
-    "@node-usb/usb-linux-arm-gnueabihf" "3.0.1"
-    "@node-usb/usb-linux-arm64-gnu" "3.0.1"
-    "@node-usb/usb-linux-arm64-musl" "3.0.1"
-    "@node-usb/usb-linux-x64-gnu" "3.0.1"
-    "@node-usb/usb-linux-x64-musl" "3.0.1"
-    "@node-usb/usb-win32-arm64-msvc" "3.0.1"
-    "@node-usb/usb-win32-ia32-msvc" "3.0.1"
-    "@node-usb/usb-win32-x64-msvc" "3.0.1"
+    "@node-usb/usb-darwin-arm64" "3.1.0"
+    "@node-usb/usb-darwin-x64" "3.1.0"
+    "@node-usb/usb-linux-arm-gnueabihf" "3.1.0"
+    "@node-usb/usb-linux-arm64-gnu" "3.1.0"
+    "@node-usb/usb-linux-arm64-musl" "3.1.0"
+    "@node-usb/usb-linux-x64-gnu" "3.1.0"
+    "@node-usb/usb-linux-x64-musl" "3.1.0"
+    "@node-usb/usb-win32-arm64-msvc" "3.1.0"
+    "@node-usb/usb-win32-ia32-msvc" "3.1.0"
+    "@node-usb/usb-win32-x64-msvc" "3.1.0"
 
 username@^5.1.0:
   version "5.1.0"
