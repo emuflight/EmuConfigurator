@@ -4,7 +4,8 @@ TABS.receiver = {
     rateChartHeight: 117,
     useSuperExpo: false,
     deadband: 0,
-    yawDeadband: 0
+    yawDeadband: 0,
+    mspPopup: null
 };
 
 TABS.receiver.initialize = function (callback) {
@@ -213,7 +214,9 @@ TABS.receiver.initialize = function (callback) {
 
         // UI Hooks
         $('a.refresh').click(function () {
-	    // Todo: refresh data here
+            tab.refresh(function () {
+                GUI.log(i18n.getMessage('receiverDataRefreshed'));
+            });
         });
 
         $('a.update').click(function () {
@@ -283,29 +286,33 @@ TABS.receiver.initialize = function (callback) {
         });
 
         $("a.sticks").click(function() {
-            var
-                windowWidth = 370,
-                windowHeight = 510;
+            // window.open() with a name that's already open navigates (reloads) that
+            // window in place instead of creating a new one, wiping its JS state and
+            // racing the setRawRx assignment below. Reuse the existing popup instead.
+            if (tab.mspPopup && !tab.mspPopup.closed) {
+                tab.mspPopup.focus();
+                return;
+            }
 
-            chrome.app.window.create("/tabs/receiver_msp.html", {
-                id: "receiver_msp",
-                innerBounds: {
-                    minWidth: windowWidth, minHeight: windowHeight,
-                    width: windowWidth, height: windowHeight,
-                    maxWidth: windowWidth, maxHeight: windowHeight
-                },
-                alwaysOnTop: true
-            }, function(createdWindow) {
-                // Give the window a callback it can use to send the channels (otherwise it can't see those objects)
-                createdWindow.contentWindow.setRawRx = function(channels) {
+            // Estimate the popup's height from the FC's actual channel count (more AUX
+            // channels needs more slider rows); main.js's window-open override is the
+            // real source of truth and keeps the window resizable in case this is short.
+            var auxCount = Math.max(0, ((RC.active_channels > 0) ? RC.active_channels : 8) - 4);
+            var popupHeight = Math.min(340 + auxCount * 45, window.screen.availHeight - 100);
+            var createdWindow = window.open('tabs/receiver_msp.html', 'receiver_msp', 'width=370,height=' + popupHeight + ',resizable=yes');
+            tab.mspPopup = createdWindow;
+
+            // Give the window a callback it can use to send the channels (otherwise it can't see those objects)
+            if (createdWindow) {
+                createdWindow.setRawRx = function(channels) {
                     if (CONFIGURATOR.connectionValid && GUI.active_tab !== 'cli') {
                         mspHelper.setRawRx(channels);
                         return true;
                     } else {
                         return false;
                     }
-                }
-            });
+                };
+            }
         });
 
         // RC Smoothing
@@ -529,6 +536,13 @@ TABS.receiver.initialize = function (callback) {
 
         GUI.content_ready(callback);
     }
+};
+
+TABS.receiver.refresh = function (callback) {
+    var self = this;
+    GUI.tab_switch_cleanup(function () {
+        self.initialize(callback);
+    });
 };
 
 TABS.receiver.getReceiverData = function () {
