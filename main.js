@@ -1010,16 +1010,6 @@ ipcMain.handle('zoom-step', (_event, delta) => {
 });
 
 const RECEIVER_MSP_URL = pathToFileURL(path.join(__dirname, 'dist', 'tabs', 'receiver_msp.html')).href;
-let receiverMspWindowPending = false;
-
-app.on('browser-window-created', (_event, win) => {
-  if (!receiverMspWindowPending) { return; }
-  receiverMspWindowPending = false;
-  // Hide the menu bar rather than detaching it (setMenu(null)): on Linux/GTK, a window with
-  // no menu at all loses the accelerator table, so Ctrl+R (Reload) stops working while this
-  // popup has focus. autoHideMenuBar keeps accelerators live while hiding the bar itself.
-  win.setAutoHideMenuBar(true);
-});
 
 function createWindow() {
   const buildMode = getBuildMode();
@@ -1128,7 +1118,6 @@ function createWindow() {
       return { action: 'deny' }; // Prevent Electron from opening its own window
     }
     if (url === RECEIVER_MSP_URL) {
-      receiverMspWindowPending = true;
       // receiver.js computes this from the connected FC's actual channel count
       // (more AUX channels needs a taller popup); fall back to a sane default.
       const requestedHeightMatch = /(?:^|,)height=(\d+)/.exec(features || '');
@@ -1143,6 +1132,7 @@ function createWindow() {
           minHeight: 500, // user can still resize taller if this guess runs short
           resizable: true,
           alwaysOnTop: true,
+          autoHideMenuBar: true, // no menu bar, but keep Ctrl+R/etc. accelerators live (see setMenu(null) history)
         },
       };
     }
