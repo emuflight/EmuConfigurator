@@ -541,10 +541,7 @@ TABS.receiver.initialize = function (callback) {
 TABS.receiver.refresh = function (callback) {
     var self = this;
     GUI.tab_switch_cleanup(function () {
-        self.initialize();
-        if (callback) {
-            callback();
-        }
+        self.initialize(callback);
     });
 };
 
