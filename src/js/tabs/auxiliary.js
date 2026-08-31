@@ -436,7 +436,10 @@ TABS.auxiliary.initialize = function (callback) {
                         && (CONFIG.armingDisableFlags & (1 << (CONFIG.armingDisableCount - 1))) > 0) {
                     // ARM_SWITCH is the highest arming-disable bit: arm switch is on but arming is blocked
                     $('.mode .name').eq(i).data('modeElement').removeClass('on').removeClass('off').addClass('disabled');
-                    $('.mode .name').eq(i).html(AUX_CONFIG[i] + '<br>' + i18n.getMessage('auxiliaryDisabled'));
+                    $('.mode .name').eq(i).empty()
+                        .append(document.createTextNode(AUX_CONFIG[i]))
+                        .append(document.createElement('br'))
+                        .append(document.createTextNode(i18n.getMessage('auxiliaryDisabled')));
                 } else {
                     $('.mode .name').eq(i).data('modeElement').removeClass('on').removeClass('disabled').addClass('off');
                     if (i === 0) {
