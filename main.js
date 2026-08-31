@@ -1,6 +1,7 @@
 const { app, BrowserWindow, ipcMain, Menu, nativeImage, screen, shell, globalShortcut } = require('electron');
 const path = require('path');
 const fs = require('fs');
+const { pathToFileURL } = require('url');
 
 // Register signal handlers at the very top to catch Ctrl+C/SIGTERM before anything else.
 // In dev mode (yarn dev), these ensure the process exits without leaving
@@ -1008,6 +1009,8 @@ ipcMain.handle('zoom-step', (_event, delta) => {
   }
 });
 
+const RECEIVER_MSP_URL = pathToFileURL(path.join(__dirname, 'dist', 'tabs', 'receiver_msp.html')).href;
+
 function createWindow() {
   const buildMode = getBuildMode();
   setupMenu(buildMode);
@@ -1108,11 +1111,30 @@ function createWindow() {
   });
 
   // Intercept new window requests (e.g., target="_blank" links) and open in system browser
-  win.webContents.setWindowOpenHandler(({ url }) => {
+  win.webContents.setWindowOpenHandler(({ url, features }) => {
     // Open external links in the system default browser
     if (url.startsWith('http://') || url.startsWith('https://')) {
       shell.openExternal(url);
       return { action: 'deny' }; // Prevent Electron from opening its own window
+    }
+    if (url === RECEIVER_MSP_URL) {
+      // receiver.js computes this from the connected FC's actual channel count
+      // (more AUX channels needs a taller popup); fall back to a sane default.
+      const requestedHeightMatch = /(?:^|,)height=(\d+)/.exec(features || '');
+      const height = requestedHeightMatch ? Math.max(500, parseInt(requestedHeightMatch[1], 10)) : 700;
+      return {
+        action: 'allow',
+        overrideBrowserWindowOptions: {
+          width: 370,
+          height,
+          minWidth: 370,
+          maxWidth: 370,
+          minHeight: 500, // user can still resize taller if this guess runs short
+          resizable: true,
+          alwaysOnTop: true,
+          autoHideMenuBar: true, // no menu bar, but keep Ctrl+R/etc. accelerators live (see setMenu(null) history)
+        },
+      };
     }
     // Deny all other URLs (file://, app://, etc.) to avoid Electron's "response must be an object" console error
     return { action: 'deny' };
