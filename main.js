@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain, Menu, nativeImage, screen, shell, globalShortcut } = require('electron');
+const { app, BrowserWindow, ipcMain, Menu, nativeImage, screen, shell } = require('electron');
 const path = require('path');
 const fs = require('fs');
 const { pathToFileURL } = require('url');
@@ -152,7 +152,12 @@ function setupMenu(buildMode) {
         },
         ...(showDevTools ? [
           { type: 'separator' },
-          { role: 'toggleDevTools', label: 'Toggle Developer Tools' }
+          { role: 'toggleDevTools', label: 'Toggle Developer Tools' },
+          // Hidden duplicate: a MenuItem accelerator replaces the role's default (Ctrl+Shift+I)
+          // rather than adding to it, so F12 needs its own item. Menu accelerators dispatch at
+          // the native window level, unlike before-input-event, so this toggles reliably even
+          // once DevTools itself has keyboard focus.
+          { role: 'toggleDevTools', visible: false, accelerator: 'F12' }
         ] : [])
       ]
     },
@@ -236,7 +241,7 @@ const DIALOG_FOLDER_KEYS = { __proto__: null, firmware: 'lastFirmwareFolder' };
 const FOLDER_MEMORY_KEYS = ['lastDialogFolder', ...new Set(Object.values(DIALOG_FOLDER_KEYS))];
 
 // In-memory zoom level — single source of truth; avoids disk reads on resize
-// and eliminates races between the F12 handler and devtools-opened/closed handlers.
+// and eliminates races between the resize and devtools-opened/closed handlers.
 let _currentZoom = DEFAULT_ZOOM_LEVEL;
 
 // Ensure config directory exists
@@ -1043,20 +1048,6 @@ function createWindow() {
   // Enforce minimum window size multiple ways for cross-platform compatibility
   win.setMinimumSize(MIN_WINDOW_WIDTH, MIN_WINDOW_HEIGHT);
 
-  // Register F12 as global shortcut to toggle DevTools.
-  // Unregister first: if createWindow() is called again (e.g. macOS activate after last window closed),
-  // re-registration would fail silently and the old handler would reference a destroyed window.
-  // Zoom is preserved by the devtools-opened/devtools-closed handlers via _currentZoom.
-  globalShortcut.unregister('F12');
-  globalShortcut.register('F12', () => {
-    if (!win || win.isDestroyed() || !win.webContents) { return; }
-    if (win.webContents.isDevToolsOpened()) {
-      win.webContents.closeDevTools();
-    } else {
-      win.webContents.openDevTools();
-    }
-  });
-
   // Active enforcement: if window size falls below minimum after any resize, restore it
   let _resizeZoomTimer = null;
   let _devtoolsZoomTimer = null; // shared between devtools-opened/closed to prevent timer leaks
@@ -1148,9 +1139,8 @@ function createWindow() {
     saveConfig({ isMaximized: win.isMaximized(), windowBounds: win.getNormalBounds() });
   });
 
-  // Clear all timers, unregister shortcuts, and release window reference on close
+  // Clear all timers and release window reference on close
   win.on('closed', () => {
-    globalShortcut.unregister('F12');
     if (_resizeZoomTimer) {
       clearTimeout(_resizeZoomTimer);
       _resizeZoomTimer = null;
