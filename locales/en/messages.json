@@ -5085,6 +5085,18 @@
     "imufFlashingButtonLoadLocal": {
         "message": "Load Firmware [Local]"
     },
+    "imufFlashingReleaseSummaryHead": {
+        "message": "Release Info"
+    },
+    "imufFlashingReleaseName": {
+        "message": "Release:"
+    },
+    "imufFlashingReleaseDate": {
+        "message": "Date:"
+    },
+    "imufFlashingReleaseNotes": {
+        "message": "Notes:"
+    },
     "imufFlashingBinarySummaryHead": {
         "message": "Selected Firmware"
     },

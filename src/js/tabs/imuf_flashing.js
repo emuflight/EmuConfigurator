@@ -88,6 +88,9 @@ TABS.imuf_flashing.initialize = function (callback) {
     self.flashInProgress = false;
 
     function onDocumentLoad() {
+        // translate to user-selected language
+        i18n.localizePage();
+
         function populateReleases(releaseData) {
             const select_e = $('select[name="imuf_version"]');
             select_e.empty().append(`<option value="0">${i18n.getMessage('imufFlashingSelectVersion')}</option>`);
@@ -106,6 +109,7 @@ TABS.imuf_flashing.initialize = function (callback) {
                         .attr('value', release.tag_name)
                         .text(`${release.name || release.tag_name} (${asset.name})`)
                         .data('asset', asset)
+                        .data('release', release)
                         .appendTo(select_e);
                 });
         }
@@ -113,7 +117,19 @@ TABS.imuf_flashing.initialize = function (callback) {
         self.releaseChecker.loadReleaseData(populateReleases);
 
         $('select[name="imuf_version"]').change(function (evt) {
-            $('a.load_remote_file_imuf').toggleClass('disabled', evt.target.value === '0');
+            const disabled = evt.target.value === '0';
+            $('a.load_remote_file_imuf').toggleClass('disabled', disabled);
+
+            const release = $('option:selected', evt.target).data('release');
+            if (disabled || !release) {
+                $('.imuf_release_info').slideUp();
+                return;
+            }
+
+            $('.imuf_release_info .name').text(release.name || release.tag_name).prop('href', release.html_url);
+            $('.imuf_release_info .date').text(new Date(release.published_at).toLocaleDateString());
+            $('.imuf_release_info .notes').html(release.body ? marked.parse(release.body) : '');
+            $('.imuf_release_info').slideDown();
         });
 
         $('a.load_remote_file_imuf').click(function () {
