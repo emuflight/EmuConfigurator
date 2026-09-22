@@ -1,3 +1,12 @@
+/* Same as the shared .tab-firmware_flasher rule etc. in main.css (that list doesn't include this
+   new tab) -- without a definite height + positioned ancestor here, .content_toolbar's
+   `position: absolute; bottom: 0;` (main.css) has nothing to anchor to, so #content ends up
+   scrolling the whole tab -- toolbar included -- instead of just .content_wrapper. */
+.tab-imuf_flashing {
+    height: 100%;
+    position: relative;
+}
+
 .tab-imuf_flashing .info {
     padding: 2px 18px;
     position: relative;
