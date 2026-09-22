@@ -1,0 +1,22 @@
+.tab-imuf_flashing .info {
+    padding: 2px 18px;
+    position: relative;
+    flex-grow: 100;
+}
+
+.tab-imuf_flashing .info .progressLabel {
+    position: absolute;
+    width: calc(100% - 36px);
+    height: 26px;
+    top: 2px;
+    left: 0;
+    text-align: center;
+    line-height: 24px;
+    color: white;
+    font-weight: bold;
+    margin-left: 18px;
+}
+
+.tab-imuf_flashing .imuf_binary_summary .title {
+    border-bottom: 1px solid #9c9c9c;
+}

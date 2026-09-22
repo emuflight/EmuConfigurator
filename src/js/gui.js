@@ -35,6 +35,7 @@ var GUI_control = function () {
         'led_strip',
         'logging',
         'onboard_logging',
+        'imuf_flashing',
         'modes',
         'motors',
         'pid_tuning',

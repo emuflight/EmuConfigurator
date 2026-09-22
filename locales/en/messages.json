@@ -5058,6 +5058,99 @@
     "pidTuningIMUFFilterSettings": {
         "message": "Profile independent IMU-F Filter Settings"
     },
+    "tabImufFlashing": {
+        "message": "IMU-F Flashing"
+    },
+    "imufFlashingOptionLoading": {
+        "message": "Loading ..."
+    },
+    "imufFlashingOnlineSelectVersionDescription": {
+        "message": "Select an IMU-F release to download from $t(imufFlashingReleasesRepo.message), or use Load Local File to select a .bin from disk."
+    },
+    "imufFlashingReleasesRepo": {
+        "message": "github.com/emuflight/imu-f"
+    },
+    "imufFlashingSelectVersion": {
+        "message": "Select IMU-F version"
+    },
+    "imufFlashingSelectFirmware": {
+        "message": "Select an IMU-F release or local file to flash"
+    },
+    "imufFlashingButtonFlash": {
+        "message": "Flash IMU-F"
+    },
+    "imufFlashingButtonLoadOnline": {
+        "message": "Load Firmware [Online]"
+    },
+    "imufFlashingButtonLoadLocal": {
+        "message": "Load Firmware [Local]"
+    },
+    "imufFlashingBinarySummaryHead": {
+        "message": "Selected Firmware"
+    },
+    "imufFlashingBinaryFile": {
+        "message": "File:"
+    },
+    "imufFlashingBinarySize": {
+        "message": "Size:"
+    },
+    "imufFlashingBinaryCipher": {
+        "message": "Cipher:"
+    },
+    "imufFlashingCipherWillEncode": {
+        "message": "Plain binary, will be encoded before sending"
+    },
+    "imufFlashingCipherAlreadyEncoded": {
+        "message": "Already encoded, sending as-is"
+    },
+    "imufFlashingWarningText": {
+        "message": "Flashing IMU-F firmware is a separate action from flashing the flight controller's own firmware. Do not disconnect or power off the flight controller while flashing is in progress — interrupting it can leave the IMUF9001 coprocessor unresponsive."
+    },
+    "imufFlashingBinaryLoaded": {
+        "message": "Loaded firmware ($1 bytes)"
+    },
+    "imufFlashingBinaryInvalidSize": {
+        "message": "Firmware file size invalid ($1 bytes)"
+    },
+    "imufFlashingDownloading": {
+        "message": "Downloading firmware..."
+    },
+    "imufFlashingDownloadFailed": {
+        "message": "Failed to download firmware"
+    },
+    "imufFlashingEnteringCli": {
+        "message": "Entering CLI mode..."
+    },
+    "imufFlashingCliEntryFailed": {
+        "message": "Failed to enter CLI mode"
+    },
+    "imufFlashingEnteringBootloader": {
+        "message": "Putting IMU-F into bootloader mode..."
+    },
+    "imufFlashingBootloaderFailed": {
+        "message": "Failed to enter IMU-F bootloader"
+    },
+    "imufFlashingArmFailed": {
+        "message": "Failed to prepare IMU-F for firmware load"
+    },
+    "imufFlashingLoading": {
+        "message": "Loading firmware onto flight controller..."
+    },
+    "imufFlashingLoadChunkFailed": {
+        "message": "Failed to load firmware chunk"
+    },
+    "imufFlashingCommitting": {
+        "message": "Flashing IMU-F, do not disconnect..."
+    },
+    "imufFlashingCommitFailed": {
+        "message": "IMU-F flash failed"
+    },
+    "imufFlashingSuccess": {
+        "message": "IMU-F flashed successfully, flight controller is rebooting"
+    },
+    "imufFlashingAbortedTabSwitch": {
+        "message": "IMU-F flashing aborted: tab changed mid-flash"
+    },
     "tabVtx": {
         "message": "Analog VTX"
     },
