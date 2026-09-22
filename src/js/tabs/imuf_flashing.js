@@ -228,6 +228,13 @@ TABS.imuf_flashing.enterCliMode = function (callback) {
     CONFIGURATOR.cliValid = false;
     CONFIGURATOR.cliActive = true;
 
+    // Flush any MSP request already in flight (e.g. the periodic live-status poll's last send
+    // just before this) and its retry timer -- otherwise it keeps resending binary MSP frames
+    // into the CLI text stream for up to another 1000ms, same collision this function's
+    // cliActive flag is meant to prevent going forward. Same call cli.js's own cleanup() makes
+    // symmetrically at CLI exit.
+    MSP.callbacks_cleanup();
+
     const bufferOut = new ArrayBuffer(1);
     new Uint8Array(bufferOut)[0] = 0x23; // '#'
     serial.send(bufferOut);
@@ -246,7 +253,8 @@ TABS.imuf_flashing.enterCliMode = function (callback) {
 };
 
 // Sends one CLI command (reusing TABS.cli's send/receive machinery) and waits for one of
-// expectSubstrings to appear in the response, up to timeoutMs.
+// expectSubstrings to appear in the response, up to timeoutMs. callback gets (ok, matched, raw)
+// -- raw is whatever text actually came back, for logging on failure.
 TABS.imuf_flashing.sendCliCommandExpect = function (command, expectSubstrings, timeoutMs, callback) {
     const startLen = TABS.cli.outputHistory.length;
     TABS.cli.sendLine(command, () => {
@@ -257,10 +265,10 @@ TABS.imuf_flashing.sendCliCommandExpect = function (command, expectSubstrings, t
             const matched = expectSubstrings.find((s) => newText.indexOf(s) !== -1);
             if (matched) {
                 clearInterval(pollId);
-                callback(true, matched);
+                callback(true, matched, newText);
             } else if (waited >= timeoutMs) {
                 clearInterval(pollId);
-                callback(false, null);
+                callback(false, null, newText);
             }
         }, 20);
     });
@@ -276,8 +284,9 @@ TABS.imuf_flashing.sendChunks = function (wireBytes, offset, callback) {
     const chunkLen = Math.min(IMUF_CHUNK_SIZE, wireBytes.length - offset);
     const command = `imufloadbin l${imufU32ToLeHex(chunkLen)}${imufBytesToHex(wireBytes, offset, chunkLen)}`;
 
-    self.sendCliCommandExpect(command, ['LOADED', 'WOAH!', 'CRAP!', 'PFFFT!'], 2000, (ok, matched) => {
+    self.sendCliCommandExpect(command, ['LOADED', 'WOAH!', 'CRAP!', 'PFFFT!'], 2000, (ok, matched, raw) => {
         if (!ok || matched !== 'LOADED') {
+            GUI.log(`IMU-F load chunk failed at offset ${offset}: ${JSON.stringify(raw)}`);
             self.flashFailed('imufFlashingLoadChunkFailed');
             callback(false);
             return;
@@ -310,14 +319,16 @@ TABS.imuf_flashing.flash = function () {
         }
 
         self.flashingMessage(i18n.getMessage('imufFlashingEnteringBootloader'), self.FLASH_MESSAGE_TYPES.ACTION);
-        self.sendCliCommandExpect('imufbootloader', ['BOOTLOADER', 'FAIL'], 5000, (ok, matched) => {
+        self.sendCliCommandExpect('imufbootloader', ['BOOTLOADER', 'FAIL'], 5000, (ok, matched, raw) => {
             if (!ok || matched !== 'BOOTLOADER') {
+                GUI.log(`IMU-F bootloader entry failed: ${JSON.stringify(raw)}`);
                 self.flashFailed('imufFlashingBootloaderFailed');
                 return;
             }
 
-            self.sendCliCommandExpect('imufloadbin !', ['SUCCESS'], 2000, (armed) => {
+            self.sendCliCommandExpect('imufloadbin !', ['SUCCESS'], 2000, (armed, armedMatched, armedRaw) => {
                 if (!armed) {
+                    GUI.log(`IMU-F arm-for-load failed: ${JSON.stringify(armedRaw)}`);
                     self.flashFailed('imufFlashingArmFailed');
                     return;
                 }
@@ -331,8 +342,9 @@ TABS.imuf_flashing.flash = function () {
                     self.flashingMessage(i18n.getMessage('imufFlashingCommitting'), self.FLASH_MESSAGE_TYPES.ACTION);
                     // cli.c's cliImufFlashBin prints nothing on failure (no "FAIL" branch exists) —
                     // a failed commit is only detectable by this timing out.
-                    self.sendCliCommandExpect('imufflashbin', ['SUCCESS'], 8000, (committed, matched3) => {
+                    self.sendCliCommandExpect('imufflashbin', ['SUCCESS'], 8000, (committed, matched3, raw3) => {
                         if (!committed || matched3 !== 'SUCCESS') {
+                            GUI.log(`IMU-F flash commit failed: ${JSON.stringify(raw3)}`);
                             self.flashFailed('imufFlashingCommitFailed');
                             return;
                         }

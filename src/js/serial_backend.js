@@ -562,7 +562,10 @@ function update_live_status() {
        display: 'inline-block'
     });
 
-    if (GUI.active_tab !== 'cli') {
+    // CONFIGURATOR.cliActive covers any tab driving a raw CLI session (not just the CLI tab
+    // itself, e.g. imuf_flashing) -- sending MSP requests while the FC is mid-CLI-command
+    // corrupts both streams on the wire.
+    if (GUI.active_tab !== 'cli' && !CONFIGURATOR.cliActive) {
         MSP.send_message(MSPCodes.MSP_BOXNAMES, false, false);
         MSP.send_message(MSPCodes.MSP_STATUS_EX, false, false);
         MSP.send_message(MSPCodes.MSP_ANALOG, false, false);
