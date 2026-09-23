@@ -470,6 +470,9 @@
     "boardInfoReceived": {
         "message": "Board: <strong>$1</strong>, version: <strong>$2</strong>"
     },
+    "imufVersionReceived": {
+        "message": "IMU-F version: <strong>$1</strong>"
+    },
     "buildInfoReceived": {
         "message": "Running firmware released on: <strong>$1</strong>"
     },

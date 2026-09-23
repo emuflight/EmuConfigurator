@@ -241,18 +241,32 @@ function onOpen(openInfo) {
                                     updateStatusBarVersion(CONFIG.flightControllerVersion, CONFIG.flightControllerIdentifier, FC.getHardwareName());
                                     updateTopBarVersion(CONFIG.flightControllerVersion, CONFIG.flightControllerIdentifier, FC.getHardwareName());
 
-                                    MSP.send_message(MSPCodes.MSP_UID, false, false, function () {
-                                        var uniqueDeviceIdentifier = CONFIG.uid[0].toString(16) + CONFIG.uid[1].toString(16) + CONFIG.uid[2].toString(16);
-                                        connectionTimestamp = Date.now();
-                                        GUI.log(i18n.getMessage('uniqueDeviceIdReceived', [uniqueDeviceIdentifier]));
+                                    function continueAfterBoardInfo() {
+                                        MSP.send_message(MSPCodes.MSP_UID, false, false, function () {
+                                            var uniqueDeviceIdentifier = CONFIG.uid[0].toString(16) + CONFIG.uid[1].toString(16) + CONFIG.uid[2].toString(16);
+                                            connectionTimestamp = Date.now();
+                                            GUI.log(i18n.getMessage('uniqueDeviceIdReceived', [uniqueDeviceIdentifier]));
 
-                                        MSP.send_message(MSPCodes.MSP_NAME, false, false, function () {
-                                            GUI.log(i18n.getMessage('craftNameReceived', [CONFIG.name]));
+                                            MSP.send_message(MSPCodes.MSP_NAME, false, false, function () {
+                                                GUI.log(i18n.getMessage('craftNameReceived', [CONFIG.name]));
 
-                                            CONFIG.armingDisabled = false;
-                                            mspHelper.setArmingEnabled(false, false, setRtc);
+                                                CONFIG.armingDisabled = false;
+                                                mspHelper.setArmingEnabled(false, false, setRtc);
+                                            });
                                         });
-                                    });
+                                    }
+
+                                    // MSP_IMUF_INFO (added MSP 1.51) only responds on HESP/SX10/FLUX --
+                                    // same gate pid_tuning.js already uses for this same request.
+                                    if (semver.gte(CONFIG.apiVersion, "1.51.0") &&
+                                        (CONFIG.boardIdentifier === "HESP" || CONFIG.boardIdentifier === "SX10" || CONFIG.boardIdentifier === "FLUX")) {
+                                        MSP.send_message(MSPCodes.MSP_IMUF_INFO, false, false, function () {
+                                            GUI.log(i18n.getMessage('imufVersionReceived', [IMUF_FILTER_CONFIG.imufCurrentVersion]));
+                                            continueAfterBoardInfo();
+                                        });
+                                    } else {
+                                        continueAfterBoardInfo();
+                                    }
                                 });
                             });
                         });
