@@ -5118,6 +5118,9 @@
     "imufFlashingWarningText": {
         "message": "Flashing IMU-F firmware is a separate action from flashing the flight controller's own firmware. Do not disconnect or power off the flight controller while flashing is in progress — interrupting it can leave the IMUF9001 coprocessor unresponsive."
     },
+    "imufFlashingRecoveryText": {
+        "message": "If IMU-F firmware becomes corrupted, leave the flight controller powered on for about 5 minutes. The IMUF9001 coprocessor will then enter recovery mode and accept a new flash from this tab."
+    },
     "imufFlashingBinaryLoaded": {
         "message": "Loaded firmware ($1 bytes)"
     },
