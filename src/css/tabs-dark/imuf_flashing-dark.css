@@ -6,3 +6,9 @@
     background-color: #3a3a3a;
     color: white;
 }
+
+/* Row separator dulled to match firmware_flasher-dark.css -- without this it shares
+   var(--subtleAccent) with the select's own border-bottom, making both equally bright. */
+.tab-imuf_flashing .cf_table td {
+    border-bottom: solid 1px #4f4f4f;
+}

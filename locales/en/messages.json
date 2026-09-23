@@ -5071,7 +5071,7 @@
         "message": "Select an IMU-F release to download from $t(imufFlashingReleasesRepo.message), or use Load Local File to select a .bin from disk."
     },
     "imufFlashingReleasesRepo": {
-        "message": "github.com/emuflight/imu-f"
+        "message": "<a href=\"https://github.com/emuflight/imu-f\" target=\"_blank\">github.com/emuflight/imu-f</a>"
     },
     "imufFlashingSelectVersion": {
         "message": "Select IMU-F version"
