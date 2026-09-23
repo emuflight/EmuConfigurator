@@ -110,7 +110,8 @@ TABS.imuf_flashing.initialize = function (callback) {
         const installedVersion = IMUF_FILTER_CONFIG.imufCurrentVersion;
         if (installedVersion !== undefined) {
             const key = installedVersion === 9999 ? 'imufFlashingInstalledVersionUnknown' : 'imufFlashingInstalledVersion';
-            $('.imuf_installed_version').html(i18n.getMessage(key, [installedVersion]));
+            $('.imuf_installed_version .value').text(i18n.getMessage(key, [installedVersion]));
+            $('.imuf_installed_version').show();
         }
 
         function populateReleases(releaseData) {
@@ -474,6 +475,7 @@ TABS.imuf_flashing.flash = function () {
 
                         self.flashProgress(100);
                         self.flashingMessage(i18n.getMessage('imufFlashingSuccess'), self.FLASH_MESSAGE_TYPES.VALID);
+                        AudioFeedback.playFlashVerified();
                         self.flashInProgress = false;
                         self._lastResult = {success: true};
                         console.log('[imuf-flashing] flash succeeded, awaiting reconnect');
