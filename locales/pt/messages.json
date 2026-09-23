@@ -345,7 +345,7 @@
         "message": "<strong>Prevenção contra voo acidental ativado</strong>"
     },
     "boardInfoReceived": {
-        "message": "Placa: <strong>$1</strong>, versão: <strong>$2</strong>"
+        "message": "Placa: <strong>$1</strong>, revisão: <strong>$2</strong>"
     },
     "buildInfoReceived": {
         "message": "Firmware em execução disponibilizado em: <strong>$1</strong>"

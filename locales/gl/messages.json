@@ -357,7 +357,7 @@
         "message": "<strong>Prevención de despegue habilitada</strong>"
     },
     "boardInfoReceived": {
-        "message": "Placa: <strong>$1</strong>, versión: <strong>$2</strong>"
+        "message": "Placa: <strong>$1</strong>, revisión: <strong>$2</strong>"
     },
     "buildInfoReceived": {
         "message": "Executando firmware publicado en: <strong>$1</strong>"
