@@ -1,8 +1,7 @@
 'use strict';
 
 // Substitution table from the IMUF9001 bootloader firmware itself (not app-chosen).
-// caesarThing[i] === decodedByte; encoding a plain byte means finding its index i.
-// See AI/EFC/feat/imuf-flashing-tab/CONTEXT_imuf-flashing-tab.md for the wire-protocol writeup.
+// caesarThing[i] === decodedByte. Encoding a plain byte means finding its index i.
 const IMUF_CAESAR_TABLE = [
     155, 225, 248, 242, 93, 127, 22, 172, 177, 201, 108, 8, 132, 254, 197, 49,
     216, 169, 32, 151, 217, 202, 122, 227, 86, 17, 165, 226, 222, 82, 252, 168,
@@ -95,8 +94,8 @@ TABS.imuf_flashing.initialize = function (callback) {
         // translate to user-selected language
         i18n.localizePage();
 
-        // Show the result of a flash attempt that just completed across a reboot/reconnect
-        // round-trip (see _awaitReconnect) -- this re-init is that round-trip's continuation.
+        // Shows the outcome of a flash attempt from before a reboot/reconnect (see
+        // _awaitReconnect). This re-init is that round-trip's continuation.
         if (self._lastResult) {
             const result = self._lastResult;
             self._lastResult = null;
@@ -234,12 +233,10 @@ TABS.imuf_flashing.onBinaryLoaded = function (bytes, filename) {
     self.enableFlashing(true);
 };
 
-// Own raw serial read, registered as CONFIGURATOR.cliActiveReader (serial_backend.js's
-// read_serial()) instead of routing through TABS.cli.read -- that function also drives
-// CliAutoComplete and the interactive CLI tab's terminal-emulation state (backspace, escape
-// sequences, history), none of which this tab sets up, and which throws
-// ("this.writeToOutput is not a function") if invoked without TABS.cli.initialize() having
-// run first. This tab only needs a flat accumulated-text buffer to substring-match against.
+// Registered as CONFIGURATOR.cliActiveReader (serial_backend.js's read_serial()) instead of
+// routing through TABS.cli.read. That function also drives CliAutoComplete and interactive
+// terminal-emulation state this tab never initializes, and throws if invoked without
+// TABS.cli.initialize() having run first. This tab only needs a flat text buffer to match on.
 TABS.imuf_flashing.read = function (readInfo) {
     const data = new Uint8Array(readInfo.data);
     let chunk = '';
@@ -274,11 +271,9 @@ TABS.imuf_flashing.enterCliMode = function (callback) {
     CONFIGURATOR.cliActive = true;
     CONFIGURATOR.cliActiveReader = self;
 
-    // Flush any MSP request already in flight (e.g. the periodic live-status poll's last send
-    // just before this) and its retry timer -- otherwise it keeps resending binary MSP frames
-    // into the CLI text stream for up to another 1000ms, same collision CONFIGURATOR.cliActive
-    // is meant to prevent going forward (serial_backend.js's update_live_status() guard). Same
-    // call cli.js's own cleanup() makes symmetrically at CLI exit.
+    // Flushes any MSP request already in flight and its retry timer. Otherwise it keeps
+    // resending binary MSP frames into the CLI text stream for up to 1000ms more, the same
+    // collision CONFIGURATOR.cliActive guards against (update_live_status() in serial_backend.js).
     MSP.callbacks_cleanup();
 
     const bufferOut = new ArrayBuffer(1);
@@ -298,9 +293,7 @@ TABS.imuf_flashing.enterCliMode = function (callback) {
     }, 100);
 };
 
-// Sends one CLI command and waits for one of expectSubstrings to appear in the response, up
-// to timeoutMs. callback gets (ok, matched, raw) -- raw is whatever text actually came back,
-// for logging on failure.
+// Waits up to timeoutMs for one of expectSubstrings. callback gets (ok, matched, raw).
 TABS.imuf_flashing.sendCliCommandExpect = function (command, expectSubstrings, timeoutMs, callback) {
     const self = this;
     const startLen = self._rxBuffer.length;
@@ -321,21 +314,13 @@ TABS.imuf_flashing.sendCliCommandExpect = function (command, expectSubstrings, t
     });
 };
 
-// Sends 'imufflashbin' (the commit step) and waits for either "SUCCESS" text or the connection
-// itself dropping -- both are valid success signals. cli.c's cliImufFlashBin (accgyro_imuf9001.c:
-// imufUpdate()) does chip erase + ~1 SPI write per 32 bytes of firmware to the IMUF9001, which
-// can genuinely take longer than a fixed timeout on real hardware; only a *real* failure returns
-// silently with the CLI session still alive (no reboot) -- a disconnect here can only mean the
-// firmware finished, printed SUCCESS, and started its own post-flash reboot, even if that text
-// arrived too late (or was missed) for the substring match below.
+// Chip erase plus one SPI write per 32 bytes (imufUpdate(), accgyro_imuf9001.c) can exceed a
+// short timeout on real hardware. Per that same function, only a successful commit reboots the
+// FC -- a failure returns silently, CLI session still alive. So a disconnect here is also a
+// valid success signal, not just something to time out on.
 //
-// The disconnect branch is cheap insurance, not a load-bearing gate: every hardware flash so far
-// has resolved via the "SUCCESS" text well inside the timeout, so this branch has never actually
-// fired on real hardware -- it exists for a slower-than-timeout success we haven't hit yet, not a
-// case we've confirmed happens. It also can't tell a normal post-flash reboot apart from an
-// unrelated crash/watchdog reset that happens to occur at the same point in the sequence -- both
-// look identical from here (the port just disappears). The timeout branch below is the one
-// actually proven necessary (an 8s timeout on this step misreported a real success as a failure).
+// The disconnect branch is cheap insurance, not a proven need: it is unverified on real
+// hardware, and can't tell a normal reboot apart from an unrelated crash/watchdog reset.
 TABS.imuf_flashing.awaitCommitResult = function (timeoutMs, callback) {
     const self = this;
     const startLen = self._rxBuffer.length;
@@ -366,13 +351,9 @@ TABS.imuf_flashing.awaitCommitResult = function (timeoutMs, callback) {
     });
 };
 
-// Owns the post-reboot reconnect wait explicitly (via GUI.pendingAfterReconnect, the same hook
-// TABS.cli.cleanup() uses) instead of leaving it to chance -- finishOpen() (serial_backend.js)
-// falls back to GUI.selectDefaultTabWhenConnected() whenever nothing is pending, which is what
-// silently navigated away from this tab before either the success or failure message was ever
-// seen. callback runs once the new connection's MSP handshake completes, or after a 15s
-// watchdog if it never does (matches the ~5s firmware-side pre-reboot delay plus USB
-// re-enumeration and handshake time, with margin).
+// Sets GUI.pendingAfterReconnect (the hook TABS.cli.cleanup() also uses) so the reconnect
+// routes back to this tab instead of finishOpen()'s default tab selection. callback fires once
+// the new connection's handshake completes, or after a 15s watchdog otherwise.
 TABS.imuf_flashing._awaitReconnect = function (callback) {
     const self = this;
     CONFIGURATOR.cliActive = false;
@@ -411,7 +392,6 @@ TABS.imuf_flashing.sendChunks = function (wireBytes, offset, callback) {
         }
 
         const nextOffset = offset + chunkLen;
-        console.log('[imuf-flashing] chunk loaded, offset', offset, '->', nextOffset, 'of', wireBytes.length);
         // Reserve the last 5% of the progress bar for the commit (imufflashbin) step.
         self.flashProgress(Math.round((nextOffset / wireBytes.length) * 95));
         self.sendChunks(wireBytes, nextOffset, callback);
@@ -471,10 +451,7 @@ TABS.imuf_flashing.flash = function () {
                     GUI.log(i18n.getMessage('imufFlashingLogLoaded'));
 
                     self.flashingMessage(i18n.getMessage('imufFlashingCommitting'), self.FLASH_MESSAGE_TYPES.ACTION);
-                    // Real hardware showed this step legitimately taking longer than 8s (chip
-                    // erase + ~1 SPI write per 32 bytes) while still succeeding -- 30s is a
-                    // generous backstop for a genuine failure; the disconnect check in
-                    // awaitCommitResult catches a slow-but-real success well before this fires.
+                    // 30s backstop for a genuine failure -- see awaitCommitResult for why.
                     self.awaitCommitResult(30000, (committed, reason, raw3) => {
                         console.log('[imuf-flashing] imufflashbin (commit) ->', committed, reason, JSON.stringify(raw3));
                         if (!committed) {
@@ -489,10 +466,7 @@ TABS.imuf_flashing.flash = function () {
                         self.flashInProgress = false;
                         self._lastResult = {success: true};
                         console.log('[imuf-flashing] flash succeeded, awaiting reconnect');
-                        // Firmware reboots on its own ~5s after printing SUCCESS (cli.c:
-                        // cliImufFlashBin -> cliReboot()). Wait for that reconnect and re-show
-                        // this tab once it completes, rather than letting finishOpen() fall
-                        // through to the generic default-tab selection.
+                        // Firmware reboots on its own ~5s after printing SUCCESS (cliImufFlashBin -> cliReboot()).
                         self._awaitReconnect(() => {
                             console.log('[imuf-flashing] reconnected, re-initializing tab');
                             TABS.imuf_flashing.initialize(function () {});
@@ -504,10 +478,8 @@ TABS.imuf_flashing.flash = function () {
     });
 };
 
-// If a CLI session was actually entered, tell the FC to leave it ('exit', which reboots the FC
-// same as the interactive CLI tab's own exit) and wait for reconnect before showing the
-// failure -- the FC doesn't know the flash attempt was abandoned otherwise. If CLI was never
-// entered (or the connection is already gone), there's no reboot coming; show the failure now.
+// If CLI was entered, sends 'exit' (reboots the FC) and waits for reconnect before showing the
+// failure. Otherwise there's no reboot coming, so the failure shows immediately.
 TABS.imuf_flashing.flashFailed = function (messageKey) {
     const self = this;
     self.flashInProgress = false;
@@ -574,7 +546,7 @@ TABS.imuf_flashing.cleanup = function (callback) {
     if (self.flashInProgress) {
         GUI.log(i18n.getMessage('imufFlashingAbortedTabSwitch'));
         self.flashInProgress = false;
-        self._lastResult = null; // user is navigating away; nothing to re-show later
+        self._lastResult = null; // navigating away -- nothing to re-show later
 
         if (self._inCliMode && CONFIGURATOR.connectionValid) {
             self.sendLine('exit', () => {
