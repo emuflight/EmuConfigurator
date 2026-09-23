@@ -8,6 +8,7 @@ var GUI_control = function () {
     this.connecting_to = false;
     this.connected_to = false;
     this.connect_lock = false;
+    this.tab_switch_lock = false; // blocks tab switching only; connect_lock also blocks the Connect button
     this.active_tab;
     this.tab_switch_in_progress = false;
     this.operating_system;

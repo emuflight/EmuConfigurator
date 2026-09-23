@@ -457,6 +457,7 @@ TABS.imuf_flashing.flash = function () {
     self._flashSession++;
     self.flashInProgress = true;
     GUI.connect_lock = true;
+    GUI.tab_switch_lock = true;
     self.enableFlashing(false);
     self.flashProgress(0);
     self.flashingMessage(i18n.getMessage('imufFlashingEnteringCli'), self.FLASH_MESSAGE_TYPES.ACTION);
@@ -502,6 +503,8 @@ TABS.imuf_flashing.flash = function () {
                     // ever clears via the Connect button's click handler -- a handler
                     // GUI.connect_lock itself gates. Holding the lock through this wait would
                     // silently swallow the exact reboot-disconnect signal d0c1fae3 relies on.
+                    // tab_switch_lock stays set: leaving the tab now would leave cliActive routing
+                    // every byte to this tab's reader, so the new tab's MSP replies never parse.
                     GUI.connect_lock = false;
                     const session = self._flashSession;
                     self._committing = true;
@@ -532,6 +535,7 @@ TABS.imuf_flashing.flash = function () {
                         self.flashingMessage(i18n.getMessage('imufFlashingSuccess'), self.FLASH_MESSAGE_TYPES.VALID);
                         AudioFeedback.playFlashVerified();
                         self.flashInProgress = false;
+                        GUI.tab_switch_lock = false;
                         self._lastResult = {success: true};
                         console.log('[imuf-flashing] flash succeeded, awaiting reconnect');
                         // Firmware reboots on its own ~5s after printing SUCCESS (cliImufFlashBin -> cliReboot()).
@@ -552,6 +556,7 @@ TABS.imuf_flashing.flashFailed = function (messageKey) {
     const self = this;
     self.flashInProgress = false;
     GUI.connect_lock = false;
+    GUI.tab_switch_lock = false;
 
     if (self._inCliMode && CONFIGURATOR.connectionValid) {
         self._lastResult = {success: false, messageKey};
@@ -616,6 +621,7 @@ TABS.imuf_flashing.cleanup = function (callback) {
         GUI.log(i18n.getMessage('imufFlashingAbortedTabSwitch'));
         self._flashSession++;
         self.flashInProgress = false;
+        GUI.tab_switch_lock = false;
         self._lastResult = null; // navigating away -- nothing to re-show later
 
         // Skip 'exit' while a commit is pending; the commit result callback ends the CLI session.

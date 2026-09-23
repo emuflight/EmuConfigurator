@@ -178,7 +178,7 @@ function startProcess() {
                 return;
             }
 
-            if (GUI.connect_lock) { // tab switching disabled while operation is in progress
+            if (GUI.connect_lock || GUI.tab_switch_lock) { // tab switching disabled while operation is in progress
                 GUI.log(i18n.getMessage('tabSwitchWaitForOperation'));
                 return;
             }
