@@ -327,9 +327,6 @@
     "runawayTakeoffPreventionEnabled": {
         "message": "<strong>Runaway Abhebeschutz aktiviert</strong>"
     },
-    "boardInfoReceived": {
-        "message": "Board: <strong>$1</strong>, Version: <strong>$2</strong>"
-    },
     "buildInfoReceived": {
         "message": "laufende Firmware veröffentlicht am: <strong>$1</strong>"
     },

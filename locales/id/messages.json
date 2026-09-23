@@ -332,9 +332,6 @@
     "runawayTakeoffPreventionEnabled": {
         "message": "<strong>Runaway Takeoff Prevention diaktifkan</strong>"
     },
-    "boardInfoReceived": {
-        "message": "FC: <strong>$1</strong>, versi: <strong>$2</strong>"
-    },
     "buildInfoReceived": {
         "message": "Menjalankan firmware yg dirilis pada: <strong>$1</strong>"
     },

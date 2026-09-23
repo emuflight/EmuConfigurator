@@ -338,9 +338,6 @@
     "runawayTakeoffPreventionEnabled": {
         "message": "<strong>폭주 이륙 방지 활성화됨</strong>"
     },
-    "boardInfoReceived": {
-        "message": "보드: <strong>$1</strong>, 버전: <strong>$2</strong>"
-    },
     "buildInfoReceived": {
         "message": "실행 중인 펌웨어 릴리즈: <strong>$1</strong>"
     },

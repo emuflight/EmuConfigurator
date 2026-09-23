@@ -350,9 +350,6 @@
     "runawayTakeoffPreventionEnabled": {
         "message": "<strong>Zaštita od nekontroliranog polijetanja omogućena</strong>"
     },
-    "boardInfoReceived": {
-        "message": "Target: <strong>$1</strong>, verzija: <strong>$2</strong>"
-    },
     "buildInfoReceived": {
         "message": "Trenutni firmware izdan: <strong>$1</strong>"
     },

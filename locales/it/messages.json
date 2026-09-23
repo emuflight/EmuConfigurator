@@ -332,9 +332,6 @@
     "runawayTakeoffPreventionEnabled": {
         "message": "<strong>Prevenzione di decollo fuori controllo abilitato</strong>"
     },
-    "boardInfoReceived": {
-        "message": "Scheda: <strong>$1</strong>, versione: <strong>$2</strong>"
-    },
     "buildInfoReceived": {
         "message": "Il presente firmware è stato rilasciato il: <strong>$1</strong>"
     },

@@ -353,9 +353,6 @@
     "runawayTakeoffPreventionEnabled": {
         "message": "<strong>Neadekvātās pacelšanās novēršana ieslēgta</strong>"
     },
-    "boardInfoReceived": {
-        "message": "Plate: <strong>$1</strong>, versija: <strong>$2</strong>"
-    },
     "buildInfoReceived": {
         "message": "Izmantojamā programma relizēta: <strong>$1</strong>"
     },
