@@ -77,6 +77,9 @@ TABS.imuf_flashing = {
     _rxBuffer: '', // raw text received during this tab's own CLI session (self-contained, not TABS.cli's)
     _inCliMode: false,
     _pendingAfterReconnectTimeout: null,
+    _flashSession: 0, // bumped by flash() and cleanup(); a callback from an older session is stale
+    _committing: false, // true from imufflashbin sent until its result callback runs
+    _pollTimers: new Set(),
     _lastResult: null, // {success, messageKey} -- shown once by initialize() after a reboot round-trip
 };
 
@@ -271,6 +274,25 @@ TABS.imuf_flashing.sendLine = function (line, callback) {
     this.send(`${line}\n`, callback);
 };
 
+// setInterval tracked so cleanup() can cancel it; GUI.interval_kill_all() only clears timers
+// registered in GUI.interval_array.
+TABS.imuf_flashing._startPoll = function (fn, intervalMs) {
+    const self = this;
+    const id = setInterval(fn, intervalMs);
+    self._pollTimers.add(id);
+    return id;
+};
+
+TABS.imuf_flashing._stopPoll = function (id) {
+    clearInterval(id);
+    this._pollTimers.delete(id);
+};
+
+TABS.imuf_flashing._stopAllPolls = function () {
+    this._pollTimers.forEach((id) => clearInterval(id));
+    this._pollTimers.clear();
+};
+
 // Enters CLI mode the same way the CLI tab does (send raw 0x23 '#'), but drives it through
 // this tab's own read()/send() rather than TABS.cli's.
 TABS.imuf_flashing.enterCliMode = function (callback) {
@@ -290,13 +312,13 @@ TABS.imuf_flashing.enterCliMode = function (callback) {
     serial.send(bufferOut);
 
     let waited = 0;
-    const pollId = setInterval(() => {
+    const pollId = self._startPoll(() => {
         waited += 100;
         if (self._inCliMode) {
-            clearInterval(pollId);
+            self._stopPoll(pollId);
             callback(true);
         } else if (waited >= 5000) {
-            clearInterval(pollId);
+            self._stopPoll(pollId);
             callback(false);
         }
     }, 100);
@@ -306,17 +328,21 @@ TABS.imuf_flashing.enterCliMode = function (callback) {
 TABS.imuf_flashing.sendCliCommandExpect = function (command, expectSubstrings, timeoutMs, callback) {
     const self = this;
     const startLen = self._rxBuffer.length;
+    const session = self._flashSession;
     self.sendLine(command, () => {
+        if (session !== self._flashSession) {
+            return;
+        }
         let waited = 0;
-        const pollId = setInterval(() => {
+        const pollId = self._startPoll(() => {
             waited += 20;
             const newText = self._rxBuffer.slice(startLen);
             const matched = expectSubstrings.find((s) => newText.indexOf(s) !== -1);
             if (matched) {
-                clearInterval(pollId);
+                self._stopPoll(pollId);
                 callback(true, matched, newText);
             } else if (waited >= timeoutMs) {
-                clearInterval(pollId);
+                self._stopPoll(pollId);
                 callback(false, null, newText);
             }
         }, 20);
@@ -336,6 +362,8 @@ TABS.imuf_flashing.awaitCommitResult = function (timeoutMs, callback) {
     console.log('[imuf-flashing] sending imufflashbin (commit step)');
     self.sendLine('imufflashbin', () => {
         let waited = 0;
+        // Not registered in _pollTimers: cleanup() must not cancel it, the result callback
+        // owns the abandoned-commit handling.
         const pollId = setInterval(() => {
             waited += 100;
             const newText = self._rxBuffer.slice(startLen);
@@ -388,10 +416,14 @@ TABS.imuf_flashing.sendChunks = function (wireBytes, offset, callback) {
         return;
     }
 
+    const session = self._flashSession;
     const chunkLen = Math.min(IMUF_CHUNK_SIZE, wireBytes.length - offset);
     const command = `imufloadbin l${imufU32ToLeHex(chunkLen)}${imufBytesToHex(wireBytes, offset, chunkLen)}`;
 
     self.sendCliCommandExpect(command, ['LOADED', 'WOAH!', 'CRAP!', 'PFFFT!'], 2000, (ok, matched, raw) => {
+        if (session !== self._flashSession) {
+            return;
+        }
         if (!ok || matched !== 'LOADED') {
             console.log('[imuf-flashing] chunk at offset', offset, 'failed:', matched, JSON.stringify(raw));
             GUI.log(i18n.getMessage('imufFlashingLogChunkFailed', [offset]));
@@ -412,7 +444,7 @@ TABS.imuf_flashing.sendChunks = function (wireBytes, offset, callback) {
 
 TABS.imuf_flashing.flash = function () {
     const self = this;
-    if (self.flashInProgress || !self.selectedBinary) {
+    if (self.flashInProgress || self._committing || !self.selectedBinary) {
         return;
     }
 
@@ -422,6 +454,7 @@ TABS.imuf_flashing.flash = function () {
     console.log('[imuf-flashing] flash() start,', bytes.length, 'bytes, caesar-encode:', wireBytes !== bytes);
     GUI.log(i18n.getMessage('imufFlashingLogStart', [bytes.length]));
 
+    self._flashSession++;
     self.flashInProgress = true;
     GUI.connect_lock = true;
     self.enableFlashing(false);
@@ -470,9 +503,24 @@ TABS.imuf_flashing.flash = function () {
                     // GUI.connect_lock itself gates. Holding the lock through this wait would
                     // silently swallow the exact reboot-disconnect signal d0c1fae3 relies on.
                     GUI.connect_lock = false;
+                    const session = self._flashSession;
+                    self._committing = true;
                     // 30s backstop for a genuine failure -- see awaitCommitResult for why.
                     self.awaitCommitResult(30000, (committed, reason, raw3) => {
+                        self._committing = false;
                         console.log('[imuf-flashing] imufflashbin (commit) ->', committed, reason, JSON.stringify(raw3));
+                        if (session !== self._flashSession) {
+                            // Tab was left mid-commit: cleanup() skipped 'exit' and UI is gone.
+                            // A success reboots the FC (onClosed() resets the CLI state); a
+                            // failure leaves the CLI session alive, so exit it here.
+                            if (!committed && CONFIGURATOR.connectionValid) {
+                                self.sendLine('exit', () => {
+                                    CONFIGURATOR.cliActive = false;
+                                    CONFIGURATOR.cliActiveReader = null;
+                                });
+                            }
+                            return;
+                        }
                         if (!committed) {
                             GUI.log(i18n.getMessage('imufFlashingLogCommitFailed'));
                             self.flashFailed('imufFlashingCommitFailed');
@@ -566,8 +614,19 @@ TABS.imuf_flashing.cleanup = function (callback) {
 
     if (self.flashInProgress) {
         GUI.log(i18n.getMessage('imufFlashingAbortedTabSwitch'));
+        self._flashSession++;
         self.flashInProgress = false;
         self._lastResult = null; // navigating away -- nothing to re-show later
+
+        // Skip 'exit' while a commit is pending; the commit result callback ends the CLI session.
+        if (self._committing) {
+            if (callback) {
+                callback();
+            }
+            return;
+        }
+
+        self._stopAllPolls();
 
         if (self._inCliMode && CONFIGURATOR.connectionValid) {
             self.sendLine('exit', () => {
