@@ -392,6 +392,9 @@ TABS.imuf_flashing.sendChunks = function (wireBytes, offset, callback) {
         }
 
         const nextOffset = offset + chunkLen;
+        // console.debug, not .log -- full per-chunk detail, hidden unless Verbose is enabled
+        // in the DevTools console filter.
+        console.debug('[imuf-flashing] chunk loaded, offset', offset, '->', nextOffset, 'of', wireBytes.length);
         // Reserve the last 5% of the progress bar for the commit (imufflashbin) step.
         self.flashProgress(Math.round((nextOffset / wireBytes.length) * 95));
         self.sendChunks(wireBytes, nextOffset, callback);
