@@ -322,6 +322,9 @@
     "runawayTakeoffPreventionEnabled": {
         "message": "<strong>Runaway Takeoff Prevention Habilitat</strong>"
     },
+    "boardInfoReceived": {
+        "message": "Placa: <strong>$1</strong>, revisió: <strong>$2</strong>"
+    },
     "buildInfoReceived": {
         "message": "Firmware publicat el: <strong>$1</strong>"
     },

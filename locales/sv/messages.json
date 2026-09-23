@@ -347,6 +347,9 @@
     "runawayTakeoffPreventionEnabled": {
         "message": "<strong>Förhindrande av oavsiktlig uppstigning (Runaway Takeoff Prevention) aktiverad</strong>"
     },
+    "boardInfoReceived": {
+        "message": "Kort: <strong>$1</strong>, revision: <strong>$2</strong>"
+    },
     "buildInfoReceived": {
         "message": "Kör firmware publicerad: <strong>$1</strong>"
     },

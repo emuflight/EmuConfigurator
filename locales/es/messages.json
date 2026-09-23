@@ -338,6 +338,9 @@
     "runawayTakeoffPreventionEnabled": {
         "message": "<strong>Protección de Despegue Incontrolado Activada</strong>"
     },
+    "boardInfoReceived": {
+        "message": "Placa: <strong>$1</strong>, revisión: <strong>$2</strong>"
+    },
     "buildInfoReceived": {
         "message": "Ejecutando firmware publicado el: <strong>$1</strong>"
     },

@@ -344,6 +344,9 @@
     "runawayTakeoffPreventionEnabled": {
         "message": "<strong>Функция Runaway Takeoff Prevention включена</strong>"
     },
+    "boardInfoReceived": {
+        "message": "Плата: <strong>$1</strong>, ревизия: <strong>$2</strong>"
+    },
     "buildInfoReceived": {
         "message": "Используется прошивка, выпущенная в: <strong>$1</strong>"
     },

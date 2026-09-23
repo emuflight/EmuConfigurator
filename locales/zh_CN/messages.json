@@ -341,6 +341,9 @@
     "runawayTakeoffPreventionEnabled": {
         "message": "<strong> 预防起飞失控 已启用 </strong>"
     },
+    "boardInfoReceived": {
+        "message": "飞控: <strong>$1</strong>, 修订版: <strong>$2</strong>"
+    },
     "buildInfoReceived": {
         "message": "当前固件发布时间： <strong>$1</strong>"
     },

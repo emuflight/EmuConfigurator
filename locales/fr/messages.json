@@ -329,6 +329,9 @@
     "runawayTakeoffPreventionEnabled": {
         "message": "<strong>Takeoff Prevention activé</strong>"
     },
+    "boardInfoReceived": {
+        "message": "Carte: <strong>$1</strong>, révision: <strong>$2</strong>"
+    },
     "buildInfoReceived": {
         "message": "Date du microprogramme: <strong>$1</strong>"
     },
