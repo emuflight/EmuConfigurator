@@ -348,7 +348,7 @@
         "message": "<strong>暴走離陸防止機能を有効</strong>"
     },
     "boardInfoReceived": {
-        "message": "FCボード: <strong>$1</strong> バージョン: <strong>$2</strong>"
+        "message": "FCボード: <strong>$1</strong> リビジョン: <strong>$2</strong>"
     },
     "buildInfoReceived": {
         "message": "稼働ファームウェアリリース: <strong>$1</strong>"
