@@ -328,6 +328,14 @@ TABS.imuf_flashing.sendCliCommandExpect = function (command, expectSubstrings, t
 // silently with the CLI session still alive (no reboot) -- a disconnect here can only mean the
 // firmware finished, printed SUCCESS, and started its own post-flash reboot, even if that text
 // arrived too late (or was missed) for the substring match below.
+//
+// The disconnect branch is cheap insurance, not a load-bearing gate: every hardware flash so far
+// has resolved via the "SUCCESS" text well inside the timeout, so this branch has never actually
+// fired on real hardware -- it exists for a slower-than-timeout success we haven't hit yet, not a
+// case we've confirmed happens. It also can't tell a normal post-flash reboot apart from an
+// unrelated crash/watchdog reset that happens to occur at the same point in the sequence -- both
+// look identical from here (the port just disappears). The timeout branch below is the one
+// actually proven necessary (an 8s timeout on this step misreported a real success as a failure).
 TABS.imuf_flashing.awaitCommitResult = function (timeoutMs, callback) {
     const self = this;
     const startLen = self._rxBuffer.length;
