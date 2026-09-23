@@ -464,6 +464,12 @@ TABS.imuf_flashing.flash = function () {
                     GUI.log(i18n.getMessage('imufFlashingLogLoaded'));
 
                     self.flashingMessage(i18n.getMessage('imufFlashingCommitting'), self.FLASH_MESSAGE_TYPES.ACTION);
+                    // Released before the reboot-driven disconnect: awaitCommitResult() detects
+                    // success by polling CONFIGURATOR.connectionValid, which onClosed() only
+                    // ever clears via the Connect button's click handler -- a handler
+                    // GUI.connect_lock itself gates. Holding the lock through this wait would
+                    // silently swallow the exact reboot-disconnect signal d0c1fae3 relies on.
+                    GUI.connect_lock = false;
                     // 30s backstop for a genuine failure -- see awaitCommitResult for why.
                     self.awaitCommitResult(30000, (committed, reason, raw3) => {
                         console.log('[imuf-flashing] imufflashbin (commit) ->', committed, reason, JSON.stringify(raw3));
@@ -478,7 +484,6 @@ TABS.imuf_flashing.flash = function () {
                         self.flashingMessage(i18n.getMessage('imufFlashingSuccess'), self.FLASH_MESSAGE_TYPES.VALID);
                         AudioFeedback.playFlashVerified();
                         self.flashInProgress = false;
-                        GUI.connect_lock = false;
                         self._lastResult = {success: true};
                         console.log('[imuf-flashing] flash succeeded, awaiting reconnect');
                         // Firmware reboots on its own ~5s after printing SUCCESS (cliImufFlashBin -> cliReboot()).
