@@ -182,7 +182,6 @@ TABS.imuf_flashing.initialize = function (callback) {
         });
 
         $('a.load_file_imuf').click(function () {
-            self.enableFlashing(false);
             chrome.fileSystem.chooseEntry({
                 type: 'openFile',
                 dialogId: 'imuf_firmware',
@@ -196,6 +195,7 @@ TABS.imuf_flashing.initialize = function (callback) {
                     return;
                 }
 
+                self.enableFlashing(false);
                 fileEntry.file(function (file) {
                     const reader = new FileReader();
                     reader.onloadend = function (e) {
