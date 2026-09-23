@@ -35,3 +35,7 @@
     height: 20px;
     border-bottom: 1px solid var(--subtleAccent);
 }
+
+.tab-imuf_flashing .imuf_installed_version {
+    margin: 12px 18px;
+}

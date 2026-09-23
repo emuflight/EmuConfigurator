@@ -105,6 +105,14 @@ TABS.imuf_flashing.initialize = function (callback) {
             );
         }
 
+        // Already fetched at connect time (serial_backend.js, same MSP_IMUF_INFO gate:
+        // apiVersion >= 1.51.0 on a HESP/SX10/FLUX board) -- no need to request it again here.
+        const installedVersion = IMUF_FILTER_CONFIG.imufCurrentVersion;
+        if (installedVersion !== undefined) {
+            const key = installedVersion === 9999 ? 'imufFlashingInstalledVersionUnknown' : 'imufFlashingInstalledVersion';
+            $('.imuf_installed_version').html(i18n.getMessage(key, [installedVersion]));
+        }
+
         function populateReleases(releaseData) {
             const select_e = $('select[name="imuf_version"]');
             select_e.empty().append(`<option value="0">${i18n.getMessage('imufFlashingSelectVersion')}</option>`);

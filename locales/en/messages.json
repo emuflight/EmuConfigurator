@@ -5088,6 +5088,12 @@
     "imufFlashingButtonLoadLocal": {
         "message": "Load Firmware [Local]"
     },
+    "imufFlashingInstalledVersion": {
+        "message": "Installed IMU-F version: <strong>$1</strong>"
+    },
+    "imufFlashingInstalledVersionUnknown": {
+        "message": "Installed IMU-F version: <strong>not detected</strong>"
+    },
     "imufFlashingReleaseSummaryHead": {
         "message": "Release Info"
     },
