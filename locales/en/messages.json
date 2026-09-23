@@ -5163,6 +5163,39 @@
     "imufFlashingAbortedTabSwitch": {
         "message": "IMU-F flashing aborted: tab changed mid-flash"
     },
+    "imufFlashingLogStart": {
+        "message": "Starting IMU-F flash ($1 bytes)"
+    },
+    "imufFlashingLogCliEntered": {
+        "message": "CLI mode entered"
+    },
+    "imufFlashingLogBootloaderEntered": {
+        "message": "IMU-F bootloader entered"
+    },
+    "imufFlashingLogBootloaderFailed": {
+        "message": "IMU-F bootloader entry failed"
+    },
+    "imufFlashingLogArmFailed": {
+        "message": "IMU-F failed to prepare for firmware load"
+    },
+    "imufFlashingLogLoading": {
+        "message": "Loading firmware onto flight controller"
+    },
+    "imufFlashingLogLoaded": {
+        "message": "Firmware loaded, committing to IMU-F"
+    },
+    "imufFlashingLogChunkFailed": {
+        "message": "Firmware chunk load failed at offset $1"
+    },
+    "imufFlashingLogCommitFailed": {
+        "message": "IMU-F flash commit failed"
+    },
+    "imufFlashingLogCommitConfirmed": {
+        "message": "IMU-F flash committed"
+    },
+    "imufFlashingLogCommitReconnected": {
+        "message": "IMU-F flash committed, flight controller rebooted"
+    },
     "tabVtx": {
         "message": "Analog VTX"
     },

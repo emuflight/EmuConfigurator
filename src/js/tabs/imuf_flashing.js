@@ -321,6 +321,43 @@ TABS.imuf_flashing.sendCliCommandExpect = function (command, expectSubstrings, t
     });
 };
 
+// Sends 'imufflashbin' (the commit step) and waits for either "SUCCESS" text or the connection
+// itself dropping -- both are valid success signals. cli.c's cliImufFlashBin (accgyro_imuf9001.c:
+// imufUpdate()) does chip erase + ~1 SPI write per 32 bytes of firmware to the IMUF9001, which
+// can genuinely take longer than a fixed timeout on real hardware; only a *real* failure returns
+// silently with the CLI session still alive (no reboot) -- a disconnect here can only mean the
+// firmware finished, printed SUCCESS, and started its own post-flash reboot, even if that text
+// arrived too late (or was missed) for the substring match below.
+TABS.imuf_flashing.awaitCommitResult = function (timeoutMs, callback) {
+    const self = this;
+    const startLen = self._rxBuffer.length;
+    console.log('[imuf-flashing] sending imufflashbin (commit step)');
+    self.sendLine('imufflashbin', () => {
+        let waited = 0;
+        const pollId = setInterval(() => {
+            waited += 100;
+            const newText = self._rxBuffer.slice(startLen);
+            if (newText.indexOf('SUCCESS') !== -1) {
+                clearInterval(pollId);
+                console.log('[imuf-flashing] commit: SUCCESS text seen after', waited, 'ms');
+                callback(true, 'success-text', newText);
+                return;
+            }
+            if (!CONFIGURATOR.connectionValid) {
+                clearInterval(pollId);
+                console.log('[imuf-flashing] commit: connection dropped after', waited, 'ms -- treating as success (only a completed flash reboots)');
+                callback(true, 'disconnected', newText);
+                return;
+            }
+            if (waited >= timeoutMs) {
+                clearInterval(pollId);
+                console.log('[imuf-flashing] commit: timed out after', waited, 'ms, no SUCCESS and still connected -- real failure');
+                callback(false, 'timeout', newText);
+            }
+        }, 100);
+    });
+};
+
 // Owns the post-reboot reconnect wait explicitly (via GUI.pendingAfterReconnect, the same hook
 // TABS.cli.cleanup() uses) instead of leaving it to chance -- finishOpen() (serial_backend.js)
 // falls back to GUI.selectDefaultTabWhenConnected() whenever nothing is pending, which is what
@@ -358,15 +395,18 @@ TABS.imuf_flashing.sendChunks = function (wireBytes, offset, callback) {
 
     self.sendCliCommandExpect(command, ['LOADED', 'WOAH!', 'CRAP!', 'PFFFT!'], 2000, (ok, matched, raw) => {
         if (!ok || matched !== 'LOADED') {
-            GUI.log(`IMU-F load chunk failed at offset ${offset}: ${JSON.stringify(raw)}`);
+            console.log('[imuf-flashing] chunk at offset', offset, 'failed:', matched, JSON.stringify(raw));
+            GUI.log(i18n.getMessage('imufFlashingLogChunkFailed', [offset]));
             self.flashFailed('imufFlashingLoadChunkFailed');
             callback(false);
             return;
         }
 
+        const nextOffset = offset + chunkLen;
+        console.log('[imuf-flashing] chunk loaded, offset', offset, '->', nextOffset, 'of', wireBytes.length);
         // Reserve the last 5% of the progress bar for the commit (imufflashbin) step.
-        self.flashProgress(Math.round(((offset + chunkLen) / wireBytes.length) * 95));
-        self.sendChunks(wireBytes, offset + chunkLen, callback);
+        self.flashProgress(Math.round((nextOffset / wireBytes.length) * 95));
+        self.sendChunks(wireBytes, nextOffset, callback);
     });
 };
 
@@ -379,57 +419,74 @@ TABS.imuf_flashing.flash = function () {
     const bytes = self.selectedBinary;
     const wireBytes = imufBinaryNeedsCaesarEncode(bytes) ? imufCaesarEncode(bytes) : bytes;
 
+    console.log('[imuf-flashing] flash() start,', bytes.length, 'bytes, caesar-encode:', wireBytes !== bytes);
+    GUI.log(i18n.getMessage('imufFlashingLogStart', [bytes.length]));
+
     self.flashInProgress = true;
     self.enableFlashing(false);
     self.flashProgress(0);
     self.flashingMessage(i18n.getMessage('imufFlashingEnteringCli'), self.FLASH_MESSAGE_TYPES.ACTION);
 
     self.enterCliMode((entered) => {
+        console.log('[imuf-flashing] enterCliMode ->', entered);
         if (!entered) {
             self.flashFailed('imufFlashingCliEntryFailed');
             return;
         }
+        GUI.log(i18n.getMessage('imufFlashingLogCliEntered'));
 
         self.flashingMessage(i18n.getMessage('imufFlashingEnteringBootloader'), self.FLASH_MESSAGE_TYPES.ACTION);
         self.sendCliCommandExpect('imufbootloader', ['BOOTLOADER', 'FAIL'], 5000, (ok, matched, raw) => {
+            console.log('[imuf-flashing] imufbootloader ->', ok, matched, JSON.stringify(raw));
             if (!ok || matched !== 'BOOTLOADER') {
-                GUI.log(`IMU-F bootloader entry failed: ${JSON.stringify(raw)}`);
+                GUI.log(i18n.getMessage('imufFlashingLogBootloaderFailed'));
                 self.flashFailed('imufFlashingBootloaderFailed');
                 return;
             }
+            GUI.log(i18n.getMessage('imufFlashingLogBootloaderEntered'));
 
             self.sendCliCommandExpect('imufloadbin !', ['SUCCESS'], 2000, (armed, armedMatched, armedRaw) => {
+                console.log('[imuf-flashing] imufloadbin ! (arm) ->', armed, JSON.stringify(armedRaw));
                 if (!armed) {
-                    GUI.log(`IMU-F arm-for-load failed: ${JSON.stringify(armedRaw)}`);
+                    GUI.log(i18n.getMessage('imufFlashingLogArmFailed'));
                     self.flashFailed('imufFlashingArmFailed');
                     return;
                 }
 
                 self.flashingMessage(i18n.getMessage('imufFlashingLoading'), self.FLASH_MESSAGE_TYPES.ACTION);
+                GUI.log(i18n.getMessage('imufFlashingLogLoading'));
                 self.sendChunks(wireBytes, 0, (loaded) => {
+                    console.log('[imuf-flashing] sendChunks ->', loaded);
                     if (!loaded) {
                         return; // sendChunks already reported the specific failure
                     }
+                    GUI.log(i18n.getMessage('imufFlashingLogLoaded'));
 
                     self.flashingMessage(i18n.getMessage('imufFlashingCommitting'), self.FLASH_MESSAGE_TYPES.ACTION);
-                    // cli.c's cliImufFlashBin prints nothing on failure (no "FAIL" branch exists) —
-                    // a failed commit is only detectable by this timing out.
-                    self.sendCliCommandExpect('imufflashbin', ['SUCCESS'], 8000, (committed, matched3, raw3) => {
-                        if (!committed || matched3 !== 'SUCCESS') {
-                            GUI.log(`IMU-F flash commit failed: ${JSON.stringify(raw3)}`);
+                    // Real hardware showed this step legitimately taking longer than 8s (chip
+                    // erase + ~1 SPI write per 32 bytes) while still succeeding -- 30s is a
+                    // generous backstop for a genuine failure; the disconnect check in
+                    // awaitCommitResult catches a slow-but-real success well before this fires.
+                    self.awaitCommitResult(30000, (committed, reason, raw3) => {
+                        console.log('[imuf-flashing] imufflashbin (commit) ->', committed, reason, JSON.stringify(raw3));
+                        if (!committed) {
+                            GUI.log(i18n.getMessage('imufFlashingLogCommitFailed'));
                             self.flashFailed('imufFlashingCommitFailed');
                             return;
                         }
+                        GUI.log(i18n.getMessage(reason === 'disconnected' ? 'imufFlashingLogCommitReconnected' : 'imufFlashingLogCommitConfirmed'));
 
                         self.flashProgress(100);
                         self.flashingMessage(i18n.getMessage('imufFlashingSuccess'), self.FLASH_MESSAGE_TYPES.VALID);
                         self.flashInProgress = false;
                         self._lastResult = {success: true};
+                        console.log('[imuf-flashing] flash succeeded, awaiting reconnect');
                         // Firmware reboots on its own ~5s after printing SUCCESS (cli.c:
                         // cliImufFlashBin -> cliReboot()). Wait for that reconnect and re-show
                         // this tab once it completes, rather than letting finishOpen() fall
                         // through to the generic default-tab selection.
                         self._awaitReconnect(() => {
+                            console.log('[imuf-flashing] reconnected, re-initializing tab');
                             TABS.imuf_flashing.initialize(function () {});
                         });
                     });
