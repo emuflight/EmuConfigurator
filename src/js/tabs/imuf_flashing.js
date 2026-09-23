@@ -405,6 +405,9 @@ TABS.imuf_flashing._awaitReconnect = function (callback) {
         if (GUI.pendingAfterReconnect === callback) {
             GUI.pendingAfterReconnect = null;
         }
+        if (!self.flashInProgress) {
+            GUI.tab_switch_lock = false;
+        }
         self._pendingAfterReconnectTimeout = null;
     }, 15000);
 };
@@ -535,11 +538,13 @@ TABS.imuf_flashing.flash = function () {
                         self.flashingMessage(i18n.getMessage('imufFlashingSuccess'), self.FLASH_MESSAGE_TYPES.VALID);
                         AudioFeedback.playFlashVerified();
                         self.flashInProgress = false;
-                        GUI.tab_switch_lock = false;
                         self._lastResult = {success: true};
                         console.log('[imuf-flashing] flash succeeded, awaiting reconnect');
                         // Firmware reboots on its own ~5s after printing SUCCESS (cliImufFlashBin -> cliReboot()).
+                        // tab_switch_lock stays set until reconnect (or the watchdog): a tab switch
+                        // in that gap would have the reconnect hook re-initialize this tab over it.
                         self._awaitReconnect(() => {
+                            GUI.tab_switch_lock = false;
                             console.log('[imuf-flashing] reconnected, re-initializing tab');
                             TABS.imuf_flashing.initialize(function () {});
                         });
@@ -556,18 +561,19 @@ TABS.imuf_flashing.flashFailed = function (messageKey) {
     const self = this;
     self.flashInProgress = false;
     GUI.connect_lock = false;
-    GUI.tab_switch_lock = false;
 
     if (self._inCliMode && CONFIGURATOR.connectionValid) {
         self._lastResult = {success: false, messageKey};
         self.sendLine('exit', () => {
             self._awaitReconnect(() => {
+                GUI.tab_switch_lock = false;
                 TABS.imuf_flashing.initialize(function () {});
             });
         });
         return;
     }
 
+    GUI.tab_switch_lock = false;
     CONFIGURATOR.cliActive = false;
     CONFIGURATOR.cliActiveReader = null;
     self.enableFlashing(true);
