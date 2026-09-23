@@ -436,6 +436,7 @@ function onClosed(result) {
     CONFIGURATOR.connectionValid = false;
     CONFIGURATOR.cliValid = false;
     CONFIGURATOR.cliActive = false;
+    CONFIGURATOR.cliActiveReader = null;
 
     // Clear any pending callback from CLI exit ONLY if it's not a callable pending callback.
     // If it IS a function, it's likely from a CLI reboot cycle and should be preserved
@@ -460,7 +461,12 @@ function onClosed(result) {
 function read_serial(info) {
     if (!CONFIGURATOR.cliActive) {
         MSP.read(info);
-    } else if (CONFIGURATOR.cliActive) {
+    } else if (CONFIGURATOR.cliActiveReader) {
+        // A tab other than the CLI tab is driving its own raw CLI session (e.g.
+        // imuf_flashing) -- route to its own reader instead of the interactive CLI tab's,
+        // which assumes its own DOM/CliAutoComplete setup ran.
+        CONFIGURATOR.cliActiveReader.read(info);
+    } else {
         TABS.cli.read(info);
     }
 }

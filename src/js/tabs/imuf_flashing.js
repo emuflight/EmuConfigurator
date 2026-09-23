@@ -75,6 +75,10 @@ TABS.imuf_flashing = {
     releaseChecker: new ReleaseChecker('imuf', 'https://api.github.com/repos/emuflight/imu-f/releases'),
     selectedBinary: null, // Uint8Array
     flashInProgress: false,
+    _rxBuffer: '', // raw text received during this tab's own CLI session (self-contained, not TABS.cli's)
+    _inCliMode: false,
+    _pendingAfterReconnectTimeout: null,
+    _lastResult: null, // {success, messageKey} -- shown once by initialize() after a reboot round-trip
 };
 
 TABS.imuf_flashing.initialize = function (callback) {
@@ -90,6 +94,17 @@ TABS.imuf_flashing.initialize = function (callback) {
     function onDocumentLoad() {
         // translate to user-selected language
         i18n.localizePage();
+
+        // Show the result of a flash attempt that just completed across a reboot/reconnect
+        // round-trip (see _awaitReconnect) -- this re-init is that round-trip's continuation.
+        if (self._lastResult) {
+            const result = self._lastResult;
+            self._lastResult = null;
+            self.flashingMessage(
+                result.success ? i18n.getMessage('imufFlashingSuccess') : i18n.getMessage(result.messageKey),
+                result.success ? self.FLASH_MESSAGE_TYPES.VALID : self.FLASH_MESSAGE_TYPES.INVALID
+            );
+        }
 
         function populateReleases(releaseData) {
             const select_e = $('select[name="imuf_version"]');
@@ -219,20 +234,51 @@ TABS.imuf_flashing.onBinaryLoaded = function (bytes, filename) {
     self.enableFlashing(true);
 };
 
-// Enters CLI mode the same way the CLI tab does (cli.js: send raw 0x23 '#'), but polls
-// CONFIGURATOR.cliValid directly instead of driving the interactive CLI tab UI, since this
-// tab's own DOM is active, not the CLI tab's.
+// Own raw serial read, registered as CONFIGURATOR.cliActiveReader (serial_backend.js's
+// read_serial()) instead of routing through TABS.cli.read -- that function also drives
+// CliAutoComplete and the interactive CLI tab's terminal-emulation state (backspace, escape
+// sequences, history), none of which this tab sets up, and which throws
+// ("this.writeToOutput is not a function") if invoked without TABS.cli.initialize() having
+// run first. This tab only needs a flat accumulated-text buffer to substring-match against.
+TABS.imuf_flashing.read = function (readInfo) {
+    const data = new Uint8Array(readInfo.data);
+    let chunk = '';
+    for (let i = 0; i < data.length; i++) {
+        chunk += String.fromCharCode(data[i]);
+    }
+    this._rxBuffer += chunk;
+    if (!this._inCliMode && this._rxBuffer.indexOf('CLI') !== -1) {
+        this._inCliMode = true;
+    }
+};
+
+TABS.imuf_flashing.send = function (line, callback) {
+    const bufferOut = new ArrayBuffer(line.length);
+    const bufView = new Uint8Array(bufferOut);
+    for (let i = 0; i < line.length; i++) {
+        bufView[i] = line.charCodeAt(i);
+    }
+    serial.send(bufferOut, callback);
+};
+
+TABS.imuf_flashing.sendLine = function (line, callback) {
+    this.send(`${line}\n`, callback);
+};
+
+// Enters CLI mode the same way the CLI tab does (send raw 0x23 '#'), but drives it through
+// this tab's own read()/send() rather than TABS.cli's.
 TABS.imuf_flashing.enterCliMode = function (callback) {
-    TABS.cli.outputHistory = '';
-    TABS.cli.cliBuffer = '';
-    CONFIGURATOR.cliValid = false;
+    const self = this;
+    self._rxBuffer = '';
+    self._inCliMode = false;
     CONFIGURATOR.cliActive = true;
+    CONFIGURATOR.cliActiveReader = self;
 
     // Flush any MSP request already in flight (e.g. the periodic live-status poll's last send
     // just before this) and its retry timer -- otherwise it keeps resending binary MSP frames
-    // into the CLI text stream for up to another 1000ms, same collision this function's
-    // cliActive flag is meant to prevent going forward. Same call cli.js's own cleanup() makes
-    // symmetrically at CLI exit.
+    // into the CLI text stream for up to another 1000ms, same collision CONFIGURATOR.cliActive
+    // is meant to prevent going forward (serial_backend.js's update_live_status() guard). Same
+    // call cli.js's own cleanup() makes symmetrically at CLI exit.
     MSP.callbacks_cleanup();
 
     const bufferOut = new ArrayBuffer(1);
@@ -242,7 +288,7 @@ TABS.imuf_flashing.enterCliMode = function (callback) {
     let waited = 0;
     const pollId = setInterval(() => {
         waited += 100;
-        if (CONFIGURATOR.cliValid) {
+        if (self._inCliMode) {
             clearInterval(pollId);
             callback(true);
         } else if (waited >= 5000) {
@@ -252,16 +298,17 @@ TABS.imuf_flashing.enterCliMode = function (callback) {
     }, 100);
 };
 
-// Sends one CLI command (reusing TABS.cli's send/receive machinery) and waits for one of
-// expectSubstrings to appear in the response, up to timeoutMs. callback gets (ok, matched, raw)
-// -- raw is whatever text actually came back, for logging on failure.
+// Sends one CLI command and waits for one of expectSubstrings to appear in the response, up
+// to timeoutMs. callback gets (ok, matched, raw) -- raw is whatever text actually came back,
+// for logging on failure.
 TABS.imuf_flashing.sendCliCommandExpect = function (command, expectSubstrings, timeoutMs, callback) {
-    const startLen = TABS.cli.outputHistory.length;
-    TABS.cli.sendLine(command, () => {
+    const self = this;
+    const startLen = self._rxBuffer.length;
+    self.sendLine(command, () => {
         let waited = 0;
         const pollId = setInterval(() => {
             waited += 20;
-            const newText = TABS.cli.outputHistory.slice(startLen);
+            const newText = self._rxBuffer.slice(startLen);
             const matched = expectSubstrings.find((s) => newText.indexOf(s) !== -1);
             if (matched) {
                 clearInterval(pollId);
@@ -272,6 +319,31 @@ TABS.imuf_flashing.sendCliCommandExpect = function (command, expectSubstrings, t
             }
         }, 20);
     });
+};
+
+// Owns the post-reboot reconnect wait explicitly (via GUI.pendingAfterReconnect, the same hook
+// TABS.cli.cleanup() uses) instead of leaving it to chance -- finishOpen() (serial_backend.js)
+// falls back to GUI.selectDefaultTabWhenConnected() whenever nothing is pending, which is what
+// silently navigated away from this tab before either the success or failure message was ever
+// seen. callback runs once the new connection's MSP handshake completes, or after a 15s
+// watchdog if it never does (matches the ~5s firmware-side pre-reboot delay plus USB
+// re-enumeration and handshake time, with margin).
+TABS.imuf_flashing._awaitReconnect = function (callback) {
+    const self = this;
+    CONFIGURATOR.cliActive = false;
+    CONFIGURATOR.cliActiveReader = null;
+    self._inCliMode = false;
+
+    GUI.pendingAfterReconnect = callback;
+    if (self._pendingAfterReconnectTimeout) {
+        clearTimeout(self._pendingAfterReconnectTimeout);
+    }
+    self._pendingAfterReconnectTimeout = setTimeout(() => {
+        if (GUI.pendingAfterReconnect === callback) {
+            GUI.pendingAfterReconnect = null;
+        }
+        self._pendingAfterReconnectTimeout = null;
+    }, 15000);
 };
 
 TABS.imuf_flashing.sendChunks = function (wireBytes, offset, callback) {
@@ -352,9 +424,14 @@ TABS.imuf_flashing.flash = function () {
                         self.flashProgress(100);
                         self.flashingMessage(i18n.getMessage('imufFlashingSuccess'), self.FLASH_MESSAGE_TYPES.VALID);
                         self.flashInProgress = false;
-                        // Firmware reboots on its own after printing SUCCESS (cli.c: cliImufFlashBin ->
-                        // cliReboot()); TABS.cli.read's existing 'Rebooting' detection (cli.js) already
-                        // handles reconnection from here — nothing further to do.
+                        self._lastResult = {success: true};
+                        // Firmware reboots on its own ~5s after printing SUCCESS (cli.c:
+                        // cliImufFlashBin -> cliReboot()). Wait for that reconnect and re-show
+                        // this tab once it completes, rather than letting finishOpen() fall
+                        // through to the generic default-tab selection.
+                        self._awaitReconnect(() => {
+                            TABS.imuf_flashing.initialize(function () {});
+                        });
                     });
                 });
             });
@@ -362,16 +439,28 @@ TABS.imuf_flashing.flash = function () {
     });
 };
 
-// Leaves CLI mode via TABS.cli's own cleanup (sends 'exit', waits for the FC to fully
-// reconnect in MSP mode) rather than just flipping CONFIGURATOR.cliActive locally — the FC
-// itself doesn't know the flash attempt was abandoned unless told to exit CLI.
+// If a CLI session was actually entered, tell the FC to leave it ('exit', which reboots the FC
+// same as the interactive CLI tab's own exit) and wait for reconnect before showing the
+// failure -- the FC doesn't know the flash attempt was abandoned otherwise. If CLI was never
+// entered (or the connection is already gone), there's no reboot coming; show the failure now.
 TABS.imuf_flashing.flashFailed = function (messageKey) {
     const self = this;
     self.flashInProgress = false;
-    TABS.cli.cleanup(() => {
-        self.enableFlashing(true);
-        self.flashingMessage(i18n.getMessage(messageKey), self.FLASH_MESSAGE_TYPES.INVALID);
-    });
+
+    if (self._inCliMode && CONFIGURATOR.connectionValid) {
+        self._lastResult = {success: false, messageKey};
+        self.sendLine('exit', () => {
+            self._awaitReconnect(() => {
+                TABS.imuf_flashing.initialize(function () {});
+            });
+        });
+        return;
+    }
+
+    CONFIGURATOR.cliActive = false;
+    CONFIGURATOR.cliActiveReader = null;
+    self.enableFlashing(true);
+    self.flashingMessage(i18n.getMessage(messageKey), self.FLASH_MESSAGE_TYPES.INVALID);
 };
 
 TABS.imuf_flashing.enableFlashing = function (enabled) {
@@ -415,11 +504,22 @@ TABS.imuf_flashing.flashProgress = function (value) {
 };
 
 TABS.imuf_flashing.cleanup = function (callback) {
-    if (this.flashInProgress) {
+    const self = this;
+
+    if (self.flashInProgress) {
         GUI.log(i18n.getMessage('imufFlashingAbortedTabSwitch'));
-        this.flashInProgress = false;
-        TABS.cli.cleanup(callback);
-        return;
+        self.flashInProgress = false;
+        self._lastResult = null; // user is navigating away; nothing to re-show later
+
+        if (self._inCliMode && CONFIGURATOR.connectionValid) {
+            self.sendLine('exit', () => {
+                self._awaitReconnect(callback);
+            });
+            return;
+        }
+
+        CONFIGURATOR.cliActive = false;
+        CONFIGURATOR.cliActiveReader = null;
     }
 
     if (callback) {
