@@ -368,7 +368,11 @@ TABS.imuf_flashing.awaitCommitResult = function (timeoutMs, callback) {
     console.log('[imuf-flashing] sending imufflashbin (commit step)');
     // The poll starts without waiting for the send callback: serial.js drops queued sends without
     // calling it on disconnect or queue overflow, which would otherwise leave the lock held.
-    self.sendLine('imufflashbin');
+    // A disconnect counts as success only if the callback confirmed the command went out.
+    let sent = false;
+    self.sendLine('imufflashbin', (sendInfo) => {
+        sent = !(sendInfo && sendInfo.error);
+    });
     let waited = 0;
     // Not registered in _pollTimers: cleanup() must not cancel it, the result callback
     // owns the abandoned-commit handling.
@@ -383,6 +387,11 @@ TABS.imuf_flashing.awaitCommitResult = function (timeoutMs, callback) {
         }
         if (!CONFIGURATOR.connectionValid) {
             clearInterval(pollId);
+            if (!sent) {
+                console.log('[imuf-flashing] commit: connection dropped after', waited, 'ms before the command was sent -- failure');
+                callback(false, 'send-dropped', newText);
+                return;
+            }
             console.log('[imuf-flashing] commit: connection dropped after', waited, 'ms -- treating as success (only a completed flash reboots)');
             callback(true, 'disconnected', newText);
             return;
