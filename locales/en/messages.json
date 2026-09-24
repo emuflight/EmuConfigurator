@@ -5175,6 +5175,9 @@
     "imufFlashingSuccess": {
         "message": "IMU-F flashed successfully, flight controller is rebooting"
     },
+    "imufFlashingUnconfirmed": {
+        "message": "IMU-F flash command sent, flight controller rebooted. Success is unconfirmed: check the installed version"
+    },
     "imufFlashingAbortedTabSwitch": {
         "message": "IMU-F flashing aborted: tab changed mid-flash"
     },
@@ -5208,8 +5211,8 @@
     "imufFlashingLogCommitConfirmed": {
         "message": "IMU-F flash committed"
     },
-    "imufFlashingLogCommitReconnected": {
-        "message": "IMU-F flash committed, flight controller rebooted"
+    "imufFlashingLogCommitUnconfirmed": {
+        "message": "IMU-F flash command sent, flight controller disconnected without confirmation"
     },
     "tabVtx": {
         "message": "Analog VTX"

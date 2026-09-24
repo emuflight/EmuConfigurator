@@ -114,10 +114,14 @@ TABS.imuf_flashing.initialize = function (callback) {
         if (self._lastResult) {
             const result = self._lastResult;
             self._lastResult = null;
-            self.flashingMessage(
-                result.success ? i18n.getMessage('imufFlashingSuccess') : i18n.getMessage(result.messageKey),
-                result.success ? self.FLASH_MESSAGE_TYPES.VALID : self.FLASH_MESSAGE_TYPES.INVALID
-            );
+            if (result.unconfirmed) {
+                self.flashingMessage(i18n.getMessage('imufFlashingUnconfirmed'), self.FLASH_MESSAGE_TYPES.NEUTRAL);
+            } else {
+                self.flashingMessage(
+                    result.success ? i18n.getMessage('imufFlashingSuccess') : i18n.getMessage(result.messageKey),
+                    result.success ? self.FLASH_MESSAGE_TYPES.VALID : self.FLASH_MESSAGE_TYPES.INVALID
+                );
+            }
         }
 
         // Fetched at connect time (serial_backend.js); shown again there if it arrives later.
@@ -577,13 +581,19 @@ TABS.imuf_flashing.flash = function () {
                             self.flashFailed('imufFlashingCommitFailed');
                             return;
                         }
-                        GUI.log(i18n.getMessage(reason === 'disconnected' ? 'imufFlashingLogCommitReconnected' : 'imufFlashingLogCommitConfirmed'));
+                        // A disconnect without SUCCESS text does not prove the flash worked.
+                        const unconfirmed = reason === 'disconnected';
+                        GUI.log(i18n.getMessage(unconfirmed ? 'imufFlashingLogCommitUnconfirmed' : 'imufFlashingLogCommitConfirmed'));
 
                         self.flashProgress(100);
-                        self.flashingMessage(i18n.getMessage('imufFlashingSuccess'), self.FLASH_MESSAGE_TYPES.VALID);
-                        AudioFeedback.playFlashVerified();
+                        if (unconfirmed) {
+                            self.flashingMessage(i18n.getMessage('imufFlashingUnconfirmed'), self.FLASH_MESSAGE_TYPES.NEUTRAL);
+                        } else {
+                            self.flashingMessage(i18n.getMessage('imufFlashingSuccess'), self.FLASH_MESSAGE_TYPES.VALID);
+                            AudioFeedback.playFlashVerified();
+                        }
                         self.flashInProgress = false;
-                        self._lastResult = {success: true};
+                        self._lastResult = {success: true, unconfirmed};
                         if (self._commitInterrupted) {
                             // Connect click (reboot-driven serial error) ran cleanup() mid-commit:
                             // the tab is gone, so no reconnect hook re-initializes it.
