@@ -643,8 +643,9 @@ TABS.imuf_flashing.flashFailed = function (messageKey) {
                 TABS.imuf_flashing.initialize(function () {});
             });
         }, () => {
-            showFailure();
+            // The disconnect handler reads the CLI flags that showFailure() clears.
             self._abandonCli();
+            showFailure();
         });
         return;
     }
