@@ -84,6 +84,17 @@ TABS.imuf_flashing = {
     _lastResult: null, // {success, messageKey} -- shown once by initialize() after a reboot round-trip
 };
 
+// IMUF_FILTER_CONFIG.imufCurrentVersion is set by MSP_IMUF_INFO (HESP/SX10/FLUX, apiVersion >= 1.51.0).
+TABS.imuf_flashing.showInstalledVersion = function () {
+    const installedVersion = IMUF_FILTER_CONFIG.imufCurrentVersion;
+    if (installedVersion === undefined) {
+        return;
+    }
+    const key = installedVersion === 9999 ? 'imufFlashingInstalledVersionUnknown' : 'imufFlashingInstalledVersion';
+    $('.imuf_installed_version .value').text(i18n.getMessage(key, [installedVersion]));
+    $('.imuf_installed_version').show();
+};
+
 TABS.imuf_flashing.initialize = function (callback) {
     const self = this;
 
@@ -109,14 +120,8 @@ TABS.imuf_flashing.initialize = function (callback) {
             );
         }
 
-        // Already fetched at connect time (serial_backend.js, same MSP_IMUF_INFO gate:
-        // apiVersion >= 1.51.0 on a HESP/SX10/FLUX board) -- no need to request it again here.
-        const installedVersion = IMUF_FILTER_CONFIG.imufCurrentVersion;
-        if (installedVersion !== undefined) {
-            const key = installedVersion === 9999 ? 'imufFlashingInstalledVersionUnknown' : 'imufFlashingInstalledVersion';
-            $('.imuf_installed_version .value').text(i18n.getMessage(key, [installedVersion]));
-            $('.imuf_installed_version').show();
-        }
+        // Fetched at connect time (serial_backend.js); shown again there if it arrives later.
+        self.showInstalledVersion();
 
         function populateReleases(releaseData) {
             const select_e = $('select[name="imuf_version"]');

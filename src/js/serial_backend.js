@@ -267,6 +267,9 @@ function onOpen(openInfo) {
                                         // never answers hits the 15s connect timeout.
                                         MSP.send_message(MSPCodes.MSP_IMUF_INFO, false, false, function () {
                                             GUI.log(i18n.getMessage('imufVersionReceived', [IMUF_FILTER_CONFIG.imufCurrentVersion]));
+                                            if (GUI.active_tab === 'imuf_flashing') {
+                                                TABS.imuf_flashing.showInstalledVersion();
+                                            }
                                         });
                                     }
                                     continueAfterBoardInfo();
