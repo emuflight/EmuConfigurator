@@ -428,10 +428,17 @@ TABS.imuf_flashing._exitCli = function (confirmed, unconfirmed) {
     self.sendLine('exit', (sendInfo) => finish(!(sendInfo && sendInfo.error)));
 };
 
+// A Connect click while disconnected, or while a disconnect runs, would start a connect. GUI.connected_to
+// clears synchronously when a disconnect starts; connectionValid only clears when the port closes.
+TABS.imuf_flashing._isConnected = function () {
+    return CONFIGURATOR.connectionValid && !!GUI.connected_to;
+};
+
 // After an unconfirmed 'exit' the FC may still be in CLI mode, so MSP traffic would corrupt the
 // stream. Disconnect and let the user reconnect. If already disconnected, onClosed() reset the state.
 TABS.imuf_flashing._abandonCli = function () {
-    if (CONFIGURATOR.connectionValid) {
+    const self = this;
+    if (self._isConnected()) {
         console.log('[imuf-flashing] exit unconfirmed, disconnecting');
         $('div.connect_controls a.connect').click();
     }
@@ -612,7 +619,9 @@ TABS.imuf_flashing.flashFailed = function (messageKey) {
         GUI.connect_click_deferred = false;
         GUI.tab_switch_lock = false;
         self._stopAllPolls();
-        $('div.connect_controls a.connect').click();
+        if (self._isConnected()) {
+            $('div.connect_controls a.connect').click();
+        }
         return;
     }
 
