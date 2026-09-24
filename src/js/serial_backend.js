@@ -81,7 +81,13 @@ function initializeSerialBackend() {
                         finishClose(toggleStatus);
                     }
 
-                    mspHelper.setArmingEnabled(true, false, onFinishCallback);
+                    // A tab-owned CLI session (imuf_flashing) routes MSP replies away from the MSP
+                    // handler, so the arming request would never complete and stall the disconnect.
+                    if (CONFIGURATOR.cliActive && CONFIGURATOR.cliActiveReader) {
+                        onFinishCallback();
+                    } else {
+                        mspHelper.setArmingEnabled(true, false, onFinishCallback);
+                    }
                 }
             }
        } else {
