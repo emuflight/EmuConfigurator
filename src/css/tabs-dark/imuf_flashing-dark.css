@@ -1,0 +1,14 @@
+.tab-imuf_flashing .imuf_binary_summary .title {
+    border-bottom: 1px solid #4f4f4f;
+}
+
+.tab-imuf_flashing .options select {
+    background-color: #3a3a3a;
+    color: white;
+}
+
+/* Row separator dulled to match firmware_flasher-dark.css -- without this it shares
+   var(--subtleAccent) with the select's own border-bottom, making both equally bright. */
+.tab-imuf_flashing .cf_table td {
+    border-bottom: solid 1px #4f4f4f;
+}

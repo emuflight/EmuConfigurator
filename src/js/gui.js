@@ -8,6 +8,8 @@ var GUI_control = function () {
     this.connecting_to = false;
     this.connected_to = false;
     this.connect_lock = false;
+    this.tab_switch_lock = false; // blocks tab switching only; connect_lock also blocks the Connect button
+    this.connect_click_deferred = false; // a Connect click dropped by connect_lock, to replay once released
     this.active_tab;
     this.tab_switch_in_progress = false;
     this.operating_system;
@@ -35,6 +37,7 @@ var GUI_control = function () {
         'led_strip',
         'logging',
         'onboard_logging',
+        'imuf_flashing',
         'modes',
         'motors',
         'pid_tuning',
@@ -383,7 +386,13 @@ GUI_control.prototype.selectDefaultTabWhenConnected = function() {
             $('#tabs ul.mode-connected .tab_setup a').click();
             return;
         }
-        $("#tabs ul.mode-connected ." + result.lastTab + " a").click();
+        // A tab hidden for this board (e.g. imuf_flashing on a non-IMU-F board) falls back to Setup.
+        const tab = $("#tabs ul.mode-connected ." + result.lastTab);
+        if (!tab.length || tab.css('display') === 'none') {
+            $('#tabs ul.mode-connected .tab_setup a').click();
+            return;
+        }
+        tab.find('a').click();
     });
 };
 

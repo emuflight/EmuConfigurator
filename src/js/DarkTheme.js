@@ -18,6 +18,7 @@ var css_dark = [
     './css/tabs-dark/logging-dark.css',
     './css/tabs-dark/onboard_logging-dark.css',
     './css/tabs-dark/firmware_flasher-dark.css',
+    './css/tabs-dark/imuf_flashing-dark.css',
     './css/tabs-dark/adjustments-dark.css',
     './css/tabs-dark/auxiliary-dark.css',
     './css/tabs-dark/failsafe-dark.css',

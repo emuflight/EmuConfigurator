@@ -1,0 +1,47 @@
+.tab-imuf_flashing .info {
+    padding: 2px 18px;
+    position: relative;
+    flex-grow: 100;
+}
+
+.tab-imuf_flashing .info .progressLabel {
+    position: absolute;
+    width: calc(100% - 36px);
+    height: 26px;
+    top: 2px;
+    left: 0;
+    text-align: center;
+    line-height: 24px;
+    color: white;
+    font-weight: bold;
+    margin-left: 18px;
+}
+
+.tab-imuf_flashing .imuf_binary_summary .title {
+    border-bottom: 1px solid #9c9c9c;
+}
+
+.tab-imuf_flashing .options select {
+    width: 300px;
+    height: 20px;
+    border-bottom: 1px solid var(--subtleAccent);
+}
+
+/* main.css's .cf_table td:last-child defaults to text-align: right for every other user of
+   .cf_table -- firmware_flasher.css resets it the same way. padding-left keeps the description
+   off the dropdown's edge once the two cells wrap close together at narrow widths. */
+.tab-imuf_flashing .cf_table td:last-child {
+    text-align: left;
+    padding-left: 12px;
+}
+
+/* Look (fill, border, font) comes from the shared .content_toolbar .btn a rule in main.css; this
+   only sizes it to content. float: left keeps the .clear-both after it working. */
+.tab-imuf_flashing .imuf_installed_version {
+    display: inline-block;
+    float: left;
+    margin: 5px 18px 18px 0;
+    padding: 6px 9px;
+    line-height: normal;
+    cursor: default;
+}

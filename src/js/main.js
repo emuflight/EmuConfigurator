@@ -178,7 +178,7 @@ function startProcess() {
                 return;
             }
 
-            if (GUI.connect_lock) { // tab switching disabled while operation is in progress
+            if (GUI.connect_lock || GUI.tab_switch_lock) { // tab switching disabled while operation is in progress
                 GUI.log(i18n.getMessage('tabSwitchWaitForOperation'));
                 return;
             }
@@ -226,6 +226,7 @@ function startProcess() {
                     'landing': () => TABS.landing.initialize(content_ready),
                     'privacy_policy': () => TABS.staticTab.initialize('privacy_policy', content_ready),
                     'firmware_flasher': () => TABS.firmware_flasher.initialize(content_ready),
+                    'imuf_flashing': () => TABS.imuf_flashing.initialize(content_ready),
                     'help': () => TABS.help.initialize(content_ready),
                     'auxiliary': () => TABS.auxiliary.initialize(content_ready),
                     'adjustments': () => TABS.adjustments.initialize(content_ready),
@@ -604,6 +605,16 @@ function updateLedStripTabVisibility(features) {
     }
 }
 
+// IMUF9001 coprocessor exists only on HELIOSPRING and derivatives (STRIXF10, MODE2FLUX) —
+// same boardIdentifier check already used for IMUF LPF tuning visibility below.
+function updateImufFlashingTabVisibility() {
+    if (CONFIG.boardIdentifier === "HESP" || CONFIG.boardIdentifier === "SX10" || CONFIG.boardIdentifier === "FLUX") {
+        $('#tabs ul.mode-connected li.tab_imuf_flashing').show();
+    } else {
+        $('#tabs ul.mode-connected li.tab_imuf_flashing').hide();
+    }
+}
+
 function updateTransponderTabVisibility(features) {
     if (features.isEnabled('TRANSPONDER')) {
         $('#tabs ul.mode-connected li.tab_transponder').show();
@@ -738,6 +749,7 @@ function updateTabList(features) {
     updateLedStripTabVisibility(features);
     updateTransponderTabVisibility(features);
     updateOsdTabVisibility(features);
+    updateImufFlashingTabVisibility();
 
     $('#tabs ul.mode-connected li.tab_power').show();
 

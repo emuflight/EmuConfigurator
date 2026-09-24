@@ -35,8 +35,11 @@ function initializeSerialBackend() {
         GUI.updateManualPortVisibility();
     });
 
-    $('div.connect_controls a.connect').click(function () {
-        if (GUI.connect_lock !== true) { // GUI control overrides the user control
+    $('div.connect_controls a.connect').click(function (event) {
+        // A user click during the IMU-F commit would fake the reboot disconnect; programmatic clicks pass.
+        const commitBlocksUser = !event.isTrigger && TABS.imuf_flashing && TABS.imuf_flashing._committing;
+        if (GUI.connect_lock !== true && !commitBlocksUser) { // GUI control overrides the user control
+            GUI.connect_click_deferred = false;
 
             var thisElement = $(this);
             var clicks = thisElement.data('clicks');
@@ -80,8 +83,20 @@ function initializeSerialBackend() {
                         finishClose(toggleStatus);
                     }
 
-                    mspHelper.setArmingEnabled(true, false, onFinishCallback);
+                    // A tab-owned CLI session (imuf_flashing) routes MSP replies away from the MSP
+                    // handler, so the arming request would never complete and stall the disconnect.
+                    if (CONFIGURATOR.cliActive && CONFIGURATOR.cliActiveReader) {
+                        onFinishCallback();
+                    } else {
+                        mspHelper.setArmingEnabled(true, false, onFinishCallback);
+                    }
                 }
+            }
+       } else {
+            if (event.isTrigger) { // programmatic click (serial error): replay once the lock is released
+                GUI.connect_click_deferred = true;
+            } else {
+                GUI.log(i18n.getMessage('tabSwitchWaitForOperation'));
             }
        }
     });
@@ -241,18 +256,35 @@ function onOpen(openInfo) {
                                     updateStatusBarVersion(CONFIG.flightControllerVersion, CONFIG.flightControllerIdentifier, FC.getHardwareName());
                                     updateTopBarVersion(CONFIG.flightControllerVersion, CONFIG.flightControllerIdentifier, FC.getHardwareName());
 
-                                    MSP.send_message(MSPCodes.MSP_UID, false, false, function () {
-                                        var uniqueDeviceIdentifier = CONFIG.uid[0].toString(16) + CONFIG.uid[1].toString(16) + CONFIG.uid[2].toString(16);
-                                        connectionTimestamp = Date.now();
-                                        GUI.log(i18n.getMessage('uniqueDeviceIdReceived', [uniqueDeviceIdentifier]));
+                                    function continueAfterBoardInfo() {
+                                        MSP.send_message(MSPCodes.MSP_UID, false, false, function () {
+                                            var uniqueDeviceIdentifier = CONFIG.uid[0].toString(16) + CONFIG.uid[1].toString(16) + CONFIG.uid[2].toString(16);
+                                            connectionTimestamp = Date.now();
+                                            GUI.log(i18n.getMessage('uniqueDeviceIdReceived', [uniqueDeviceIdentifier]));
 
-                                        MSP.send_message(MSPCodes.MSP_NAME, false, false, function () {
-                                            GUI.log(i18n.getMessage('craftNameReceived', [CONFIG.name]));
+                                            MSP.send_message(MSPCodes.MSP_NAME, false, false, function () {
+                                                GUI.log(i18n.getMessage('craftNameReceived', [CONFIG.name]));
 
-                                            CONFIG.armingDisabled = false;
-                                            mspHelper.setArmingEnabled(false, false, setRtc);
+                                                CONFIG.armingDisabled = false;
+                                                mspHelper.setArmingEnabled(false, false, setRtc);
+                                            });
                                         });
-                                    });
+                                    }
+
+                                    // MSP_IMUF_INFO (added MSP 1.51) only responds on HESP/SX10/FLUX --
+                                    // same gate pid_tuning.js already uses for this same request.
+                                    if (semver.gte(CONFIG.apiVersion, "1.51.0") &&
+                                        (CONFIG.boardIdentifier === "HESP" || CONFIG.boardIdentifier === "SX10" || CONFIG.boardIdentifier === "FLUX")) {
+                                        // Optional request: the handshake must not wait on it, or a board that
+                                        // never answers hits the 15s connect timeout.
+                                        MSP.send_message(MSPCodes.MSP_IMUF_INFO, false, false, function () {
+                                            GUI.log(i18n.getMessage('imufVersionReceived', [IMUF_FILTER_CONFIG.imufCurrentVersion]));
+                                            if (GUI.active_tab === 'imuf_flashing') {
+                                                TABS.imuf_flashing.showInstalledVersion();
+                                            }
+                                        });
+                                    }
+                                    continueAfterBoardInfo();
                                 });
                             });
                         });
@@ -436,6 +468,7 @@ function onClosed(result) {
     CONFIGURATOR.connectionValid = false;
     CONFIGURATOR.cliValid = false;
     CONFIGURATOR.cliActive = false;
+    CONFIGURATOR.cliActiveReader = null;
 
     // Clear any pending callback from CLI exit ONLY if it's not a callable pending callback.
     // If it IS a function, it's likely from a CLI reboot cycle and should be preserved
@@ -460,7 +493,12 @@ function onClosed(result) {
 function read_serial(info) {
     if (!CONFIGURATOR.cliActive) {
         MSP.read(info);
-    } else if (CONFIGURATOR.cliActive) {
+    } else if (CONFIGURATOR.cliActiveReader) {
+        // A tab other than the CLI tab is driving its own raw CLI session (e.g.
+        // imuf_flashing) -- route to its own reader instead of the interactive CLI tab's,
+        // which assumes its own DOM/CliAutoComplete setup ran.
+        CONFIGURATOR.cliActiveReader.read(info);
+    } else {
         TABS.cli.read(info);
     }
 }
@@ -562,7 +600,10 @@ function update_live_status() {
        display: 'inline-block'
     });
 
-    if (GUI.active_tab !== 'cli') {
+    // CONFIGURATOR.cliActive covers any tab driving a raw CLI session (not just the CLI tab
+    // itself, e.g. imuf_flashing) -- sending MSP requests while the FC is mid-CLI-command
+    // corrupts both streams on the wire.
+    if (GUI.active_tab !== 'cli' && !CONFIGURATOR.cliActive) {
         MSP.send_message(MSPCodes.MSP_BOXNAMES, false, false);
         MSP.send_message(MSPCodes.MSP_STATUS_EX, false, false);
         MSP.send_message(MSPCodes.MSP_ANALOG, false, false);
