@@ -79,6 +79,7 @@ TABS.imuf_flashing = {
     _pendingAfterReconnectTimeout: null,
     _flashSession: 0, // bumped by flash() and cleanup(); a callback from an older session is stale
     _committing: false, // true from imufflashbin sent until its result callback runs
+    _commitInterrupted: false, // cleanup() ran mid-commit; the result callback still reports the outcome
     _pollTimers: new Set(),
     _lastResult: null, // {success, messageKey} -- shown once by initialize() after a reboot round-trip
 };
@@ -458,6 +459,7 @@ TABS.imuf_flashing.flash = function () {
     GUI.log(i18n.getMessage('imufFlashingLogStart', [bytes.length]));
 
     self._flashSession++;
+    self._commitInterrupted = false;
     self.flashInProgress = true;
     GUI.connect_lock = true;
     GUI.tab_switch_lock = true;
@@ -509,24 +511,11 @@ TABS.imuf_flashing.flash = function () {
                     // tab_switch_lock stays set: leaving the tab now would leave cliActive routing
                     // every byte to this tab's reader, so the new tab's MSP replies never parse.
                     GUI.connect_lock = false;
-                    const session = self._flashSession;
                     self._committing = true;
                     // 30s backstop for a genuine failure -- see awaitCommitResult for why.
                     self.awaitCommitResult(30000, (committed, reason, raw3) => {
                         self._committing = false;
                         console.log('[imuf-flashing] imufflashbin (commit) ->', committed, reason, JSON.stringify(raw3));
-                        if (session !== self._flashSession) {
-                            // Tab was left mid-commit: cleanup() skipped 'exit' and UI is gone.
-                            // A success reboots the FC (onClosed() resets the CLI state); a
-                            // failure leaves the CLI session alive, so exit it here.
-                            if (!committed && CONFIGURATOR.connectionValid) {
-                                self.sendLine('exit', () => {
-                                    CONFIGURATOR.cliActive = false;
-                                    CONFIGURATOR.cliActiveReader = null;
-                                });
-                            }
-                            return;
-                        }
                         if (!committed) {
                             GUI.log(i18n.getMessage('imufFlashingLogCommitFailed'));
                             self.flashFailed('imufFlashingCommitFailed');
@@ -539,6 +528,13 @@ TABS.imuf_flashing.flash = function () {
                         AudioFeedback.playFlashVerified();
                         self.flashInProgress = false;
                         self._lastResult = {success: true};
+                        if (self._commitInterrupted) {
+                            // Connect click (reboot-driven serial error) ran cleanup() mid-commit:
+                            // the tab is gone, so no reconnect hook re-initializes it.
+                            self._commitInterrupted = false;
+                            self._lastResult = null;
+                            return;
+                        }
                         console.log('[imuf-flashing] flash succeeded, awaiting reconnect');
                         // Firmware reboots on its own ~5s after printing SUCCESS (cliImufFlashBin -> cliReboot()).
                         // tab_switch_lock stays set until reconnect (or the watchdog): a tab switch
@@ -623,20 +619,23 @@ TABS.imuf_flashing.flashProgress = function (value) {
 TABS.imuf_flashing.cleanup = function (callback) {
     const self = this;
 
+    // Tab switching is locked while committing, so only a disconnect reaches cleanup() here. The
+    // session stays valid: the commit result callback reports a reboot-driven success.
+    if (self._committing) {
+        self._commitInterrupted = true;
+        GUI.tab_switch_lock = false;
+        if (callback) {
+            callback();
+        }
+        return;
+    }
+
     if (self.flashInProgress) {
         GUI.log(i18n.getMessage('imufFlashingAbortedTabSwitch'));
         self._flashSession++;
         self.flashInProgress = false;
         GUI.tab_switch_lock = false;
         self._lastResult = null; // navigating away -- nothing to re-show later
-
-        // Skip 'exit' while a commit is pending; the commit result callback ends the CLI session.
-        if (self._committing) {
-            if (callback) {
-                callback();
-            }
-            return;
-        }
 
         self._stopAllPolls();
 

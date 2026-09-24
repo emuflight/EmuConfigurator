@@ -1,12 +1,3 @@
-/* Same as the shared .tab-firmware_flasher rule etc. in main.css (that list doesn't include this
-   new tab) -- without a definite height + positioned ancestor here, .content_toolbar's
-   `position: absolute; bottom: 0;` (main.css) has nothing to anchor to, so #content ends up
-   scrolling the whole tab -- toolbar included -- instead of just .content_wrapper. */
-.tab-imuf_flashing {
-    height: 100%;
-    position: relative;
-}
-
 .tab-imuf_flashing .info {
     padding: 2px 18px;
     position: relative;
@@ -44,22 +35,13 @@
     padding-left: 12px;
 }
 
-/* Reuses .content_toolbar .btn a's exact fill/border/radius/font (main.css) instead of a full
-   gui_box -- same button look already used app-wide, sized to content here instead of the
-   toolbar's fixed line-height. var(--accent) already resolves to the right blue per theme
-   (main.css vs main-dark.css), so no separate dark-mode rule is needed. float: left keeps the
-   .clear-both after it working the same way every other .gui_box sibling in this file relies on. */
+/* Look (fill, border, font) comes from the shared .content_toolbar .btn a rule in main.css; this
+   only sizes it to content. float: left keeps the .clear-both after it working. */
 .tab-imuf_flashing .imuf_installed_version {
     display: inline-block;
     float: left;
-    width: auto;
     margin: 5px 18px 18px 0;
     padding: 6px 9px;
-    background-color: var(--accent);
-    border: 1px solid #2297eb;
-    border-radius: 3px;
-    color: #000;
-    font-family: 'open_sansbold', Arial;
-    font-size: 12px;
-    text-shadow: 0px 1px rgba(255, 255, 255, 0.25);
+    line-height: normal;
+    cursor: default;
 }
