@@ -36,7 +36,9 @@ function initializeSerialBackend() {
     });
 
     $('div.connect_controls a.connect').click(function (event) {
-        if (GUI.connect_lock !== true) { // GUI control overrides the user control
+        // A user click during the IMU-F commit would fake the reboot disconnect; programmatic clicks pass.
+        const commitBlocksUser = !event.isTrigger && TABS.imuf_flashing && TABS.imuf_flashing._committing;
+        if (GUI.connect_lock !== true && !commitBlocksUser) { // GUI control overrides the user control
             GUI.connect_click_deferred = false;
 
             var thisElement = $(this);
