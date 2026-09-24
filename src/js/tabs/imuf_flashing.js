@@ -404,21 +404,26 @@ TABS.imuf_flashing.awaitCommitResult = function (timeoutMs, callback) {
     }, 100);
 };
 
-// Sends 'exit' (reboots the FC) and runs next once, on the send callback or after 3s. serial.js
-// can drop a queued send without calling its callback, which would leave tab_switch_lock held.
-TABS.imuf_flashing._exitCli = function (next) {
+// Sends 'exit' (reboots the FC). Runs confirmed() once the send completes, or unconfirmed() once if
+// it fails or 3s pass: serial.js can drop a queued send without calling its callback, so the FC
+// may still be in CLI mode and no reconnect follows.
+TABS.imuf_flashing._exitCli = function (confirmed, unconfirmed) {
     const self = this;
     let done = false;
-    const proceed = () => {
+    const finish = (ok) => {
         if (done) {
             return;
         }
         done = true;
         clearTimeout(timerId);
-        next();
+        if (ok) {
+            confirmed();
+        } else {
+            unconfirmed();
+        }
     };
-    const timerId = setTimeout(proceed, 3000);
-    self.sendLine('exit', proceed);
+    const timerId = setTimeout(() => finish(false), 3000);
+    self.sendLine('exit', (sendInfo) => finish(!(sendInfo && sendInfo.error)));
 };
 
 // Sets GUI.pendingAfterReconnect (the hook TABS.cli.cleanup() also uses) so the reconnect
@@ -600,6 +605,16 @@ TABS.imuf_flashing.flashFailed = function (messageKey) {
         return;
     }
 
+    const showFailure = () => {
+        GUI.tab_switch_lock = false;
+        CONFIGURATOR.cliActive = false;
+        CONFIGURATOR.cliActiveReader = null;
+        self._inCliMode = false;
+        self._lastResult = null;
+        self.enableFlashing(true);
+        self.flashingMessage(i18n.getMessage(messageKey), self.FLASH_MESSAGE_TYPES.INVALID);
+    };
+
     if (self._inCliMode && CONFIGURATOR.connectionValid) {
         self._lastResult = {success: false, messageKey};
         self._exitCli(() => {
@@ -607,15 +622,11 @@ TABS.imuf_flashing.flashFailed = function (messageKey) {
                 GUI.tab_switch_lock = false;
                 TABS.imuf_flashing.initialize(function () {});
             });
-        });
+        }, showFailure);
         return;
     }
 
-    GUI.tab_switch_lock = false;
-    CONFIGURATOR.cliActive = false;
-    CONFIGURATOR.cliActiveReader = null;
-    self.enableFlashing(true);
-    self.flashingMessage(i18n.getMessage(messageKey), self.FLASH_MESSAGE_TYPES.INVALID);
+    showFailure();
 };
 
 TABS.imuf_flashing.enableFlashing = function (enabled) {
@@ -684,6 +695,13 @@ TABS.imuf_flashing.cleanup = function (callback) {
         if (self._inCliMode && CONFIGURATOR.connectionValid) {
             self._exitCli(() => {
                 self._awaitReconnect(callback);
+            }, () => {
+                CONFIGURATOR.cliActive = false;
+                CONFIGURATOR.cliActiveReader = null;
+                self._inCliMode = false;
+                if (callback) {
+                    callback();
+                }
             });
             return;
         }
