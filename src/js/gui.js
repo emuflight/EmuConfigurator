@@ -9,6 +9,7 @@ var GUI_control = function () {
     this.connected_to = false;
     this.connect_lock = false;
     this.tab_switch_lock = false; // blocks tab switching only; connect_lock also blocks the Connect button
+    this.connect_click_deferred = false; // a Connect click dropped by connect_lock, to replay once released
     this.active_tab;
     this.tab_switch_in_progress = false;
     this.operating_system;

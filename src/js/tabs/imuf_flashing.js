@@ -478,6 +478,7 @@ TABS.imuf_flashing.flash = function () {
 
     self._flashSession++;
     self._commitInterrupted = false;
+    GUI.connect_click_deferred = false;
     self.flashInProgress = true;
     GUI.connect_lock = true;
     GUI.tab_switch_lock = true;
@@ -575,6 +576,15 @@ TABS.imuf_flashing.flashFailed = function (messageKey) {
     const self = this;
     self.flashInProgress = false;
     GUI.connect_lock = false;
+
+    // An unplug during the flash sends a Connect click that connect_lock dropped: replay it.
+    if (GUI.connect_click_deferred) {
+        GUI.connect_click_deferred = false;
+        GUI.tab_switch_lock = false;
+        self._stopAllPolls();
+        $('div.connect_controls a.connect').click();
+        return;
+    }
 
     if (self._inCliMode && CONFIGURATOR.connectionValid) {
         self._lastResult = {success: false, messageKey};

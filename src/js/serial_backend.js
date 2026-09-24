@@ -37,6 +37,7 @@ function initializeSerialBackend() {
 
     $('div.connect_controls a.connect').click(function () {
         if (GUI.connect_lock !== true) { // GUI control overrides the user control
+            GUI.connect_click_deferred = false;
 
             var thisElement = $(this);
             var clicks = thisElement.data('clicks');
@@ -83,6 +84,8 @@ function initializeSerialBackend() {
                     mspHelper.setArmingEnabled(true, false, onFinishCallback);
                 }
             }
+       } else {
+            GUI.connect_click_deferred = true;
        }
     });
 
