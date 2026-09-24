@@ -335,24 +335,26 @@ TABS.imuf_flashing.sendCliCommandExpect = function (command, expectSubstrings, t
     const self = this;
     const startLen = self._rxBuffer.length;
     const session = self._flashSession;
-    self.sendLine(command, () => {
+    // The poll starts without waiting for the send callback: serial.js drops queued sends without
+    // calling it on disconnect or queue overflow, which would otherwise leave the flash hanging.
+    self.sendLine(command);
+    let waited = 0;
+    const pollId = self._startPoll(() => {
         if (session !== self._flashSession) {
+            self._stopPoll(pollId);
             return;
         }
-        let waited = 0;
-        const pollId = self._startPoll(() => {
-            waited += 20;
-            const newText = self._rxBuffer.slice(startLen);
-            const matched = expectSubstrings.find((s) => newText.indexOf(s) !== -1);
-            if (matched) {
-                self._stopPoll(pollId);
-                callback(true, matched, newText);
-            } else if (waited >= timeoutMs) {
-                self._stopPoll(pollId);
-                callback(false, null, newText);
-            }
-        }, 20);
-    });
+        waited += 20;
+        const newText = self._rxBuffer.slice(startLen);
+        const matched = expectSubstrings.find((s) => newText.indexOf(s) !== -1);
+        if (matched) {
+            self._stopPoll(pollId);
+            callback(true, matched, newText);
+        } else if (waited >= timeoutMs) {
+            self._stopPoll(pollId);
+            callback(false, null, newText);
+        }
+    }, 20);
 };
 
 // Chip erase plus one SPI write per 32 bytes (imufUpdate(), accgyro_imuf9001.c) can exceed a
