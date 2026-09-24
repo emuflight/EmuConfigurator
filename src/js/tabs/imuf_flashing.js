@@ -426,6 +426,15 @@ TABS.imuf_flashing._exitCli = function (confirmed, unconfirmed) {
     self.sendLine('exit', (sendInfo) => finish(!(sendInfo && sendInfo.error)));
 };
 
+// After an unconfirmed 'exit' the FC may still be in CLI mode, so MSP traffic would corrupt the
+// stream. Disconnect and let the user reconnect. If already disconnected, onClosed() reset the state.
+TABS.imuf_flashing._abandonCli = function () {
+    if (CONFIGURATOR.connectionValid) {
+        console.log('[imuf-flashing] exit unconfirmed, disconnecting');
+        $('div.connect_controls a.connect').click();
+    }
+};
+
 // Sets GUI.pendingAfterReconnect (the hook TABS.cli.cleanup() also uses) so the reconnect
 // routes back to this tab instead of finishOpen()'s default tab selection. callback fires once
 // the new connection's handshake completes, or after a 15s watchdog otherwise.
@@ -622,7 +631,10 @@ TABS.imuf_flashing.flashFailed = function (messageKey) {
                 GUI.tab_switch_lock = false;
                 TABS.imuf_flashing.initialize(function () {});
             });
-        }, showFailure);
+        }, () => {
+            showFailure();
+            self._abandonCli();
+        });
         return;
     }
 
@@ -696,9 +708,7 @@ TABS.imuf_flashing.cleanup = function (callback) {
             self._exitCli(() => {
                 self._awaitReconnect(callback);
             }, () => {
-                CONFIGURATOR.cliActive = false;
-                CONFIGURATOR.cliActiveReader = null;
-                self._inCliMode = false;
+                self._abandonCli();
                 if (callback) {
                     callback();
                 }
