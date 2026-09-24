@@ -45,8 +45,3 @@
     line-height: normal;
     cursor: default;
 }
-
-.tab-imuf_flashing .imuf_release_info .notes {
-    white-space: pre-wrap;
-    overflow-wrap: anywhere;
-}

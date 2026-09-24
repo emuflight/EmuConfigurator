@@ -69,6 +69,8 @@ applyTo: 'src/**/*.{js,html,css}, *.{json,yml,md}, .github/**/*.md'
 - Use `contextIsolation: true` for any new `BrowserWindow` configs.
 - Validate all IPC messages and sanitize user input.
 - Never expose sensitive Node APIs to the renderer.
+- Release notes render as markdown through `marked` by design (firmware flasher, IMU-F flasher). Sources are official and dev releases only.
+- Keep `marked` current: apply its security updates and check `yarn audit`. Do not replace the rendering to address a review finding.
 
 ## 6. **Testing & Linting**
 - Use ESLint with a strict, project-specific config; fix all warnings and errors before commit.
