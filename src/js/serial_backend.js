@@ -35,7 +35,7 @@ function initializeSerialBackend() {
         GUI.updateManualPortVisibility();
     });
 
-    $('div.connect_controls a.connect').click(function () {
+    $('div.connect_controls a.connect').click(function (event) {
         if (GUI.connect_lock !== true) { // GUI control overrides the user control
             GUI.connect_click_deferred = false;
 
@@ -91,7 +91,11 @@ function initializeSerialBackend() {
                 }
             }
        } else {
-            GUI.connect_click_deferred = true;
+            if (event.isTrigger) { // programmatic click (serial error): replay once the lock is released
+                GUI.connect_click_deferred = true;
+            } else {
+                GUI.log(i18n.getMessage('tabSwitchWaitForOperation'));
+            }
        }
     });
 
