@@ -155,7 +155,7 @@ TABS.imuf_flashing.initialize = function (callback) {
 
             $('.imuf_release_info .name').text(release.name || release.tag_name).prop('href', release.html_url);
             $('.imuf_release_info .date').text(new Date(release.published_at).toLocaleDateString());
-            $('.imuf_release_info .notes').html(release.body ? marked.parse(release.body) : '');
+            $('.imuf_release_info .notes').text(release.body || '');
             $('.imuf_release_info').slideDown();
         });
 
@@ -361,32 +361,50 @@ TABS.imuf_flashing.awaitCommitResult = function (timeoutMs, callback) {
     const self = this;
     const startLen = self._rxBuffer.length;
     console.log('[imuf-flashing] sending imufflashbin (commit step)');
-    self.sendLine('imufflashbin', () => {
-        let waited = 0;
-        // Not registered in _pollTimers: cleanup() must not cancel it, the result callback
-        // owns the abandoned-commit handling.
-        const pollId = setInterval(() => {
-            waited += 100;
-            const newText = self._rxBuffer.slice(startLen);
-            if (newText.indexOf('SUCCESS') !== -1) {
-                clearInterval(pollId);
-                console.log('[imuf-flashing] commit: SUCCESS text seen after', waited, 'ms');
-                callback(true, 'success-text', newText);
-                return;
-            }
-            if (!CONFIGURATOR.connectionValid) {
-                clearInterval(pollId);
-                console.log('[imuf-flashing] commit: connection dropped after', waited, 'ms -- treating as success (only a completed flash reboots)');
-                callback(true, 'disconnected', newText);
-                return;
-            }
-            if (waited >= timeoutMs) {
-                clearInterval(pollId);
-                console.log('[imuf-flashing] commit: timed out after', waited, 'ms, no SUCCESS and still connected -- real failure');
-                callback(false, 'timeout', newText);
-            }
-        }, 100);
-    });
+    // The poll starts without waiting for the send callback: serial.js drops queued sends without
+    // calling it on disconnect or queue overflow, which would otherwise leave the lock held.
+    self.sendLine('imufflashbin');
+    let waited = 0;
+    // Not registered in _pollTimers: cleanup() must not cancel it, the result callback
+    // owns the abandoned-commit handling.
+    const pollId = setInterval(() => {
+        waited += 100;
+        const newText = self._rxBuffer.slice(startLen);
+        if (newText.indexOf('SUCCESS') !== -1) {
+            clearInterval(pollId);
+            console.log('[imuf-flashing] commit: SUCCESS text seen after', waited, 'ms');
+            callback(true, 'success-text', newText);
+            return;
+        }
+        if (!CONFIGURATOR.connectionValid) {
+            clearInterval(pollId);
+            console.log('[imuf-flashing] commit: connection dropped after', waited, 'ms -- treating as success (only a completed flash reboots)');
+            callback(true, 'disconnected', newText);
+            return;
+        }
+        if (waited >= timeoutMs) {
+            clearInterval(pollId);
+            console.log('[imuf-flashing] commit: timed out after', waited, 'ms, no SUCCESS and still connected -- real failure');
+            callback(false, 'timeout', newText);
+        }
+    }, 100);
+};
+
+// Sends 'exit' (reboots the FC) and runs next once, on the send callback or after 3s. serial.js
+// can drop a queued send without calling its callback, which would leave tab_switch_lock held.
+TABS.imuf_flashing._exitCli = function (next) {
+    const self = this;
+    let done = false;
+    const proceed = () => {
+        if (done) {
+            return;
+        }
+        done = true;
+        clearTimeout(timerId);
+        next();
+    };
+    const timerId = setTimeout(proceed, 3000);
+    self.sendLine('exit', proceed);
 };
 
 // Sets GUI.pendingAfterReconnect (the hook TABS.cli.cleanup() also uses) so the reconnect
@@ -560,7 +578,7 @@ TABS.imuf_flashing.flashFailed = function (messageKey) {
 
     if (self._inCliMode && CONFIGURATOR.connectionValid) {
         self._lastResult = {success: false, messageKey};
-        self.sendLine('exit', () => {
+        self._exitCli(() => {
             self._awaitReconnect(() => {
                 GUI.tab_switch_lock = false;
                 TABS.imuf_flashing.initialize(function () {});
@@ -640,7 +658,7 @@ TABS.imuf_flashing.cleanup = function (callback) {
         self._stopAllPolls();
 
         if (self._inCliMode && CONFIGURATOR.connectionValid) {
-            self.sendLine('exit', () => {
+            self._exitCli(() => {
                 self._awaitReconnect(callback);
             });
             return;

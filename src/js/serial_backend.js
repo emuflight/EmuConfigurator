@@ -260,13 +260,13 @@ function onOpen(openInfo) {
                                     // same gate pid_tuning.js already uses for this same request.
                                     if (semver.gte(CONFIG.apiVersion, "1.51.0") &&
                                         (CONFIG.boardIdentifier === "HESP" || CONFIG.boardIdentifier === "SX10" || CONFIG.boardIdentifier === "FLUX")) {
+                                        // Optional request: the handshake must not wait on it, or a board that
+                                        // never answers hits the 15s connect timeout.
                                         MSP.send_message(MSPCodes.MSP_IMUF_INFO, false, false, function () {
                                             GUI.log(i18n.getMessage('imufVersionReceived', [IMUF_FILTER_CONFIG.imufCurrentVersion]));
-                                            continueAfterBoardInfo();
                                         });
-                                    } else {
-                                        continueAfterBoardInfo();
                                     }
+                                    continueAfterBoardInfo();
                                 });
                             });
                         });

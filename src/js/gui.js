@@ -385,7 +385,13 @@ GUI_control.prototype.selectDefaultTabWhenConnected = function() {
             $('#tabs ul.mode-connected .tab_setup a').click();
             return;
         }
-        $("#tabs ul.mode-connected ." + result.lastTab + " a").click();
+        // A tab hidden for this board (e.g. imuf_flashing on a non-IMU-F board) falls back to Setup.
+        const tab = $("#tabs ul.mode-connected ." + result.lastTab);
+        if (!tab.length || tab.css('display') === 'none') {
+            $('#tabs ul.mode-connected .tab_setup a').click();
+            return;
+        }
+        tab.find('a').click();
     });
 };
 
