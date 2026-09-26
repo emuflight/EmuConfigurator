@@ -603,12 +603,14 @@ STM32DFU_protocol.prototype.findBlockOutsideLayout = function () {
 };
 
 // pages to erase: full chip if self.options.erase_chip, else only pages overlapping self.hex.data
+// external flash always erases only the hex pages: the bootloader keeps its system and config partitions there
 STM32DFU_protocol.prototype.getErasePages = function () {
     var self = this;
     var erase_pages = [];
+    var full_chip = self.options.erase_chip && typeof self.chipInfo.external_flash === "undefined";
     for (var i = 0; i < self.flash_layout.sectors.length; i++) {
         for (var j = 0; j < self.flash_layout.sectors[i].num_pages; j++) {
-            if (self.options.erase_chip) {
+            if (full_chip) {
                 // full chip erase
                 erase_pages.push({'sector': i, 'page': j});
             } else {
