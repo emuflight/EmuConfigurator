@@ -89,8 +89,6 @@ STM32_protocol.prototype.connect = function (port, baud, hex, options, callback)
         // MSP_SET_REBOOT modes (matches src/js/msp/MSPHelper.js REBOOT_TYPES).
         var MSP_REBOOT_BOOTLOADER_ROM = 1;
         var MSP_REBOOT_BOOTLOADER_FLASH = 4;
-        // TARGET_HAS_FLASH_BOOTLOADER bit in the MSP_BOARD_INFO commCapabilities byte.
-        var TARGET_HAS_FLASH_BOOTLOADER_BIT = 3;
 
         var dfuPollAttempt = 0;
         var DFU_POLL_INTERVAL = 250;
@@ -176,7 +174,7 @@ STM32_protocol.prototype.connect = function (port, baud, hex, options, callback)
 
         var onConnectHandler = function () {
             MSP.send_message(MSPCodes.MSP_BOARD_INFO, false, false, function () {
-                var hasFlashBootloader = bit_check(FC.CONFIG.commCapabilities, TARGET_HAS_FLASH_BOOTLOADER_BIT);
+                var hasFlashBootloader = FC.boardHasFlashBootloader();
                 var rebootMode = hasFlashBootloader ? MSP_REBOOT_BOOTLOADER_FLASH : MSP_REBOOT_BOOTLOADER_ROM;
 
                 console.log(hasFlashBootloader
