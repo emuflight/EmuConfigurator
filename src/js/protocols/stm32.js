@@ -86,66 +86,127 @@ STM32_protocol.prototype.connect = function (port, baud, hex, options, callback)
             }
         });
     } else {
-        serial.connect(port, {bitrate: self.options.reboot_baud}, function (openInfo) {
-            if (openInfo) {
+        // MSP_SET_REBOOT modes (matches src/js/msp/MSPHelper.js REBOOT_TYPES).
+        var MSP_REBOOT_BOOTLOADER_ROM = 1;
+        var MSP_REBOOT_BOOTLOADER_FLASH = 4;
+        // TARGET_HAS_FLASH_BOOTLOADER bit in the MSP_BOARD_INFO commCapabilities byte.
+        var TARGET_HAS_FLASH_BOOTLOADER_BIT = 3;
+
+        var dfuPollAttempt = 0;
+        var DFU_POLL_INTERVAL = 250;
+        var DFU_POLL_MAX = 20;
+
+        function pollForDFU() {
+            dfuPollAttempt++;
+            PortHandler.check_usb_devices(function(dfu_available) {
+                if (dfu_available) {
+                    console.log('STM32 - DFU detected after ' + (dfuPollAttempt * DFU_POLL_INTERVAL) + 'ms');
+                    STM32DFU.connect(usbDevices, hex, options, self.callback);
+                } else if (dfuPollAttempt < DFU_POLL_MAX) {
+                    setTimeout(pollForDFU, DFU_POLL_INTERVAL);
+                } else {
+                    console.log('STM32 - DFU not detected after ' + (DFU_POLL_MAX * DFU_POLL_INTERVAL) + 'ms, trying serial...');
+                    serial.connect(port, {bitrate: self.baud, parityBit: 'even', stopBits: 'one'}, function (openInfo) {
+                        if (openInfo) {
+                            self.initialize();
+                        } else {
+                            GUI.connect_lock = false;
+                            GUI.log(i18n.getMessage('serialPortOpenFail'));
+                            if (self.callback) { self.callback(); }
+                        }
+                    });
+                }
+            });
+        }
+
+        // Poll for DFU device after reboot. A single fixed delay is
+        // insufficient on slow systems (Windows VMs, installed packages)
+        // where USB re-enumeration takes longer than 1 second.
+        function afterRebootRequestSent(disconnected) {
+            if (disconnected) {
+                // Initial 500ms delay for the board to begin re-enumeration
+                setTimeout(pollForDFU, 500);
+            } else {
+                console.log('STM32 - disconnect failed after reboot command');
+                GUI.connect_lock = false;
+                if (self.callback) { self.callback(); }
+            }
+        }
+
+        // Original mechanism: blast a raw ascii 'R' over the CLI serial port. Works
+        // for any board whose firmware watches for it, and always requests the CPU's
+        // own silicon ROM DFU bootloader — correct for boards where firmware runs
+        // from the same internal flash that bootloader talks to. Used as the fallback
+        // below whenever the newer MSP-based path can't be used, so behavior for
+        // every board that isn't reporting a flash bootloader is unchanged.
+        function legacyRebootAndFlash() {
+            serial.connect(port, {bitrate: self.options.reboot_baud}, function (openInfo) {
+                if (!openInfo) {
+                    GUI.log(i18n.getMessage('serialPortOpenFail'));
+                    if (self.callback) { self.callback(); }
+                    return;
+                }
+
                 console.log('Sending ascii "R" to reboot');
 
-                // we are connected, disabling connect button in the UI
                 GUI.connect_lock = true;
 
                 var bufferOut = new ArrayBuffer(1);
                 var bufferView = new Uint8Array(bufferOut);
-
                 bufferView[0] = 0x52;
 
                 serial.send(bufferOut, function () {
-                    serial.disconnect(function (result) {
-                        if (result) {
-                            // Poll for DFU device after reboot. A single fixed delay is
-                            // insufficient on slow systems (Windows VMs, installed packages)
-                            // where USB re-enumeration takes longer than 1 second.
-                            // Poll every 250ms for up to 5 seconds before falling back.
-                            var dfuPollAttempt = 0;
-                            var DFU_POLL_INTERVAL = 250;
-                            var DFU_POLL_MAX = 20;
-
-                            function pollForDFU() {
-                                dfuPollAttempt++;
-                                PortHandler.check_usb_devices(function(dfu_available) {
-                                    if (dfu_available) {
-                                        console.log('STM32 - DFU detected after ' + (dfuPollAttempt * DFU_POLL_INTERVAL) + 'ms');
-                                        STM32DFU.connect(usbDevices, hex, options, self.callback);
-                                    } else if (dfuPollAttempt < DFU_POLL_MAX) {
-                                        setTimeout(pollForDFU, DFU_POLL_INTERVAL);
-                                    } else {
-                                        console.log('STM32 - DFU not detected after ' + (DFU_POLL_MAX * DFU_POLL_INTERVAL) + 'ms, trying serial...');
-                                        serial.connect(port, {bitrate: self.baud, parityBit: 'even', stopBits: 'one'}, function (openInfo) {
-                                            if (openInfo) {
-                                                self.initialize();
-                                            } else {
-                                                GUI.connect_lock = false;
-                                                GUI.log(i18n.getMessage('serialPortOpenFail'));
-                                                if (self.callback) { self.callback(); }
-                                            }
-                                        });
-                                    }
-                                });
-                            }
-
-                            // Initial 500ms delay for the board to begin re-enumeration
-                            setTimeout(pollForDFU, 500);
-                        } else {
-                            console.log('STM32 - serial.disconnect failed after reboot command');
-                            GUI.connect_lock = false;
-                            if (self.callback) { self.callback(); }
-                        }
-                    });
+                    serial.disconnect(afterRebootRequestSent);
                 });
-            } else {
-                GUI.log(i18n.getMessage('serialPortOpenFail'));
-                if (self.callback) { self.callback(); }
-            }
-        });
+            });
+        }
+
+        // Some boards run their firmware from external flash via a bootloader that
+        // is separate from the CPU's own silicon ROM DFU (STM32H730-EXST SP Racing
+        // boards are the case this was written for). Rebooting those with the raw
+        // 'R' method above lands in the silicon ROM DFU, which has no knowledge of
+        // the external flash and cannot be used to flash them. A board reports
+        // whether it needs the flash-resident bootloader instead via one bit in its
+        // MSP_BOARD_INFO response; ask for it over MSP before falling back to the
+        // legacy method. Any failure to connect or read that bit (old firmware,
+        // slow port, anything else) falls back to the unchanged legacy path, so
+        // this only ever changes behavior for boards that answer the MSP query and
+        // report the bit.
+        var connector = new MSPConnectorImpl();
+
+        var onConnectHandler = function () {
+            MSP.send_message(MSPCodes.MSP_BOARD_INFO, false, false, function () {
+                var hasFlashBootloader = bit_check(FC.CONFIG.commCapabilities, TARGET_HAS_FLASH_BOOTLOADER_BIT);
+                var rebootMode = hasFlashBootloader ? MSP_REBOOT_BOOTLOADER_FLASH : MSP_REBOOT_BOOTLOADER_ROM;
+
+                console.log(hasFlashBootloader
+                    ? 'Flash bootloader capability detected, requesting flash bootloader reboot'
+                    : 'No flash bootloader capability, requesting ROM bootloader reboot');
+
+                GUI.connect_lock = true;
+
+                var buffer = [];
+                buffer.push(rebootMode);
+                setTimeout(function () {
+                    MSP.send_message(MSPCodes.MSP_SET_REBOOT, buffer, false, function () {
+                        console.log('Reboot request received by device');
+                        connector.disconnect(afterRebootRequestSent);
+                    });
+                }, 100);
+            });
+        };
+
+        var onTimeoutHandler = function () {
+            console.log('STM32 - MSP capability check timed out, falling back to legacy reboot method');
+            legacyRebootAndFlash();
+        };
+
+        var onFailureHandler = function () {
+            console.log('STM32 - MSP connect failed, falling back to legacy reboot method');
+            legacyRebootAndFlash();
+        };
+
+        connector.connect(port, self.options.reboot_baud, onConnectHandler, onTimeoutHandler, onFailureHandler);
     }
 };
 
