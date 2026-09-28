@@ -607,7 +607,7 @@ STM32DFU_protocol.prototype.findBlockOutsideLayout = function () {
 STM32DFU_protocol.prototype.getErasePages = function () {
     var self = this;
     var erase_pages = [];
-    var full_chip = self.options.erase_chip && typeof self.chipInfo.external_flash === "undefined";
+    var full_chip = self.options.erase_chip && self.flash_layout === self.chipInfo.internal_flash;
     for (var i = 0; i < self.flash_layout.sectors.length; i++) {
         for (var j = 0; j < self.flash_layout.sectors[i].num_pages; j++) {
             if (full_chip) {
