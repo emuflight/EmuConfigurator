@@ -346,7 +346,7 @@ STM32DFU_protocol.prototype.getChipInfo = function (_interface, callback) {
             return;
         }
 
-        console.log('Descriptors: ' + descriptors);
+        console.debug('Descriptors: ' + descriptors);
 
         var parseDescriptor = function(str) {
             // F303: "@Internal Flash  /0x08000000/128*0002Kg"
