@@ -186,8 +186,14 @@ STM32_protocol.prototype.connect = function (port, baud, hex, options, callback)
                 var buffer = [];
                 buffer.push(rebootMode);
                 setTimeout(function () {
-                    MSP.send_message(MSPCodes.MSP_SET_REBOOT, buffer, false, function () {
-                        console.log('Reboot request received by device');
+                    // Fire once the bytes are queued to send (3rd arg, callback_sent), not
+                    // once a reply arrives (4th arg, callback_msp). The firmware may reset
+                    // before it flushes a reply and gracefully closes the VCP connection, so
+                    // waiting for one can hang indefinitely -- confirmed on real hardware: a
+                    // non-EXST board's ROM-mode reboot never replied, and waiting for it left
+                    // the UI locked with no fallback.
+                    MSP.send_message(MSPCodes.MSP_SET_REBOOT, buffer, function () {
+                        console.log('Reboot request sent to device');
                         connector.disconnect(afterRebootRequestSent);
                     });
                 }, 100);
