@@ -173,7 +173,22 @@ STM32_protocol.prototype.connect = function (port, baud, hex, options, callback)
         var connector = new MSPConnectorImpl();
 
         var onConnectHandler = function () {
+            var boardInfoTimedOut = false;
+
+            // MSP_BOARD_INFO has no reply timeout of its own -- MSP.send_message()
+            // retries it every second forever if the board never answers. Bound the
+            // wait here and fall back, same as the other capability-check failure
+            // paths, instead of leaving the flash button disabled indefinitely.
+            GUI.timeout_add('stm32_board_info', function () {
+                boardInfoTimedOut = true;
+                console.log('STM32 - MSP_BOARD_INFO timed out, falling back to legacy reboot method');
+                connector.disconnect(legacyRebootAndFlash);
+            }, 5000);
+
             MSP.send_message(MSPCodes.MSP_BOARD_INFO, false, false, function () {
+                if (boardInfoTimedOut) { return; }
+                GUI.timeout_remove('stm32_board_info');
+
                 var hasFlashBootloader = FC.boardHasFlashBootloader();
                 var rebootMode = hasFlashBootloader ? MSP_REBOOT_BOOTLOADER_FLASH : MSP_REBOOT_BOOTLOADER_ROM;
 

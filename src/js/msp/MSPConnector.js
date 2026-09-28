@@ -72,4 +72,9 @@ MSPConnectorImpl.prototype.disconnect = function (onDisconnectCallback) {
     });
 
     MSP.disconnect_cleanup();
+
+    // This is a standalone session distinct from the app's main connection; it must
+    // not leave the shared flag set after it ends. BFC's later MSPConnector.js
+    // (handleDisconnect()) carries the identical fix for the identical leak.
+    CONFIGURATOR.connectionValid = false;
 };
