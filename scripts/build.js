@@ -131,12 +131,14 @@ function build() {
 
   // Write version.json
   const gitHash = getGitHash();
+  // Display version only; package.json version stays numeric for MSI/RPM makers.
+  const displayVersion = pkg.version + (pkg.versionSuffix || '');
   const versionJson = JSON.stringify(
-    { gitChangesetId: gitHash, version: pkg.version, max_msp: pkg.max_msp },
+    { gitChangesetId: gitHash, version: displayVersion, max_msp: pkg.max_msp },
     null, 2
   );
   fs.writeFileSync(path.join(DIST, 'version.json'), versionJson);
-  console.log(`[build] Done. v${pkg.version}  git:${gitHash}`);
+  console.log(`[build] Done. v${displayVersion}  git:${gitHash}`);
 }
 
 if (require.main === module) {
