@@ -92,7 +92,7 @@ STM32_protocol.prototype.connect = function (port, baud, hex, options, callback)
 
         var dfuPollAttempt = 0;
         var DFU_POLL_INTERVAL = 250;
-        var DFU_POLL_MAX = 20;
+        var DFU_POLL_MAX = 30;
 
         function pollForDFU() {
             dfuPollAttempt++;
