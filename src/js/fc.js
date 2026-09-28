@@ -603,10 +603,15 @@ var FC = {
     COMM_CAPABILITIES_FLAGS: {
         HAS_VCP: 0x01,
         HAS_SOFTSERIAL: 0x02,
+        HAS_FLASH_BOOTLOADER: 0x08,
     },
 
     boardHasVcp: function () {
         return (CONFIG.commCapabilities & FC.COMM_CAPABILITIES_FLAGS.HAS_VCP) !== 0;
+    },
+
+    boardHasFlashBootloader: function () {
+        return (CONFIG.commCapabilities & FC.COMM_CAPABILITIES_FLAGS.HAS_FLASH_BOOTLOADER) !== 0;
     },
 
     FILTER_TYPE_FLAGS: {

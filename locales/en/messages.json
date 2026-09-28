@@ -521,6 +521,9 @@
     "dfu_error_image_size": {
         "message": "<span class=\"message-negative\">Error</span>: Supplied image is larger then flash available on the chip! Image: $1 KiB, limit = $2 KiB"
     },
+    "dfu_error_block_outside_flash": {
+        "message": "<span class=\"message-negative\">Error</span>: Firmware block at $1 ($2 bytes) lies outside the flash reported by the chip"
+    },
     "eeprom_saved_ok": {
         "message": "EEPROM <span class=\"message-positive\">saved</span>"
     },

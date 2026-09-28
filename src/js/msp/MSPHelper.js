@@ -32,7 +32,8 @@ function MspHelper () {
         FIRMWARE: 0,
         BOOTLOADER: 1,
         MSC: 2,
-        MSC_UTC: 3
+        MSC_UTC: 3,
+        FLASH: 4  // reboot into the board's own flash-resident bootloader (external-flash/EXST targets); requires TARGET_HAS_FLASH_BOOTLOADER
     };
 
     self.SIGNATURE_LENGTH = 32;
