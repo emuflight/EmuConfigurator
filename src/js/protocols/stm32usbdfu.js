@@ -851,7 +851,8 @@ STM32DFU_protocol.prototype.upload_procedure = function (step) {
 
 
                 TABS.firmware_flasher.flashingMessage(i18n.getMessage('stm32Erase'), TABS.firmware_flasher.FLASH_MESSAGE_TYPES.NEUTRAL);
-                console.log('Executing local chip erase', erase_pages); 
+                console.log('Erasing ' + erase_pages.length + ' pages...');
+                console.debug('Executing local chip erase', erase_pages);
 
                 var page = 0;
                 var total_erased = 0; // bytes
@@ -861,7 +862,7 @@ STM32DFU_protocol.prototype.upload_procedure = function (step) {
                             self.flash_layout.sectors[erase_pages[page].sector].start_address;
                     var cmd = [0x41, page_addr & 0xff, (page_addr >> 8) & 0xff, (page_addr >> 16) & 0xff, (page_addr >> 24) & 0xff];
                     total_erased += self.flash_layout.sectors[erase_pages[page].sector].page_size;
-                    console.log('Erasing. sector ' + erase_pages[page].sector + 
+                    console.debug('Erasing. sector ' + erase_pages[page].sector +
                                 ', page ' + erase_pages[page].page + ' @ 0x' + page_addr.toString(16));
 
                     self.controlTransfer('out', self.request.DNLOAD, 0, 0, 0, cmd, function () {
