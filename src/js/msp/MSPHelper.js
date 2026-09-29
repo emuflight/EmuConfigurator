@@ -586,7 +586,7 @@ MspHelper.prototype.process_data = function(dataHandler) {
                 var apiMajor = data.readU8();
                 var apiMinor = data.readU8();
                 // firmware without a patch byte reports 0
-                var apiPatch = data.byteLength >= 3 ? data.readU8() : 0;
+                var apiPatch = data.byteLength >= 4 ? data.readU8() : 0;
                 CONFIG.apiVersion = apiMajor + '.' + apiMinor + '.' + apiPatch;
                 break;
 
