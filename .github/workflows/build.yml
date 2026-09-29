@@ -93,7 +93,7 @@ jobs:
 
       # Tags containing 'releas' ship without the -dev display suffix
       - name: Clear -dev version suffix
-        if: contains(github.ref, 'releas')
+        if: startsWith(github.ref, 'refs/tags/') && contains(github.ref, 'releas')
         shell: bash
         run: |
           sed -E 's|("versionSuffix":[[:space:]]*)"[^"]*"|\1""|' package.json > package.json.new
