@@ -132,7 +132,7 @@ function build() {
   // Write version.json
   const gitHash = getGitHash();
   // Display version only; package.json version stays numeric for MSI/RPM makers.
-  // Set versionSuffix to "" manually before tagging a release.
+  // CI clears versionSuffix for tags containing "releas".
   const displayVersion = pkg.version + (pkg.versionSuffix || '');
   const versionJson = JSON.stringify(
     { gitChangesetId: gitHash, version: displayVersion, max_msp: pkg.max_msp },
