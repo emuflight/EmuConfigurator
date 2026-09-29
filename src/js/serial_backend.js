@@ -6,6 +6,9 @@ var connectionTimestamp;
 // max_msp limits major.minor only; patch bumps are additive and always tolerated
 function apiVersionWithinMaxMsp() {
     var v = semver.parse(CONFIG.apiVersion);
+    if (!v) {
+        return false;
+    }
     return semver.lte(v.major + '.' + v.minor + '.0', CONFIGURATOR.max_msp);
 }
 
@@ -244,7 +247,7 @@ function onOpen(openInfo) {
         MSP.send_message(MSPCodes.MSP_API_VERSION, false, false, function () {
             GUI.log(i18n.getMessage('apiVersionReceived', [CONFIG.apiVersion]));
 
-            if (semver.gte(CONFIG.apiVersion, CONFIGURATOR.apiVersionAccepted)) {
+            if (semver.parse(CONFIG.apiVersion) && semver.gte(CONFIG.apiVersion, CONFIGURATOR.apiVersionAccepted)) {
 
                 MSP.send_message(MSPCodes.MSP_FC_VARIANT, false, false, function () {
                     if (CONFIG.flightControllerIdentifier === 'EMUF' && apiVersionWithinMaxMsp() ){
