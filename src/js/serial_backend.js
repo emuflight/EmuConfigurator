@@ -3,6 +3,12 @@ var mspHelper;
 
 var connectionTimestamp;
 
+// max_msp limits major.minor only; patch bumps are additive and always tolerated
+function apiVersionWithinMaxMsp() {
+    var v = semver.parse(CONFIG.apiVersion);
+    return semver.lte(v.major + '.' + v.minor + '.0', CONFIGURATOR.max_msp);
+}
+
 function initializeSerialBackend() {
 
     GUI.updateManualPortVisibility = function(){
@@ -241,7 +247,7 @@ function onOpen(openInfo) {
             if (semver.gte(CONFIG.apiVersion, CONFIGURATOR.apiVersionAccepted)) {
 
                 MSP.send_message(MSPCodes.MSP_FC_VARIANT, false, false, function () {
-                    if (CONFIG.flightControllerIdentifier === 'EMUF' && semver.lte(CONFIG.apiVersion, CONFIGURATOR.max_msp) ){
+                    if (CONFIG.flightControllerIdentifier === 'EMUF' && apiVersionWithinMaxMsp() ){
                         MSP.send_message(MSPCodes.MSP_FC_VERSION, false, false, function () {
                             GUI.log(i18n.getMessage('fcInfoReceived', [CONFIG.flightControllerIdentifier, CONFIG.flightControllerVersion]));
                             updateStatusBarVersion(CONFIG.flightControllerVersion, CONFIG.flightControllerIdentifier);
@@ -291,7 +297,7 @@ function onOpen(openInfo) {
                     } else {
                         var dialog = $('.dialogConnectWarning')[0];
 
-                        if (semver.lte(CONFIG.apiVersion, CONFIGURATOR.max_msp)) {
+                        if (apiVersionWithinMaxMsp()) {
                             $('.dialogConnectWarning-content').html(i18n.getMessage('firmwareTypeNotSupported'));
                         } else {
                             $('.dialogConnectWarning-content').html(i18n.getMessage('firmwareMSPNotSupported'));
