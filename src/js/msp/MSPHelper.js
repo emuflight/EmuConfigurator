@@ -87,7 +87,11 @@ MspHelper.prototype.process_data = function(dataHandler) {
                 CONFIG.armingDisableFlags = data.readU32();
 
                 if (semver.gte(CONFIG.apiVersion, "1.55.0")) {
-                    CONFIG.numRateProfiles = data.readU8();
+                    // readU8 returns null on a short payload; keep the default count then
+                    const numRateProfiles = data.readU8();
+                    if (numRateProfiles !== null && numRateProfiles > 0) {
+                        CONFIG.numRateProfiles = numRateProfiles;
+                    }
                 }
 
                 TABS.pid_tuning.checkUpdateProfile(true);
