@@ -1542,7 +1542,7 @@ TABS.pid_tuning.initialize = function(callback) {
         }
 
         function loadRateProfilesList() {
-            var numberOfRateProfiles = 6;
+            var numberOfRateProfiles = CONFIG.numRateProfiles;
 
             var rateProfileElements = [];
             for (var i = 0; i < numberOfRateProfiles; i++) {
@@ -1566,6 +1566,8 @@ TABS.pid_tuning.initialize = function(callback) {
         // This vars are used here for populate the profile (and rate profile) selector AND in the copy profile (and rate profile) window
         var selectRateProfileValues = loadRateProfilesList();
         var selectProfileValues = loadProfilesList();
+        self.listedProfileCount = CONFIG.numProfiles;
+        self.listedRateProfileCount = CONFIG.numRateProfiles;
         var selectPresetValues;
         if (presetJson) {
             selectPresetValues = loadPresetsList();
@@ -2483,7 +2485,18 @@ TABS.pid_tuning.initialize = function(callback) {
                 });
             }
 
+            // A single profile has no copy target.
+            function updateCopyProfileButtons() {
+                $('.copyprofilebtn a').toggleClass('disabled', selectProfileValues.length <= 1);
+                $('.copyrateprofilebtn a').toggleClass('disabled', selectRateProfileValues.length <= 1);
+            }
+
+            updateCopyProfileButtons();
+
             $('.copyprofilebtn').click(function() {
+                if ($(this).find('a').hasClass('disabled')) {
+                    return;
+                }
                 refreshCopyProfileSelectors();
                 $('.dialogCopyProfile').find('.contentProfile').show();
                 $('.dialogCopyProfile').find('.contentRateProfile').hide();
@@ -2492,6 +2505,9 @@ TABS.pid_tuning.initialize = function(callback) {
             });
 
             $('.copyrateprofilebtn').click(function() {
+                if ($(this).find('a').hasClass('disabled')) {
+                    return;
+                }
                 refreshCopyProfileSelectors();
                 $('.dialogCopyProfile').find('.contentProfile').hide();
                 $('.dialogCopyProfile').find('.contentRateProfile').show();
@@ -2702,6 +2718,8 @@ TABS.pid_tuning.renderModel = function() {
 
 TABS.pid_tuning.cleanup = function(callback) {
     var self = this;
+    self.listedProfileCount = undefined;
+    self.listedRateProfileCount = undefined;
     if (self.ratesClickResizeHandler) {
         $('.tab-pid_tuning .tab_container .rates').off('click', self.ratesClickResizeHandler);
         self.ratesClickResizeHandler = null;
@@ -2799,7 +2817,12 @@ TABS.pid_tuning.checkUpdateProfile = function(updateRateProfile) {
                 changedRateProfile = true;
             }
 
-            if (changedProfile || changedRateProfile) {
+            // The first status reply can be dropped by the tab switch, so the lists may be built from default counts
+            var changedCounts = self.listedProfileCount !== undefined &&
+                (self.listedProfileCount !== CONFIG.numProfiles ||
+                 self.listedRateProfileCount !== CONFIG.numRateProfiles);
+
+            if (changedProfile || changedRateProfile || changedCounts) {
                 self.refresh(function() {
                     if (changedProfile) {
                         GUI.log(i18n.getMessage('pidTuningReceivedProfile', [CONFIG.profile + 1]));
