@@ -1542,7 +1542,7 @@ TABS.pid_tuning.initialize = function(callback) {
         }
 
         function loadRateProfilesList() {
-            var numberOfRateProfiles = 6;
+            var numberOfRateProfiles = CONFIG.numRateProfiles;
 
             var rateProfileElements = [];
             for (var i = 0; i < numberOfRateProfiles; i++) {
@@ -2483,7 +2483,18 @@ TABS.pid_tuning.initialize = function(callback) {
                 });
             }
 
+            // A single profile has no copy target.
+            function updateCopyProfileButtons() {
+                $('.copyprofilebtn a').toggleClass('disabled', selectProfileValues.length <= 1);
+                $('.copyrateprofilebtn a').toggleClass('disabled', selectRateProfileValues.length <= 1);
+            }
+
+            updateCopyProfileButtons();
+
             $('.copyprofilebtn').click(function() {
+                if ($(this).find('a').hasClass('disabled')) {
+                    return;
+                }
                 refreshCopyProfileSelectors();
                 $('.dialogCopyProfile').find('.contentProfile').show();
                 $('.dialogCopyProfile').find('.contentRateProfile').hide();
@@ -2492,6 +2503,9 @@ TABS.pid_tuning.initialize = function(callback) {
             });
 
             $('.copyrateprofilebtn').click(function() {
+                if ($(this).find('a').hasClass('disabled')) {
+                    return;
+                }
                 refreshCopyProfileSelectors();
                 $('.dialogCopyProfile').find('.contentProfile').hide();
                 $('.dialogCopyProfile').find('.contentRateProfile').show();
