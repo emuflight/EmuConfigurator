@@ -350,6 +350,8 @@ TABS.firmware_flasher.initialize = function (callback) {
             // Forget it, or cancelling the local file picker would re-enable Flash for it.
             parsed_hex = false;
             self.enableFlashing(false);
+            // Also drops the old image's save link, which would save it under the next release's name.
+            self.flashingMessage('firmwareFlasherLoadFirmwareFile', self.FLASH_MESSAGE_TYPES.NEUTRAL);
             $("a.load_remote_file").addClass('disabled');
             // The selections are cleared below without change events; drop any pending load.
             parseToken++;
@@ -529,6 +531,7 @@ TABS.firmware_flasher.initialize = function (callback) {
             if (!self.localFileLoaded) {
                 parsed_hex = false;
                 self.enableFlashing(false);
+                self.flashingMessage('firmwareFlasherLoadFirmwareFile', self.FLASH_MESSAGE_TYPES.NEUTRAL);
             }
 
             // A new selection supersedes any download or parse still running.
