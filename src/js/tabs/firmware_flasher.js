@@ -16,7 +16,9 @@ TABS.firmware_flasher.initialize = function (callback) {
 
 
     var intel_hex = false, // standard intel hex in string format
-        parsed_hex = false; // parsed raw hex in array format
+        parsed_hex = false, // parsed raw hex in array format
+        parseToken = 0, // id of the newest load; results of older loads are dropped
+        resettingForLocalLoad = false; // true while a local load clears the board/version selects
 
         /**
          * Change boldness of firmware option depending on cache status
@@ -35,23 +37,59 @@ TABS.firmware_flasher.initialize = function (callback) {
         FirmwareCache.onPutToCache(onFirmwareCacheUpdate);
         FirmwareCache.onRemoveFromCache(onFirmwareCacheUpdate);
 
-        function parse_hex(str, callback) {
-            // parsing hex in different thread
-            var worker = new Worker('./js/workers/hex_parser.js');
+        function parse_hex(str, loadId, callback) {
+            var worker;
 
-            // "callback"
-            worker.onmessage = function (event) {
-                callback(event.data);
-            };
+            function finish(result) {
+                if (worker) {
+                    worker.terminate();
+                }
+                if (loadId === parseToken) {
+                    callback(result);
+                }
+            }
 
-            // send data/string over for processing
-            worker.postMessage(str);
+            try {
+                // parsing hex in different thread
+                worker = new Worker('./js/workers/hex_parser.js');
+
+                // "callback"
+                worker.onmessage = function (event) {
+                    finish(event.data);
+                };
+
+                worker.onerror = function (event) {
+                    console.error('HEX parser worker failed: ' + event.message);
+                    finish(false);
+                };
+
+                // send data/string over for processing
+                worker.postMessage(str);
+            } catch (error) {
+                console.error('HEX parser worker failed to start: ' + error.message);
+                finish(false);
+            }
         }
 
-        function process_hex(data, summary) {
-            intel_hex = data;
-            parse_hex(intel_hex, function (data) {
-                parsed_hex = data;
+        /**
+         * A user-made selection change replaces a loaded local file: forget it so it cannot be flashed
+         * under a different selection. The select reset done by a local load itself is exempt.
+         */
+        function discardLocalFile() {
+            if (!self.localFileLoaded || resettingForLocalLoad) {
+                return;
+            }
+            parseToken++;
+            parsed_hex = false;
+            self.localFileLoaded = false;
+            self.enableFlashing(false);
+            self.flashingMessage('firmwareFlasherLoadFirmwareFile', self.FLASH_MESSAGE_TYPES.NEUTRAL);
+        }
+
+        function process_hex(data, summary, loadId) {
+            parse_hex(data, loadId, function (parsed) {
+                intel_hex = data;
+                parsed_hex = parsed;
 
                 if (parsed_hex) {
                     if (!FirmwareCache.has(summary)) {
@@ -84,13 +122,15 @@ TABS.firmware_flasher.initialize = function (callback) {
             });
         }
 
-        function onLoadSuccess(data, summary) {
+        function onLoadSuccess(data, summary, loadId) {
             summary = typeof summary === "object"
                 ? summary
                 : $('select[name="firmware_version"] option:selected').data('summary');
-            process_hex(data, summary);
-            $("a.load_remote_file").removeClass('disabled');
-            $("a.load_remote_file").text(i18n.getMessage('firmwareFlasherButtonLoadOnline'));
+            if (loadId === parseToken) {
+                $("a.load_remote_file").removeClass('disabled');
+                $("a.load_remote_file").text(i18n.getMessage('firmwareFlasherButtonLoadOnline'));
+                process_hex(data, summary, loadId);
+            }
         };
 
         function buildJenkinsBoardOptions(builds) {
@@ -124,6 +164,10 @@ TABS.firmware_flasher.initialize = function (callback) {
             TABS.firmware_flasher.releases = builds;
 
             chrome.storage.local.get('selected_board', function (result) {
+                // Release data can arrive after a local load; restoring the board would discard that file.
+                if (self.localFileLoaded) {
+                    return;
+                }
                 if (typeof result.selected_board === 'string' && result.selected_board) {
                     var boardBuilds = builds[result.selected_board];
                     $('select[name="board"]').val(boardBuilds ? result.selected_board : 0).trigger('change');
@@ -226,6 +270,9 @@ TABS.firmware_flasher.initialize = function (callback) {
                 TABS.firmware_flasher.releases = releases;
 
                 chrome.storage.local.get('selected_board', function (result) {
+                    if (self.localFileLoaded) {
+                        return;
+                    }
                     if (typeof result.selected_board === 'string' && result.selected_board) {
                         var boardReleases = releases[result.selected_board];
                         $('select[name="board"]').val(boardReleases ? result.selected_board : 0).trigger('change');
@@ -298,7 +345,16 @@ TABS.firmware_flasher.initialize = function (callback) {
         i18n.localizePage();
 
         buildType_e.change(function() {
+            discardLocalFile();
+            // The selections are cleared below; an online image no longer matches them either.
+            // Forget it, or cancelling the local file picker would re-enable Flash for it.
+            parsed_hex = false;
+            self.enableFlashing(false);
+            // Also drops the old image's save link, which would save it under the next release's name.
+            self.flashingMessage('firmwareFlasherLoadFirmwareFile', self.FLASH_MESSAGE_TYPES.NEUTRAL);
             $("a.load_remote_file").addClass('disabled');
+            // The selections are cleared below without change events; drop any pending load.
+            parseToken++;
             var build_type = $(this).val();
 
             $('select[name="board"]').empty()
@@ -316,6 +372,7 @@ TABS.firmware_flasher.initialize = function (callback) {
         });
 
         $('select[name="board"]').change(function() {
+            discardLocalFile();
             $("a.load_remote_file").addClass('disabled');
             var target = $(this).val();
 
@@ -388,10 +445,16 @@ TABS.firmware_flasher.initialize = function (callback) {
                 // Reset board to placeholder; cascades to clear version, hide release info, disable load online.
                 // Snapshot the current board so storage preference survives the local-file session.
                 var savedBoard = $('select[name="board"]').val();
+                resettingForLocalLoad = true;
                 $('select[name="board"]').val('0').trigger('change');
+                resettingForLocalLoad = false;
                 if (savedBoard && savedBoard !== '0') {
                     chrome.storage.local.set({'selected_board': savedBoard});
                 }
+
+                // A new load supersedes any read, download or parse still running.
+                // Taken after the board reset above, whose change event also bumps the token.
+                var loadId = ++parseToken;
 
                 chrome.fileSystem.getDisplayPath(fileEntry, function (path) {
                     console.log('Loading file from: ' + path);
@@ -400,13 +463,17 @@ TABS.firmware_flasher.initialize = function (callback) {
                         var reader = new FileReader();
 
                         reader.onloadend = function(e) {
+                            if (loadId !== parseToken) {
+                                return;
+                            }
 
                             if (e.total !== 0 && e.total === e.loaded) {
 
                                 console.log('File loaded (' + e.loaded + ')');
 
-                                intel_hex = e.target.result;
-                                parse_hex(intel_hex, function (data) {
+                                var text = e.target.result;
+                                parse_hex(text, loadId, function (data) {
+                                    intel_hex = text;
                                     parsed_hex = data;
 
                                     if (parsed_hex) {
@@ -428,6 +495,9 @@ TABS.firmware_flasher.initialize = function (callback) {
                         };
 
                         reader.onerror = function () {
+                            if (loadId !== parseToken) {
+                                return;
+                            }
                             console.error('Failed to read file: ' + path);
                             parsed_hex = false;
                             self.localFileLoaded = false;
@@ -437,6 +507,9 @@ TABS.firmware_flasher.initialize = function (callback) {
 
                         reader.readAsText(file);
                     }, function (error) {
+                        if (loadId !== parseToken) {
+                            return;
+                        }
                         console.error('Failed to open file: ' + path, error);
                         parsed_hex = false;
                         self.localFileLoaded = false;
@@ -451,11 +524,18 @@ TABS.firmware_flasher.initialize = function (callback) {
          * Lock / Unlock the firmware download button according to the firmware selection dropdown.
          */
         $('select[name="firmware_version"]').change(function(evt){
+            discardLocalFile();
+            $("a.load_remote_file").text(i18n.getMessage('firmwareFlasherButtonLoadOnline'));
             $('div.release_info').slideUp();
 
             if (!self.localFileLoaded) {
+                parsed_hex = false;
                 self.enableFlashing(false);
+                self.flashingMessage('firmwareFlasherLoadFirmwareFile', self.FLASH_MESSAGE_TYPES.NEUTRAL);
             }
+
+            // A new selection supersedes any download or parse still running.
+            let loadId = ++parseToken;
 
             let release = $("option:selected", evt.target).data("summary");
             let isCached = FirmwareCache.has(release);
@@ -464,7 +544,7 @@ TABS.firmware_flasher.initialize = function (callback) {
             } else if (isCached) {
                 FirmwareCache.get(release, cached => {
                     console.info("Release found in cache: " + release.file);
-                    onLoadSuccess(cached.hexdata, release);
+                    onLoadSuccess(cached.hexdata, release, loadId);
                 });
                 // keep button enabled so user can re-download if desired
                 $("a.load_remote_file").removeClass('disabled');
@@ -482,9 +562,12 @@ TABS.firmware_flasher.initialize = function (callback) {
             }
 
             function failed_to_load() {
-                $('span.progressLabel').attr('i18n','firmwareFlasherFailedToLoadOnlineFirmware').removeClass('i18n-replaced');
+                if (loadId !== parseToken) {
+                    return;
+                }
                 $("a.load_remote_file").removeClass('disabled');
                 $("a.load_remote_file").text(i18n.getMessage('firmwareFlasherButtonLoadOnline'));
+                $('span.progressLabel').attr('i18n','firmwareFlasherFailedToLoadOnlineFirmware').removeClass('i18n-replaced');
                 i18n.localizePage();
             }
 
@@ -492,7 +575,10 @@ TABS.firmware_flasher.initialize = function (callback) {
             if (summary) { // undefined while list is loading or while running offline
                 $("a.load_remote_file").text(i18n.getMessage('firmwareFlasherButtonDownloading'));
                 $("a.load_remote_file").addClass('disabled');
-                $.get(summary.url, onLoadSuccess).fail(failed_to_load);
+                var loadId = ++parseToken;
+                $.get(summary.url, function (data) {
+                    onLoadSuccess(data, summary, loadId);
+                }).fail(failed_to_load);
             } else {
                 $('span.progressLabel').attr('i18n','firmwareFlasherFailedToLoadOnlineFirmware').removeClass('i18n-replaced');
                 i18n.localizePage();
