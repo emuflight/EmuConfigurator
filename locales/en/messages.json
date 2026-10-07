@@ -2540,6 +2540,9 @@
     "firmwareFlasherHexCorrupted": {
         "message": "HEX file appears to be corrupted"
     },
+    "firmwareFlasherHexReadFailed": {
+        "message": "Could not read HEX file"
+    },
     "firmwareFlasherFailedToLoadOnlineFirmware": {
         "message": "Failed to load remote firmware"
     },

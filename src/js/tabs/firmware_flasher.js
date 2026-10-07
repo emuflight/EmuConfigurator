@@ -79,7 +79,7 @@ TABS.firmware_flasher.initialize = function (callback) {
                     $('div.release_info').slideDown();
 
                 } else {
-                    self.flashingMessage('firmwareFlasherHexCorrupted', self.FLASH_MESSAGE_TYPES.INVALID);
+                    self.flashingMessage(i18n.getMessage('firmwareFlasherHexCorrupted'), self.FLASH_MESSAGE_TYPES.INVALID);
                 }
             });
         }
@@ -414,13 +414,34 @@ TABS.firmware_flasher.initialize = function (callback) {
 
                                         self.flashingMessage(i18n.getMessage('firmwareFlasherFirmwareLocalLoaded', parsed_hex.bytes_total), self.FLASH_MESSAGE_TYPES.NEUTRAL);
                                     } else {
-                                        self.flashingMessage('firmwareFlasherHexCorrupted', self.FLASH_MESSAGE_TYPES.INVALID);
+                                        self.localFileLoaded = false;
+                                        self.enableFlashing(false);
+                                        self.flashingMessage(i18n.getMessage('firmwareFlasherHexCorrupted'), self.FLASH_MESSAGE_TYPES.INVALID);
                                     }
                                 });
+                            } else if (!reader.error) {
+                                parsed_hex = false;
+                                self.localFileLoaded = false;
+                                self.enableFlashing(false);
+                                self.flashingMessage(i18n.getMessage('firmwareFlasherHexCorrupted'), self.FLASH_MESSAGE_TYPES.INVALID);
                             }
                         };
 
+                        reader.onerror = function () {
+                            console.error('Failed to read file: ' + path);
+                            parsed_hex = false;
+                            self.localFileLoaded = false;
+                            self.enableFlashing(false);
+                            self.flashingMessage(i18n.getMessage('firmwareFlasherHexReadFailed'), self.FLASH_MESSAGE_TYPES.INVALID);
+                        };
+
                         reader.readAsText(file);
+                    }, function (error) {
+                        console.error('Failed to open file: ' + path, error);
+                        parsed_hex = false;
+                        self.localFileLoaded = false;
+                        self.enableFlashing(false);
+                        self.flashingMessage(i18n.getMessage('firmwareFlasherHexReadFailed'), self.FLASH_MESSAGE_TYPES.INVALID);
                     });
                 });
             });
