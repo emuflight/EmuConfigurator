@@ -176,6 +176,9 @@ TABS.firmware_flasher.initialize = function (callback) {
         }
 
         function buildBoardOptions(releaseData, showDevReleases, skipVersionFilter) {
+            // Called synchronously by the newest request; the saved-board restore below rechecks it.
+            var requestId = releaseListToken;
+
             if (!releaseData) {
                 $('select[name="board"]').empty().append('<option value="0">Offline</option>');
                 $('select[name="firmware_version"]').empty().append('<option value="0">Offline</option>');
@@ -270,7 +273,7 @@ TABS.firmware_flasher.initialize = function (callback) {
                 TABS.firmware_flasher.releases = releases;
 
                 chrome.storage.local.get('selected_board', function (result) {
-                    if (self.localFileLoaded) {
+                    if (self.localFileLoaded || requestId !== releaseListToken) {
                         return;
                     }
                     if (typeof result.selected_board === 'string' && result.selected_board) {
@@ -281,18 +284,30 @@ TABS.firmware_flasher.initialize = function (callback) {
             }
         };
 
+        // Only the newest release-list request may fill the board list and restore the saved board.
+        var releaseListToken = 0;
+
+        function loadBoardOptions(checker, showDevReleases, skipVersionFilter) {
+            var requestId = ++releaseListToken;
+            checker.loadReleaseData(releaseData => {
+                if (requestId === releaseListToken) {
+                    buildBoardOptions(releaseData, showDevReleases, skipVersionFilter);
+                }
+            });
+        }
+
         var buildTypes = [
             {
                 tag: 'firmwareFlasherOptionLabelBuildTypeRelease',
-                loader: () => self.releaseChecker.loadReleaseData(releaseData => buildBoardOptions(releaseData, false))
+                loader: () => loadBoardOptions(self.releaseChecker, false)
             },
             {
                 tag: 'firmwareFlasherOptionLabelBuildTypeReleaseCandidate',
-                loader: () => self.releaseChecker.loadReleaseData(releaseData => buildBoardOptions(releaseData, true))
+                loader: () => loadBoardOptions(self.releaseChecker, true)
             },
             {
                 tag: 'firmwareFlasherOptionLabelBuildTypePreReleaseMaster',
-                loader: () => self.masterChecker.loadReleaseData(releaseData => buildBoardOptions(releaseData, true, true))
+                loader: () => loadBoardOptions(self.masterChecker, true, true)
             }
         ];
 
@@ -353,6 +368,8 @@ TABS.firmware_flasher.initialize = function (callback) {
             // Also drops the old image's save link, which would save it under the next release's name.
             self.flashingMessage('firmwareFlasherLoadFirmwareFile', self.FLASH_MESSAGE_TYPES.NEUTRAL);
             $("a.load_remote_file").addClass('disabled');
+            // A superseded download no longer restores the label.
+            $("a.load_remote_file").text(i18n.getMessage('firmwareFlasherButtonLoadOnline'));
             // The selections are cleared below without change events; drop any pending load.
             parseToken++;
             var build_type = $(this).val();
