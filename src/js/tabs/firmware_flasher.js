@@ -16,7 +16,8 @@ TABS.firmware_flasher.initialize = function (callback) {
 
 
     var intel_hex = false, // standard intel hex in string format
-        parsed_hex = false; // parsed raw hex in array format
+        parsed_hex = false, // parsed raw hex in array format
+        parseToken = 0; // id of the newest load; results of older loads are dropped
 
         /**
          * Change boldness of firmware option depending on cache status
@@ -35,23 +36,35 @@ TABS.firmware_flasher.initialize = function (callback) {
         FirmwareCache.onPutToCache(onFirmwareCacheUpdate);
         FirmwareCache.onRemoveFromCache(onFirmwareCacheUpdate);
 
-        function parse_hex(str, callback) {
+        function parse_hex(str, loadId, callback) {
             // parsing hex in different thread
             var worker = new Worker('./js/workers/hex_parser.js');
 
+            function finish(result) {
+                worker.terminate();
+                if (loadId === parseToken) {
+                    callback(result);
+                }
+            }
+
             // "callback"
             worker.onmessage = function (event) {
-                callback(event.data);
+                finish(event.data);
+            };
+
+            worker.onerror = function (event) {
+                console.error('HEX parser worker failed: ' + event.message);
+                finish(false);
             };
 
             // send data/string over for processing
             worker.postMessage(str);
         }
 
-        function process_hex(data, summary) {
-            intel_hex = data;
-            parse_hex(intel_hex, function (data) {
-                parsed_hex = data;
+        function process_hex(data, summary, loadId) {
+            parse_hex(data, loadId, function (parsed) {
+                intel_hex = data;
+                parsed_hex = parsed;
 
                 if (parsed_hex) {
                     if (!FirmwareCache.has(summary)) {
@@ -84,13 +97,15 @@ TABS.firmware_flasher.initialize = function (callback) {
             });
         }
 
-        function onLoadSuccess(data, summary) {
+        function onLoadSuccess(data, summary, loadId) {
             summary = typeof summary === "object"
                 ? summary
                 : $('select[name="firmware_version"] option:selected').data('summary');
-            process_hex(data, summary);
-            $("a.load_remote_file").removeClass('disabled');
-            $("a.load_remote_file").text(i18n.getMessage('firmwareFlasherButtonLoadOnline'));
+            if (loadId === parseToken) {
+                process_hex(data, summary, loadId);
+                $("a.load_remote_file").removeClass('disabled');
+                $("a.load_remote_file").text(i18n.getMessage('firmwareFlasherButtonLoadOnline'));
+            }
         };
 
         function buildJenkinsBoardOptions(builds) {
@@ -299,6 +314,8 @@ TABS.firmware_flasher.initialize = function (callback) {
 
         buildType_e.change(function() {
             $("a.load_remote_file").addClass('disabled');
+            // The selections are cleared below without change events; drop any pending load.
+            parseToken++;
             var build_type = $(this).val();
 
             $('select[name="board"]').empty()
@@ -393,6 +410,10 @@ TABS.firmware_flasher.initialize = function (callback) {
                     chrome.storage.local.set({'selected_board': savedBoard});
                 }
 
+                // A new load supersedes any read, download or parse still running.
+                // Taken after the board reset above, whose change event also bumps the token.
+                var loadId = ++parseToken;
+
                 chrome.fileSystem.getDisplayPath(fileEntry, function (path) {
                     console.log('Loading file from: ' + path);
 
@@ -400,13 +421,17 @@ TABS.firmware_flasher.initialize = function (callback) {
                         var reader = new FileReader();
 
                         reader.onloadend = function(e) {
+                            if (loadId !== parseToken) {
+                                return;
+                            }
 
                             if (e.total !== 0 && e.total === e.loaded) {
 
                                 console.log('File loaded (' + e.loaded + ')');
 
-                                intel_hex = e.target.result;
-                                parse_hex(intel_hex, function (data) {
+                                var text = e.target.result;
+                                parse_hex(text, loadId, function (data) {
+                                    intel_hex = text;
                                     parsed_hex = data;
 
                                     if (parsed_hex) {
@@ -428,6 +453,9 @@ TABS.firmware_flasher.initialize = function (callback) {
                         };
 
                         reader.onerror = function () {
+                            if (loadId !== parseToken) {
+                                return;
+                            }
                             console.error('Failed to read file: ' + path);
                             parsed_hex = false;
                             self.localFileLoaded = false;
@@ -437,6 +465,9 @@ TABS.firmware_flasher.initialize = function (callback) {
 
                         reader.readAsText(file);
                     }, function (error) {
+                        if (loadId !== parseToken) {
+                            return;
+                        }
                         console.error('Failed to open file: ' + path, error);
                         parsed_hex = false;
                         self.localFileLoaded = false;
@@ -457,6 +488,9 @@ TABS.firmware_flasher.initialize = function (callback) {
                 self.enableFlashing(false);
             }
 
+            // A new selection supersedes any download or parse still running.
+            let loadId = ++parseToken;
+
             let release = $("option:selected", evt.target).data("summary");
             let isCached = FirmwareCache.has(release);
             if (evt.target.value === "0") {
@@ -464,7 +498,7 @@ TABS.firmware_flasher.initialize = function (callback) {
             } else if (isCached) {
                 FirmwareCache.get(release, cached => {
                     console.info("Release found in cache: " + release.file);
-                    onLoadSuccess(cached.hexdata, release);
+                    onLoadSuccess(cached.hexdata, release, loadId);
                 });
                 // keep button enabled so user can re-download if desired
                 $("a.load_remote_file").removeClass('disabled');
@@ -482,9 +516,12 @@ TABS.firmware_flasher.initialize = function (callback) {
             }
 
             function failed_to_load() {
-                $('span.progressLabel').attr('i18n','firmwareFlasherFailedToLoadOnlineFirmware').removeClass('i18n-replaced');
+                if (loadId !== parseToken) {
+                    return;
+                }
                 $("a.load_remote_file").removeClass('disabled');
                 $("a.load_remote_file").text(i18n.getMessage('firmwareFlasherButtonLoadOnline'));
+                $('span.progressLabel').attr('i18n','firmwareFlasherFailedToLoadOnlineFirmware').removeClass('i18n-replaced');
                 i18n.localizePage();
             }
 
@@ -492,7 +529,10 @@ TABS.firmware_flasher.initialize = function (callback) {
             if (summary) { // undefined while list is loading or while running offline
                 $("a.load_remote_file").text(i18n.getMessage('firmwareFlasherButtonDownloading'));
                 $("a.load_remote_file").addClass('disabled');
-                $.get(summary.url, onLoadSuccess).fail(failed_to_load);
+                var loadId = ++parseToken;
+                $.get(summary.url, function (data) {
+                    onLoadSuccess(data, summary, loadId);
+                }).fail(failed_to_load);
             } else {
                 $('span.progressLabel').attr('i18n','firmwareFlasherFailedToLoadOnlineFirmware').removeClass('i18n-replaced');
                 i18n.localizePage();
