@@ -17,7 +17,8 @@ TABS.firmware_flasher.initialize = function (callback) {
 
     var intel_hex = false, // standard intel hex in string format
         parsed_hex = false, // parsed raw hex in array format
-        parseToken = 0; // id of the newest load; results of older loads are dropped
+        parseToken = 0, // id of the newest load; results of older loads are dropped
+        resettingForLocalLoad = false; // true while a local load clears the board/version selects
 
         /**
          * Change boldness of firmware option depending on cache status
@@ -59,6 +60,21 @@ TABS.firmware_flasher.initialize = function (callback) {
 
             // send data/string over for processing
             worker.postMessage(str);
+        }
+
+        /**
+         * A user-made selection change replaces a loaded local file: forget it so it cannot be flashed
+         * under a different selection. The select reset done by a local load itself is exempt.
+         */
+        function discardLocalFile() {
+            if (!self.localFileLoaded || resettingForLocalLoad) {
+                return;
+            }
+            parseToken++;
+            parsed_hex = false;
+            self.localFileLoaded = false;
+            self.enableFlashing(false);
+            self.flashingMessage('firmwareFlasherLoadFirmwareFile', self.FLASH_MESSAGE_TYPES.NEUTRAL);
         }
 
         function process_hex(data, summary, loadId) {
@@ -139,6 +155,10 @@ TABS.firmware_flasher.initialize = function (callback) {
             TABS.firmware_flasher.releases = builds;
 
             chrome.storage.local.get('selected_board', function (result) {
+                // Release data can arrive after a local load; restoring the board would discard that file.
+                if (self.localFileLoaded) {
+                    return;
+                }
                 if (typeof result.selected_board === 'string' && result.selected_board) {
                     var boardBuilds = builds[result.selected_board];
                     $('select[name="board"]').val(boardBuilds ? result.selected_board : 0).trigger('change');
@@ -241,6 +261,9 @@ TABS.firmware_flasher.initialize = function (callback) {
                 TABS.firmware_flasher.releases = releases;
 
                 chrome.storage.local.get('selected_board', function (result) {
+                    if (self.localFileLoaded) {
+                        return;
+                    }
                     if (typeof result.selected_board === 'string' && result.selected_board) {
                         var boardReleases = releases[result.selected_board];
                         $('select[name="board"]').val(boardReleases ? result.selected_board : 0).trigger('change');
@@ -313,6 +336,7 @@ TABS.firmware_flasher.initialize = function (callback) {
         i18n.localizePage();
 
         buildType_e.change(function() {
+            discardLocalFile();
             $("a.load_remote_file").addClass('disabled');
             // The selections are cleared below without change events; drop any pending load.
             parseToken++;
@@ -333,6 +357,7 @@ TABS.firmware_flasher.initialize = function (callback) {
         });
 
         $('select[name="board"]').change(function() {
+            discardLocalFile();
             $("a.load_remote_file").addClass('disabled');
             var target = $(this).val();
 
@@ -405,7 +430,9 @@ TABS.firmware_flasher.initialize = function (callback) {
                 // Reset board to placeholder; cascades to clear version, hide release info, disable load online.
                 // Snapshot the current board so storage preference survives the local-file session.
                 var savedBoard = $('select[name="board"]').val();
+                resettingForLocalLoad = true;
                 $('select[name="board"]').val('0').trigger('change');
+                resettingForLocalLoad = false;
                 if (savedBoard && savedBoard !== '0') {
                     chrome.storage.local.set({'selected_board': savedBoard});
                 }
@@ -482,6 +509,7 @@ TABS.firmware_flasher.initialize = function (callback) {
          * Lock / Unlock the firmware download button according to the firmware selection dropdown.
          */
         $('select[name="firmware_version"]').change(function(evt){
+            discardLocalFile();
             $('div.release_info').slideUp();
 
             if (!self.localFileLoaded) {
