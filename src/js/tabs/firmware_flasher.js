@@ -176,6 +176,9 @@ TABS.firmware_flasher.initialize = function (callback) {
         }
 
         function buildBoardOptions(releaseData, showDevReleases, skipVersionFilter) {
+            // Called synchronously by the newest request; the saved-board restore below rechecks it.
+            var requestId = releaseListToken;
+
             if (!releaseData) {
                 $('select[name="board"]').empty().append('<option value="0">Offline</option>');
                 $('select[name="firmware_version"]').empty().append('<option value="0">Offline</option>');
@@ -270,7 +273,7 @@ TABS.firmware_flasher.initialize = function (callback) {
                 TABS.firmware_flasher.releases = releases;
 
                 chrome.storage.local.get('selected_board', function (result) {
-                    if (self.localFileLoaded) {
+                    if (self.localFileLoaded || requestId !== releaseListToken) {
                         return;
                     }
                     if (typeof result.selected_board === 'string' && result.selected_board) {
