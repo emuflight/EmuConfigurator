@@ -347,6 +347,8 @@ TABS.firmware_flasher.initialize = function (callback) {
         buildType_e.change(function() {
             discardLocalFile();
             // The selections are cleared below; an online image no longer matches them either.
+            // Forget it, or cancelling the local file picker would re-enable Flash for it.
+            parsed_hex = false;
             self.enableFlashing(false);
             $("a.load_remote_file").addClass('disabled');
             // The selections are cleared below without change events; drop any pending load.
@@ -525,6 +527,7 @@ TABS.firmware_flasher.initialize = function (callback) {
             $('div.release_info').slideUp();
 
             if (!self.localFileLoaded) {
+                parsed_hex = false;
                 self.enableFlashing(false);
             }
 
