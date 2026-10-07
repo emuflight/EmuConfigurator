@@ -79,7 +79,7 @@ TABS.firmware_flasher.initialize = function (callback) {
                     $('div.release_info').slideDown();
 
                 } else {
-                    self.flashingMessage('firmwareFlasherHexCorrupted', self.FLASH_MESSAGE_TYPES.INVALID);
+                    self.flashingMessage(i18n.getMessage('firmwareFlasherHexCorrupted'), self.FLASH_MESSAGE_TYPES.INVALID);
                 }
             });
         }
@@ -420,6 +420,7 @@ TABS.firmware_flasher.initialize = function (callback) {
                                     }
                                 });
                             } else {
+                                parsed_hex = false;
                                 self.localFileLoaded = false;
                                 self.enableFlashing(false);
                                 self.flashingMessage(i18n.getMessage('firmwareFlasherHexCorrupted'), self.FLASH_MESSAGE_TYPES.INVALID);
@@ -428,6 +429,7 @@ TABS.firmware_flasher.initialize = function (callback) {
 
                         reader.onerror = function () {
                             console.error('Failed to read file: ' + path);
+                            parsed_hex = false;
                             self.localFileLoaded = false;
                             self.enableFlashing(false);
                             self.flashingMessage(i18n.getMessage('firmwareFlasherHexCorrupted'), self.FLASH_MESSAGE_TYPES.INVALID);
@@ -436,6 +438,7 @@ TABS.firmware_flasher.initialize = function (callback) {
                         reader.readAsText(file);
                     }, function (error) {
                         console.error('Failed to open file: ' + path, error);
+                        parsed_hex = false;
                         self.localFileLoaded = false;
                         self.enableFlashing(false);
                         self.flashingMessage(i18n.getMessage('firmwareFlasherHexCorrupted'), self.FLASH_MESSAGE_TYPES.INVALID);
