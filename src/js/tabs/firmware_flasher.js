@@ -38,28 +38,37 @@ TABS.firmware_flasher.initialize = function (callback) {
         FirmwareCache.onRemoveFromCache(onFirmwareCacheUpdate);
 
         function parse_hex(str, loadId, callback) {
-            // parsing hex in different thread
-            var worker = new Worker('./js/workers/hex_parser.js');
+            var worker;
 
             function finish(result) {
-                worker.terminate();
+                if (worker) {
+                    worker.terminate();
+                }
                 if (loadId === parseToken) {
                     callback(result);
                 }
             }
 
-            // "callback"
-            worker.onmessage = function (event) {
-                finish(event.data);
-            };
+            try {
+                // parsing hex in different thread
+                worker = new Worker('./js/workers/hex_parser.js');
 
-            worker.onerror = function (event) {
-                console.error('HEX parser worker failed: ' + event.message);
+                // "callback"
+                worker.onmessage = function (event) {
+                    finish(event.data);
+                };
+
+                worker.onerror = function (event) {
+                    console.error('HEX parser worker failed: ' + event.message);
+                    finish(false);
+                };
+
+                // send data/string over for processing
+                worker.postMessage(str);
+            } catch (error) {
+                console.error('HEX parser worker failed to start: ' + error.message);
                 finish(false);
-            };
-
-            // send data/string over for processing
-            worker.postMessage(str);
+            }
         }
 
         /**
@@ -118,9 +127,9 @@ TABS.firmware_flasher.initialize = function (callback) {
                 ? summary
                 : $('select[name="firmware_version"] option:selected').data('summary');
             if (loadId === parseToken) {
-                process_hex(data, summary, loadId);
                 $("a.load_remote_file").removeClass('disabled');
                 $("a.load_remote_file").text(i18n.getMessage('firmwareFlasherButtonLoadOnline'));
+                process_hex(data, summary, loadId);
             }
         };
 
@@ -337,6 +346,8 @@ TABS.firmware_flasher.initialize = function (callback) {
 
         buildType_e.change(function() {
             discardLocalFile();
+            // The selections are cleared below; an online image no longer matches them either.
+            self.enableFlashing(false);
             $("a.load_remote_file").addClass('disabled');
             // The selections are cleared below without change events; drop any pending load.
             parseToken++;
@@ -510,6 +521,7 @@ TABS.firmware_flasher.initialize = function (callback) {
          */
         $('select[name="firmware_version"]').change(function(evt){
             discardLocalFile();
+            $("a.load_remote_file").text(i18n.getMessage('firmwareFlasherButtonLoadOnline'));
             $('div.release_info').slideUp();
 
             if (!self.localFileLoaded) {
