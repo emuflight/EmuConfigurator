@@ -559,12 +559,17 @@ TABS.firmware_flasher.initialize = function (callback) {
             if (evt.target.value === "0") {
                 $("a.load_remote_file").addClass('disabled');
             } else if (isCached) {
+                // keep button enabled so user can re-download if desired
+                $("a.load_remote_file").removeClass('disabled');
                 FirmwareCache.get(release, cached => {
+                    // The journal can list a release whose data was never stored (e.g. storage quota).
+                    if (!cached) {
+                        console.warn("Cached firmware data missing: " + release.file);
+                        return;
+                    }
                     console.info("Release found in cache: " + release.file);
                     onLoadSuccess(cached.hexdata, release, loadId);
                 });
-                // keep button enabled so user can re-download if desired
-                $("a.load_remote_file").removeClass('disabled');
             } else {
                 $("a.load_remote_file").removeClass('disabled');
             }
