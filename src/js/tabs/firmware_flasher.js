@@ -18,7 +18,8 @@ TABS.firmware_flasher.initialize = function (callback) {
     var intel_hex = false, // standard intel hex in string format
         parsed_hex = false, // parsed raw hex in array format
         parseToken = 0, // id of the newest load; results of older loads are dropped
-        resettingForLocalLoad = false; // true while a local load clears the board/version selects
+        resettingForLocalLoad = false, // true while a local load clears the board/version selects
+        tabClosed = false; // set on tab exit; the file dialog is not modal and can return after it
 
         /**
          * Change boldness of firmware option depending on cache status
@@ -289,6 +290,7 @@ TABS.firmware_flasher.initialize = function (callback) {
 
         // Leaving the tab drops every pending release-list, download and parse result of this instance.
         self.invalidatePending = function () {
+            tabClosed = true;
             releaseListToken++;
             parseToken++;
         };
@@ -448,6 +450,9 @@ TABS.firmware_flasher.initialize = function (callback) {
             self.enableFlashing(false);
             self.localFileLoaded = true;
             chrome.fileSystem.chooseEntry({type: 'openFile', dialogId: 'firmware', accepts: [{description: 'HEX files', extensions: ['hex']}]}, function (fileEntry) {
+                if (tabClosed) {
+                    return;
+                }
                 if (chrome.runtime.lastError) {
                     console.error(chrome.runtime.lastError.message);
 
