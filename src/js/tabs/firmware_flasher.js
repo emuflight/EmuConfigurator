@@ -287,6 +287,12 @@ TABS.firmware_flasher.initialize = function (callback) {
         // Only the newest release-list request may fill the board list and restore the saved board.
         var releaseListToken = 0;
 
+        // Leaving the tab drops every pending release-list, download and parse result of this instance.
+        self.invalidatePending = function () {
+            releaseListToken++;
+            parseToken++;
+        };
+
         function loadBoardOptions(checker, showDevReleases, skipVersionFilter) {
             var requestId = ++releaseListToken;
             checker.loadReleaseData(releaseData => {
@@ -372,6 +378,8 @@ TABS.firmware_flasher.initialize = function (callback) {
             $("a.load_remote_file").text(i18n.getMessage('firmwareFlasherButtonLoadOnline'));
             // The selections are cleared below without change events; drop any pending load.
             parseToken++;
+            // Also drop a release-list request still running; the loader below is skipped while locked.
+            releaseListToken++;
             var build_type = $(this).val();
 
             $('select[name="board"]').empty()
@@ -871,6 +879,9 @@ TABS.firmware_flasher.initialize = function (callback) {
 };
 
 TABS.firmware_flasher.cleanup = function (callback) {
+    if (this.invalidatePending) {
+        this.invalidatePending();
+    }
     PortHandler.flush_callbacks();
     FirmwareCache.unload();
 
