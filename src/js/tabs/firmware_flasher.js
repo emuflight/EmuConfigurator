@@ -443,13 +443,21 @@ TABS.firmware_flasher.initialize = function (callback) {
             chrome.storage.local.set({'selected_board': target});
         });
 
+        // The main process answers a second dialog request with a cancel; its callback must not drop the lock.
+        var filePickerPending = false;
+
         // UI Hooks
         $('a.load_file').click(function () {
+            if (filePickerPending) {
+                return;
+            }
+            filePickerPending = true;
             self.enableFlashing(false);
             self.localFileLoaded = true;
             // The file dialog is not modal: keep the user on this tab until it returns.
             GUI.tab_switch_lock = true;
             chrome.fileSystem.chooseEntry({type: 'openFile', dialogId: 'firmware', accepts: [{description: 'HEX files', extensions: ['hex']}]}, function (fileEntry) {
+                filePickerPending = false;
                 GUI.tab_switch_lock = false;
                 if (chrome.runtime.lastError) {
                     console.error(chrome.runtime.lastError.message);
