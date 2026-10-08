@@ -493,6 +493,11 @@ function checkForConfiguratorUpdates() {
 }
 
 function notifyOutdatedVersion(releaseData) {
+    // The release fetch failed and nothing is cached: no data to compare against.
+    if (!releaseData) {
+        return;
+    }
+
     ConfigStorage.get('checkForConfiguratorUnstableVersions', function (result) {
         var showUnstableReleases = false;
         if (result.checkForConfiguratorUnstableVersions) {
