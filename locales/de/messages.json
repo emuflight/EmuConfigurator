@@ -1874,6 +1874,9 @@
     "firmwareFlasherHexCorrupted": {
         "message": "HEX-Datei scheint fehlerhaft zu sein"
     },
+    "firmwareFlasherHexReadFailed": {
+        "message": "HEX-Datei konnte nicht gelesen werden"
+    },
     "firmwareFlasherFailedToLoadOnlineFirmware": {
         "message": "Fehler beim laden der Online-Firmware"
     },

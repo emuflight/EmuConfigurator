@@ -2080,6 +2080,9 @@
     "firmwareFlasherHexCorrupted": {
         "message": "HEX 파일이 손상된 것으로 보입니다."
     },
+    "firmwareFlasherHexReadFailed": {
+        "message": "HEX 파일을 읽을 수 없습니다"
+    },
     "firmwareFlasherFailedToLoadOnlineFirmware": {
         "message": "원격지원 펌웨어 로드 실패"
     },

@@ -1688,6 +1688,9 @@
     "firmwareFlasherHexCorrupted": {
         "message": "File HEX kelihatannya sudah rusak"
     },
+    "firmwareFlasherHexReadFailed": {
+        "message": "Tidak dapat membaca file HEX"
+    },
     "firmwareFlasherFailedToLoadOnlineFirmware": {
         "message": "Gagal memuat firmware online"
     },

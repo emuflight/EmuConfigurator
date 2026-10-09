@@ -2002,6 +2002,9 @@
     "firmwareFlasherHexCorrupted": {
         "message": "Izskatās ka HEX fails ir bojāts"
     },
+    "firmwareFlasherHexReadFailed": {
+        "message": "Neizdevās nolasīt HEX failu"
+    },
     "firmwareFlasherFailedToLoadOnlineFirmware": {
         "message": "Nesanāca ielādēt attālināto programmatūru"
     },
