@@ -617,8 +617,12 @@ TABS.firmware_flasher.initialize = function (callback) {
                 $("a.load_remote_file").text(i18n.getMessage('firmwareFlasherButtonDownloading'));
                 $("a.load_remote_file").addClass('disabled');
                 var loadId = ++parseToken;
-                $.get(summary.url, function (data) {
-                    onLoadSuccess(data, summary, loadId);
+                $.ajax({
+                    url: summary.url,
+                    timeout: 60000, // a stalled download must not leave the button on "Downloading"
+                    success: function (data) {
+                        onLoadSuccess(data, summary, loadId);
+                    },
                 }).fail(failed_to_load);
             } else {
                 $('span.progressLabel').attr('i18n','firmwareFlasherFailedToLoadOnlineFirmware').removeClass('i18n-replaced');
