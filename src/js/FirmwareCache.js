@@ -89,7 +89,9 @@ let FirmwareCache = (function () {
     })();
 
     let journal = new LRUMap(100),
-        journalLoaded = false;
+        journalLoaded = false,
+        // Advanced by invalidate(); a put() started before it must not repopulate the journal.
+        generation = 0;
 
     journal.shift = function () {
         // remove cached data for oldest release
@@ -160,6 +162,7 @@ let FirmwareCache = (function () {
             return;
         }
         let obj = {};
+        let startedAt = generation;
         obj[withCachePrefix(key)] = {
             release: release,
             hexdata: hexdata,
@@ -168,6 +171,10 @@ let FirmwareCache = (function () {
         chrome.storage.local.set(obj, () => {
             if (chrome.runtime && chrome.runtime.lastError) {
                 console.warn("Firmware cache write failed: " + key, chrome.runtime.lastError);
+                return;
+            }
+            if (startedAt !== generation) {
+                chrome.storage.local.remove(withCachePrefix(key));
                 return;
             }
             journal.set(key, true);
@@ -231,6 +238,7 @@ let FirmwareCache = (function () {
             }
             chrome.storage.local.remove(cacheKeys);
         });
+        generation++;
         journal.clear();
         JournalStorage.persist(journal.toJSON());    
     }
