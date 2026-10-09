@@ -2032,6 +2032,9 @@
     "firmwareFlasherHexCorrupted": {
         "message": "HEX文件似乎已损坏"
     },
+    "firmwareFlasherHexReadFailed": {
+        "message": "无法读取HEX文件"
+    },
     "firmwareFlasherFailedToLoadOnlineFirmware": {
         "message": "加载固件失败"
     },

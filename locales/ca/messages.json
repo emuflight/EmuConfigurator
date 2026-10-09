@@ -1567,6 +1567,9 @@
     "firmwareFlasherHexCorrupted": {
         "message": "L'arxiu HEX sembla corrupte"
     },
+    "firmwareFlasherHexReadFailed": {
+        "message": "No s'ha pogut llegir el fitxer HEX"
+    },
     "firmwareFlasherFailedToLoadOnlineFirmware": {
         "message": "Error en carregar el firmware remot"
     },

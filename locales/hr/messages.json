@@ -1927,6 +1927,9 @@
     "firmwareFlasherHexCorrupted": {
         "message": "HEX datoteka je koruptirana"
     },
+    "firmwareFlasherHexReadFailed": {
+        "message": "Nije moguće pročitati HEX datoteku"
+    },
     "firmwareFlasherFailedToLoadOnlineFirmware": {
         "message": "Učitavanje firmwarea nije uspjelo"
     },

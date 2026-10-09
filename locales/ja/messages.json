@@ -2035,6 +2035,9 @@
     "firmwareFlasherHexCorrupted": {
         "message": "HEXファイルが破損しているようです"
     },
+    "firmwareFlasherHexReadFailed": {
+        "message": "HEXファイルを読み込めませんでした"
+    },
     "firmwareFlasherFailedToLoadOnlineFirmware": {
         "message": "リモートファームウェアの読込みに失敗しました"
     },

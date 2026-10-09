@@ -1876,6 +1876,9 @@
     "firmwareFlasherHexCorrupted": {
         "message": "Le fichier HEX semble corrompu"
     },
+    "firmwareFlasherHexReadFailed": {
+        "message": "Impossible de lire le fichier HEX"
+    },
     "firmwareFlasherFailedToLoadOnlineFirmware": {
         "message": "Erreur de chargement du microprogramme"
     },

@@ -1990,6 +1990,9 @@
     "firmwareFlasherHexCorrupted": {
         "message": "El archivo HEX parece estar corrupto"
     },
+    "firmwareFlasherHexReadFailed": {
+        "message": "No se pudo leer el archivo HEX"
+    },
     "firmwareFlasherFailedToLoadOnlineFirmware": {
         "message": "Error al cargar el firmware remoto"
     },

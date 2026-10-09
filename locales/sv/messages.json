@@ -1924,6 +1924,9 @@
     "firmwareFlasherHexCorrupted": {
         "message": "HEX-filen verkar vara korrupt"
     },
+    "firmwareFlasherHexReadFailed": {
+        "message": "Kunde inte läsa HEX-filen"
+    },
     "firmwareFlasherFailedToLoadOnlineFirmware": {
         "message": "Misslyckades med att ladda remote-firmware"
     },

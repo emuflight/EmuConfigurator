@@ -1837,6 +1837,9 @@
     "firmwareFlasherHexCorrupted": {
         "message": "il file HEX sembra essere corrotto"
     },
+    "firmwareFlasherHexReadFailed": {
+        "message": "Impossibile leggere il file HEX"
+    },
     "firmwareFlasherFailedToLoadOnlineFirmware": {
         "message": "caricamento Firmware remoto fallito"
     },

@@ -2023,6 +2023,9 @@
     "firmwareFlasherHexCorrupted": {
         "message": "HEX-файл поврежден"
     },
+    "firmwareFlasherHexReadFailed": {
+        "message": "Не удалось прочитать HEX-файл"
+    },
     "firmwareFlasherFailedToLoadOnlineFirmware": {
         "message": "Не удалось загрузить удаленную прошивку"
     },

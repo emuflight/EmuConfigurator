@@ -1933,6 +1933,9 @@
     "firmwareFlasherHexCorrupted": {
         "message": "Parece que o arquivo HEX está corrompido"
     },
+    "firmwareFlasherHexReadFailed": {
+        "message": "Não foi possível ler o arquivo HEX"
+    },
     "firmwareFlasherFailedToLoadOnlineFirmware": {
         "message": "Falha ao carregar firmware remoto"
     },
