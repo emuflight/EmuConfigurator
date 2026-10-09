@@ -159,14 +159,19 @@ let FirmwareCache = (function () {
             console.debug("Firmware is already cached: " + key);
             return;
         }
-        journal.set(key, true);
-        JournalStorage.persist(journal.toJSON());
         let obj = {};
         obj[withCachePrefix(key)] = {
             release: release,
             hexdata: hexdata,
         };
+        // Write data first: a failed write must not leave a journal entry without data.
         chrome.storage.local.set(obj, () => {
+            if (chrome.runtime && chrome.runtime.lastError) {
+                console.warn("Firmware cache write failed: " + key, chrome.runtime.lastError);
+                return;
+            }
+            journal.set(key, true);
+            JournalStorage.persist(journal.toJSON());
             onPutToCache(release);
         });
     }
@@ -191,6 +196,12 @@ let FirmwareCache = (function () {
             let cached = typeof obj === "object" && obj.hasOwnProperty(cacheKey)
                 ? obj[cacheKey]
                 : null;
+            if (cached === null) {
+                // Heal: drop the journal entry so the next download stores the data.
+                journal.delete(key);
+                JournalStorage.persist(journal.toJSON());
+                onRemoveFromCache(release);
+            }
             callback(cached);
         });
     }
