@@ -81,9 +81,25 @@ grep -rl '"pidTuningShowAllPids"' locales/
 
 ### Adding new UI features
 
-Add new keys **only to `locales/en/messages.json`**. Do NOT add them to non-English locales — the English value will fall back automatically and be more accurate than any auto-translated or guessed content.
+When introducing a new message, add its key and English value only to
+`locales/en/messages.json`. Non-English locales use English fallback until
+a contributor supplies a translation.
 
-**Exception:** `pidTuningSubTabStable` (and similar new tab labels) are acceptable additions to English only; non-English locales inherit via fallback.
+In follow-up translation work, contributors may add translations of existing
+English messages to non-English locale files. EmuConfigurator maintains these
+translations manually; it does not use Crowdin or an automated translation
+pipeline.
+
+Keep each key identical to the English source. Translate only the message
+value, and preserve all required technical terms, HTML, and placeholders —
+see [TRANSLATION-TERMINOLOGY.instructions.md](TRANSLATION-TERMINOLOGY.instructions.md)
+for the full verbatim-term reference.
+
+Do not add guessed translations merely to make locale files complete.
+Missing translations may continue to use English fallback.
+
+Follow-up translations remain subject to the specific fallback-only rules
+below, including the `pidTuningSubTab*` label rules.
 
 ### Sub-tab label keys
 
@@ -726,9 +742,10 @@ grep -o '\$t([^)]*\.message)' locales/XX/messages.json | \
 
 ---
 
-**Last Updated:** 2026-04-12  
+**Last Updated:** 2026-10-09  
 **Status:** Active Protocol  
 **Critical Updates:**
+- 2026-10-09: Clarified "Adding new UI features" to distinguish initial message creation from follow-up translations; added cross-reference to TRANSLATION-TERMINOLOGY for verbatim-term guidance
 - 2026-04-12: Added cross-key consistency audit rules (DSHOT, terminology, formality, compounds, apostrophes)
 - 2026-04-12: Integrated DSHOT standard (all-caps enforcement)
 - 2026-04-12: Added consistent pre-translation audit and consistency checks

@@ -122,6 +122,7 @@ The following terms have been cross-referenced and standardized across official 
 - `Target` (hardware target/board)
 - `Firmware`
 - `Bootloader`
+- `HEX` (firmware file format; e.g., `.hex` file — keep `HEX` verbatim in all messages)
 - `Configuration` (may translate in UI context, but use "Configuration" in technical settings names)
 - `Preset`
 - `Failsafe` (protocol/feature; treated as untranslatable technical term — use capitalized form consistently)
@@ -247,7 +248,7 @@ When adding new translations:
 
 ---
 
-**Last Updated:** 2026-04-12  
+**Last Updated:** 2026-10-09  
 **Status:** Active Reference  
 **Review Frequency:** Quarterly or when adding major new locales
-**Critical Updates:** DSHOT standardization (2026-04-12), Failsafe terminology (2026-04-12)
+**Critical Updates:** DSHOT standardization (2026-04-12), Failsafe terminology (2026-04-12), HEX file format added to Category 5 (2026-10-09)
