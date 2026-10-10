@@ -133,6 +133,18 @@ TABS.auxiliary.initialize = function (callback) {
             linkList.append(linkOption);
         }
 
+        // sort linkedTo options by name, empty option on top
+        var sortedOptions = linkList.children('option').get().sort(function (a, b) {
+            if (a.value === '0') {
+                return -1;
+            }
+            if (b.value === '0') {
+                return 1;
+            }
+            return a.text.localeCompare(b.text);
+        });
+        linkList.append(sortedOptions);
+
         linkOptionTemplate.val(0);
         
         configureLogicList(linkTemplate);
