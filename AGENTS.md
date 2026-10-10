@@ -38,15 +38,15 @@ This section overrides the Karma and "run all tests" lines in `ELECTRON-FORGE-JS
 The MSP API version is `major.minor.patch`.
 
 - **major.minor**: protocol generation. A new minor can change message layouts.
-- **patch**: additive, backward-compatible MSP features. Firmware increments it once per feature and resets it to 0 on a minor bump. The configurator reads it from the 4th byte of `MSP_API_VERSION`. Firmware that omits the byte reports patch 0.
+- **patch**: additive, backward-compatible MSP features. This is an intentional EmuFlight convention. The firmware protocol header (`src/main/interface/msp_protocol.h` in the EmuFlight repository) specifies: increment once per backward-compatible MSP feature, reset to 0 on a minor bump. The configurator reads the patch from the 4th byte of `MSP_API_VERSION` and treats an omitted byte as 0.
 
 Limits:
 
-- `max_msp` in `package.json` is the highest firmware API the UI supports.
+- `max_msp` in `package.json` is the upper `major.minor` limit of firmware the UI supports. Its patch is documentation metadata that records the newest gated patch; the connection check does not enforce it.
   - `scripts/build.js` writes it to `version.json`. `src/js/main.js` loads it into `CONFIGURATOR.max_msp`.
-  - `apiVersionWithinMaxMsp()` in `src/js/serial_backend.js` compares only `major.minor`. A patch above `max_msp` still connects and loads the full UI.
+  - `apiVersionWithinMaxMsp()` in `src/js/serial_backend.js` compares only `major.minor`. A patch above `max_msp` does not trigger the CLI-only fallback. Full UI access still needs the minimum API check, the `EMUF` identifier and a successful handshake.
   - Firmware whose `major.minor` is above `max_msp` shows a warning and opens only the CLI tab.
-- Raise `max_msp` to the new `major.minor` when firmware bumps the minor. Also set its patch to the highest gated patch, so it records the newest API the code supports.
+- Raise `max_msp` when the configurator implements and verifies support for a new `major.minor`, not merely because firmware bumped it. Set its patch to the highest gated patch.
 - `CONFIGURATOR.apiVersionAccepted` in `src/js/data_storage.js` is the lowest firmware API accepted for full configuration UI access. Firmware below it shows a warning and opens only the CLI tab.
 
 Gating features:
@@ -54,8 +54,8 @@ Gating features:
 - Gate new MSP messages and fields on the full version: `semver.gte(CONFIG.apiVersion, "<major.minor.patch>")` in `src/js/msp/MSPHelper.js` or the tab file. Use the patch level for additive features.
 - Do not send a new message to older firmware.
 - Keep a gate version in one named constant when several places use it.
-- A patch gate assumes firmware lands patch features in order. When that is not guaranteed, also check the reply and fall back when it is missing.
-- A gate written for patch N of one minor does not apply to the next minor. Re-set it when the minor bumps.
+- A patch gate assumes that, within one `major.minor`, higher patches keep the feature. When that is not guaranteed, also check for an unsupported response and the payload length. Do not let an optional request block the connection when the FC sends no response.
+- Revalidate patch-gated features when supporting a new minor. A lower-bound semver gate stays true for later minors even though their patch resets to 0 (`semver.gte("1.56.0", "1.55.3")` is true). Keep the gate if the feature stays compatible. Otherwise add a version range or a capability check. Do not change an existing threshold to the new minor: that disables a feature on older firmware that already has it.
 
 ## Architecture
 
