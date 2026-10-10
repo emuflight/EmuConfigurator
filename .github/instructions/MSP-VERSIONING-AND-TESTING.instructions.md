@@ -28,9 +28,10 @@ applyTo: 'src/js/**/*.js, package.json, test/unit/**/*.js'
 
 - Run `yarn test`. It uses the Node built-in test runner. It needs no extra packages.
 - Tests live in `test/unit/*.test.js`. `test/unit/harness.js` loads the browser-global scripts into a `vm` context.
-- Stub `MSP`, `CONFIG`, `TABS` and `GUI` as needed. No DOM or jQuery is available in this harness.
+- Stub `MSP`, `CONFIG`, `TABS` and `GUI` as needed.
+- Tab rendering and click handlers run in `jsdom` (`test/unit/auxiliary_dom.test.js`). Run scripts with `vm.Script` in the jsdom context, not `eval`: the files start with `'use strict'`.
 - Derive expected bytes and values from the MSP spec or the firmware source, not from the code under test.
 - Add at least one test that tries to break the logic: wrong version, malformed or empty reply, length mismatch.
 - `test/unit/msp_version.test.js` fails when `max_msp` is below any API version used in a gate. Do not edit it to pass.
-- The harness cannot cover DOM rendering or the save click handler. Test those on a real FC and state that in the PR.
+- The harness cannot cover real serial I/O, firmware behavior or timing. Test those on a real FC and state that in the PR.
 - `test/karma.conf.js` and `test/tabs/cli.js` are not run by `yarn test`.
