@@ -2,11 +2,14 @@
 
 TABS.auxiliary = {};
 
+// first MSP API version with MSP_MODE_RANGES_EXTRA and the linked-mode fields of MSP_SET_MODE_RANGE
+TABS.auxiliary.LINKED_MODES_API_VERSION = '1.55.1';
+
 TABS.auxiliary.initialize = function (callback) {
     GUI.active_tab_ref = this;
     GUI.active_tab = 'auxiliary';
     var prevChannelsValues = null;
-    // true when the FC answered MSP_MODE_RANGES_EXTRA, i.e. linked modes can be read and written
+    // true when the FC reports the API version and answered MSP_MODE_RANGES_EXTRA, i.e. linked modes can be read and written
     var linkedModesSupported = false;
 
     function get_mode_ranges() {
@@ -14,9 +17,15 @@ TABS.auxiliary.initialize = function (callback) {
     }
 
     function get_mode_ranges_extra() {
-        // an FC without this message answers "unsupported" and leaves the array empty
+        // MSP_MODE_RANGES_EXTRA was added in API 1.55.1; do not send it to older firmware
         MODE_RANGES_EXTRA = [];
+        if (!semver.gte(CONFIG.apiVersion, TABS.auxiliary.LINKED_MODES_API_VERSION)) {
+            linkedModesSupported = false;
+            get_box_ids();
+            return;
+        }
         MSP.send_message(MSPCodes.MSP_MODE_RANGES_EXTRA, false, false, function () {
+            // a build that reports the version without the message leaves the array empty
             linkedModesSupported = MODE_RANGES_EXTRA.length > 0 &&
                 MODE_RANGES_EXTRA.length === MODE_RANGES.length;
             if (!linkedModesSupported) {

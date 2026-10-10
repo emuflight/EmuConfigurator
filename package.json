@@ -4,7 +4,7 @@
   "description": "Crossplatform configuration tool for Emuflight flight control system.",
   "version": "0.5.0",
   "versionSuffix": "-dev",
-  "max_msp": "1.55.0",
+  "max_msp": "1.55.1",
   "COMMENT": "MAX_MSP required!!!!",
   "packageManager": "yarn@1.22.22",
   "engines": {
