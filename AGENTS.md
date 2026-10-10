@@ -35,14 +35,27 @@ This section overrides the Karma and "run all tests" lines in `ELECTRON-FORGE-JS
 
 ## Firmware API version limits
 
-- `max_msp` in `package.json` is the highest firmware MSP API `major.minor` the UI accepts.
+The MSP API version is `major.minor.patch`.
+
+- **major.minor**: protocol generation. A new minor can change message layouts.
+- **patch**: additive, backward-compatible MSP features. Firmware increments it once per feature and resets it to 0 on a minor bump. The configurator reads it from the 4th byte of `MSP_API_VERSION`. Firmware that omits the byte reports patch 0.
+
+Limits:
+
+- `max_msp` in `package.json` is the highest firmware API the UI supports.
   - `scripts/build.js` writes it to `version.json`. `src/js/main.js` loads it into `CONFIGURATOR.max_msp`.
-  - `apiVersionWithinMaxMsp()` in `src/js/serial_backend.js` compares it. The patch number is ignored.
-  - Firmware above `max_msp` shows a warning and opens only the CLI tab.
-- Raise `max_msp` in the same change that adds support for a new firmware API minor, or when a gate uses a version above it.
+  - `apiVersionWithinMaxMsp()` in `src/js/serial_backend.js` compares only `major.minor`. A patch above `max_msp` still connects and loads the full UI.
+  - Firmware whose `major.minor` is above `max_msp` shows a warning and opens only the CLI tab.
+- Raise `max_msp` to the new `major.minor` when firmware bumps the minor. Also set its patch to the highest gated patch, so it records the newest API the code supports.
 - `CONFIGURATOR.apiVersionAccepted` in `src/js/data_storage.js` is the lowest firmware API accepted for full configuration UI access. Firmware below it shows a warning and opens only the CLI tab.
-- Gate new MSP messages and fields on `semver.gte(CONFIG.apiVersion, "<major.minor.patch>")` in `src/js/msp/MSPHelper.js` or the tab file. Do not send a new message to older firmware.
+
+Gating features:
+
+- Gate new MSP messages and fields on the full version: `semver.gte(CONFIG.apiVersion, "<major.minor.patch>")` in `src/js/msp/MSPHelper.js` or the tab file. Use the patch level for additive features.
+- Do not send a new message to older firmware.
 - Keep a gate version in one named constant when several places use it.
+- A patch gate assumes firmware lands patch features in order. When that is not guaranteed, also check the reply and fall back when it is missing.
+- A gate written for patch N of one minor does not apply to the next minor. Re-set it when the minor bumps.
 
 ## Architecture
 
