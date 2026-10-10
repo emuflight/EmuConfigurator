@@ -333,6 +333,28 @@ TABS.auxiliary.initialize = function (callback) {
 
         // UI Hooks
         $('a.save').click(function () {
+            // a link may not target a mode that is itself linked; the FC would drop the entry
+            var linkedModeIds = {};
+            $('.tab-auxiliary .modes .mode').each(function () {
+                var modeId = $(this).data('id');
+                $(this).find('.link').each(function () {
+                    if (parseInt($(this).find('.linkedTo').val(), 10) !== 0) {
+                        linkedModeIds[modeId] = true;
+                    }
+                });
+            });
+            var chainedLink = false;
+            $('.tab-auxiliary .modes .link .linkedTo').each(function () {
+                var target = parseInt($(this).val(), 10);
+                if (target !== 0 && linkedModeIds[target]) {
+                    chainedLink = true;
+                }
+            });
+            if (chainedLink) {
+                GUI.log(i18n.getMessage('auxiliaryLinkToLinkedMode'));
+                return;
+            }
+
             // protect this save chain (through EEPROM_WRITE) from being abandoned if the
             // user switches tabs before the FC responds; cleared once EEPROM_WRITE completes below
             var protectedSaveToken = MSP.beginProtectedSave();

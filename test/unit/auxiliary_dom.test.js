@@ -43,7 +43,8 @@ function openTab({ apiVersion, modeRanges, extra }) {
         var EXTRA_REPLY = ${JSON.stringify(extra)};
         var sentMessages = [];
         var i18n = { getMessage: function (k) { return k; }, localizePage: function () {} };
-        var GUI = { interval_add: function () {}, content_ready: function (cb) { if (cb) { cb(); } }, log: function () {} };
+        var logMessages = [];
+        var GUI = { interval_add: function () {}, content_ready: function (cb) { if (cb) { cb(); } }, log: function (m) { logMessages.push(m); } };
         var TABS = {};
         var ConfigStorage = { get: function (key, cb) { cb({}); }, set: function () {} };
         var MSP = {
@@ -176,4 +177,31 @@ test('save: firmware below 1.55.1 receives the legacy 5-byte form', () => {
     for (const data of messages) {
         assert.equal(data.length, 5);
     }
+});
+
+test('save: a link to a mode that is itself linked is refused and nothing is sent', () => {
+    const w = openTab({ apiVersion: '1.55.1', modeRanges: RANGES, extra: EXTRA_LINKED });
+    // BEEPER (id 13) is linked to ANGLE; link HORIZON to BEEPER
+    w.eval(`
+        $('#mode-2 a.addLink').click();
+        $('#mode-2 .link .linkedTo').val('13');
+        $('a.save').click();
+    `);
+    assert.equal(sent(w, 'MSP_SET_MODE_RANGE').length, 0);
+    assert.equal(sent(w, 'MSP_EEPROM_WRITE').length, 0);
+    assert.deepEqual(JSON.parse(w.eval('JSON.stringify(logMessages)')), ['auxiliaryLinkToLinkedMode']);
+});
+
+test('save: linking to a mode that has only ranges is accepted', () => {
+    const w = openTab({ apiVersion: '1.55.1', modeRanges: RANGES, extra: EXTRA_LINKED });
+    // ANGLE (id 1) has a range and no link
+    w.eval(`
+        $('#mode-2 a.addLink').click();
+        $('#mode-2 .link .linkedTo').val('1');
+        $('a.save').click();
+    `);
+    assert.ok(sent(w, 'MSP_SET_MODE_RANGE').length > 0);
+    assert.equal(sent(w, 'MSP_EEPROM_WRITE').length, 1);
+    const log = JSON.parse(w.eval('JSON.stringify(logMessages)'));
+    assert.equal(log.includes('auxiliaryLinkToLinkedMode'), false);
 });

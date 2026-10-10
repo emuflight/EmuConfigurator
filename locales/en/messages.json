@@ -1763,6 +1763,9 @@
     "auxiliaryModeLogicAND": {
         "message": "AND"
     },
+    "auxiliaryLinkToLinkedMode": {
+        "message": "Not saved: a mode cannot link to a mode that is itself linked."
+    },
     "auxiliaryDisabled": {
         "message": "(DISABLED)"
     },
