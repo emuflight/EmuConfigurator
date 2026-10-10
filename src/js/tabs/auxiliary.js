@@ -93,7 +93,12 @@ TABS.auxiliary.initialize = function (callback) {
         logicOption.text(i18n.getMessage('auxiliaryModeLogicOR'));
         logicOption.val(0);
         logicList.append(logicOption);
-        
+
+        logicOption = logicOptionTemplate.clone();
+        logicOption.text(i18n.getMessage('auxiliaryModeLogicAND'));
+        logicOption.val(1);
+        logicList.append(logicOption);
+
         logicOptionTemplate.val(0);
     }
     

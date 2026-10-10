@@ -1760,6 +1760,9 @@
     "auxiliaryModeLogicOR": {
         "message": "OR"
     },
+    "auxiliaryModeLogicAND": {
+        "message": "AND"
+    },
     "auxiliaryDisabled": {
         "message": "(DISABLED)"
     },
