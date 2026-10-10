@@ -55,10 +55,10 @@ TABS.auxiliary.initialize = function (callback) {
         $(newMode).find('a.addRange').data('modeElement', newMode);
         $(newMode).find('a.addLink').data('modeElement', newMode);
 
-        // hide link button for ARM
-        if (modeId === 0) {
-            $(newMode).find('.addLink').hide();
-        }
+        // Linked modes are not configurable over MSP in EmuFlight (no
+        // MSP_MODE_RANGES_EXTRA / MSP_SET_MODE_RANGE_EXTRA), so link data would be
+        // silently discarded on save. Keep the button hidden until firmware supports it.
+        $(newMode).find('.addLink').hide();
 
         return newMode; 
     }
