@@ -2103,6 +2103,13 @@ MspHelper.prototype.sendModeRanges = function(onCompleteCallback) {
               .push8((modeRange.range.start - 900) / 25)
               .push8((modeRange.range.end - 900) / 25);
 
+        // linked-mode fields exist only when the FC supports MSP_MODE_RANGES_EXTRA
+        var modeRangeExtra = MODE_RANGES_EXTRA[modeRangeIndex];
+        if (modeRangeExtra) {
+            buffer.push8(modeRangeExtra.modeLogic)
+                  .push8(modeRangeExtra.linkedTo);
+        }
+
         // prepare for next iteration
         modeRangeIndex++;
         if (modeRangeIndex === MODE_RANGES.length) {

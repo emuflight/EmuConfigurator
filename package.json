@@ -4,7 +4,7 @@
   "description": "Crossplatform configuration tool for Emuflight flight control system.",
   "version": "0.5.0",
   "versionSuffix": "-dev",
-  "max_msp": "1.55.0",
+  "max_msp": "1.55.1",
   "COMMENT": "MAX_MSP required!!!!",
   "packageManager": "yarn@1.22.22",
   "engines": {
@@ -26,6 +26,7 @@
     "build": "node scripts/build.js",
     "verify:cross-env": "cross-env EMUCFG_VERIFY_CROSS_ENV=cross-env-ok node scripts/verify-cross-env.js",
     "lint": "eslint .",
+    "test": "node --test \"test/unit/*.test.js\"",
     "commands": "node .commands.js"
   },
   "repository": {
@@ -78,7 +79,8 @@
     "cross-env": "^10.1.0",
     "electron": "42.10.1",
     "eslint": "^8.57.0",
-    "fs-extra": "^11.4.0"
+    "fs-extra": "^11.4.0",
+    "jsdom": "28.1.0"
   },
   "resolutions": {
     "yauzl": "3.3.2"
