@@ -6,13 +6,24 @@ TABS.auxiliary.initialize = function (callback) {
     GUI.active_tab_ref = this;
     GUI.active_tab = 'auxiliary';
     var prevChannelsValues = null;
+    // true when the FC answered MSP_MODE_RANGES_EXTRA, i.e. linked modes can be read and written
+    var linkedModesSupported = false;
 
     function get_mode_ranges() {
-        MSP.send_message(MSPCodes.MSP_MODE_RANGES, false, false, get_box_ids);
+        MSP.send_message(MSPCodes.MSP_MODE_RANGES, false, false, get_mode_ranges_extra);
     }
 
     function get_mode_ranges_extra() {
-        MSP.send_message(MSPCodes.MSP_MODE_RANGES_EXTRA, false, false, get_box_ids);
+        // an FC without this message answers "unsupported" and leaves the array empty
+        MODE_RANGES_EXTRA = [];
+        MSP.send_message(MSPCodes.MSP_MODE_RANGES_EXTRA, false, false, function () {
+            linkedModesSupported = MODE_RANGES_EXTRA.length > 0 &&
+                MODE_RANGES_EXTRA.length === MODE_RANGES.length;
+            if (!linkedModesSupported) {
+                MODE_RANGES_EXTRA = [];
+            }
+            get_box_ids();
+        });
     }
 
     function get_box_ids() {
@@ -55,10 +66,10 @@ TABS.auxiliary.initialize = function (callback) {
         $(newMode).find('a.addRange').data('modeElement', newMode);
         $(newMode).find('a.addLink').data('modeElement', newMode);
 
-        // Linked modes are not configurable over MSP in EmuFlight (no
-        // MSP_MODE_RANGES_EXTRA / MSP_SET_MODE_RANGE_EXTRA), so link data would be
-        // silently discarded on save. Keep the button hidden until firmware supports it.
-        $(newMode).find('.addLink').hide();
+        // hide link button for ARM, and when the FC cannot store links over MSP
+        if (modeId === 0 || !linkedModesSupported) {
+            $(newMode).find('.addLink').hide();
+        }
 
         return newMode; 
     }
@@ -251,11 +262,11 @@ TABS.auxiliary.initialize = function (callback) {
             modeTableBodyElement.append(newMode);
             
             // generate ranges from the supplied AUX names and MODE_RANGES[_EXTRA] data
-            // skip linked modes for now
+            // MODE_RANGES_EXTRA is index-aligned with MODE_RANGES
             for (var modeRangeIndex = 0; modeRangeIndex < MODE_RANGES.length; modeRangeIndex++) {
                 var modeRange = MODE_RANGES[modeRangeIndex];
 
-                var modeRangeExtra = {
+                var modeRangeExtra = MODE_RANGES_EXTRA[modeRangeIndex] || {
                     id: modeRange.id,
                     modeLogic: 0,
                     linkedTo: 0
@@ -375,6 +386,11 @@ TABS.auxiliary.initialize = function (callback) {
                     linkedTo: 0
                 };
                 MODE_RANGES_EXTRA.push(defaultModeRangeExtra);
+            }
+
+            // an FC without MSP_MODE_RANGES_EXTRA must not receive the trailing link bytes
+            if (!linkedModesSupported) {
+                MODE_RANGES_EXTRA = [];
             }
 
             //
