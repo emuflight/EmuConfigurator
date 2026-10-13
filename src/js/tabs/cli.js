@@ -285,7 +285,9 @@ TABS.cli.initialize = function (callback, nwGui) {
                 }
                 else if (!CliAutoComplete.isOpen() && !CliAutoComplete.isBuilding()) {
                     const inputText = textarea.val();
-                    if (inputText.indexOf("\n") === -1 && CONFIGURATOR.cliValid &&
+                    // idle prompt only (no output in flight), plain ASCII single line
+                    if (/^[\x20-\x7e]*$/.test(inputText) && CONFIGURATOR.cliValid &&
+                        removePromptHash(self.cliBuffer) === '' &&
                         !CliAutoComplete.hasStrategyFor(inputText)) {
                         // no popup strategy covers this line: ask the firmware (dma, timer, diff ...)
                         CliAutoComplete.firmwareComplete(inputText, function (text) { self.send(text); });
@@ -304,6 +306,7 @@ TABS.cli.initialize = function (callback, nwGui) {
                 if (CliAutoComplete.isFirmwareBusy()) {
                     return; // firmware completion in flight: its line buffer is still being cleared
                 }
+                CliAutoComplete.fwCandidates = null;
 
                 if (CliAutoComplete.isBuilding()) {
                     // Intentionally no-op: autocomplete table may be updating;
