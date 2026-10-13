@@ -48,6 +48,98 @@ CliAutoComplete.hasStrategyFor = function(line) {
     return (this.strategies || []).some(function(s) { return s.match.test(line) && s.context(line); });
 };
 
+/**
+ * Firmware-driven completion for lines no popup strategy covers (dma, timer, diff ...).
+ * Sends `line + TAB`, captures the reply instead of printing it, then erases the firmware
+ * line buffer with DEL (0x7F) so the buffer matches the textarea again.
+ * Reply shapes: several matches -> `<echo>\r\x1b[K<word>\t<word>\t...\r\n# <line>`;
+ * one match -> `<echo>` plus the completion, no list; no match -> echo only.
+ */
+CliAutoComplete.isFirmwareBusy = function() {
+    return !!this.fw;
+};
+
+CliAutoComplete.firmwareComplete = function(line, sendRaw) {
+    if (this.fw || !line.trim()) {
+        return;
+    }
+    this.fw = { line: line, sendRaw: sendRaw, data: '', phase: 'query', timer: null, result: null };
+    this._fwArm(300);
+    sendRaw(line + '\t');
+};
+
+CliAutoComplete.firmwareFeed = function(bytes) {
+    if (!this.fw) {
+        return;
+    }
+    for (var i = 0; i < bytes.length; i++) {
+        this.fw.data += String.fromCharCode(bytes[i]);
+    }
+    this._fwArm(120);
+};
+
+CliAutoComplete._fwArm = function(ms) {
+    var self = this;
+    clearTimeout(this.fw.timer);
+    this.fw.timer = setTimeout(function() { self._fwStep(); }, ms);
+};
+
+CliAutoComplete._fwParse = function(line, data) {
+    var listAt = data.indexOf('\x1b[K');
+    if (listAt >= 0) {
+        var rest = data.slice(listAt + 3);
+        var end = rest.indexOf('\r');
+        if (end >= 0) {
+            rest = rest.slice(0, end);
+        }
+        var words = rest.split('\t').map(function(w) { return w.trim(); }).filter(Boolean);
+        return { words: words, clear: line.length };
+    }
+    var shown = data.replace(/[\x00-\x1f\x7f]/g, '');
+    if (shown.length > line.length && shown.indexOf(line) === 0) {
+        return { completed: shown, clear: shown.length };
+    }
+    return { clear: line.length };
+};
+
+CliAutoComplete._fwStep = function() {
+    var fw = this.fw;
+    if (!fw) {
+        return;
+    }
+    if (fw.phase === 'query') {
+        fw.result = this._fwParse(fw.line, fw.data);
+        fw.phase = 'clear';
+        fw.data = '';
+        this._fwArm(300);
+        // one DEL per char the firmware holds, so a later Enter sends only the textarea content
+        var dels = '';
+        for (var i = 0; i < fw.result.clear; i++) {
+            dels += '\x7f';
+        }
+        fw.sendRaw(dels);
+        return;
+    }
+    this._fwDone();
+};
+
+CliAutoComplete._fwDone = function() {
+    var fw = this.fw;
+    clearTimeout(fw.timer);
+    this.fw = null;
+    var r = fw.result;
+    if (!this.$textarea || this.$textarea.val() !== fw.line) {
+        return; // user edited the line meanwhile
+    }
+    if (r.completed) {
+        this.$textarea.val(r.completed);
+    } else if (r.words && r.words.length) {
+        var m = fw.line.match(/^(.*\s)/);
+        this.fwCandidates = { base: m ? m[1] : '', words: r.words };
+        this.openLater(true);
+    }
+};
+
 CliAutoComplete.setEnabled = function(enable) {
     if (this.configEnabled !== enable) {
         this.configEnabled = enable;
@@ -76,6 +168,11 @@ CliAutoComplete.cleanup = function() {
     // builderStart() again, which would send CLI sentinel bytes to the
     // serial port after cliActive is false, poisoning the MSP stream.
     this._builderWatchdogStop();
+    if (this.fw) {
+        clearTimeout(this.fw.timer);
+        this.fw = null;
+    }
+    this.fwCandidates = null;
     if (this.$textarea) {
         this.$textarea.textcomplete('destroy');
     }
@@ -536,4 +633,20 @@ CliAutoComplete._initTextcomplete = function() {
 
     self.strategies = strategies;
     $textarea.textcomplete('register', strategies);
+
+    // Registered last and kept out of `strategies`: it only answers after firmwareComplete()
+    // stored candidates for the current line, so every other strategy keeps priority.
+    $textarea.textcomplete('register', [
+        strategy({ // "firmware"
+            match: /^(.*\s)(\S*)$/,
+            search: function(term, callback) {
+                sendOnEnter = false;
+                searcher(term, callback, self.fwCandidates ? self.fwCandidates.words : [], false, true);
+            },
+            context: function(text) {
+                var c = self.fwCandidates;
+                return !!c && text.indexOf(c.base) === 0 && /^\S*$/.test(text.slice(c.base.length)) && contexter(text);
+            }
+        })
+    ]);
 };

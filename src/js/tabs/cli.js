@@ -269,34 +269,31 @@ TABS.cli.initialize = function (callback, nwGui) {
         // `keypress`/`keyup` happens too late, as `textarea` will have already lost focus.
         textarea.keydown(function (event) {
             const tabKeyCode = 9;
-            if (event.which !== tabKeyCode) {
-                // typing after a native completion: stop mirroring the firmware buffer
-                if (!event.shiftKey && !event.ctrlKey && !event.altKey && !event.metaKey) {
-                    self.nativeCompletePending = false;
-                }
-                return;
-            }
-            // prevent default tabbing behaviour
-            event.preventDefault();
+            if (event.which === tabKeyCode) {
+                // prevent default tabbing behaviour
+                event.preventDefault();
 
-            const currentLine = textarea.val().split("\n").pop();
-            // Native FC autoComplete: autocomplete off, or no popup strategy covers this line
-            if (!CliAutoComplete.isEnabled() ||
-                (!CliAutoComplete.isBuilding() && !CliAutoComplete.isOpen() &&
-                 !CliAutoComplete.hasStrategyFor(currentLine))) {
-                const outString = textarea.val();
-                const lastCommand = outString.split("\n").pop();
-                const command = getCliCommand(lastCommand, self.cliBuffer);
-                // empty suffix: line already mirrors the firmware buffer, so a bare Tab is still sent
-                if (command || currentLine) {
-                    self.nativeCompletePending = true;
-                    self.sendNativeAutoComplete(command);
-                    textarea.val('');
+                if (!CliAutoComplete.isEnabled()) {
+                    // Native FC autoComplete
+                    const outString = textarea.val();
+                    const lastCommand = outString.split("\n").pop();
+                    const command = getCliCommand(lastCommand, self.cliBuffer);
+                    if (command) {
+                        self.sendNativeAutoComplete(command);
+                        textarea.val('');
+                    }
                 }
-            }
-            else if (!CliAutoComplete.isOpen() && !CliAutoComplete.isBuilding()) {
-                // force show autocomplete on Tab
-                CliAutoComplete.openLater(true);
+                else if (!CliAutoComplete.isOpen() && !CliAutoComplete.isBuilding()) {
+                    const inputText = textarea.val();
+                    if (inputText.indexOf("\n") === -1 && CONFIGURATOR.cliValid &&
+                        !CliAutoComplete.hasStrategyFor(inputText)) {
+                        // no popup strategy covers this line: ask the firmware (dma, timer, diff ...)
+                        CliAutoComplete.firmwareComplete(inputText, function (text) { self.send(text); });
+                    } else {
+                        // force show autocomplete on Tab
+                        CliAutoComplete.openLater(true);
+                    }
+                }
             }
         });
 
@@ -304,12 +301,15 @@ TABS.cli.initialize = function (callback, nwGui) {
             if (event.which === enterKeyCode) {
                 event.preventDefault(); // prevent the adding of new line
 
+                if (CliAutoComplete.isFirmwareBusy()) {
+                    return; // firmware completion in flight: its line buffer is still being cleared
+                }
+
                 if (CliAutoComplete.isBuilding()) {
                     // Intentionally no-op: autocomplete table may be updating;
                     // Enter is allowed through to execute the current input.
                 }
 
-                self.nativeCompletePending = false;
                 var out_string = textarea.val();
                 executeCommands(out_string);
                 textarea.val('');
@@ -407,6 +407,12 @@ TABS.cli.read = function (readInfo) {
         Windows understands (both) CRLF
         Chrome OS currently unknown
     */
+    if (CliAutoComplete.isFirmwareBusy()) {
+        // reply to a firmware completion request: parsed by CliAutoComplete, not shown
+        CliAutoComplete.firmwareFeed(new Uint8Array(readInfo.data));
+        return;
+    }
+
     var data = new Uint8Array(readInfo.data),
         validateText = "",
         sequenceCharsToSkip = 0;
@@ -475,8 +481,8 @@ TABS.cli.read = function (readInfo) {
 
     this.handleCliModeEntry(validateText);
 
-    if (!CliAutoComplete.isEnabled() || this.nativeCompletePending)
-        // native autocomplete: mirror the firmware line buffer
+    if (!CliAutoComplete.isEnabled())
+        // fallback to native autocomplete
         { setPrompt(removePromptHash(this.cliBuffer)); }
 };
 
