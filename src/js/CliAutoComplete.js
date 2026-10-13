@@ -40,6 +40,14 @@ CliAutoComplete.openLater = function(force) {
     }, 0);
 };
 
+/**
+ * @param {string} line - current input line
+ * @returns {boolean} true if a popup strategy matches this line and its context allows it
+ */
+CliAutoComplete.hasStrategyFor = function(line) {
+    return (this.strategies || []).some(function(s) { return s.match.test(line) && s.context(line); });
+};
+
 CliAutoComplete.setEnabled = function(enable) {
     if (this.configEnabled !== enable) {
         this.configEnabled = enable;
@@ -330,7 +338,7 @@ CliAutoComplete._initTextcomplete = function() {
         }, s);
     };
 
-    $textarea.textcomplete('register', [
+    var strategies = [
         strategy({ // "command"
             match: /^(\s*)(\w*)$/,
             search: function(term, callback) {
@@ -524,5 +532,8 @@ CliAutoComplete._initTextcomplete = function() {
                 searcher(term, callback, cache.mixers, 1);
             }
         })
-    ]);
+    ];
+
+    self.strategies = strategies;
+    $textarea.textcomplete('register', strategies);
 };

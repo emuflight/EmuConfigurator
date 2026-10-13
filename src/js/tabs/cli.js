@@ -269,24 +269,34 @@ TABS.cli.initialize = function (callback, nwGui) {
         // `keypress`/`keyup` happens too late, as `textarea` will have already lost focus.
         textarea.keydown(function (event) {
             const tabKeyCode = 9;
-            if (event.which === tabKeyCode) {
-                // prevent default tabbing behaviour
-                event.preventDefault();
+            if (event.which !== tabKeyCode) {
+                // typing after a native completion: stop mirroring the firmware buffer
+                if (!event.shiftKey && !event.ctrlKey && !event.altKey && !event.metaKey) {
+                    self.nativeCompletePending = false;
+                }
+                return;
+            }
+            // prevent default tabbing behaviour
+            event.preventDefault();
 
-                if (!CliAutoComplete.isEnabled()) {
-                    // Native FC autoComplete
-                    const outString = textarea.val();
-                    const lastCommand = outString.split("\n").pop();
-                    const command = getCliCommand(lastCommand, self.cliBuffer);
-                    if (command) {
-                        self.sendNativeAutoComplete(command);
-                        textarea.val('');
-                    }
+            const currentLine = textarea.val().split("\n").pop();
+            // Native FC autoComplete: autocomplete off, or no popup strategy covers this line
+            if (!CliAutoComplete.isEnabled() ||
+                (!CliAutoComplete.isBuilding() && !CliAutoComplete.isOpen() &&
+                 !CliAutoComplete.hasStrategyFor(currentLine))) {
+                const outString = textarea.val();
+                const lastCommand = outString.split("\n").pop();
+                const command = getCliCommand(lastCommand, self.cliBuffer);
+                // empty suffix: line already mirrors the firmware buffer, so a bare Tab is still sent
+                if (command || currentLine) {
+                    self.nativeCompletePending = true;
+                    self.sendNativeAutoComplete(command);
+                    textarea.val('');
                 }
-                else if (!CliAutoComplete.isOpen() && !CliAutoComplete.isBuilding()) {
-                    // force show autocomplete on Tab
-                    CliAutoComplete.openLater(true);
-                }
+            }
+            else if (!CliAutoComplete.isOpen() && !CliAutoComplete.isBuilding()) {
+                // force show autocomplete on Tab
+                CliAutoComplete.openLater(true);
             }
         });
 
@@ -299,6 +309,7 @@ TABS.cli.initialize = function (callback, nwGui) {
                     // Enter is allowed through to execute the current input.
                 }
 
+                self.nativeCompletePending = false;
                 var out_string = textarea.val();
                 executeCommands(out_string);
                 textarea.val('');
@@ -464,8 +475,8 @@ TABS.cli.read = function (readInfo) {
 
     this.handleCliModeEntry(validateText);
 
-    if (!CliAutoComplete.isEnabled())
-        // fallback to native autocomplete
+    if (!CliAutoComplete.isEnabled() || this.nativeCompletePending)
+        // native autocomplete: mirror the firmware line buffer
         { setPrompt(removePromptHash(this.cliBuffer)); }
 };
 
