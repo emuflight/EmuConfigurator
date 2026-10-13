@@ -147,8 +147,15 @@ CliAutoComplete._fwDone = function() {
     var r = fw.result;
     var enterQueued = this.fwEnterQueued;
     this.fwEnterQueued = false;
-    if (!this.$textarea || this.$textarea.val() !== fw.orig) {
-        return; // user edited the line meanwhile
+    if (!this.$textarea) {
+        return;
+    }
+    if (this.$textarea.val() !== fw.orig) {
+        // user edited the line meanwhile: skip the completion, still honor Enter
+        if (enterQueued) {
+            this.$textarea.trigger($.Event('keypress', { which: 13 }));
+        }
+        return;
     }
     if (r.completed) {
         this.$textarea.val(r.completed);
