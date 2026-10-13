@@ -304,7 +304,10 @@ TABS.cli.initialize = function (callback, nwGui) {
                 event.preventDefault(); // prevent the adding of new line
 
                 if (CliAutoComplete.isFirmwareBusy()) {
-                    return; // firmware completion in flight: its line buffer is still being cleared
+                    // firmware completion in flight: its line buffer is still being cleared.
+                    // Run this Enter when the request settles.
+                    CliAutoComplete.fwEnterQueued = true;
+                    return;
                 }
                 CliAutoComplete.fwCandidates = null;
 

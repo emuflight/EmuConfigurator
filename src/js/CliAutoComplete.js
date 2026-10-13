@@ -145,16 +145,22 @@ CliAutoComplete._fwDone = function() {
     clearTimeout(fw.timer);
     this.fw = null;
     var r = fw.result;
+    var enterQueued = this.fwEnterQueued;
+    this.fwEnterQueued = false;
     if (!this.$textarea || this.$textarea.val() !== fw.orig) {
         return; // user edited the line meanwhile
     }
     if (r.completed) {
         this.$textarea.val(r.completed);
-    } else if (r.words && r.words.length) {
+    } else if (r.words && r.words.length && !enterQueued) {
         this.$textarea.val(fw.line); // may carry the space added by the retry
         var m = fw.line.match(/^(.*\s)/);
         this.fwCandidates = { base: m ? m[1] : '', words: r.words };
         this.openLater(true);
+    }
+    if (enterQueued) {
+        // Enter pressed while the request was in flight: send it now, on the settled line
+        this.$textarea.trigger($.Event('keypress', { which: 13 }));
     }
 };
 
@@ -190,11 +196,12 @@ CliAutoComplete.cleanup = function() {
         clearTimeout(this.fw.timer);
         if (this.fw.phase === 'query' && CONFIGURATOR.connectionValid) {
             // erase what the firmware already holds so a following 'exit' is not prefixed by it
-            this.fw.sendRaw('\x7f'.repeat(this.fw.line.length));
+            this.fw.sendRaw('\x7f'.repeat(this._fwParse(this.fw.line, this.fw.data).clear));
         }
         this.fw = null;
     }
     this.fwCandidates = null;
+    this.fwEnterQueued = false;
     if (this.$textarea) {
         this.$textarea.textcomplete('destroy');
     }
