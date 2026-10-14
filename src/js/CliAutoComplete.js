@@ -86,6 +86,15 @@ CliAutoComplete.isFirmwareDraining = function() {
 };
 
 /**
+ * Single place that changes the draining state. The caller that sends a command ends it just
+ * before the send, so the command's reply is never dropped and residual echo before it still is.
+ * @param {boolean} on
+ */
+CliAutoComplete.setFirmwareDraining = function(on) {
+    this.fwDraining = !!on;
+};
+
+/**
  * Firmware-driven completion for lines no popup strategy covers (dma, timer, diff ...).
  * Sends `line + TAB`, captures the reply instead of printing it, then erases the firmware
  * line buffer with DEL (0x7F) so the buffer matches the textarea again.
@@ -174,8 +183,8 @@ CliAutoComplete._fwDone = function() {
     var enterQueued = this.fwEnterQueued;
     this.fwEnterQueued = false;
     var self = this;
-    this.fwDraining = true;
-    setTimeout(function() { self.fwDraining = false; }, 150);
+    this.setFirmwareDraining(true);
+    setTimeout(function() { self.setFirmwareDraining(false); }, 150);
     if (!this.$textarea) {
         return;
     }
@@ -240,7 +249,7 @@ CliAutoComplete.cleanup = function() {
     }
     this.fwCandidates = null;
     this.fwEnterQueued = false;
-    this.fwDraining = false;
+    this.setFirmwareDraining(false);
     this.strategies = null;
     if (this.$textarea) {
         this.$textarea.textcomplete('destroy');
