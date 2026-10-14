@@ -101,16 +101,19 @@ TABS.cli.initialize = function (callback, nwGui) {
     const clipboardCopySupport = !(nwGui == null && !navigator.clipboard);
     const enterKeyCode = 13;
 
-    function executeCommands(out_string) {
+    // preCounted: the caller already added the lines of this batch to pendingCommandLines
+    function executeCommands(out_string, preCounted) {
         self.history.add(out_string.trim());
 
         var outputArray = out_string.split("\n");
         // lines not yet sent: firmware completion must not start while a batch still owns the line
-        self.pendingCommandLines = (self.pendingCommandLines || 0) + outputArray.length;
+        if (!preCounted) {
+            self.pendingCommandLines = (self.pendingCommandLines || 0) + outputArray.length;
+        }
         const lineDone = function () {
             self.pendingCommandLines = Math.max(0, (self.pendingCommandLines || 0) - 1);
         };
-        Promise.reduce(outputArray, function(delay, line, index) {
+        return Promise.reduce(outputArray, function(delay, line, index) {
             return new Promise(function (resolve) {
                 // Use native setTimeout instead of GUI.timeout_add so this chain
                 // is not killed by GUI.timeout_kill_all() on a transient disconnect
@@ -167,6 +170,14 @@ TABS.cli.initialize = function (callback, nwGui) {
         var textarea = $('.tab-cli textarea[name="commands"]');
 
         CliAutoComplete.initialize(textarea, self.sendLine.bind(self), writeToOutput);
+        // queued Enters (pressed during a firmware completion request) run one batch after another
+        CliAutoComplete.setCommandSubmitter(function (texts) {
+            self.pendingCommandLines = (self.pendingCommandLines || 0) +
+                texts.reduce(function (n, t) { return n + t.split("\n").length; }, 0);
+            texts.reduce(function (chain, t) {
+                return chain.then(function () { return executeCommands(t, true); });
+            }, Promise.resolve());
+        });
         $(CliAutoComplete).on('build:start', function() {
             textarea
                 .val('')
@@ -589,6 +600,7 @@ TABS.cli.cleanup = function (callback) {
     CONFIGURATOR.cliActive = false;
     CONFIGURATOR.cliValid = false;
     CliAutoComplete.cleanup();
+    CliAutoComplete.setCommandSubmitter(null); // a queued Enter must not run in a later CLI session
     $(CliAutoComplete).off();
 
     if (!shouldSendExit) {

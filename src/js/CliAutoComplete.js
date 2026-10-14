@@ -197,27 +197,18 @@ CliAutoComplete._fwStep = function() {
 };
 
 /**
- * Run the queued Enters with the texts that were submitted, and keep what the user typed since.
- * @param {string[]} texts - input texts at the time of each Enter, oldest first
+ * The Configurator registers how a submitted line is executed (`executeCommands` in cli.js). Queued
+ * Enters go through it, so the module never edits the input or builds key events.
+ * @param {function(string[]): void} fn - runs the texts in order, one batch after another
  */
+CliAutoComplete.setCommandSubmitter = function(fn) {
+    this.submitCommands = fn;
+};
+
+/** Run the queued Enters with the texts that were submitted, oldest first. */
 CliAutoComplete._fwReplayEnters = function(texts) {
-    var el = this.$textarea[0];
-    var current = this.$textarea.val();
-    // setting the value moves the caret to the end: remember caret and selection of the user's edit
-    var canSelect = !!el && typeof el.setSelectionRange === 'function';
-    var start = canSelect ? el.selectionStart : 0;
-    var end = canSelect ? el.selectionEnd : 0;
-    var direction = canSelect ? el.selectionDirection : 'none';
-    var self = this;
-    texts.forEach(function(text) {
-        self.$textarea.val(text);
-        self.$textarea.trigger($.Event('keypress', { which: 13 })); // runs the text and clears the input
-    });
-    if (current !== '') {
-        this.$textarea.val(current);
-        if (canSelect) {
-            el.setSelectionRange(start, end, direction);
-        }
+    if (this.submitCommands) {
+        this.submitCommands(texts);
     }
 };
 
@@ -236,7 +227,7 @@ CliAutoComplete._fwDone = function() {
         return;
     }
     if (this.$textarea.val() !== fw.orig) {
-        // user edited the line meanwhile: skip the completion, still run the Enter as submitted
+        // user edited the line meanwhile: skip the completion, still run the queued Enters
         if (enterQueued) {
             this._fwReplayEnters(enterTexts);
         }
@@ -253,7 +244,7 @@ CliAutoComplete._fwDone = function() {
         this.openLater(true);
     }
     if (enterQueued) {
-        // Enter pressed while the request was in flight: run the text that was submitted
+        // Enter pressed while the request was in flight: run the texts that were submitted
         this._fwReplayEnters(enterTexts);
     }
 };
