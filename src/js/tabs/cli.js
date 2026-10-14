@@ -101,20 +101,17 @@ TABS.cli.initialize = function (callback, nwGui) {
     const clipboardCopySupport = !(nwGui == null && !navigator.clipboard);
     const enterKeyCode = 13;
 
-    // preCounted: the caller already added the lines of this batch to pendingCommandLines
-    function executeCommands(out_string, preCounted) {
+    // Runs one submission (a batch of lines). Callers use executeCommands(), which queues it and
+    // has already counted its lines in pendingCommandLines.
+    function runCommands(out_string) {
         if (!CONFIGURATOR.cliActive) {
-            return Promise.resolve(); // no CLI session: nothing to send, nothing to count
+            return Promise.resolve(); // no CLI session: nothing to send
         }
         // a chain belongs to the CLI session that started it; a later session must not inherit it
         const session = self.cliSession;
         self.history.add(out_string.trim());
 
         var outputArray = out_string.split("\n");
-        // lines not yet sent: firmware completion must not start while a batch still owns the line
-        if (!preCounted) {
-            self.pendingCommandLines = (self.pendingCommandLines || 0) + outputArray.length;
-        }
         const lineDone = function () {
             if (session === self.cliSession) {
                 self.pendingCommandLines = Math.max(0, (self.pendingCommandLines || 0) - 1);
@@ -167,6 +164,21 @@ TABS.cli.initialize = function (callback, nwGui) {
         }, 0);
 }
 
+    // One FIFO executor for every submission (Enter, queued Enter, snippet): a later submission never
+    // sends before the earlier ones have sent all their lines. Lines are counted when queued, so
+    // firmware completion stays blocked until they are sent.
+    function executeCommands(out_string) {
+        if (!CONFIGURATOR.cliActive) {
+            return Promise.resolve();
+        }
+        const session = self.cliSession;
+        self.pendingCommandLines = (self.pendingCommandLines || 0) + out_string.split("\n").length;
+        self.commandQueue = (self.commandQueue || Promise.resolve()).then(function () {
+            return session === self.cliSession ? runCommands(out_string) : undefined;
+        });
+        return self.commandQueue;
+    }
+
     $('#content').load("./tabs/cli.html", function () {
         // translate to user-selected language
         i18n.localizePage();
@@ -174,20 +186,18 @@ TABS.cli.initialize = function (callback, nwGui) {
         CONFIGURATOR.cliActive = true;
         self.pendingCommandLines = 0;
         self.cliSession = (self.cliSession || 0) + 1;
+        self.commandQueue = Promise.resolve(); // a stalled queue of an older session is dropped
 
         var textarea = $('.tab-cli textarea[name="commands"]');
 
         CliAutoComplete.initialize(textarea, self.sendLine.bind(self), writeToOutput);
-        // queued Enters (pressed during a firmware completion request) run one batch after another
+        // queued Enters (pressed during a firmware completion request) go through the same queue
         const submitSession = self.cliSession;
         CliAutoComplete.setCommandSubmitter(function (texts) {
-            self.pendingCommandLines = (self.pendingCommandLines || 0) +
-                texts.reduce(function (n, t) { return n + t.split("\n").length; }, 0);
-            texts.reduce(function (chain, t) {
-                return chain.then(function () {
-                    return submitSession === self.cliSession ? executeCommands(t, true) : undefined;
-                });
-            }, Promise.resolve());
+            if (submitSession !== self.cliSession) {
+                return;
+            }
+            texts.forEach(function (t) { executeCommands(t); }); // queued in submission order
         });
         $(CliAutoComplete).on('build:start', function() {
             textarea
