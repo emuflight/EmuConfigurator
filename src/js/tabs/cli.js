@@ -289,11 +289,12 @@ TABS.cli.initialize = function (callback, nwGui) {
                 }
                 else if (!CliAutoComplete.isOpen() && !CliAutoComplete.isBuilding()) {
                     const inputText = textarea.val();
-                    // idle prompt only (no output in flight), firmware with argument completion,
+                    // idle prompt only (no output in flight), firmware with argument completion
+                    // (MSP API 1.55.0 is the master value; the firmware did not bump it for this),
                     // line the firmware can take unchanged
                     if (CONFIGURATOR.cliValid && removePromptHash(self.cliBuffer) === '' &&
                         Date.now() - (self.lastReadTime || 0) > 500 &&
-                        semver.gte(CONFIG.flightControllerVersion, "0.5.0") &&
+                        semver.gte(CONFIG.apiVersion, "1.55.0") &&
                         CliAutoComplete.canFirmwareComplete(inputText)) {
                         // no popup strategy covers this line: ask the firmware (dma, timer, diff ...)
                         CliAutoComplete.firmwareComplete(inputText, function (text) { self.send(text); });
