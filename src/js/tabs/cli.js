@@ -273,6 +273,10 @@ TABS.cli.initialize = function (callback, nwGui) {
                 // prevent default tabbing behaviour
                 event.preventDefault();
 
+                if (CliAutoComplete.isFirmwareBusy()) {
+                    return; // firmware completion in flight
+                }
+
                 if (!CliAutoComplete.isEnabled()) {
                     // Native FC autoComplete
                     const outString = textarea.val();
@@ -285,8 +289,11 @@ TABS.cli.initialize = function (callback, nwGui) {
                 }
                 else if (!CliAutoComplete.isOpen() && !CliAutoComplete.isBuilding()) {
                     const inputText = textarea.val();
-                    // idle prompt only (no output in flight), line the firmware can take unchanged
+                    // idle prompt only (no output in flight), firmware with argument completion,
+                    // line the firmware can take unchanged
                     if (CONFIGURATOR.cliValid && removePromptHash(self.cliBuffer) === '' &&
+                        Date.now() - (self.lastReadTime || 0) > 500 &&
+                        semver.gte(CONFIG.flightControllerVersion, "0.5.0") &&
                         CliAutoComplete.canFirmwareComplete(inputText)) {
                         // no popup strategy covers this line: ask the firmware (dma, timer, diff ...)
                         CliAutoComplete.firmwareComplete(inputText, function (text) { self.send(text); });
@@ -412,10 +419,14 @@ TABS.cli.read = function (readInfo) {
         Windows understands (both) CRLF
         Chrome OS currently unknown
     */
+    this.lastReadTime = Date.now();
     if (CliAutoComplete.isFirmwareBusy()) {
         // reply to a firmware completion request: parsed by CliAutoComplete, not shown
         CliAutoComplete.firmwareFeed(new Uint8Array(readInfo.data));
         return;
+    }
+    if (CliAutoComplete.isFirmwareDraining()) {
+        return; // late echo of a finished request
     }
 
     var data = new Uint8Array(readInfo.data),

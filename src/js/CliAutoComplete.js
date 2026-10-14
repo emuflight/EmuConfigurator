@@ -48,10 +48,15 @@ CliAutoComplete.hasStrategyFor = function(line) {
     return (this.strategies || []).some(function(s) { return s.match.test(line) && s.context(line); });
 };
 
-// The firmware CLI line buffer holds at most 256 bytes and ignores DEL when empty (all versions),
-// so this many DELs always leave it empty without counting what it holds.
-CliAutoComplete.FW_LINE_ERASE = '\x7f'.repeat(256);
+// The firmware CLI line buffer holds at most 256 bytes and ignores DEL when empty (all versions).
+// It holds the typed line plus at most one completed name (FW_MAX_EXTENSION), so erasing that many
+// DELs always empties it, without trusting the parsed reply and without a burst that could
+// overflow a small UART receive buffer.
 CliAutoComplete.FW_MAX_LINE = 200;
+CliAutoComplete.FW_MAX_EXTENSION = 64;
+CliAutoComplete._fwErase = function(line) {
+    return '\x7f'.repeat(Math.min(256, line.length + this.FW_MAX_EXTENSION));
+};
 
 /**
  * A line is sent to the firmware only if every byte reaches its line buffer unchanged:
@@ -61,8 +66,8 @@ CliAutoComplete.FW_MAX_LINE = 200;
  * @returns {boolean} true if the firmware may complete this line
  */
 CliAutoComplete.canFirmwareComplete = function(line) {
-    return /^[\x21-\x7e][\x20-\x7e]*$/.test(line) && line.indexOf('?') === -1 &&
-        line.length <= this.FW_MAX_LINE && !this.hasStrategyFor(line);
+    return this.builder.state === 'done' && /^[\x21-\x7e][\x20-\x7e]*$/.test(line) &&
+        line.indexOf('?') === -1 && line.length <= this.FW_MAX_LINE && !this.hasStrategyFor(line);
 };
 
 /**
@@ -70,6 +75,14 @@ CliAutoComplete.canFirmwareComplete = function(line) {
  */
 CliAutoComplete.isFirmwareBusy = function() {
     return !!this.fw;
+};
+
+/**
+ * @returns {boolean} true shortly after a request ends: late echo bytes are still dropped, so
+ * they cannot reach the terminal or the CLI line buffer
+ */
+CliAutoComplete.isFirmwareDraining = function() {
+    return !!this.fwDraining;
 };
 
 /**
@@ -83,6 +96,7 @@ CliAutoComplete.firmwareComplete = function(line, sendRaw) {
     if (this.fw || !line.trim()) {
         return;
     }
+    this.fwCandidates = null;
     this.fw = { orig: line, line: line, sendRaw: sendRaw, data: '', phase: 'query', timer: null, result: null, retried: false };
     this._fwArm(400);
     sendRaw(line + '\t');
@@ -112,7 +126,9 @@ CliAutoComplete._fwParse = function(line, data) {
         if (end >= 0) {
             rest = rest.slice(0, end);
         }
-        var words = rest.split('\t').map(function(w) { return w.trim(); }).filter(Boolean);
+        // candidates are identifiers; anything else is stray output and must not reach the popup HTML
+        var words = rest.split('\t').map(function(w) { return w.trim(); })
+            .filter(function(w) { return /^[A-Za-z0-9_.\-]+$/.test(w); });
         return words.length ? { words: words } : {};
     }
     var shown = data.replace(/[\x00-\x1f\x7f]/g, '');
@@ -135,7 +151,7 @@ CliAutoComplete._fwStep = function() {
         fw.data = '';
         this._fwArm(300);
         // empty the firmware line buffer, so a later Enter sends only the textarea content
-        fw.sendRaw(this.FW_LINE_ERASE);
+        fw.sendRaw(this._fwErase(fw.line));
         return;
     }
     if (fw.phase === 'retry') {
@@ -157,6 +173,9 @@ CliAutoComplete._fwDone = function() {
     var r = fw.result;
     var enterQueued = this.fwEnterQueued;
     this.fwEnterQueued = false;
+    var self = this;
+    this.fwDraining = true;
+    setTimeout(function() { self.fwDraining = false; }, 150);
     if (!this.$textarea) {
         return;
     }
@@ -167,7 +186,9 @@ CliAutoComplete._fwDone = function() {
         }
         return;
     }
-    if (r.completed) {
+    // Enter pressed during the request runs the line as typed; a completion from the retry
+    // (typed line plus a space) can answer a different argument slot, so only its list is used.
+    if (r.completed && !enterQueued && fw.line === fw.orig) {
         this.$textarea.val(r.completed);
     } else if (r.words && r.words.length && !enterQueued) {
         this.$textarea.val(fw.line); // may carry the space added by the retry
@@ -213,12 +234,14 @@ CliAutoComplete.cleanup = function() {
         clearTimeout(this.fw.timer);
         if (this.fw.phase === 'query' && CONFIGURATOR.connectionValid) {
             // erase what the firmware already holds so a following 'exit' is not prefixed by it
-            this.fw.sendRaw(this.FW_LINE_ERASE);
+            this.fw.sendRaw(this._fwErase(this.fw.line));
         }
         this.fw = null;
     }
     this.fwCandidates = null;
     this.fwEnterQueued = false;
+    this.fwDraining = false;
+    this.strategies = null;
     if (this.$textarea) {
         this.$textarea.textcomplete('destroy');
     }
@@ -685,6 +708,11 @@ CliAutoComplete._initTextcomplete = function() {
     $textarea.textcomplete('register', [
         strategy({ // "firmware"
             match: /^(.*\s)(\S*)$/,
+            template: function(value, term) {
+                // value is a sanitized identifier; the typed term may hold regex metacharacters
+                var escaped = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                return term ? value.replace(new RegExp('^(' + escaped + ')', 'i'), '<b>$1</b>') : value;
+            },
             search: function(term, callback) {
                 sendOnEnter = false;
                 searcher(term, callback, self.fwCandidates ? self.fwCandidates.words : [], false, true);
