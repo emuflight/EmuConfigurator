@@ -285,10 +285,9 @@ TABS.cli.initialize = function (callback, nwGui) {
                 }
                 else if (!CliAutoComplete.isOpen() && !CliAutoComplete.isBuilding()) {
                     const inputText = textarea.val();
-                    // idle prompt only (no output in flight), plain ASCII single line
-                    if (/^[\x20-\x7e]*$/.test(inputText) && CONFIGURATOR.cliValid &&
-                        removePromptHash(self.cliBuffer) === '' &&
-                        !CliAutoComplete.hasStrategyFor(inputText)) {
+                    // idle prompt only (no output in flight), line the firmware can take unchanged
+                    if (CONFIGURATOR.cliValid && removePromptHash(self.cliBuffer) === '' &&
+                        CliAutoComplete.canFirmwareComplete(inputText)) {
                         // no popup strategy covers this line: ask the firmware (dma, timer, diff ...)
                         CliAutoComplete.firmwareComplete(inputText, function (text) { self.send(text); });
                     } else {

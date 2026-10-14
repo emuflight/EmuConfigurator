@@ -48,6 +48,23 @@ CliAutoComplete.hasStrategyFor = function(line) {
     return (this.strategies || []).some(function(s) { return s.match.test(line) && s.context(line); });
 };
 
+// The firmware CLI line buffer holds at most 256 bytes and ignores DEL when empty (all versions),
+// so this many DELs always leave it empty without counting what it holds.
+CliAutoComplete.FW_LINE_ERASE = '\x7f'.repeat(256);
+CliAutoComplete.FW_MAX_LINE = 200;
+
+/**
+ * A line is sent to the firmware only if every byte reaches its line buffer unchanged:
+ * printable ASCII, no leading space (firmware drops it), no '?' (firmware treats it as a
+ * completion key), short enough for the buffer.
+ * @param {string} line - current input line
+ * @returns {boolean} true if the firmware may complete this line
+ */
+CliAutoComplete.canFirmwareComplete = function(line) {
+    return /^[\x21-\x7e][\x20-\x7e]*$/.test(line) && line.indexOf('?') === -1 &&
+        line.length <= this.FW_MAX_LINE && !this.hasStrategyFor(line);
+};
+
 /**
  * @returns {boolean} true while a firmware completion request is in flight
  */
@@ -96,16 +113,13 @@ CliAutoComplete._fwParse = function(line, data) {
             rest = rest.slice(0, end);
         }
         var words = rest.split('\t').map(function(w) { return w.trim(); }).filter(Boolean);
-        // the firmware reprints its line buffer after the list: erase exactly that many chars
-        var reprint = data.lastIndexOf('\r\n# ');
-        var held = reprint >= 0 ? data.length - reprint - 4 : line.length;
-        return { words: words, clear: Math.max(held, line.length) };
+        return words.length ? { words: words } : {};
     }
     var shown = data.replace(/[\x00-\x1f\x7f]/g, '');
     if (!/[\r\n\x1b]/.test(data) && shown.length > line.length && shown.indexOf(line) === 0) {
-        return { completed: shown, clear: shown.length };
+        return { completed: shown };
     }
-    return { clear: line.length };
+    return {};
 };
 
 CliAutoComplete._fwStep = function() {
@@ -120,12 +134,8 @@ CliAutoComplete._fwStep = function() {
         fw.phase = retry ? 'retry' : 'clear';
         fw.data = '';
         this._fwArm(300);
-        // one DEL per char the firmware holds, so a later Enter sends only the textarea content
-        var dels = '';
-        for (var i = 0; i < fw.result.clear; i++) {
-            dels += '\x7f';
-        }
-        fw.sendRaw(dels);
+        // empty the firmware line buffer, so a later Enter sends only the textarea content
+        fw.sendRaw(this.FW_LINE_ERASE);
         return;
     }
     if (fw.phase === 'retry') {
@@ -203,7 +213,7 @@ CliAutoComplete.cleanup = function() {
         clearTimeout(this.fw.timer);
         if (this.fw.phase === 'query' && CONFIGURATOR.connectionValid) {
             // erase what the firmware already holds so a following 'exit' is not prefixed by it
-            this.fw.sendRaw('\x7f'.repeat(this._fwParse(this.fw.line, this.fw.data).clear));
+            this.fw.sendRaw(this.FW_LINE_ERASE);
         }
         this.fw = null;
     }
