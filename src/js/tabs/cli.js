@@ -317,6 +317,8 @@ TABS.cli.initialize = function (callback, nwGui) {
                     return;
                 }
                 CliAutoComplete.fwCandidates = null;
+                // the user sends a command now: whatever arrives next is its reply, not late echo
+                CliAutoComplete.fwDraining = false;
 
                 if (CliAutoComplete.isBuilding()) {
                     // Intentionally no-op: autocomplete table may be updating;
