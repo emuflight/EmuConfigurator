@@ -49,8 +49,9 @@ CliAutoComplete.hasStrategyFor = function(line) {
 };
 
 // The firmware CLI line buffer holds at most 256 bytes and ignores DEL when empty (all versions).
-// It holds the typed line plus at most one completed name (FW_MAX_EXTENSION), so erasing that many
-// DELs always empties it, without trusting the parsed reply and without a burst that could
+// It holds the typed line plus at most one completed name (FW_MAX_EXTENSION; the longest name the
+// firmware completes is 43 characters, `runaway_takeoff_deactivate_throttle_percent`, plus one
+// separator, in EmuFlight master 2026-10), so erasing that many DELs always empties it, without trusting the parsed reply and without a burst that could
 // overflow a small UART receive buffer.
 CliAutoComplete.FW_MAX_LINE = 200;
 CliAutoComplete.FW_MAX_EXTENSION = 64;
@@ -85,9 +86,15 @@ CliAutoComplete.isFirmwareDraining = function() {
     return !!this.fwDraining;
 };
 
-/** Queue an Enter pressed while a firmware completion request runs; `_fwDone` replays it. */
-CliAutoComplete.queueFirmwareEnter = function() {
-    this.fwEnterQueued = true;
+/**
+ * Queue an Enter pressed while a firmware completion request runs. `_fwDone` replays it with the
+ * text that was in the input when Enter was pressed. A second Enter during the request is ignored.
+ * @param {string} text - input text at the time of the Enter
+ */
+CliAutoComplete.queueFirmwareEnter = function(text) {
+    if (this.fwEnterText === null || this.fwEnterText === undefined) {
+        this.fwEnterText = text;
+    }
 };
 
 /** Forget the candidates of the last firmware completion (an Enter starts a new line). */
@@ -148,7 +155,9 @@ CliAutoComplete._fwParse = function(line, data) {
         // candidates are identifiers; anything else is stray output and must not reach the popup HTML
         var words = rest.split('\t').map(function(w) { return w.trim(); })
             .filter(function(w) { return /^[A-Za-z0-9_.\-]+$/.test(w); });
-        return words.length ? { words: words } : {};
+        // the firmware lists only when at least two names match; fewer words means the reply was
+        // damaged, and a single word would make the popup select it without asking
+        return words.length > 1 ? { words: words } : {};
     }
     var shown = data.replace(/[\x00-\x1f\x7f]/g, '');
     if (!/[\r\n\x1b]/.test(data) && shown.length > line.length && shown.indexOf(line) === 0) {
@@ -190,8 +199,9 @@ CliAutoComplete._fwDone = function() {
     clearTimeout(fw.timer);
     this.fw = null;
     var r = fw.result;
-    var enterQueued = this.fwEnterQueued;
-    this.fwEnterQueued = false;
+    var enterText = this.fwEnterText;
+    var enterQueued = enterText !== null && enterText !== undefined;
+    this.fwEnterText = null;
     var self = this;
     this.setFirmwareDraining(true);
     setTimeout(function() { self.setFirmwareDraining(false); }, 150);
@@ -199,8 +209,9 @@ CliAutoComplete._fwDone = function() {
         return;
     }
     if (this.$textarea.val() !== fw.orig) {
-        // user edited the line meanwhile: skip the completion, still honor Enter
+        // user edited the line meanwhile: skip the completion, still run the Enter as submitted
         if (enterQueued) {
+            this.$textarea.val(enterText);
             this.$textarea.trigger($.Event('keypress', { which: 13 }));
         }
         return;
@@ -216,7 +227,8 @@ CliAutoComplete._fwDone = function() {
         this.openLater(true);
     }
     if (enterQueued) {
-        // Enter pressed while the request was in flight: send it now, on the settled line
+        // Enter pressed while the request was in flight: run the text that was submitted
+        this.$textarea.val(enterText);
         this.$textarea.trigger($.Event('keypress', { which: 13 }));
     }
 };
@@ -258,7 +270,7 @@ CliAutoComplete.cleanup = function() {
         this.fw = null;
     }
     this.fwCandidates = null;
-    this.fwEnterQueued = false;
+    this.fwEnterText = null;
     this.setFirmwareDraining(false);
     this.strategies = null;
     if (this.$textarea) {

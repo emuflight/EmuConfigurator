@@ -105,6 +105,11 @@ TABS.cli.initialize = function (callback, nwGui) {
         self.history.add(out_string.trim());
 
         var outputArray = out_string.split("\n");
+        // lines not yet sent: firmware completion must not start while a batch still owns the line
+        self.pendingCommandLines = (self.pendingCommandLines || 0) + outputArray.length;
+        const lineDone = function () {
+            self.pendingCommandLines = Math.max(0, (self.pendingCommandLines || 0) - 1);
+        };
         Promise.reduce(outputArray, function(delay, line, index) {
             return new Promise(function (resolve) {
                 // Use native setTimeout instead of GUI.timeout_add so this chain
@@ -113,6 +118,7 @@ TABS.cli.initialize = function (callback, nwGui) {
                 // aborts the chain cleanly if the CLI session actually ends.
                 setTimeout(function () {
                     if (!CONFIGURATOR.cliActive) {
+                        lineDone();
                         resolve(0);
                         return;
                     }
@@ -125,11 +131,21 @@ TABS.cli.initialize = function (callback, nwGui) {
                     if (isLastCommand && self.cliBuffer) {
                         line = getCliCommand(line, self.cliBuffer);
                     }
-                    // from here on, bytes from the board are the reply to this line, not late echo
-                    CliAutoComplete.setFirmwareDraining(false);
-                    self.sendLine(line, function () {
-                        resolve(processingDelay);
-                    });
+                    const sendNow = function () {
+                        if (CliAutoComplete.isFirmwareBusy() && CONFIGURATOR.cliActive) {
+                            // a completion request holds the firmware line buffer and swallows replies
+                            setTimeout(sendNow, 50);
+                            return;
+                        }
+                        // from here on, bytes from the board are the reply to this line, unless a
+                        // slow link delays the echo of the finished completion request
+                        CliAutoComplete.setFirmwareDraining(false);
+                        self.sendLine(line, function () {
+                            lineDone();
+                            resolve(processingDelay);
+                        });
+                    };
+                    sendNow();
                 }, delay);
             })
         }, 0);
@@ -140,6 +156,7 @@ TABS.cli.initialize = function (callback, nwGui) {
         i18n.localizePage();
 
         CONFIGURATOR.cliActive = true;
+        self.pendingCommandLines = 0;
 
         var textarea = $('.tab-cli textarea[name="commands"]');
 
@@ -295,7 +312,7 @@ TABS.cli.initialize = function (callback, nwGui) {
                     // (MSP API 1.55.0 is the master value; the firmware did not bump it for this),
                     // line the firmware can take unchanged
                     if (CONFIGURATOR.cliValid && removePromptHash(self.cliBuffer) === '' &&
-                        Date.now() - (self.lastReadTime || 0) > 500 &&
+                        !self.pendingCommandLines && Date.now() - (self.lastReadTime || 0) > 500 &&
                         semver.gte(CONFIG.apiVersion, "1.55.0") &&
                         CliAutoComplete.canFirmwareComplete(inputText)) {
                         // no popup strategy covers this line: ask the firmware (dma, timer, diff ...)
@@ -315,7 +332,7 @@ TABS.cli.initialize = function (callback, nwGui) {
                 if (CliAutoComplete.isFirmwareBusy()) {
                     // firmware completion in flight: its line buffer is still being cleared.
                     // Run this Enter when the request settles.
-                    CliAutoComplete.queueFirmwareEnter();
+                    CliAutoComplete.queueFirmwareEnter(textarea.val());
                     return;
                 }
                 CliAutoComplete.clearFirmwareCandidates();
