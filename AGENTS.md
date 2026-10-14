@@ -52,7 +52,7 @@ Limits:
 Gating features:
 
 - Gate new MSP messages and fields on the full version: `semver.gte(CONFIG.apiVersion, "<major.minor.patch>")` in `src/js/msp/MSPHelper.js` or the tab file. Use the patch level for additive features.
-- Prefer the MSP API version (`CONFIG.apiVersion`) over the firmware version (`CONFIG.flightControllerVersion`) for every feature gate, also for features outside MSP such as CLI behavior. Use the firmware version only when no API version identifies the feature and the firmware cannot bump the patch. Leave existing firmware-version gates unchanged unless the change touches them.
+- Prefer the MSP API version (`CONFIG.apiVersion`) over the firmware version (`CONFIG.flightControllerVersion`) for every feature gate. A firmware change that bumps the API patch is gated on that patch. A firmware change that does not bump it (for example CLI-only behavior) is gated on the lowest API version that firmware reports, with a comment that the firmware did not bump it. Use the firmware version only when no API version separates the builds. Leave existing firmware-version gates unchanged unless the change touches them.
 - Do not send a new message to older firmware.
 - Keep a gate version in one named constant when several places use it.
 - A patch gate assumes that, within one `major.minor`, higher patches keep the feature. When that is not guaranteed, also check for an unsupported response and the payload length. Do not let an optional request block the connection when the FC sends no response.
