@@ -87,13 +87,15 @@ CliAutoComplete.isFirmwareDraining = function() {
 };
 
 /**
- * Queue an Enter pressed while a firmware completion request runs. `_fwDone` replays it with the
- * text that was in the input when Enter was pressed. A second Enter during the request is ignored.
+ * Queue an Enter pressed while a firmware completion request runs. Like a normal Enter, the line
+ * leaves the input at once, so text typed next starts a new line. `_fwDone` runs the queued texts
+ * in the order they were submitted.
  * @param {string} text - input text at the time of the Enter
  */
 CliAutoComplete.queueFirmwareEnter = function(text) {
-    if (this.fwEnterText === null || this.fwEnterText === undefined) {
-        this.fwEnterText = text;
+    this.fwEnterQueue = (this.fwEnterQueue || []).concat([text]);
+    if (this.$textarea) {
+        this.$textarea.val('');
     }
 };
 
@@ -195,10 +197,10 @@ CliAutoComplete._fwStep = function() {
 };
 
 /**
- * Run a queued Enter with the text that was submitted, and keep what the user typed since.
- * @param {string} text - input text at the time of the Enter
+ * Run the queued Enters with the texts that were submitted, and keep what the user typed since.
+ * @param {string[]} texts - input texts at the time of each Enter, oldest first
  */
-CliAutoComplete._fwReplayEnter = function(text) {
+CliAutoComplete._fwReplayEnters = function(texts) {
     var el = this.$textarea[0];
     var current = this.$textarea.val();
     // setting the value moves the caret to the end: remember caret and selection of the user's edit
@@ -206,9 +208,12 @@ CliAutoComplete._fwReplayEnter = function(text) {
     var start = canSelect ? el.selectionStart : 0;
     var end = canSelect ? el.selectionEnd : 0;
     var direction = canSelect ? el.selectionDirection : 'none';
-    this.$textarea.val(text);
-    this.$textarea.trigger($.Event('keypress', { which: 13 })); // runs the text and clears the input
-    if (current !== text) {
+    var self = this;
+    texts.forEach(function(text) {
+        self.$textarea.val(text);
+        self.$textarea.trigger($.Event('keypress', { which: 13 })); // runs the text and clears the input
+    });
+    if (current !== '') {
         this.$textarea.val(current);
         if (canSelect) {
             el.setSelectionRange(start, end, direction);
@@ -221,9 +226,9 @@ CliAutoComplete._fwDone = function() {
     clearTimeout(fw.timer);
     this.fw = null;
     var r = fw.result;
-    var enterText = this.fwEnterText;
-    var enterQueued = enterText !== null && enterText !== undefined;
-    this.fwEnterText = null;
+    var enterTexts = this.fwEnterQueue || [];
+    var enterQueued = enterTexts.length > 0;
+    this.fwEnterQueue = [];
     var self = this;
     this.setFirmwareDraining(true);
     setTimeout(function() { self.setFirmwareDraining(false); }, 150);
@@ -233,7 +238,7 @@ CliAutoComplete._fwDone = function() {
     if (this.$textarea.val() !== fw.orig) {
         // user edited the line meanwhile: skip the completion, still run the Enter as submitted
         if (enterQueued) {
-            this._fwReplayEnter(enterText);
+            this._fwReplayEnters(enterTexts);
         }
         return;
     }
@@ -249,7 +254,7 @@ CliAutoComplete._fwDone = function() {
     }
     if (enterQueued) {
         // Enter pressed while the request was in flight: run the text that was submitted
-        this._fwReplayEnter(enterText);
+        this._fwReplayEnters(enterTexts);
     }
 };
 
@@ -290,7 +295,7 @@ CliAutoComplete.cleanup = function() {
         this.fw = null;
     }
     this.fwCandidates = null;
-    this.fwEnterText = null;
+    this.fwEnterQueue = [];
     this.setFirmwareDraining(false);
     this.strategies = null;
     if (this.$textarea) {
