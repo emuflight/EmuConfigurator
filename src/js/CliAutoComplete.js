@@ -199,11 +199,20 @@ CliAutoComplete._fwStep = function() {
  * @param {string} text - input text at the time of the Enter
  */
 CliAutoComplete._fwReplayEnter = function(text) {
+    var el = this.$textarea[0];
     var current = this.$textarea.val();
+    // setting the value moves the caret to the end: remember caret and selection of the user's edit
+    var canSelect = !!el && typeof el.setSelectionRange === 'function';
+    var start = canSelect ? el.selectionStart : 0;
+    var end = canSelect ? el.selectionEnd : 0;
+    var direction = canSelect ? el.selectionDirection : 'none';
     this.$textarea.val(text);
     this.$textarea.trigger($.Event('keypress', { which: 13 })); // runs the text and clears the input
     if (current !== text) {
         this.$textarea.val(current);
+        if (canSelect) {
+            el.setSelectionRange(start, end, direction);
+        }
     }
 };
 
