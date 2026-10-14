@@ -315,10 +315,10 @@ TABS.cli.initialize = function (callback, nwGui) {
                 if (CliAutoComplete.isFirmwareBusy()) {
                     // firmware completion in flight: its line buffer is still being cleared.
                     // Run this Enter when the request settles.
-                    CliAutoComplete.fwEnterQueued = true;
+                    CliAutoComplete.queueFirmwareEnter();
                     return;
                 }
-                CliAutoComplete.fwCandidates = null;
+                CliAutoComplete.clearFirmwareCandidates();
 
                 if (CliAutoComplete.isBuilding()) {
                     // Intentionally no-op: autocomplete table may be updating;

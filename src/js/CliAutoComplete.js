@@ -85,6 +85,16 @@ CliAutoComplete.isFirmwareDraining = function() {
     return !!this.fwDraining;
 };
 
+/** Queue an Enter pressed while a firmware completion request runs; `_fwDone` replays it. */
+CliAutoComplete.queueFirmwareEnter = function() {
+    this.fwEnterQueued = true;
+};
+
+/** Forget the candidates of the last firmware completion (an Enter starts a new line). */
+CliAutoComplete.clearFirmwareCandidates = function() {
+    this.fwCandidates = null;
+};
+
 /**
  * Single place that changes the draining state. The caller that sends a command ends it just
  * before the send, so the command's reply is never dropped and residual echo before it still is.
