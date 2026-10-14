@@ -194,6 +194,19 @@ CliAutoComplete._fwStep = function() {
     this._fwDone();
 };
 
+/**
+ * Run a queued Enter with the text that was submitted, and keep what the user typed since.
+ * @param {string} text - input text at the time of the Enter
+ */
+CliAutoComplete._fwReplayEnter = function(text) {
+    var current = this.$textarea.val();
+    this.$textarea.val(text);
+    this.$textarea.trigger($.Event('keypress', { which: 13 })); // runs the text and clears the input
+    if (current !== text) {
+        this.$textarea.val(current);
+    }
+};
+
 CliAutoComplete._fwDone = function() {
     var fw = this.fw;
     clearTimeout(fw.timer);
@@ -211,8 +224,7 @@ CliAutoComplete._fwDone = function() {
     if (this.$textarea.val() !== fw.orig) {
         // user edited the line meanwhile: skip the completion, still run the Enter as submitted
         if (enterQueued) {
-            this.$textarea.val(enterText);
-            this.$textarea.trigger($.Event('keypress', { which: 13 }));
+            this._fwReplayEnter(enterText);
         }
         return;
     }
@@ -228,8 +240,7 @@ CliAutoComplete._fwDone = function() {
     }
     if (enterQueued) {
         // Enter pressed while the request was in flight: run the text that was submitted
-        this.$textarea.val(enterText);
-        this.$textarea.trigger($.Event('keypress', { which: 13 }));
+        this._fwReplayEnter(enterText);
     }
 };
 

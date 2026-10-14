@@ -132,7 +132,13 @@ TABS.cli.initialize = function (callback, nwGui) {
                         line = getCliCommand(line, self.cliBuffer);
                     }
                     const sendNow = function () {
-                        if (CliAutoComplete.isFirmwareBusy() && CONFIGURATOR.cliActive) {
+                        if (!CONFIGURATOR.cliActive) {
+                            // the CLI closed while this line waited: send nothing
+                            lineDone();
+                            resolve(0);
+                            return;
+                        }
+                        if (CliAutoComplete.isFirmwareBusy()) {
                             // a completion request holds the firmware line buffer and swallows replies
                             setTimeout(sendNow, 50);
                             return;
