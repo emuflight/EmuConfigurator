@@ -103,6 +103,11 @@ TABS.cli.initialize = function (callback, nwGui) {
 
     // preCounted: the caller already added the lines of this batch to pendingCommandLines
     function executeCommands(out_string, preCounted) {
+        if (!CONFIGURATOR.cliActive) {
+            return Promise.resolve(); // no CLI session: nothing to send, nothing to count
+        }
+        // a chain belongs to the CLI session that started it; a later session must not inherit it
+        const session = self.cliSession;
         self.history.add(out_string.trim());
 
         var outputArray = out_string.split("\n");
@@ -111,7 +116,9 @@ TABS.cli.initialize = function (callback, nwGui) {
             self.pendingCommandLines = (self.pendingCommandLines || 0) + outputArray.length;
         }
         const lineDone = function () {
-            self.pendingCommandLines = Math.max(0, (self.pendingCommandLines || 0) - 1);
+            if (session === self.cliSession) {
+                self.pendingCommandLines = Math.max(0, (self.pendingCommandLines || 0) - 1);
+            }
         };
         return Promise.reduce(outputArray, function(delay, line, index) {
             return new Promise(function (resolve) {
@@ -120,7 +127,7 @@ TABS.cli.initialize = function (callback, nwGui) {
                 // (e.g. FC second-reboot after flash). The cliActive guard below
                 // aborts the chain cleanly if the CLI session actually ends.
                 setTimeout(function () {
-                    if (!CONFIGURATOR.cliActive) {
+                    if (!CONFIGURATOR.cliActive || session !== self.cliSession) {
                         lineDone();
                         resolve(0);
                         return;
@@ -135,8 +142,8 @@ TABS.cli.initialize = function (callback, nwGui) {
                         line = getCliCommand(line, self.cliBuffer);
                     }
                     const sendNow = function () {
-                        if (!CONFIGURATOR.cliActive) {
-                            // the CLI closed while this line waited: send nothing
+                        if (!CONFIGURATOR.cliActive || session !== self.cliSession) {
+                            // the CLI session closed while this line waited: send nothing
                             lineDone();
                             resolve(0);
                             return;
@@ -166,16 +173,20 @@ TABS.cli.initialize = function (callback, nwGui) {
 
         CONFIGURATOR.cliActive = true;
         self.pendingCommandLines = 0;
+        self.cliSession = (self.cliSession || 0) + 1;
 
         var textarea = $('.tab-cli textarea[name="commands"]');
 
         CliAutoComplete.initialize(textarea, self.sendLine.bind(self), writeToOutput);
         // queued Enters (pressed during a firmware completion request) run one batch after another
+        const submitSession = self.cliSession;
         CliAutoComplete.setCommandSubmitter(function (texts) {
             self.pendingCommandLines = (self.pendingCommandLines || 0) +
                 texts.reduce(function (n, t) { return n + t.split("\n").length; }, 0);
             texts.reduce(function (chain, t) {
-                return chain.then(function () { return executeCommands(t, true); });
+                return chain.then(function () {
+                    return submitSession === self.cliSession ? executeCommands(t, true) : undefined;
+                });
             }, Promise.resolve());
         });
         $(CliAutoComplete).on('build:start', function() {
