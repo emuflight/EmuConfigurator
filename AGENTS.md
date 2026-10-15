@@ -52,10 +52,19 @@ Limits:
 Gating features:
 
 - Gate new MSP messages and fields on the full version: `semver.gte(CONFIG.apiVersion, "<major.minor.patch>")` in `src/js/msp/MSPHelper.js` or the tab file. Use the patch level for additive features.
+- Prefer the MSP API version (`CONFIG.apiVersion`) over the firmware version (`CONFIG.flightControllerVersion`) for every feature gate. A firmware change that bumps the API patch is gated on that patch. A firmware change that does not bump it (for example CLI-only behavior) is gated on the lowest API version that firmware reports, with a comment that the firmware did not bump it. Use the firmware version only when no API version separates the builds. Leave existing firmware-version gates unchanged unless the change touches them.
 - Do not send a new message to older firmware.
 - Keep a gate version in one named constant when several places use it.
 - A patch gate assumes that, within one `major.minor`, higher patches keep the feature. When that is not guaranteed, also check for an unsupported response and the payload length. Do not let an optional request block the connection when the FC sends no response.
 - Revalidate patch-gated features when supporting a new minor. A lower-bound semver gate stays true for later minors even though their patch resets to 0 (`semver.gte("1.56.0", "1.55.3")` is true). Keep the gate if the feature stays compatible. Otherwise add a version range or a capability check. Do not change an existing threshold to the new minor: that disables a feature on older firmware that already has it.
+
+## CLI firmware completion
+
+Applies to `src/js/CliAutoComplete.js` and the Tab and Enter handling in `src/js/tabs/cli.js`.
+
+- The firmware CLI line buffer holds 256 bytes and ignores DEL when empty, in every firmware version. After a firmware completion request the configurator sends `min(256, line.length + FW_MAX_EXTENSION)` DEL bytes. Keep `FW_MAX_EXTENSION` (64) at least as large as the longest completable firmware name plus one separator. The longest in EmuFlight master (2026-10) is 43 characters (`runaway_takeoff_deactivate_throttle_percent`). Recheck it when a firmware name exceeds 60 characters. A larger value gains nothing: the total is capped by the 256-byte buffer, and a long burst can overflow a small UART receive buffer.
+- Send a line to the firmware for completion only if every byte reaches its line buffer unchanged: printable ASCII, no leading space, no `?` (a completion key in the firmware), at most 200 characters.
+- Do not start firmware completion while a command batch has unsent lines (`pendingCommandLines`). Do not send a batch line while a completion request runs (`isFirmwareBusy()`). Either overlap corrupts the firmware line or swallows a reply.
 
 ## Architecture
 

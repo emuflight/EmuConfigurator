@@ -101,18 +101,31 @@ TABS.cli.initialize = function (callback, nwGui) {
     const clipboardCopySupport = !(nwGui == null && !navigator.clipboard);
     const enterKeyCode = 13;
 
-    function executeCommands(out_string) {
+    // Runs one submission (a batch of lines). Callers use executeCommands(), which queues it and
+    // has already counted its lines in pendingCommandLines.
+    function runCommands(out_string) {
+        if (!CONFIGURATOR.cliActive) {
+            return Promise.resolve(); // no CLI session: nothing to send
+        }
+        // a chain belongs to the CLI session that started it; a later session must not inherit it
+        const session = self.cliSession;
         self.history.add(out_string.trim());
 
         var outputArray = out_string.split("\n");
-        Promise.reduce(outputArray, function(delay, line, index) {
+        const lineDone = function () {
+            if (session === self.cliSession) {
+                self.pendingCommandLines = Math.max(0, (self.pendingCommandLines || 0) - 1);
+            }
+        };
+        return Promise.reduce(outputArray, function(delay, line, index) {
             return new Promise(function (resolve) {
                 // Use native setTimeout instead of GUI.timeout_add so this chain
                 // is not killed by GUI.timeout_kill_all() on a transient disconnect
                 // (e.g. FC second-reboot after flash). The cliActive guard below
                 // aborts the chain cleanly if the CLI session actually ends.
                 setTimeout(function () {
-                    if (!CONFIGURATOR.cliActive) {
+                    if (!CONFIGURATOR.cliActive || session !== self.cliSession) {
+                        lineDone();
                         resolve(0);
                         return;
                     }
@@ -125,23 +138,67 @@ TABS.cli.initialize = function (callback, nwGui) {
                     if (isLastCommand && self.cliBuffer) {
                         line = getCliCommand(line, self.cliBuffer);
                     }
-                    self.sendLine(line, function () {
-                        resolve(processingDelay);
-                    });
+                    const sendNow = function () {
+                        if (!CONFIGURATOR.cliActive || session !== self.cliSession) {
+                            // the CLI session closed while this line waited: send nothing
+                            lineDone();
+                            resolve(0);
+                            return;
+                        }
+                        if (CliAutoComplete.isFirmwareBusy()) {
+                            // a completion request holds the firmware line buffer and swallows replies
+                            setTimeout(sendNow, 50);
+                            return;
+                        }
+                        // from here on, bytes from the board are the reply to this line, unless a
+                        // slow link delays the echo of the finished completion request
+                        CliAutoComplete.setFirmwareDraining(false);
+                        self.sendLine(line, function () {
+                            lineDone();
+                            resolve(processingDelay);
+                        });
+                    };
+                    sendNow();
                 }, delay);
             })
         }, 0);
 }
+
+    // One FIFO executor for every submission (Enter, queued Enter, snippet): a later submission never
+    // sends before the earlier ones have sent all their lines. Lines are counted when queued, so
+    // firmware completion stays blocked until they are sent.
+    function executeCommands(out_string) {
+        if (!CONFIGURATOR.cliActive) {
+            return Promise.resolve();
+        }
+        const session = self.cliSession;
+        self.pendingCommandLines = (self.pendingCommandLines || 0) + out_string.split("\n").length;
+        self.commandQueue = (self.commandQueue || Promise.resolve()).then(function () {
+            return session === self.cliSession ? runCommands(out_string) : undefined;
+        });
+        return self.commandQueue;
+    }
 
     $('#content').load("./tabs/cli.html", function () {
         // translate to user-selected language
         i18n.localizePage();
 
         CONFIGURATOR.cliActive = true;
+        self.pendingCommandLines = 0;
+        self.cliSession = (self.cliSession || 0) + 1;
+        self.commandQueue = Promise.resolve(); // a stalled queue of an older session is dropped
 
         var textarea = $('.tab-cli textarea[name="commands"]');
 
         CliAutoComplete.initialize(textarea, self.sendLine.bind(self), writeToOutput);
+        // queued Enters (pressed during a firmware completion request) go through the same queue
+        const submitSession = self.cliSession;
+        CliAutoComplete.setCommandSubmitter(function (texts) {
+            if (submitSession !== self.cliSession) {
+                return;
+            }
+            texts.forEach(function (t) { executeCommands(t); }); // queued in submission order
+        });
         $(CliAutoComplete).on('build:start', function() {
             textarea
                 .val('')
@@ -273,6 +330,10 @@ TABS.cli.initialize = function (callback, nwGui) {
                 // prevent default tabbing behaviour
                 event.preventDefault();
 
+                if (CliAutoComplete.isFirmwareBusy()) {
+                    return; // firmware completion in flight
+                }
+
                 if (!CliAutoComplete.isEnabled()) {
                     // Native FC autoComplete
                     const outString = textarea.val();
@@ -284,8 +345,20 @@ TABS.cli.initialize = function (callback, nwGui) {
                     }
                 }
                 else if (!CliAutoComplete.isOpen() && !CliAutoComplete.isBuilding()) {
-                    // force show autocomplete on Tab
-                    CliAutoComplete.openLater(true);
+                    const inputText = textarea.val();
+                    // idle prompt only (no output in flight), firmware with argument completion
+                    // (MSP API 1.55.0 is the master value; the firmware did not bump it for this),
+                    // line the firmware can take unchanged
+                    if (CONFIGURATOR.cliValid && removePromptHash(self.cliBuffer) === '' &&
+                        !self.pendingCommandLines && Date.now() - (self.lastReadTime || 0) > 500 &&
+                        semver.gte(CONFIG.apiVersion, "1.55.0") &&
+                        CliAutoComplete.canFirmwareComplete(inputText)) {
+                        // no popup strategy covers this line: ask the firmware (dma, timer, diff ...)
+                        CliAutoComplete.firmwareComplete(inputText, function (text) { self.send(text); });
+                    } else {
+                        // force show autocomplete on Tab
+                        CliAutoComplete.openLater(true);
+                    }
                 }
             }
         });
@@ -293,6 +366,14 @@ TABS.cli.initialize = function (callback, nwGui) {
         textarea.keypress(function (event) {
             if (event.which === enterKeyCode) {
                 event.preventDefault(); // prevent the adding of new line
+
+                if (CliAutoComplete.isFirmwareBusy()) {
+                    // firmware completion in flight: its line buffer is still being cleared.
+                    // Run this Enter when the request settles.
+                    CliAutoComplete.queueFirmwareEnter(textarea.val());
+                    return;
+                }
+                CliAutoComplete.clearFirmwareCandidates();
 
                 if (CliAutoComplete.isBuilding()) {
                     // Intentionally no-op: autocomplete table may be updating;
@@ -396,6 +477,16 @@ TABS.cli.read = function (readInfo) {
         Windows understands (both) CRLF
         Chrome OS currently unknown
     */
+    this.lastReadTime = Date.now();
+    if (CliAutoComplete.isFirmwareBusy()) {
+        // reply to a firmware completion request: parsed by CliAutoComplete, not shown
+        CliAutoComplete.firmwareFeed(new Uint8Array(readInfo.data));
+        return;
+    }
+    if (CliAutoComplete.isFirmwareDraining()) {
+        return; // late echo of a finished request
+    }
+
     var data = new Uint8Array(readInfo.data),
         validateText = "",
         sequenceCharsToSkip = 0;
@@ -530,6 +621,7 @@ TABS.cli.cleanup = function (callback) {
     CONFIGURATOR.cliActive = false;
     CONFIGURATOR.cliValid = false;
     CliAutoComplete.cleanup();
+    CliAutoComplete.setCommandSubmitter(null); // a queued Enter must not run in a later CLI session
     $(CliAutoComplete).off();
 
     if (!shouldSendExit) {
