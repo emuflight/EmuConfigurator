@@ -164,7 +164,7 @@ TABS.imuf_flashing.initialize = function (callback) {
 
             $('.imuf_release_info .name').text(release.name || release.tag_name).prop('href', release.html_url);
             $('.imuf_release_info .date').text(new Date(release.published_at).toLocaleDateString());
-            $('.imuf_release_info .notes').html(release.body ? marked.parse(release.body) : '');
+            $('.imuf_release_info .notes').html(release.body ? DOMPurify.sanitize(marked.parse(release.body)) : '');
             $('.imuf_release_info').slideDown();
         });
 

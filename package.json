@@ -51,6 +51,7 @@
   "license": "GPL-3.0",
   "dependencies": {
     "bluebird": "^3.7.2",
+    "dompurify": "3.4.17",
     "i18next": "^26.4.0",
     "i18next-xhr-backend": "^3.2.2",
     "inflection": "3.0.2",
