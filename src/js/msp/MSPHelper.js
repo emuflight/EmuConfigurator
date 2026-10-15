@@ -1373,28 +1373,28 @@ MspHelper.prototype.process_data = function(dataHandler) {
         }
     }
 
-    // trigger callbacks, cleanup/remove callback after trigger
-    for (var i = dataHandler.callbacks.length - 1; i >= 0; i--) { // itterating in reverse because we use .splice which modifies array length
+    // Detach every request waiting on this code and stop its timer BEFORE running any callback, so a
+    // callback that queues the same code again (e.g. a retry) starts from a clean queue and gets its own
+    // timer. Newest request first, as before. One failing callback must not strand the rest of the batch.
+    var settled = [];
+    for (var i = dataHandler.callbacks.length - 1; i >= 0; i--) { // iterating in reverse because we use .splice which modifies array length
         if (dataHandler.callbacks[i].code === code) {
-            // save callback reference
-            var callback = dataHandler.callbacks[i].callback;
-            var callbackOnError = dataHandler.callbacks[i].callbackOnError;
-            var reject = dataHandler.callbacks[i].reject;
-
-            // remove timeout
             clearInterval(dataHandler.callbacks[i].timer);
-
-            // remove object from array
-            dataHandler.callbacks.splice(i, 1);
-            if (!crcError || callbackOnError) {
-                // fire callback
-                if (callback) { callback({'command': code, 'data': data, 'length': data.byteLength, 'crcError': crcError}); }
-            } else if (typeof reject === 'function') {
-                // MSP.promise() caller: settle it, the entry is already removed so cleanup cannot
-                reject(new Error(`MSP request ${code} response failed CRC check`));
-            }
+            settled.push(dataHandler.callbacks.splice(i, 1)[0]);
         }
     }
+    settled.forEach(function (request) {
+        try {
+            if (!crcError || request.callbackOnError) {
+                if (request.callback) { request.callback({'command': code, 'data': data, 'length': data.byteLength, 'crcError': crcError}); }
+            } else if (typeof request.reject === 'function') {
+                // MSP.promise() caller: settle it instead of leaving it hanging
+                request.reject(new Error(`MSP request ${code} response failed CRC check`));
+            }
+        } catch (error) {
+            console.error(`MSP callback for code ${code} threw:`, error);
+        }
+    });
 }
 
 /**

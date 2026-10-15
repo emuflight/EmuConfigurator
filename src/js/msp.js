@@ -235,8 +235,11 @@ var MSP = {
         this.message_length_received = 0;
         this.state = 0;
         this.messageIsJumboFrame = false;
-        this.notify();
-        this.crcError = false;
+        try {
+            this.notify();
+        } finally {
+            this.crcError = false;
+        }
     },
     notify: function() {
         var self = this;
@@ -339,7 +342,7 @@ var MSP = {
             bufferOut = this.encode_message_v2(code, data);
         }
 
-        var obj = {'code': code, 'requestBuffer': bufferOut, 'callback': callback_msp ? callback_msp : false, 'timer': false, 'callbackOnError': doCallbackOnError};
+        var obj = {'code': code, 'requestBuffer': bufferOut, 'callback': callback_msp ? callback_msp : false, 'timer': false, 'timeouts': 0, 'callbackOnError': doCallbackOnError};
 
         var requestExists = false;
         for (var i = 0; i < MSP.callbacks.length; i++) {
@@ -351,34 +354,36 @@ var MSP = {
         }
 
         if (!requestExists) {
-            var timeouts = 0;
             obj.timer = setInterval(function () {
+                // the timer is shared by every request queued on this code
+                var pending = MSP.callbacks.filter(function (cb) { return cb.code === code; });
+                if (pending.length === 0) {
+                    clearInterval(obj.timer);
+                    return;
+                }
                 console.log(`MSP data request timed-out: ${code}`);
 
-                // the timer is shared by every request queued on this code. Once any of them is a
-                // promise (MSP.promise sets .reject) and the limit is hit, reject those and keep
-                // retrying only for the legacy callbacks that remain
-                var hasPromise = MSP.callbacks.some(function (cb) {
-                    return cb.code === code && typeof cb.reject === 'function';
+                // each entry counts its own timeouts; a promise-backed one (MSP.promise sets .reject)
+                // gives up at the limit while legacy callbacks keep retrying
+                pending.forEach(function (cb) {
+                    cb.timeouts++;
+                    if (typeof cb.reject === 'function' && cb.timeouts >= MSP.promiseRetryLimit) {
+                        MSP.callbacks.splice(MSP.callbacks.indexOf(cb), 1);
+                        cb.reject(new Error(`MSP request ${code} timed out after ${cb.timeouts} attempts`));
+                    }
                 });
-                if (hasPromise && ++timeouts >= MSP.promiseRetryLimit) {
-                    for (var i = MSP.callbacks.length - 1; i >= 0; i--) {
-                        if (MSP.callbacks[i].code === code && typeof MSP.callbacks[i].reject === 'function') {
-                            MSP.callbacks[i].reject(new Error(`MSP request ${code} timed out after ${timeouts} attempts`));
-                            MSP.callbacks.splice(i, 1);
-                        }
-                    }
-                    var remaining = MSP.callbacks.filter(function (cb) { return cb.code === code; });
-                    if (remaining.length === 0) {
-                        clearInterval(obj.timer);
-                        return;
-                    }
-                    // hand the timer to a surviving entry so a later response still clears it
+
+                var remaining = MSP.callbacks.filter(function (cb) { return cb.code === code; });
+                if (remaining.length === 0) {
+                    clearInterval(obj.timer);
+                    return;
+                }
+                // hand the timer to a surviving entry so a later response still clears it
+                if (!remaining.some(function (cb) { return cb.timer === obj.timer; })) {
                     remaining[0].timer = obj.timer;
-                    timeouts = 0;
                 }
 
-                serial.send(bufferOut, false);
+                serial.send(remaining[0].requestBuffer, false);
             }, 1000); // we should be able to define timeout in the future
         }
 
