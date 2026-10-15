@@ -298,6 +298,9 @@
     "serialPortOpened": {
         "message": "Serial port <span class=\"message-positive\">successfully</span> opened with ID: $1"
     },
+    "mspRequestFailed": {
+        "message": "Request $1 failed: no valid response from the flight controller."
+    },
     "serialPortOpenFail": {
         "message": "<span class=\"message-negative\">Failed</span> to open serial port"
     },

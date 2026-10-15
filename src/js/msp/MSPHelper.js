@@ -1379,6 +1379,7 @@ MspHelper.prototype.process_data = function(dataHandler) {
             // save callback reference
             var callback = dataHandler.callbacks[i].callback;
             var callbackOnError = dataHandler.callbacks[i].callbackOnError;
+            var reject = dataHandler.callbacks[i].reject;
 
             // remove timeout
             clearInterval(dataHandler.callbacks[i].timer);
@@ -1388,6 +1389,9 @@ MspHelper.prototype.process_data = function(dataHandler) {
             if (!crcError || callbackOnError) {
                 // fire callback
                 if (callback) { callback({'command': code, 'data': data, 'length': data.byteLength, 'crcError': crcError}); }
+            } else if (typeof reject === 'function') {
+                // MSP.promise() caller: settle it, the entry is already removed so cleanup cannot
+                reject(new Error(`MSP request ${code} response failed CRC check`));
             }
         }
     }

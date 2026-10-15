@@ -47,6 +47,9 @@ var MSP = {
     crcError:                   false,
 
     callbacks:                  [],
+    // MSP.promise() requests are re-sent once per second; after this many timeouts with no response the
+    // promise rejects instead of retrying forever. Legacy send_message() callbacks keep retrying.
+    promiseRetryLimit:          10,
     packet_error:               0,
     unsupported:                0,
 
@@ -348,8 +351,32 @@ var MSP = {
         }
 
         if (!requestExists) {
+            var timeouts = 0;
             obj.timer = setInterval(function () {
                 console.log(`MSP data request timed-out: ${code}`);
+
+                // the timer is shared by every request queued on this code. Once any of them is a
+                // promise (MSP.promise sets .reject) and the limit is hit, reject those and keep
+                // retrying only for the legacy callbacks that remain
+                var hasPromise = MSP.callbacks.some(function (cb) {
+                    return cb.code === code && typeof cb.reject === 'function';
+                });
+                if (hasPromise && ++timeouts >= MSP.promiseRetryLimit) {
+                    for (var i = MSP.callbacks.length - 1; i >= 0; i--) {
+                        if (MSP.callbacks[i].code === code && typeof MSP.callbacks[i].reject === 'function') {
+                            MSP.callbacks[i].reject(new Error(`MSP request ${code} timed out after ${timeouts} attempts`));
+                            MSP.callbacks.splice(i, 1);
+                        }
+                    }
+                    var remaining = MSP.callbacks.filter(function (cb) { return cb.code === code; });
+                    if (remaining.length === 0) {
+                        clearInterval(obj.timer);
+                        return;
+                    }
+                    // hand the timer to a surviving entry so a later response still clears it
+                    remaining[0].timer = obj.timer;
+                    timeouts = 0;
+                }
 
                 serial.send(bufferOut, false);
             }, 1000); // we should be able to define timeout in the future
@@ -374,7 +401,8 @@ var MSP = {
     /**
      * resolves: {command: code, data: data, length: message_length}
      * rejects: Error, if the request is abandoned by callbacks_cleanup() (e.g. tab switch or disconnect
-     * before a response arrives) instead of being left to hang forever.
+     * before a response arrives), times out after MSP.promiseRetryLimit attempts, or its response fails
+     * the CRC check — instead of being left to hang forever.
      */
     promise: function(code, data) {
       var self = this;
@@ -486,6 +514,7 @@ var MSP = {
     }
 
     var MSP_ABANDONED_REQUEST_PATTERN = /^MSP request (\d+) aborted before a response arrived \(tab switch or disconnect\)$/;
+    var MSP_FAILED_REQUEST_PATTERN = /^MSP request (\d+) (timed out after \d+ attempts|response failed CRC check)$/;
     var mspCodeNamesByValue = {};
     for (var mspCodeName in MSPCodes) {
         mspCodeNamesByValue[MSPCodes[mspCodeName]] = mspCodeName;
@@ -496,6 +525,11 @@ var MSP = {
         if (match) {
             var code = match[1];
             console.log(`MSP: request ${mspCodeNamesByValue[code] || code} was abandoned before a response arrived (tab switch or disconnect) — expected for a non-critical background read, no data was lost.`);
+        } else if (error instanceof Error && (match = MSP_FAILED_REQUEST_PATTERN.exec(error.message))) {
+            // no local catch handled it: tell the user instead of failing silently
+            var failedCode = mspCodeNamesByValue[match[1]] || match[1];
+            console.error(`MSP: request ${failedCode} failed: ${match[2]}`);
+            GUI.log(i18n.getMessage('mspRequestFailed', [failedCode]));
         } else {
             console.error('Unhandled rejection:', error);
         }
