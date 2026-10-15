@@ -527,13 +527,14 @@ var MSP = {
 
     window.Promise.onPossiblyUnhandledRejection(function (error) {
         var match = error instanceof Error && MSP_ABANDONED_REQUEST_PATTERN.exec(error.message);
+        var failedMatch = error instanceof Error && MSP_FAILED_REQUEST_PATTERN.exec(error.message);
         if (match) {
             var code = match[1];
             console.log(`MSP: request ${mspCodeNamesByValue[code] || code} was abandoned before a response arrived (tab switch or disconnect) — expected for a non-critical background read, no data was lost.`);
-        } else if (error instanceof Error && (match = MSP_FAILED_REQUEST_PATTERN.exec(error.message))) {
+        } else if (failedMatch) {
             // no local catch handled it: tell the user instead of failing silently
-            var failedCode = mspCodeNamesByValue[match[1]] || match[1];
-            console.error(`MSP: request ${failedCode} failed: ${match[2]}`);
+            var failedCode = mspCodeNamesByValue[failedMatch[1]] || failedMatch[1];
+            console.error(`MSP: request ${failedCode} failed: ${failedMatch[2]}`);
             GUI.log(i18n.getMessage('mspRequestFailed', [failedCode]));
         } else {
             console.error('Unhandled rejection:', error);
