@@ -225,7 +225,29 @@ STM32_protocol.prototype.connect = function (port, baud, hex, options, callback)
             legacyRebootAndFlash();
         };
 
-        connector.connect(port, self.options.reboot_baud, onConnectHandler, onTimeoutHandler, onFailureHandler);
+        function connectAndReboot() {
+            connector.connect(port, self.options.reboot_baud, onConnectHandler, onTimeoutHandler, onFailureHandler);
+        }
+
+        // Interim guard (EFC IT #674): a DFU board that is already present would be
+        // mistaken for the board about to reboot, and could be flashed instead of it.
+        // Replace with per-device selection once DFU devices are selectable.
+        if (typeof chrome !== 'undefined' && chrome.usb && chrome.usb.getDevices) {
+            chrome.usb.getDevices(usbDevices, function (dfuDevices) {
+                if (dfuDevices && dfuDevices.length) {
+                    console.log('STM32 - DFU device already present, not rebooting serial board');
+                    GUI.log(i18n.getMessage('stm32UsbDfuAlreadyPresent'));
+                    TABS.firmware_flasher.flashingMessage(i18n.getMessage('stm32UsbDfuAlreadyPresent'),
+                                                          TABS.firmware_flasher.FLASH_MESSAGE_TYPES.INVALID);
+                    GUI.connect_lock = false;
+                    if (self.callback) { self.callback(); }
+                    return;
+                }
+                connectAndReboot();
+            });
+        } else {
+            connectAndReboot();
+        }
     }
 };
 
