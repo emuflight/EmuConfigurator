@@ -23,9 +23,13 @@ CI (`.github/workflows/build.yml`) runs `yarn install --frozen-lockfile`, `yarn 
 
 ## Tests
 
-There is no test runner. `test/karma.conf.js` lists packages that are not installed, `package.json` has no `test` script, and CI has no test step. Do not report that tests pass. State that no test harness exists.
+Run `yarn test`. It uses the Node built-in runner on `test/unit/*.test.js`. `test/unit/harness.js` loads the browser-global scripts into a `vm` context. Tab rendering and click handlers run in `jsdom` (`test/unit/auxiliary_dom.test.js`); run scripts with `vm.Script` in the jsdom context, not `eval`.
 
-This section overrides the Karma and "run all tests" lines in `ELECTRON-FORGE-JS-BEST-PRACTICES.instructions.md` until a runnable harness exists.
+The suite covers MSP decode and encode, API version gates, the `max_msp` ceiling, and the Auxiliary tab. It does not cover serial I/O or firmware behavior; test those on a real FC and say so. Derive expected bytes from the MSP spec or firmware source, add at least one test that tries to break the logic, and do not edit a test to make it pass.
+
+`test/karma.conf.js` and `test/tabs/cli.js` are not run by `yarn test`.
+
+This section overrides the Karma and "run all tests" lines in `ELECTRON-FORGE-JS-BEST-PRACTICES.instructions.md`.
 
 ## Dependencies and native modules
 
