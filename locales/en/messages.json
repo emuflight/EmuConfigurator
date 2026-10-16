@@ -331,6 +331,9 @@
     "stm32UsbDfuNotFound": {
         "message": "USB DFU not found"
     },
+    "stm32UsbDfuMultipleFound": {
+        "message": "$1 USB DFU devices found. Connect only the flight controller to flash, then try again."
+    },
     "stm32TimedOut": {
         "message": "STM32 - timed out, programming: FAILED"
     },
