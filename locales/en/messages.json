@@ -331,6 +331,12 @@
     "stm32UsbDfuNotFound": {
         "message": "USB DFU not found"
     },
+    "stm32UsbDfuMultipleFound": {
+        "message": "$1 DFU devices found. Connect only one."
+    },
+    "stm32UsbDfuAlreadyPresent": {
+        "message": "DFU device already connected. Unplug it first."
+    },
     "stm32TimedOut": {
         "message": "STM32 - timed out, programming: FAILED"
     },

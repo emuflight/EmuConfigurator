@@ -98,7 +98,15 @@ STM32DFU_protocol.prototype.connect = function (device, hex, options, callback) 
             if (self.callback) { self.callback(); }
             return;
         }
-        if (result.length) {
+        if (result.length > 1) {
+            // all DFU boards of one MCU family share VID:PID, so the target cannot be told apart
+            console.log('USB DFU: ' + result.length + ' devices found, refusing to pick one');
+            GUI.log(i18n.getMessage('stm32UsbDfuMultipleFound', [result.length]));
+            TABS.firmware_flasher.flashingMessage(i18n.getMessage('stm32UsbDfuMultipleFound', [result.length]),
+                                                  TABS.firmware_flasher.FLASH_MESSAGE_TYPES.INVALID);
+            GUI.connect_lock = false;
+            if (self.callback) { self.callback(); }
+        } else if (result.length) {
             console.log('USB DFU detected with ID: ' + result[0].device);
 
             self.openDevice(result[0]);
