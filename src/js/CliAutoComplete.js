@@ -639,13 +639,14 @@ CliAutoComplete._initTextcomplete = function() {
             match: /^(\s*resource\s+)(\w*)$/i,
             search:  function(term, callback, _match) {
                 sendOnEnter = false;
-                var arr = ['list'].concat(cache.resources);
+                // 'resource show' exists from MSP API 1.55.0; older firmware only has 'list'
+                var arr = (semver.gte(CONFIG.apiVersion, '1.55.0') ? ['show', 'list'] : ['list']).concat(cache.resources);
                 searcher(term, callback, arr, 1);
             },
             replace: function(value) {
                 if (value in cache.resourcesCount) {
                     self.openLater();
-                } else if (value === 'list') {
+                } else if (value === 'list' || value === 'show') {
                     sendOnEnter = true;
                 }
                 return basicReplacer(value);
