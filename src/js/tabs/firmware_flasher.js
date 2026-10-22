@@ -108,7 +108,7 @@ TABS.firmware_flasher.initialize = function (callback) {
                     $('div.release_info .file').text(summary.file).prop('href', summary.url);
 
                     var formattedNotes = summary.notes.replace(/#(\d+)/g, '[#$1](https://github.com/emuflight/EmuFlight/pull/$1)');
-                    formattedNotes = marked.parse(formattedNotes);
+                    formattedNotes = DOMPurify.sanitize(marked.parse(formattedNotes));
                     $('div.release_info .notes').html(formattedNotes);
                     $('div.release_info .notes').find('a').each(function() {
                         $(this).attr('target', '_blank');
@@ -934,6 +934,11 @@ TABS.firmware_flasher.FLASH_MESSAGE_TYPES = {NEUTRAL : 'NEUTRAL',
 TABS.firmware_flasher.flashingMessage = function(message, type) {
 
     let self = this;
+
+    // the selector below matches any tab's progressLabel; skip when another tab is on screen
+    if (GUI.active_tab !== 'firmware_flasher') {
+        return self;
+    }
 
     let progressLabel_e = $('span.progressLabel');
     switch (type) {

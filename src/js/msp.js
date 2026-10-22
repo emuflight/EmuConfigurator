@@ -47,6 +47,9 @@ var MSP = {
     crcError:                   false,
 
     callbacks:                  [],
+    // MSP.promise() requests are re-sent once per second; after this many timeouts with no response the
+    // promise rejects instead of retrying forever. Legacy send_message() callbacks keep retrying.
+    promiseRetryLimit:          10,
     packet_error:               0,
     unsupported:                0,
 
@@ -232,8 +235,11 @@ var MSP = {
         this.message_length_received = 0;
         this.state = 0;
         this.messageIsJumboFrame = false;
-        this.notify();
-        this.crcError = false;
+        try {
+            this.notify();
+        } finally {
+            this.crcError = false;
+        }
     },
     notify: function() {
         var self = this;
@@ -336,7 +342,7 @@ var MSP = {
             bufferOut = this.encode_message_v2(code, data);
         }
 
-        var obj = {'code': code, 'requestBuffer': bufferOut, 'callback': callback_msp ? callback_msp : false, 'timer': false, 'callbackOnError': doCallbackOnError};
+        var obj = {'code': code, 'requestBuffer': bufferOut, 'callback': callback_msp ? callback_msp : false, 'timer': false, 'timeouts': 0, 'callbackOnError': doCallbackOnError};
 
         var requestExists = false;
         for (var i = 0; i < MSP.callbacks.length; i++) {
@@ -349,9 +355,35 @@ var MSP = {
 
         if (!requestExists) {
             obj.timer = setInterval(function () {
+                // the timer is shared by every request queued on this code
+                var pending = MSP.callbacks.filter(function (cb) { return cb.code === code; });
+                if (pending.length === 0) {
+                    clearInterval(obj.timer);
+                    return;
+                }
                 console.log(`MSP data request timed-out: ${code}`);
 
-                serial.send(bufferOut, false);
+                // each entry counts its own timeouts; a promise-backed one (MSP.promise sets .reject)
+                // gives up at the limit while legacy callbacks keep retrying
+                pending.forEach(function (cb) {
+                    cb.timeouts++;
+                    if (typeof cb.reject === 'function' && cb.timeouts >= MSP.promiseRetryLimit) {
+                        MSP.callbacks.splice(MSP.callbacks.indexOf(cb), 1);
+                        cb.reject(new Error(`MSP request ${code} timed out after ${cb.timeouts} attempts`));
+                    }
+                });
+
+                var remaining = MSP.callbacks.filter(function (cb) { return cb.code === code; });
+                if (remaining.length === 0) {
+                    clearInterval(obj.timer);
+                    return;
+                }
+                // hand the timer to a surviving entry so a later response still clears it
+                if (!remaining.some(function (cb) { return cb.timer === obj.timer; })) {
+                    remaining[0].timer = obj.timer;
+                }
+
+                serial.send(remaining[0].requestBuffer, false);
             }, 1000); // we should be able to define timeout in the future
         }
 
@@ -374,7 +406,8 @@ var MSP = {
     /**
      * resolves: {command: code, data: data, length: message_length}
      * rejects: Error, if the request is abandoned by callbacks_cleanup() (e.g. tab switch or disconnect
-     * before a response arrives) instead of being left to hang forever.
+     * before a response arrives), times out after MSP.promiseRetryLimit attempts, or its response fails
+     * the CRC check — instead of being left to hang forever.
      */
     promise: function(code, data) {
       var self = this;
@@ -486,6 +519,7 @@ var MSP = {
     }
 
     var MSP_ABANDONED_REQUEST_PATTERN = /^MSP request (\d+) aborted before a response arrived \(tab switch or disconnect\)$/;
+    var MSP_FAILED_REQUEST_PATTERN = /^MSP request (\d+) (timed out after \d+ attempts|response failed CRC check)$/;
     var mspCodeNamesByValue = {};
     for (var mspCodeName in MSPCodes) {
         mspCodeNamesByValue[MSPCodes[mspCodeName]] = mspCodeName;
@@ -493,9 +527,15 @@ var MSP = {
 
     window.Promise.onPossiblyUnhandledRejection(function (error) {
         var match = error instanceof Error && MSP_ABANDONED_REQUEST_PATTERN.exec(error.message);
+        var failedMatch = error instanceof Error && MSP_FAILED_REQUEST_PATTERN.exec(error.message);
         if (match) {
             var code = match[1];
             console.log(`MSP: request ${mspCodeNamesByValue[code] || code} was abandoned before a response arrived (tab switch or disconnect) — expected for a non-critical background read, no data was lost.`);
+        } else if (failedMatch) {
+            // no local catch handled it: tell the user instead of failing silently
+            var failedCode = mspCodeNamesByValue[failedMatch[1]] || failedMatch[1];
+            console.error(`MSP: request ${failedCode} failed: ${failedMatch[2]}`);
+            GUI.log(i18n.getMessage('mspRequestFailed', [failedCode]));
         } else {
             console.error('Unhandled rejection:', error);
         }

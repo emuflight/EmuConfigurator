@@ -40,6 +40,215 @@ CliAutoComplete.openLater = function(force) {
     }, 0);
 };
 
+/**
+ * @param {string} line - current input line
+ * @returns {boolean} true if a popup strategy matches this line and its context allows it
+ */
+CliAutoComplete.hasStrategyFor = function(line) {
+    return (this.strategies || []).some(function(s) { return s.match.test(line) && s.context(line); });
+};
+
+// The firmware CLI line buffer holds at most 256 bytes and ignores DEL when empty (all versions).
+// It holds the typed line plus at most one completed name (FW_MAX_EXTENSION; the longest name the
+// firmware completes is 43 characters, `runaway_takeoff_deactivate_throttle_percent`, plus one
+// separator, in EmuFlight master 2026-10), so erasing that many DELs always empties it, without trusting the parsed reply and without a burst that could
+// overflow a small UART receive buffer.
+CliAutoComplete.FW_MAX_LINE = 200;
+CliAutoComplete.FW_MAX_EXTENSION = 64;
+CliAutoComplete._fwErase = function(line) {
+    return '\x7f'.repeat(Math.min(256, line.length + this.FW_MAX_EXTENSION));
+};
+
+/**
+ * A line is sent to the firmware only if every byte reaches its line buffer unchanged:
+ * printable ASCII, no leading space (firmware drops it), no '?' (firmware treats it as a
+ * completion key), short enough for the buffer.
+ * @param {string} line - current input line
+ * @returns {boolean} true if the firmware may complete this line
+ */
+CliAutoComplete.canFirmwareComplete = function(line) {
+    return this.builder.state === 'done' && /^[\x21-\x7e][\x20-\x7e]*$/.test(line) &&
+        line.indexOf('?') === -1 && line.length <= this.FW_MAX_LINE && !this.hasStrategyFor(line);
+};
+
+/**
+ * @returns {boolean} true while a firmware completion request is in flight
+ */
+CliAutoComplete.isFirmwareBusy = function() {
+    return !!this.fw;
+};
+
+/**
+ * @returns {boolean} true shortly after a request ends: late echo bytes are still dropped, so
+ * they cannot reach the terminal or the CLI line buffer
+ */
+CliAutoComplete.isFirmwareDraining = function() {
+    return !!this.fwDraining;
+};
+
+/**
+ * Queue an Enter pressed while a firmware completion request runs. Like a normal Enter, the line
+ * leaves the input at once, so text typed next starts a new line. `_fwDone` runs the queued texts
+ * in the order they were submitted.
+ * @param {string} text - input text at the time of the Enter
+ */
+CliAutoComplete.queueFirmwareEnter = function(text) {
+    this.fwEnterQueue = (this.fwEnterQueue || []).concat([text]);
+    if (this.$textarea) {
+        this.$textarea.val('');
+    }
+};
+
+/** Forget the candidates of the last firmware completion (an Enter starts a new line). */
+CliAutoComplete.clearFirmwareCandidates = function() {
+    this.fwCandidates = null;
+};
+
+/**
+ * Single place that changes the draining state. The caller that sends a command ends it just
+ * before the send, so the command's reply is never dropped and residual echo before it still is.
+ * @param {boolean} on
+ */
+CliAutoComplete.setFirmwareDraining = function(on) {
+    this.fwDraining = !!on;
+};
+
+/**
+ * Firmware-driven completion for lines no popup strategy covers (dma, timer, diff ...).
+ * Sends `line + TAB`, captures the reply instead of printing it, then erases the firmware
+ * line buffer with DEL (0x7F) so the buffer matches the textarea again.
+ * Reply shapes: several matches -> `<echo>\r\x1b[K<word>\t<word>\t...\r\n# <line>`;
+ * one match -> `<echo>` plus the completion, no list; no match -> echo only.
+ */
+CliAutoComplete.firmwareComplete = function(line, sendRaw) {
+    if (this.fw || !line.trim()) {
+        return;
+    }
+    this.fwCandidates = null;
+    this.fw = { orig: line, line: line, sendRaw: sendRaw, data: '', phase: 'query', timer: null, result: null, retried: false };
+    this._fwArm(400);
+    sendRaw(line + '\t');
+};
+
+CliAutoComplete.firmwareFeed = function(bytes) {
+    if (!this.fw) {
+        return;
+    }
+    for (var i = 0; i < bytes.length; i++) {
+        this.fw.data += String.fromCharCode(bytes[i]);
+    }
+    this._fwArm(250);
+};
+
+CliAutoComplete._fwArm = function(ms) {
+    var self = this;
+    clearTimeout(this.fw.timer);
+    this.fw.timer = setTimeout(function() { self._fwStep(); }, ms);
+};
+
+CliAutoComplete._fwParse = function(line, data) {
+    var listAt = data.indexOf('\x1b[K');
+    if (listAt >= 0) {
+        var rest = data.slice(listAt + 3);
+        var end = rest.indexOf('\r');
+        if (end >= 0) {
+            rest = rest.slice(0, end);
+        }
+        // candidates are identifiers; anything else is stray output and must not reach the popup HTML
+        var words = rest.split('\t').map(function(w) { return w.trim(); })
+            .filter(function(w) { return /^[A-Za-z0-9_.\-]+$/.test(w); });
+        // the firmware lists only when at least two names match; fewer words means the reply was
+        // damaged, and a single word would make the popup select it without asking
+        return words.length > 1 ? { words: words } : {};
+    }
+    var shown = data.replace(/[\x00-\x1f\x7f]/g, '');
+    if (!/[\r\n\x1b]/.test(data) && shown.length > line.length && shown.indexOf(line) === 0) {
+        return { completed: shown };
+    }
+    return {};
+};
+
+CliAutoComplete._fwStep = function() {
+    var fw = this.fw;
+    if (!fw) {
+        return;
+    }
+    if (fw.phase === 'query') {
+        fw.result = this._fwParse(fw.line, fw.data);
+        // nothing completed and no trailing space: retry once with a space, like `dma UART_TX 1 `
+        var retry = !fw.retried && !fw.result.words && !fw.result.completed && !/\s$/.test(fw.line);
+        fw.phase = retry ? 'retry' : 'clear';
+        fw.data = '';
+        this._fwArm(300);
+        // empty the firmware line buffer, so a later Enter sends only the textarea content
+        fw.sendRaw(this._fwErase(fw.line));
+        return;
+    }
+    if (fw.phase === 'retry') {
+        fw.retried = true;
+        fw.line += ' ';
+        fw.phase = 'query';
+        fw.data = '';
+        this._fwArm(400);
+        fw.sendRaw(fw.line + '\t');
+        return;
+    }
+    this._fwDone();
+};
+
+/**
+ * The Configurator registers how a submitted line is executed (`executeCommands` in cli.js). Queued
+ * Enters go through it, so the module never edits the input or builds key events.
+ * @param {function(string[]): void} fn - runs the texts in order, one batch after another
+ */
+CliAutoComplete.setCommandSubmitter = function(fn) {
+    this.submitCommands = fn;
+};
+
+/** Run the queued Enters with the texts that were submitted, oldest first. */
+CliAutoComplete._fwReplayEnters = function(texts) {
+    if (this.submitCommands) {
+        this.submitCommands(texts);
+    }
+};
+
+CliAutoComplete._fwDone = function() {
+    var fw = this.fw;
+    clearTimeout(fw.timer);
+    this.fw = null;
+    var r = fw.result;
+    var enterTexts = this.fwEnterQueue || [];
+    var enterQueued = enterTexts.length > 0;
+    this.fwEnterQueue = [];
+    var self = this;
+    this.setFirmwareDraining(true);
+    setTimeout(function() { self.setFirmwareDraining(false); }, 150);
+    if (!this.$textarea) {
+        return;
+    }
+    if (this.$textarea.val() !== fw.orig) {
+        // user edited the line meanwhile: skip the completion, still run the queued Enters
+        if (enterQueued) {
+            this._fwReplayEnters(enterTexts);
+        }
+        return;
+    }
+    // Enter pressed during the request runs the line as typed; a completion from the retry
+    // (typed line plus a space) can answer a different argument slot, so only its list is used.
+    if (r.completed && !enterQueued && fw.line === fw.orig) {
+        this.$textarea.val(r.completed);
+    } else if (r.words && r.words.length && !enterQueued) {
+        this.$textarea.val(fw.line); // may carry the space added by the retry
+        var m = fw.line.match(/^(.*\s)/);
+        this.fwCandidates = { base: m ? m[1] : '', words: r.words };
+        this.openLater(true);
+    }
+    if (enterQueued) {
+        // Enter pressed while the request was in flight: run the texts that were submitted
+        this._fwReplayEnters(enterTexts);
+    }
+};
+
 CliAutoComplete.setEnabled = function(enable) {
     if (this.configEnabled !== enable) {
         this.configEnabled = enable;
@@ -68,6 +277,18 @@ CliAutoComplete.cleanup = function() {
     // builderStart() again, which would send CLI sentinel bytes to the
     // serial port after cliActive is false, poisoning the MSP stream.
     this._builderWatchdogStop();
+    if (this.fw) {
+        clearTimeout(this.fw.timer);
+        if (this.fw.phase === 'query' && CONFIGURATOR.connectionValid) {
+            // erase what the firmware already holds so a following 'exit' is not prefixed by it
+            this.fw.sendRaw(this._fwErase(this.fw.line));
+        }
+        this.fw = null;
+    }
+    this.fwCandidates = null;
+    this.fwEnterQueue = [];
+    this.setFirmwareDraining(false);
+    this.strategies = null;
     if (this.$textarea) {
         this.$textarea.textcomplete('destroy');
     }
@@ -330,7 +551,7 @@ CliAutoComplete._initTextcomplete = function() {
         }, s);
     };
 
-    $textarea.textcomplete('register', [
+    var strategies = [
         strategy({ // "command"
             match: /^(\s*)(\w*)$/,
             search: function(term, callback) {
@@ -418,13 +639,14 @@ CliAutoComplete._initTextcomplete = function() {
             match: /^(\s*resource\s+)(\w*)$/i,
             search:  function(term, callback, _match) {
                 sendOnEnter = false;
-                var arr = ['list'].concat(cache.resources);
+                // 'resource show' exists from MSP API 1.55.0; older firmware only has 'list'
+                var arr = (semver.gte(CONFIG.apiVersion, '1.55.0') ? ['show', 'list'] : ['list']).concat(cache.resources);
                 searcher(term, callback, arr, 1);
             },
             replace: function(value) {
                 if (value in cache.resourcesCount) {
                     self.openLater();
-                } else if (value === 'list') {
+                } else if (value === 'list' || value === 'show') {
                     sendOnEnter = true;
                 }
                 return basicReplacer(value);
@@ -522,6 +744,30 @@ CliAutoComplete._initTextcomplete = function() {
             search:  function(term, callback, _match) {
                 sendOnEnter = true;
                 searcher(term, callback, cache.mixers, 1);
+            }
+        })
+    ];
+
+    self.strategies = strategies;
+    $textarea.textcomplete('register', strategies);
+
+    // Registered last and kept out of `strategies`: it only answers after firmwareComplete()
+    // stored candidates for the current line, so every other strategy keeps priority.
+    $textarea.textcomplete('register', [
+        strategy({ // "firmware"
+            match: /^(.*\s)(\S*)$/,
+            template: function(value, term) {
+                // value is a sanitized identifier; the typed term may hold regex metacharacters
+                var escaped = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                return term ? value.replace(new RegExp('^(' + escaped + ')', 'i'), '<b>$1</b>') : value;
+            },
+            search: function(term, callback) {
+                sendOnEnter = false;
+                searcher(term, callback, self.fwCandidates ? self.fwCandidates.words : [], false, true);
+            },
+            context: function(text) {
+                var c = self.fwCandidates;
+                return !!c && text.indexOf(c.base) === 0 && /^\S*$/.test(text.slice(c.base.length)) && contexter(text);
             }
         })
     ]);
