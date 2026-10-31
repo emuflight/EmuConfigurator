@@ -2,17 +2,37 @@
 
 TABS.auxiliary = {};
 
+// first MSP API version with MSP_MODE_RANGES_EXTRA and the linked-mode fields of MSP_SET_MODE_RANGE
+TABS.auxiliary.LINKED_MODES_API_VERSION = '1.55.1';
+
 TABS.auxiliary.initialize = function (callback) {
     GUI.active_tab_ref = this;
     GUI.active_tab = 'auxiliary';
     var prevChannelsValues = null;
+    // true when the FC reports the API version and answered MSP_MODE_RANGES_EXTRA, i.e. linked modes can be read and written
+    var linkedModesSupported = false;
 
     function get_mode_ranges() {
-        MSP.send_message(MSPCodes.MSP_MODE_RANGES, false, false, get_box_ids);
+        MSP.send_message(MSPCodes.MSP_MODE_RANGES, false, false, get_mode_ranges_extra);
     }
 
     function get_mode_ranges_extra() {
-        MSP.send_message(MSPCodes.MSP_MODE_RANGES_EXTRA, false, false, get_box_ids);
+        // MSP_MODE_RANGES_EXTRA was added in API 1.55.1; do not send it to older firmware
+        MODE_RANGES_EXTRA = [];
+        if (!semver.gte(CONFIG.apiVersion, TABS.auxiliary.LINKED_MODES_API_VERSION)) {
+            linkedModesSupported = false;
+            get_box_ids();
+            return;
+        }
+        MSP.send_message(MSPCodes.MSP_MODE_RANGES_EXTRA, false, false, function () {
+            // a build that reports the version without the message leaves the array empty
+            linkedModesSupported = MODE_RANGES_EXTRA.length > 0 &&
+                MODE_RANGES_EXTRA.length === MODE_RANGES.length;
+            if (!linkedModesSupported) {
+                MODE_RANGES_EXTRA = [];
+            }
+            get_box_ids();
+        });
     }
 
     function get_box_ids() {
@@ -55,8 +75,8 @@ TABS.auxiliary.initialize = function (callback) {
         $(newMode).find('a.addRange').data('modeElement', newMode);
         $(newMode).find('a.addLink').data('modeElement', newMode);
 
-        // hide link button for ARM
-        if (modeId === 0) {
+        // hide link button for ARM, and when the FC cannot store links over MSP
+        if (modeId === 0 || !linkedModesSupported) {
             $(newMode).find('.addLink').hide();
         }
 
@@ -73,7 +93,12 @@ TABS.auxiliary.initialize = function (callback) {
         logicOption.text(i18n.getMessage('auxiliaryModeLogicOR'));
         logicOption.val(0);
         logicList.append(logicOption);
-        
+
+        logicOption = logicOptionTemplate.clone();
+        logicOption.text(i18n.getMessage('auxiliaryModeLogicAND'));
+        logicOption.val(1);
+        logicList.append(logicOption);
+
         logicOptionTemplate.val(0);
     }
     
@@ -121,6 +146,18 @@ TABS.auxiliary.initialize = function (callback) {
             linkOption.val(AUX_CONFIG_IDS[index]);  // set value to mode id
             linkList.append(linkOption);
         }
+
+        // sort linkedTo options by name, empty option on top
+        var sortedOptions = linkList.children('option').get().sort(function (a, b) {
+            if (a.value === '0') {
+                return -1;
+            }
+            if (b.value === '0') {
+                return 1;
+            }
+            return a.text.localeCompare(b.text);
+        });
+        linkList.append(sortedOptions);
 
         linkOptionTemplate.val(0);
         
@@ -251,11 +288,11 @@ TABS.auxiliary.initialize = function (callback) {
             modeTableBodyElement.append(newMode);
             
             // generate ranges from the supplied AUX names and MODE_RANGES[_EXTRA] data
-            // skip linked modes for now
+            // MODE_RANGES_EXTRA is index-aligned with MODE_RANGES
             for (var modeRangeIndex = 0; modeRangeIndex < MODE_RANGES.length; modeRangeIndex++) {
                 var modeRange = MODE_RANGES[modeRangeIndex];
 
-                var modeRangeExtra = {
+                var modeRangeExtra = MODE_RANGES_EXTRA[modeRangeIndex] || {
                     id: modeRange.id,
                     modeLogic: 0,
                     linkedTo: 0
@@ -296,6 +333,28 @@ TABS.auxiliary.initialize = function (callback) {
 
         // UI Hooks
         $('a.save').click(function () {
+            // a link may not target a mode that is itself linked; the FC would drop the entry
+            var linkedModeIds = {};
+            $('.tab-auxiliary .modes .mode').each(function () {
+                var modeId = $(this).data('id');
+                $(this).find('.link').each(function () {
+                    if (parseInt($(this).find('.linkedTo').val(), 10) !== 0) {
+                        linkedModeIds[modeId] = true;
+                    }
+                });
+            });
+            var chainedLink = false;
+            $('.tab-auxiliary .modes .link .linkedTo').each(function () {
+                var target = parseInt($(this).val(), 10);
+                if (target !== 0 && linkedModeIds[target]) {
+                    chainedLink = true;
+                }
+            });
+            if (chainedLink) {
+                GUI.log(i18n.getMessage('auxiliaryLinkToLinkedMode'));
+                return;
+            }
+
             // protect this save chain (through EEPROM_WRITE) from being abandoned if the
             // user switches tabs before the FC responds; cleared once EEPROM_WRITE completes below
             var protectedSaveToken = MSP.beginProtectedSave();
@@ -375,6 +434,11 @@ TABS.auxiliary.initialize = function (callback) {
                     linkedTo: 0
                 };
                 MODE_RANGES_EXTRA.push(defaultModeRangeExtra);
+            }
+
+            // an FC without MSP_MODE_RANGES_EXTRA must not receive the trailing link bytes
+            if (!linkedModesSupported) {
+                MODE_RANGES_EXTRA = [];
             }
 
             //
