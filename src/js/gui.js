@@ -344,7 +344,43 @@ GUI_control.prototype.switchery = function() {
     });
 };
 
+// #content's CSS height is a percentage minus fixed header sizes. When the header grows or wraps
+// (narrow window, docked DevTools) or the log panel opens, #content runs past the status bar and
+// the absolutely positioned bottom toolbar of every tab ends up off-screen. Size it from the real
+// layout instead.
+GUI_control.prototype.fitContentHeight = function () {
+    const content_e = $('#content');
+    const statusBar = $('#status-bar');
+    if (!content_e.length || !statusBar.length) {
+        return;
+    }
+    const available = window.innerHeight - content_e.offset().top - statusBar.outerHeight();
+    content_e.css('height', `${Math.max(available, 0)}px`);
+};
+
+GUI_control.prototype.initContentHeightFit = function () {
+    const self = this;
+    $(window).off('resize.contentFit').on('resize.contentFit', () => self.fitContentHeight());
+    if (typeof ResizeObserver !== 'undefined') {
+        // The log panel animates its height without a window resize, which moves #content's top.
+        const observer = new ResizeObserver(() => self.fitContentHeight());
+        ['log', 'status-bar'].forEach(function (id) {
+            const el = document.getElementById(id);
+            if (el) {
+                observer.observe(el);
+            }
+        });
+        const header = document.querySelector('.headerbar');
+        if (header) {
+            observer.observe(header);
+        }
+    }
+    self.fitContentHeight();
+};
+
 GUI_control.prototype.content_ready = function (callback) {
+
+    this.fitContentHeight();
 
     this.switchery();
 
