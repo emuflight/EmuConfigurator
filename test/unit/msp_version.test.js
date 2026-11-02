@@ -27,9 +27,7 @@ function collectApiVersions() {
     for (const file of walk(path.join(ROOT, 'src', 'js'), [])) {
         const text = fs.readFileSync(file, 'utf8');
         for (const re of [compare, named]) {
-            re.lastIndex = 0;
-            let m;
-            while ((m = re.exec(text)) !== null) {
+            for (const m of text.matchAll(re)) {
                 found.push({ file: path.relative(ROOT, file), version: m[1] });
             }
         }
