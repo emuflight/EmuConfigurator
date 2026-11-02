@@ -2,6 +2,17 @@
     padding: 2px 18px;
     position: relative;
     flex-grow: 100;
+    min-width: 0;
+}
+
+/* Keep each toolbar button on one line: .content_toolbar is a fixed 30px with overflow hidden,
+   so a label that wraps at narrow widths grows the button and hides all but its top edge. */
+.tab-imuf_flashing .content_toolbar .btn {
+    flex-shrink: 0;
+}
+
+.tab-imuf_flashing .content_toolbar .btn a {
+    white-space: nowrap;
 }
 
 .tab-imuf_flashing .info .progress {
