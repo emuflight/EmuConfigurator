@@ -34,7 +34,8 @@ body {
     background-color: #3d3f3e;
     margin: 0px;
     padding: 0px;
-    overflow: hidden;
+    overflow-x: auto; /* scroll instead of letting the floated header wrap below MIN_WINDOW_WIDTH */
+    overflow-y: hidden;
     -webkit-user-select: text;
     user-select: text;
 }
@@ -152,6 +153,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 #main-wrapper {
+    min-width: 1024px; /* matches MIN_WINDOW_WIDTH in main.js; narrower viewports (e.g. docked DevTools) scroll */
     padding: 0px 0px 0 0px; /*   padding: 5px 5px 0 5px; */
     height: calc(100% - 7px);
 }
