@@ -34,8 +34,7 @@ body {
     background-color: #3d3f3e;
     margin: 0px;
     padding: 0px;
-    overflow-x: auto; /* scroll instead of letting the floated header wrap below MIN_WINDOW_WIDTH */
-    overflow-y: hidden;
+    overflow: hidden;
     -webkit-user-select: text;
     user-select: text;
 }
@@ -153,7 +152,6 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 #main-wrapper {
-    min-width: 1024px; /* matches MIN_WINDOW_WIDTH in main.js; narrower viewports (e.g. docked DevTools) scroll */
     padding: 0px 0px 0 0px; /*   padding: 5px 5px 0 5px; */
     height: calc(100% - 7px);
 }
@@ -209,6 +207,20 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .logo_text .version {
     float: right;
+}
+
+/* Below 1125px the floated header items would wrap onto a second row (or off-screen), so the
+   logo shrinks to leave room for the connect/flash buttons and port fields. */
+@media all and (max-width: 1124px) {
+    #logo {
+        width: 110px;
+        margin-left: 8px;
+    }
+
+    .logo_text {
+        left: 0;
+        width: 100%;
+    }
 }
 
 @media all and (min-width: 1125px) {
