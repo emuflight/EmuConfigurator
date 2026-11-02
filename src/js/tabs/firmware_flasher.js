@@ -7,6 +7,21 @@ TABS.firmware_flasher = {
     localFileLoaded: false,
 };
 
+// #content's CSS height is a percentage minus fixed header sizes. When the header grows (narrow
+// window) #content runs past the status bar and the fixed-bottom toolbar (progress bar + buttons)
+// ends up off-screen. Size it from the real layout instead; the inline height is dropped as soon
+// as another tab is active.
+TABS.firmware_flasher.fitContentHeight = function () {
+    const content_e = $('#content');
+    if (GUI.active_tab !== 'firmware_flasher') {
+        $(window).off('resize.flasherFit');
+        content_e.css('height', '');
+        return;
+    }
+    const available = window.innerHeight - content_e.offset().top - $('#status-bar').outerHeight();
+    content_e.css('height', `${Math.max(available, 0)}px`);
+};
+
 TABS.firmware_flasher.initialize = function (callback) {
     var self = this;
 
@@ -891,6 +906,10 @@ TABS.firmware_flasher.initialize = function (callback) {
         // Update Firmware button at top
         $('div#flashbutton a.flash_state').addClass('active');
         $('div#flashbutton a.flash').addClass('active');
+
+        $(window).off('resize.flasherFit').on('resize.flasherFit', () => self.fitContentHeight());
+        self.fitContentHeight();
+
         GUI.content_ready(callback);
     }
 
@@ -904,6 +923,9 @@ TABS.firmware_flasher.cleanup = function (callback) {
     }
     PortHandler.flush_callbacks();
     FirmwareCache.unload();
+
+    $(window).off('resize.flasherFit');
+    $('#content').css('height', '');
 
     // unbind "global" events
     $(document).unbind('keypress');
