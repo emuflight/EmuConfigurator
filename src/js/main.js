@@ -424,6 +424,8 @@ function startProcess() {
         }
     });
 
+    GUI.initContentHeightFit();
+
     $("#showlog").on('click', function () {
         var state = $(this).data('state');
         if (state) {
