@@ -34,6 +34,11 @@ function collectApiVersions() {
             }
         }
     }
+    // serial_backend.js gates on CONFIGURATOR.apiVersionAccepted, which the literal regexes cannot see.
+    const storage = createContext(['src/js/data_storage.js'], {});
+    const accepted = run(storage, 'CONFIGURATOR.apiVersionAccepted');
+    assert.match(accepted, /^\d+\.\d+\.\d+$/, 'CONFIGURATOR.apiVersionAccepted is not a semver literal');
+    found.push({ file: 'src/js/data_storage.js (apiVersionAccepted)', version: accepted });
     return found;
 }
 
