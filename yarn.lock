@@ -116,15 +116,15 @@
     "@electron-forge/shared-types" "8.0.1"
     which "^6.0.0"
 
-"@electron-forge/maker-deb@7.11.2":
-  version "7.11.2"
-  resolved "https://registry.yarnpkg.com/@electron-forge/maker-deb/-/maker-deb-7.11.2.tgz#05e577d3971676bb09dee6dbd26abc9cb6801082"
-  integrity sha512-MYSdCTsqzKNmsmaq7CIFh2kJdBWUZ4njxnVGrIRClzueVITk5Kots3+eQo+e5QQLvXTVn2XTNDc2nYjvtBh+Mw==
+"@electron-forge/maker-deb@8.0.1":
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/@electron-forge/maker-deb/-/maker-deb-8.0.1.tgz#05ac797a2ad0add56b8c5cbe1de99f897d4cf269"
+  integrity sha512-KuHftOJKbP4Xoq51pxDrBRCpbcO99hA38KrYyr0Kpd3my+eZeg7fmo8D43TmWzQov8enXBgZi5vtLYt91KuqMQ==
   dependencies:
-    "@electron-forge/maker-base" "7.11.2"
-    "@electron-forge/shared-types" "7.11.2"
+    "@electron-forge/maker-base" "8.0.1"
+    "@electron-forge/shared-types" "8.0.1"
   optionalDependencies:
-    electron-installer-debian "^3.2.0"
+    electron-installer-debian "^4.0.0"
 
 "@electron-forge/maker-dmg@7.11.2":
   version "7.11.2"
@@ -1376,7 +1376,7 @@ ansi-styles@^4.0.0, ansi-styles@^4.1.0:
   dependencies:
     color-convert "^2.0.1"
 
-ansi-styles@^6.0.0, ansi-styles@^6.1.0, ansi-styles@^6.2.3:
+ansi-styles@^6.0.0, ansi-styles@^6.1.0, ansi-styles@^6.2.1, ansi-styles@^6.2.3:
   version "6.2.3"
   resolved "https://registry.yarnpkg.com/ansi-styles/-/ansi-styles-6.2.3.tgz#c044d5dcc521a076413472597a1acb1f103c4041"
   integrity sha512-4Dj6M28JB+oAH8kFkTLUo+a2jwOFkuqb3yucU0CANcRRUbxS0cP0nZYCGjcc3BNXwRIsUVmDGgzawme7zvJHvg==
@@ -1679,6 +1679,15 @@ cliui@^8.0.1:
     strip-ansi "^6.0.1"
     wrap-ansi "^7.0.0"
 
+cliui@^9.0.1:
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/cliui/-/cliui-9.0.1.tgz#6f7890f386f6f1f79953adc1f78dec46fcc2d291"
+  integrity sha512-k7ndgKhwoQveBL+/1tqGJYNz097I7WOvwbmmU2AR5+magtbjPWQTS1C5vzGkBC8Ym8UWRzfKUzUUqFLypY4Q+w==
+  dependencies:
+    string-width "^7.2.0"
+    strip-ansi "^7.1.0"
+    wrap-ansi "^9.0.0"
+
 clone-response@^1.0.2:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/clone-response/-/clone-response-1.0.3.tgz#af2032aa47816399cf5f0a1d0db902f517abb8c3"
@@ -1899,7 +1908,7 @@ eastasianwidth@^0.2.0:
   resolved "https://registry.yarnpkg.com/eastasianwidth/-/eastasianwidth-0.2.0.tgz#696ce2ec0aa0e6ea93a397ffcf24aa7840c827cb"
   integrity sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==
 
-electron-installer-common@^0.10.2:
+electron-installer-common@^0.10.2, electron-installer-common@^0.10.3:
   version "0.10.4"
   resolved "https://registry.yarnpkg.com/electron-installer-common/-/electron-installer-common-0.10.4.tgz#7a81265e0ec158eafd9dd474d5bb3a13946195e7"
   integrity sha512-8gMNPXfAqUE5CfXg8RL0vXpLE9HAaPkgLXVoHE3BMUzogMWenf4LmwQ27BdCUrEhkjrKl+igs2IHJibclR3z3Q==
@@ -1916,19 +1925,17 @@ electron-installer-common@^0.10.2:
   optionalDependencies:
     "@types/fs-extra" "^9.0.1"
 
-electron-installer-debian@^3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/electron-installer-debian/-/electron-installer-debian-3.2.0.tgz#2a9c8220f50a57807de8f93619a0d61ec41271e0"
-  integrity sha512-58ZrlJ1HQY80VucsEIG9tQ//HrTlG6sfofA3nRGr6TmkX661uJyu4cMPPh6kXW+aHdq/7+q25KyQhDrXvRL7jw==
+electron-installer-debian@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/electron-installer-debian/-/electron-installer-debian-4.0.0.tgz#2136441cdfc85761d4f07af5a87322bfc10038a7"
+  integrity sha512-v7WUgN/S9WVh9FMJ8JG8G9QdUorQfAG/pnQU/rZNcVo7/jxuVVma1S8ZEBbC0M+6pnR5lTmfXN6nmQ8+SaWnNg==
   dependencies:
-    "@malept/cross-spawn-promise" "^1.0.0"
+    "@malept/cross-spawn-promise" "^2.0.0"
     debug "^4.1.1"
-    electron-installer-common "^0.10.2"
-    fs-extra "^9.0.0"
-    get-folder-size "^2.0.1"
-    lodash "^4.17.4"
-    word-wrap "^1.2.3"
-    yargs "^16.0.2"
+    electron-installer-common "^0.10.3"
+    parse-author "^2.0.0"
+    word-wrap "^1.2.4"
+    yargs "^18.0.0"
 
 electron-installer-dmg@^5.0.1:
   version "5.0.1"
@@ -1983,6 +1990,11 @@ electron@42.10.1:
     "@electron-internal/extract-zip" "^1.0.1"
     "@electron/get" "^5.0.0"
     "@types/node" "^24.9.0"
+
+emoji-regex@^10.3.0:
+  version "10.6.0"
+  resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-10.6.0.tgz#bf3d6e8f7f8fd22a65d9703475bc0147357a6b0d"
+  integrity sha512-toUI84YS5YmxW219erniWD0CIVOo46xGKColeNQRgOzDorgBi1v4D71/OFzgD9GO2UGKIv1C3Sp8DAn0+j5w7A==
 
 emoji-regex@^8.0.0:
   version "8.0.0"
@@ -2456,11 +2468,6 @@ galactus@^2.0.2:
     debug "^4.4.1"
     flora-colossus "^3.0.2"
 
-gar@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/gar/-/gar-1.0.4.tgz#f777bc7db425c0572fdeb52676172ca1ae9888b8"
-  integrity sha512-w4n9cPWyP7aHxKxYHFQMegj7WIAsL/YX/C4Bs5Rr8s1H9M1rNtRWRsw+ovYMkXDQ5S4ZbYHsHAPmevPjPgw44w==
-
 generate-function@^2.0.0:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/generate-function/-/generate-function-2.3.1.tgz#f069617690c10c868e73b8465746764f97c3479f"
@@ -2480,18 +2487,10 @@ get-caller-file@^2.0.5:
   resolved "https://registry.yarnpkg.com/get-caller-file/-/get-caller-file-2.0.5.tgz#4f94412a82db32f36e3b0b9741f8a97feb031f7e"
   integrity sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg==
 
-get-east-asian-width@^1.3.1, get-east-asian-width@^1.5.0:
+get-east-asian-width@^1.0.0, get-east-asian-width@^1.3.1, get-east-asian-width@^1.5.0:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/get-east-asian-width/-/get-east-asian-width-1.7.0.tgz#7ee99f0bd5ab7c622002deeabba232923726d1d4"
   integrity sha512-XjH1AECxf0giL2V1aU8vKyRR2ppRUb5c0EvT7zuJTokQ74bNo52zOtghqdWIqrhUD79fo3x0WfKZdOqxF6LG1Q==
-
-get-folder-size@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/get-folder-size/-/get-folder-size-2.0.1.tgz#3fe0524dd3bad05257ef1311331417bcd020a497"
-  integrity sha512-+CEb+GDCM7tkOS2wdMKTn9vU7DgnKUTuDlehkNJKNSovdCOVxs14OfKCk4cvSaR3za4gj+OBdl9opPN9xrJ0zA==
-  dependencies:
-    gar "^1.0.4"
-    tiny-each-async "2.0.3"
 
 get-package-info@^1.0.0:
   version "1.0.0"
@@ -3116,7 +3115,7 @@ lodash.merge@^4.6.2:
   resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.2.tgz#558aa53b43b661e1925a0afdfa36a9a1085fe57a"
   integrity sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==
 
-lodash@^4.17.15, lodash@^4.17.21, lodash@^4.17.4:
+lodash@^4.17.15, lodash@^4.17.21:
   version "4.18.1"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.18.1.tgz#ff2b66c1f6326d59513de2407bf881439812771c"
   integrity sha512-dMInicTPVE8d1e5otfwmmjlxkZoUpiVLwyeTdUsi/Caj/gfzzblBcCE5sRHV/AsjuCmxWrte2TNGSYuCeCq+0Q==
@@ -4234,7 +4233,16 @@ string-width@^5.0.0, string-width@^5.0.1:
     emoji-regex "^9.2.2"
     strip-ansi "^7.0.1"
 
-string-width@^8.2.0, string-width@^8.3.0:
+string-width@^7.0.0, string-width@^7.2.0:
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/string-width/-/string-width-7.2.0.tgz#b5bb8e2165ce275d4d43476dd2700ad9091db6dc"
+  integrity sha512-tsaTIkKW9b4N+AEj+SVA+WhJzV7/zMhcSu78mLKWSk7cXMOSHsBKFWUs0fWwq8QyK3MgJBQRX6Gbi4kYbdvGkQ==
+  dependencies:
+    emoji-regex "^10.3.0"
+    get-east-asian-width "^1.0.0"
+    strip-ansi "^7.1.0"
+
+string-width@^8.2.0, string-width@^8.2.1, string-width@^8.3.0:
   version "8.3.0"
   resolved "https://registry.yarnpkg.com/string-width/-/string-width-8.3.0.tgz#f1e85ca6d276ed9226c979c3651fb7abf548fbbe"
   integrity sha512-ZbmZM0JCihQN91dWnxoipT2KOEyHqEyfRXUyjuRhW8b/xnqPDoq4gWEVApTVa9db2wN8mmoikgFBbjh71+cGeQ==
@@ -4256,7 +4264,7 @@ strip-ansi@^6.0.0, strip-ansi@^6.0.1:
   dependencies:
     ansi-regex "^5.0.1"
 
-strip-ansi@^7.0.1, strip-ansi@^7.1.2, strip-ansi@^7.2.0:
+strip-ansi@^7.0.1, strip-ansi@^7.1.0, strip-ansi@^7.1.2, strip-ansi@^7.2.0:
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/strip-ansi/-/strip-ansi-7.2.0.tgz#d22a269522836a627af8d04b5c3fd2c7fa3e32e3"
   integrity sha512-yDPMNjp4WyfYBkHnjIRLfca1i6KMyGCtsVgoKe/z1+6vukgaENdgGBZt+ZmKPc4gavvEZ5OgHfHdrazhgNyG7w==
@@ -4363,11 +4371,6 @@ text-table@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
   integrity sha512-N+8UisAXDGk8PFXP4HAzVR9nbfmVJ3zYLAWiTIoqC5v5isinhr+r5uaO8+7r3BMfuNIufIsA7RdpVgacC2cSpw==
-
-tiny-each-async@2.0.3:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/tiny-each-async/-/tiny-each-async-2.0.3.tgz#8ebbbfd6d6295f1370003fbb37162afe5a0a51d1"
-  integrity sha512-5ROII7nElnAirvFn8g7H7MtpfV1daMcyfTGQwsn/x2VtyV+VPiO5CjReCJtWLvoKTDEDmZocf3cNPraiMnBXLA==
 
 tinyglobby@^0.2.12:
   version "0.2.17"
@@ -4652,7 +4655,7 @@ which@^6.0.0:
   dependencies:
     isexe "^4.0.0"
 
-word-wrap@^1.2.3, word-wrap@^1.2.5:
+word-wrap@^1.2.3, word-wrap@^1.2.4, word-wrap@^1.2.5:
   version "1.2.5"
   resolved "https://registry.yarnpkg.com/word-wrap/-/word-wrap-1.2.5.tgz#d2c45c6dd4fbce621a66f136cbe328afd0410b34"
   integrity sha512-BN22B5eaMMI9UMtjrGd5g5eCYPpCPDUy0FJXbYsaT5zYxjFOckS53SQDE3pWkVoWpHXVb3BrYcEN4Twa55B5cA==
@@ -4691,6 +4694,15 @@ wrap-ansi@^8.0.1, wrap-ansi@^8.1.0:
     ansi-styles "^6.1.0"
     string-width "^5.0.1"
     strip-ansi "^7.0.1"
+
+wrap-ansi@^9.0.0:
+  version "9.0.2"
+  resolved "https://registry.yarnpkg.com/wrap-ansi/-/wrap-ansi-9.0.2.tgz#956832dea9494306e6d209eb871643bb873d7c98"
+  integrity sha512-42AtmgqjV+X1VpdOfyTGOYRi0/zsoLqtXQckTmqTeybT+BDIbM/Guxo7x3pE2vtpr1ok6xRqM9OpBe+Jyoqyww==
+  dependencies:
+    ansi-styles "^6.2.1"
+    string-width "^7.0.0"
+    strip-ansi "^7.1.0"
 
 wrappy@1:
   version "1.0.2"
@@ -4762,6 +4774,18 @@ yargs@^17.0.1:
     string-width "^4.2.3"
     y18n "^5.0.5"
     yargs-parser "^21.1.1"
+
+yargs@^18.0.0:
+  version "18.2.0"
+  resolved "https://registry.yarnpkg.com/yargs/-/yargs-18.2.0.tgz#c258276baa935fe8fb911d986067f6d0733e8608"
+  integrity sha512-9OpKOLeaoNFecEp7P6iYbzze/5CqWoH7N3SMs/6y1XF4nMvFMspEGZzJ6uFi9MmQwXhyzqYoSEKO3tvA3Z/o2w==
+  dependencies:
+    cliui "^9.0.1"
+    escalade "^3.1.1"
+    get-caller-file "^2.0.5"
+    string-width "^8.2.1"
+    y18n "^5.0.5"
+    yargs-parser "^22.0.0"
 
 yauzl@3.3.2, yauzl@^2.10.0:
   version "3.3.2"
