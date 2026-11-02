@@ -2,8 +2,6 @@
     padding: 2px 18px;
     position: relative;
     flex-grow: 100;
-    flex-shrink: 1;
-    min-width: 0;
 }
 
 .tab-imuf_flashing .info .progress {
@@ -13,8 +11,19 @@
     border-bottom: 1px solid var(--subtleAccent);
 }
 
-.tab-imuf_flashing .content_toolbar .btn {
-    flex-shrink: 0;
+.tab-imuf_flashing .info .progress {
+    -webkit-appearance: none;
+}
+
+.tab-imuf_flashing .info .progress::-webkit-progress-bar {
+    background-color: #4f4f4f;
+    border-radius: 4px;
+    box-shadow: inset 0px 0px 5px #2f2f2f;
+}
+
+.tab-imuf_flashing .info .progress::-webkit-progress-value {
+    background-color: #F86008;
+    border-radius: 4px;
 }
 
 .tab-imuf_flashing .info .progressLabel {
