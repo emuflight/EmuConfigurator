@@ -12,6 +12,7 @@ The repository uses yarn only (yarn 1.22, Node 24 or newer; see `.nvmrc`). Do no
 |---|---|
 | `yarn install` | Install dependencies |
 | `yarn lint` | ESLint. Errors fail CI. |
+| `yarn test` | Unit tests (Node built-in runner, `test/unit/`) |
 | `yarn dev` | Run the app in development mode |
 | `yarn make:debug` | Build debug packages with the DevTools menu |
 | `yarn build` | Generate `dist/` only |
@@ -23,9 +24,13 @@ CI (`.github/workflows/build.yml`) runs `yarn install --frozen-lockfile`, `yarn 
 
 ## Tests
 
-There is no test runner. `test/karma.conf.js` lists packages that are not installed, `package.json` has no `test` script, and CI has no test step. Do not report that tests pass. State that no test harness exists.
+Run `yarn test`. It uses the Node built-in runner on `test/unit/*.test.js`. `test/unit/harness.js` loads the browser-global scripts into a `vm` context, so pure MSP and version logic runs without Electron, jQuery or a DOM.
 
-This section overrides the Karma and "run all tests" lines in `ELECTRON-FORGE-JS-BEST-PRACTICES.instructions.md` until a runnable harness exists.
+The suite covers the API version gates and the `max_msp` ceiling. It does not cover serial I/O or firmware behavior; test those on a real FC and say so. Derive expected bytes from the MSP spec or firmware source, add at least one test that tries to break the logic, and do not edit a test to make it pass.
+
+`test/karma.conf.js` and `test/tabs/cli.js` are not run by `yarn test`. CI has no test step.
+
+This section overrides the Karma line in `ELECTRON-FORGE-JS-BEST-PRACTICES.instructions.md`.
 
 ## Dependencies and native modules
 
