@@ -451,6 +451,14 @@ TABS.imuf_flashing._abandonCli = function () {
 // Sets GUI.pendingAfterReconnect (the hook TABS.cli.cleanup() also uses) so the reconnect
 // routes back to this tab instead of finishOpen()'s default tab selection. callback fires once
 // the new connection's handshake completes, or after a 15s watchdog otherwise.
+// The reconnect callbacks call initialize() directly, bypassing the tab click handler that moves the
+// active highlight. A stale highlight on the landing tab makes the next disconnect's landing click
+// a no-op (main.js skips an already-active tab), leaving the content area empty.
+TABS.imuf_flashing._highlightTab = function () {
+    $('#tabs li').removeClass('active');
+    $('#tabs li.tab_imuf_flashing').addClass('active');
+};
+
 TABS.imuf_flashing._awaitReconnect = function (callback) {
     const self = this;
     CONFIGURATOR.cliActive = false;
@@ -608,6 +616,7 @@ TABS.imuf_flashing.flash = function () {
                         self._awaitReconnect(() => {
                             GUI.tab_switch_lock = false;
                             console.log('[imuf-flashing] reconnected, re-initializing tab');
+                            self._highlightTab();
                             TABS.imuf_flashing.initialize(function () {});
                         });
                     });
@@ -650,6 +659,7 @@ TABS.imuf_flashing.flashFailed = function (messageKey) {
         self._exitCli(() => {
             self._awaitReconnect(() => {
                 GUI.tab_switch_lock = false;
+                self._highlightTab();
                 TABS.imuf_flashing.initialize(function () {});
             });
         }, () => {

@@ -197,6 +197,14 @@ function finishClose(finishedCallback) {
         $('#content').empty();
     }
 
+    // The IMU-F flasher holds tab_switch_lock until reconnect. The reboot disconnect arrives
+    // inside that window, and the locked tab handler would drop the landing click, leaving an
+    // empty content area when auto-connect is off. The pending reconnect hook stays set.
+    if (typeof GUI.pendingAfterReconnect === 'function' && TABS.imuf_flashing &&
+        !TABS.imuf_flashing.flashInProgress) {
+        GUI.tab_switch_lock = false;
+    }
+
     $('#tabs .tab_landing a').click();
 
     finishedCallback();
