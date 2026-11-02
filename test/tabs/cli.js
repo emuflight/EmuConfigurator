@@ -98,6 +98,23 @@ describe('TABS.cli', () => {
 
     const backspaceCode = String.fromCharCode(127);
 
+    // Enter submits through an async command queue; wait for the first send before asserting.
+    function afterSend(done, assertions) {
+        const started = Date.now();
+        (function poll() {
+            if (TABS.cli.send.called || Date.now() - started > 1000) {
+                try {
+                    assertions();
+                    done();
+                } catch (e) {
+                    done(e);
+                }
+            } else {
+                setTimeout(poll, 5);
+            }
+        })();
+    }
+
     describe('input', () => {
         const content = $('<div>').attr('id', 'content');
         const cliTab = $('<div>').addClass('tab-cli');
@@ -114,10 +131,6 @@ describe('TABS.cli', () => {
                 callback();
             });
             sinon.stub(TABS.cli, 'send');
-            sinon.stub(Promise, 'reduce').callsFake((items, cb, _initialValue) => {
-                items.forEach((line, idx) => cb(0, line, idx));
-            });
-            sinon.stub(window, 'Promise').callsFake(resolve => resolve(0));
             sinon.stub(GUI, 'timeout_add').withArgs('CLI_send_slowly')
                 .callsFake((name, cb) => {
                     cb();
@@ -130,9 +143,8 @@ describe('TABS.cli', () => {
             content.remove();
             $.fn.load.restore();
             TABS.cli.send.restore();
-            Promise.reduce.restore();
-            Promise.restore();
             GUI.timeout_add.restore();
+            delete window.MSP;
         });
 
         beforeEach(() => {
@@ -202,9 +214,10 @@ describe('TABS.cli', () => {
 
                 triggerEnterKey(cliPrompt);
 
-                expect(TABS.cli.send).to.have.been.calledOnce;
-                expect(TABS.cli.send).to.have.been.calledWith('\n');
-                done();
+                afterSend(done, () => {
+                    expect(TABS.cli.send).to.have.been.calledOnce;
+                    expect(TABS.cli.send).to.have.been.calledWith('\n');
+                });
             });
         });
 
@@ -216,9 +229,10 @@ describe('TABS.cli', () => {
 
                 triggerEnterKey(cliPrompt);
 
-                expect(TABS.cli.send).to.have.been.calledOnce;
-                expect(TABS.cli.send).to.have.been.calledWith('vo\n');
-                done();
+                afterSend(done, () => {
+                    expect(TABS.cli.send).to.have.been.calledOnce;
+                    expect(TABS.cli.send).to.have.been.calledWith('vo\n');
+                });
             });
         });
 
@@ -230,9 +244,10 @@ describe('TABS.cli', () => {
 
                 triggerEnterKey(cliPrompt);
 
-                expect(TABS.cli.send).to.have.been.calledOnce;
-                expect(TABS.cli.send).to.have.been.calledWith(backspaceCode.repeat(3) + '\n');
-                done();
+                afterSend(done, () => {
+                    expect(TABS.cli.send).to.have.been.calledOnce;
+                    expect(TABS.cli.send).to.have.been.calledWith(backspaceCode.repeat(3) + '\n');
+                });
             });
         });
 
@@ -248,7 +263,7 @@ describe('TABS.cli', () => {
         it('exit upon cleanup clears cliBuffer first', done => {
             CONFIGURATOR.connectionValid = true;
             TABS.cli.cliValid = true;
-
+            window.MSP = { callbacks_cleanup: sinon.stub() };
 
             TABS.cli.initialize(() => {
                 const commandInBuffer = 'resource';
