@@ -209,6 +209,20 @@ input[type="number"]::-webkit-inner-spin-button {
     float: right;
 }
 
+/* Below 1125px the floated header items would wrap onto a second row (or off-screen), so the
+   logo shrinks to leave room for the connect/flash buttons and port fields. */
+@media all and (max-width: 1124px) {
+    #logo {
+        width: 110px;
+        margin-left: 8px;
+    }
+
+    .logo_text {
+        left: 0;
+        width: 100%;
+    }
+}
+
 @media all and (min-width: 1125px) {
     #logo {
         margin-top: 9px;

@@ -95,6 +95,29 @@ TABS.imuf_flashing.showInstalledVersion = function () {
     $('.imuf_installed_version').show();
 };
 
+// #content's CSS height is a percentage minus fixed header sizes. When the header grows (narrow
+// window, connected mode) #content runs past the status bar and the fixed-bottom toolbar
+// (progress bar + buttons) ends up off-screen. Size it from the real layout instead; the inline
+// height is dropped as soon as another tab is active.
+TABS.imuf_flashing._stopFitObserver = function () {
+    if (this._fitObserver) {
+        this._fitObserver.disconnect();
+        this._fitObserver = null;
+    }
+};
+
+TABS.imuf_flashing.fitContentHeight = function () {
+    const content_e = $('#content');
+    if (GUI.active_tab !== 'imuf_flashing') {
+        $(window).off('resize.imufFit');
+        this._stopFitObserver();
+        content_e.css('height', '');
+        return;
+    }
+    const available = window.innerHeight - content_e.offset().top - $('#status-bar').outerHeight();
+    content_e.css('height', `${Math.max(available, 0)}px`);
+};
+
 TABS.imuf_flashing.initialize = function (callback) {
     const self = this;
 
@@ -226,6 +249,15 @@ TABS.imuf_flashing.initialize = function (callback) {
                 self.flash();
             }
         });
+
+        $(window).off('resize.imufFit').on('resize.imufFit', () => self.fitContentHeight());
+        // The log panel animates its height without a window resize, which moves #content's top.
+        self._stopFitObserver();
+        if (typeof ResizeObserver !== 'undefined') {
+            self._fitObserver = new ResizeObserver(() => self.fitContentHeight());
+            self._fitObserver.observe(document.getElementById('log'));
+        }
+        self.fitContentHeight();
 
         GUI.content_ready(callback);
     }
@@ -715,6 +747,10 @@ TABS.imuf_flashing.flashProgress = function (value) {
 
 TABS.imuf_flashing.cleanup = function (callback) {
     const self = this;
+
+    $(window).off('resize.imufFit');
+    self._stopFitObserver();
+    $('#content').css('height', '');
 
     // Tab switching is locked while committing, so only a disconnect reaches cleanup() here. The
     // session stays valid: the commit result callback reports a reboot-driven success.
