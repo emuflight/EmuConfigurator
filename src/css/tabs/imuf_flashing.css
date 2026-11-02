@@ -20,16 +20,13 @@
     height: 26px;
     border-radius: 5px;
     border-bottom: 1px solid var(--subtleAccent);
-}
-
-.tab-imuf_flashing .info .progress {
     -webkit-appearance: none;
 }
 
 .tab-imuf_flashing .info .progress::-webkit-progress-bar {
     background-color: #4f4f4f;
     border-radius: 4px;
-    box-shadow: inset 0px 0px 5px #2f2f2f;
+    box-shadow: inset 0 0 5px #2f2f2f;
 }
 
 .tab-imuf_flashing .info .progress::-webkit-progress-value {
