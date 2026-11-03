@@ -5098,7 +5098,7 @@
         "message": "Select IMU-F version"
     },
     "imufFlashingSelectFirmware": {
-        "message": "Select an IMU-F release or local file to flash"
+        "message": "Please load IMUF file"
     },
     "imufFlashingButtonFlash": {
         "message": "Flash IMU-F"

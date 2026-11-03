@@ -76,7 +76,7 @@ applyTo: 'src/**/*.{js,html,css}, *.{json,yml,md}, .github/**/*.md'
 - Use ESLint with a strict, project-specific config; fix all warnings and errors before commit.
 - **Remove dead code:** Never hide unused variables with prefixes (e.g., `_unused`). Delete them or fix the code path.
   - **Exception — API-contract positional params:** When a third-party library (e.g., textcomplete, jQuery callbacks) requires a fixed function signature for positional argument binding, unused trailing params that cannot be removed must be prefixed with `_` (e.g., `_match`, `_value`). This is the ESLint-standard convention paired with `"argsIgnorePattern": "^_"` in `.eslintrc.json`. This is the only acceptable use of the `_` prefix; it does not apply to variables.
-- Use `karma` for browser-based unit tests; keep tests in `test/`.
+- Unit tests run with `yarn test` (Node built-in runner, `test/unit/*.test.js`). Browser-DOM tests run with `yarn test:karma` (Karma, `test/*.js` and `test/tabs/*.js`). Keep tests in `test/`.
 - Prefer test-driven bugfixes: add a test for every bug found.
 - Run all tests and lints before every commit.
 - When changing i18n or asset paths, always test with Electron's `file://` protocol, not just in a web browser.

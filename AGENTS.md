@@ -12,6 +12,8 @@ The repository uses yarn only (yarn 1.22, Node 24 or newer; see `.nvmrc`). Do no
 |---|---|
 | `yarn install` | Install dependencies |
 | `yarn lint` | ESLint. Errors fail CI. |
+| `yarn test` | Unit tests (Node built-in runner, `test/unit/`) |
+| `yarn test:karma` | Browser-DOM tests (Karma, headless Chrome) |
 | `yarn dev` | Run the app in development mode |
 | `yarn make:debug` | Build debug packages with the DevTools menu |
 | `yarn build` | Generate `dist/` only |
@@ -23,13 +25,13 @@ CI (`.github/workflows/build.yml`) runs `yarn install --frozen-lockfile`, `yarn 
 
 ## Tests
 
-Run `yarn test`. It uses the Node built-in runner on `test/unit/*.test.js`. `test/unit/harness.js` loads the browser-global scripts into a `vm` context. Tab rendering and click handlers run in `jsdom` (`test/unit/auxiliary_dom.test.js`); run scripts with `vm.Script` in the jsdom context, not `eval`.
+Run `yarn test`. It uses the Node built-in runner on `test/unit/*.test.js`. `test/unit/harness.js` loads the browser-global scripts into a `vm` context, so pure MSP and version logic runs without Electron, jQuery or a DOM. Tab rendering and click handlers run in `jsdom` (`test/unit/auxiliary_dom.test.js`); run scripts with `vm.Script` in the jsdom context, not `eval`.
 
-The suite covers MSP decode and encode, API version gates, the `max_msp` ceiling, and the Auxiliary tab. It does not cover serial I/O or firmware behavior; test those on a real FC and say so. Derive expected bytes from the MSP spec or firmware source, add at least one test that tries to break the logic, and do not edit a test to make it pass.
+The suite covers MSP decode and encode, the API version gates, the `max_msp` ceiling, and the Auxiliary tab. It does not cover serial I/O or firmware behavior; test those on a real FC and say so. Derive expected bytes from the MSP spec or firmware source, add at least one test that tries to break the logic, and do not edit a test to make it pass.
 
-`test/karma.conf.js` and `test/tabs/cli.js` are not run by `yarn test`.
+`yarn test:karma` runs the browser-DOM tests (`test/CliAutoComplete.js`, `test/tabs/cli.js`) with Karma, Mocha, Chai 4, Sinon and Sinon-Chai 3 in headless Chrome. It needs Chrome on the machine (set `CHROME_BIN` if it is not found). Chai 5 and Sinon-Chai 4 are ESM-only and do not load in Karma. `test/karma.conf.js` excludes `test/unit/`. Neither runner is part of CI.
 
-This section overrides the Karma and "run all tests" lines in `ELECTRON-FORGE-JS-BEST-PRACTICES.instructions.md`.
+This section overrides the Karma line in `ELECTRON-FORGE-JS-BEST-PRACTICES.instructions.md`.
 
 ## Dependencies and native modules
 

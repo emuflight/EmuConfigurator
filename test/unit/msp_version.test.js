@@ -27,13 +27,16 @@ function collectApiVersions() {
     for (const file of walk(path.join(ROOT, 'src', 'js'), [])) {
         const text = fs.readFileSync(file, 'utf8');
         for (const re of [compare, named]) {
-            re.lastIndex = 0;
-            let m;
-            while ((m = re.exec(text)) !== null) {
+            for (const m of text.matchAll(re)) {
                 found.push({ file: path.relative(ROOT, file), version: m[1] });
             }
         }
     }
+    // serial_backend.js gates on CONFIGURATOR.apiVersionAccepted, which the literal regexes cannot see.
+    const storage = createContext(['src/js/data_storage.js'], {});
+    const accepted = run(storage, 'CONFIGURATOR.apiVersionAccepted');
+    assert.match(accepted, /^\d+\.\d+\.\d+$/, 'CONFIGURATOR.apiVersionAccepted is not a semver literal');
+    found.push({ file: 'src/js/data_storage.js (apiVersionAccepted)', version: accepted });
     return found;
 }
 

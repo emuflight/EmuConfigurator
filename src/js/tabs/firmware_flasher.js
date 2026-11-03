@@ -891,6 +891,7 @@ TABS.firmware_flasher.initialize = function (callback) {
         // Update Firmware button at top
         $('div#flashbutton a.flash_state').addClass('active');
         $('div#flashbutton a.flash').addClass('active');
+
         GUI.content_ready(callback);
     }
 
