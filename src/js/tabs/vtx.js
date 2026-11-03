@@ -180,6 +180,10 @@ TABS.vtx.initialize = function(callback) {
     if (VTX_CONFIG.vtx_type === VtxDeviceTypes.VTXDEV_BEESIGN) {
         $('input[id="vtx_frequency_channel"]').prop('checked', false).trigger('change');
         $(".field.vtx_frequency_channel").hide();
+        // Band 0 has no dropdown entry; select band 1 so Save never reads an empty selection.
+        if (!$("#vtx_band").val()) {
+            $("#vtx_band").val(1);
+        }
     }
 
     //console.log('exit initDisplay()');
