@@ -176,6 +176,12 @@ TABS.vtx.initialize = function(callback) {
     $('input[id="vtx_frequency_channel"]').prop('checked', VTX_CONFIG.vtx_band === 0 && VTX_CONFIG.vtx_frequency > 0).change(frequencyOrBandChannel); // trigger on toggles
     $('input[id="vtx_frequency_channel"]').prop('checked',frequencyOrBandChannel);  //current status on load
 
+    // Beesign supports band/channel only; no frequency mode.
+    if (VTX_CONFIG.vtx_type === VtxDeviceTypes.VTXDEV_BEESIGN) {
+        $('input[id="vtx_frequency_channel"]').prop('checked', false).trigger('change');
+        $(".field.vtx_frequency_channel").hide();
+    }
+
     //console.log('exit initDisplay()');
 }; // initDisplay
 
@@ -333,7 +339,7 @@ TABS.vtx.initialize = function(callback) {
 function dump_html_to_msp() {
     //console.log('enter dump_html_to_msp()');
     // General config
-    const frequencyEnabled = $('input[id="vtx_frequency_channel"]').prop('checked');
+    const frequencyEnabled = VTX_CONFIG.vtx_type !== VtxDeviceTypes.VTXDEV_BEESIGN && $('input[id="vtx_frequency_channel"]').prop('checked');
     //console.log('%c manual freq toggle is: '+frequencyEnabled, "color: magenta");
     if (frequencyEnabled) {  //user freq
         VTX_CONFIG.vtx_frequency = parseInt( $("#vtx_frequency").val() );
