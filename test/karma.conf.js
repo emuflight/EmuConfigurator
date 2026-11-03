@@ -14,6 +14,7 @@ module.exports = function(config) {
             './src/js/tabs/cli.js',
             './test/**/*.js'
         ],
+        exclude: ['./test/unit/**'],
         browsers: ['ChromeHeadlessNoSandbox'],
         customLaunchers: {
             ChromeHeadlessNoSandbox: {

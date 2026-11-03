@@ -27,6 +27,7 @@
     "verify:cross-env": "cross-env EMUCFG_VERIFY_CROSS_ENV=cross-env-ok node scripts/verify-cross-env.js",
     "lint": "eslint .",
     "test": "node --test \"test/unit/*.test.js\"",
+    "test:karma": "karma start test/karma.conf.js",
     "commands": "node .commands.js"
   },
   "repository": {
@@ -77,10 +78,19 @@
     "@electron-forge/plugin-auto-unpack-natives": "7.11.2",
     "@electron-forge/plugin-fuses": "7.11.2",
     "@electron/fuses": "^1.0.0",
+    "chai": "^4.5.0",
     "cross-env": "^10.1.0",
     "electron": "42.10.1",
     "eslint": "^8.57.0",
-    "fs-extra": "^11.4.0"
+    "fs-extra": "^11.4.0",
+    "karma": "^6.4.4",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^3.2.0",
+    "karma-mocha": "^2.0.1",
+    "karma-sinon-chai": "^2.0.2",
+    "mocha": "^12.0.3",
+    "sinon": "^22.1.0",
+    "sinon-chai": "^3.7.0"
   },
   "resolutions": {
     "yauzl": "3.3.2"
