@@ -369,6 +369,11 @@ function startProcess() {
             37, 38, 39, 40, 13 // arrows and enter
         ];
 
+        // allow select all, copy, cut, paste, undo and redo shortcuts
+        if ((e.ctrlKey || e.metaKey) && !e.altKey && [65, 67, 86, 88, 89, 90].indexOf(e.keyCode) !== -1) {
+            return;
+        }
+
         if (whitelist.indexOf(e.keyCode) === -1) {
             e.preventDefault();
         }
