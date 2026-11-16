@@ -415,6 +415,10 @@ function startProcess() {
                 element.val(element.data('previousValue'));
                 val = element.data('previousValue');
             }
+            // write the canonical integer back so pasted text (e.g. "5.0", "1e2") is not kept
+            if (!isNaN(val)) {
+                element.val(val);
+            }
         }
 
         // if step is set and is float and value is int, convert to float, keep decimal places in float according to step *experimental*
