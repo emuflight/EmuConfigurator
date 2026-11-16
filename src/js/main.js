@@ -427,7 +427,7 @@ function startProcess() {
 
             if (val % 1 === 0) {
                 element.val(val.toFixed(decimal_places));
-            } else if (String(val).split('.')[1].length !== decimal_places) {
+            } else if ((String(val).split('.')[1] || '').length !== decimal_places) {
                 element.val(val.toFixed(decimal_places));
             }
         }
