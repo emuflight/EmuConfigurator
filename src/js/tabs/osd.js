@@ -2315,11 +2315,9 @@ TABS.osd.initialize = function (callback) {
                         // alarms
                         $('.alarms-container').show();
                         var $alarms = $('.alarms').empty();
-                        // limits match the firmware CLI settings osd_rssi_alarm, osd_cap_alarm, osd_alt_alarm
-                        var alarmMax = { rssi: 100, cap: 20000, alt: 10000 };
                         for (let k in OSD.data.alarms) {
                             var alarm = OSD.data.alarms[k];
-                            var alarmInput = $('<input name="alarm" type="number" min="0" max="' + (alarmMax[k] !== undefined ? alarmMax[k] : 65535) + '" id="' + k + '"/>' + alarm.display_name + '</label>');
+                            var alarmInput = $('<input name="alarm" type="number" id="' + k + '"/>' + alarm.display_name + '</label>');
                             alarmInput.val(alarm.value);
                             alarmInput.focusout(function (e) {
                                 OSD.data.alarms[$(this)[0].id].value = $(this)[0].value;
@@ -2394,7 +2392,7 @@ TABS.osd.initialize = function (callback) {
                                 var alarmTimerTableData = $('<td class="osd_tip"></td>');
                                 alarmTimerTableData.attr('title', i18n.getMessage('osdTimerAlarmTooltip'));
                                 alarmTimerTableData.append('<label for="timerAlarm_' + tim.index + '" class="char-label">' + i18n.getMessage('osdTimerAlarm') + '</label>');
-                                var alarm = $('<input class="timer-option osd_tip" name="alarm" type="number" min="0" max="255" id="timerAlarm_' + tim.index + '"/>');
+                                var alarm = $('<input class="timer-option osd_tip" name="alarm" type="number" min=0 id="timerAlarm_' + tim.index + '"/>');
                                 alarm[0].value = tim.alarm;
                                 alarm.blur(function (e) {
                                     var idx = $(this)[0].id.split("_")[1];
@@ -2612,10 +2610,8 @@ TABS.osd.initialize = function (callback) {
                         let finalFieldName = titleizeField(field);
                         $field.append('<label for="' + field.name + '" class="char-label">' + finalFieldName + '</label>');
                         if (field.positionable && field.isVisible[OSD.getCurrentPreviewProfile()]) {
-                            // AUTO has no buffer size; the position code above treats it as PAL
-                            var positionBufferChars = OSD.constants.VIDEO_BUFFER_CHARS[OSD.constants.VIDEO_TYPES[OSD.data.video_system]] || OSD.constants.VIDEO_BUFFER_CHARS['PAL'];
                             $field.append(
-                                $('<input type="number" min="0" max="' + (positionBufferChars - 1) + '" class="' + field.index + ' position"></input>')
+                                $('<input type="number" class="' + field.index + ' position"></input>')
                                     .data('field', field)
                                     .val(field.position)
                                     .change($.debounce(250, function (e) {
