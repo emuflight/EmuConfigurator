@@ -95,6 +95,13 @@
                                 <div id="timer-fields" class="switchable-fields"></div>
                             </div>
                         </div>
+                        <!-- Ranges for the alarm inputs that osd.js creates at runtime; osd.js copies min and max from here -->
+                        <div class="osd-input-limits" style="display:none;">
+                            <input type="number" data-limit="rssi" min="0" max="100">
+                            <input type="number" data-limit="cap" min="0" max="20000">
+                            <input type="number" data-limit="alt" min="0" max="10000">
+                            <input type="number" data-limit="timerAlarm" min="0" max="255">
+                        </div>
                         <div class="gui_box grey alarms-container requires-osd-feature isexpertmode" style="display:none;">
                             <div class="gui_box_titlebar cf_tip">
                                 <div class="spacer_box_title" i18n="osdSetupAlarmsTitle" ></div>

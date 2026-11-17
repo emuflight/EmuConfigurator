@@ -431,6 +431,11 @@ function startProcess() {
                 element.val(val.toFixed(decimal_places));
             }
         }
+
+        // remember the accepted value, so a later invalid edit in the same focus restores it and not the focus-time value
+        if (!isNaN(val)) {
+            element.data('previousValue', val);
+        }
     });
 
     GUI.initContentHeightFit();
