@@ -369,6 +369,11 @@ function startProcess() {
             37, 38, 39, 40, 13 // arrows and enter
         ];
 
+        // allow select all, copy, cut, paste, undo and redo shortcuts
+        if ((e.ctrlKey || e.metaKey) && !e.altKey && [65, 67, 86, 88, 89, 90].indexOf(e.keyCode) !== -1) {
+            return;
+        }
+
         if (whitelist.indexOf(e.keyCode) === -1) {
             e.preventDefault();
         }
@@ -410,6 +415,10 @@ function startProcess() {
                 element.val(element.data('previousValue'));
                 val = element.data('previousValue');
             }
+            // write the canonical integer back so pasted text (e.g. "5.0", "1e2") is not kept
+            if (!isNaN(val)) {
+                element.val(val);
+            }
         }
 
         // if step is set and is float and value is int, convert to float, keep decimal places in float according to step *experimental*
@@ -418,7 +427,7 @@ function startProcess() {
 
             if (val % 1 === 0) {
                 element.val(val.toFixed(decimal_places));
-            } else if (String(val).split('.')[1].length !== decimal_places) {
+            } else if ((String(val).split('.')[1] || '').length !== decimal_places) {
                 element.val(val.toFixed(decimal_places));
             }
         }

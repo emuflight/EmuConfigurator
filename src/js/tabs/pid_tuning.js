@@ -212,14 +212,14 @@ TABS.pid_tuning.initialize = function(callback) {
         //experimental expert-mode synchronize hidden Pitch/Yaw
         $('.pid_filter input[name="gyroLowpassFrequencyRoll"]').change(function() {
             if (!isExpertModeEnabled()) {
-                $('.pid_filter input[name="gyroLowpassFrequencyPitch"]').val(parseInt($('.pid_filter input[name="gyroLowpassFrequencyRoll"]').val()));
-                $('.pid_filter input[name="gyroLowpassFrequencyYaw"]').val(parseInt($('.pid_filter input[name="gyroLowpassFrequencyRoll"]').val()));
+                $('.pid_filter input[name="gyroLowpassFrequencyPitch"]').val(Math.trunc(parseFloat($('.pid_filter input[name="gyroLowpassFrequencyRoll"]').val())));
+                $('.pid_filter input[name="gyroLowpassFrequencyYaw"]').val(Math.trunc(parseFloat($('.pid_filter input[name="gyroLowpassFrequencyRoll"]').val())));
             }
         });
         $('.pid_filter input[name="dtermLowpassFrequencyRoll"]').change(function() {
             if (!isExpertModeEnabled()) {
-                $('.pid_filter input[name="dtermLowpassFrequencyPitch"]').val(parseInt($('.pid_filter input[name="dtermLowpassFrequencyRoll"]').val()));
-                $('.pid_filter input[name="dtermLowpassFrequencyYaw"]').val(parseInt($('.pid_filter input[name="dtermLowpassFrequencyRoll"]').val()));
+                $('.pid_filter input[name="dtermLowpassFrequencyPitch"]').val(Math.trunc(parseFloat($('.pid_filter input[name="dtermLowpassFrequencyRoll"]').val())));
+                $('.pid_filter input[name="dtermLowpassFrequencyYaw"]').val(Math.trunc(parseFloat($('.pid_filter input[name="dtermLowpassFrequencyRoll"]').val())));
             }
         });
 
