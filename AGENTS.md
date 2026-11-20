@@ -25,9 +25,9 @@ CI (`.github/workflows/build.yml`) runs `yarn install --frozen-lockfile`, `yarn 
 
 ## Tests
 
-Run `yarn test`. It uses the Node built-in runner on `test/unit/*.test.js`. `test/unit/harness.js` loads the browser-global scripts into a `vm` context, so pure MSP and version logic runs without Electron, jQuery or a DOM.
+Run `yarn test`. It uses the Node built-in runner on `test/unit/*.test.js`. `test/unit/harness.js` loads the browser-global scripts into a `vm` context, so pure MSP and version logic runs without Electron, jQuery or a DOM. Tab rendering and click handlers run in `jsdom` (`test/unit/auxiliary_dom.test.js`); run scripts with `vm.Script` in the jsdom context, not `eval`.
 
-The suite covers the API version gates and the `max_msp` ceiling. It does not cover serial I/O or firmware behavior; test those on a real FC and say so. Derive expected bytes from the MSP spec or firmware source, add at least one test that tries to break the logic, and do not edit a test to make it pass.
+The suite covers MSP decode and encode, the API version gates, the `max_msp` ceiling, and the Auxiliary tab. It does not cover serial I/O or firmware behavior; test those on a real FC and say so. Derive expected bytes from the MSP spec or firmware source, add at least one test that tries to break the logic, and do not edit a test to make it pass.
 
 `yarn test:karma` runs the browser-DOM tests (`test/CliAutoComplete.js`, `test/tabs/cli.js`) with Karma, Mocha, Chai 4, Sinon and Sinon-Chai 3 in headless Chrome. It needs Chrome on the machine (set `CHROME_BIN` if it is not found). Chai 5 and Sinon-Chai 4 are ESM-only and do not load in Karma. `test/karma.conf.js` excludes `test/unit/`. Neither runner is part of CI.
 
