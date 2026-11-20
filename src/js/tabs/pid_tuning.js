@@ -66,6 +66,34 @@ TABS.pid_tuning.initialize = function(callback) {
         MSP.send_message(MSPCodes.MSP_MIXER_CONFIG, false, false, load_html);
     });
 
+    // Copy a roll value to the hidden pitch and yaw inputs (expert mode off).
+    // This handler runs before the delegated clamp in main.js, so clamp here to the roll input's own bounds.
+    function syncRollToPitchYaw(rollName, pitchName, yawName) {
+        if (isExpertModeEnabled()) {
+            return;
+        }
+        var roll = $('.pid_filter input[name="' + rollName + '"]');
+        var val = parseFloat(roll.val());
+        if (isNaN(val)) {
+            return;
+        }
+        // same order as the delegated validator in main.js: clamp first, then reject fractions
+        var min = parseFloat(roll.prop('min'));
+        var max = parseFloat(roll.prop('max'));
+        if (!isNaN(min) && val < min) {
+            val = min;
+        }
+        if (!isNaN(max) && val > max) {
+            val = max;
+        }
+        // the validator restores the previous value for a fraction, so keep pitch/yaw as they are
+        if (val % 1 !== 0) {
+            return;
+        }
+        $('.pid_filter input[name="' + pitchName + '"]').val(val);
+        $('.pid_filter input[name="' + yawName + '"]').val(val);
+    }
+
     function load_html() {
         $('#content').load("./tabs/pid_tuning.html", process_html);
     }
@@ -211,16 +239,10 @@ TABS.pid_tuning.initialize = function(callback) {
 
         //experimental expert-mode synchronize hidden Pitch/Yaw
         $('.pid_filter input[name="gyroLowpassFrequencyRoll"]').change(function() {
-            if (!isExpertModeEnabled()) {
-                $('.pid_filter input[name="gyroLowpassFrequencyPitch"]').val(parseInt($('.pid_filter input[name="gyroLowpassFrequencyRoll"]').val()));
-                $('.pid_filter input[name="gyroLowpassFrequencyYaw"]').val(parseInt($('.pid_filter input[name="gyroLowpassFrequencyRoll"]').val()));
-            }
+            syncRollToPitchYaw('gyroLowpassFrequencyRoll', 'gyroLowpassFrequencyPitch', 'gyroLowpassFrequencyYaw');
         });
         $('.pid_filter input[name="dtermLowpassFrequencyRoll"]').change(function() {
-            if (!isExpertModeEnabled()) {
-                $('.pid_filter input[name="dtermLowpassFrequencyPitch"]').val(parseInt($('.pid_filter input[name="dtermLowpassFrequencyRoll"]').val()));
-                $('.pid_filter input[name="dtermLowpassFrequencyYaw"]').val(parseInt($('.pid_filter input[name="dtermLowpassFrequencyRoll"]').val()));
-            }
+            syncRollToPitchYaw('dtermLowpassFrequencyRoll', 'dtermLowpassFrequencyPitch', 'dtermLowpassFrequencyYaw');
         });
 
         $('#pid-tuning .rate').text(i18n.getMessage("pidTuningSuperRate"));
@@ -396,16 +418,10 @@ TABS.pid_tuning.initialize = function(callback) {
 
         //experimental expert-mode synchronize hidden Pitch/Yaw
         $('.pid_filter input[name="gyroLowpass2FrequencyRoll"]').change(function() {
-            if (!isExpertModeEnabled()) {
-                $('.pid_filter input[name="gyroLowpass2FrequencyPitch"]').val(parseInt($('.pid_filter input[name="gyroLowpass2FrequencyRoll"]').val()));
-                $('.pid_filter input[name="gyroLowpass2FrequencyYaw"]').val(parseInt($('.pid_filter input[name="gyroLowpass2FrequencyRoll"]').val()));
-            }
+            syncRollToPitchYaw('gyroLowpass2FrequencyRoll', 'gyroLowpass2FrequencyPitch', 'gyroLowpass2FrequencyYaw');
         });
         $('.pid_filter input[name="dtermLowpass2FrequencyRoll"]').change(function() {
-            if (!isExpertModeEnabled()) {
-                $('.pid_filter input[name="dtermLowpass2FrequencyPitch"]').val(parseInt($('.pid_filter input[name="dtermLowpass2FrequencyRoll"]').val()));
-                $('.pid_filter input[name="dtermLowpass2FrequencyYaw"]').val(parseInt($('.pid_filter input[name="dtermLowpass2FrequencyRoll"]').val()));
-            }
+            syncRollToPitchYaw('dtermLowpass2FrequencyRoll', 'dtermLowpass2FrequencyPitch', 'dtermLowpass2FrequencyYaw');
         });
 
         //sharpness allows off 0 in msp 1.49
@@ -494,19 +510,13 @@ TABS.pid_tuning.initialize = function(callback) {
 
             //experimental expert-mode synchronize hidden Pitch/Yaw
             $('.pid_filter input[name="imuf_roll_q"]').change(function() {
-                if (!isExpertModeEnabled()) {
-                    $('.pid_filter input[name="imuf_pitch_q"]').val(parseInt($('.pid_filter input[name="imuf_roll_q"]').val()));
-                    $('.pid_filter input[name="imuf_yaw_q"]').val(parseInt($('.pid_filter input[name="imuf_roll_q"]').val()));
-                }
+                syncRollToPitchYaw('imuf_roll_q', 'imuf_pitch_q', 'imuf_yaw_q');
             });
 
               //experimental expert-mode synchronize hidden Pitch/Yaw
               $('.pid_filter input[name="imuf_roll_lpf_cutoff_hz"]').change(function() {
-                  if (!isExpertModeEnabled()) {
-                      $('.pid_filter input[name="imuf_pitch_lpf_cutoff_hz"]').val(parseInt($('.pid_filter input[name="imuf_roll_lpf_cutoff_hz"]').val()));
-                      $('.pid_filter input[name="imuf_yaw_lpf_cutoff_hz"]').val(parseInt($('.pid_filter input[name="imuf_roll_lpf_cutoff_hz"]').val()));
-                  }
-              });
+                syncRollToPitchYaw('imuf_roll_lpf_cutoff_hz', 'imuf_pitch_lpf_cutoff_hz', 'imuf_yaw_lpf_cutoff_hz');
+            });
 
             // Feathered PIDs
             if (semver.gte(CONFIG.apiVersion, "1.42.0")) {
