@@ -676,13 +676,11 @@ function usbTransferBuffer(result) {
   return Buffer.from(result.data.buffer, result.data.byteOffset, result.data.byteLength);
 }
 
-ipcMain.handle('usb-list-dfu', async () => {
+ipcMain.handle('usb-list-dfu', async (event, filters) => {
   try {
     const { usb } = require('usb');
-    const DFU_IDS = [
-      { vendorId: 0x0483, productId: 0xDF11 },
-      { vendorId: 0x2DAE, productId: 0x0003 },
-    ];
+    // The renderer owns the ID list (port_handler.js usbDevices); no second table here.
+    const DFU_IDS = Array.isArray(filters) ? filters : [];
 
     const devices = await usb.getDevices();
     return devices
