@@ -111,3 +111,65 @@ test('option byte read keeps the full region when it fits one transfer (STM32)',
     assert.equal(optionByteUploadLength(16, 2048), 16);
     assert.equal(optionByteUploadLength(2048, 2048), 2048);
 });
+
+// Scripts the bootloader's replies to the option byte read and returns what the flasher did next.
+// reply: { uploadLength, status, error }. A DNLOAD of [0x92] is the read unprotect command.
+function optionByteOutcome(reply) {
+    const ctx = createContext(['src/js/protocols/stm32usbdfu.js'], {
+        console: { log() {}, warn() {}, error() {}, debug() {} },
+        GUI: { log() {} },
+        i18n: { getMessage() { return ''; } },
+        TABS: { firmware_flasher: {
+            FLASH_MESSAGE_TYPES: {},
+            flashingMessage() { return this; },
+            flashProgress() { return this; },
+        } },
+    });
+    ctx.reply = reply;
+    return JSON.parse(run(ctx, `(function () {
+        var dfu = new STM32DFU_protocol();
+        var next = [];
+        var unprotect = false;
+        var orig = dfu.upload_procedure;
+        dfu.chipInfo = { option_bytes: { start_address: 0x1FFFC000, total_size: 4096 } };
+        dfu.transferSize = 2048;
+        dfu.upload_procedure = function (step) {
+            if (step === 1) { return orig.call(dfu, 1); }
+            next.push(step);
+        };
+        dfu.clearStatus = function (cb) { cb(); };
+        dfu.loadAddress = function (addr, cb) { cb([0, 0, 0, 0, dfu.state.dfuDNLOAD_IDLE, 0]); };
+        dfu.controlTransfer = function (dir, req) {
+            var cb = arguments[arguments.length - 1];
+            if (req === dfu.request.UPLOAD) {
+                cb(new Array(reply.uploadLength).fill(0), reply.error || 0);
+            } else if (req === dfu.request.GETSTATUS) {
+                cb([0, 0, 0, 0, reply.status, 0]);
+            } else if (req === dfu.request.DNLOAD) {
+                unprotect = true; // do not answer: the unprotect wait loop must not run
+            }
+        };
+        dfu.upload_procedure(1);
+        return JSON.stringify({ next: next, unprotect: unprotect });
+    })()`));
+}
+
+test('option byte read: full 2048-byte reply and UPLOAD_IDLE continues to erase, no unprotect', () => {
+    const out = optionByteOutcome({ uploadLength: 2048, status: 0x09 }); // 0x09 = dfuUPLOAD_IDLE
+    assert.deepEqual(out, { next: [2], unprotect: false });
+});
+
+test('option byte read: a short reply is treated as read protected and sends unprotect', () => {
+    const out = optionByteOutcome({ uploadLength: 16, status: 0x09 });
+    assert.deepEqual(out, { next: [], unprotect: true });
+});
+
+test('option byte read: full reply but a status other than UPLOAD_IDLE sends unprotect', () => {
+    const out = optionByteOutcome({ uploadLength: 2048, status: 0x0A }); // 0x0A = dfuERROR
+    assert.deepEqual(out, { next: [], unprotect: true });
+});
+
+test('option byte read: a USB transfer error aborts without unprotect', () => {
+    const out = optionByteOutcome({ uploadLength: 0, status: 0x09, error: 1 });
+    assert.deepEqual(out, { next: [99], unprotect: false });
+});
