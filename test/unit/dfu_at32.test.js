@@ -130,6 +130,7 @@ function optionByteOutcome(reply) {
         var dfu = new STM32DFU_protocol();
         var next = [];
         var unprotect = false;
+        var payload = null;
         var orig = dfu.upload_procedure;
         dfu.chipInfo = { option_bytes: { start_address: 0x1FFFC000, total_size: 4096 } };
         dfu.transferSize = 2048;
@@ -144,32 +145,38 @@ function optionByteOutcome(reply) {
             if (req === dfu.request.UPLOAD) {
                 cb(new Array(reply.uploadLength).fill(0), reply.error || 0);
             } else if (req === dfu.request.GETSTATUS) {
-                cb([0, 0, 0, 0, reply.status, 0]);
+                if (reply.statusError) { cb([], reply.statusError); } else { cb([0, 0, 0, 0, reply.status, 0]); }
             } else if (req === dfu.request.DNLOAD) {
                 unprotect = true; // do not answer: the unprotect wait loop must not run
+                payload = Array.prototype.slice.call(arguments[5]);
             }
         };
         dfu.upload_procedure(1);
-        return JSON.stringify({ next: next, unprotect: unprotect });
+        return JSON.stringify({ next: next, unprotect: unprotect, payload: payload });
     })()`));
 }
 
 test('option byte read: full 2048-byte reply and UPLOAD_IDLE continues to erase, no unprotect', () => {
     const out = optionByteOutcome({ uploadLength: 2048, status: 0x09 }); // 0x09 = dfuUPLOAD_IDLE
-    assert.deepEqual(out, { next: [2], unprotect: false });
+    assert.deepEqual(out, { next: [2], unprotect: false, payload: null });
 });
 
 test('option byte read: a short reply is treated as read protected and sends unprotect', () => {
     const out = optionByteOutcome({ uploadLength: 16, status: 0x09 });
-    assert.deepEqual(out, { next: [], unprotect: true });
+    assert.deepEqual(out, { next: [], unprotect: true, payload: [0x92] });
 });
 
 test('option byte read: full reply but a status other than UPLOAD_IDLE sends unprotect', () => {
     const out = optionByteOutcome({ uploadLength: 2048, status: 0x0A }); // 0x0A = dfuERROR
-    assert.deepEqual(out, { next: [], unprotect: true });
+    assert.deepEqual(out, { next: [], unprotect: true, payload: [0x92] });
 });
 
 test('option byte read: a USB transfer error aborts without unprotect', () => {
     const out = optionByteOutcome({ uploadLength: 0, status: 0x09, error: 1 });
-    assert.deepEqual(out, { next: [99], unprotect: false });
+    assert.deepEqual(out, { next: [99], unprotect: false, payload: null });
+});
+
+test('option byte read: a failed GETSTATUS transfer aborts without unprotect', () => {
+    const out = optionByteOutcome({ uploadLength: 2048, statusError: 1 });
+    assert.deepEqual(out, { next: [99], unprotect: false, payload: null });
 });

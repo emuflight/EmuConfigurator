@@ -781,7 +781,12 @@ STM32DFU_protocol.prototype.upload_procedure = function (step) {
 				self.upload_procedure(99);
 				return;
 			}
-			self.controlTransfer('in', self.request.GETSTATUS, 0, 0, 6, 0, function (data) {
+			self.controlTransfer('in', self.request.GETSTATUS, 0, 0, 6, 0, function (data, statusErr) {
+				if (statusErr) { // a failed status read says nothing about read protection, so never unprotect on it
+					console.log('USB transfer error while reading option bytes status: ' + statusErr);
+					self.upload_procedure(99);
+					return;
+				}
 				if (data[4] === self.state.dfuUPLOAD_IDLE && ob_data.length === ob_length) {
 					console.log('Option bytes read successfully');
 					console.log('Chip does not appear read protected');
