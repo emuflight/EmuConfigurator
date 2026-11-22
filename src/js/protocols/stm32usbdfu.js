@@ -446,7 +446,10 @@ STM32DFU_protocol.prototype.getChipInfo = function (_interface, callback) {
 	    return memory;
 	}
 	var chipInfo = descriptors.map(parseDescriptor).reduce(function(o, v, i) {
-		o[v.type.toLowerCase().replace(' ', '_')] = v;
+		var key = v.type.toLowerCase().replace(' ', '_');
+		// AT32 reports "Option byte", STM32 "Option Bytes"; upload_procedure reads option_bytes
+		if (key === 'option_byte') { key = 'option_bytes'; }
+		o[key] = v;
 		return o;
 	}, {});
         callback(chipInfo, resultCode);
@@ -770,14 +773,16 @@ STM32DFU_protocol.prototype.upload_procedure = function (step) {
 
 		var tryReadOB = function() {
 		    // the following should fail if read protection is active
-	            self.controlTransfer('in', self.request.UPLOAD, 2, 0, self.chipInfo.option_bytes.total_size, 0, function (ob_data, errcode) {
+		    // a bootloader returns at most wTransferSize per UPLOAD; a short reply would look read protected and trigger unprotect
+		    var ob_length = Math.min(self.chipInfo.option_bytes.total_size, self.transferSize);
+	            self.controlTransfer('in', self.request.UPLOAD, 2, 0, ob_length, 0, function (ob_data, errcode) {
 			if(errcode) {
-				console.log('USB transfer error while reading option bytes: ' + errcode1);
+				console.log('USB transfer error while reading option bytes: ' + errcode);
 				self.upload_procedure(99);
 				return;
 			}
 			self.controlTransfer('in', self.request.GETSTATUS, 0, 0, 6, 0, function (data) {
-				if (data[4] === self.state.dfuUPLOAD_IDLE && ob_data.length === self.chipInfo.option_bytes.total_size) {
+				if (data[4] === self.state.dfuUPLOAD_IDLE && ob_data.length === ob_length) {
 					console.log('Option bytes read successfully');
 					console.log('Chip does not appear read protected');
 					GUI.log(i18n.getMessage('stm32NotReadProtected'));
