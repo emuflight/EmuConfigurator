@@ -296,7 +296,7 @@ const chromeUsb = {
     _handleCounter: 0,
 
     getDevices: function (filters, callback) {
-        ipcRenderer.invoke('usb-list-dfu').then(function (devices) {
+        ipcRenderer.invoke('usb-list-dfu', filters && filters.filters).then(function (devices) {
             // devices is array of { device, vendorId, productId, ... }
             callback(devices);
         }).catch(function () { callback([]); });
