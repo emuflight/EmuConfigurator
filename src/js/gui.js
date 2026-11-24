@@ -15,7 +15,8 @@ var GUI_control = function () {
     this.operating_system;
     this.interval_array = [];
     this.timeout_array = [];
-    this.tooltips = []; // jBox tooltip instances created by initTooltips()
+    this.tooltips = []; // jBox tooltip instances of the current tab content, made by initTooltips()
+    this.statusTooltipsReady = false;
 
     this.defaultAllowedTabsWhenDisconnected = [
         'landing',
@@ -382,21 +383,32 @@ GUI_control.prototype.initContentHeightFit = function () {
     self.fitContentHeight();
 };
 
-// Creates a jBox tooltip on every ".cf_tip" element and keeps the instances so destroyTooltips() can remove them.
+GUI_control.TOOLTIP_OPTIONS = {
+    delayOpen: 100,
+    delayClose: 100,
+    position: {
+        x: 'right',
+        y: 'center'
+    },
+    outside: 'x'
+};
+
+// Creates a jBox tooltip on every ".cf_tip" element. Elements inside #content belong to the tab: the instances
+// are kept so destroyTooltips() can remove them. The status bar icons outside #content stay for the whole
+// session, so they get one instance, once. jBox's detach() does not remove its mouseleave handler, so
+// attaching a new instance on every content load would pile up handlers on those icons.
 GUI_control.prototype.initTooltips = function () {
     this.destroyTooltips(); // instances of a previous content load must not stay behind
     const self = this;
-    $('.cf_tip').each(function () {
-        self.tooltips.push($(this).jBox('Tooltip', {
-            delayOpen: 100,
-            delayClose: 100,
-            position: {
-                x: 'right',
-                y: 'center'
-            },
-            outside: 'x'
-        }));
+    $('#content .cf_tip').each(function () {
+        self.tooltips.push($(this).jBox('Tooltip', GUI_control.TOOLTIP_OPTIONS));
     });
+    if (!this.statusTooltipsReady) {
+        $('.cf_tip').not('#content .cf_tip').each(function () {
+            $(this).jBox('Tooltip', GUI_control.TOOLTIP_OPTIONS);
+        });
+        this.statusTooltipsReady = true;
+    }
 };
 
 // Closes and destroys every tooltip made by initTooltips(), including a popup that is open or still waiting

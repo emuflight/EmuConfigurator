@@ -5,7 +5,7 @@ const { createContext, run } = require('./harness');
 
 // Loads the real gui.js. jBox needs a browser DOM, which this harness lacks, so jBox and jQuery are fakes
 // that record calls. They model the documented jBox behavior: a popup lives in <body> until destroy().
-function load() {
+function load(statusIcons) {
     const ctx = createContext(['src/js/gui.js'], {
         console: { log() {}, warn() {}, error() {}, debug() {} },
         MSP: { callbacks_cleanup() {} },
@@ -14,6 +14,7 @@ function load() {
         window: {},
     });
     run(ctx, `
+        var STATUS = ${statusIcons || 0};
         var body = { popups: 0 };
         var made = [];
         function makeTip() {
@@ -35,11 +36,16 @@ function load() {
         function $(sel) {
             if (typeof sel === 'function') { return $; }
             return {
-                each: function (fn) { for (var i = 0; i < $.count; i++) { fn.call({}); } },
+                not: function () { return $('#status'); },
+                each: function (fn) {
+                    var n = sel === '#status' ? $.statusCount : (sel === '#content .cf_tip' ? $.count : 0);
+                    for (var i = 0; i < n; i++) { fn.call({}); }
+                },
                 jBox: function () { return makeTip(); },
             };
         }
         $.count = 3;
+        $.statusCount = STATUS;
         GUI.switchery = function () {};
         GUI.fitContentHeight = function () {};
         GUI.interval_kill_all = function () {};
@@ -77,6 +83,14 @@ test('content_ready twice does not leak instances of the first load', () => {
     assert.equal(run(ctx, 'made.length'), 6);
     assert.equal(run(ctx, 'GUI.tooltips.length'), 3);
     assert.equal(run(ctx, 'made.slice(0, 3).every(function (t) { return t.destroyed; })'), true);
+});
+
+test('status bar icons outside #content get one instance and survive tab cleanup', () => {
+    const ctx = load(2);
+    run(ctx, 'GUI.content_ready(); GUI.tab_switch_cleanup(function () {}); GUI.content_ready(); GUI.content_ready();');
+    // 3 tab tooltips per load x 3 loads + 2 status icons once
+    assert.equal(run(ctx, 'made.length'), 11);
+    assert.equal(run(ctx, 'made.filter(function (t) { return !t.destroyed; }).length'), 5);
 });
 
 test('cleanup with no tooltips and repeated cleanup do not throw', () => {
