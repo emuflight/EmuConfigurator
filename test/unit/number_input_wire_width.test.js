@@ -48,8 +48,8 @@ const WIRE = {
 function numberInputs(tab) {
     const html = fs.readFileSync(path.join(ROOT, 'src', 'tabs', tab + '.html'), 'utf8');
     const result = [];
-    for (const m of html.matchAll(/<input\b[^>]*type="number"[^>]*>/g)) {
-        const attr = (n) => { const a = new RegExp('\\b' + n + '="([^"]*)"').exec(m[0]); return a ? a[1] : null; };
+    for (const m of html.matchAll(/<input\b[^>]*type=["']number["'][^>]*>/g)) {
+        const attr = (n) => { const a = new RegExp('\\b' + n + '=["\']([^"\']*)["\']').exec(m[0]); return a ? a[1] : null; };
         result.push({ name: attr('name') || attr('id'), min: attr('min'), max: attr('max') });
     }
     return result;

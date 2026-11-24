@@ -2563,6 +2563,14 @@ TABS.osd.initialize = function (callback) {
                     // Hide custom if not used
                     $('.osdfont-selector option[value=-1]').toggle(parseInt(osdFontSelector_e.val(), 10) === -1);
 
+                    // reset fields that somehow end up off the screen, before the position inputs take their value
+                    OSD.data.display_size.total = OSD.data.display_size.x * OSD.data.display_size.y;
+                    for (let field of OSD.data.display_items) {
+                        if (field.position >= OSD.data.display_size.total) {
+                            field.position = 0;
+                        }
+                    }
+
                     // display fields on/off and position
                     var $displayFields = $('#element-fields').empty();
                     var enabledCount = 0;
@@ -2647,13 +2655,6 @@ TABS.osd.initialize = function (callback) {
                     GUI.switchery();
                     // buffer the preview
                     OSD.data.preview = [];
-                    OSD.data.display_size.total = OSD.data.display_size.x * OSD.data.display_size.y;
-                    for (let field of OSD.data.display_items) {
-                        // reset fields that somehow end up off the screen
-                        if (field.position > OSD.data.display_size.total) {
-                            field.position = 0;
-                        }
-                    }
                     // clear the buffer
                     for (var i = 0; i < OSD.data.display_size.total; i++) {
                         OSD.data.preview.push([null, ' '.charCodeAt(0), null, null]);
