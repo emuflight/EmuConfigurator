@@ -2614,8 +2614,12 @@ TABS.osd.initialize = function (callback) {
                         let finalFieldName = titleizeField(field);
                         $field.append('<label for="' + field.name + '" class="char-label">' + finalFieldName + '</label>');
                         if (field.positionable && field.isVisible[OSD.getCurrentPreviewProfile()]) {
+                            // AUTO uses the PAL grid, same as OSD.updateDisplaySize
+                            var positionVideoType = OSD.constants.VIDEO_TYPES[OSD.data.video_system];
+                            var positionLimit = $('.osd-input-limits input[data-limit="position-' + (positionVideoType === 'AUTO' ? 'PAL' : positionVideoType) + '"]');
                             $field.append(
                                 $('<input type="number" class="' + field.index + ' position"></input>')
+                                    .attr({ min: positionLimit.attr('min'), max: positionLimit.attr('max') })
                                     .data('field', field)
                                     .val(field.position)
                                     .change($.debounce(250, function (e) {
