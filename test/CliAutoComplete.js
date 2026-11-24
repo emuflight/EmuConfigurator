@@ -125,15 +125,38 @@ describe('CliAutoComplete firmware drain window', () => {
         CliAutoComplete.setFirmwareDraining(false);
     });
 
-    it('cleanup hands queued Enters to the submitter', () => {
+    it('switching autocomplete off during a request waits for the request, then runs queued Enters', () => {
+        const submit = sinon.stub();
+        const savedActive = CONFIGURATOR.cliActive, savedValid = CONFIGURATOR.cliValid;
+        CONFIGURATOR.cliActive = true;
+        CONFIGURATOR.cliValid = true;
+        CliAutoComplete.setCommandSubmitter(submit);
+        CliAutoComplete.configEnabled = true;
+        CliAutoComplete.fw = { timer: null, result: {}, orig: '' };
+        CliAutoComplete.queueFirmwareEnter('status');
+
+        CliAutoComplete.setEnabled(false);
+        expect(CliAutoComplete.fw).to.not.equal(null); // request not torn down
+        expect(submit).to.not.have.been.called;
+
+        CliAutoComplete._fwDone();
+
+        expect(submit).to.have.been.calledOnceWith(['status']);
+        expect(CliAutoComplete.isFirmwareBusy()).to.equal(false);
+        expect(CliAutoComplete.isFirmwareDraining()).to.equal(true); // the request echo is still dropped
+        CliAutoComplete.setCommandSubmitter(null);
+        CONFIGURATOR.cliActive = savedActive;
+        CONFIGURATOR.cliValid = savedValid;
+    });
+
+    it('cleanup drops queued Enters (tab close)', () => {
         const submit = sinon.stub();
         CliAutoComplete.setCommandSubmitter(submit);
         CliAutoComplete.queueFirmwareEnter('status');
-        CliAutoComplete.queueFirmwareEnter('save');
 
         CliAutoComplete.cleanup();
 
-        expect(submit).to.have.been.calledOnceWith(['status', 'save']);
+        expect(submit).to.not.have.been.called;
         expect(CliAutoComplete.fwEnterQueue).to.deep.equal([]);
         CliAutoComplete.setCommandSubmitter(null);
     });

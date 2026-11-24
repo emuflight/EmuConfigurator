@@ -379,6 +379,34 @@ describe('TABS.cli', () => {
             });
         });
 
+        it('a line settles once when its send callback runs and the send then throws', done => {
+            sinon.stub(console, 'error');
+            let pendingWhenSecondSends = null;
+            TABS.cli.send.callsFake((line, callback) => {
+                if (line === 'b\n') { pendingWhenSecondSends = TABS.cli.pendingCommandLines; }
+                callback();
+                throw new Error('late');
+            });
+
+            TABS.cli.initialize(() => {
+                cliPrompt.val('a');
+                triggerEnterKey(cliPrompt);
+                cliPrompt.val('b');
+                triggerEnterKey(cliPrompt);
+
+                setTimeout(() => {
+                    console.error.restore();
+                    try {
+                        expect(pendingWhenSecondSends).to.equal(1); // only line b is still unsent
+                        expect(TABS.cli.pendingCommandLines).to.equal(0);
+                        done();
+                    } catch (e) {
+                        done(e);
+                    }
+                }, 300);
+            });
+        });
+
         it('history recall drops the firmware candidates of the replaced line', done => {
             TABS.cli.initialize(() => {
                 TABS.cli.history.add('dma UART_TX 1');
@@ -411,13 +439,15 @@ describe('TABS.cli', () => {
             });
         });
 
-        it('queued Enter runs when autocomplete is cleaned up mid-session', done => {
+        it('queued Enter runs when autocomplete is switched off mid-request', done => {
             TABS.cli.initialize(() => {
                 CONFIGURATOR.cliValid = true;
-                CliAutoComplete.fw = { timer: null, phase: 'clear', line: '', sendRaw: () => {} };
+                CliAutoComplete.configEnabled = true;
+                CliAutoComplete.fw = { timer: null, phase: 'clear', line: '', orig: '', result: {}, sendRaw: () => {} };
                 CliAutoComplete.queueFirmwareEnter('status');
 
-                CliAutoComplete.cleanup();
+                CliAutoComplete.setEnabled(false);
+                CliAutoComplete._fwDone();
 
                 afterSend(done, () => {
                     expect(TABS.cli.send).to.have.been.calledWith('status\n');

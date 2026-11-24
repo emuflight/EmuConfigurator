@@ -125,14 +125,21 @@ TABS.cli.initialize = function (callback, nwGui) {
             return new Promise(function (resolve) {
                 // A step that throws must still settle its promise: a pending one stalls every
                 // later submission until the CLI tab is reopened.
+                let settled = false;
+                const settle = function (nextDelay) {
+                    if (!settled) { // a line counts once, whatever path ends it
+                        settled = true;
+                        lineDone();
+                        resolve(nextDelay);
+                    }
+                };
                 const guarded = function (step) {
                     return function () {
                         try {
                             step();
                         } catch (e) {
                             console.error('[cli] command line failed:', e);
-                            lineDone();
-                            resolve(0);
+                            settle(0);
                         }
                     };
                 };
@@ -142,8 +149,7 @@ TABS.cli.initialize = function (callback, nwGui) {
                 // aborts the chain cleanly if the CLI session actually ends.
                 setTimeout(guarded(function () {
                     if (!CONFIGURATOR.cliActive || session !== self.cliSession) {
-                        lineDone();
-                        resolve(0);
+                        settle(0);
                         return;
                     }
                     var processingDelay = self.lineDelayMs;
@@ -158,8 +164,7 @@ TABS.cli.initialize = function (callback, nwGui) {
                     const sendNow = function () {
                         if (!CONFIGURATOR.cliActive || session !== self.cliSession) {
                             // the CLI session closed while this line waited: send nothing
-                            lineDone();
-                            resolve(0);
+                            settle(0);
                             return;
                         }
                         if (CliAutoComplete.isFirmwareBusy()) {
@@ -171,8 +176,7 @@ TABS.cli.initialize = function (callback, nwGui) {
                         // slow link delays the echo of the finished completion request
                         CliAutoComplete.setFirmwareDraining(false);
                         self.sendLine(line, function () {
-                            lineDone();
-                            resolve(processingDelay);
+                            settle(processingDelay);
                         });
                     };
                     guarded(sendNow)();
@@ -189,6 +193,7 @@ TABS.cli.initialize = function (callback, nwGui) {
             return Promise.resolve();
         }
         const session = self.cliSession;
+        self.nativeCompletePending = false; // a submission ends any native Tab request
         self.pendingCommandLines = (self.pendingCommandLines || 0) + out_string.split("\n").length;
         self.commandQueue = (self.commandQueue || Promise.resolve()).then(function () {
             return session === self.cliSession ? runCommands(out_string) : undefined;
