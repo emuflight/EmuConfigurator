@@ -676,6 +676,38 @@ function usbTransferBuffer(result) {
   return Buffer.from(result.data.buffer, result.data.byteOffset, result.data.byteLength);
 }
 
+// String descriptors (serial, manufacturer, product) come from usb@3.x getters
+// that read them from the OS cache or open the device briefly. A getter throws
+// when the OS denies access (for example a missing udev rule on Linux) or the
+// device never answers the string request; a missing descriptor reads as null.
+// DFU bootloaders often lack a serial string. Every failure maps to ''. The
+// result is cached per device key so the renderer's polling does not reopen
+// the device on every call. A replug gets a new key.
+const _usbDescriptorCache = new Map();
+
+function usbReadString(device, property) {
+  try {
+    const value = device[property];
+    return typeof value === 'string' ? value : '';
+  } catch (e) {
+    return '';
+  }
+}
+
+function usbDescriptorStrings(device) {
+  const key = usbKeyFromDevice(device);
+  let strings = _usbDescriptorCache.get(key);
+  if (!strings) {
+    strings = {
+      serialNumber: usbReadString(device, 'serialNumber'),
+      manufacturer: usbReadString(device, 'manufacturerName'),
+      product: usbReadString(device, 'productName'),
+    };
+    _usbDescriptorCache.set(key, strings);
+  }
+  return strings;
+}
+
 ipcMain.handle('usb-list-dfu', async (event, filters) => {
   try {
     const { usb } = require('usb');
@@ -683,16 +715,21 @@ ipcMain.handle('usb-list-dfu', async (event, filters) => {
     const DFU_IDS = Array.isArray(filters) ? filters : [];
 
     const devices = await usb.getDevices();
-    return devices
-      .filter((d) => DFU_IDS.some((id) => id.vendorId === d.vendorId && id.productId === d.productId))
-      .map((d) => ({
-        device: usbKeyFromDevice(d),
-        vendorId: d.vendorId,
-        productId: d.productId,
-        serialNumber: '',
-        manufacturer: '',
-        product: '',
-      }));
+    const matches = devices
+      .filter((d) => DFU_IDS.some((id) => id.vendorId === d.vendorId && id.productId === d.productId));
+    // Drop cache entries of devices that are gone.
+    const present = new Set(matches.map(usbKeyFromDevice));
+    for (const key of _usbDescriptorCache.keys()) {
+      if (!present.has(key)) {
+        _usbDescriptorCache.delete(key);
+      }
+    }
+    return matches.map((d) => ({
+      device: usbKeyFromDevice(d),
+      vendorId: d.vendorId,
+      productId: d.productId,
+      ...usbDescriptorStrings(d),
+    }));
   } catch (e) {
     console.error('usb-list-dfu error:', e.message);
     return [];
