@@ -5,6 +5,8 @@ TABS.cli = {
     profileSwitchDelayMs: 1000,  //1 second
     outputHistory: "",
     cliBuffer: "",
+    validateText: "", // output before the CLI entry marker, kept across reads
+    nativeCompletePending: false, // a native Tab request awaits its reply
     GUI: {
         snippetPreviewWindow: null,
     },
@@ -35,9 +37,9 @@ function commandWithBackSpaces(command, buffer, noOfCharsToDelete) {
 
 function getCliCommand(command, cliBuffer) {
     const buffer = removePromptHash(cliBuffer);
-    const bufferRegex = new RegExp('^' + buffer, 'g');
-    if (command.match(bufferRegex)) {
-        return command.replace(bufferRegex, '');
+    // plain prefix test: the buffer holds raw board output and is not a pattern
+    if (command.startsWith(buffer)) {
+        return command.slice(buffer.length);
     }
 
     const noOfCharsToDelete = cliBufferCharsToDelete(command, buffer);
@@ -96,6 +98,8 @@ TABS.cli.initialize = function (callback, nwGui) {
 
     self.outputHistory = "";
     self.cliBuffer = "";
+    self.validateText = "";
+    self.nativeCompletePending = false;
 
     // nwGui variable is set in main.js
     const clipboardCopySupport = !(nwGui == null && !navigator.clipboard);
@@ -119,11 +123,24 @@ TABS.cli.initialize = function (callback, nwGui) {
         };
         return Promise.reduce(outputArray, function(delay, line, index) {
             return new Promise(function (resolve) {
+                // A step that throws must still settle its promise: a pending one stalls every
+                // later submission until the CLI tab is reopened.
+                const guarded = function (step) {
+                    return function () {
+                        try {
+                            step();
+                        } catch (e) {
+                            console.error('[cli] command line failed:', e);
+                            lineDone();
+                            resolve(0);
+                        }
+                    };
+                };
                 // Use native setTimeout instead of GUI.timeout_add so this chain
                 // is not killed by GUI.timeout_kill_all() on a transient disconnect
                 // (e.g. FC second-reboot after flash). The cliActive guard below
                 // aborts the chain cleanly if the CLI session actually ends.
-                setTimeout(function () {
+                setTimeout(guarded(function () {
                     if (!CONFIGURATOR.cliActive || session !== self.cliSession) {
                         lineDone();
                         resolve(0);
@@ -147,7 +164,7 @@ TABS.cli.initialize = function (callback, nwGui) {
                         }
                         if (CliAutoComplete.isFirmwareBusy()) {
                             // a completion request holds the firmware line buffer and swallows replies
-                            setTimeout(sendNow, 50);
+                            setTimeout(guarded(sendNow), 50);
                             return;
                         }
                         // from here on, bytes from the board are the reply to this line, unless a
@@ -158,8 +175,8 @@ TABS.cli.initialize = function (callback, nwGui) {
                             resolve(processingDelay);
                         });
                     };
-                    sendNow();
-                }, delay);
+                    guarded(sendNow)();
+                }), delay);
             })
         }, 0);
 }
@@ -175,6 +192,9 @@ TABS.cli.initialize = function (callback, nwGui) {
         self.pendingCommandLines = (self.pendingCommandLines || 0) + out_string.split("\n").length;
         self.commandQueue = (self.commandQueue || Promise.resolve()).then(function () {
             return session === self.cliSession ? runCommands(out_string) : undefined;
+        }).catch(function (e) {
+            // a rejected link must not skip every later submission
+            console.error('[cli] command queue error:', e);
         });
         return self.commandQueue;
     }
@@ -374,6 +394,7 @@ TABS.cli.initialize = function (callback, nwGui) {
                     return;
                 }
                 CliAutoComplete.clearFirmwareCandidates();
+                self.nativeCompletePending = false; // the line leaves the input
 
                 if (CliAutoComplete.isBuilding()) {
                     // Intentionally no-op: autocomplete table may be updating;
@@ -386,6 +407,11 @@ TABS.cli.initialize = function (callback, nwGui) {
             }
         });
 
+        // the user edits the line: the board's echo must not replace it any more
+        textarea.on('input', function () {
+            self.nativeCompletePending = false;
+        });
+
         textarea.keyup(function (event) {
             var keyUp = {38: true},
                 keyDown = {40: true};
@@ -394,12 +420,20 @@ TABS.cli.initialize = function (callback, nwGui) {
                 return; // disable history keys if autocomplete is open
             }
 
+            // a recalled line replaces the one the firmware candidates and a Tab reply belonged to
+            const recalled = function () {
+                CliAutoComplete.clearFirmwareCandidates();
+                self.nativeCompletePending = false;
+            };
+
             if (event.keyCode in keyUp) {
                 textarea.val(self.history.prev());
+                recalled();
             }
 
             if (event.keyCode in keyDown) {
                 textarea.val(self.history.next());
+                recalled();
             }
         });
 
@@ -488,7 +522,6 @@ TABS.cli.read = function (readInfo) {
     }
 
     var data = new Uint8Array(readInfo.data),
-        validateText = "",
         sequenceCharsToSkip = 0;
 
     for (var i = 0; i < data.length; i++) {
@@ -496,7 +529,8 @@ TABS.cli.read = function (readInfo) {
 
         if (!CONFIGURATOR.cliValid) {
             // Accumulate silently; MSP garbage before welcome message is not shown
-            validateText += currentChar;
+            // kept across reads: the serial link can split the entry marker between two chunks
+            this.validateText += currentChar;
             continue;
         }
 
@@ -553,10 +587,11 @@ TABS.cli.read = function (readInfo) {
 
     }
 
-    this.handleCliModeEntry(validateText);
+    this.handleCliModeEntry(this.validateText);
 
-    if (!CliAutoComplete.isEnabled())
-        // fallback to native autocomplete
+    if (!CliAutoComplete.isEnabled() && this.nativeCompletePending)
+        // native autocomplete: show the board's reply to the Tab request. Other output must not
+        // replace what the user is typing.
         { setPrompt(removePromptHash(this.cliBuffer)); }
 };
 
@@ -581,7 +616,7 @@ TABS.cli.handleCliModeEntry = function (validateText) {
         // this is to match the content of the history with what the user sees on this tab
         const lastLine = validateText.split("\n").pop();
         this.outputHistory = lastLine;
-        validateText = "";
+        this.validateText = "";
 
         if (CliAutoComplete.isEnabled() && !CliAutoComplete.isBuilding()) {
             // start building autoComplete
@@ -595,6 +630,7 @@ TABS.cli.sendLine = function (line, callback) {
 };
 
 TABS.cli.sendNativeAutoComplete = function (line, callback) {
+    this.nativeCompletePending = true; // the next board output is the reply to this request
     this.send(line + '\t', callback);
 };
 

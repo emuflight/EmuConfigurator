@@ -78,3 +78,63 @@ describe('CliAutoComplete resource strategy', () => {
         });
     });
 });
+
+describe('CliAutoComplete firmware drain window', () => {
+    let clock;
+
+    beforeEach(() => {
+        clock = sinon.useFakeTimers();
+        CliAutoComplete.$textarea = null;
+        CliAutoComplete.fwEnterQueue = [];
+    });
+
+    afterEach(() => {
+        CliAutoComplete.setFirmwareDraining(false);
+        clock.restore();
+    });
+
+    function finishRequest() {
+        CliAutoComplete.fw = { timer: null, result: {}, orig: '' };
+        CliAutoComplete._fwDone();
+    }
+
+    it('lasts 150 ms after a request ends', () => {
+        finishRequest();
+        clock.tick(149);
+        expect(CliAutoComplete.isFirmwareDraining()).to.equal(true);
+        clock.tick(2);
+        expect(CliAutoComplete.isFirmwareDraining()).to.equal(false);
+    });
+
+    it('a later request keeps its own full window', () => {
+        finishRequest();
+        clock.tick(100);
+        finishRequest(); // second window starts at t=100 and ends at t=250
+        clock.tick(60); // t=160: the first timer must not have ended it
+        expect(CliAutoComplete.isFirmwareDraining()).to.equal(true);
+        clock.tick(100);
+        expect(CliAutoComplete.isFirmwareDraining()).to.equal(false);
+    });
+
+    it('cleanup ends the window and leaves no timer behind', () => {
+        finishRequest();
+        CliAutoComplete.cleanup();
+        expect(CliAutoComplete.isFirmwareDraining()).to.equal(false);
+        CliAutoComplete.setFirmwareDraining(true); // a new window must not be ended by the old timer
+        clock.tick(200);
+        CliAutoComplete.setFirmwareDraining(false);
+    });
+
+    it('cleanup hands queued Enters to the submitter', () => {
+        const submit = sinon.stub();
+        CliAutoComplete.setCommandSubmitter(submit);
+        CliAutoComplete.queueFirmwareEnter('status');
+        CliAutoComplete.queueFirmwareEnter('save');
+
+        CliAutoComplete.cleanup();
+
+        expect(submit).to.have.been.calledOnceWith(['status', 'save']);
+        expect(CliAutoComplete.fwEnterQueue).to.deep.equal([]);
+        CliAutoComplete.setCommandSubmitter(null);
+    });
+});

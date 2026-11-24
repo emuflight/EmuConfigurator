@@ -110,6 +110,8 @@ CliAutoComplete.clearFirmwareCandidates = function() {
  * @param {boolean} on
  */
 CliAutoComplete.setFirmwareDraining = function(on) {
+    clearTimeout(this.fwDrainTimer); // one drain window at a time: a stale timer must not end a later one
+    this.fwDrainTimer = null;
     this.fwDraining = !!on;
 };
 
@@ -222,7 +224,7 @@ CliAutoComplete._fwDone = function() {
     this.fwEnterQueue = [];
     var self = this;
     this.setFirmwareDraining(true);
-    setTimeout(function() { self.setFirmwareDraining(false); }, 150);
+    this.fwDrainTimer = setTimeout(function() { self.setFirmwareDraining(false); }, 150);
     if (!this.$textarea) {
         return;
     }
@@ -286,6 +288,7 @@ CliAutoComplete.cleanup = function() {
         this.fw = null;
     }
     this.fwCandidates = null;
+    var enterTexts = this.fwEnterQueue || [];
     this.fwEnterQueue = [];
     this.setFirmwareDraining(false);
     this.strategies = null;
@@ -294,6 +297,11 @@ CliAutoComplete.cleanup = function() {
     }
     this.builder.state = 'reset';
     this.builder.numFails = 0;
+    if (enterTexts.length) {
+        // Enters the user submitted during a request are still owed to the board. The submitter
+        // drops them itself when the CLI session has ended.
+        this._fwReplayEnters(enterTexts);
+    }
 };
 
 CliAutoComplete._builderWatchdogTouch = function() {
