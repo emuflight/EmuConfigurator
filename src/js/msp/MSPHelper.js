@@ -1674,7 +1674,7 @@ MspHelper.prototype.crunch = function(code) {
                   .push8(PID_ADVANCED_CONFIG.use_unsyncedPwm)
                   .push8(PID_ADVANCED_CONFIG.fast_pwm_protocol)
                   .push16(PID_ADVANCED_CONFIG.motor_pwm_rate);
-            buffer.push16(PID_ADVANCED_CONFIG.digitalIdlePercent * 100);
+            buffer.push16(Math.round(PID_ADVANCED_CONFIG.digitalIdlePercent * 100));
             let gyroUse32kHzCrunch = PID_ADVANCED_CONFIG.gyroUse32kHz;
             buffer.push8(gyroUse32kHzCrunch);
             //MSP 1.54 - insert here to avoid new unnecessary MSP code
