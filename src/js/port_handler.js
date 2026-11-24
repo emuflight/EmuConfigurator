@@ -10,18 +10,16 @@ var usbDevices = { filters: [
 ] };
 
 // USB VID:PID pairs (lowercase hex, as reported by the serialport package) of
-// serial/VCP adapters used on flight controllers: ST VCP, GD32/AT32/APM32 VCP,
-// FTDI, CP210x, CH340/CH341 and RP2040 CDC. Used to rank candidates, never to
-// exclude: an FC with another VID:PID stays selectable.
+// the native USB VCP of the MCUs EmuFlight runs on: ST, GD32, AT32 and APM32.
+// Generic USB-serial adapters (FTDI, CP210x, CH340) are left out on purpose: the
+// same chips sit on GPS modules, radios and other non-FC devices, so a match
+// would not identify an FC. Used to rank candidates, never to exclude: an FC
+// with another VID:PID stays selectable.
 var FC_SERIAL_DEVICES = [
     ['0483', '5740'], // STM32 VCP
     ['28e9', '0189'], // GD32 VCP
     ['2e3c', '5740'], // AT32 VCP
-    ['314b', '0106'], // APM32 VCP
-    ['0403', '6001'], ['0403', '6010'], ['0403', '6014'], ['0403', '6015'], // FTDI
-    ['10c4', 'ea60'], // CP210x
-    ['1a86', '7523'], ['1a86', '7522'], ['1a86', '55d4'], // CH340/CH341
-    ['2e8a', '000a'] // RP2040 CDC
+    ['314b', '0106'] // APM32 VCP
 ];
 
 // Linux Bluetooth RFCOMM device paths -- excluded from auto-connect/auto-select

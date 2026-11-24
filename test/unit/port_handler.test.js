@@ -26,7 +26,7 @@ test('known FC VID:PID wins over another serial device in the same poll', () => 
 
 test('VID:PID match ignores hex case', () => {
     const out = candidates(['/dev/ttyUSB0', '/dev/ttyUSB1'],
-        { '/dev/ttyUSB0': { vendorId: '10C4', productId: 'EA60' }, '/dev/ttyUSB1': PHONE });
+        { '/dev/ttyUSB0': { vendorId: '28E9', productId: '0189' }, '/dev/ttyUSB1': PHONE });
     assert.deepEqual(out, ['/dev/ttyUSB0']);
 });
 
@@ -47,4 +47,10 @@ test('ports with no identity data behave as before', () => {
 test('Bluetooth RFCOMM stays excluded even with an FC VID:PID', () => {
     const out = candidates(['/dev/rfcomm0'], { '/dev/rfcomm0': STM });
     assert.deepEqual(out, []);
+});
+
+test('generic USB-serial adapter ID does not outrank an unlisted FC', () => {
+    const out = candidates(['/dev/ttyUSB0', '/dev/ttyACM0'],
+        { '/dev/ttyUSB0': { vendorId: '10c4', productId: 'ea60' }, '/dev/ttyACM0': PHONE });
+    assert.equal(out.length, 2);
 });
