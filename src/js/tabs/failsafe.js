@@ -281,13 +281,11 @@ TABS.failsafe.initialize = function (callback, scrollPosition) {
 
         // GPS Rescue needs the GPS feature. With GPS off, hide the option and show a notice.
         // The stored procedure value is left unchanged until the pilot picks another procedure.
-        if (!FEATURE_CONFIG.features.isEnabled('GPS')) {
-            $('.radioarea.pro4').not('.gpsRescueUnavailable').hide();
-            $('.gpsRescueUnavailable').show();
-            if (FAILSAFE_CONFIG.failsafe_procedure === 2) {
-                $('.gpsRescueProcedureWarning').show();
-            }
-        }
+        // Set both states explicitly: toggleStage2() above shows every div.stage2.
+        var gpsEnabled = FEATURE_CONFIG.features.isEnabled('GPS');
+        $('.radioarea.pro4').not('.gpsRescueUnavailable').toggle(gpsEnabled);
+        $('.gpsRescueUnavailable').toggle(!gpsEnabled);
+        $('.gpsRescueProcedureWarning').toggle(!gpsEnabled && FAILSAFE_CONFIG.failsafe_procedure === 2);
 
 
 
