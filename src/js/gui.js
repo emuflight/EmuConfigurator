@@ -15,6 +15,8 @@ var GUI_control = function () {
     this.operating_system;
     this.interval_array = [];
     this.timeout_array = [];
+    this.tooltips = []; // jBox tooltip instances of the current tab content, made by initTooltips()
+    this.statusTooltipsReady = false;
 
     this.defaultAllowedTabsWhenDisconnected = [
         'landing',
@@ -276,6 +278,9 @@ GUI_control.prototype.tab_switch_cleanup = function (callback) {
     // alone so the save completes instead of being abandoned by a tab switch (see issue #623).
     MSP.callbacks_cleanup();
     GUI.interval_kill_all(); // all intervals (mostly data pulling) needs to be removed on tab switch
+    // jBox appends each tooltip popup to <body>, outside the tab markup. Replacing the tab content does not
+    // remove it, so a popup open at that moment would stay on screen.
+    this.destroyTooltips();
 
     if (this.active_tab && TABS[this.active_tab]) {
         TABS[this.active_tab].cleanup(callback);
@@ -378,6 +383,44 @@ GUI_control.prototype.initContentHeightFit = function () {
     self.fitContentHeight();
 };
 
+GUI_control.TOOLTIP_OPTIONS = {
+    delayOpen: 100,
+    delayClose: 100,
+    position: {
+        x: 'right',
+        y: 'center'
+    },
+    outside: 'x'
+};
+
+// Creates a jBox tooltip on every ".cf_tip" element. Elements inside #content belong to the tab: the instances
+// are kept so destroyTooltips() can remove them. The status bar icons outside #content stay for the whole
+// session, so they get one instance, once. jBox's detach() does not remove its mouseleave handler, so
+// attaching a new instance on every content load would pile up handlers on those icons.
+GUI_control.prototype.initTooltips = function () {
+    this.destroyTooltips(); // instances of a previous content load must not stay behind
+    const self = this;
+    $('#content .cf_tip').each(function () {
+        self.tooltips.push($(this).jBox('Tooltip', GUI_control.TOOLTIP_OPTIONS));
+    });
+    if (!this.statusTooltipsReady) {
+        $('.cf_tip').not('#content .cf_tip').each(function () {
+            $(this).jBox('Tooltip', GUI_control.TOOLTIP_OPTIONS);
+        });
+        this.statusTooltipsReady = true;
+    }
+};
+
+// Closes and destroys every tooltip made by initTooltips(), including a popup that is open or still waiting
+// for its open delay. destroy() alone does not cancel a pending open timer.
+GUI_control.prototype.destroyTooltips = function () {
+    for (const tooltip of this.tooltips) {
+        tooltip.close({ ignoreDelay: true });
+        tooltip.destroy();
+    }
+    this.tooltips = [];
+};
+
 GUI_control.prototype.content_ready = function (callback) {
 
     this.fitContentHeight();
@@ -391,25 +434,7 @@ GUI_control.prototype.content_ready = function (callback) {
         documentationButton.attr("href","https://github.com/emuflight/EmuFlight/wiki");
     }
 
-    // loading tooltip
-    jQuery(document).ready(function($) {
-        $('cf_tip').each(function() { // Grab all ".cf_tip" elements, and for each...
-        log(this); // ...print out "this", which now refers to each ".cf_tip" DOM element
-    });
-
-    $('.cf_tip').each(function() {
-        $(this).jBox('Tooltip', {
-            delayOpen: 100,
-            delayClose: 100,
-            position: {
-                x: 'right',
-                y: 'center'
-            },
-            outside: 'x'
-            });
-        });
-    });
-
+    this.initTooltips();
 
     if (callback) { callback(); }
 }

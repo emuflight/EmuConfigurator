@@ -2788,10 +2788,7 @@ TABS.osd.initialize = function (callback) {
                     }
 
                     // Remove last tooltips
-                    for (var tt of OSD.data.tooltips) {
-                        tt.destroy();
-                    }
-                    OSD.data.tooltips = [];
+                    TABS.osd.destroyTooltips();
 
                     // Generate tooltips for OSD elements
                     $('.osd_tip').each(function () {
@@ -2971,8 +2968,18 @@ TABS.osd.initialize = function (callback) {
     });
 };
 
+TABS.osd.destroyTooltips = function () {
+    for (const tooltip of OSD.data.tooltips) {
+        tooltip.close({ ignoreDelay: true });
+        tooltip.destroy();
+    }
+    OSD.data.tooltips = [];
+};
+
 TABS.osd.cleanup = function (callback) {
     PortHandler.flush_callbacks();
+
+    TABS.osd.destroyTooltips();
 
     if (OSD.GUI.fontManager) {
         OSD.GUI.fontManager.destroy();
