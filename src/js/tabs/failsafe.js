@@ -321,7 +321,7 @@ TABS.failsafe.initialize = function (callback, scrollPosition) {
             GPS_RESCUE.angle             = $('input[name="gps_rescue_angle"]').val();
             GPS_RESCUE.initialAltitude  = $('input[name="gps_rescue_initial_altitude"]').val();
             GPS_RESCUE.descentDistance  = $('input[name="gps_rescue_descent_distance"]').val();
-            GPS_RESCUE.rescueGroundspeed = $('input[name="gps_rescue_ground_speed"]').val() * 100;
+            GPS_RESCUE.rescueGroundspeed = Math.round($('input[name="gps_rescue_ground_speed"]').val() * 100);
             GPS_RESCUE.throttleMin       = $('input[name="gps_rescue_throttle_min"]').val();
             GPS_RESCUE.throttleMax       = $('input[name="gps_rescue_throttle_max"]').val();
             GPS_RESCUE.throttleHover     = $('input[name="gps_rescue_throttle_hover"]').val();
