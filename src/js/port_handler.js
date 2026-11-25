@@ -9,6 +9,19 @@ var usbDevices = { filters: [
     { 'vendorId': 11836, 'productId': 57105 } // AT32 DFU Bootloader
 ] };
 
+// USB VID:PID pairs (lowercase hex, as reported by the serialport package) of
+// the native USB VCP of the MCUs EmuFlight runs on: ST, GD32, AT32 and APM32.
+// Generic USB-serial adapters (FTDI, CP210x, CH340) are left out on purpose: the
+// same chips sit on GPS modules, radios and other non-FC devices, so a match
+// would not identify an FC. Used to rank candidates, never to exclude: an FC
+// with another VID:PID stays selectable.
+var FC_SERIAL_DEVICES = [
+    ['0483', '5740'], // STM32 VCP
+    ['28e9', '0189'], // GD32 VCP
+    ['2e3c', '5740'], // AT32 VCP
+    ['314b', '0106'] // APM32 VCP
+];
+
 // Linux Bluetooth RFCOMM device paths -- excluded from auto-connect/auto-select
 // candidates so a Bluetooth service registering mid-reboot (the confirmed repro
 // in emuflight/EmuConfigurator#638, e.g. /dev/rfcomm0) never gets picked over
@@ -26,6 +39,7 @@ var PortHandler = new function () {
     this.storage_api_checked = false;
     this.storage_api_available = false;
     this.demo_port_added = false;
+    this.port_info = {};
 };
 
 PortHandler.initialize = function () {
@@ -36,7 +50,8 @@ PortHandler.initialize = function () {
 PortHandler.check = function () {
     var self = this;
 
-    serial.getDevices(function(current_ports) {
+    serial.getDevices(function(current_ports, port_info) {
+        self.port_info = port_info || {};
         // port got removed or initial_ports wasn't initialized yet
         if (self.array_difference(self.initial_ports, current_ports).length > 0 || !self.initial_ports) {
             var removed_ports = self.array_difference(self.initial_ports, current_ports);
@@ -247,13 +262,37 @@ PortHandler.absorb_resolved_ports = function (new_ports, fc_candidates, unambigu
     }
 };
 
+PortHandler.is_known_fc_serial = function (port) {
+    var info = this.port_info[port];
+    if (!info || !info.vendorId || !info.productId) {
+        return false;
+    }
+    var vid = String(info.vendorId).toLowerCase();
+    var pid = String(info.productId).toLowerCase();
+    return FC_SERIAL_DEVICES.some(function (id) {
+        return id[0] === vid && id[1] === pid;
+    });
+};
+
 // Excludes known non-FC device paths (see NON_FC_PORT_PATTERN) from a
 // newly-appeared port list, so a Bluetooth RFCOMM device never gets
-// auto-selected in place of the FC re-enumerating after a reboot.
+// auto-selected in place of the FC re-enumerating after a reboot. When at
+// least one remaining port has a known FC VID:PID, only those are candidates,
+// so another serial device that appears at the same time no longer makes the
+// set ambiguous. Ports with other or unknown IDs are kept when no known FC
+// port is present, so an FC with an unlisted VID:PID still auto-selects.
 PortHandler.resolve_fc_candidates = function (new_ports) {
+    var self = this;
     var fc_candidates = new_ports.filter(function (port) {
         return !NON_FC_PORT_PATTERN.test(port);
     });
+
+    var known = fc_candidates.filter(function (port) {
+        return self.is_known_fc_serial(port);
+    });
+    if (known.length > 0) {
+        fc_candidates = known;
+    }
 
     if (fc_candidates.length > 1) {
         console.log('PortHandler - ambiguous new ports, skipping auto-select: ' + fc_candidates);

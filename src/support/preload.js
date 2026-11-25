@@ -17,8 +17,10 @@ let serialConnectInProgress = false;
 
 const chromeSerial = {
     getDevices: function (callback) {
-        ipcRenderer.invoke('serial-list-ports').then(function (paths) {
-            callback(paths.map(function (p) { return { path: p }; }));
+        ipcRenderer.invoke('serial-list-ports').then(function (ports) {
+            // Each entry is { path, vendorId, productId, manufacturer }; the USB
+            // fields are undefined for non-USB ports.
+            callback(ports);
         }).catch(function () { callback([]); });
     },
 

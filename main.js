@@ -414,12 +414,17 @@ ipcMain.handle('serial-list-ports', async () => {
     const ports = await SerialPort.list();
     return ports
       .filter(p => !/^\/dev\/ttyS\d+$/.test(p.path || ''))  // exclude bare hardware UARTs
-      .map(p => p.path);
+      .map(p => ({
+        path: p.path,
+        vendorId: p.vendorId,
+        productId: p.productId,
+        manufacturer: p.manufacturer
+      }));
   } catch (e) {
     console.error('main.js: serialport list failed, trying fs fallback:', e.message);
     try {
       const entries = fs.readdirSync('/dev').filter(f => /^tty(USB|ACM)\d+$/.test(f));
-      return entries.map(f => '/dev/' + f);
+      return entries.map(f => ({ path: '/dev/' + f }));
     } catch (fsErr) {
       return [];
     }

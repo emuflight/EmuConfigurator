@@ -293,10 +293,16 @@ var serial = {
     getDevices: function (callback) {
         chrome.serial.getDevices(function (devices_array) {
             var devices = [];
+            var info = {};
             devices_array.forEach(function (device) {
                 devices.push(device.path);
+                info[device.path] = {
+                    vendorId: device.vendorId,
+                    productId: device.productId,
+                    manufacturer: device.manufacturer,
+                };
             });
-            callback(devices);
+            callback(devices, info);
         });
     },
     getInfo: function (callback) {
