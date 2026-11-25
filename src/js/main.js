@@ -595,14 +595,14 @@ function isExpertModeEnabled() {
 }
 
 function updateExpertModeConnectedTabs() {
+    // Failsafe is a safety setting: always visible, not gated by Expert Mode.
+    $('#tabs ul.mode-connected li.tab_failsafe').show();
     if (isExpertModeEnabled()) {
-        $('#tabs ul.mode-connected li.tab_failsafe').show();
         $('#tabs ul.mode-connected li.tab_adjustments').show();
         $('#tabs ul.mode-connected li.tab_servos').show();
         $('#tabs ul.mode-connected li.tab_sensors').show();
         $('#tabs ul.mode-connected li.tab_logging').show();
     } else {
-        $('#tabs ul.mode-connected li.tab_failsafe').hide();
         $('#tabs ul.mode-connected li.tab_adjustments').hide();
         $('#tabs ul.mode-connected li.tab_servos').hide();
         $('#tabs ul.mode-connected li.tab_sensors').hide();
@@ -611,7 +611,7 @@ function updateExpertModeConnectedTabs() {
 }
 
 function updateGpsTabVisibility(features) {
-    if (features.isEnabled('GPS') && isExpertModeEnabled()) {
+    if (features.isEnabled('GPS')) {
         $('#tabs ul.mode-connected li.tab_gps').show();
     } else {
         $('#tabs ul.mode-connected li.tab_gps').hide();
