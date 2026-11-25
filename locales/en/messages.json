@@ -3463,6 +3463,12 @@
     "failsafeProcedureItemSelect4": {
         "message": "GPS Rescue"
     },
+    "failsafeGpsRescueUnavailable": {
+        "message": "GPS Rescue is unavailable. Enable the GPS feature on the Configuration tab."
+    },
+    "failsafeGpsRescueUnavailableProcedureSet": {
+        "message": "Warning: the stored failsafe procedure is GPS Rescue, but GPS is disabled. Select another procedure to change it."
+    },
     "failsafeGpsRescueItemAngle": {
         "message": "Angle"
     },
