@@ -2471,6 +2471,12 @@
     "failsafeProcedureItemSelect4": {
         "message": "GPS спасение"
     },
+    "failsafeGpsRescueUnavailable": {
+        "message": "GPS спасение недоступно. Включите функцию GPS на вкладке Конфигурация."
+    },
+    "failsafeGpsRescueUnavailableProcedureSet": {
+        "message": "Предупреждение: сохранённая процедура failsafe — GPS спасение, но GPS отключён. Выберите другую процедуру, чтобы изменить её."
+    },
     "failsafeGpsRescueItemAngle": {
         "message": "Угол"
     },

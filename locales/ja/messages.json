@@ -2477,6 +2477,12 @@
     "failsafeProcedureItemSelect4": {
         "message": "GPS レスキュー"
     },
+    "failsafeGpsRescueUnavailable": {
+        "message": "GPS レスキューは利用できません。基本設定タブで GPS 機能を有効にしてください。"
+    },
+    "failsafeGpsRescueUnavailableProcedureSet": {
+        "message": "警告: 保存されているフェイルセーフ手順は GPS レスキューですが、GPS が無効です。変更するには別の手順を選択してください。"
+    },
     "failsafeGpsRescueItemAngle": {
         "message": "アングル"
     },

@@ -2349,6 +2349,12 @@
     "failsafeProcedureItemSelect4": {
         "message": "GPS-räddning"
     },
+    "failsafeGpsRescueUnavailable": {
+        "message": "GPS-räddning är inte tillgänglig. Aktivera GPS-funktionen på fliken Konfigurering."
+    },
+    "failsafeGpsRescueUnavailableProcedureSet": {
+        "message": "Varning: den sparade failsafe-proceduren är GPS-räddning, men GPS är inaktiverat. Välj en annan procedur för att ändra den."
+    },
     "failsafeGpsRescueItemInitialAltitude": {
         "message": "Initial höjd (meter)"
     },

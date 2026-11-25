@@ -3142,5 +3142,11 @@
     },
     "cliAutoComplete": {
         "message": "AutoCompletar CLI Avanzado"
+    },
+    "failsafeGpsRescueUnavailable": {
+        "message": "GPS Rescue non está dispoñible. Activa a función GPS na lapela Configuración."
+    },
+    "failsafeGpsRescueUnavailableProcedureSet": {
+        "message": "Aviso: o procedemento de failsafe gardado é GPS Rescue, pero o GPS está desactivado. Selecciona outro procedemento para cambialo."
     }
 }

@@ -2558,6 +2558,12 @@
     "failsafeProcedureItemSelect4": {
         "message": "GPS 구조"
     },
+    "failsafeGpsRescueUnavailable": {
+        "message": "GPS 구조를 사용할 수 없습니다. 구성 탭에서 GPS 기능을 켜세요."
+    },
+    "failsafeGpsRescueUnavailableProcedureSet": {
+        "message": "경고: 저장된 failsafe 절차가 GPS 구조이지만 GPS가 꺼져 있습니다. 변경하려면 다른 절차를 선택하세요."
+    },
     "failsafeGpsRescueItemAngle": {
         "message": "각도"
     },

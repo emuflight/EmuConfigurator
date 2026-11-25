@@ -2264,6 +2264,12 @@
     "failsafeProcedureItemSelect4": {
         "message": "Sauvetage GPS"
     },
+    "failsafeGpsRescueUnavailable": {
+        "message": "Sauvetage GPS n'est pas disponible. Activez la fonction GPS dans l'onglet Configuration."
+    },
+    "failsafeGpsRescueUnavailableProcedureSet": {
+        "message": "Avertissement : la procédure de failsafe enregistrée est Sauvetage GPS, mais le GPS est désactivé. Sélectionnez une autre procédure pour la modifier."
+    },
     "failsafeGpsRescueItemInitialAltitude": {
         "message": "Altitude initiale (mètres)"
     },

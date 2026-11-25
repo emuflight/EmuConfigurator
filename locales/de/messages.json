@@ -2258,6 +2258,12 @@
     "failsafeProcedureItemSelect4": {
         "message": "Go rescue"
     },
+    "failsafeGpsRescueUnavailable": {
+        "message": "Go rescue ist nicht verfügbar. Aktiviere die GPS-Funktion im Reiter Konfiguration."
+    },
+    "failsafeGpsRescueUnavailableProcedureSet": {
+        "message": "Warnung: Das gespeicherte Failsafe-Verfahren ist Go rescue, aber GPS ist deaktiviert. Wähle ein anderes Verfahren, um es zu ändern."
+    },
     "failsafeGpsRescueItemAngle": {
         "message": "Winkel"
     },
