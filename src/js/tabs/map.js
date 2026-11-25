@@ -1,8 +1,8 @@
 const DEFAULT_ZOOM = 16,
       DEFAULT_LON = 0,
       DEFAULT_LAT = 0,
-      ICON_IMAGE = '/images/icons/cf_icon_position.png',
-      ICON_IMAGE_NOFIX = '/images/icons/cf_icon_position_nofix.png';
+      ICON_IMAGE = '../images/icons/cf_icon_position.png',
+      ICON_IMAGE_NOFIX = '../images/icons/cf_icon_position_nofix.png';
 
 var iconGeometry,
     map,
