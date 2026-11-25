@@ -2508,6 +2508,12 @@
     "failsafeProcedureItemSelect4": {
         "message": "GPS 救援"
     },
+    "failsafeGpsRescueUnavailable": {
+        "message": "GPS 救援不可用。请在“配置 (Configuration)”选项卡中启用 GPS 功能。"
+    },
+    "failsafeGpsRescueUnavailableProcedureSet": {
+        "message": "警告：已保存的 failsafe 流程为 GPS 救援，但 GPS 已禁用。请选择其他流程以更改。"
+    },
     "failsafeGpsRescueItemAngle": {
         "message": "角度"
     },

@@ -2086,6 +2086,12 @@
     "failsafeProcedureItemSelect4": {
         "message": "Rescue GPS"
     },
+    "failsafeGpsRescueUnavailable": {
+        "message": "Rescue GPS tidak tersedia. Aktifkan fitur GPS di tab Konfigurasi."
+    },
+    "failsafeGpsRescueUnavailableProcedureSet": {
+        "message": "Peringatan: prosedur failsafe yang tersimpan adalah Rescue GPS, tetapi GPS dinonaktifkan. Pilih prosedur lain untuk mengubahnya."
+    },
     "failsafeGpsRescueItemInitialAltitude": {
         "message": "Ketinggian awal (meter)"
     },

@@ -2468,5 +2468,11 @@
     },
     "vtxButtonSave": {
         "message": "Desa els ajustos VTX"
+    },
+    "failsafeGpsRescueUnavailable": {
+        "message": "GPS Rescue no està disponible. Activa la funció GPS a la pestanya Configuració."
+    },
+    "failsafeGpsRescueUnavailableProcedureSet": {
+        "message": "Avís: el procediment de failsafe desat és GPS Rescue, però el GPS està desactivat. Selecciona un altre procediment per canviar-lo."
     }
 }

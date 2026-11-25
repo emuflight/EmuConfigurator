@@ -2328,6 +2328,12 @@
     "failsafeProcedureItemSelect4": {
         "message": "GPS Spašavanje"
     },
+    "failsafeGpsRescueUnavailable": {
+        "message": "GPS Spašavanje nije dostupno. Uključite GPS funkciju na kartici Konfiguracija."
+    },
+    "failsafeGpsRescueUnavailableProcedureSet": {
+        "message": "Upozorenje: spremljeni failsafe postupak je GPS Spašavanje, ali je GPS isključen. Odaberite drugi postupak da ga promijenite."
+    },
     "failsafeGpsRescueItemAngle": {
         "message": "Kut"
     },

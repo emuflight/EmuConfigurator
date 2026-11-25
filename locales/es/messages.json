@@ -2424,6 +2424,12 @@
     "failsafeProcedureItemSelect4": {
         "message": "Rescate GPS"
     },
+    "failsafeGpsRescueUnavailable": {
+        "message": "Rescate GPS no está disponible. Activa la función GPS en la pestaña Configuración."
+    },
+    "failsafeGpsRescueUnavailableProcedureSet": {
+        "message": "Aviso: el procedimiento de failsafe guardado es Rescate GPS, pero el GPS está desactivado. Selecciona otro procedimiento para cambiarlo."
+    },
     "failsafeGpsRescueItemAngle": {
         "message": "Ángulo"
     },

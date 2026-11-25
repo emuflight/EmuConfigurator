@@ -2444,6 +2444,12 @@
     "failsafeProcedureItemSelect4": {
         "message": "GPS Glābšana"
     },
+    "failsafeGpsRescueUnavailable": {
+        "message": "GPS Glābšana nav pieejama. Iespējojiet GPS funkciju cilnē Konfigurācija."
+    },
+    "failsafeGpsRescueUnavailableProcedureSet": {
+        "message": "Brīdinājums: saglabātā failsafe procedūra ir GPS Glābšana, bet GPS ir atspējots. Lai to mainītu, izvēlieties citu procedūru."
+    },
     "failsafeGpsRescueItemAngle": {
         "message": "Leņķis"
     },

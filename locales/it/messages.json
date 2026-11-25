@@ -3035,5 +3035,11 @@
     },
     "vtxButtonSave": {
         "message": "Salva VTX"
+    },
+    "failsafeGpsRescueUnavailable": {
+        "message": "GPS Rescue non è disponibile. Abilita la funzione GPS nella scheda Configurazione."
+    },
+    "failsafeGpsRescueUnavailableProcedureSet": {
+        "message": "Avviso: la procedura di failsafe salvata è GPS Rescue, ma il GPS è disabilitato. Seleziona un'altra procedura per cambiarla."
     }
 }
