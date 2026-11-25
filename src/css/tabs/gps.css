@@ -62,6 +62,7 @@
     width: 100%;
     float: left;
     height: 400px;
+    border: 0;
 }
 
 .tab-gps #loadmap .controls {
