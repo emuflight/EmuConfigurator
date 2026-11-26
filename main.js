@@ -682,7 +682,10 @@ function usbTransferBuffer(result) {
 // device never answers the string request; a missing descriptor reads as null.
 // DFU bootloaders often lack a serial string. Every failure maps to ''. The
 // result is cached per device key so the renderer's polling does not reopen
-// the device on every call. A replug gets a new key.
+// the device on every call. The key is the OS handle; the OS can reuse it for
+// a different device, so a cache entry lives only while the device stays in
+// the list. The renderer polls this list (port_handler.js TIMEOUT_CHECK, 500 ms),
+// which drops an entry within one poll of an unplug.
 const _usbDescriptorCache = new Map();
 
 function usbReadString(device, property) {
