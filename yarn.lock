@@ -142,15 +142,15 @@
   optionalDependencies:
     electron-installer-dmg "^5.0.1"
 
-"@electron-forge/maker-rpm@7.11.2":
-  version "7.11.2"
-  resolved "https://registry.yarnpkg.com/@electron-forge/maker-rpm/-/maker-rpm-7.11.2.tgz#41f4f212a0cc8acb09f6f601cf3c4e8b819adc54"
-  integrity sha512-BEj/DcW6bSpmOyKUa3UsOgT7Hm3ZuP0Wa6OuQEunjxeCWn7yoDTDtjuYA0xRvzk+T4NCyDO3RBGjy6nYNSPU2Q==
+"@electron-forge/maker-rpm@8.0.1":
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/@electron-forge/maker-rpm/-/maker-rpm-8.0.1.tgz#14e421004bcb6cb053e285f86e4614657a946d22"
+  integrity sha512-FAOUQeE3nzHfE0tE7vs2sWBDN1mspkpzoFQSJWk1qB3Qv9HF3iREYjzpV+AuGWe/zy0y5IK6mIx4GADdIlBaEg==
   dependencies:
-    "@electron-forge/maker-base" "7.11.2"
-    "@electron-forge/shared-types" "7.11.2"
+    "@electron-forge/maker-base" "8.0.1"
+    "@electron-forge/shared-types" "8.0.1"
   optionalDependencies:
-    electron-installer-redhat "^3.2.0"
+    electron-installer-redhat "^4.0.0"
 
 "@electron-forge/maker-wix@7.11.2":
   version "7.11.2"
@@ -2160,7 +2160,7 @@ ee-first@1.1.1:
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
   integrity sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==
 
-electron-installer-common@^0.10.2, electron-installer-common@^0.10.3:
+electron-installer-common@^0.10.3:
   version "0.10.4"
   resolved "https://registry.yarnpkg.com/electron-installer-common/-/electron-installer-common-0.10.4.tgz#7a81265e0ec158eafd9dd474d5bb3a13946195e7"
   integrity sha512-8gMNPXfAqUE5CfXg8RL0vXpLE9HAaPkgLXVoHE3BMUzogMWenf4LmwQ27BdCUrEhkjrKl+igs2IHJibclR3z3Q==
@@ -2200,18 +2200,17 @@ electron-installer-dmg@^5.0.1:
   optionalDependencies:
     appdmg "^0.6.4"
 
-electron-installer-redhat@^3.2.0:
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/electron-installer-redhat/-/electron-installer-redhat-3.4.0.tgz#4a7f8d67b48b7d5b23bd1eb074f4b684ae43b192"
-  integrity sha512-gEISr3U32Sgtj+fjxUAlSDo3wyGGq6OBx7rF5UdpIgbnpUvMN4W5uYb0ThpnAZ42VEJh/3aODQXHbFS4f5J3Iw==
+electron-installer-redhat@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/electron-installer-redhat/-/electron-installer-redhat-4.0.0.tgz#4369c0bae1c6ac8cba065183d5c4d91b3af44786"
+  integrity sha512-ZTwRR2akAxD/K1S5GMdRnG/o/YfMww5CeWt+dDLZ9qCrybVw0YW3vHEoyvz+udztXZDpUCy12fwMmy8mUlpjCQ==
   dependencies:
-    "@malept/cross-spawn-promise" "^1.0.0"
+    "@malept/cross-spawn-promise" "^2.0.0"
     debug "^4.1.1"
-    electron-installer-common "^0.10.2"
-    fs-extra "^9.0.0"
-    lodash "^4.17.15"
-    word-wrap "^1.2.3"
-    yargs "^16.0.2"
+    electron-installer-common "^0.10.3"
+    which "^5.0.0"
+    word-wrap "^1.2.4"
+    yargs "^18.0.0"
 
 electron-to-chromium@^1.5.459:
   version "1.5.463"
@@ -3334,6 +3333,11 @@ isexe@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/isexe/-/isexe-2.0.0.tgz#e8fbf374dc556ff8947a10dcb0572d633f2cfa10"
   integrity sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==
+
+isexe@^3.1.1:
+  version "3.1.5"
+  resolved "https://registry.yarnpkg.com/isexe/-/isexe-3.1.5.tgz#42e368f68d5e10dadfee4fda7b550bc2d8892dc9"
+  integrity sha512-6B3tLtFqtQS4ekarvLVMZ+X+VlvQekbe4taUkf/rhVO3d/h0M2rfARm/pXLcPEsjjMsFgrFgSrhQIxcSVrBz8w==
 
 isexe@^4.0.0:
   version "4.0.0"
@@ -5469,6 +5473,13 @@ which@^2.0.1, which@^2.0.2:
   dependencies:
     isexe "^2.0.0"
 
+which@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/which/-/which-5.0.0.tgz#d93f2d93f79834d4363c7d0c23e00d07c466c8d6"
+  integrity sha512-JEdGzHwwkrbWoGOlIHqQ5gtprKGOenpDHpxE9zVR1bWbOtYRyPPHMe9FaP6x61CmNaTThSkb0DAJte5jD+DmzQ==
+  dependencies:
+    isexe "^3.1.1"
+
 which@^6.0.0:
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/which/-/which-6.0.1.tgz#021642443a198fb93b784a5606721cb18cfcbfce"
@@ -5476,7 +5487,7 @@ which@^6.0.0:
   dependencies:
     isexe "^4.0.0"
 
-word-wrap@^1.2.3, word-wrap@^1.2.4, word-wrap@^1.2.5:
+word-wrap@^1.2.4, word-wrap@^1.2.5:
   version "1.2.5"
   resolved "https://registry.yarnpkg.com/word-wrap/-/word-wrap-1.2.5.tgz#d2c45c6dd4fbce621a66f136cbe328afd0410b34"
   integrity sha512-BN22B5eaMMI9UMtjrGd5g5eCYPpCPDUy0FJXbYsaT5zYxjFOckS53SQDE3pWkVoWpHXVb3BrYcEN4Twa55B5cA==
@@ -5579,19 +5590,6 @@ yargs-parser@^22.0.0:
   version "22.0.0"
   resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-22.0.0.tgz#87b82094051b0567717346ecd00fd14804b357c8"
   integrity sha512-rwu/ClNdSMpkSrUb+d6BRsSkLUq1fmfsY6TOpYzTwvwkg1/NRG85KBy3kq++A8LKQwX6lsu+aWad+2khvuXrqw==
-
-yargs@^16.0.2:
-  version "16.2.0"
-  resolved "https://registry.yarnpkg.com/yargs/-/yargs-16.2.0.tgz#1c82bf0f6b6a66eafce7ef30e376f49a12477f66"
-  integrity sha512-D1mvvtDG0L5ft/jGWkLpG1+m0eQxOfaBvTNELraWj22wSVUMWxZUvYgJYcKh6jGGIkJFhH4IZPQhR4TKpc8mBw==
-  dependencies:
-    cliui "^7.0.2"
-    escalade "^3.1.1"
-    get-caller-file "^2.0.5"
-    require-directory "^2.1.1"
-    string-width "^4.2.0"
-    y18n "^5.0.5"
-    yargs-parser "^20.2.2"
 
 yargs@^16.1.1:
   version "16.2.2"
