@@ -67,7 +67,26 @@ var STM32DFU_protocol = function () {
     this.transferSize = 2048; // Default USB DFU transfer size for F3,F4 and F7
 };
 
-STM32DFU_protocol.prototype.connect = function (device, hex, options, callback) {
+// Picks the device to flash from a chrome.usb.getDevices() result.
+// deviceKey is the `device` field of the chosen entry. Without a key, only a
+// single device is unambiguous. Returns null when no one device can be chosen.
+STM32DFU_protocol.prototype.selectDevice = function (result, deviceKey) {
+    if (!result || !result.length) {
+        return null;
+    }
+    if (deviceKey !== undefined && deviceKey !== null) {
+        for (var i = 0; i < result.length; i++) {
+            if (result[i].device === deviceKey) {
+                return result[i];
+            }
+        }
+        return null;
+    }
+    return result.length === 1 ? result[0] : null;
+};
+
+// deviceKey (optional): `device` field of the DFU device the pilot chose.
+STM32DFU_protocol.prototype.connect = function (device, hex, options, callback, deviceKey) {
     var self = this;
     self.hex = hex;
     self.callback = callback;
@@ -98,18 +117,22 @@ STM32DFU_protocol.prototype.connect = function (device, hex, options, callback) 
             if (self.callback) { self.callback(); }
             return;
         }
-        if (result.length > 1) {
+        var chosen = self.selectDevice(result, deviceKey);
+        if (!chosen && result.length > 1 && (deviceKey === undefined || deviceKey === null)) {
             // all DFU boards of one MCU family share VID:PID, so the target cannot be told apart
             console.log('USB DFU: ' + result.length + ' devices found, refusing to pick one');
+            result.forEach(function (d) {
+                console.log('USB DFU candidate: ' + d.device + ' serial="' + d.serialNumber + '" product="' + d.product + '"');
+            });
             GUI.log(i18n.getMessage('stm32UsbDfuMultipleFound', [result.length]));
             TABS.firmware_flasher.flashingMessage(i18n.getMessage('stm32UsbDfuMultipleFound', [result.length]),
                                                   TABS.firmware_flasher.FLASH_MESSAGE_TYPES.INVALID);
             GUI.connect_lock = false;
             if (self.callback) { self.callback(); }
-        } else if (result.length) {
-            console.log('USB DFU detected with ID: ' + result[0].device);
+        } else if (chosen) {
+            console.log('USB DFU detected with ID: ' + chosen.device);
 
-            self.openDevice(result[0]);
+            self.openDevice(chosen);
         } else {
             console.log('USB DFU not found');
             GUI.log(i18n.getMessage('stm32UsbDfuNotFound'));
