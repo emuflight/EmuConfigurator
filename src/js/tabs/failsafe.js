@@ -279,6 +279,14 @@ TABS.failsafe.initialize = function (callback, scrollPosition) {
         $('input[name="gps_rescue_min_sats"]').val(GPS_RESCUE.minSats);
         $('select[name="gps_rescue_sanity_checks"]').val(GPS_RESCUE.sanityChecks);
 
+        // GPS Rescue needs the GPS feature. With GPS off, hide the option and show a notice.
+        // The stored procedure value is left unchanged until the pilot picks another procedure.
+        // Set both states explicitly: toggleStage2() above shows every div.stage2.
+        var gpsEnabled = FEATURE_CONFIG.features.isEnabled('GPS');
+        $('.radioarea.pro4').not('.gpsRescueUnavailable').toggle(gpsEnabled);
+        $('.gpsRescueUnavailable').toggle(!gpsEnabled);
+        $('.gpsRescueProcedureWarning').toggle(!gpsEnabled && FAILSAFE_CONFIG.failsafe_procedure === 2);
+
 
 
 
@@ -313,7 +321,7 @@ TABS.failsafe.initialize = function (callback, scrollPosition) {
             GPS_RESCUE.angle             = $('input[name="gps_rescue_angle"]').val();
             GPS_RESCUE.initialAltitude  = $('input[name="gps_rescue_initial_altitude"]').val();
             GPS_RESCUE.descentDistance  = $('input[name="gps_rescue_descent_distance"]').val();
-            GPS_RESCUE.rescueGroundspeed = $('input[name="gps_rescue_ground_speed"]').val() * 100;
+            GPS_RESCUE.rescueGroundspeed = Math.round($('input[name="gps_rescue_ground_speed"]').val() * 100);
             GPS_RESCUE.throttleMin       = $('input[name="gps_rescue_throttle_min"]').val();
             GPS_RESCUE.throttleMax       = $('input[name="gps_rescue_throttle_max"]').val();
             GPS_RESCUE.throttleHover     = $('input[name="gps_rescue_throttle_hover"]').val();
