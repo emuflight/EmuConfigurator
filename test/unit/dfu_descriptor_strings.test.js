@@ -9,7 +9,7 @@ const vm = require('node:vm');
 // text (from the cache declaration up to the IPC handler) and run in a vm.
 function loadHelpers() {
     const src = fs.readFileSync(path.join(__dirname, '..', '..', 'main.js'), 'utf8');
-    const keyFn = src.match(/function usbKeyFromDevice[\s\S]*?\n}\n/)[0];
+    const keyFn = src.match(/function usbKeyFromDevice[\s\S]*?\r?\n}\r?\n/)[0];
     const start = src.indexOf('const _usbDescriptorCache');
     const end = src.indexOf("ipcMain.handle('usb-list-dfu'");
     assert.ok(start > 0 && end > start, 'helpers found in main.js');
