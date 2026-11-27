@@ -110,6 +110,8 @@ CliAutoComplete.clearFirmwareCandidates = function() {
  * @param {boolean} on
  */
 CliAutoComplete.setFirmwareDraining = function(on) {
+    clearTimeout(this.fwDrainTimer); // one drain window at a time: a stale timer must not end a later one
+    this.fwDrainTimer = null;
     this.fwDraining = !!on;
 };
 
@@ -221,8 +223,20 @@ CliAutoComplete._fwDone = function() {
     var enterQueued = enterTexts.length > 0;
     this.fwEnterQueue = [];
     var self = this;
+    var cleanupNow = this.cleanupPending;
+    if (cleanupNow) {
+        // autocomplete was switched off while this request ran: tear down now, before the drain
+        // window starts, so the queued Enters still run after the request has settled
+        this.cleanup();
+    }
     this.setFirmwareDraining(true);
-    setTimeout(function() { self.setFirmwareDraining(false); }, 150);
+    this.fwDrainTimer = setTimeout(function() { self.setFirmwareDraining(false); }, 150);
+    if (cleanupNow) {
+        if (enterQueued) {
+            this._fwReplayEnters(enterTexts);
+        }
+        return;
+    }
     if (!this.$textarea) {
         return;
     }
@@ -256,9 +270,15 @@ CliAutoComplete.setEnabled = function(enable) {
         if (CONFIGURATOR.cliActive && CONFIGURATOR.cliValid) {
             // cli is already open
             if (this.isEnabled()) {
+                this.cleanupPending = false;
                 this.builderStart();
             } else if (!this.isEnabled() && !this.isBuilding()) {
-                this.cleanup();
+                if (this.isFirmwareBusy()) {
+                    // a firmware completion request owns the line buffer; its end runs the cleanup
+                    this.cleanupPending = true;
+                } else {
+                    this.cleanup();
+                }
             }
         }
     }
@@ -286,6 +306,7 @@ CliAutoComplete.cleanup = function() {
         this.fw = null;
     }
     this.fwCandidates = null;
+    this.cleanupPending = false;
     this.fwEnterQueue = [];
     this.setFirmwareDraining(false);
     this.strategies = null;

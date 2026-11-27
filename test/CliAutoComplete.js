@@ -78,3 +78,86 @@ describe('CliAutoComplete resource strategy', () => {
         });
     });
 });
+
+describe('CliAutoComplete firmware drain window', () => {
+    let clock;
+
+    beforeEach(() => {
+        clock = sinon.useFakeTimers();
+        CliAutoComplete.$textarea = null;
+        CliAutoComplete.fwEnterQueue = [];
+    });
+
+    afterEach(() => {
+        CliAutoComplete.setFirmwareDraining(false);
+        clock.restore();
+    });
+
+    function finishRequest() {
+        CliAutoComplete.fw = { timer: null, result: {}, orig: '' };
+        CliAutoComplete._fwDone();
+    }
+
+    it('lasts 150 ms after a request ends', () => {
+        finishRequest();
+        clock.tick(149);
+        expect(CliAutoComplete.isFirmwareDraining()).to.equal(true);
+        clock.tick(2);
+        expect(CliAutoComplete.isFirmwareDraining()).to.equal(false);
+    });
+
+    it('a later request keeps its own full window', () => {
+        finishRequest();
+        clock.tick(100);
+        finishRequest(); // second window starts at t=100 and ends at t=250
+        clock.tick(60); // t=160: the first timer must not have ended it
+        expect(CliAutoComplete.isFirmwareDraining()).to.equal(true);
+        clock.tick(100);
+        expect(CliAutoComplete.isFirmwareDraining()).to.equal(false);
+    });
+
+    it('cleanup ends the window and leaves no timer behind', () => {
+        finishRequest();
+        CliAutoComplete.cleanup();
+        expect(CliAutoComplete.isFirmwareDraining()).to.equal(false);
+        CliAutoComplete.setFirmwareDraining(true); // a new window must not be ended by the old timer
+        clock.tick(200);
+        CliAutoComplete.setFirmwareDraining(false);
+    });
+
+    it('switching autocomplete off during a request waits for the request, then runs queued Enters', () => {
+        const submit = sinon.stub();
+        const savedActive = CONFIGURATOR.cliActive, savedValid = CONFIGURATOR.cliValid;
+        CONFIGURATOR.cliActive = true;
+        CONFIGURATOR.cliValid = true;
+        CliAutoComplete.setCommandSubmitter(submit);
+        CliAutoComplete.configEnabled = true;
+        CliAutoComplete.fw = { timer: null, result: {}, orig: '' };
+        CliAutoComplete.queueFirmwareEnter('status');
+
+        CliAutoComplete.setEnabled(false);
+        expect(CliAutoComplete.fw).to.not.equal(null); // request not torn down
+        expect(submit).to.not.have.been.called;
+
+        CliAutoComplete._fwDone();
+
+        expect(submit).to.have.been.calledOnceWith(['status']);
+        expect(CliAutoComplete.isFirmwareBusy()).to.equal(false);
+        expect(CliAutoComplete.isFirmwareDraining()).to.equal(true); // the request echo is still dropped
+        CliAutoComplete.setCommandSubmitter(null);
+        CONFIGURATOR.cliActive = savedActive;
+        CONFIGURATOR.cliValid = savedValid;
+    });
+
+    it('cleanup drops queued Enters (tab close)', () => {
+        const submit = sinon.stub();
+        CliAutoComplete.setCommandSubmitter(submit);
+        CliAutoComplete.queueFirmwareEnter('status');
+
+        CliAutoComplete.cleanup();
+
+        expect(submit).to.not.have.been.called;
+        expect(CliAutoComplete.fwEnterQueue).to.deep.equal([]);
+        CliAutoComplete.setCommandSubmitter(null);
+    });
+});
