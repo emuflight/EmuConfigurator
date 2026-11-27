@@ -97,6 +97,13 @@ test('render: logic dropdown offers both OR and AND', () => {
     assert.deepEqual(options, ['0', '1']);
 });
 
+test('render: logic dropdown offers only OR on firmware below 1.55.1', () => {
+    const w = openTab({ apiVersion: '1.55.0', modeRanges: RANGES, extra: [] });
+    const options = JSON.parse(w.eval(
+        `JSON.stringify($('#tab-auxiliary-templates .range .logic option').map(function () { return this.value; }).get())`));
+    assert.deepEqual(options, ['0']);
+});
+
 test('render: a linked entry shows as a link with its target and AND logic', () => {
     const w = openTab({ apiVersion: '1.55.1', modeRanges: RANGES, extra: EXTRA_LINKED });
     // BEEPER is mode index 3

@@ -94,10 +94,13 @@ TABS.auxiliary.initialize = function (callback) {
         logicOption.val(0);
         logicList.append(logicOption);
 
-        logicOption = logicOptionTemplate.clone();
-        logicOption.text(i18n.getMessage('auxiliaryModeLogicAND'));
-        logicOption.val(1);
-        logicList.append(logicOption);
+        // AND is stored in the linked-mode fields: offer it only when the FC can store them
+        if (linkedModesSupported) {
+            logicOption = logicOptionTemplate.clone();
+            logicOption.text(i18n.getMessage('auxiliaryModeLogicAND'));
+            logicOption.val(1);
+            logicList.append(logicOption);
+        }
 
         logicOptionTemplate.val(0);
     }
