@@ -379,6 +379,36 @@ describe('TABS.cli', () => {
             });
         });
 
+        it('a line that fails to send skips the unsent lines of its batch', done => {
+            TABS.cli.send.callsFake((line, callback) => {
+                if (line === 'set foo = 1\n') { throw new Error('send failed'); }
+                if (callback) { callback(); }
+            });
+            sinon.stub(console, 'error');
+
+            TABS.cli.initialize(() => {
+                cliPrompt.val('set foo = 1\nsave');
+                triggerEnterKey(cliPrompt);
+
+                const started = Date.now();
+                (function poll() {
+                    if (TABS.cli.pendingCommandLines === 0 || Date.now() - started > 1000) {
+                        console.error.restore();
+                        try {
+                            expect(TABS.cli.send).to.have.been.calledWith('set foo = 1\n');
+                            expect(TABS.cli.send).to.not.have.been.calledWith('save\n');
+                            expect(TABS.cli.pendingCommandLines).to.equal(0);
+                            done();
+                        } catch (e) {
+                            done(e);
+                        }
+                    } else {
+                        setTimeout(poll, 5);
+                    }
+                })();
+            });
+        });
+
         it('a line settles once when its send callback runs and the send then throws', done => {
             sinon.stub(console, 'error');
             let pendingWhenSecondSends = null;

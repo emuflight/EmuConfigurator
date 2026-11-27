@@ -116,6 +116,9 @@ TABS.cli.initialize = function (callback, nwGui) {
         self.history.add(out_string.trim());
 
         var outputArray = out_string.split("\n");
+        // set when a line throws: the unsent lines of this batch are skipped, so a later `save` never
+        // follows a `set` that did not go out
+        let batchFailed = false;
         const lineDone = function () {
             if (session === self.cliSession) {
                 self.pendingCommandLines = Math.max(0, (self.pendingCommandLines || 0) - 1);
@@ -139,6 +142,9 @@ TABS.cli.initialize = function (callback, nwGui) {
                             step();
                         } catch (e) {
                             console.error('[cli] command line failed:', e);
+                            if (!settled) { // a line already sent (callback ran) does not fail the batch
+                                batchFailed = true;
+                            }
                             settle(0);
                         }
                     };
@@ -148,7 +154,7 @@ TABS.cli.initialize = function (callback, nwGui) {
                 // (e.g. FC second-reboot after flash). The cliActive guard below
                 // aborts the chain cleanly if the CLI session actually ends.
                 setTimeout(guarded(function () {
-                    if (!CONFIGURATOR.cliActive || session !== self.cliSession) {
+                    if (batchFailed || !CONFIGURATOR.cliActive || session !== self.cliSession) {
                         settle(0);
                         return;
                     }
@@ -162,8 +168,8 @@ TABS.cli.initialize = function (callback, nwGui) {
                         line = getCliCommand(line, self.cliBuffer);
                     }
                     const sendNow = function () {
-                        if (!CONFIGURATOR.cliActive || session !== self.cliSession) {
-                            // the CLI session closed while this line waited: send nothing
+                        if (batchFailed || !CONFIGURATOR.cliActive || session !== self.cliSession) {
+                            // an earlier line failed, or the CLI session closed while this line waited: send nothing
                             settle(0);
                             return;
                         }
